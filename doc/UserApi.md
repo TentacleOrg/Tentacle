@@ -5,7 +5,7 @@
 import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

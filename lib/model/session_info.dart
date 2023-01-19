@@ -102,7 +102,7 @@ class SessionInfo {
 
   SessionInfoFullNowPlayingItem? fullNowPlayingItem;
 
-  SessionInfoNowViewingItem? nowViewingItem;
+  SessionInfoNowPlayingItem? nowViewingItem;
 
   /// Gets or sets the device id.
   String? deviceId;
@@ -412,7 +412,7 @@ class SessionInfo {
         deviceType: mapValueOfType<String>(json, r'DeviceType'),
         nowPlayingItem: SessionInfoNowPlayingItem.fromJson(json[r'NowPlayingItem']),
         fullNowPlayingItem: SessionInfoFullNowPlayingItem.fromJson(json[r'FullNowPlayingItem']),
-        nowViewingItem: SessionInfoNowViewingItem.fromJson(json[r'NowViewingItem']),
+        nowViewingItem: SessionInfoNowPlayingItem.fromJson(json[r'NowViewingItem']),
         deviceId: mapValueOfType<String>(json, r'DeviceId'),
         applicationVersion: mapValueOfType<String>(json, r'ApplicationVersion'),
         transcodingInfo: SessionInfoTranscodingInfo.fromJson(json[r'TranscodingInfo']),

@@ -61,7 +61,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -222,6 +222,12 @@ Class | Method | HTTP request | Description
 *ItemsApi* | [**getItems**](doc//ItemsApi.md#getitems) | **GET** /Items | Gets items based on a query.
 *ItemsApi* | [**getItemsByUserId**](doc//ItemsApi.md#getitemsbyuserid) | **GET** /Users/{userId}/Items | Gets items based on a query.
 *ItemsApi* | [**getResumeItems**](doc//ItemsApi.md#getresumeitems) | **GET** /Users/{userId}/Items/Resume | Gets items based on a query.
+*KodiSyncQueueApi* | [**getKodiPluginSettings**](doc//KodiSyncQueueApi.md#getkodipluginsettings) | **GET** /Jellyfin.Plugin.KodiSyncQueue/GetPluginSettings | 
+*KodiSyncQueueApi* | [**getLibraryItemsQuery**](doc//KodiSyncQueueApi.md#getlibraryitemsquery) | **GET** /Jellyfin.Plugin.KodiSyncQueue/{userId}/GetItems | 
+*KodiSyncQueueApi* | [**getParentStrmFile**](doc//KodiSyncQueueApi.md#getparentstrmfile) | **GET** /Kodi/{type}/{parentId}/{id}/file.strm | 
+*KodiSyncQueueApi* | [**getSeasonStrmFile**](doc//KodiSyncQueueApi.md#getseasonstrmfile) | **GET** /Kodi/{type}/{parentId}/{season}/{id}/file.strm | 
+*KodiSyncQueueApi* | [**getServerTime**](doc//KodiSyncQueueApi.md#getservertime) | **GET** /Jellyfin.Plugin.KodiSyncQueue/GetServerDateTime | 
+*KodiSyncQueueApi* | [**getStrmFile**](doc//KodiSyncQueueApi.md#getstrmfile) | **GET** /Kodi/{type}/{id}/file.strm | 
 *LibraryApi* | [**deleteItem**](doc//LibraryApi.md#deleteitem) | **DELETE** /Items/{itemId} | Deletes an item from the library and filesystem.
 *LibraryApi* | [**deleteItems**](doc//LibraryApi.md#deleteitems) | **DELETE** /Items | Deletes items from the library and filesystem.
 *LibraryApi* | [**getAncestors**](doc//LibraryApi.md#getancestors) | **GET** /Items/{itemId}/Ancestors | Gets all parents of an item.
@@ -315,6 +321,7 @@ Class | Method | HTTP request | Description
 *NotificationsApi* | [**getNotificationsSummary**](doc//NotificationsApi.md#getnotificationssummary) | **GET** /Notifications/{userId}/Summary | Gets a user's notification summary.
 *NotificationsApi* | [**setRead**](doc//NotificationsApi.md#setread) | **POST** /Notifications/{userId}/Read | Sets notifications as read.
 *NotificationsApi* | [**setUnread**](doc//NotificationsApi.md#setunread) | **POST** /Notifications/{userId}/Unread | Sets notifications as unread.
+*OpenSubtitlesApi* | [**validateLoginInfo**](doc//OpenSubtitlesApi.md#validatelogininfo) | **POST** /Jellyfin.Plugin.OpenSubtitles/ValidateLoginInfo | 
 *PackageApi* | [**cancelPackageInstallation**](doc//PackageApi.md#cancelpackageinstallation) | **DELETE** /Packages/Installing/{packageId} | Cancels a package installation.
 *PackageApi* | [**getPackageInfo**](doc//PackageApi.md#getpackageinfo) | **GET** /Packages/{name} | Gets a package by name or assembly GUID.
 *PackageApi* | [**getPackages**](doc//PackageApi.md#getpackages) | **GET** /Packages | Gets available packages.
@@ -323,6 +330,22 @@ Class | Method | HTTP request | Description
 *PackageApi* | [**setRepositories**](doc//PackageApi.md#setrepositories) | **POST** /Repositories | Sets the enabled and existing package repositories.
 *PersonsApi* | [**getPerson**](doc//PersonsApi.md#getperson) | **GET** /Persons/{name} | Get person by name.
 *PersonsApi* | [**getPersons**](doc//PersonsApi.md#getpersons) | **GET** /Persons | Gets all persons.
+*PlaybackReportingActivityApi* | [**customQuery**](doc//PlaybackReportingActivityApi.md#customquery) | **POST** /user_usage_stats/submit_custom_query | 
+*PlaybackReportingActivityApi* | [**getBreakdownReport**](doc//PlaybackReportingActivityApi.md#getbreakdownreport) | **GET** /user_usage_stats/{breakdownType}/BreakdownReport | 
+*PlaybackReportingActivityApi* | [**getDurationHistogramReport**](doc//PlaybackReportingActivityApi.md#getdurationhistogramreport) | **GET** /user_usage_stats/DurationHistogramReport | 
+*PlaybackReportingActivityApi* | [**getHourlyReport**](doc//PlaybackReportingActivityApi.md#gethourlyreport) | **GET** /user_usage_stats/HourlyReport | 
+*PlaybackReportingActivityApi* | [**getJellyfinUsers**](doc//PlaybackReportingActivityApi.md#getjellyfinusers) | **GET** /user_usage_stats/user_list | 
+*PlaybackReportingActivityApi* | [**getMovieReport**](doc//PlaybackReportingActivityApi.md#getmoviereport) | **GET** /user_usage_stats/MoviesReport | 
+*PlaybackReportingActivityApi* | [**getTvShowsReport**](doc//PlaybackReportingActivityApi.md#gettvshowsreport) | **GET** /user_usage_stats/GetTvShowsReport | 
+*PlaybackReportingActivityApi* | [**getTypeFilterList**](doc//PlaybackReportingActivityApi.md#gettypefilterlist) | **GET** /user_usage_stats/type_filter_list | 
+*PlaybackReportingActivityApi* | [**getUsageStats**](doc//PlaybackReportingActivityApi.md#getusagestats) | **GET** /user_usage_stats/PlayActivity | 
+*PlaybackReportingActivityApi* | [**getUserReport**](doc//PlaybackReportingActivityApi.md#getuserreport) | **GET** /user_usage_stats/user_activity | 
+*PlaybackReportingActivityApi* | [**getUserReportData**](doc//PlaybackReportingActivityApi.md#getuserreportdata) | **GET** /user_usage_stats/{userId}/{date}/GetItems | 
+*PlaybackReportingActivityApi* | [**ignoreListAdd**](doc//PlaybackReportingActivityApi.md#ignorelistadd) | **GET** /user_usage_stats/user_manage/add | 
+*PlaybackReportingActivityApi* | [**ignoreListRemove**](doc//PlaybackReportingActivityApi.md#ignorelistremove) | **GET** /user_usage_stats/user_manage/remove | 
+*PlaybackReportingActivityApi* | [**loadBackup**](doc//PlaybackReportingActivityApi.md#loadbackup) | **GET** /user_usage_stats/load_backup | 
+*PlaybackReportingActivityApi* | [**pruneUnknownUsers**](doc//PlaybackReportingActivityApi.md#pruneunknownusers) | **GET** /user_usage_stats/user_manage/prune | 
+*PlaybackReportingActivityApi* | [**saveBackup**](doc//PlaybackReportingActivityApi.md#savebackup) | **GET** /user_usage_stats/save_backup | 
 *PlaylistsApi* | [**addToPlaylist**](doc//PlaylistsApi.md#addtoplaylist) | **POST** /Playlists/{playlistId}/Items | Adds items to a playlist.
 *PlaylistsApi* | [**createPlaylist**](doc//PlaylistsApi.md#createplaylist) | **POST** /Playlists | Creates a new playlist.
 *PlaylistsApi* | [**getPlaylistItems**](doc//PlaylistsApi.md#getplaylistitems) | **GET** /Playlists/{playlistId}/Items | Gets the original items of a playlist.
@@ -552,6 +575,8 @@ Class | Method | HTTP request | Description
  - [CreateUserByName](doc//CreateUserByName.md)
  - [CreateUserByNameRequest](doc//CreateUserByNameRequest.md)
  - [CultureDto](doc//CultureDto.md)
+ - [CustomQueryData](doc//CustomQueryData.md)
+ - [CustomQueryRequest](doc//CustomQueryRequest.md)
  - [DayOfWeek](doc//DayOfWeek.md)
  - [DayPattern](doc//DayPattern.md)
  - [DefaultDirectoryBrowserInfoDto](doc//DefaultDirectoryBrowserInfoDto.md)
@@ -645,6 +670,7 @@ Class | Method | HTTP request | Description
  - [LocationType](doc//LocationType.md)
  - [LogFile](doc//LogFile.md)
  - [LogLevel](doc//LogLevel.md)
+ - [LoginInfoInput](doc//LoginInfoInput.md)
  - [MediaAttachment](doc//MediaAttachment.md)
  - [MediaEncoderPathDto](doc//MediaEncoderPathDto.md)
  - [MediaPathDto](doc//MediaPathDto.md)
@@ -712,6 +738,7 @@ Class | Method | HTTP request | Description
  - [PlaystateCommand](doc//PlaystateCommand.md)
  - [PlaystateRequest](doc//PlaystateRequest.md)
  - [PluginInfo](doc//PluginInfo.md)
+ - [PluginSettings](doc//PluginSettings.md)
  - [PluginStatus](doc//PluginStatus.md)
  - [PostFullCapabilitiesRequest](doc//PostFullCapabilitiesRequest.md)
  - [PostUpdatedMediaRequest](doc//PostUpdatedMediaRequest.md)
@@ -740,6 +767,7 @@ Class | Method | HTTP request | Description
  - [RemoteSubtitleInfo](doc//RemoteSubtitleInfo.md)
  - [RemoveFromPlaylistRequestDto](doc//RemoveFromPlaylistRequestDto.md)
  - [RepeatMode](doc//RepeatMode.md)
+ - [ReportPlaybackOptions](doc//ReportPlaybackOptions.md)
  - [ReportPlaybackProgressRequest](doc//ReportPlaybackProgressRequest.md)
  - [ReportPlaybackStartRequest](doc//ReportPlaybackStartRequest.md)
  - [ReportPlaybackStoppedRequest](doc//ReportPlaybackStoppedRequest.md)
@@ -762,11 +790,11 @@ Class | Method | HTTP request | Description
  - [SeriesTimerInfoDtoQueryResult](doc//SeriesTimerInfoDtoQueryResult.md)
  - [ServerConfiguration](doc//ServerConfiguration.md)
  - [ServerDiscoveryInfo](doc//ServerDiscoveryInfo.md)
+ - [ServerTimeInfo](doc//ServerTimeInfo.md)
  - [SessionInfo](doc//SessionInfo.md)
  - [SessionInfoCapabilities](doc//SessionInfoCapabilities.md)
  - [SessionInfoFullNowPlayingItem](doc//SessionInfoFullNowPlayingItem.md)
  - [SessionInfoNowPlayingItem](doc//SessionInfoNowPlayingItem.md)
- - [SessionInfoNowViewingItem](doc//SessionInfoNowViewingItem.md)
  - [SessionInfoPlayState](doc//SessionInfoPlayState.md)
  - [SessionInfoTranscodingInfo](doc//SessionInfoTranscodingInfo.md)
  - [SessionMessageType](doc//SessionMessageType.md)
@@ -804,6 +832,7 @@ Class | Method | HTTP request | Description
  - [SyncPlaySetRepeatModeRequest](doc//SyncPlaySetRepeatModeRequest.md)
  - [SyncPlaySetShuffleModeRequest](doc//SyncPlaySetShuffleModeRequest.md)
  - [SyncPlayUserAccessType](doc//SyncPlayUserAccessType.md)
+ - [SyncUpdateInfo](doc//SyncUpdateInfo.md)
  - [SystemInfo](doc//SystemInfo.md)
  - [TaskCompletionStatus](doc//TaskCompletionStatus.md)
  - [TaskInfo](doc//TaskInfo.md)
@@ -856,6 +885,7 @@ Class | Method | HTTP request | Description
  - [UserItemDataDto](doc//UserItemDataDto.md)
  - [UserPolicy](doc//UserPolicy.md)
  - [UtcTimeResponse](doc//UtcTimeResponse.md)
+ - [ValidateLoginInfoRequest](doc//ValidateLoginInfoRequest.md)
  - [ValidatePathDto](doc//ValidatePathDto.md)
  - [ValidatePathRequest](doc//ValidatePathRequest.md)
  - [VersionInfo](doc//VersionInfo.md)

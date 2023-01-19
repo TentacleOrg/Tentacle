@@ -291,7 +291,7 @@ class UserDtoPolicy {
 
   String? passwordResetProviderId;
 
-  /// Enum SyncPlayUserAccessType.
+  /// Gets or sets a value indicating what SyncPlay features the user can access.
   SyncPlayUserAccessType? syncPlayAccess;
 
   @override

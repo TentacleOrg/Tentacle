@@ -16,10 +16,10 @@ Name | Type | Description | Notes
 **primaryImageHeight** | **int** | Gets or sets the height of the primary image. | [optional] 
 **primaryImageWidth** | **int** | Gets or sets the width of the primary image. | [optional] 
 **customPrefs** | **Map<String, String>** | Gets or sets the custom prefs. | [optional] [default to const {}]
-**scrollDirection** | [**ScrollDirection**](ScrollDirection.md) | An enum representing the axis that should be scrolled. | [optional] 
+**scrollDirection** | [**ScrollDirection**](ScrollDirection.md) | Gets or sets the scroll direction. | [optional] 
 **showBackdrop** | **bool** | Gets or sets a value indicating whether to show backdrops on this item. | [optional] 
 **rememberSorting** | **bool** | Gets or sets a value indicating whether [remember sorting]. | [optional] 
-**sortOrder** | [**SortOrder**](SortOrder.md) | An enum representing the sorting order. | [optional] 
+**sortOrder** | [**SortOrder**](SortOrder.md) | Gets or sets the sort order. | [optional] 
 **showSidebar** | **bool** | Gets or sets a value indicating whether [show sidebar]. | [optional] 
 **client** | **String** | Gets or sets the client. | [optional] 
 

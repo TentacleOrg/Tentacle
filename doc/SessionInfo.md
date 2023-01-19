@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **deviceType** | **String** | Gets or sets the type of the device. | [optional] 
 **nowPlayingItem** | [**SessionInfoNowPlayingItem**](SessionInfoNowPlayingItem.md) |  | [optional] 
 **fullNowPlayingItem** | [**SessionInfoFullNowPlayingItem**](SessionInfoFullNowPlayingItem.md) |  | [optional] 
-**nowViewingItem** | [**SessionInfoNowViewingItem**](SessionInfoNowViewingItem.md) |  | [optional] 
+**nowViewingItem** | [**SessionInfoNowPlayingItem**](SessionInfoNowPlayingItem.md) |  | [optional] 
 **deviceId** | **String** | Gets or sets the device id. | [optional] 
 **applicationVersion** | **String** | Gets or sets the application version. | [optional] 
 **transcodingInfo** | [**SessionInfoTranscodingInfo**](SessionInfoTranscodingInfo.md) |  | [optional] 

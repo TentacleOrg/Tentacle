@@ -62,7 +62,7 @@ Name | Type | Description | Notes
 **isHD** | **bool** | Gets or sets a value indicating whether this instance is HD. | [optional] 
 **isFolder** | **bool** | Gets or sets a value indicating whether this instance is folder. | [optional] 
 **parentId** | **String** | Gets or sets the parent id. | [optional] 
-**type** | [**BaseItemKind**](BaseItemKind.md) | The base item kind. | [optional] 
+**type** | [**BaseItemKind**](BaseItemKind.md) | Gets or sets the type. | [optional] 
 **people** | [**List<BaseItemPerson>**](BaseItemPerson.md) | Gets or sets the people. | [optional] [default to const []]
 **studios** | [**List<NameGuidPair>**](NameGuidPair.md) | Gets or sets the studios. | [optional] [default to const []]
 **genreItems** | [**List<NameGuidPair>**](NameGuidPair.md) |  | [optional] [default to const []]

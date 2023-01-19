@@ -317,7 +317,7 @@ class BaseItemDto {
   /// Gets or sets the parent id.
   String? parentId;
 
-  /// The base item kind.
+  /// Gets or sets the type.
   BaseItemKind? type;
 
   /// Gets or sets the people.

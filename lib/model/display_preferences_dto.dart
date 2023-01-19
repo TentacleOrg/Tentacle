@@ -71,7 +71,7 @@ class DisplayPreferencesDto {
   /// Gets or sets the custom prefs.
   Map<String, String> customPrefs;
 
-  /// An enum representing the axis that should be scrolled.
+  /// Gets or sets the scroll direction.
   ScrollDirection? scrollDirection;
 
   /// Gets or sets a value indicating whether to show backdrops on this item.
@@ -92,7 +92,7 @@ class DisplayPreferencesDto {
   ///
   bool? rememberSorting;
 
-  /// An enum representing the sorting order.
+  /// Gets or sets the sort order.
   SortOrder? sortOrder;
 
   /// Gets or sets a value indicating whether [show sidebar].

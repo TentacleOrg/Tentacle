@@ -11,7 +11,7 @@
 part of openapi.api;
 
 class ApiClient {
-  ApiClient({this.basePath = 'http://localhost', this.authentication,});
+  ApiClient({this.basePath = 'https://jpuerto.ddns.net/jellyfin', this.authentication,});
 
   final String basePath;
   final Authentication? authentication;
@@ -331,6 +331,10 @@ class ApiClient {
           return CreateUserByNameRequest.fromJson(value);
         case 'CultureDto':
           return CultureDto.fromJson(value);
+        case 'CustomQueryData':
+          return CustomQueryData.fromJson(value);
+        case 'CustomQueryRequest':
+          return CustomQueryRequest.fromJson(value);
         case 'DayOfWeek':
           return DayOfWeekTypeTransformer().decode(value);
         case 'DayPattern':
@@ -517,6 +521,8 @@ class ApiClient {
           return LogFile.fromJson(value);
         case 'LogLevel':
           return LogLevelTypeTransformer().decode(value);
+        case 'LoginInfoInput':
+          return LoginInfoInput.fromJson(value);
         case 'MediaAttachment':
           return MediaAttachment.fromJson(value);
         case 'MediaEncoderPathDto':
@@ -651,6 +657,8 @@ class ApiClient {
           return PlaystateRequest.fromJson(value);
         case 'PluginInfo':
           return PluginInfo.fromJson(value);
+        case 'PluginSettings':
+          return PluginSettings.fromJson(value);
         case 'PluginStatus':
           return PluginStatusTypeTransformer().decode(value);
         case 'PostFullCapabilitiesRequest':
@@ -707,6 +715,8 @@ class ApiClient {
           return RemoveFromPlaylistRequestDto.fromJson(value);
         case 'RepeatMode':
           return RepeatModeTypeTransformer().decode(value);
+        case 'ReportPlaybackOptions':
+          return ReportPlaybackOptions.fromJson(value);
         case 'ReportPlaybackProgressRequest':
           return ReportPlaybackProgressRequest.fromJson(value);
         case 'ReportPlaybackStartRequest':
@@ -751,6 +761,8 @@ class ApiClient {
           return ServerConfiguration.fromJson(value);
         case 'ServerDiscoveryInfo':
           return ServerDiscoveryInfo.fromJson(value);
+        case 'ServerTimeInfo':
+          return ServerTimeInfo.fromJson(value);
         case 'SessionInfo':
           return SessionInfo.fromJson(value);
         case 'SessionInfoCapabilities':
@@ -759,8 +771,6 @@ class ApiClient {
           return SessionInfoFullNowPlayingItem.fromJson(value);
         case 'SessionInfoNowPlayingItem':
           return SessionInfoNowPlayingItem.fromJson(value);
-        case 'SessionInfoNowViewingItem':
-          return SessionInfoNowViewingItem.fromJson(value);
         case 'SessionInfoPlayState':
           return SessionInfoPlayState.fromJson(value);
         case 'SessionInfoTranscodingInfo':
@@ -835,6 +845,8 @@ class ApiClient {
           return SyncPlaySetShuffleModeRequest.fromJson(value);
         case 'SyncPlayUserAccessType':
           return SyncPlayUserAccessTypeTypeTransformer().decode(value);
+        case 'SyncUpdateInfo':
+          return SyncUpdateInfo.fromJson(value);
         case 'SystemInfo':
           return SystemInfo.fromJson(value);
         case 'TaskCompletionStatus':
@@ -939,6 +951,8 @@ class ApiClient {
           return UserPolicy.fromJson(value);
         case 'UtcTimeResponse':
           return UtcTimeResponse.fromJson(value);
+        case 'ValidateLoginInfoRequest':
+          return ValidateLoginInfoRequest.fromJson(value);
         case 'ValidatePathDto':
           return ValidatePathDto.fromJson(value);
         case 'ValidatePathRequest':
