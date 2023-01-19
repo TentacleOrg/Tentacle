@@ -26,14 +26,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PersonsApi();
-final name = name_example; // String | Person name.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final api = Openapi().getPersonsApi();
+final String name = name_example; // String | Person name.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
 try {
-    final result = api_instance.getPerson(name, userId);
-    print(result);
-} catch (e) {
+    final response = api.getPerson(name, userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PersonsApi->getPerson: $e\n');
 }
 ```
@@ -73,25 +73,25 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PersonsApi();
-final limit = 56; // int | Optional. The maximum number of records to return.
-final searchTerm = searchTerm_example; // String | The search term.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final filters = []; // List<ItemFilter> | Optional. Specify additional filters to apply.
-final isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not. userId is required.
-final enableUserData = true; // bool | Optional, include user data.
-final imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final excludePersonTypes = []; // List<String> | Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited.
-final personTypes = []; // List<String> | Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited.
-final appearsInItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. If specified, person results will be filtered on items related to said persons.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final enableImages = true; // bool | Optional, include image information in output.
+final api = Openapi().getPersonsApi();
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final String searchTerm = searchTerm_example; // String | The search term.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
+final bool isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not. userId is required.
+final bool enableUserData = true; // bool | Optional, include user data.
+final int imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final BuiltList<String> excludePersonTypes = ; // BuiltList<String> | Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited.
+final BuiltList<String> personTypes = ; // BuiltList<String> | Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited.
+final String appearsInItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. If specified, person results will be filtered on items related to said persons.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final bool enableImages = true; // bool | Optional, include image information in output.
 
 try {
-    final result = api_instance.getPersons(limit, searchTerm, fields, filters, isFavorite, enableUserData, imageTypeLimit, enableImageTypes, excludePersonTypes, personTypes, appearsInItemId, userId, enableImages);
-    print(result);
-} catch (e) {
+    final response = api.getPersons(limit, searchTerm, fields, filters, isFavorite, enableUserData, imageTypeLimit, enableImageTypes, excludePersonTypes, personTypes, appearsInItemId, userId, enableImages);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PersonsApi->getPersons: $e\n');
 }
 ```
@@ -102,14 +102,14 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
  **searchTerm** | **String**| The search term. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
- **filters** | [**List<ItemFilter>**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
+ **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
  **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. userId is required. | [optional] 
  **enableUserData** | **bool**| Optional, include user data. | [optional] 
  **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
- **excludePersonTypes** | [**List<String>**](String.md)| Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited. | [optional] [default to const []]
- **personTypes** | [**List<String>**](String.md)| Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **excludePersonTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited. | [optional] 
+ **personTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited. | [optional] 
  **appearsInItemId** | **String**| Optional. If specified, person results will be filtered on items related to said persons. | [optional] 
  **userId** | **String**| User id. | [optional] 
  **enableImages** | **bool**| Optional, include image information in output. | [optional] [default to true]

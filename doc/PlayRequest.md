@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**itemIds** | **List<String>** | Gets or sets the item ids. | [optional] [default to const []]
+**itemIds** | **BuiltList&lt;String&gt;** | Gets or sets the item ids. | [optional] 
 **startPositionTicks** | **int** | Gets or sets the start position ticks that the first item should be played at. | [optional] 
 **playCommand** | [**PlayCommand**](PlayCommand.md) | Gets or sets the play command. | [optional] 
 **controllingUserId** | **String** | Gets or sets the controlling user identifier. | [optional] 

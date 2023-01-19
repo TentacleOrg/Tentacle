@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**List<AuthenticationInfo>**](AuthenticationInfo.md) | Gets or sets the items. | [optional] [default to const []]
+**items** | [**BuiltList&lt;AuthenticationInfo&gt;**](AuthenticationInfo.md) | Gets or sets the items. | [optional] 
 **totalRecordCount** | **int** | Gets or sets the total number of records available. | [optional] 
 **startIndex** | **int** | Gets or sets the index of the first record in Items. | [optional] 
 

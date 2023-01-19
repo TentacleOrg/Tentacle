@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getConfigurationPages**
-> List<ConfigurationPageInfo> getConfigurationPages(enableInMainMenu)
+> BuiltList<ConfigurationPageInfo> getConfigurationPages(enableInMainMenu)
 
 Gets the configuration pages.
 
@@ -26,13 +26,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DashboardApi();
-final enableInMainMenu = true; // bool | Whether to enable in the main menu.
+final api = Openapi().getDashboardApi();
+final bool enableInMainMenu = true; // bool | Whether to enable in the main menu.
 
 try {
-    final result = api_instance.getConfigurationPages(enableInMainMenu);
-    print(result);
-} catch (e) {
+    final response = api.getConfigurationPages(enableInMainMenu);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DashboardApi->getConfigurationPages: $e\n');
 }
 ```
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<ConfigurationPageInfo>**](ConfigurationPageInfo.md)
+[**BuiltList&lt;ConfigurationPageInfo&gt;**](ConfigurationPageInfo.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDashboardConfigurationPage**
-> MultipartFile getDashboardConfigurationPage(name)
+> Uint8List getDashboardConfigurationPage(name)
 
 Gets a dashboard configuration page.
 
@@ -67,13 +67,13 @@ Gets a dashboard configuration page.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = DashboardApi();
-final name = name_example; // String | The name of the page.
+final api = Openapi().getDashboardApi();
+final String name = name_example; // String | The name of the page.
 
 try {
-    final result = api_instance.getDashboardConfigurationPage(name);
-    print(result);
-} catch (e) {
+    final response = api.getDashboardConfigurationPage(name);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DashboardApi->getDashboardConfigurationPage: $e\n');
 }
 ```
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 

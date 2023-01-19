@@ -45,12 +45,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayBufferingRequest = SyncPlayBufferingRequest(); // SyncPlayBufferingRequest | The player status.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayBufferingRequest syncPlayBufferingRequest = ; // SyncPlayBufferingRequest | The player status.
 
 try {
-    api_instance.syncPlayBuffering(syncPlayBufferingRequest);
-} catch (e) {
+    api.syncPlayBuffering(syncPlayBufferingRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayBuffering: $e\n');
 }
 ```
@@ -89,12 +89,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayCreateGroupRequest = SyncPlayCreateGroupRequest(); // SyncPlayCreateGroupRequest | The settings of the new group.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayCreateGroupRequest syncPlayCreateGroupRequest = ; // SyncPlayCreateGroupRequest | The settings of the new group.
 
 try {
-    api_instance.syncPlayCreateGroup(syncPlayCreateGroupRequest);
-} catch (e) {
+    api.syncPlayCreateGroup(syncPlayCreateGroupRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayCreateGroup: $e\n');
 }
 ```
@@ -121,7 +121,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayGetGroups**
-> List<GroupInfoDto> syncPlayGetGroups()
+> BuiltList<GroupInfoDto> syncPlayGetGroups()
 
 Gets all SyncPlay groups.
 
@@ -133,12 +133,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
 try {
-    final result = api_instance.syncPlayGetGroups();
-    print(result);
-} catch (e) {
+    final response = api.syncPlayGetGroups();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayGetGroups: $e\n');
 }
 ```
@@ -148,7 +148,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<GroupInfoDto>**](GroupInfoDto.md)
+[**BuiltList&lt;GroupInfoDto&gt;**](GroupInfoDto.md)
 
 ### Authorization
 
@@ -174,12 +174,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayJoinGroupRequest = SyncPlayJoinGroupRequest(); // SyncPlayJoinGroupRequest | The group to join.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayJoinGroupRequest syncPlayJoinGroupRequest = ; // SyncPlayJoinGroupRequest | The group to join.
 
 try {
-    api_instance.syncPlayJoinGroup(syncPlayJoinGroupRequest);
-} catch (e) {
+    api.syncPlayJoinGroup(syncPlayJoinGroupRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayJoinGroup: $e\n');
 }
 ```
@@ -218,11 +218,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
 try {
-    api_instance.syncPlayLeaveGroup();
-} catch (e) {
+    api.syncPlayLeaveGroup();
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayLeaveGroup: $e\n');
 }
 ```
@@ -258,12 +258,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayMovePlaylistItemRequest = SyncPlayMovePlaylistItemRequest(); // SyncPlayMovePlaylistItemRequest | The new position for the item.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayMovePlaylistItemRequest syncPlayMovePlaylistItemRequest = ; // SyncPlayMovePlaylistItemRequest | The new position for the item.
 
 try {
-    api_instance.syncPlayMovePlaylistItem(syncPlayMovePlaylistItemRequest);
-} catch (e) {
+    api.syncPlayMovePlaylistItem(syncPlayMovePlaylistItemRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayMovePlaylistItem: $e\n');
 }
 ```
@@ -302,12 +302,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayNextItemRequest = SyncPlayNextItemRequest(); // SyncPlayNextItemRequest | The current item information.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayNextItemRequest syncPlayNextItemRequest = ; // SyncPlayNextItemRequest | The current item information.
 
 try {
-    api_instance.syncPlayNextItem(syncPlayNextItemRequest);
-} catch (e) {
+    api.syncPlayNextItem(syncPlayNextItemRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayNextItem: $e\n');
 }
 ```
@@ -346,11 +346,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
 try {
-    api_instance.syncPlayPause();
-} catch (e) {
+    api.syncPlayPause();
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayPause: $e\n');
 }
 ```
@@ -386,12 +386,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayPingRequest = SyncPlayPingRequest(); // SyncPlayPingRequest | The new ping.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayPingRequest syncPlayPingRequest = ; // SyncPlayPingRequest | The new ping.
 
 try {
-    api_instance.syncPlayPing(syncPlayPingRequest);
-} catch (e) {
+    api.syncPlayPing(syncPlayPingRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayPing: $e\n');
 }
 ```
@@ -430,12 +430,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayPreviousItemRequest = SyncPlayPreviousItemRequest(); // SyncPlayPreviousItemRequest | The current item information.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayPreviousItemRequest syncPlayPreviousItemRequest = ; // SyncPlayPreviousItemRequest | The current item information.
 
 try {
-    api_instance.syncPlayPreviousItem(syncPlayPreviousItemRequest);
-} catch (e) {
+    api.syncPlayPreviousItem(syncPlayPreviousItemRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayPreviousItem: $e\n');
 }
 ```
@@ -474,12 +474,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayQueueRequest = SyncPlayQueueRequest(); // SyncPlayQueueRequest | The items to add.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayQueueRequest syncPlayQueueRequest = ; // SyncPlayQueueRequest | The items to add.
 
 try {
-    api_instance.syncPlayQueue(syncPlayQueueRequest);
-} catch (e) {
+    api.syncPlayQueue(syncPlayQueueRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayQueue: $e\n');
 }
 ```
@@ -518,12 +518,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayReadyRequest = SyncPlayReadyRequest(); // SyncPlayReadyRequest | The player status.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayReadyRequest syncPlayReadyRequest = ; // SyncPlayReadyRequest | The player status.
 
 try {
-    api_instance.syncPlayReady(syncPlayReadyRequest);
-} catch (e) {
+    api.syncPlayReady(syncPlayReadyRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayReady: $e\n');
 }
 ```
@@ -562,12 +562,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlayRemoveFromPlaylistRequest = SyncPlayRemoveFromPlaylistRequest(); // SyncPlayRemoveFromPlaylistRequest | The items to remove.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayRemoveFromPlaylistRequest syncPlayRemoveFromPlaylistRequest = ; // SyncPlayRemoveFromPlaylistRequest | The items to remove.
 
 try {
-    api_instance.syncPlayRemoveFromPlaylist(syncPlayRemoveFromPlaylistRequest);
-} catch (e) {
+    api.syncPlayRemoveFromPlaylist(syncPlayRemoveFromPlaylistRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayRemoveFromPlaylist: $e\n');
 }
 ```
@@ -606,12 +606,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlaySeekRequest = SyncPlaySeekRequest(); // SyncPlaySeekRequest | The new playback position.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySeekRequest syncPlaySeekRequest = ; // SyncPlaySeekRequest | The new playback position.
 
 try {
-    api_instance.syncPlaySeek(syncPlaySeekRequest);
-} catch (e) {
+    api.syncPlaySeek(syncPlaySeekRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlaySeek: $e\n');
 }
 ```
@@ -650,12 +650,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlaySetIgnoreWaitRequest = SyncPlaySetIgnoreWaitRequest(); // SyncPlaySetIgnoreWaitRequest | The settings to set.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetIgnoreWaitRequest syncPlaySetIgnoreWaitRequest = ; // SyncPlaySetIgnoreWaitRequest | The settings to set.
 
 try {
-    api_instance.syncPlaySetIgnoreWait(syncPlaySetIgnoreWaitRequest);
-} catch (e) {
+    api.syncPlaySetIgnoreWait(syncPlaySetIgnoreWaitRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetIgnoreWait: $e\n');
 }
 ```
@@ -694,12 +694,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlaySetNewQueueRequest = SyncPlaySetNewQueueRequest(); // SyncPlaySetNewQueueRequest | The new playlist to play in the group.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetNewQueueRequest syncPlaySetNewQueueRequest = ; // SyncPlaySetNewQueueRequest | The new playlist to play in the group.
 
 try {
-    api_instance.syncPlaySetNewQueue(syncPlaySetNewQueueRequest);
-} catch (e) {
+    api.syncPlaySetNewQueue(syncPlaySetNewQueueRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetNewQueue: $e\n');
 }
 ```
@@ -738,12 +738,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlaySetPlaylistItemRequest = SyncPlaySetPlaylistItemRequest(); // SyncPlaySetPlaylistItemRequest | The new item to play.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetPlaylistItemRequest syncPlaySetPlaylistItemRequest = ; // SyncPlaySetPlaylistItemRequest | The new item to play.
 
 try {
-    api_instance.syncPlaySetPlaylistItem(syncPlaySetPlaylistItemRequest);
-} catch (e) {
+    api.syncPlaySetPlaylistItem(syncPlaySetPlaylistItemRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetPlaylistItem: $e\n');
 }
 ```
@@ -782,12 +782,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlaySetRepeatModeRequest = SyncPlaySetRepeatModeRequest(); // SyncPlaySetRepeatModeRequest | The new repeat mode.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetRepeatModeRequest syncPlaySetRepeatModeRequest = ; // SyncPlaySetRepeatModeRequest | The new repeat mode.
 
 try {
-    api_instance.syncPlaySetRepeatMode(syncPlaySetRepeatModeRequest);
-} catch (e) {
+    api.syncPlaySetRepeatMode(syncPlaySetRepeatModeRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetRepeatMode: $e\n');
 }
 ```
@@ -826,12 +826,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
-final syncPlaySetShuffleModeRequest = SyncPlaySetShuffleModeRequest(); // SyncPlaySetShuffleModeRequest | The new shuffle mode.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetShuffleModeRequest syncPlaySetShuffleModeRequest = ; // SyncPlaySetShuffleModeRequest | The new shuffle mode.
 
 try {
-    api_instance.syncPlaySetShuffleMode(syncPlaySetShuffleModeRequest);
-} catch (e) {
+    api.syncPlaySetShuffleMode(syncPlaySetShuffleModeRequest);
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetShuffleMode: $e\n');
 }
 ```
@@ -870,11 +870,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
 try {
-    api_instance.syncPlayStop();
-} catch (e) {
+    api.syncPlayStop();
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayStop: $e\n');
 }
 ```
@@ -910,11 +910,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
 try {
-    api_instance.syncPlayUnpause();
-} catch (e) {
+    api.syncPlayUnpause();
+} catch on DioError (e) {
     print('Exception when calling SyncPlayApi->syncPlayUnpause: $e\n');
 }
 ```

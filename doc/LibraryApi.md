@@ -49,12 +49,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
-    api_instance.deleteItem(itemId);
-} catch (e) {
+    api.deleteItem(itemId);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->deleteItem: $e\n');
 }
 ```
@@ -93,12 +93,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final ids = []; // List<String> | The item ids.
+final api = Openapi().getLibraryApi();
+final BuiltList<String> ids = ; // BuiltList<String> | The item ids.
 
 try {
-    api_instance.deleteItems(ids);
-} catch (e) {
+    api.deleteItems(ids);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->deleteItems: $e\n');
 }
 ```
@@ -107,7 +107,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List<String>**](String.md)| The item ids. | [optional] [default to const []]
+ **ids** | [**BuiltList&lt;String&gt;**](String.md)| The item ids. | [optional] 
 
 ### Return type
 
@@ -125,7 +125,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAncestors**
-> List<BaseItemDto> getAncestors(itemId, userId)
+> BuiltList<BaseItemDto> getAncestors(itemId, userId)
 
 Gets all parents of an item.
 
@@ -137,14 +137,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
 try {
-    final result = api_instance.getAncestors(itemId, userId);
-    print(result);
-} catch (e) {
+    final response = api.getAncestors(itemId, userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getAncestors: $e\n');
 }
 ```
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<BaseItemDto>**](BaseItemDto.md)
+[**BuiltList&lt;BaseItemDto&gt;**](BaseItemDto.md)
 
 ### Authorization
 
@@ -184,13 +184,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = itemId_example; // String | 
+final api = Openapi().getLibraryApi();
+final String itemId = itemId_example; // String | 
 
 try {
-    final result = api_instance.getCriticReviews(itemId);
-    print(result);
-} catch (e) {
+    final response = api.getCriticReviews(itemId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getCriticReviews: $e\n');
 }
 ```
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDownload**
-> MultipartFile getDownload(itemId)
+> Uint8List getDownload(itemId)
 
 Downloads item media.
 
@@ -229,13 +229,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
-    final result = api_instance.getDownload(itemId);
-    print(result);
-} catch (e) {
+    final response = api.getDownload(itemId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getDownload: $e\n');
 }
 ```
@@ -248,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFile**
-> MultipartFile getFile(itemId)
+> Uint8List getFile(itemId)
 
 Get the original file of an item.
 
@@ -274,13 +274,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
-    final result = api_instance.getFile(itemId);
-    print(result);
-} catch (e) {
+    final response = api.getFile(itemId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getFile: $e\n');
 }
 ```
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -319,14 +319,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Get counts from a specific user's library.
-final isFavorite = true; // bool | Optional. Get counts of favorite items.
+final api = Openapi().getLibraryApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Get counts from a specific user's library.
+final bool isFavorite = true; // bool | Optional. Get counts of favorite items.
 
 try {
-    final result = api_instance.getItemCounts(userId, isFavorite);
-    print(result);
-} catch (e) {
+    final response = api.getItemCounts(userId, isFavorite);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getItemCounts: $e\n');
 }
 ```
@@ -366,14 +366,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final libraryContentType = libraryContentType_example; // String | Library content type.
-final isNewLibrary = true; // bool | Whether this is a new library.
+final api = Openapi().getLibraryApi();
+final String libraryContentType = libraryContentType_example; // String | Library content type.
+final bool isNewLibrary = true; // bool | Whether this is a new library.
 
 try {
-    final result = api_instance.getLibraryOptionsInfo(libraryContentType, isNewLibrary);
-    print(result);
-} catch (e) {
+    final response = api.getLibraryOptionsInfo(libraryContentType, isNewLibrary);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getLibraryOptionsInfo: $e\n');
 }
 ```
@@ -413,13 +413,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final isHidden = true; // bool | Optional. Filter by folders that are marked hidden, or not.
+final api = Openapi().getLibraryApi();
+final bool isHidden = true; // bool | Optional. Filter by folders that are marked hidden, or not.
 
 try {
-    final result = api_instance.getMediaFolders(isHidden);
-    print(result);
-} catch (e) {
+    final response = api.getMediaFolders(isHidden);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getMediaFolders: $e\n');
 }
 ```
@@ -446,7 +446,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPhysicalPaths**
-> List<String> getPhysicalPaths()
+> BuiltList<String> getPhysicalPaths()
 
 Gets a list of physical paths from virtual folders.
 
@@ -458,12 +458,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
+final api = Openapi().getLibraryApi();
 
 try {
-    final result = api_instance.getPhysicalPaths();
-    print(result);
-} catch (e) {
+    final response = api.getPhysicalPaths();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getPhysicalPaths: $e\n');
 }
 ```
@@ -473,7 +473,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**List<String>**
+**BuiltList&lt;String&gt;**
 
 ### Authorization
 
@@ -499,17 +499,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final excludeArtistIds = []; // List<String> | Exclude artist ids.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
 try {
-    final result = api_instance.getSimilarAlbums(itemId, excludeArtistIds, userId, limit, fields);
-    print(result);
-} catch (e) {
+    final response = api.getSimilarAlbums(itemId, excludeArtistIds, userId, limit, fields);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getSimilarAlbums: $e\n');
 }
 ```
@@ -519,10 +519,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**List<String>**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
 
 ### Return type
 
@@ -552,17 +552,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final excludeArtistIds = []; // List<String> | Exclude artist ids.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
 try {
-    final result = api_instance.getSimilarArtists(itemId, excludeArtistIds, userId, limit, fields);
-    print(result);
-} catch (e) {
+    final response = api.getSimilarArtists(itemId, excludeArtistIds, userId, limit, fields);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getSimilarArtists: $e\n');
 }
 ```
@@ -572,10 +572,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**List<String>**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
 
 ### Return type
 
@@ -605,17 +605,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final excludeArtistIds = []; // List<String> | Exclude artist ids.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
 try {
-    final result = api_instance.getSimilarItems(itemId, excludeArtistIds, userId, limit, fields);
-    print(result);
-} catch (e) {
+    final response = api.getSimilarItems(itemId, excludeArtistIds, userId, limit, fields);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getSimilarItems: $e\n');
 }
 ```
@@ -625,10 +625,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**List<String>**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
 
 ### Return type
 
@@ -658,17 +658,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final excludeArtistIds = []; // List<String> | Exclude artist ids.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
 try {
-    final result = api_instance.getSimilarMovies(itemId, excludeArtistIds, userId, limit, fields);
-    print(result);
-} catch (e) {
+    final response = api.getSimilarMovies(itemId, excludeArtistIds, userId, limit, fields);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getSimilarMovies: $e\n');
 }
 ```
@@ -678,10 +678,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**List<String>**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
 
 ### Return type
 
@@ -711,17 +711,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final excludeArtistIds = []; // List<String> | Exclude artist ids.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
 try {
-    final result = api_instance.getSimilarShows(itemId, excludeArtistIds, userId, limit, fields);
-    print(result);
-} catch (e) {
+    final response = api.getSimilarShows(itemId, excludeArtistIds, userId, limit, fields);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getSimilarShows: $e\n');
 }
 ```
@@ -731,10 +731,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**List<String>**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
 
 ### Return type
 
@@ -764,17 +764,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final excludeArtistIds = []; // List<String> | Exclude artist ids.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
 try {
-    final result = api_instance.getSimilarTrailers(itemId, excludeArtistIds, userId, limit, fields);
-    print(result);
-} catch (e) {
+    final response = api.getSimilarTrailers(itemId, excludeArtistIds, userId, limit, fields);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getSimilarTrailers: $e\n');
 }
 ```
@@ -784,10 +784,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**List<String>**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
 
 ### Return type
 
@@ -817,15 +817,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
 
 try {
-    final result = api_instance.getThemeMedia(itemId, userId, inheritFromParent);
-    print(result);
-} catch (e) {
+    final response = api.getThemeMedia(itemId, userId, inheritFromParent);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getThemeMedia: $e\n');
 }
 ```
@@ -866,15 +866,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
 
 try {
-    final result = api_instance.getThemeSongs(itemId, userId, inheritFromParent);
-    print(result);
-} catch (e) {
+    final response = api.getThemeSongs(itemId, userId, inheritFromParent);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getThemeSongs: $e\n');
 }
 ```
@@ -915,15 +915,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+final api = Openapi().getLibraryApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
 
 try {
-    final result = api_instance.getThemeVideos(itemId, userId, inheritFromParent);
-    print(result);
-} catch (e) {
+    final response = api.getThemeVideos(itemId, userId, inheritFromParent);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->getThemeVideos: $e\n');
 }
 ```
@@ -964,13 +964,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final tmdbId = tmdbId_example; // String | The tmdbId.
-final imdbId = imdbId_example; // String | The imdbId.
+final api = Openapi().getLibraryApi();
+final String tmdbId = tmdbId_example; // String | The tmdbId.
+final String imdbId = imdbId_example; // String | The imdbId.
 
 try {
-    api_instance.postAddedMovies(tmdbId, imdbId);
-} catch (e) {
+    api.postAddedMovies(tmdbId, imdbId);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->postAddedMovies: $e\n');
 }
 ```
@@ -1010,12 +1010,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final tvdbId = tvdbId_example; // String | The tvdbId.
+final api = Openapi().getLibraryApi();
+final String tvdbId = tvdbId_example; // String | The tvdbId.
 
 try {
-    api_instance.postAddedSeries(tvdbId);
-} catch (e) {
+    api.postAddedSeries(tvdbId);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->postAddedSeries: $e\n');
 }
 ```
@@ -1054,12 +1054,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final postUpdatedMediaRequest = PostUpdatedMediaRequest(); // PostUpdatedMediaRequest | The update paths.
+final api = Openapi().getLibraryApi();
+final PostUpdatedMediaRequest postUpdatedMediaRequest = ; // PostUpdatedMediaRequest | The update paths.
 
 try {
-    api_instance.postUpdatedMedia(postUpdatedMediaRequest);
-} catch (e) {
+    api.postUpdatedMedia(postUpdatedMediaRequest);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->postUpdatedMedia: $e\n');
 }
 ```
@@ -1098,13 +1098,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final tmdbId = tmdbId_example; // String | The tmdbId.
-final imdbId = imdbId_example; // String | The imdbId.
+final api = Openapi().getLibraryApi();
+final String tmdbId = tmdbId_example; // String | The tmdbId.
+final String imdbId = imdbId_example; // String | The imdbId.
 
 try {
-    api_instance.postUpdatedMovies(tmdbId, imdbId);
-} catch (e) {
+    api.postUpdatedMovies(tmdbId, imdbId);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->postUpdatedMovies: $e\n');
 }
 ```
@@ -1144,12 +1144,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
-final tvdbId = tvdbId_example; // String | The tvdbId.
+final api = Openapi().getLibraryApi();
+final String tvdbId = tvdbId_example; // String | The tvdbId.
 
 try {
-    api_instance.postUpdatedSeries(tvdbId);
-} catch (e) {
+    api.postUpdatedSeries(tvdbId);
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->postUpdatedSeries: $e\n');
 }
 ```
@@ -1188,11 +1188,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryApi();
+final api = Openapi().getLibraryApi();
 
 try {
-    api_instance.refreshLibrary();
-} catch (e) {
+    api.refreshLibrary();
+} catch on DioError (e) {
     print('Exception when calling LibraryApi->refreshLibrary: $e\n');
 }
 ```

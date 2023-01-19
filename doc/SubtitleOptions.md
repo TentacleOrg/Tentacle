@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **skipIfEmbeddedSubtitlesPresent** | **bool** |  | [optional] 
 **skipIfAudioTrackMatches** | **bool** |  | [optional] 
-**downloadLanguages** | **List<String>** |  | [optional] [default to const []]
+**downloadLanguages** | **BuiltList&lt;String&gt;** |  | [optional] 
 **downloadMovieSubtitles** | **bool** |  | [optional] 
 **downloadEpisodeSubtitles** | **bool** |  | [optional] 
 **openSubtitlesUsername** | **String** |  | [optional] 

@@ -28,27 +28,27 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = TvShowsApi();
-final seriesId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The series id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
-final season = 56; // int | Optional filter by season number.
-final seasonId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by season id.
-final isMissing = true; // bool | Optional. Filter by items that are missing episodes or not.
-final adjacentTo = adjacentTo_example; // String | Optional. Return items that are siblings of a supplied item.
-final startItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Skip through the list until a given item is found.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final enableImages = true; // bool | Optional, include image information in output.
-final imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final enableUserData = true; // bool | Optional. Include user data.
-final sortBy = sortBy_example; // String | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+final api = Openapi().getTvShowsApi();
+final String seriesId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The series id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+final int season = 56; // int | Optional filter by season number.
+final String seasonId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by season id.
+final bool isMissing = true; // bool | Optional. Filter by items that are missing episodes or not.
+final String adjacentTo = adjacentTo_example; // String | Optional. Return items that are siblings of a supplied item.
+final String startItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Skip through the list until a given item is found.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final bool enableImages = true; // bool | Optional, include image information in output.
+final int imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final bool enableUserData = true; // bool | Optional. Include user data.
+final String sortBy = sortBy_example; // String | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
 
 try {
-    final result = api_instance.getEpisodes(seriesId, userId, fields, season, seasonId, isMissing, adjacentTo, startItemId, startIndex, limit, enableImages, imageTypeLimit, enableImageTypes, enableUserData, sortBy);
-    print(result);
-} catch (e) {
+    final response = api.getEpisodes(seriesId, userId, fields, season, seasonId, isMissing, adjacentTo, startItemId, startIndex, limit, enableImages, imageTypeLimit, enableImageTypes, enableUserData, sortBy);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling TvShowsApi->getEpisodes: $e\n');
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **seriesId** | **String**| The series id. | 
  **userId** | **String**| The user id. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
  **season** | **int**| Optional filter by season number. | [optional] 
  **seasonId** | **String**| Optional. Filter by season id. | [optional] 
  **isMissing** | **bool**| Optional. Filter by items that are missing episodes or not. | [optional] 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
  **enableImages** | **bool**| Optional, include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
  **sortBy** | **String**| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
 
@@ -101,26 +101,26 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = TvShowsApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id of the user to get the next up episodes for.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final seriesId = seriesId_example; // String | Optional. Filter by series id.
-final parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
-final enableImages = true; // bool | Optional. Include image information in output.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final enableUserData = true; // bool | Optional. Include user data.
-final nextUpDateCutoff = 2013-10-20T19:20:30+01:00; // DateTime | Optional. Starting date of shows to show in Next Up section.
-final enableTotalRecordCount = true; // bool | Whether to enable the total records count. Defaults to true.
-final disableFirstEpisode = true; // bool | Whether to disable sending the first episode in a series as next up.
-final enableRewatching = true; // bool | Whether to include watched episode in next up results.
+final api = Openapi().getTvShowsApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id of the user to get the next up episodes for.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final String seriesId = seriesId_example; // String | Optional. Filter by series id.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final bool enableUserData = true; // bool | Optional. Include user data.
+final DateTime nextUpDateCutoff = 2013-10-20T19:20:30+01:00; // DateTime | Optional. Starting date of shows to show in Next Up section.
+final bool enableTotalRecordCount = true; // bool | Whether to enable the total records count. Defaults to true.
+final bool disableFirstEpisode = true; // bool | Whether to disable sending the first episode in a series as next up.
+final bool enableRewatching = true; // bool | Whether to include watched episode in next up results.
 
 try {
-    final result = api_instance.getNextUp(userId, startIndex, limit, fields, seriesId, parentId, enableImages, imageTypeLimit, enableImageTypes, enableUserData, nextUpDateCutoff, enableTotalRecordCount, disableFirstEpisode, enableRewatching);
-    print(result);
-} catch (e) {
+    final response = api.getNextUp(userId, startIndex, limit, fields, seriesId, parentId, enableImages, imageTypeLimit, enableImageTypes, enableUserData, nextUpDateCutoff, enableTotalRecordCount, disableFirstEpisode, enableRewatching);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling TvShowsApi->getNextUp: $e\n');
 }
 ```
@@ -132,12 +132,12 @@ Name | Type | Description  | Notes
  **userId** | **String**| The user id of the user to get the next up episodes for. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **seriesId** | **String**| Optional. Filter by series id. | [optional] 
  **parentId** | **String**| Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
  **nextUpDateCutoff** | **DateTime**| Optional. Starting date of shows to show in Next Up section. | [optional] 
  **enableTotalRecordCount** | **bool**| Whether to enable the total records count. Defaults to true. | [optional] [default to true]
@@ -172,22 +172,22 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = TvShowsApi();
-final seriesId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The series id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
-final isSpecialSeason = true; // bool | Optional. Filter by special season.
-final isMissing = true; // bool | Optional. Filter by items that are missing episodes or not.
-final adjacentTo = adjacentTo_example; // String | Optional. Return items that are siblings of a supplied item.
-final enableImages = true; // bool | Optional. Include image information in output.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final enableUserData = true; // bool | Optional. Include user data.
+final api = Openapi().getTvShowsApi();
+final String seriesId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The series id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+final bool isSpecialSeason = true; // bool | Optional. Filter by special season.
+final bool isMissing = true; // bool | Optional. Filter by items that are missing episodes or not.
+final String adjacentTo = adjacentTo_example; // String | Optional. Return items that are siblings of a supplied item.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final bool enableUserData = true; // bool | Optional. Include user data.
 
 try {
-    final result = api_instance.getSeasons(seriesId, userId, fields, isSpecialSeason, isMissing, adjacentTo, enableImages, imageTypeLimit, enableImageTypes, enableUserData);
-    print(result);
-} catch (e) {
+    final response = api.getSeasons(seriesId, userId, fields, isSpecialSeason, isMissing, adjacentTo, enableImages, imageTypeLimit, enableImageTypes, enableUserData);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling TvShowsApi->getSeasons: $e\n');
 }
 ```
@@ -198,13 +198,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **seriesId** | **String**| The series id. | 
  **userId** | **String**| The user id. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
  **isSpecialSeason** | **bool**| Optional. Filter by special season. | [optional] 
  **isMissing** | **bool**| Optional. Filter by items that are missing episodes or not. | [optional] 
  **adjacentTo** | **String**| Optional. Return items that are siblings of a supplied item. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
 
 ### Return type
@@ -235,21 +235,21 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = TvShowsApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id of the user to get the upcoming episodes for.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
-final enableImages = true; // bool | Optional. Include image information in output.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final enableUserData = true; // bool | Optional. Include user data.
+final api = Openapi().getTvShowsApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id of the user to get the upcoming episodes for.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final bool enableUserData = true; // bool | Optional. Include user data.
 
 try {
-    final result = api_instance.getUpcomingEpisodes(userId, startIndex, limit, fields, parentId, enableImages, imageTypeLimit, enableImageTypes, enableUserData);
-    print(result);
-} catch (e) {
+    final response = api.getUpcomingEpisodes(userId, startIndex, limit, fields, parentId, enableImages, imageTypeLimit, enableImageTypes, enableUserData);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling TvShowsApi->getUpcomingEpisodes: $e\n');
 }
 ```
@@ -261,11 +261,11 @@ Name | Type | Description  | Notes
  **userId** | **String**| The user id of the user to get the upcoming episodes for. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **parentId** | **String**| Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
 
 ### Return type

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **path** | **String** | Gets or sets the path. | [optional] 
 **metadataLanguage** | **String** | Gets or sets the metadata language. | [optional] 
 **metadataCountryCode** | **String** | Gets or sets the metadata country code. | [optional] 
-**providerIds** | **Map<String, String>** | Gets or sets the provider ids. | [optional] [default to const {}]
+**providerIds** | **BuiltMap&lt;String, String&gt;** | Gets or sets the provider ids. | [optional] 
 **year** | **int** | Gets or sets the year. | [optional] 
 **indexNumber** | **int** |  | [optional] 
 **parentIndexNumber** | **int** |  | [optional] 

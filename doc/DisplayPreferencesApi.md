@@ -26,15 +26,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DisplayPreferencesApi();
-final displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final client = client_example; // String | Client.
+final api = Openapi().getDisplayPreferencesApi();
+final String displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final String client = client_example; // String | Client.
 
 try {
-    final result = api_instance.getDisplayPreferences(displayPreferencesId, userId, client);
-    print(result);
-} catch (e) {
+    final response = api.getDisplayPreferences(displayPreferencesId, userId, client);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DisplayPreferencesApi->getDisplayPreferences: $e\n');
 }
 ```
@@ -75,15 +75,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DisplayPreferencesApi();
-final displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final client = client_example; // String | Client.
-final updateDisplayPreferencesRequest = UpdateDisplayPreferencesRequest(); // UpdateDisplayPreferencesRequest | New Display Preferences object.
+final api = Openapi().getDisplayPreferencesApi();
+final String displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+final String client = client_example; // String | Client.
+final UpdateDisplayPreferencesRequest updateDisplayPreferencesRequest = ; // UpdateDisplayPreferencesRequest | New Display Preferences object.
 
 try {
-    api_instance.updateDisplayPreferences(displayPreferencesId, userId, client, updateDisplayPreferencesRequest);
-} catch (e) {
+    api.updateDisplayPreferences(displayPreferencesId, userId, client, updateDisplayPreferencesRequest);
+} catch on DioError (e) {
     print('Exception when calling DisplayPreferencesApi->updateDisplayPreferences: $e\n');
 }
 ```

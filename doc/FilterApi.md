@@ -26,22 +26,22 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = FilterApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
-final parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
-final includeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
-final isAiring = true; // bool | Optional. Is item airing.
-final isMovie = true; // bool | Optional. Is item movie.
-final isSports = true; // bool | Optional. Is item sports.
-final isKids = true; // bool | Optional. Is item kids.
-final isNews = true; // bool | Optional. Is item news.
-final isSeries = true; // bool | Optional. Is item series.
-final recursive = true; // bool | Optional. Search recursive.
+final api = Openapi().getFilterApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
+final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
+final bool isAiring = true; // bool | Optional. Is item airing.
+final bool isMovie = true; // bool | Optional. Is item movie.
+final bool isSports = true; // bool | Optional. Is item sports.
+final bool isKids = true; // bool | Optional. Is item kids.
+final bool isNews = true; // bool | Optional. Is item news.
+final bool isSeries = true; // bool | Optional. Is item series.
+final bool recursive = true; // bool | Optional. Search recursive.
 
 try {
-    final result = api_instance.getQueryFilters(userId, parentId, includeItemTypes, isAiring, isMovie, isSports, isKids, isNews, isSeries, recursive);
-    print(result);
-} catch (e) {
+    final response = api.getQueryFilters(userId, parentId, includeItemTypes, isAiring, isMovie, isSports, isKids, isNews, isSeries, recursive);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling FilterApi->getQueryFilters: $e\n');
 }
 ```
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| Optional. User id. | [optional] 
  **parentId** | **String**| Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
- **includeItemTypes** | [**List<BaseItemKind>**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
+ **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
  **isAiring** | **bool**| Optional. Is item airing. | [optional] 
  **isMovie** | **bool**| Optional. Is item movie. | [optional] 
  **isSports** | **bool**| Optional. Is item sports. | [optional] 
@@ -89,16 +89,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = FilterApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
-final parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Parent id.
-final includeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
-final mediaTypes = []; // List<String> | Optional. Filter by MediaType. Allows multiple, comma delimited.
+final api = Openapi().getFilterApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Parent id.
+final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
+final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional. Filter by MediaType. Allows multiple, comma delimited.
 
 try {
-    final result = api_instance.getQueryFiltersLegacy(userId, parentId, includeItemTypes, mediaTypes);
-    print(result);
-} catch (e) {
+    final response = api.getQueryFiltersLegacy(userId, parentId, includeItemTypes, mediaTypes);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling FilterApi->getQueryFiltersLegacy: $e\n');
 }
 ```
@@ -109,8 +109,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| Optional. User id. | [optional] 
  **parentId** | **String**| Optional. Parent id. | [optional] 
- **includeItemTypes** | [**List<BaseItemKind>**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
- **mediaTypes** | [**List<String>**](String.md)| Optional. Filter by MediaType. Allows multiple, comma delimited. | [optional] [default to const []]
+ **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
+ **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Filter by MediaType. Allows multiple, comma delimited. | [optional] 
 
 ### Return type
 

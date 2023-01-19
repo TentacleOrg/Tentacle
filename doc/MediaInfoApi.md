@@ -29,12 +29,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = MediaInfoApi();
-final liveStreamId = liveStreamId_example; // String | The livestream id.
+final api = Openapi().getMediaInfoApi();
+final String liveStreamId = liveStreamId_example; // String | The livestream id.
 
 try {
-    api_instance.closeLiveStream(liveStreamId);
-} catch (e) {
+    api.closeLiveStream(liveStreamId);
+} catch on DioError (e) {
     print('Exception when calling MediaInfoApi->closeLiveStream: $e\n');
 }
 ```
@@ -61,7 +61,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getBitrateTestBytes**
-> MultipartFile getBitrateTestBytes(size)
+> Uint8List getBitrateTestBytes(size)
 
 Tests the network with a request with the size of the bitrate.
 
@@ -73,13 +73,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = MediaInfoApi();
-final size = 56; // int | The bitrate. Defaults to 102400.
+final api = Openapi().getMediaInfoApi();
+final int size = 56; // int | The bitrate. Defaults to 102400.
 
 try {
-    final result = api_instance.getBitrateTestBytes(size);
-    print(result);
-} catch (e) {
+    final response = api.getBitrateTestBytes(size);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling MediaInfoApi->getBitrateTestBytes: $e\n');
 }
 ```
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -118,14 +118,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = MediaInfoApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final api = Openapi().getMediaInfoApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 
 try {
-    final result = api_instance.getPlaybackInfo(itemId, userId);
-    print(result);
-} catch (e) {
+    final response = api.getPlaybackInfo(itemId, userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling MediaInfoApi->getPlaybackInfo: $e\n');
 }
 ```
@@ -167,28 +167,28 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = MediaInfoApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final maxStreamingBitrate = 56; // int | The maximum streaming bitrate.
-final startTimeTicks = 789; // int | The start time in ticks.
-final audioStreamIndex = 56; // int | The audio stream index.
-final subtitleStreamIndex = 56; // int | The subtitle stream index.
-final maxAudioChannels = 56; // int | The maximum number of audio channels.
-final mediaSourceId = mediaSourceId_example; // String | The media source id.
-final liveStreamId = liveStreamId_example; // String | The livestream id.
-final autoOpenLiveStream = true; // bool | Whether to auto open the livestream.
-final enableDirectPlay = true; // bool | Whether to enable direct play. Default: true.
-final enableDirectStream = true; // bool | Whether to enable direct stream. Default: true.
-final enableTranscoding = true; // bool | Whether to enable transcoding. Default: true.
-final allowVideoStreamCopy = true; // bool | Whether to allow to copy the video stream. Default: true.
-final allowAudioStreamCopy = true; // bool | Whether to allow to copy the audio stream. Default: true.
-final getPostedPlaybackInfoRequest = GetPostedPlaybackInfoRequest(); // GetPostedPlaybackInfoRequest | The playback info.
+final api = Openapi().getMediaInfoApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final int maxStreamingBitrate = 56; // int | The maximum streaming bitrate.
+final int startTimeTicks = 789; // int | The start time in ticks.
+final int audioStreamIndex = 56; // int | The audio stream index.
+final int subtitleStreamIndex = 56; // int | The subtitle stream index.
+final int maxAudioChannels = 56; // int | The maximum number of audio channels.
+final String mediaSourceId = mediaSourceId_example; // String | The media source id.
+final String liveStreamId = liveStreamId_example; // String | The livestream id.
+final bool autoOpenLiveStream = true; // bool | Whether to auto open the livestream.
+final bool enableDirectPlay = true; // bool | Whether to enable direct play. Default: true.
+final bool enableDirectStream = true; // bool | Whether to enable direct stream. Default: true.
+final bool enableTranscoding = true; // bool | Whether to enable transcoding. Default: true.
+final bool allowVideoStreamCopy = true; // bool | Whether to allow to copy the video stream. Default: true.
+final bool allowAudioStreamCopy = true; // bool | Whether to allow to copy the audio stream. Default: true.
+final GetPostedPlaybackInfoRequest getPostedPlaybackInfoRequest = ; // GetPostedPlaybackInfoRequest | The playback info.
 
 try {
-    final result = api_instance.getPostedPlaybackInfo(itemId, userId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, mediaSourceId, liveStreamId, autoOpenLiveStream, enableDirectPlay, enableDirectStream, enableTranscoding, allowVideoStreamCopy, allowAudioStreamCopy, getPostedPlaybackInfoRequest);
-    print(result);
-} catch (e) {
+    final response = api.getPostedPlaybackInfo(itemId, userId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, mediaSourceId, liveStreamId, autoOpenLiveStream, enableDirectPlay, enableDirectStream, enableTranscoding, allowVideoStreamCopy, allowAudioStreamCopy, getPostedPlaybackInfoRequest);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling MediaInfoApi->getPostedPlaybackInfo: $e\n');
 }
 ```
@@ -242,24 +242,24 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = MediaInfoApi();
-final openToken = openToken_example; // String | The open token.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final playSessionId = playSessionId_example; // String | The play session id.
-final maxStreamingBitrate = 56; // int | The maximum streaming bitrate.
-final startTimeTicks = 789; // int | The start time in ticks.
-final audioStreamIndex = 56; // int | The audio stream index.
-final subtitleStreamIndex = 56; // int | The subtitle stream index.
-final maxAudioChannels = 56; // int | The maximum number of audio channels.
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final enableDirectPlay = true; // bool | Whether to enable direct play. Default: true.
-final enableDirectStream = true; // bool | Whether to enable direct stream. Default: true.
-final openLiveStreamRequest = OpenLiveStreamRequest(); // OpenLiveStreamRequest | The open live stream dto.
+final api = Openapi().getMediaInfoApi();
+final String openToken = openToken_example; // String | The open token.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final String playSessionId = playSessionId_example; // String | The play session id.
+final int maxStreamingBitrate = 56; // int | The maximum streaming bitrate.
+final int startTimeTicks = 789; // int | The start time in ticks.
+final int audioStreamIndex = 56; // int | The audio stream index.
+final int subtitleStreamIndex = 56; // int | The subtitle stream index.
+final int maxAudioChannels = 56; // int | The maximum number of audio channels.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final bool enableDirectPlay = true; // bool | Whether to enable direct play. Default: true.
+final bool enableDirectStream = true; // bool | Whether to enable direct stream. Default: true.
+final OpenLiveStreamRequest openLiveStreamRequest = ; // OpenLiveStreamRequest | The open live stream dto.
 
 try {
-    final result = api_instance.openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, openLiveStreamRequest);
-    print(result);
-} catch (e) {
+    final response = api.openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, openLiveStreamRequest);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling MediaInfoApi->openLiveStream: $e\n');
 }
 ```

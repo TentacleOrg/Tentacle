@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **height** | **int** |  | [optional] 
 **audioChannels** | **int** |  | [optional] 
 **hardwareAccelerationType** | [**HardwareEncodingType**](HardwareEncodingType.md) |  | [optional] 
-**transcodeReasons** | [**List<TranscodeReason>**](TranscodeReason.md) |  | [optional] [default to const []]
+**transcodeReasons** | [**BuiltList&lt;TranscodeReason&gt;**](TranscodeReason.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

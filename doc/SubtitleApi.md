@@ -34,13 +34,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SubtitleApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final index = 56; // int | The index of the subtitle file.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final int index = 56; // int | The index of the subtitle file.
 
 try {
-    api_instance.deleteSubtitle(itemId, index);
-} catch (e) {
+    api.deleteSubtitle(itemId, index);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->deleteSubtitle: $e\n');
 }
 ```
@@ -80,13 +80,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SubtitleApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final subtitleId = subtitleId_example; // String | The subtitle id.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String subtitleId = subtitleId_example; // String | The subtitle id.
 
 try {
-    api_instance.downloadRemoteSubtitles(itemId, subtitleId);
-} catch (e) {
+    api.downloadRemoteSubtitles(itemId, subtitleId);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->downloadRemoteSubtitles: $e\n');
 }
 ```
@@ -114,7 +114,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFallbackFont**
-> MultipartFile getFallbackFont(name)
+> Uint8List getFallbackFont(name)
 
 Gets a fallback font file.
 
@@ -126,13 +126,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SubtitleApi();
-final name = name_example; // String | The name of the fallback font file to get.
+final api = Openapi().getSubtitleApi();
+final String name = name_example; // String | The name of the fallback font file to get.
 
 try {
-    final result = api_instance.getFallbackFont(name);
-    print(result);
-} catch (e) {
+    final response = api.getFallbackFont(name);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->getFallbackFont: $e\n');
 }
 ```
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFallbackFontList**
-> List<FontFile> getFallbackFontList()
+> BuiltList<FontFile> getFallbackFontList()
 
 Gets a list of available fallback font files.
 
@@ -171,12 +171,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SubtitleApi();
+final api = Openapi().getSubtitleApi();
 
 try {
-    final result = api_instance.getFallbackFontList();
-    print(result);
-} catch (e) {
+    final response = api.getFallbackFontList();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->getFallbackFontList: $e\n');
 }
 ```
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<FontFile>**](FontFile.md)
+[**BuiltList&lt;FontFile&gt;**](FontFile.md)
 
 ### Authorization
 
@@ -200,7 +200,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRemoteSubtitles**
-> MultipartFile getRemoteSubtitles(id)
+> Uint8List getRemoteSubtitles(id)
 
 Gets the remote subtitles.
 
@@ -212,13 +212,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SubtitleApi();
-final id = id_example; // String | The item id.
+final api = Openapi().getSubtitleApi();
+final String id = id_example; // String | The item id.
 
 try {
-    final result = api_instance.getRemoteSubtitles(id);
-    print(result);
-} catch (e) {
+    final response = api.getRemoteSubtitles(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->getRemoteSubtitles: $e\n');
 }
 ```
@@ -231,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSubtitle**
-> MultipartFile getSubtitle(routeItemId, routeMediaSourceId, routeIndex, routeFormat, itemId, mediaSourceId, index, format, endPositionTicks, copyTimestamps, addVttTimeMap, startPositionTicks)
+> Uint8List getSubtitle(routeItemId, routeMediaSourceId, routeIndex, routeFormat, itemId, mediaSourceId, index, format, endPositionTicks, copyTimestamps, addVttTimeMap, startPositionTicks)
 
 Gets subtitles in a specified format.
 
@@ -253,24 +253,24 @@ Gets subtitles in a specified format.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = SubtitleApi();
-final routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
-final routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
-final routeIndex = 56; // int | The (route) subtitle stream index.
-final routeFormat = routeFormat_example; // String | The (route) format of the returned subtitle.
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final mediaSourceId = mediaSourceId_example; // String | The media source id.
-final index = 56; // int | The subtitle stream index.
-final format = format_example; // String | The format of the returned subtitle.
-final endPositionTicks = 789; // int | Optional. The end position of the subtitle in ticks.
-final copyTimestamps = true; // bool | Optional. Whether to copy the timestamps.
-final addVttTimeMap = true; // bool | Optional. Whether to add a VTT time map.
-final startPositionTicks = 789; // int | The start position of the subtitle in ticks.
+final api = Openapi().getSubtitleApi();
+final String routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
+final String routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
+final int routeIndex = 56; // int | The (route) subtitle stream index.
+final String routeFormat = routeFormat_example; // String | The (route) format of the returned subtitle.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String mediaSourceId = mediaSourceId_example; // String | The media source id.
+final int index = 56; // int | The subtitle stream index.
+final String format = format_example; // String | The format of the returned subtitle.
+final int endPositionTicks = 789; // int | Optional. The end position of the subtitle in ticks.
+final bool copyTimestamps = true; // bool | Optional. Whether to copy the timestamps.
+final bool addVttTimeMap = true; // bool | Optional. Whether to add a VTT time map.
+final int startPositionTicks = 789; // int | The start position of the subtitle in ticks.
 
 try {
-    final result = api_instance.getSubtitle(routeItemId, routeMediaSourceId, routeIndex, routeFormat, itemId, mediaSourceId, index, format, endPositionTicks, copyTimestamps, addVttTimeMap, startPositionTicks);
-    print(result);
-} catch (e) {
+    final response = api.getSubtitle(routeItemId, routeMediaSourceId, routeIndex, routeFormat, itemId, mediaSourceId, index, format, endPositionTicks, copyTimestamps, addVttTimeMap, startPositionTicks);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->getSubtitle: $e\n');
 }
 ```
@@ -294,7 +294,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -308,7 +308,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSubtitlePlaylist**
-> MultipartFile getSubtitlePlaylist(itemId, index, mediaSourceId, segmentLength)
+> Uint8List getSubtitlePlaylist(itemId, index, mediaSourceId, segmentLength)
 
 Gets an HLS subtitle playlist.
 
@@ -320,16 +320,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SubtitleApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final index = 56; // int | The subtitle stream index.
-final mediaSourceId = mediaSourceId_example; // String | The media source id.
-final segmentLength = 56; // int | The subtitle segment length.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final int index = 56; // int | The subtitle stream index.
+final String mediaSourceId = mediaSourceId_example; // String | The media source id.
+final int segmentLength = 56; // int | The subtitle segment length.
 
 try {
-    final result = api_instance.getSubtitlePlaylist(itemId, index, mediaSourceId, segmentLength);
-    print(result);
-} catch (e) {
+    final response = api.getSubtitlePlaylist(itemId, index, mediaSourceId, segmentLength);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->getSubtitlePlaylist: $e\n');
 }
 ```
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSubtitleWithTicks**
-> MultipartFile getSubtitleWithTicks(routeItemId, routeMediaSourceId, routeIndex, routeStartPositionTicks, routeFormat, itemId, mediaSourceId, index, startPositionTicks, format, endPositionTicks, copyTimestamps, addVttTimeMap)
+> Uint8List getSubtitleWithTicks(routeItemId, routeMediaSourceId, routeIndex, routeStartPositionTicks, routeFormat, itemId, mediaSourceId, index, startPositionTicks, format, endPositionTicks, copyTimestamps, addVttTimeMap)
 
 Gets subtitles in a specified format.
 
@@ -367,25 +367,25 @@ Gets subtitles in a specified format.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = SubtitleApi();
-final routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
-final routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
-final routeIndex = 56; // int | The (route) subtitle stream index.
-final routeStartPositionTicks = 789; // int | The (route) start position of the subtitle in ticks.
-final routeFormat = routeFormat_example; // String | The (route) format of the returned subtitle.
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final mediaSourceId = mediaSourceId_example; // String | The media source id.
-final index = 56; // int | The subtitle stream index.
-final startPositionTicks = 789; // int | The start position of the subtitle in ticks.
-final format = format_example; // String | The format of the returned subtitle.
-final endPositionTicks = 789; // int | Optional. The end position of the subtitle in ticks.
-final copyTimestamps = true; // bool | Optional. Whether to copy the timestamps.
-final addVttTimeMap = true; // bool | Optional. Whether to add a VTT time map.
+final api = Openapi().getSubtitleApi();
+final String routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
+final String routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
+final int routeIndex = 56; // int | The (route) subtitle stream index.
+final int routeStartPositionTicks = 789; // int | The (route) start position of the subtitle in ticks.
+final String routeFormat = routeFormat_example; // String | The (route) format of the returned subtitle.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String mediaSourceId = mediaSourceId_example; // String | The media source id.
+final int index = 56; // int | The subtitle stream index.
+final int startPositionTicks = 789; // int | The start position of the subtitle in ticks.
+final String format = format_example; // String | The format of the returned subtitle.
+final int endPositionTicks = 789; // int | Optional. The end position of the subtitle in ticks.
+final bool copyTimestamps = true; // bool | Optional. Whether to copy the timestamps.
+final bool addVttTimeMap = true; // bool | Optional. Whether to add a VTT time map.
 
 try {
-    final result = api_instance.getSubtitleWithTicks(routeItemId, routeMediaSourceId, routeIndex, routeStartPositionTicks, routeFormat, itemId, mediaSourceId, index, startPositionTicks, format, endPositionTicks, copyTimestamps, addVttTimeMap);
-    print(result);
-} catch (e) {
+    final response = api.getSubtitleWithTicks(routeItemId, routeMediaSourceId, routeIndex, routeStartPositionTicks, routeFormat, itemId, mediaSourceId, index, startPositionTicks, format, endPositionTicks, copyTimestamps, addVttTimeMap);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->getSubtitleWithTicks: $e\n');
 }
 ```
@@ -410,7 +410,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -424,7 +424,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchRemoteSubtitles**
-> List<RemoteSubtitleInfo> searchRemoteSubtitles(itemId, language, isPerfectMatch)
+> BuiltList<RemoteSubtitleInfo> searchRemoteSubtitles(itemId, language, isPerfectMatch)
 
 Search remote subtitles.
 
@@ -436,15 +436,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SubtitleApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final language = language_example; // String | The language of the subtitles.
-final isPerfectMatch = true; // bool | Optional. Only show subtitles which are a perfect match.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String language = language_example; // String | The language of the subtitles.
+final bool isPerfectMatch = true; // bool | Optional. Only show subtitles which are a perfect match.
 
 try {
-    final result = api_instance.searchRemoteSubtitles(itemId, language, isPerfectMatch);
-    print(result);
-} catch (e) {
+    final response = api.searchRemoteSubtitles(itemId, language, isPerfectMatch);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->searchRemoteSubtitles: $e\n');
 }
 ```
@@ -459,7 +459,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<RemoteSubtitleInfo>**](RemoteSubtitleInfo.md)
+[**BuiltList&lt;RemoteSubtitleInfo&gt;**](RemoteSubtitleInfo.md)
 
 ### Authorization
 
@@ -485,13 +485,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SubtitleApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item the subtitle belongs to.
-final uploadSubtitleRequest = UploadSubtitleRequest(); // UploadSubtitleRequest | The request body.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item the subtitle belongs to.
+final UploadSubtitleRequest uploadSubtitleRequest = ; // UploadSubtitleRequest | The request body.
 
 try {
-    api_instance.uploadSubtitle(itemId, uploadSubtitleRequest);
-} catch (e) {
+    api.uploadSubtitle(itemId, uploadSubtitleRequest);
+} catch on DioError (e) {
     print('Exception when calling SubtitleApi->uploadSubtitle: $e\n');
 }
 ```

@@ -8,10 +8,10 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**itemsAdded** | **List<String>** |  | [optional] [default to const []]
-**itemsRemoved** | **List<String>** |  | [optional] [default to const []]
-**itemsUpdated** | **List<String>** |  | [optional] [default to const []]
-**userDataChanged** | [**List<UserItemDataDto>**](UserItemDataDto.md) |  | [optional] [default to const []]
+**itemsAdded** | **BuiltList&lt;String&gt;** |  | [optional] 
+**itemsRemoved** | **BuiltList&lt;String&gt;** |  | [optional] 
+**itemsUpdated** | **BuiltList&lt;String&gt;** |  | [optional] 
+**userDataChanged** | [**BuiltList&lt;UserItemDataDto&gt;**](UserItemDataDto.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

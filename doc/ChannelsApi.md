@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **getAllChannelFeatures**
-> List<ChannelFeatures> getAllChannelFeatures()
+> BuiltList<ChannelFeatures> getAllChannelFeatures()
 
 Get all channel features.
 
@@ -29,12 +29,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ChannelsApi();
+final api = Openapi().getChannelsApi();
 
 try {
-    final result = api_instance.getAllChannelFeatures();
-    print(result);
-} catch (e) {
+    final response = api.getAllChannelFeatures();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ChannelsApi->getAllChannelFeatures: $e\n');
 }
 ```
@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<ChannelFeatures>**](ChannelFeatures.md)
+[**BuiltList&lt;ChannelFeatures&gt;**](ChannelFeatures.md)
 
 ### Authorization
 
@@ -70,13 +70,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ChannelsApi();
-final channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel id.
+final api = Openapi().getChannelsApi();
+final String channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel id.
 
 try {
-    final result = api_instance.getChannelFeatures(channelId);
-    print(result);
-} catch (e) {
+    final response = api.getChannelFeatures(channelId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ChannelsApi->getChannelFeatures: $e\n');
 }
 ```
@@ -115,21 +115,21 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ChannelsApi();
-final channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel Id.
-final folderId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Folder Id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User Id.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final sortOrder = []; // List<SortOrder> | Optional. Sort Order - Ascending,Descending.
-final filters = []; // List<ItemFilter> | Optional. Specify additional filters to apply.
-final sortBy = []; // List<String> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final api = Openapi().getChannelsApi();
+final String channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel Id.
+final String folderId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Folder Id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User Id.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Optional. Sort Order - Ascending,Descending.
+final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
+final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
 
 try {
-    final result = api_instance.getChannelItems(channelId, folderId, userId, startIndex, limit, sortOrder, filters, sortBy, fields);
-    print(result);
-} catch (e) {
+    final response = api.getChannelItems(channelId, folderId, userId, startIndex, limit, sortOrder, filters, sortBy, fields);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ChannelsApi->getChannelItems: $e\n');
 }
 ```
@@ -143,10 +143,10 @@ Name | Type | Description  | Notes
  **userId** | **String**| Optional. User Id. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **sortOrder** | [**List<SortOrder>**](SortOrder.md)| Optional. Sort Order - Ascending,Descending. | [optional] [default to const []]
- **filters** | [**List<ItemFilter>**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] [default to const []]
- **sortBy** | [**List<String>**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] [default to const []]
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Optional. Sort Order - Ascending,Descending. | [optional] 
+ **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
+ **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
 
 ### Return type
 
@@ -176,18 +176,18 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ChannelsApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id to filter by. Use System.Guid.Empty to not filter by user.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final supportsLatestItems = true; // bool | Optional. Filter by channels that support getting latest items.
-final supportsMediaDeletion = true; // bool | Optional. Filter by channels that support media deletion.
-final isFavorite = true; // bool | Optional. Filter by channels that are favorite.
+final api = Openapi().getChannelsApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id to filter by. Use System.Guid.Empty to not filter by user.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final bool supportsLatestItems = true; // bool | Optional. Filter by channels that support getting latest items.
+final bool supportsMediaDeletion = true; // bool | Optional. Filter by channels that support media deletion.
+final bool isFavorite = true; // bool | Optional. Filter by channels that are favorite.
 
 try {
-    final result = api_instance.getChannels(userId, startIndex, limit, supportsLatestItems, supportsMediaDeletion, isFavorite);
-    print(result);
-} catch (e) {
+    final response = api.getChannels(userId, startIndex, limit, supportsLatestItems, supportsMediaDeletion, isFavorite);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ChannelsApi->getChannels: $e\n');
 }
 ```
@@ -231,18 +231,18 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ChannelsApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User Id.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final filters = []; // List<ItemFilter> | Optional. Specify additional filters to apply.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final channelIds = []; // List<String> | Optional. Specify one or more channel id's, comma delimited.
+final api = Openapi().getChannelsApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User Id.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final BuiltList<String> channelIds = ; // BuiltList<String> | Optional. Specify one or more channel id's, comma delimited.
 
 try {
-    final result = api_instance.getLatestChannelItems(userId, startIndex, limit, filters, fields, channelIds);
-    print(result);
-} catch (e) {
+    final response = api.getLatestChannelItems(userId, startIndex, limit, filters, fields, channelIds);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ChannelsApi->getLatestChannelItems: $e\n');
 }
 ```
@@ -254,9 +254,9 @@ Name | Type | Description  | Notes
  **userId** | **String**| Optional. User Id. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **filters** | [**List<ItemFilter>**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] [default to const []]
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
- **channelIds** | [**List<String>**](String.md)| Optional. Specify one or more channel id's, comma delimited. | [optional] [default to const []]
+ **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
+ **channelIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more channel id's, comma delimited. | [optional] 
 
 ### Return type
 

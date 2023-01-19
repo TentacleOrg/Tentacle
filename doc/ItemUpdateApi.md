@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getMetadataEditorInfo**](ItemUpdateApi.md#getmetadataeditorinfo) | **GET** /Items/{itemId}/MetadataEditor | Gets metadata editor info for an item.
 [**updateItem**](ItemUpdateApi.md#updateitem) | **POST** /Items/{itemId} | Updates an item.
-[**updateItemContentType**](ItemUpdateApi.md#updateitemcontenttype) | **POST** /Items/{itemId}/ContentType | Updates an item's content type.
+[**updateItemContentType**](ItemUpdateApi.md#updateitemcontenttype) | **POST** /Items/{itemId}/ContentType | Updates an item&#39;s content type.
 
 
 # **getMetadataEditorInfo**
@@ -27,13 +27,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ItemUpdateApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final api = Openapi().getItemUpdateApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
-    final result = api_instance.getMetadataEditorInfo(itemId);
-    print(result);
-} catch (e) {
+    final response = api.getMetadataEditorInfo(itemId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ItemUpdateApi->getMetadataEditorInfo: $e\n');
 }
 ```
@@ -72,13 +72,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ItemUpdateApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final updateItemRequest = UpdateItemRequest(); // UpdateItemRequest | The new item properties.
+final api = Openapi().getItemUpdateApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final UpdateItemRequest updateItemRequest = ; // UpdateItemRequest | The new item properties.
 
 try {
-    api_instance.updateItem(itemId, updateItemRequest);
-} catch (e) {
+    api.updateItem(itemId, updateItemRequest);
+} catch on DioError (e) {
     print('Exception when calling ItemUpdateApi->updateItem: $e\n');
 }
 ```
@@ -118,13 +118,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ItemUpdateApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final contentType = contentType_example; // String | The content type of the item.
+final api = Openapi().getItemUpdateApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String contentType = contentType_example; // String | The content type of the item.
 
 try {
-    api_instance.updateItemContentType(itemId, contentType);
-} catch (e) {
+    api.updateItemContentType(itemId, contentType);
+} catch on DioError (e) {
     print('Exception when calling ItemUpdateApi->updateItemContentType: $e\n');
 }
 ```

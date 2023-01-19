@@ -29,14 +29,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaylistsApi();
-final playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
-final ids = []; // List<String> | Item id, comma delimited.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The userId.
+final api = Openapi().getPlaylistsApi();
+final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
+final BuiltList<String> ids = ; // BuiltList<String> | Item id, comma delimited.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The userId.
 
 try {
-    api_instance.addToPlaylist(playlistId, ids, userId);
-} catch (e) {
+    api.addToPlaylist(playlistId, ids, userId);
+} catch on DioError (e) {
     print('Exception when calling PlaylistsApi->addToPlaylist: $e\n');
 }
 ```
@@ -46,7 +46,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **playlistId** | **String**| The playlist id. | 
- **ids** | [**List<String>**](String.md)| Item id, comma delimited. | [optional] [default to const []]
+ **ids** | [**BuiltList&lt;String&gt;**](String.md)| Item id, comma delimited. | [optional] 
  **userId** | **String**| The userId. | [optional] 
 
 ### Return type
@@ -79,17 +79,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaylistsApi();
-final name = name_example; // String | The playlist name.
-final ids = []; // List<String> | The item ids.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final mediaType = mediaType_example; // String | The media type.
-final createPlaylistRequest = CreatePlaylistRequest(); // CreatePlaylistRequest | The create playlist payload.
+final api = Openapi().getPlaylistsApi();
+final String name = name_example; // String | The playlist name.
+final BuiltList<String> ids = ; // BuiltList<String> | The item ids.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final String mediaType = mediaType_example; // String | The media type.
+final CreatePlaylistRequest createPlaylistRequest = ; // CreatePlaylistRequest | The create playlist payload.
 
 try {
-    final result = api_instance.createPlaylist(name, ids, userId, mediaType, createPlaylistRequest);
-    print(result);
-} catch (e) {
+    final response = api.createPlaylist(name, ids, userId, mediaType, createPlaylistRequest);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaylistsApi->createPlaylist: $e\n');
 }
 ```
@@ -99,7 +99,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The playlist name. | [optional] 
- **ids** | [**List<String>**](String.md)| The item ids. | [optional] [default to const []]
+ **ids** | [**BuiltList&lt;String&gt;**](String.md)| The item ids. | [optional] 
  **userId** | **String**| The user id. | [optional] 
  **mediaType** | **String**| The media type. | [optional] 
  **createPlaylistRequest** | [**CreatePlaylistRequest**](CreatePlaylistRequest.md)| The create playlist payload. | [optional] 
@@ -132,21 +132,21 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaylistsApi();
-final playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final enableImages = true; // bool | Optional. Include image information in output.
-final enableUserData = true; // bool | Optional. Include user data.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
+final api = Openapi().getPlaylistsApi();
+final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final bool enableUserData = true; // bool | Optional. Include user data.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
 
 try {
-    final result = api_instance.getPlaylistItems(playlistId, userId, startIndex, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(result);
-} catch (e) {
+    final response = api.getPlaylistItems(playlistId, userId, startIndex, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaylistsApi->getPlaylistItems: $e\n');
 }
 ```
@@ -159,11 +159,11 @@ Name | Type | Description  | Notes
  **userId** | **String**| User id. | 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
 
 ### Return type
 
@@ -193,14 +193,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaylistsApi();
-final playlistId = playlistId_example; // String | The playlist id.
-final itemId = itemId_example; // String | The item id.
-final newIndex = 56; // int | The new index.
+final api = Openapi().getPlaylistsApi();
+final String playlistId = playlistId_example; // String | The playlist id.
+final String itemId = itemId_example; // String | The item id.
+final int newIndex = 56; // int | The new index.
 
 try {
-    api_instance.moveItem(playlistId, itemId, newIndex);
-} catch (e) {
+    api.moveItem(playlistId, itemId, newIndex);
+} catch on DioError (e) {
     print('Exception when calling PlaylistsApi->moveItem: $e\n');
 }
 ```
@@ -241,13 +241,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaylistsApi();
-final playlistId = playlistId_example; // String | The playlist id.
-final entryIds = []; // List<String> | The item ids, comma delimited.
+final api = Openapi().getPlaylistsApi();
+final String playlistId = playlistId_example; // String | The playlist id.
+final BuiltList<String> entryIds = ; // BuiltList<String> | The item ids, comma delimited.
 
 try {
-    api_instance.removeFromPlaylist(playlistId, entryIds);
-} catch (e) {
+    api.removeFromPlaylist(playlistId, entryIds);
+} catch on DioError (e) {
     print('Exception when calling PlaylistsApi->removeFromPlaylist: $e\n');
 }
 ```
@@ -257,7 +257,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **playlistId** | **String**| The playlist id. | 
- **entryIds** | [**List<String>**](String.md)| The item ids, comma delimited. | [optional] [default to const []]
+ **entryIds** | [**BuiltList&lt;String&gt;**](String.md)| The item ids, comma delimited. | [optional] 
 
 ### Return type
 

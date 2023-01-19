@@ -9,10 +9,10 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **playState** | [**SessionInfoPlayState**](SessionInfoPlayState.md) |  | [optional] 
-**additionalUsers** | [**List<SessionUserInfo>**](SessionUserInfo.md) |  | [optional] [default to const []]
+**additionalUsers** | [**BuiltList&lt;SessionUserInfo&gt;**](SessionUserInfo.md) |  | [optional] 
 **capabilities** | [**SessionInfoCapabilities**](SessionInfoCapabilities.md) |  | [optional] 
 **remoteEndPoint** | **String** | Gets or sets the remote end point. | [optional] 
-**playableMediaTypes** | **List<String>** | Gets the playable media types. | [optional] [readonly] [default to const []]
+**playableMediaTypes** | **BuiltList&lt;String&gt;** | Gets the playable media types. | [optional] 
 **id** | **String** | Gets or sets the id. | [optional] 
 **userId** | **String** | Gets or sets the user id. | [optional] 
 **userName** | **String** | Gets or sets the username. | [optional] 
@@ -27,16 +27,16 @@ Name | Type | Description | Notes
 **deviceId** | **String** | Gets or sets the device id. | [optional] 
 **applicationVersion** | **String** | Gets or sets the application version. | [optional] 
 **transcodingInfo** | [**SessionInfoTranscodingInfo**](SessionInfoTranscodingInfo.md) |  | [optional] 
-**isActive** | **bool** | Gets a value indicating whether this instance is active. | [optional] [readonly] 
-**supportsMediaControl** | **bool** |  | [optional] [readonly] 
-**supportsRemoteControl** | **bool** |  | [optional] [readonly] 
-**nowPlayingQueue** | [**List<QueueItem>**](QueueItem.md) |  | [optional] [default to const []]
-**nowPlayingQueueFullItems** | [**List<BaseItemDto>**](BaseItemDto.md) |  | [optional] [default to const []]
+**isActive** | **bool** | Gets a value indicating whether this instance is active. | [optional] 
+**supportsMediaControl** | **bool** |  | [optional] 
+**supportsRemoteControl** | **bool** |  | [optional] 
+**nowPlayingQueue** | [**BuiltList&lt;QueueItem&gt;**](QueueItem.md) |  | [optional] 
+**nowPlayingQueueFullItems** | [**BuiltList&lt;BaseItemDto&gt;**](BaseItemDto.md) |  | [optional] 
 **hasCustomDeviceName** | **bool** |  | [optional] 
 **playlistItemId** | **String** |  | [optional] 
 **serverId** | **String** |  | [optional] 
 **userPrimaryImageTag** | **String** |  | [optional] 
-**supportedCommands** | [**List<GeneralCommandType>**](GeneralCommandType.md) | Gets the supported commands. | [optional] [readonly] [default to const []]
+**supportedCommands** | [**BuiltList&lt;GeneralCommandType&gt;**](GeneralCommandType.md) | Gets the supported commands. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

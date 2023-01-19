@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Gets or sets the name. | [optional] 
-**providerIds** | **Map<String, String>** | Gets or sets the provider ids. | [optional] [default to const {}]
+**providerIds** | **BuiltMap&lt;String, String&gt;** | Gets or sets the provider ids. | [optional] 
 **productionYear** | **int** | Gets or sets the year. | [optional] 
 **indexNumber** | **int** |  | [optional] 
 **indexNumberEnd** | **int** |  | [optional] 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **searchProviderName** | **String** |  | [optional] 
 **overview** | **String** |  | [optional] 
 **albumArtist** | [**RemoteSearchResultAlbumArtist**](RemoteSearchResultAlbumArtist.md) |  | [optional] 
-**artists** | [**List<RemoteSearchResult>**](RemoteSearchResult.md) |  | [optional] [default to const []]
+**artists** | [**BuiltList&lt;RemoteSearchResult&gt;**](RemoteSearchResult.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,11 +9,11 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** |  | [optional] 
-**metadataFetchers** | **List<String>** |  | [optional] [default to const []]
-**metadataFetcherOrder** | **List<String>** |  | [optional] [default to const []]
-**imageFetchers** | **List<String>** |  | [optional] [default to const []]
-**imageFetcherOrder** | **List<String>** |  | [optional] [default to const []]
-**imageOptions** | [**List<ImageOption>**](ImageOption.md) |  | [optional] [default to const []]
+**metadataFetchers** | **BuiltList&lt;String&gt;** |  | [optional] 
+**metadataFetcherOrder** | **BuiltList&lt;String&gt;** |  | [optional] 
+**imageFetchers** | **BuiltList&lt;String&gt;** |  | [optional] 
+**imageFetcherOrder** | **BuiltList&lt;String&gt;** |  | [optional] 
+**imageOptions** | [**BuiltList&lt;ImageOption&gt;**](ImageOption.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

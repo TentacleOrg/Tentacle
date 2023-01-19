@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**headers** | **Map<String, String>** |  | [optional] [readonly] [default to const {}]
+**headers** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
 **xml** | **String** |  | [optional] 
 **isSuccessful** | **bool** |  | [optional] 
 

@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**List<BaseItemDto>**](BaseItemDto.md) |  | [optional] [default to const []]
+**items** | [**BuiltList&lt;BaseItemDto&gt;**](BaseItemDto.md) |  | [optional] 
 **recommendationType** | [**RecommendationType**](RecommendationType.md) |  | [optional] 
 **baselineItemName** | **String** |  | [optional] 
 **categoryId** | **String** |  | [optional] 

@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mediaSources** | [**List<MediaSourceInfo>**](MediaSourceInfo.md) | Gets or sets the media sources. | [optional] [default to const []]
+**mediaSources** | [**BuiltList&lt;MediaSourceInfo&gt;**](MediaSourceInfo.md) | Gets or sets the media sources. | [optional] 
 **playSessionId** | **String** | Gets or sets the play session identifier. | [optional] 
 **errorCode** | [**PlaybackErrorCode**](PlaybackErrorCode.md) | Gets or sets the error code. | [optional] 
 

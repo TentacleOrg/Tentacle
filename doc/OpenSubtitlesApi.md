@@ -25,12 +25,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = OpenSubtitlesApi();
-final validateLoginInfoRequest = ValidateLoginInfoRequest(); // ValidateLoginInfoRequest | 
+final api = Openapi().getOpenSubtitlesApi();
+final ValidateLoginInfoRequest validateLoginInfoRequest = ; // ValidateLoginInfoRequest | 
 
 try {
-    api_instance.validateLoginInfo(validateLoginInfoRequest);
-} catch (e) {
+    api.validateLoginInfo(validateLoginInfoRequest);
+} catch on DioError (e) {
     print('Exception when calling OpenSubtitlesApi->validateLoginInfo: $e\n');
 }
 ```

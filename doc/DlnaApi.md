@@ -30,12 +30,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaApi();
-final createProfileRequest = CreateProfileRequest(); // CreateProfileRequest | Device profile.
+final api = Openapi().getDlnaApi();
+final CreateProfileRequest createProfileRequest = ; // CreateProfileRequest | Device profile.
 
 try {
-    api_instance.createProfile(createProfileRequest);
-} catch (e) {
+    api.createProfile(createProfileRequest);
+} catch on DioError (e) {
     print('Exception when calling DlnaApi->createProfile: $e\n');
 }
 ```
@@ -74,12 +74,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaApi();
-final profileId = profileId_example; // String | Profile id.
+final api = Openapi().getDlnaApi();
+final String profileId = profileId_example; // String | Profile id.
 
 try {
-    api_instance.deleteProfile(profileId);
-} catch (e) {
+    api.deleteProfile(profileId);
+} catch on DioError (e) {
     print('Exception when calling DlnaApi->deleteProfile: $e\n');
 }
 ```
@@ -118,12 +118,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaApi();
+final api = Openapi().getDlnaApi();
 
 try {
-    final result = api_instance.getDefaultProfile();
-    print(result);
-} catch (e) {
+    final response = api.getDefaultProfile();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaApi->getDefaultProfile: $e\n');
 }
 ```
@@ -159,13 +159,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaApi();
-final profileId = profileId_example; // String | Profile Id.
+final api = Openapi().getDlnaApi();
+final String profileId = profileId_example; // String | Profile Id.
 
 try {
-    final result = api_instance.getProfile(profileId);
-    print(result);
-} catch (e) {
+    final response = api.getProfile(profileId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaApi->getProfile: $e\n');
 }
 ```
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getProfileInfos**
-> List<DeviceProfileInfo> getProfileInfos()
+> BuiltList<DeviceProfileInfo> getProfileInfos()
 
 Get profile infos.
 
@@ -204,12 +204,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaApi();
+final api = Openapi().getDlnaApi();
 
 try {
-    final result = api_instance.getProfileInfos();
-    print(result);
-} catch (e) {
+    final response = api.getProfileInfos();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaApi->getProfileInfos: $e\n');
 }
 ```
@@ -219,7 +219,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<DeviceProfileInfo>**](DeviceProfileInfo.md)
+[**BuiltList&lt;DeviceProfileInfo&gt;**](DeviceProfileInfo.md)
 
 ### Authorization
 
@@ -245,13 +245,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaApi();
-final profileId = profileId_example; // String | Profile id.
-final createProfileRequest = CreateProfileRequest(); // CreateProfileRequest | Device profile.
+final api = Openapi().getDlnaApi();
+final String profileId = profileId_example; // String | Profile id.
+final CreateProfileRequest createProfileRequest = ; // CreateProfileRequest | Device profile.
 
 try {
-    api_instance.updateProfile(profileId, createProfileRequest);
-} catch (e) {
+    api.updateProfile(profileId, createProfileRequest);
+} catch on DioError (e) {
     print('Exception when calling DlnaApi->updateProfile: $e\n');
 }
 ```

@@ -12,8 +12,8 @@ Method | HTTP request | Description
 [**disablePlugin**](PluginsApi.md#disableplugin) | **POST** /Plugins/{pluginId}/{version}/Disable | Disable a plugin.
 [**enablePlugin**](PluginsApi.md#enableplugin) | **POST** /Plugins/{pluginId}/{version}/Enable | Enables a disabled plugin.
 [**getPluginConfiguration**](PluginsApi.md#getpluginconfiguration) | **GET** /Plugins/{pluginId}/Configuration | Gets plugin configuration.
-[**getPluginImage**](PluginsApi.md#getpluginimage) | **GET** /Plugins/{pluginId}/{version}/Image | Gets a plugin's image.
-[**getPluginManifest**](PluginsApi.md#getpluginmanifest) | **POST** /Plugins/{pluginId}/Manifest | Gets a plugin's manifest.
+[**getPluginImage**](PluginsApi.md#getpluginimage) | **GET** /Plugins/{pluginId}/{version}/Image | Gets a plugin&#39;s image.
+[**getPluginManifest**](PluginsApi.md#getpluginmanifest) | **POST** /Plugins/{pluginId}/Manifest | Gets a plugin&#39;s manifest.
 [**getPlugins**](PluginsApi.md#getplugins) | **GET** /Plugins | Gets a list of currently installed plugins.
 [**uninstallPlugin**](PluginsApi.md#uninstallplugin) | **DELETE** /Plugins/{pluginId} | Uninstalls a plugin.
 [**uninstallPluginByVersion**](PluginsApi.md#uninstallpluginbyversion) | **DELETE** /Plugins/{pluginId}/{version} | Uninstalls a plugin by version.
@@ -33,13 +33,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
-final pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
-final version = version_example; // String | Plugin version.
+final api = Openapi().getPluginsApi();
+final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
+final String version = version_example; // String | Plugin version.
 
 try {
-    api_instance.disablePlugin(pluginId, version);
-} catch (e) {
+    api.disablePlugin(pluginId, version);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->disablePlugin: $e\n');
 }
 ```
@@ -79,13 +79,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
-final pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
-final version = version_example; // String | Plugin version.
+final api = Openapi().getPluginsApi();
+final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
+final String version = version_example; // String | Plugin version.
 
 try {
-    api_instance.enablePlugin(pluginId, version);
-} catch (e) {
+    api.enablePlugin(pluginId, version);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->enablePlugin: $e\n');
 }
 ```
@@ -113,7 +113,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPluginConfiguration**
-> Object getPluginConfiguration(pluginId)
+> JsonObject getPluginConfiguration(pluginId)
 
 Gets plugin configuration.
 
@@ -125,13 +125,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
-final pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
+final api = Openapi().getPluginsApi();
+final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 
 try {
-    final result = api_instance.getPluginConfiguration(pluginId);
-    print(result);
-} catch (e) {
+    final response = api.getPluginConfiguration(pluginId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->getPluginConfiguration: $e\n');
 }
 ```
@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**JsonObject**](JsonObject.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPluginImage**
-> MultipartFile getPluginImage(pluginId, version)
+> Uint8List getPluginImage(pluginId, version)
 
 Gets a plugin's image.
 
@@ -170,14 +170,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
-final pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
-final version = version_example; // String | Plugin version.
+final api = Openapi().getPluginsApi();
+final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
+final String version = version_example; // String | Plugin version.
 
 try {
-    final result = api_instance.getPluginImage(pluginId, version);
-    print(result);
-} catch (e) {
+    final response = api.getPluginImage(pluginId, version);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->getPluginImage: $e\n');
 }
 ```
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -217,12 +217,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
-final pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
+final api = Openapi().getPluginsApi();
+final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 
 try {
-    api_instance.getPluginManifest(pluginId);
-} catch (e) {
+    api.getPluginManifest(pluginId);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->getPluginManifest: $e\n');
 }
 ```
@@ -249,7 +249,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPlugins**
-> List<PluginInfo> getPlugins()
+> BuiltList<PluginInfo> getPlugins()
 
 Gets a list of currently installed plugins.
 
@@ -261,12 +261,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
+final api = Openapi().getPluginsApi();
 
 try {
-    final result = api_instance.getPlugins();
-    print(result);
-} catch (e) {
+    final response = api.getPlugins();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->getPlugins: $e\n');
 }
 ```
@@ -276,7 +276,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<PluginInfo>**](PluginInfo.md)
+[**BuiltList&lt;PluginInfo&gt;**](PluginInfo.md)
 
 ### Authorization
 
@@ -302,12 +302,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
-final pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
+final api = Openapi().getPluginsApi();
+final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 
 try {
-    api_instance.uninstallPlugin(pluginId);
-} catch (e) {
+    api.uninstallPlugin(pluginId);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->uninstallPlugin: $e\n');
 }
 ```
@@ -346,13 +346,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
-final pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
-final version = version_example; // String | Plugin version.
+final api = Openapi().getPluginsApi();
+final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
+final String version = version_example; // String | Plugin version.
 
 try {
-    api_instance.uninstallPluginByVersion(pluginId, version);
-} catch (e) {
+    api.uninstallPluginByVersion(pluginId, version);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->uninstallPluginByVersion: $e\n');
 }
 ```
@@ -394,12 +394,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PluginsApi();
-final pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
+final api = Openapi().getPluginsApi();
+final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 
 try {
-    api_instance.updatePluginConfiguration(pluginId);
-} catch (e) {
+    api.updatePluginConfiguration(pluginId);
+} catch on DioError (e) {
     print('Exception when calling PluginsApi->updatePluginConfiguration: $e\n');
 }
 ```

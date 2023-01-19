@@ -25,16 +25,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ActivityLogApi();
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final minDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum date. Format = ISO.
-final hasUserId = true; // bool | Optional. Filter log entries if it has user id, or not.
+final api = Openapi().getActivityLogApi();
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final DateTime minDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum date. Format = ISO.
+final bool hasUserId = true; // bool | Optional. Filter log entries if it has user id, or not.
 
 try {
-    final result = api_instance.getLogEntries(startIndex, limit, minDate, hasUserId);
-    print(result);
-} catch (e) {
+    final response = api.getLogEntries(startIndex, limit, minDate, hasUserId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ActivityLogApi->getLogEntries: $e\n');
 }
 ```

@@ -12,8 +12,8 @@ Method | HTTP request | Description
 [**createAdminNotification**](NotificationsApi.md#createadminnotification) | **POST** /Notifications/Admin | Sends a notification to all admins.
 [**getNotificationServices**](NotificationsApi.md#getnotificationservices) | **GET** /Notifications/Services | Gets notification services.
 [**getNotificationTypes**](NotificationsApi.md#getnotificationtypes) | **GET** /Notifications/Types | Gets notification types.
-[**getNotifications**](NotificationsApi.md#getnotifications) | **GET** /Notifications/{userId} | Gets a user's notifications.
-[**getNotificationsSummary**](NotificationsApi.md#getnotificationssummary) | **GET** /Notifications/{userId}/Summary | Gets a user's notification summary.
+[**getNotifications**](NotificationsApi.md#getnotifications) | **GET** /Notifications/{userId} | Gets a user&#39;s notifications.
+[**getNotificationsSummary**](NotificationsApi.md#getnotificationssummary) | **GET** /Notifications/{userId}/Summary | Gets a user&#39;s notification summary.
 [**setRead**](NotificationsApi.md#setread) | **POST** /Notifications/{userId}/Read | Sets notifications as read.
 [**setUnread**](NotificationsApi.md#setunread) | **POST** /Notifications/{userId}/Unread | Sets notifications as unread.
 
@@ -31,12 +31,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = NotificationsApi();
-final createAdminNotificationRequest = CreateAdminNotificationRequest(); // CreateAdminNotificationRequest | The notification request.
+final api = Openapi().getNotificationsApi();
+final CreateAdminNotificationRequest createAdminNotificationRequest = ; // CreateAdminNotificationRequest | The notification request.
 
 try {
-    api_instance.createAdminNotification(createAdminNotificationRequest);
-} catch (e) {
+    api.createAdminNotification(createAdminNotificationRequest);
+} catch on DioError (e) {
     print('Exception when calling NotificationsApi->createAdminNotification: $e\n');
 }
 ```
@@ -63,7 +63,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNotificationServices**
-> List<NameIdPair> getNotificationServices()
+> BuiltList<NameIdPair> getNotificationServices()
 
 Gets notification services.
 
@@ -75,12 +75,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = NotificationsApi();
+final api = Openapi().getNotificationsApi();
 
 try {
-    final result = api_instance.getNotificationServices();
-    print(result);
-} catch (e) {
+    final response = api.getNotificationServices();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling NotificationsApi->getNotificationServices: $e\n');
 }
 ```
@@ -90,7 +90,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<NameIdPair>**](NameIdPair.md)
+[**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNotificationTypes**
-> List<NotificationTypeInfo> getNotificationTypes()
+> BuiltList<NotificationTypeInfo> getNotificationTypes()
 
 Gets notification types.
 
@@ -116,12 +116,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = NotificationsApi();
+final api = Openapi().getNotificationsApi();
 
 try {
-    final result = api_instance.getNotificationTypes();
-    print(result);
-} catch (e) {
+    final response = api.getNotificationTypes();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling NotificationsApi->getNotificationTypes: $e\n');
 }
 ```
@@ -131,7 +131,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<NotificationTypeInfo>**](NotificationTypeInfo.md)
+[**BuiltList&lt;NotificationTypeInfo&gt;**](NotificationTypeInfo.md)
 
 ### Authorization
 
@@ -157,13 +157,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = NotificationsApi();
-final userId = userId_example; // String | 
+final api = Openapi().getNotificationsApi();
+final String userId = userId_example; // String | 
 
 try {
-    final result = api_instance.getNotifications(userId);
-    print(result);
-} catch (e) {
+    final response = api.getNotifications(userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling NotificationsApi->getNotifications: $e\n');
 }
 ```
@@ -202,13 +202,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = NotificationsApi();
-final userId = userId_example; // String | 
+final api = Openapi().getNotificationsApi();
+final String userId = userId_example; // String | 
 
 try {
-    final result = api_instance.getNotificationsSummary(userId);
-    print(result);
-} catch (e) {
+    final response = api.getNotificationsSummary(userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling NotificationsApi->getNotificationsSummary: $e\n');
 }
 ```
@@ -247,12 +247,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = NotificationsApi();
-final userId = userId_example; // String | 
+final api = Openapi().getNotificationsApi();
+final String userId = userId_example; // String | 
 
 try {
-    api_instance.setRead(userId);
-} catch (e) {
+    api.setRead(userId);
+} catch on DioError (e) {
     print('Exception when calling NotificationsApi->setRead: $e\n');
 }
 ```
@@ -291,12 +291,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = NotificationsApi();
-final userId = userId_example; // String | 
+final api = Openapi().getNotificationsApi();
+final String userId = userId_example; // String | 
 
 try {
-    api_instance.setUnread(userId);
-} catch (e) {
+    api.setUnread(userId);
+} catch on DioError (e) {
     print('Exception when calling NotificationsApi->setUnread: $e\n');
 }
 ```

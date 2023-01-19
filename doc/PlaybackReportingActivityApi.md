@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 # **customQuery**
-> Map<String, Object> customQuery(customQueryRequest)
+> BuiltMap<String, JsonObject> customQuery(customQueryRequest)
 
 
 
@@ -40,13 +40,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final customQueryRequest = CustomQueryRequest(); // CustomQueryRequest | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final CustomQueryRequest customQueryRequest = ; // CustomQueryRequest | 
 
 try {
-    final result = api_instance.customQuery(customQueryRequest);
-    print(result);
-} catch (e) {
+    final response = api.customQuery(customQueryRequest);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->customQuery: $e\n');
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Map<String, Object>**](Object.md)
+[**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md)
 
 ### Authorization
 
@@ -85,15 +85,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final breakdownType = breakdownType_example; // String | 
-final days = 56; // int | 
-final endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final timezoneOffset = 3.4; // double | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final String breakdownType = breakdownType_example; // String | 
+final int days = 56; // int | 
+final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+final double timezoneOffset = 3.4; // double | 
 
 try {
-    api_instance.getBreakdownReport(breakdownType, days, endDate, timezoneOffset);
-} catch (e) {
+    api.getBreakdownReport(breakdownType, days, endDate, timezoneOffset);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getBreakdownReport: $e\n');
 }
 ```
@@ -135,14 +135,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final days = 56; // int | 
-final endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final filter = filter_example; // String | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final int days = 56; // int | 
+final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+final String filter = filter_example; // String | 
 
 try {
-    api_instance.getDurationHistogramReport(days, endDate, filter);
-} catch (e) {
+    api.getDurationHistogramReport(days, endDate, filter);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getDurationHistogramReport: $e\n');
 }
 ```
@@ -183,15 +183,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final days = 56; // int | 
-final endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final filter = filter_example; // String | 
-final timezoneOffset = 3.4; // double | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final int days = 56; // int | 
+final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+final String filter = filter_example; // String | 
+final double timezoneOffset = 3.4; // double | 
 
 try {
-    api_instance.getHourlyReport(days, endDate, filter, timezoneOffset);
-} catch (e) {
+    api.getHourlyReport(days, endDate, filter, timezoneOffset);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getHourlyReport: $e\n');
 }
 ```
@@ -233,11 +233,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
+final api = Openapi().getPlaybackReportingActivityApi();
 
 try {
-    api_instance.getJellyfinUsers();
-} catch (e) {
+    api.getJellyfinUsers();
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getJellyfinUsers: $e\n');
 }
 ```
@@ -273,14 +273,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final days = 56; // int | 
-final endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final timezoneOffset = 3.4; // double | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final int days = 56; // int | 
+final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+final double timezoneOffset = 3.4; // double | 
 
 try {
-    api_instance.getMovieReport(days, endDate, timezoneOffset);
-} catch (e) {
+    api.getMovieReport(days, endDate, timezoneOffset);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getMovieReport: $e\n');
 }
 ```
@@ -321,14 +321,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final days = 56; // int | 
-final endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final timezoneOffset = 3.4; // double | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final int days = 56; // int | 
+final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+final double timezoneOffset = 3.4; // double | 
 
 try {
-    api_instance.getTvShowsReport(days, endDate, timezoneOffset);
-} catch (e) {
+    api.getTvShowsReport(days, endDate, timezoneOffset);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getTvShowsReport: $e\n');
 }
 ```
@@ -369,11 +369,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
+final api = Openapi().getPlaybackReportingActivityApi();
 
 try {
-    api_instance.getTypeFilterList();
-} catch (e) {
+    api.getTypeFilterList();
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getTypeFilterList: $e\n');
 }
 ```
@@ -409,16 +409,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final days = 56; // int | 
-final endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final filter = filter_example; // String | 
-final dataType = dataType_example; // String | 
-final timezoneOffset = 3.4; // double | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final int days = 56; // int | 
+final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+final String filter = filter_example; // String | 
+final String dataType = dataType_example; // String | 
+final double timezoneOffset = 3.4; // double | 
 
 try {
-    api_instance.getUsageStats(days, endDate, filter, dataType, timezoneOffset);
-} catch (e) {
+    api.getUsageStats(days, endDate, filter, dataType, timezoneOffset);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getUsageStats: $e\n');
 }
 ```
@@ -461,14 +461,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final days = 56; // int | 
-final endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final timezoneOffset = 3.4; // double | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final int days = 56; // int | 
+final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+final double timezoneOffset = 3.4; // double | 
 
 try {
-    api_instance.getUserReport(days, endDate, timezoneOffset);
-} catch (e) {
+    api.getUserReport(days, endDate, timezoneOffset);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getUserReport: $e\n');
 }
 ```
@@ -509,15 +509,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final userId = userId_example; // String | 
-final date = date_example; // String | 
-final filter = filter_example; // String | 
-final timezoneOffset = 3.4; // double | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final String userId = userId_example; // String | 
+final String date = date_example; // String | 
+final String filter = filter_example; // String | 
+final double timezoneOffset = 3.4; // double | 
 
 try {
-    api_instance.getUserReportData(userId, date, filter, timezoneOffset);
-} catch (e) {
+    api.getUserReportData(userId, date, filter, timezoneOffset);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->getUserReportData: $e\n');
 }
 ```
@@ -559,13 +559,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final id = id_example; // String | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final String id = id_example; // String | 
 
 try {
-    final result = api_instance.ignoreListAdd(id);
-    print(result);
-} catch (e) {
+    final response = api.ignoreListAdd(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->ignoreListAdd: $e\n');
 }
 ```
@@ -604,13 +604,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final id = id_example; // String | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final String id = id_example; // String | 
 
 try {
-    final result = api_instance.ignoreListRemove(id);
-    print(result);
-} catch (e) {
+    final response = api.ignoreListRemove(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->ignoreListRemove: $e\n');
 }
 ```
@@ -637,7 +637,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **loadBackup**
-> List<String> loadBackup(backupFilePath)
+> BuiltList<String> loadBackup(backupFilePath)
 
 
 
@@ -649,13 +649,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
-final backupFilePath = backupFilePath_example; // String | 
+final api = Openapi().getPlaybackReportingActivityApi();
+final String backupFilePath = backupFilePath_example; // String | 
 
 try {
-    final result = api_instance.loadBackup(backupFilePath);
-    print(result);
-} catch (e) {
+    final response = api.loadBackup(backupFilePath);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->loadBackup: $e\n');
 }
 ```
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List<String>**
+**BuiltList&lt;String&gt;**
 
 ### Authorization
 
@@ -694,12 +694,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
+final api = Openapi().getPlaybackReportingActivityApi();
 
 try {
-    final result = api_instance.pruneUnknownUsers();
-    print(result);
-} catch (e) {
+    final response = api.pruneUnknownUsers();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->pruneUnknownUsers: $e\n');
 }
 ```
@@ -723,7 +723,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **saveBackup**
-> List<String> saveBackup()
+> BuiltList<String> saveBackup()
 
 
 
@@ -735,12 +735,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaybackReportingActivityApi();
+final api = Openapi().getPlaybackReportingActivityApi();
 
 try {
-    final result = api_instance.saveBackup();
-    print(result);
-} catch (e) {
+    final response = api.saveBackup();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaybackReportingActivityApi->saveBackup: $e\n');
 }
 ```
@@ -750,7 +750,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**List<String>**
+**BuiltList&lt;String&gt;**
 
 ### Authorization
 

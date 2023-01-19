@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**List<DeviceInfo>**](DeviceInfo.md) | Gets or sets the items. | [optional] [default to const []]
+**items** | [**BuiltList&lt;DeviceInfo&gt;**](DeviceInfo.md) | Gets or sets the items. | [optional] 
 **totalRecordCount** | **int** | Gets or sets the total number of records available. | [optional] 
 **startIndex** | **int** | Gets or sets the index of the first record in Items. | [optional] 
 

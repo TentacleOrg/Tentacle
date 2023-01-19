@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **rememberIndexing** | **bool** | Gets or sets a value indicating whether [remember indexing]. | [optional] 
 **primaryImageHeight** | **int** | Gets or sets the height of the primary image. | [optional] 
 **primaryImageWidth** | **int** | Gets or sets the width of the primary image. | [optional] 
-**customPrefs** | **Map<String, String>** | Gets or sets the custom prefs. | [optional] [default to const {}]
+**customPrefs** | **BuiltMap&lt;String, String&gt;** | Gets or sets the custom prefs. | [optional] 
 **scrollDirection** | [**ScrollDirection**](ScrollDirection.md) | Gets or sets the scroll direction. | [optional] 
 **showBackdrop** | **bool** | Gets or sets a value indicating whether to show backdrops on this item. | [optional] 
 **rememberSorting** | **bool** | Gets or sets a value indicating whether [remember sorting]. | [optional] 

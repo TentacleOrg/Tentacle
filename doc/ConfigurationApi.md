@@ -30,12 +30,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ConfigurationApi();
+final api = Openapi().getConfigurationApi();
 
 try {
-    final result = api_instance.getConfiguration();
-    print(result);
-} catch (e) {
+    final response = api.getConfiguration();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ConfigurationApi->getConfiguration: $e\n');
 }
 ```
@@ -71,12 +71,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ConfigurationApi();
+final api = Openapi().getConfigurationApi();
 
 try {
-    final result = api_instance.getDefaultMetadataOptions();
-    print(result);
-} catch (e) {
+    final response = api.getDefaultMetadataOptions();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ConfigurationApi->getDefaultMetadataOptions: $e\n');
 }
 ```
@@ -100,7 +100,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNamedConfiguration**
-> MultipartFile getNamedConfiguration(key)
+> Uint8List getNamedConfiguration(key)
 
 Gets a named configuration.
 
@@ -112,13 +112,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ConfigurationApi();
-final key = key_example; // String | Configuration key.
+final api = Openapi().getConfigurationApi();
+final String key = key_example; // String | Configuration key.
 
 try {
-    final result = api_instance.getNamedConfiguration(key);
-    print(result);
-} catch (e) {
+    final response = api.getNamedConfiguration(key);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ConfigurationApi->getNamedConfiguration: $e\n');
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -157,12 +157,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ConfigurationApi();
-final updateConfigurationRequest = UpdateConfigurationRequest(); // UpdateConfigurationRequest | Configuration.
+final api = Openapi().getConfigurationApi();
+final UpdateConfigurationRequest updateConfigurationRequest = ; // UpdateConfigurationRequest | Configuration.
 
 try {
-    api_instance.updateConfiguration(updateConfigurationRequest);
-} catch (e) {
+    api.updateConfiguration(updateConfigurationRequest);
+} catch on DioError (e) {
     print('Exception when calling ConfigurationApi->updateConfiguration: $e\n');
 }
 ```
@@ -201,12 +201,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ConfigurationApi();
-final updateMediaEncoderPathRequest = UpdateMediaEncoderPathRequest(); // UpdateMediaEncoderPathRequest | Media encoder path form body.
+final api = Openapi().getConfigurationApi();
+final UpdateMediaEncoderPathRequest updateMediaEncoderPathRequest = ; // UpdateMediaEncoderPathRequest | Media encoder path form body.
 
 try {
-    api_instance.updateMediaEncoderPath(updateMediaEncoderPathRequest);
-} catch (e) {
+    api.updateMediaEncoderPath(updateMediaEncoderPathRequest);
+} catch on DioError (e) {
     print('Exception when calling ConfigurationApi->updateMediaEncoderPath: $e\n');
 }
 ```
@@ -245,13 +245,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ConfigurationApi();
-final key = key_example; // String | Configuration key.
-final body = Object(); // Object | Configuration.
+final api = Openapi().getConfigurationApi();
+final String key = key_example; // String | Configuration key.
+final JsonObject body = ; // JsonObject | Configuration.
 
 try {
-    api_instance.updateNamedConfiguration(key, body);
-} catch (e) {
+    api.updateNamedConfiguration(key, body);
+} catch on DioError (e) {
     print('Exception when calling ConfigurationApi->updateNamedConfiguration: $e\n');
 }
 ```
@@ -261,7 +261,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **key** | **String**| Configuration key. | 
- **body** | **Object**| Configuration. | 
+ **body** | **JsonObject**| Configuration. | 
 
 ### Return type
 

@@ -32,13 +32,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryStructureApi();
-final addMediaPathRequest = AddMediaPathRequest(); // AddMediaPathRequest | The media path dto.
-final refreshLibrary = true; // bool | Whether to refresh the library.
+final api = Openapi().getLibraryStructureApi();
+final AddMediaPathRequest addMediaPathRequest = ; // AddMediaPathRequest | The media path dto.
+final bool refreshLibrary = true; // bool | Whether to refresh the library.
 
 try {
-    api_instance.addMediaPath(addMediaPathRequest, refreshLibrary);
-} catch (e) {
+    api.addMediaPath(addMediaPathRequest, refreshLibrary);
+} catch on DioError (e) {
     print('Exception when calling LibraryStructureApi->addMediaPath: $e\n');
 }
 ```
@@ -78,16 +78,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryStructureApi();
-final name = name_example; // String | The name of the virtual folder.
-final collectionType = ; // CollectionTypeOptions | The type of the collection.
-final paths = []; // List<String> | The paths of the virtual folder.
-final refreshLibrary = true; // bool | Whether to refresh the library.
-final addVirtualFolderRequest = AddVirtualFolderRequest(); // AddVirtualFolderRequest | The library options.
+final api = Openapi().getLibraryStructureApi();
+final String name = name_example; // String | The name of the virtual folder.
+final CollectionTypeOptions collectionType = ; // CollectionTypeOptions | The type of the collection.
+final BuiltList<String> paths = ; // BuiltList<String> | The paths of the virtual folder.
+final bool refreshLibrary = true; // bool | Whether to refresh the library.
+final AddVirtualFolderRequest addVirtualFolderRequest = ; // AddVirtualFolderRequest | The library options.
 
 try {
-    api_instance.addVirtualFolder(name, collectionType, paths, refreshLibrary, addVirtualFolderRequest);
-} catch (e) {
+    api.addVirtualFolder(name, collectionType, paths, refreshLibrary, addVirtualFolderRequest);
+} catch on DioError (e) {
     print('Exception when calling LibraryStructureApi->addVirtualFolder: $e\n');
 }
 ```
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The name of the virtual folder. | [optional] 
  **collectionType** | [**CollectionTypeOptions**](.md)| The type of the collection. | [optional] 
- **paths** | [**List<String>**](String.md)| The paths of the virtual folder. | [optional] [default to const []]
+ **paths** | [**BuiltList&lt;String&gt;**](String.md)| The paths of the virtual folder. | [optional] 
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
  **addVirtualFolderRequest** | [**AddVirtualFolderRequest**](AddVirtualFolderRequest.md)| The library options. | [optional] 
 
@@ -118,7 +118,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getVirtualFolders**
-> List<VirtualFolderInfo> getVirtualFolders()
+> BuiltList<VirtualFolderInfo> getVirtualFolders()
 
 Gets all virtual folders.
 
@@ -130,12 +130,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryStructureApi();
+final api = Openapi().getLibraryStructureApi();
 
 try {
-    final result = api_instance.getVirtualFolders();
-    print(result);
-} catch (e) {
+    final response = api.getVirtualFolders();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LibraryStructureApi->getVirtualFolders: $e\n');
 }
 ```
@@ -145,7 +145,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<VirtualFolderInfo>**](VirtualFolderInfo.md)
+[**BuiltList&lt;VirtualFolderInfo&gt;**](VirtualFolderInfo.md)
 
 ### Authorization
 
@@ -171,14 +171,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryStructureApi();
-final name = name_example; // String | The name of the library.
-final path = path_example; // String | The path to remove.
-final refreshLibrary = true; // bool | Whether to refresh the library.
+final api = Openapi().getLibraryStructureApi();
+final String name = name_example; // String | The name of the library.
+final String path = path_example; // String | The path to remove.
+final bool refreshLibrary = true; // bool | Whether to refresh the library.
 
 try {
-    api_instance.removeMediaPath(name, path, refreshLibrary);
-} catch (e) {
+    api.removeMediaPath(name, path, refreshLibrary);
+} catch on DioError (e) {
     print('Exception when calling LibraryStructureApi->removeMediaPath: $e\n');
 }
 ```
@@ -219,13 +219,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryStructureApi();
-final name = name_example; // String | The name of the folder.
-final refreshLibrary = true; // bool | Whether to refresh the library.
+final api = Openapi().getLibraryStructureApi();
+final String name = name_example; // String | The name of the folder.
+final bool refreshLibrary = true; // bool | Whether to refresh the library.
 
 try {
-    api_instance.removeVirtualFolder(name, refreshLibrary);
-} catch (e) {
+    api.removeVirtualFolder(name, refreshLibrary);
+} catch on DioError (e) {
     print('Exception when calling LibraryStructureApi->removeVirtualFolder: $e\n');
 }
 ```
@@ -265,14 +265,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryStructureApi();
-final name = name_example; // String | The name of the virtual folder.
-final newName = newName_example; // String | The new name.
-final refreshLibrary = true; // bool | Whether to refresh the library.
+final api = Openapi().getLibraryStructureApi();
+final String name = name_example; // String | The name of the virtual folder.
+final String newName = newName_example; // String | The new name.
+final bool refreshLibrary = true; // bool | Whether to refresh the library.
 
 try {
-    api_instance.renameVirtualFolder(name, newName, refreshLibrary);
-} catch (e) {
+    api.renameVirtualFolder(name, newName, refreshLibrary);
+} catch on DioError (e) {
     print('Exception when calling LibraryStructureApi->renameVirtualFolder: $e\n');
 }
 ```
@@ -313,12 +313,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryStructureApi();
-final updateLibraryOptionsRequest = UpdateLibraryOptionsRequest(); // UpdateLibraryOptionsRequest | The library name and options.
+final api = Openapi().getLibraryStructureApi();
+final UpdateLibraryOptionsRequest updateLibraryOptionsRequest = ; // UpdateLibraryOptionsRequest | The library name and options.
 
 try {
-    api_instance.updateLibraryOptions(updateLibraryOptionsRequest);
-} catch (e) {
+    api.updateLibraryOptions(updateLibraryOptionsRequest);
+} catch on DioError (e) {
     print('Exception when calling LibraryStructureApi->updateLibraryOptions: $e\n');
 }
 ```
@@ -357,12 +357,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LibraryStructureApi();
-final updateMediaPathRequest = UpdateMediaPathRequest(); // UpdateMediaPathRequest | The name of the library and path infos.
+final api = Openapi().getLibraryStructureApi();
+final UpdateMediaPathRequest updateMediaPathRequest = ; // UpdateMediaPathRequest | The name of the library and path infos.
 
 try {
-    api_instance.updateMediaPath(updateMediaPathRequest);
-} catch (e) {
+    api.updateMediaPath(updateMediaPathRequest);
+} catch on DioError (e) {
     print('Exception when calling LibraryStructureApi->updateMediaPath: $e\n');
 }
 ```

@@ -30,12 +30,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PackageApi();
-final packageId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Installation Id.
+final api = Openapi().getPackageApi();
+final String packageId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Installation Id.
 
 try {
-    api_instance.cancelPackageInstallation(packageId);
-} catch (e) {
+    api.cancelPackageInstallation(packageId);
+} catch on DioError (e) {
     print('Exception when calling PackageApi->cancelPackageInstallation: $e\n');
 }
 ```
@@ -74,14 +74,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PackageApi();
-final name = name_example; // String | The name of the package.
-final assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The GUID of the associated assembly.
+final api = Openapi().getPackageApi();
+final String name = name_example; // String | The name of the package.
+final String assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The GUID of the associated assembly.
 
 try {
-    final result = api_instance.getPackageInfo(name, assemblyGuid);
-    print(result);
-} catch (e) {
+    final response = api.getPackageInfo(name, assemblyGuid);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PackageApi->getPackageInfo: $e\n');
 }
 ```
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPackages**
-> List<PackageInfo> getPackages()
+> BuiltList<PackageInfo> getPackages()
 
 Gets available packages.
 
@@ -121,12 +121,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PackageApi();
+final api = Openapi().getPackageApi();
 
 try {
-    final result = api_instance.getPackages();
-    print(result);
-} catch (e) {
+    final response = api.getPackages();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PackageApi->getPackages: $e\n');
 }
 ```
@@ -136,7 +136,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<PackageInfo>**](PackageInfo.md)
+[**BuiltList&lt;PackageInfo&gt;**](PackageInfo.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRepositories**
-> List<RepositoryInfo> getRepositories()
+> BuiltList<RepositoryInfo> getRepositories()
 
 Gets all package repositories.
 
@@ -162,12 +162,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PackageApi();
+final api = Openapi().getPackageApi();
 
 try {
-    final result = api_instance.getRepositories();
-    print(result);
-} catch (e) {
+    final response = api.getRepositories();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PackageApi->getRepositories: $e\n');
 }
 ```
@@ -177,7 +177,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<RepositoryInfo>**](RepositoryInfo.md)
+[**BuiltList&lt;RepositoryInfo&gt;**](RepositoryInfo.md)
 
 ### Authorization
 
@@ -203,15 +203,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PackageApi();
-final name = name_example; // String | Package name.
-final assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | GUID of the associated assembly.
-final version = version_example; // String | Optional version. Defaults to latest version.
-final repositoryUrl = repositoryUrl_example; // String | Optional. Specify the repository to install from.
+final api = Openapi().getPackageApi();
+final String name = name_example; // String | Package name.
+final String assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | GUID of the associated assembly.
+final String version = version_example; // String | Optional version. Defaults to latest version.
+final String repositoryUrl = repositoryUrl_example; // String | Optional. Specify the repository to install from.
 
 try {
-    api_instance.installPackage(name, assemblyGuid, version, repositoryUrl);
-} catch (e) {
+    api.installPackage(name, assemblyGuid, version, repositoryUrl);
+} catch on DioError (e) {
     print('Exception when calling PackageApi->installPackage: $e\n');
 }
 ```
@@ -253,12 +253,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PackageApi();
-final repositoryInfo = [List<RepositoryInfo>()]; // List<RepositoryInfo> | The list of package repositories.
+final api = Openapi().getPackageApi();
+final BuiltList<RepositoryInfo> repositoryInfo = ; // BuiltList<RepositoryInfo> | The list of package repositories.
 
 try {
-    api_instance.setRepositories(repositoryInfo);
-} catch (e) {
+    api.setRepositories(repositoryInfo);
+} catch on DioError (e) {
     print('Exception when calling PackageApi->setRepositories: $e\n');
 }
 ```
@@ -267,7 +267,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repositoryInfo** | [**List<RepositoryInfo>**](RepositoryInfo.md)| The list of package repositories. | 
+ **repositoryInfo** | [**BuiltList&lt;RepositoryInfo&gt;**](RepositoryInfo.md)| The list of package repositories. | 
 
 ### Return type
 

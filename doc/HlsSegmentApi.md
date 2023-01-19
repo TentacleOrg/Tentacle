@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **getHlsAudioSegmentLegacyAac**
-> MultipartFile getHlsAudioSegmentLegacyAac(itemId, segmentId)
+> Uint8List getHlsAudioSegmentLegacyAac(itemId, segmentId)
 
 Gets the specified audio segment for an audio item.
 
@@ -25,14 +25,14 @@ Gets the specified audio segment for an audio item.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = HlsSegmentApi();
-final itemId = itemId_example; // String | The item id.
-final segmentId = segmentId_example; // String | The segment id.
+final api = Openapi().getHlsSegmentApi();
+final String itemId = itemId_example; // String | The item id.
+final String segmentId = segmentId_example; // String | The segment id.
 
 try {
-    final result = api_instance.getHlsAudioSegmentLegacyAac(itemId, segmentId);
-    print(result);
-} catch (e) {
+    final response = api.getHlsAudioSegmentLegacyAac(itemId, segmentId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling HlsSegmentApi->getHlsAudioSegmentLegacyAac: $e\n');
 }
 ```
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getHlsAudioSegmentLegacyMp3**
-> MultipartFile getHlsAudioSegmentLegacyMp3(itemId, segmentId)
+> Uint8List getHlsAudioSegmentLegacyMp3(itemId, segmentId)
 
 Gets the specified audio segment for an audio item.
 
@@ -68,14 +68,14 @@ Gets the specified audio segment for an audio item.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = HlsSegmentApi();
-final itemId = itemId_example; // String | The item id.
-final segmentId = segmentId_example; // String | The segment id.
+final api = Openapi().getHlsSegmentApi();
+final String itemId = itemId_example; // String | The item id.
+final String segmentId = segmentId_example; // String | The segment id.
 
 try {
-    final result = api_instance.getHlsAudioSegmentLegacyMp3(itemId, segmentId);
-    print(result);
-} catch (e) {
+    final response = api.getHlsAudioSegmentLegacyMp3(itemId, segmentId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling HlsSegmentApi->getHlsAudioSegmentLegacyMp3: $e\n');
 }
 ```
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -103,7 +103,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getHlsPlaylistLegacy**
-> MultipartFile getHlsPlaylistLegacy(itemId, playlistId)
+> Uint8List getHlsPlaylistLegacy(itemId, playlistId)
 
 Gets a hls video playlist.
 
@@ -115,14 +115,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = HlsSegmentApi();
-final itemId = itemId_example; // String | The video id.
-final playlistId = playlistId_example; // String | The playlist id.
+final api = Openapi().getHlsSegmentApi();
+final String itemId = itemId_example; // String | The video id.
+final String playlistId = playlistId_example; // String | The playlist id.
 
 try {
-    final result = api_instance.getHlsPlaylistLegacy(itemId, playlistId);
-    print(result);
-} catch (e) {
+    final response = api.getHlsPlaylistLegacy(itemId, playlistId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling HlsSegmentApi->getHlsPlaylistLegacy: $e\n');
 }
 ```
@@ -136,7 +136,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getHlsVideoSegmentLegacy**
-> MultipartFile getHlsVideoSegmentLegacy(itemId, playlistId, segmentId, segmentContainer)
+> Uint8List getHlsVideoSegmentLegacy(itemId, playlistId, segmentId, segmentContainer)
 
 Gets a hls video segment.
 
@@ -158,16 +158,16 @@ Gets a hls video segment.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = HlsSegmentApi();
-final itemId = itemId_example; // String | The item id.
-final playlistId = playlistId_example; // String | The playlist id.
-final segmentId = segmentId_example; // String | The segment id.
-final segmentContainer = segmentContainer_example; // String | The segment container.
+final api = Openapi().getHlsSegmentApi();
+final String itemId = itemId_example; // String | The item id.
+final String playlistId = playlistId_example; // String | The playlist id.
+final String segmentId = segmentId_example; // String | The segment id.
+final String segmentContainer = segmentContainer_example; // String | The segment container.
 
 try {
-    final result = api_instance.getHlsVideoSegmentLegacy(itemId, playlistId, segmentId, segmentContainer);
-    print(result);
-} catch (e) {
+    final response = api.getHlsVideoSegmentLegacy(itemId, playlistId, segmentId, segmentContainer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling HlsSegmentApi->getHlsVideoSegmentLegacy: $e\n');
 }
 ```
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -209,13 +209,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = HlsSegmentApi();
-final deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
-final playSessionId = playSessionId_example; // String | The play session id.
+final api = Openapi().getHlsSegmentApi();
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String playSessionId = playSessionId_example; // String | The play session id.
 
 try {
-    api_instance.stopEncodingProcess(deviceId, playSessionId);
-} catch (e) {
+    api.stopEncodingProcess(deviceId, playSessionId);
+} catch on DioError (e) {
     print('Exception when calling HlsSegmentApi->stopEncodingProcess: $e\n');
 }
 ```

@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **album** | **String** | Gets or sets the album. | [optional] 
 **albumId** | **String** |  | [optional] 
 **albumArtist** | **String** | Gets or sets the album artist. | [optional] 
-**artists** | **List<String>** | Gets or sets the artists. | [optional] [default to const []]
+**artists** | **BuiltList&lt;String&gt;** | Gets or sets the artists. | [optional] 
 **songCount** | **int** | Gets or sets the song count. | [optional] 
 **episodeCount** | **int** | Gets or sets the episode count. | [optional] 
 **channelId** | **String** | Gets or sets the channel identifier. | [optional] 

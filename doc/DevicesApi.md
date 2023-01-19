@@ -29,12 +29,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DevicesApi();
-final id = id_example; // String | Device Id.
+final api = Openapi().getDevicesApi();
+final String id = id_example; // String | Device Id.
 
 try {
-    api_instance.deleteDevice(id);
-} catch (e) {
+    api.deleteDevice(id);
+} catch on DioError (e) {
     print('Exception when calling DevicesApi->deleteDevice: $e\n');
 }
 ```
@@ -73,13 +73,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DevicesApi();
-final id = id_example; // String | Device Id.
+final api = Openapi().getDevicesApi();
+final String id = id_example; // String | Device Id.
 
 try {
-    final result = api_instance.getDeviceInfo(id);
-    print(result);
-} catch (e) {
+    final response = api.getDeviceInfo(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DevicesApi->getDeviceInfo: $e\n');
 }
 ```
@@ -118,13 +118,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DevicesApi();
-final id = id_example; // String | Device Id.
+final api = Openapi().getDevicesApi();
+final String id = id_example; // String | Device Id.
 
 try {
-    final result = api_instance.getDeviceOptions(id);
-    print(result);
-} catch (e) {
+    final response = api.getDeviceOptions(id);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DevicesApi->getDeviceOptions: $e\n');
 }
 ```
@@ -163,14 +163,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DevicesApi();
-final supportsSync = true; // bool | Gets or sets a value indicating whether [supports synchronize].
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Gets or sets the user identifier.
+final api = Openapi().getDevicesApi();
+final bool supportsSync = true; // bool | Gets or sets a value indicating whether [supports synchronize].
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Gets or sets the user identifier.
 
 try {
-    final result = api_instance.getDevices(supportsSync, userId);
-    print(result);
-} catch (e) {
+    final response = api.getDevices(supportsSync, userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DevicesApi->getDevices: $e\n');
 }
 ```
@@ -210,13 +210,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DevicesApi();
-final id = id_example; // String | Device Id.
-final updateDeviceOptionsRequest = UpdateDeviceOptionsRequest(); // UpdateDeviceOptionsRequest | Device Options.
+final api = Openapi().getDevicesApi();
+final String id = id_example; // String | Device Id.
+final UpdateDeviceOptionsRequest updateDeviceOptionsRequest = ; // UpdateDeviceOptionsRequest | Device Options.
 
 try {
-    api_instance.updateDeviceOptions(id, updateDeviceOptionsRequest);
-} catch (e) {
+    api.updateDeviceOptions(id, updateDeviceOptionsRequest);
+} catch on DioError (e) {
     print('Exception when calling DevicesApi->updateDeviceOptions: $e\n');
 }
 ```

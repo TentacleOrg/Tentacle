@@ -44,8 +44,8 @@ Name | Type | Description | Notes
 **enableHardwareEncoding** | **bool** |  | [optional] 
 **allowHevcEncoding** | **bool** |  | [optional] 
 **enableSubtitleExtraction** | **bool** |  | [optional] 
-**hardwareDecodingCodecs** | **List<String>** |  | [optional] [default to const []]
-**allowOnDemandMetadataBasedKeyframeExtractionForExtensions** | **List<String>** |  | [optional] [default to const []]
+**hardwareDecodingCodecs** | **BuiltList&lt;String&gt;** |  | [optional] 
+**allowOnDemandMetadataBasedKeyframeExtractionForExtensions** | **BuiltList&lt;String&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

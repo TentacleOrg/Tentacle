@@ -34,12 +34,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    final result = api_instance.getEndpointInfo();
-    print(result);
-} catch (e) {
+    final response = api.getEndpointInfo();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SystemApi->getEndpointInfo: $e\n');
 }
 ```
@@ -63,7 +63,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLogFile**
-> MultipartFile getLogFile(name)
+> Uint8List getLogFile(name)
 
 Gets a log file.
 
@@ -75,13 +75,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SystemApi();
-final name = name_example; // String | The name of the log file to get.
+final api = Openapi().getSystemApi();
+final String name = name_example; // String | The name of the log file to get.
 
 try {
-    final result = api_instance.getLogFile(name);
-    print(result);
-} catch (e) {
+    final response = api.getLogFile(name);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SystemApi->getLogFile: $e\n');
 }
 ```
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -116,12 +116,12 @@ Pings the system.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    final result = api_instance.getPingSystem();
-    print(result);
-} catch (e) {
+    final response = api.getPingSystem();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SystemApi->getPingSystem: $e\n');
 }
 ```
@@ -153,12 +153,12 @@ Gets public information about the server.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    final result = api_instance.getPublicSystemInfo();
-    print(result);
-} catch (e) {
+    final response = api.getPublicSystemInfo();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SystemApi->getPublicSystemInfo: $e\n');
 }
 ```
@@ -182,7 +182,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getServerLogs**
-> List<LogFile> getServerLogs()
+> BuiltList<LogFile> getServerLogs()
 
 Gets a list of available server log files.
 
@@ -194,12 +194,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    final result = api_instance.getServerLogs();
-    print(result);
-} catch (e) {
+    final response = api.getServerLogs();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SystemApi->getServerLogs: $e\n');
 }
 ```
@@ -209,7 +209,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<LogFile>**](LogFile.md)
+[**BuiltList&lt;LogFile&gt;**](LogFile.md)
 
 ### Authorization
 
@@ -235,12 +235,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    final result = api_instance.getSystemInfo();
-    print(result);
-} catch (e) {
+    final response = api.getSystemInfo();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SystemApi->getSystemInfo: $e\n');
 }
 ```
@@ -264,7 +264,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getWakeOnLanInfo**
-> List<WakeOnLanInfo> getWakeOnLanInfo()
+> BuiltList<WakeOnLanInfo> getWakeOnLanInfo()
 
 Gets wake on lan information.
 
@@ -276,12 +276,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    final result = api_instance.getWakeOnLanInfo();
-    print(result);
-} catch (e) {
+    final response = api.getWakeOnLanInfo();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SystemApi->getWakeOnLanInfo: $e\n');
 }
 ```
@@ -291,7 +291,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<WakeOnLanInfo>**](WakeOnLanInfo.md)
+[**BuiltList&lt;WakeOnLanInfo&gt;**](WakeOnLanInfo.md)
 
 ### Authorization
 
@@ -313,12 +313,12 @@ Pings the system.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    final result = api_instance.postPingSystem();
-    print(result);
-} catch (e) {
+    final response = api.postPingSystem();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SystemApi->postPingSystem: $e\n');
 }
 ```
@@ -354,11 +354,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    api_instance.restartApplication();
-} catch (e) {
+    api.restartApplication();
+} catch on DioError (e) {
     print('Exception when calling SystemApi->restartApplication: $e\n');
 }
 ```
@@ -394,11 +394,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SystemApi();
+final api = Openapi().getSystemApi();
 
 try {
-    api_instance.shutdownApplication();
-} catch (e) {
+    api.shutdownApplication();
+} catch on DioError (e) {
     print('Exception when calling SystemApi->shutdownApplication: $e\n');
 }
 ```

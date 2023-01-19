@@ -8,8 +8,8 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**playableMediaTypes** | **List<String>** | Gets or sets the list of playable media types. | [optional] [default to const []]
-**supportedCommands** | [**List<GeneralCommandType>**](GeneralCommandType.md) | Gets or sets the list of supported commands. | [optional] [default to const []]
+**playableMediaTypes** | **BuiltList&lt;String&gt;** | Gets or sets the list of playable media types. | [optional] 
+**supportedCommands** | [**BuiltList&lt;GeneralCommandType&gt;**](GeneralCommandType.md) | Gets or sets the list of supported commands. | [optional] 
 **supportsMediaControl** | **bool** | Gets or sets a value indicating whether session supports media control. | [optional] 
 **supportsContentUploading** | **bool** | Gets or sets a value indicating whether session supports content uploading. | [optional] 
 **messageCallbackUrl** | **String** | Gets or sets the message callback url. | [optional] 

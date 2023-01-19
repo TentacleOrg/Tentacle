@@ -25,16 +25,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ItemRefreshApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final metadataRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the metadata refresh mode.
-final imageRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the image refresh mode.
-final replaceAllMetadata = true; // bool | (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh.
-final replaceAllImages = true; // bool | (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh.
+final api = Openapi().getItemRefreshApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final MetadataRefreshMode metadataRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the metadata refresh mode.
+final MetadataRefreshMode imageRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the image refresh mode.
+final bool replaceAllMetadata = true; // bool | (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh.
+final bool replaceAllImages = true; // bool | (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh.
 
 try {
-    api_instance.refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages);
-} catch (e) {
+    api.refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages);
+} catch on DioError (e) {
     print('Exception when calling ItemRefreshApi->refreshItem: $e\n');
 }
 ```

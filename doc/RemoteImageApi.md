@@ -27,14 +27,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = RemoteImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
-final type = ; // ImageType | The image type.
-final imageUrl = imageUrl_example; // String | The image url.
+final api = Openapi().getRemoteImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
+final ImageType type = ; // ImageType | The image type.
+final String imageUrl = imageUrl_example; // String | The image url.
 
 try {
-    api_instance.downloadRemoteImage(itemId, type, imageUrl);
-} catch (e) {
+    api.downloadRemoteImage(itemId, type, imageUrl);
+} catch on DioError (e) {
     print('Exception when calling RemoteImageApi->downloadRemoteImage: $e\n');
 }
 ```
@@ -63,7 +63,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRemoteImageProviders**
-> List<ImageProviderInfo> getRemoteImageProviders(itemId)
+> BuiltList<ImageProviderInfo> getRemoteImageProviders(itemId)
 
 Gets available remote image providers for an item.
 
@@ -75,13 +75,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = RemoteImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
+final api = Openapi().getRemoteImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
 
 try {
-    final result = api_instance.getRemoteImageProviders(itemId);
-    print(result);
-} catch (e) {
+    final response = api.getRemoteImageProviders(itemId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling RemoteImageApi->getRemoteImageProviders: $e\n');
 }
 ```
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<ImageProviderInfo>**](ImageProviderInfo.md)
+[**BuiltList&lt;ImageProviderInfo&gt;**](ImageProviderInfo.md)
 
 ### Authorization
 
@@ -120,18 +120,18 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = RemoteImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
-final type = ; // ImageType | The image type.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final providerName = providerName_example; // String | Optional. The image provider to use.
-final includeAllLanguages = true; // bool | Optional. Include all languages.
+final api = Openapi().getRemoteImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
+final ImageType type = ; // ImageType | The image type.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final String providerName = providerName_example; // String | Optional. The image provider to use.
+final bool includeAllLanguages = true; // bool | Optional. Include all languages.
 
 try {
-    final result = api_instance.getRemoteImages(itemId, type, startIndex, limit, providerName, includeAllLanguages);
-    print(result);
-} catch (e) {
+    final response = api.getRemoteImages(itemId, type, startIndex, limit, providerName, includeAllLanguages);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling RemoteImageApi->getRemoteImages: $e\n');
 }
 ```

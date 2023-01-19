@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getGroupingOptions**
-> List<SpecialViewOptionDto> getGroupingOptions(userId)
+> BuiltList<SpecialViewOptionDto> getGroupingOptions(userId)
 
 Get user view grouping options.
 
@@ -26,13 +26,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = UserViewsApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final api = Openapi().getUserViewsApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 
 try {
-    final result = api_instance.getGroupingOptions(userId);
-    print(result);
-} catch (e) {
+    final response = api.getGroupingOptions(userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling UserViewsApi->getGroupingOptions: $e\n');
 }
 ```
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<SpecialViewOptionDto>**](SpecialViewOptionDto.md)
+[**BuiltList&lt;SpecialViewOptionDto&gt;**](SpecialViewOptionDto.md)
 
 ### Authorization
 
@@ -71,16 +71,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = UserViewsApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final includeExternalContent = true; // bool | Whether or not to include external views such as channels or live tv.
-final presetViews = []; // List<String> | Preset views.
-final includeHidden = true; // bool | Whether or not to include hidden content.
+final api = Openapi().getUserViewsApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final bool includeExternalContent = true; // bool | Whether or not to include external views such as channels or live tv.
+final BuiltList<String> presetViews = ; // BuiltList<String> | Preset views.
+final bool includeHidden = true; // bool | Whether or not to include hidden content.
 
 try {
-    final result = api_instance.getUserViews(userId, includeExternalContent, presetViews, includeHidden);
-    print(result);
-} catch (e) {
+    final response = api.getUserViews(userId, includeExternalContent, presetViews, includeHidden);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling UserViewsApi->getUserViews: $e\n');
 }
 ```
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| User id. | 
  **includeExternalContent** | **bool**| Whether or not to include external views such as channels or live tv. | [optional] 
- **presetViews** | [**List<String>**](String.md)| Preset views. | [optional] [default to const []]
+ **presetViews** | [**BuiltList&lt;String&gt;**](String.md)| Preset views. | [optional] 
  **includeHidden** | **bool**| Whether or not to include hidden content. | [optional] [default to false]
 
 ### Return type

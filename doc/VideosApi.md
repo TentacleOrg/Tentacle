@@ -31,12 +31,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = VideosApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final api = Openapi().getVideosApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
-    api_instance.deleteAlternateSources(itemId);
-} catch (e) {
+    api.deleteAlternateSources(itemId);
+} catch on DioError (e) {
     print('Exception when calling VideosApi->deleteAlternateSources: $e\n');
 }
 ```
@@ -75,14 +75,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = VideosApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final api = Openapi().getVideosApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
 try {
-    final result = api_instance.getAdditionalPart(itemId, userId);
-    print(result);
-} catch (e) {
+    final response = api.getAdditionalPart(itemId, userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling VideosApi->getAdditionalPart: $e\n');
 }
 ```
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getVideoStream**
-> MultipartFile getVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions)
+> Uint8List getVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions)
 
 Gets a video stream.
 
@@ -118,63 +118,63 @@ Gets a video stream.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = VideosApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
-final static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
-final params = params_example; // String | The streaming parameters.
-final tag = tag_example; // String | The tag.
-final deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
-final playSessionId = playSessionId_example; // String | The play session id.
-final segmentContainer = segmentContainer_example; // String | The segment container.
-final segmentLength = 56; // int | The segment length.
-final minSegments = 56; // int | The minimum number of segments.
-final mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
-final deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
-final audioCodec = audioCodec_example; // String | Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
-final enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
-final allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
-final allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
-final breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
-final audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
-final maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
-final audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
-final audioChannels = 56; // int | Optional. Specify a specific number of audio channels to encode to, e.g. 2.
-final maxAudioChannels = 56; // int | Optional. Specify a maximum number of audio channels to encode to, e.g. 2.
-final profile = profile_example; // String | Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high.
-final level = level_example; // String | Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1.
-final framerate = 3.4; // double | Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
-final maxFramerate = 3.4; // double | Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
-final copyTimestamps = true; // bool | Whether or not to copy timestamps when transcoding with an offset. Defaults to false.
-final startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
-final width = 56; // int | Optional. The fixed horizontal resolution of the encoded video.
-final height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
-final maxWidth = 56; // int | Optional. The maximum horizontal resolution of the encoded video.
-final maxHeight = 56; // int | Optional. The maximum vertical resolution of the encoded video.
-final videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
-final subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
-final subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
-final maxRefFrames = 56; // int | Optional.
-final maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
-final requireAvc = true; // bool | Optional. Whether to require avc.
-final deInterlace = true; // bool | Optional. Whether to deinterlace the video.
-final requireNonAnamorphic = true; // bool | Optional. Whether to require a non anamorphic stream.
-final transcodingMaxAudioChannels = 56; // int | Optional. The maximum number of audio channels to transcode.
-final cpuCoreLimit = 56; // int | Optional. The limit of how many cpu cores to use.
-final liveStreamId = liveStreamId_example; // String | The live stream id.
-final enableMpegtsM2TsMode = true; // bool | Optional. Whether to enable the MpegtsM2Ts mode.
-final videoCodec = videoCodec_example; // String | Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
-final subtitleCodec = subtitleCodec_example; // String | Optional. Specify a subtitle codec to encode to.
-final transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
-final audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
-final videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
-final context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
-final streamOptions = ; // Map<String, String> | Optional. The streaming options.
+final api = Openapi().getVideosApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
+final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
+final String params = params_example; // String | The streaming parameters.
+final String tag = tag_example; // String | The tag.
+final String deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
+final String playSessionId = playSessionId_example; // String | The play session id.
+final String segmentContainer = segmentContainer_example; // String | The segment container.
+final int segmentLength = 56; // int | The segment length.
+final int minSegments = 56; // int | The minimum number of segments.
+final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String audioCodec = audioCodec_example; // String | Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+final bool enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
+final bool allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
+final bool allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
+final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
+final int audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
+final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
+final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
+final int audioChannels = 56; // int | Optional. Specify a specific number of audio channels to encode to, e.g. 2.
+final int maxAudioChannels = 56; // int | Optional. Specify a maximum number of audio channels to encode to, e.g. 2.
+final String profile = profile_example; // String | Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high.
+final String level = level_example; // String | Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1.
+final double framerate = 3.4; // double | Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
+final double maxFramerate = 3.4; // double | Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
+final bool copyTimestamps = true; // bool | Whether or not to copy timestamps when transcoding with an offset. Defaults to false.
+final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
+final int width = 56; // int | Optional. The fixed horizontal resolution of the encoded video.
+final int height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
+final int maxWidth = 56; // int | Optional. The maximum horizontal resolution of the encoded video.
+final int maxHeight = 56; // int | Optional. The maximum vertical resolution of the encoded video.
+final int videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
+final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
+final SubtitleDeliveryMethod subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
+final int maxRefFrames = 56; // int | Optional.
+final int maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
+final bool requireAvc = true; // bool | Optional. Whether to require avc.
+final bool deInterlace = true; // bool | Optional. Whether to deinterlace the video.
+final bool requireNonAnamorphic = true; // bool | Optional. Whether to require a non anamorphic stream.
+final int transcodingMaxAudioChannels = 56; // int | Optional. The maximum number of audio channels to transcode.
+final int cpuCoreLimit = 56; // int | Optional. The limit of how many cpu cores to use.
+final String liveStreamId = liveStreamId_example; // String | The live stream id.
+final bool enableMpegtsM2TsMode = true; // bool | Optional. Whether to enable the MpegtsM2Ts mode.
+final String videoCodec = videoCodec_example; // String | Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+final String subtitleCodec = subtitleCodec_example; // String | Optional. Specify a subtitle codec to encode to.
+final String transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
+final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
+final int videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
+final EncodingContext context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
+final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | Optional. The streaming options.
 
 try {
-    final result = api_instance.getVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
-    print(result);
-} catch (e) {
+    final response = api.getVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling VideosApi->getVideoStream: $e\n');
 }
 ```
@@ -233,11 +233,11 @@ Name | Type | Description  | Notes
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to use. If omitted the first audio stream will be used. | [optional] 
  **videoStreamIndex** | **int**| Optional. The index of the video stream to use. If omitted the first video stream will be used. | [optional] 
  **context** | [**EncodingContext**](.md)| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
- **streamOptions** | [**Map<String, String>**](String.md)| Optional. The streaming options. | [optional] [default to const {}]
+ **streamOptions** | [**BuiltMap&lt;String, String&gt;**](String.md)| Optional. The streaming options. | [optional] 
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -251,7 +251,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getVideoStreamByContainer**
-> MultipartFile getVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions)
+> Uint8List getVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions)
 
 Gets a video stream.
 
@@ -259,63 +259,63 @@ Gets a video stream.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = VideosApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
-final static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
-final params = params_example; // String | The streaming parameters.
-final tag = tag_example; // String | The tag.
-final deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
-final playSessionId = playSessionId_example; // String | The play session id.
-final segmentContainer = segmentContainer_example; // String | The segment container.
-final segmentLength = 56; // int | The segment length.
-final minSegments = 56; // int | The minimum number of segments.
-final mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
-final deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
-final audioCodec = audioCodec_example; // String | Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
-final enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
-final allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
-final allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
-final breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
-final audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
-final maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
-final audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
-final audioChannels = 56; // int | Optional. Specify a specific number of audio channels to encode to, e.g. 2.
-final maxAudioChannels = 56; // int | Optional. Specify a maximum number of audio channels to encode to, e.g. 2.
-final profile = profile_example; // String | Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high.
-final level = level_example; // String | Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1.
-final framerate = 3.4; // double | Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
-final maxFramerate = 3.4; // double | Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
-final copyTimestamps = true; // bool | Whether or not to copy timestamps when transcoding with an offset. Defaults to false.
-final startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
-final width = 56; // int | Optional. The fixed horizontal resolution of the encoded video.
-final height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
-final maxWidth = 56; // int | Optional. The maximum horizontal resolution of the encoded video.
-final maxHeight = 56; // int | Optional. The maximum vertical resolution of the encoded video.
-final videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
-final subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
-final subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
-final maxRefFrames = 56; // int | Optional.
-final maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
-final requireAvc = true; // bool | Optional. Whether to require avc.
-final deInterlace = true; // bool | Optional. Whether to deinterlace the video.
-final requireNonAnamorphic = true; // bool | Optional. Whether to require a non anamorphic stream.
-final transcodingMaxAudioChannels = 56; // int | Optional. The maximum number of audio channels to transcode.
-final cpuCoreLimit = 56; // int | Optional. The limit of how many cpu cores to use.
-final liveStreamId = liveStreamId_example; // String | The live stream id.
-final enableMpegtsM2TsMode = true; // bool | Optional. Whether to enable the MpegtsM2Ts mode.
-final videoCodec = videoCodec_example; // String | Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
-final subtitleCodec = subtitleCodec_example; // String | Optional. Specify a subtitle codec to encode to.
-final transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
-final audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
-final videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
-final context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
-final streamOptions = ; // Map<String, String> | Optional. The streaming options.
+final api = Openapi().getVideosApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
+final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
+final String params = params_example; // String | The streaming parameters.
+final String tag = tag_example; // String | The tag.
+final String deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
+final String playSessionId = playSessionId_example; // String | The play session id.
+final String segmentContainer = segmentContainer_example; // String | The segment container.
+final int segmentLength = 56; // int | The segment length.
+final int minSegments = 56; // int | The minimum number of segments.
+final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String audioCodec = audioCodec_example; // String | Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+final bool enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
+final bool allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
+final bool allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
+final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
+final int audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
+final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
+final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
+final int audioChannels = 56; // int | Optional. Specify a specific number of audio channels to encode to, e.g. 2.
+final int maxAudioChannels = 56; // int | Optional. Specify a maximum number of audio channels to encode to, e.g. 2.
+final String profile = profile_example; // String | Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high.
+final String level = level_example; // String | Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1.
+final double framerate = 3.4; // double | Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
+final double maxFramerate = 3.4; // double | Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
+final bool copyTimestamps = true; // bool | Whether or not to copy timestamps when transcoding with an offset. Defaults to false.
+final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
+final int width = 56; // int | Optional. The fixed horizontal resolution of the encoded video.
+final int height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
+final int maxWidth = 56; // int | Optional. The maximum horizontal resolution of the encoded video.
+final int maxHeight = 56; // int | Optional. The maximum vertical resolution of the encoded video.
+final int videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
+final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
+final SubtitleDeliveryMethod subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
+final int maxRefFrames = 56; // int | Optional.
+final int maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
+final bool requireAvc = true; // bool | Optional. Whether to require avc.
+final bool deInterlace = true; // bool | Optional. Whether to deinterlace the video.
+final bool requireNonAnamorphic = true; // bool | Optional. Whether to require a non anamorphic stream.
+final int transcodingMaxAudioChannels = 56; // int | Optional. The maximum number of audio channels to transcode.
+final int cpuCoreLimit = 56; // int | Optional. The limit of how many cpu cores to use.
+final String liveStreamId = liveStreamId_example; // String | The live stream id.
+final bool enableMpegtsM2TsMode = true; // bool | Optional. Whether to enable the MpegtsM2Ts mode.
+final String videoCodec = videoCodec_example; // String | Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+final String subtitleCodec = subtitleCodec_example; // String | Optional. Specify a subtitle codec to encode to.
+final String transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
+final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
+final int videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
+final EncodingContext context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
+final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | Optional. The streaming options.
 
 try {
-    final result = api_instance.getVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
-    print(result);
-} catch (e) {
+    final response = api.getVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling VideosApi->getVideoStreamByContainer: $e\n');
 }
 ```
@@ -374,11 +374,11 @@ Name | Type | Description  | Notes
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to use. If omitted the first audio stream will be used. | [optional] 
  **videoStreamIndex** | **int**| Optional. The index of the video stream to use. If omitted the first video stream will be used. | [optional] 
  **context** | [**EncodingContext**](.md)| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
- **streamOptions** | [**Map<String, String>**](String.md)| Optional. The streaming options. | [optional] [default to const {}]
+ **streamOptions** | [**BuiltMap&lt;String, String&gt;**](String.md)| Optional. The streaming options. | [optional] 
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -392,7 +392,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headVideoStream**
-> MultipartFile headVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions)
+> Uint8List headVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions)
 
 Gets a video stream.
 
@@ -400,63 +400,63 @@ Gets a video stream.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = VideosApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
-final static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
-final params = params_example; // String | The streaming parameters.
-final tag = tag_example; // String | The tag.
-final deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
-final playSessionId = playSessionId_example; // String | The play session id.
-final segmentContainer = segmentContainer_example; // String | The segment container.
-final segmentLength = 56; // int | The segment length.
-final minSegments = 56; // int | The minimum number of segments.
-final mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
-final deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
-final audioCodec = audioCodec_example; // String | Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
-final enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
-final allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
-final allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
-final breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
-final audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
-final maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
-final audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
-final audioChannels = 56; // int | Optional. Specify a specific number of audio channels to encode to, e.g. 2.
-final maxAudioChannels = 56; // int | Optional. Specify a maximum number of audio channels to encode to, e.g. 2.
-final profile = profile_example; // String | Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high.
-final level = level_example; // String | Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1.
-final framerate = 3.4; // double | Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
-final maxFramerate = 3.4; // double | Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
-final copyTimestamps = true; // bool | Whether or not to copy timestamps when transcoding with an offset. Defaults to false.
-final startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
-final width = 56; // int | Optional. The fixed horizontal resolution of the encoded video.
-final height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
-final maxWidth = 56; // int | Optional. The maximum horizontal resolution of the encoded video.
-final maxHeight = 56; // int | Optional. The maximum vertical resolution of the encoded video.
-final videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
-final subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
-final subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
-final maxRefFrames = 56; // int | Optional.
-final maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
-final requireAvc = true; // bool | Optional. Whether to require avc.
-final deInterlace = true; // bool | Optional. Whether to deinterlace the video.
-final requireNonAnamorphic = true; // bool | Optional. Whether to require a non anamorphic stream.
-final transcodingMaxAudioChannels = 56; // int | Optional. The maximum number of audio channels to transcode.
-final cpuCoreLimit = 56; // int | Optional. The limit of how many cpu cores to use.
-final liveStreamId = liveStreamId_example; // String | The live stream id.
-final enableMpegtsM2TsMode = true; // bool | Optional. Whether to enable the MpegtsM2Ts mode.
-final videoCodec = videoCodec_example; // String | Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
-final subtitleCodec = subtitleCodec_example; // String | Optional. Specify a subtitle codec to encode to.
-final transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
-final audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
-final videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
-final context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
-final streamOptions = ; // Map<String, String> | Optional. The streaming options.
+final api = Openapi().getVideosApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
+final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
+final String params = params_example; // String | The streaming parameters.
+final String tag = tag_example; // String | The tag.
+final String deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
+final String playSessionId = playSessionId_example; // String | The play session id.
+final String segmentContainer = segmentContainer_example; // String | The segment container.
+final int segmentLength = 56; // int | The segment length.
+final int minSegments = 56; // int | The minimum number of segments.
+final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String audioCodec = audioCodec_example; // String | Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+final bool enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
+final bool allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
+final bool allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
+final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
+final int audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
+final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
+final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
+final int audioChannels = 56; // int | Optional. Specify a specific number of audio channels to encode to, e.g. 2.
+final int maxAudioChannels = 56; // int | Optional. Specify a maximum number of audio channels to encode to, e.g. 2.
+final String profile = profile_example; // String | Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high.
+final String level = level_example; // String | Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1.
+final double framerate = 3.4; // double | Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
+final double maxFramerate = 3.4; // double | Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
+final bool copyTimestamps = true; // bool | Whether or not to copy timestamps when transcoding with an offset. Defaults to false.
+final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
+final int width = 56; // int | Optional. The fixed horizontal resolution of the encoded video.
+final int height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
+final int maxWidth = 56; // int | Optional. The maximum horizontal resolution of the encoded video.
+final int maxHeight = 56; // int | Optional. The maximum vertical resolution of the encoded video.
+final int videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
+final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
+final SubtitleDeliveryMethod subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
+final int maxRefFrames = 56; // int | Optional.
+final int maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
+final bool requireAvc = true; // bool | Optional. Whether to require avc.
+final bool deInterlace = true; // bool | Optional. Whether to deinterlace the video.
+final bool requireNonAnamorphic = true; // bool | Optional. Whether to require a non anamorphic stream.
+final int transcodingMaxAudioChannels = 56; // int | Optional. The maximum number of audio channels to transcode.
+final int cpuCoreLimit = 56; // int | Optional. The limit of how many cpu cores to use.
+final String liveStreamId = liveStreamId_example; // String | The live stream id.
+final bool enableMpegtsM2TsMode = true; // bool | Optional. Whether to enable the MpegtsM2Ts mode.
+final String videoCodec = videoCodec_example; // String | Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+final String subtitleCodec = subtitleCodec_example; // String | Optional. Specify a subtitle codec to encode to.
+final String transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
+final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
+final int videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
+final EncodingContext context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
+final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | Optional. The streaming options.
 
 try {
-    final result = api_instance.headVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
-    print(result);
-} catch (e) {
+    final response = api.headVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling VideosApi->headVideoStream: $e\n');
 }
 ```
@@ -515,11 +515,11 @@ Name | Type | Description  | Notes
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to use. If omitted the first audio stream will be used. | [optional] 
  **videoStreamIndex** | **int**| Optional. The index of the video stream to use. If omitted the first video stream will be used. | [optional] 
  **context** | [**EncodingContext**](.md)| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
- **streamOptions** | [**Map<String, String>**](String.md)| Optional. The streaming options. | [optional] [default to const {}]
+ **streamOptions** | [**BuiltMap&lt;String, String&gt;**](String.md)| Optional. The streaming options. | [optional] 
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -533,7 +533,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headVideoStreamByContainer**
-> MultipartFile headVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions)
+> Uint8List headVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions)
 
 Gets a video stream.
 
@@ -541,63 +541,63 @@ Gets a video stream.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = VideosApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
-final static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
-final params = params_example; // String | The streaming parameters.
-final tag = tag_example; // String | The tag.
-final deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
-final playSessionId = playSessionId_example; // String | The play session id.
-final segmentContainer = segmentContainer_example; // String | The segment container.
-final segmentLength = 56; // int | The segment length.
-final minSegments = 56; // int | The minimum number of segments.
-final mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
-final deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
-final audioCodec = audioCodec_example; // String | Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
-final enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
-final allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
-final allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
-final breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
-final audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
-final maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
-final audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
-final audioChannels = 56; // int | Optional. Specify a specific number of audio channels to encode to, e.g. 2.
-final maxAudioChannels = 56; // int | Optional. Specify a maximum number of audio channels to encode to, e.g. 2.
-final profile = profile_example; // String | Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high.
-final level = level_example; // String | Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1.
-final framerate = 3.4; // double | Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
-final maxFramerate = 3.4; // double | Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
-final copyTimestamps = true; // bool | Whether or not to copy timestamps when transcoding with an offset. Defaults to false.
-final startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
-final width = 56; // int | Optional. The fixed horizontal resolution of the encoded video.
-final height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
-final maxWidth = 56; // int | Optional. The maximum horizontal resolution of the encoded video.
-final maxHeight = 56; // int | Optional. The maximum vertical resolution of the encoded video.
-final videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
-final subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
-final subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
-final maxRefFrames = 56; // int | Optional.
-final maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
-final requireAvc = true; // bool | Optional. Whether to require avc.
-final deInterlace = true; // bool | Optional. Whether to deinterlace the video.
-final requireNonAnamorphic = true; // bool | Optional. Whether to require a non anamorphic stream.
-final transcodingMaxAudioChannels = 56; // int | Optional. The maximum number of audio channels to transcode.
-final cpuCoreLimit = 56; // int | Optional. The limit of how many cpu cores to use.
-final liveStreamId = liveStreamId_example; // String | The live stream id.
-final enableMpegtsM2TsMode = true; // bool | Optional. Whether to enable the MpegtsM2Ts mode.
-final videoCodec = videoCodec_example; // String | Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
-final subtitleCodec = subtitleCodec_example; // String | Optional. Specify a subtitle codec to encode to.
-final transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
-final audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
-final videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
-final context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
-final streamOptions = ; // Map<String, String> | Optional. The streaming options.
+final api = Openapi().getVideosApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
+final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
+final String params = params_example; // String | The streaming parameters.
+final String tag = tag_example; // String | The tag.
+final String deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
+final String playSessionId = playSessionId_example; // String | The play session id.
+final String segmentContainer = segmentContainer_example; // String | The segment container.
+final int segmentLength = 56; // int | The segment length.
+final int minSegments = 56; // int | The minimum number of segments.
+final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String audioCodec = audioCodec_example; // String | Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+final bool enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
+final bool allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
+final bool allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
+final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
+final int audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
+final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
+final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
+final int audioChannels = 56; // int | Optional. Specify a specific number of audio channels to encode to, e.g. 2.
+final int maxAudioChannels = 56; // int | Optional. Specify a maximum number of audio channels to encode to, e.g. 2.
+final String profile = profile_example; // String | Optional. Specify a specific an encoder profile (varies by encoder), e.g. main, baseline, high.
+final String level = level_example; // String | Optional. Specify a level for the encoder profile (varies by encoder), e.g. 3, 3.1.
+final double framerate = 3.4; // double | Optional. A specific video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
+final double maxFramerate = 3.4; // double | Optional. A specific maximum video framerate to encode to, e.g. 23.976. Generally this should be omitted unless the device has specific requirements.
+final bool copyTimestamps = true; // bool | Whether or not to copy timestamps when transcoding with an offset. Defaults to false.
+final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
+final int width = 56; // int | Optional. The fixed horizontal resolution of the encoded video.
+final int height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
+final int maxWidth = 56; // int | Optional. The maximum horizontal resolution of the encoded video.
+final int maxHeight = 56; // int | Optional. The maximum vertical resolution of the encoded video.
+final int videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
+final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
+final SubtitleDeliveryMethod subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
+final int maxRefFrames = 56; // int | Optional.
+final int maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
+final bool requireAvc = true; // bool | Optional. Whether to require avc.
+final bool deInterlace = true; // bool | Optional. Whether to deinterlace the video.
+final bool requireNonAnamorphic = true; // bool | Optional. Whether to require a non anamorphic stream.
+final int transcodingMaxAudioChannels = 56; // int | Optional. The maximum number of audio channels to transcode.
+final int cpuCoreLimit = 56; // int | Optional. The limit of how many cpu cores to use.
+final String liveStreamId = liveStreamId_example; // String | The live stream id.
+final bool enableMpegtsM2TsMode = true; // bool | Optional. Whether to enable the MpegtsM2Ts mode.
+final String videoCodec = videoCodec_example; // String | Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+final String subtitleCodec = subtitleCodec_example; // String | Optional. Specify a subtitle codec to encode to.
+final String transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
+final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
+final int videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
+final EncodingContext context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
+final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | Optional. The streaming options.
 
 try {
-    final result = api_instance.headVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
-    print(result);
-} catch (e) {
+    final response = api.headVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling VideosApi->headVideoStreamByContainer: $e\n');
 }
 ```
@@ -656,11 +656,11 @@ Name | Type | Description  | Notes
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to use. If omitted the first audio stream will be used. | [optional] 
  **videoStreamIndex** | **int**| Optional. The index of the video stream to use. If omitted the first video stream will be used. | [optional] 
  **context** | [**EncodingContext**](.md)| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
- **streamOptions** | [**Map<String, String>**](String.md)| Optional. The streaming options. | [optional] [default to const {}]
+ **streamOptions** | [**BuiltMap&lt;String, String&gt;**](String.md)| Optional. The streaming options. | [optional] 
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -686,12 +686,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = VideosApi();
-final ids = []; // List<String> | Item id list. This allows multiple, comma delimited.
+final api = Openapi().getVideosApi();
+final BuiltList<String> ids = ; // BuiltList<String> | Item id list. This allows multiple, comma delimited.
 
 try {
-    api_instance.mergeVersions(ids);
-} catch (e) {
+    api.mergeVersions(ids);
+} catch on DioError (e) {
     print('Exception when calling VideosApi->mergeVersions: $e\n');
 }
 ```
@@ -700,7 +700,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**List<String>**](String.md)| Item id list. This allows multiple, comma delimited. | [default to const []]
+ **ids** | [**BuiltList&lt;String&gt;**](String.md)| Item id list. This allows multiple, comma delimited. | 
 
 ### Return type
 

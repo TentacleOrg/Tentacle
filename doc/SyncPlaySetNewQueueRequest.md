@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**playingQueue** | **List<String>** | Gets or sets the playing queue. | [optional] [default to const []]
+**playingQueue** | **BuiltList&lt;String&gt;** | Gets or sets the playing queue. | [optional] 
 **playingItemPosition** | **int** | Gets or sets the position of the playing item in the queue. | [optional] 
 **startPositionTicks** | **int** | Gets or sets the start position ticks. | [optional] 
 

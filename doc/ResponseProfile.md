@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **type** | [**DlnaProfileType**](DlnaProfileType.md) |  | [optional] 
 **orgPn** | **String** |  | [optional] 
 **mimeType** | **String** |  | [optional] 
-**conditions** | [**List<ProfileCondition>**](ProfileCondition.md) |  | [optional] [default to const []]
+**conditions** | [**BuiltList&lt;ProfileCondition&gt;**](ProfileCondition.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

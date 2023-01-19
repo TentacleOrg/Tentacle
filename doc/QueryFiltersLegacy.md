@@ -8,10 +8,10 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**genres** | **List<String>** |  | [optional] [default to const []]
-**tags** | **List<String>** |  | [optional] [default to const []]
-**officialRatings** | **List<String>** |  | [optional] [default to const []]
-**years** | **List<int>** |  | [optional] [default to const []]
+**genres** | **BuiltList&lt;String&gt;** |  | [optional] 
+**tags** | **BuiltList&lt;String&gt;** |  | [optional] 
+**officialRatings** | **BuiltList&lt;String&gt;** |  | [optional] 
+**years** | **BuiltList&lt;int&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

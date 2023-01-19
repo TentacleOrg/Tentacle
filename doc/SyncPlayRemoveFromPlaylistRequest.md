@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**playlistItemIds** | **List<String>** | Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist. | [optional] [default to const []]
+**playlistItemIds** | **BuiltList&lt;String&gt;** | Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist. | [optional] 
 **clearPlaylist** | **bool** | Gets or sets a value indicating whether the entire playlist should be cleared. | [optional] 
 **clearPlayingItem** | **bool** | Gets or sets a value indicating whether the playing item should be removed as well. Used only when clearing the playlist. | [optional] 
 

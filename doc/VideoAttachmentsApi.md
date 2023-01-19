@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **getAttachment**
-> MultipartFile getAttachment(videoId, mediaSourceId, index)
+> Uint8List getAttachment(videoId, mediaSourceId, index)
 
 Get video attachment.
 
@@ -21,15 +21,15 @@ Get video attachment.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = VideoAttachmentsApi();
-final videoId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Video ID.
-final mediaSourceId = mediaSourceId_example; // String | Media Source ID.
-final index = 56; // int | Attachment Index.
+final api = Openapi().getVideoAttachmentsApi();
+final String videoId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Video ID.
+final String mediaSourceId = mediaSourceId_example; // String | Media Source ID.
+final int index = 56; // int | Attachment Index.
 
 try {
-    final result = api_instance.getAttachment(videoId, mediaSourceId, index);
-    print(result);
-} catch (e) {
+    final response = api.getAttachment(videoId, mediaSourceId, index);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling VideoAttachmentsApi->getAttachment: $e\n');
 }
 ```
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 

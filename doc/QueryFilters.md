@@ -8,8 +8,8 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**genres** | [**List<NameGuidPair>**](NameGuidPair.md) |  | [optional] [default to const []]
-**tags** | **List<String>** |  | [optional] [default to const []]
+**genres** | [**BuiltList&lt;NameGuidPair&gt;**](NameGuidPair.md) |  | [optional] 
+**tags** | **BuiltList&lt;String&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -25,30 +25,30 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SearchApi();
-final searchTerm = searchTerm_example; // String | The search term to filter on.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Supply a user id to search within a user's library or omit to search all.
-final includeItemTypes = []; // List<BaseItemKind> | If specified, only results with the specified item types are returned. This allows multiple, comma delimeted.
-final excludeItemTypes = []; // List<BaseItemKind> | If specified, results with these item types are filtered out. This allows multiple, comma delimeted.
-final mediaTypes = []; // List<String> | If specified, only results with the specified media types are returned. This allows multiple, comma delimeted.
-final parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | If specified, only children of the parent are returned.
-final isMovie = true; // bool | Optional filter for movies.
-final isSeries = true; // bool | Optional filter for series.
-final isNews = true; // bool | Optional filter for news.
-final isKids = true; // bool | Optional filter for kids.
-final isSports = true; // bool | Optional filter for sports.
-final includePeople = true; // bool | Optional filter whether to include people.
-final includeMedia = true; // bool | Optional filter whether to include media.
-final includeGenres = true; // bool | Optional filter whether to include genres.
-final includeStudios = true; // bool | Optional filter whether to include studios.
-final includeArtists = true; // bool | Optional filter whether to include artists.
+final api = Openapi().getSearchApi();
+final String searchTerm = searchTerm_example; // String | The search term to filter on.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Supply a user id to search within a user's library or omit to search all.
+final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | If specified, only results with the specified item types are returned. This allows multiple, comma delimeted.
+final BuiltList<BaseItemKind> excludeItemTypes = ; // BuiltList<BaseItemKind> | If specified, results with these item types are filtered out. This allows multiple, comma delimeted.
+final BuiltList<String> mediaTypes = ; // BuiltList<String> | If specified, only results with the specified media types are returned. This allows multiple, comma delimeted.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | If specified, only children of the parent are returned.
+final bool isMovie = true; // bool | Optional filter for movies.
+final bool isSeries = true; // bool | Optional filter for series.
+final bool isNews = true; // bool | Optional filter for news.
+final bool isKids = true; // bool | Optional filter for kids.
+final bool isSports = true; // bool | Optional filter for sports.
+final bool includePeople = true; // bool | Optional filter whether to include people.
+final bool includeMedia = true; // bool | Optional filter whether to include media.
+final bool includeGenres = true; // bool | Optional filter whether to include genres.
+final bool includeStudios = true; // bool | Optional filter whether to include studios.
+final bool includeArtists = true; // bool | Optional filter whether to include artists.
 
 try {
-    final result = api_instance.callGet(searchTerm, startIndex, limit, userId, includeItemTypes, excludeItemTypes, mediaTypes, parentId, isMovie, isSeries, isNews, isKids, isSports, includePeople, includeMedia, includeGenres, includeStudios, includeArtists);
-    print(result);
-} catch (e) {
+    final response = api.callGet(searchTerm, startIndex, limit, userId, includeItemTypes, excludeItemTypes, mediaTypes, parentId, isMovie, isSeries, isNews, isKids, isSports, includePeople, includeMedia, includeGenres, includeStudios, includeArtists);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SearchApi->callGet: $e\n');
 }
 ```
@@ -61,9 +61,9 @@ Name | Type | Description  | Notes
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
  **userId** | **String**| Optional. Supply a user id to search within a user's library or omit to search all. | [optional] 
- **includeItemTypes** | [**List<BaseItemKind>**](BaseItemKind.md)| If specified, only results with the specified item types are returned. This allows multiple, comma delimeted. | [optional] [default to const []]
- **excludeItemTypes** | [**List<BaseItemKind>**](BaseItemKind.md)| If specified, results with these item types are filtered out. This allows multiple, comma delimeted. | [optional] [default to const []]
- **mediaTypes** | [**List<String>**](String.md)| If specified, only results with the specified media types are returned. This allows multiple, comma delimeted. | [optional] [default to const []]
+ **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| If specified, only results with the specified item types are returned. This allows multiple, comma delimeted. | [optional] 
+ **excludeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| If specified, results with these item types are filtered out. This allows multiple, comma delimeted. | [optional] 
+ **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| If specified, only results with the specified media types are returned. This allows multiple, comma delimeted. | [optional] 
  **parentId** | **String**| If specified, only children of the parent are returned. | [optional] 
  **isMovie** | **bool**| Optional filter for movies. | [optional] 
  **isSeries** | **bool**| Optional filter for series. | [optional] 

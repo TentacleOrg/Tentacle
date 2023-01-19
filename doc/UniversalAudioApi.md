@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getUniversalAudioStream**
-> MultipartFile getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection)
+> Uint8List getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection)
 
 Gets an audio stream.
 
@@ -26,30 +26,30 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = UniversalAudioApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final container = []; // List<String> | Optional. The audio container.
-final mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
-final deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. The user id.
-final audioCodec = audioCodec_example; // String | Optional. The audio codec to transcode to.
-final maxAudioChannels = 56; // int | Optional. The maximum number of audio channels.
-final transcodingAudioChannels = 56; // int | Optional. The number of how many audio channels to transcode to.
-final maxStreamingBitrate = 56; // int | Optional. The maximum streaming bitrate.
-final audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
-final startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
-final transcodingContainer = transcodingContainer_example; // String | Optional. The container to transcode to.
-final transcodingProtocol = transcodingProtocol_example; // String | Optional. The transcoding protocol.
-final maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
-final maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
-final enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
-final breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
-final enableRedirection = true; // bool | Whether to enable redirection. Defaults to true.
+final api = Openapi().getUniversalAudioApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> container = ; // BuiltList<String> | Optional. The audio container.
+final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. The user id.
+final String audioCodec = audioCodec_example; // String | Optional. The audio codec to transcode to.
+final int maxAudioChannels = 56; // int | Optional. The maximum number of audio channels.
+final int transcodingAudioChannels = 56; // int | Optional. The number of how many audio channels to transcode to.
+final int maxStreamingBitrate = 56; // int | Optional. The maximum streaming bitrate.
+final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
+final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
+final String transcodingContainer = transcodingContainer_example; // String | Optional. The container to transcode to.
+final String transcodingProtocol = transcodingProtocol_example; // String | Optional. The transcoding protocol.
+final int maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
+final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
+final bool enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
+final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
+final bool enableRedirection = true; // bool | Whether to enable redirection. Defaults to true.
 
 try {
-    final result = api_instance.getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection);
-    print(result);
-} catch (e) {
+    final response = api.getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling UniversalAudioApi->getUniversalAudioStream: $e\n');
 }
 ```
@@ -59,7 +59,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **container** | [**List<String>**](String.md)| Optional. The audio container. | [optional] [default to const []]
+ **container** | [**BuiltList&lt;String&gt;**](String.md)| Optional. The audio container. | [optional] 
  **mediaSourceId** | **String**| The media version id, if playing an alternate version. | [optional] 
  **deviceId** | **String**| The device id of the client requesting. Used to stop encoding processes when needed. | [optional] 
  **userId** | **String**| Optional. The user id. | [optional] 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headUniversalAudioStream**
-> MultipartFile headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection)
+> Uint8List headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection)
 
 Gets an audio stream.
 
@@ -105,30 +105,30 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = UniversalAudioApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final container = []; // List<String> | Optional. The audio container.
-final mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
-final deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. The user id.
-final audioCodec = audioCodec_example; // String | Optional. The audio codec to transcode to.
-final maxAudioChannels = 56; // int | Optional. The maximum number of audio channels.
-final transcodingAudioChannels = 56; // int | Optional. The number of how many audio channels to transcode to.
-final maxStreamingBitrate = 56; // int | Optional. The maximum streaming bitrate.
-final audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
-final startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
-final transcodingContainer = transcodingContainer_example; // String | Optional. The container to transcode to.
-final transcodingProtocol = transcodingProtocol_example; // String | Optional. The transcoding protocol.
-final maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
-final maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
-final enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
-final breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
-final enableRedirection = true; // bool | Whether to enable redirection. Defaults to true.
+final api = Openapi().getUniversalAudioApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> container = ; // BuiltList<String> | Optional. The audio container.
+final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. The user id.
+final String audioCodec = audioCodec_example; // String | Optional. The audio codec to transcode to.
+final int maxAudioChannels = 56; // int | Optional. The maximum number of audio channels.
+final int transcodingAudioChannels = 56; // int | Optional. The number of how many audio channels to transcode to.
+final int maxStreamingBitrate = 56; // int | Optional. The maximum streaming bitrate.
+final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
+final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
+final String transcodingContainer = transcodingContainer_example; // String | Optional. The container to transcode to.
+final String transcodingProtocol = transcodingProtocol_example; // String | Optional. The transcoding protocol.
+final int maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
+final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
+final bool enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
+final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
+final bool enableRedirection = true; // bool | Whether to enable redirection. Defaults to true.
 
 try {
-    final result = api_instance.headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection);
-    print(result);
-} catch (e) {
+    final response = api.headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling UniversalAudioApi->headUniversalAudioStream: $e\n');
 }
 ```
@@ -138,7 +138,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **container** | [**List<String>**](String.md)| Optional. The audio container. | [optional] [default to const []]
+ **container** | [**BuiltList&lt;String&gt;**](String.md)| Optional. The audio container. | [optional] 
  **mediaSourceId** | **String**| The media version id, if playing an alternate version. | [optional] 
  **deviceId** | **String**| The device id of the client requesting. Used to stop encoding processes when needed. | [optional] 
  **userId** | **String**| Optional. The user id. | [optional] 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 

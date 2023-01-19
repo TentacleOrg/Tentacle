@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Gets or sets the name. | [optional] 
-**locations** | **List<String>** | Gets or sets the locations. | [optional] [default to const []]
+**locations** | **BuiltList&lt;String&gt;** | Gets or sets the locations. | [optional] 
 **collectionType** | [**CollectionTypeOptions**](CollectionTypeOptions.md) | Gets or sets the type of the collection. | [optional] 
 **libraryOptions** | [**VirtualFolderInfoLibraryOptions**](VirtualFolderInfoLibraryOptions.md) |  | [optional] 
 **itemId** | **String** | Gets or sets the item identifier. | [optional] 

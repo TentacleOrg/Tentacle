@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getDefaultDirectoryBrowser**](EnvironmentApi.md#getdefaultdirectorybrowser) | **GET** /Environment/DefaultDirectoryBrowser | Get Default directory browser.
 [**getDirectoryContents**](EnvironmentApi.md#getdirectorycontents) | **GET** /Environment/DirectoryContents | Gets the contents of a given directory in the file system.
-[**getDrives**](EnvironmentApi.md#getdrives) | **GET** /Environment/Drives | Gets available drives from the server's file system.
+[**getDrives**](EnvironmentApi.md#getdrives) | **GET** /Environment/Drives | Gets available drives from the server&#39;s file system.
 [**getNetworkShares**](EnvironmentApi.md#getnetworkshares) | **GET** /Environment/NetworkShares | Gets network paths.
 [**getParentPath**](EnvironmentApi.md#getparentpath) | **GET** /Environment/ParentPath | Gets the parent path of a given path.
 [**validatePath**](EnvironmentApi.md#validatepath) | **POST** /Environment/ValidatePath | Validates path.
@@ -30,12 +30,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = EnvironmentApi();
+final api = Openapi().getEnvironmentApi();
 
 try {
-    final result = api_instance.getDefaultDirectoryBrowser();
-    print(result);
-} catch (e) {
+    final response = api.getDefaultDirectoryBrowser();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling EnvironmentApi->getDefaultDirectoryBrowser: $e\n');
 }
 ```
@@ -59,7 +59,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDirectoryContents**
-> List<FileSystemEntryInfo> getDirectoryContents(path, includeFiles, includeDirectories)
+> BuiltList<FileSystemEntryInfo> getDirectoryContents(path, includeFiles, includeDirectories)
 
 Gets the contents of a given directory in the file system.
 
@@ -71,15 +71,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = EnvironmentApi();
-final path = path_example; // String | The path.
-final includeFiles = true; // bool | An optional filter to include or exclude files from the results. true/false.
-final includeDirectories = true; // bool | An optional filter to include or exclude folders from the results. true/false.
+final api = Openapi().getEnvironmentApi();
+final String path = path_example; // String | The path.
+final bool includeFiles = true; // bool | An optional filter to include or exclude files from the results. true/false.
+final bool includeDirectories = true; // bool | An optional filter to include or exclude folders from the results. true/false.
 
 try {
-    final result = api_instance.getDirectoryContents(path, includeFiles, includeDirectories);
-    print(result);
-} catch (e) {
+    final response = api.getDirectoryContents(path, includeFiles, includeDirectories);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling EnvironmentApi->getDirectoryContents: $e\n');
 }
 ```
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<FileSystemEntryInfo>**](FileSystemEntryInfo.md)
+[**BuiltList&lt;FileSystemEntryInfo&gt;**](FileSystemEntryInfo.md)
 
 ### Authorization
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDrives**
-> List<FileSystemEntryInfo> getDrives()
+> BuiltList<FileSystemEntryInfo> getDrives()
 
 Gets available drives from the server's file system.
 
@@ -120,12 +120,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = EnvironmentApi();
+final api = Openapi().getEnvironmentApi();
 
 try {
-    final result = api_instance.getDrives();
-    print(result);
-} catch (e) {
+    final response = api.getDrives();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling EnvironmentApi->getDrives: $e\n');
 }
 ```
@@ -135,7 +135,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<FileSystemEntryInfo>**](FileSystemEntryInfo.md)
+[**BuiltList&lt;FileSystemEntryInfo&gt;**](FileSystemEntryInfo.md)
 
 ### Authorization
 
@@ -149,7 +149,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNetworkShares**
-> List<FileSystemEntryInfo> getNetworkShares()
+> BuiltList<FileSystemEntryInfo> getNetworkShares()
 
 Gets network paths.
 
@@ -161,12 +161,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = EnvironmentApi();
+final api = Openapi().getEnvironmentApi();
 
 try {
-    final result = api_instance.getNetworkShares();
-    print(result);
-} catch (e) {
+    final response = api.getNetworkShares();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling EnvironmentApi->getNetworkShares: $e\n');
 }
 ```
@@ -176,7 +176,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<FileSystemEntryInfo>**](FileSystemEntryInfo.md)
+[**BuiltList&lt;FileSystemEntryInfo&gt;**](FileSystemEntryInfo.md)
 
 ### Authorization
 
@@ -202,13 +202,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = EnvironmentApi();
-final path = path_example; // String | The path.
+final api = Openapi().getEnvironmentApi();
+final String path = path_example; // String | The path.
 
 try {
-    final result = api_instance.getParentPath(path);
-    print(result);
-} catch (e) {
+    final response = api.getParentPath(path);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling EnvironmentApi->getParentPath: $e\n');
 }
 ```
@@ -247,12 +247,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = EnvironmentApi();
-final validatePathRequest = ValidatePathRequest(); // ValidatePathRequest | Validate request object.
+final api = Openapi().getEnvironmentApi();
+final ValidatePathRequest validatePathRequest = ; // ValidatePathRequest | Validate request object.
 
 try {
-    api_instance.validatePath(validatePathRequest);
-} catch (e) {
+    api.validatePath(validatePathRequest);
+} catch on DioError (e) {
     print('Exception when calling EnvironmentApi->validatePath: $e\n');
 }
 ```

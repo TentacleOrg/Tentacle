@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **getGeneralImage**
-> MultipartFile getGeneralImage(name, type)
+> Uint8List getGeneralImage(name, type)
 
 Get General Image.
 
@@ -26,14 +26,14 @@ Get General Image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageByNameApi();
-final name = name_example; // String | The name of the image.
-final type = type_example; // String | Image Type (primary, backdrop, logo, etc).
+final api = Openapi().getImageByNameApi();
+final String name = name_example; // String | The name of the image.
+final String type = type_example; // String | Image Type (primary, backdrop, logo, etc).
 
 try {
-    final result = api_instance.getGeneralImage(name, type);
-    print(result);
-} catch (e) {
+    final response = api.getGeneralImage(name, type);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageByNameApi->getGeneralImage: $e\n');
 }
 ```
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGeneralImages**
-> List<ImageByNameInfo> getGeneralImages()
+> BuiltList<ImageByNameInfo> getGeneralImages()
 
 Get all general images.
 
@@ -73,12 +73,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageByNameApi();
+final api = Openapi().getImageByNameApi();
 
 try {
-    final result = api_instance.getGeneralImages();
-    print(result);
-} catch (e) {
+    final response = api.getGeneralImages();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageByNameApi->getGeneralImages: $e\n');
 }
 ```
@@ -88,7 +88,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<ImageByNameInfo>**](ImageByNameInfo.md)
+[**BuiltList&lt;ImageByNameInfo&gt;**](ImageByNameInfo.md)
 
 ### Authorization
 
@@ -102,7 +102,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaInfoImage**
-> MultipartFile getMediaInfoImage(theme, name)
+> Uint8List getMediaInfoImage(theme, name)
 
 Get media info image.
 
@@ -110,14 +110,14 @@ Get media info image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageByNameApi();
-final theme = theme_example; // String | The theme to get the image from.
-final name = name_example; // String | The name of the image.
+final api = Openapi().getImageByNameApi();
+final String theme = theme_example; // String | The theme to get the image from.
+final String name = name_example; // String | The name of the image.
 
 try {
-    final result = api_instance.getMediaInfoImage(theme, name);
-    print(result);
-} catch (e) {
+    final response = api.getMediaInfoImage(theme, name);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageByNameApi->getMediaInfoImage: $e\n');
 }
 ```
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -145,7 +145,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaInfoImages**
-> List<ImageByNameInfo> getMediaInfoImages()
+> BuiltList<ImageByNameInfo> getMediaInfoImages()
 
 Get all media info images.
 
@@ -157,12 +157,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageByNameApi();
+final api = Openapi().getImageByNameApi();
 
 try {
-    final result = api_instance.getMediaInfoImages();
-    print(result);
-} catch (e) {
+    final response = api.getMediaInfoImages();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageByNameApi->getMediaInfoImages: $e\n');
 }
 ```
@@ -172,7 +172,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<ImageByNameInfo>**](ImageByNameInfo.md)
+[**BuiltList&lt;ImageByNameInfo&gt;**](ImageByNameInfo.md)
 
 ### Authorization
 
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRatingImage**
-> MultipartFile getRatingImage(theme, name)
+> Uint8List getRatingImage(theme, name)
 
 Get rating image.
 
@@ -194,14 +194,14 @@ Get rating image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageByNameApi();
-final theme = theme_example; // String | The theme to get the image from.
-final name = name_example; // String | The name of the image.
+final api = Openapi().getImageByNameApi();
+final String theme = theme_example; // String | The theme to get the image from.
+final String name = name_example; // String | The name of the image.
 
 try {
-    final result = api_instance.getRatingImage(theme, name);
-    print(result);
-} catch (e) {
+    final response = api.getRatingImage(theme, name);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageByNameApi->getRatingImage: $e\n');
 }
 ```
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -229,7 +229,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRatingImages**
-> List<ImageByNameInfo> getRatingImages()
+> BuiltList<ImageByNameInfo> getRatingImages()
 
 Get all general images.
 
@@ -241,12 +241,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageByNameApi();
+final api = Openapi().getImageByNameApi();
 
 try {
-    final result = api_instance.getRatingImages();
-    print(result);
-} catch (e) {
+    final response = api.getRatingImages();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageByNameApi->getRatingImages: $e\n');
 }
 ```
@@ -256,7 +256,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<ImageByNameInfo>**](ImageByNameInfo.md)
+[**BuiltList&lt;ImageByNameInfo&gt;**](ImageByNameInfo.md)
 
 ### Authorization
 

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **minSegments** | **int** |  | [optional] [default to 0]
 **segmentLength** | **int** |  | [optional] [default to 0]
 **breakOnNonKeyFrames** | **bool** |  | [optional] [default to false]
-**conditions** | [**List<ProfileCondition>**](ProfileCondition.md) |  | [optional] [default to const []]
+**conditions** | [**BuiltList&lt;ProfileCondition&gt;**](ProfileCondition.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **currentProgressPercentage** | **double** | Gets or sets the progress. | [optional] 
 **id** | **String** | Gets or sets the id. | [optional] 
 **lastExecutionResult** | [**TaskInfoLastExecutionResult**](TaskInfoLastExecutionResult.md) |  | [optional] 
-**triggers** | [**List<TaskTriggerInfo>**](TaskTriggerInfo.md) | Gets or sets the triggers. | [optional] [default to const []]
+**triggers** | [**BuiltList&lt;TaskTriggerInfo&gt;**](TaskTriggerInfo.md) | Gets or sets the triggers. | [optional] 
 **description** | **String** | Gets or sets the description. | [optional] 
 **category** | **String** | Gets or sets the category. | [optional] 
 **isHidden** | **bool** | Gets or sets a value indicating whether this instance is hidden. | [optional] 

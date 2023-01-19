@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getCountries**
-> List<CountryInfo> getCountries()
+> BuiltList<CountryInfo> getCountries()
 
 Gets known countries.
 
@@ -28,12 +28,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LocalizationApi();
+final api = Openapi().getLocalizationApi();
 
 try {
-    final result = api_instance.getCountries();
-    print(result);
-} catch (e) {
+    final response = api.getCountries();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LocalizationApi->getCountries: $e\n');
 }
 ```
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<CountryInfo>**](CountryInfo.md)
+[**BuiltList&lt;CountryInfo&gt;**](CountryInfo.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCultures**
-> List<CultureDto> getCultures()
+> BuiltList<CultureDto> getCultures()
 
 Gets known cultures.
 
@@ -69,12 +69,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LocalizationApi();
+final api = Openapi().getLocalizationApi();
 
 try {
-    final result = api_instance.getCultures();
-    print(result);
-} catch (e) {
+    final response = api.getCultures();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LocalizationApi->getCultures: $e\n');
 }
 ```
@@ -84,7 +84,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<CultureDto>**](CultureDto.md)
+[**BuiltList&lt;CultureDto&gt;**](CultureDto.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLocalizationOptions**
-> List<LocalizationOption> getLocalizationOptions()
+> BuiltList<LocalizationOption> getLocalizationOptions()
 
 Gets localization options.
 
@@ -110,12 +110,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LocalizationApi();
+final api = Openapi().getLocalizationApi();
 
 try {
-    final result = api_instance.getLocalizationOptions();
-    print(result);
-} catch (e) {
+    final response = api.getLocalizationOptions();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LocalizationApi->getLocalizationOptions: $e\n');
 }
 ```
@@ -125,7 +125,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<LocalizationOption>**](LocalizationOption.md)
+[**BuiltList&lt;LocalizationOption&gt;**](LocalizationOption.md)
 
 ### Authorization
 
@@ -139,7 +139,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getParentalRatings**
-> List<ParentalRating> getParentalRatings()
+> BuiltList<ParentalRating> getParentalRatings()
 
 Gets known parental ratings.
 
@@ -151,12 +151,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LocalizationApi();
+final api = Openapi().getLocalizationApi();
 
 try {
-    final result = api_instance.getParentalRatings();
-    print(result);
-} catch (e) {
+    final response = api.getParentalRatings();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LocalizationApi->getParentalRatings: $e\n');
 }
 ```
@@ -166,7 +166,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<ParentalRating>**](ParentalRating.md)
+[**BuiltList&lt;ParentalRating&gt;**](ParentalRating.md)
 
 ### Authorization
 

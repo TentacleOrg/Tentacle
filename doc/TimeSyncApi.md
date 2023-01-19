@@ -21,12 +21,12 @@ Gets the current UTC time.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = TimeSyncApi();
+final api = Openapi().getTimeSyncApi();
 
 try {
-    final result = api_instance.getUtcTime();
-    print(result);
-} catch (e) {
+    final response = api.getUtcTime();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling TimeSyncApi->getUtcTime: $e\n');
 }
 ```

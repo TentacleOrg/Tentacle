@@ -27,12 +27,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ApiKeyApi();
-final app = app_example; // String | Name of the app using the authentication key.
+final api = Openapi().getApiKeyApi();
+final String app = app_example; // String | Name of the app using the authentication key.
 
 try {
-    api_instance.createKey(app);
-} catch (e) {
+    api.createKey(app);
+} catch on DioError (e) {
     print('Exception when calling ApiKeyApi->createKey: $e\n');
 }
 ```
@@ -71,12 +71,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ApiKeyApi();
+final api = Openapi().getApiKeyApi();
 
 try {
-    final result = api_instance.getKeys();
-    print(result);
-} catch (e) {
+    final response = api.getKeys();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ApiKeyApi->getKeys: $e\n');
 }
 ```
@@ -112,12 +112,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ApiKeyApi();
-final key = key_example; // String | The access token to delete.
+final api = Openapi().getApiKeyApi();
+final String key = key_example; // String | The access token to delete.
 
 try {
-    api_instance.revokeKey(key);
-} catch (e) {
+    api.revokeKey(key);
+} catch on DioError (e) {
     print('Exception when calling ApiKeyApi->revokeKey: $e\n');
 }
 ```

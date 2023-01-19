@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **postPaddingSeconds** | **int** | Gets or sets the post padding seconds. | [optional] 
 **isPrePaddingRequired** | **bool** | Gets or sets a value indicating whether this instance is pre padding required. | [optional] 
 **parentBackdropItemId** | **String** | Gets or sets the Id of the Parent that has a backdrop if the item does not have one. | [optional] 
-**parentBackdropImageTags** | **List<String>** | Gets or sets the parent backdrop image tags. | [optional] [default to const []]
+**parentBackdropImageTags** | **BuiltList&lt;String&gt;** | Gets or sets the parent backdrop image tags. | [optional] 
 **isPostPaddingRequired** | **bool** | Gets or sets a value indicating whether this instance is post padding required. | [optional] 
 **keepUntil** | [**KeepUntil**](KeepUntil.md) |  | [optional] 
 **status** | [**RecordingStatus**](RecordingStatus.md) | Gets or sets the status. | [optional] 

@@ -9,7 +9,7 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version** | **String** | Gets or sets the version. | [optional] 
-**versionNumber** | **String** | Gets the version as a System.Version. | [optional] [readonly] 
+**versionNumber** | **String** | Gets the version as a System.Version. | [optional] 
 **changelog** | **String** | Gets or sets the changelog for this version. | [optional] 
 **targetAbi** | **String** | Gets or sets the ABI that this version was built against. | [optional] 
 **sourceUrl** | **String** | Gets or sets the source URL. | [optional] 

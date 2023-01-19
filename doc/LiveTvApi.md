@@ -65,16 +65,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final pw = pw_example; // String | Password.
-final validateListings = true; // bool | Validate listings.
-final validateLogin = true; // bool | Validate login.
-final addListingProviderRequest = AddListingProviderRequest(); // AddListingProviderRequest | New listings info.
+final api = Openapi().getLiveTvApi();
+final String pw = pw_example; // String | Password.
+final bool validateListings = true; // bool | Validate listings.
+final bool validateLogin = true; // bool | Validate login.
+final AddListingProviderRequest addListingProviderRequest = ; // AddListingProviderRequest | New listings info.
 
 try {
-    final result = api_instance.addListingProvider(pw, validateListings, validateLogin, addListingProviderRequest);
-    print(result);
-} catch (e) {
+    final response = api.addListingProvider(pw, validateListings, validateLogin, addListingProviderRequest);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->addListingProvider: $e\n');
 }
 ```
@@ -116,13 +116,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final addTunerHostRequest = AddTunerHostRequest(); // AddTunerHostRequest | New tuner host.
+final api = Openapi().getLiveTvApi();
+final AddTunerHostRequest addTunerHostRequest = ; // AddTunerHostRequest | New tuner host.
 
 try {
-    final result = api_instance.addTunerHost(addTunerHostRequest);
-    print(result);
-} catch (e) {
+    final response = api.addTunerHost(addTunerHostRequest);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->addTunerHost: $e\n');
 }
 ```
@@ -161,12 +161,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final timerId = timerId_example; // String | Timer id.
+final api = Openapi().getLiveTvApi();
+final String timerId = timerId_example; // String | Timer id.
 
 try {
-    api_instance.cancelSeriesTimer(timerId);
-} catch (e) {
+    api.cancelSeriesTimer(timerId);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->cancelSeriesTimer: $e\n');
 }
 ```
@@ -205,12 +205,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final timerId = timerId_example; // String | Timer id.
+final api = Openapi().getLiveTvApi();
+final String timerId = timerId_example; // String | Timer id.
 
 try {
-    api_instance.cancelTimer(timerId);
-} catch (e) {
+    api.cancelTimer(timerId);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->cancelTimer: $e\n');
 }
 ```
@@ -249,12 +249,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final createSeriesTimerRequest = CreateSeriesTimerRequest(); // CreateSeriesTimerRequest | New series timer info.
+final api = Openapi().getLiveTvApi();
+final CreateSeriesTimerRequest createSeriesTimerRequest = ; // CreateSeriesTimerRequest | New series timer info.
 
 try {
-    api_instance.createSeriesTimer(createSeriesTimerRequest);
-} catch (e) {
+    api.createSeriesTimer(createSeriesTimerRequest);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->createSeriesTimer: $e\n');
 }
 ```
@@ -293,12 +293,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final createTimerRequest = CreateTimerRequest(); // CreateTimerRequest | New timer info.
+final api = Openapi().getLiveTvApi();
+final CreateTimerRequest createTimerRequest = ; // CreateTimerRequest | New timer info.
 
 try {
-    api_instance.createTimer(createTimerRequest);
-} catch (e) {
+    api.createTimer(createTimerRequest);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->createTimer: $e\n');
 }
 ```
@@ -337,12 +337,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final id = id_example; // String | Listing provider id.
+final api = Openapi().getLiveTvApi();
+final String id = id_example; // String | Listing provider id.
 
 try {
-    api_instance.deleteListingProvider(id);
-} catch (e) {
+    api.deleteListingProvider(id);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->deleteListingProvider: $e\n');
 }
 ```
@@ -381,12 +381,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final recordingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Recording id.
+final api = Openapi().getLiveTvApi();
+final String recordingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Recording id.
 
 try {
-    api_instance.deleteRecording(recordingId);
-} catch (e) {
+    api.deleteRecording(recordingId);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->deleteRecording: $e\n');
 }
 ```
@@ -425,12 +425,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final id = id_example; // String | Tuner host id.
+final api = Openapi().getLiveTvApi();
+final String id = id_example; // String | Tuner host id.
 
 try {
-    api_instance.deleteTunerHost(id);
-} catch (e) {
+    api.deleteTunerHost(id);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->deleteTunerHost: $e\n');
 }
 ```
@@ -457,7 +457,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discoverTuners**
-> List<TunerHostInfo> discoverTuners(newDevicesOnly)
+> BuiltList<TunerHostInfo> discoverTuners(newDevicesOnly)
 
 Discover tuners.
 
@@ -469,13 +469,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final newDevicesOnly = true; // bool | Only discover new tuners.
+final api = Openapi().getLiveTvApi();
+final bool newDevicesOnly = true; // bool | Only discover new tuners.
 
 try {
-    final result = api_instance.discoverTuners(newDevicesOnly);
-    print(result);
-} catch (e) {
+    final response = api.discoverTuners(newDevicesOnly);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->discoverTuners: $e\n');
 }
 ```
@@ -488,7 +488,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<TunerHostInfo>**](TunerHostInfo.md)
+[**BuiltList&lt;TunerHostInfo&gt;**](TunerHostInfo.md)
 
 ### Authorization
 
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **discvoverTuners**
-> List<TunerHostInfo> discvoverTuners(newDevicesOnly)
+> BuiltList<TunerHostInfo> discvoverTuners(newDevicesOnly)
 
 Discover tuners.
 
@@ -514,13 +514,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final newDevicesOnly = true; // bool | Only discover new tuners.
+final api = Openapi().getLiveTvApi();
+final bool newDevicesOnly = true; // bool | Only discover new tuners.
 
 try {
-    final result = api_instance.discvoverTuners(newDevicesOnly);
-    print(result);
-} catch (e) {
+    final response = api.discvoverTuners(newDevicesOnly);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->discvoverTuners: $e\n');
 }
 ```
@@ -533,7 +533,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<TunerHostInfo>**](TunerHostInfo.md)
+[**BuiltList&lt;TunerHostInfo&gt;**](TunerHostInfo.md)
 
 ### Authorization
 
@@ -559,14 +559,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
+final api = Openapi().getLiveTvApi();
+final String channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
 
 try {
-    final result = api_instance.getChannel(channelId, userId);
-    print(result);
-} catch (e) {
+    final response = api.getChannel(channelId, userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getChannel: $e\n');
 }
 ```
@@ -606,13 +606,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final providerId = providerId_example; // String | Provider id.
+final api = Openapi().getLiveTvApi();
+final String providerId = providerId_example; // String | Provider id.
 
 try {
-    final result = api_instance.getChannelMappingOptions(providerId);
-    print(result);
-} catch (e) {
+    final response = api.getChannelMappingOptions(providerId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getChannelMappingOptions: $e\n');
 }
 ```
@@ -651,12 +651,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
+final api = Openapi().getLiveTvApi();
 
 try {
-    final result = api_instance.getDefaultListingProvider();
-    print(result);
-} catch (e) {
+    final response = api.getDefaultListingProvider();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getDefaultListingProvider: $e\n');
 }
 ```
@@ -692,13 +692,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final programId = programId_example; // String | Optional. To attach default values based on a program.
+final api = Openapi().getLiveTvApi();
+final String programId = programId_example; // String | Optional. To attach default values based on a program.
 
 try {
-    final result = api_instance.getDefaultTimer(programId);
-    print(result);
-} catch (e) {
+    final response = api.getDefaultTimer(programId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getDefaultTimer: $e\n');
 }
 ```
@@ -737,12 +737,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
+final api = Openapi().getLiveTvApi();
 
 try {
-    final result = api_instance.getGuideInfo();
-    print(result);
-} catch (e) {
+    final response = api.getGuideInfo();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getGuideInfo: $e\n');
 }
 ```
@@ -766,7 +766,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLineups**
-> List<NameIdPair> getLineups(id, type, location, country)
+> BuiltList<NameIdPair> getLineups(id, type, location, country)
 
 Gets available lineups.
 
@@ -778,16 +778,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final id = id_example; // String | Provider id.
-final type = type_example; // String | Provider type.
-final location = location_example; // String | Location.
-final country = country_example; // String | Country.
+final api = Openapi().getLiveTvApi();
+final String id = id_example; // String | Provider id.
+final String type = type_example; // String | Provider type.
+final String location = location_example; // String | Location.
+final String country = country_example; // String | Country.
 
 try {
-    final result = api_instance.getLineups(id, type, location, country);
-    print(result);
-} catch (e) {
+    final response = api.getLineups(id, type, location, country);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getLineups: $e\n');
 }
 ```
@@ -803,7 +803,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<NameIdPair>**](NameIdPair.md)
+[**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md)
 
 ### Authorization
 
@@ -817,7 +817,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLiveRecordingFile**
-> MultipartFile getLiveRecordingFile(recordingId)
+> Uint8List getLiveRecordingFile(recordingId)
 
 Gets a live tv recording stream.
 
@@ -825,13 +825,13 @@ Gets a live tv recording stream.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = LiveTvApi();
-final recordingId = recordingId_example; // String | Recording id.
+final api = Openapi().getLiveTvApi();
+final String recordingId = recordingId_example; // String | Recording id.
 
 try {
-    final result = api_instance.getLiveRecordingFile(recordingId);
-    print(result);
-} catch (e) {
+    final response = api.getLiveRecordingFile(recordingId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getLiveRecordingFile: $e\n');
 }
 ```
@@ -844,7 +844,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -858,7 +858,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLiveStreamFile**
-> MultipartFile getLiveStreamFile(streamId, container)
+> Uint8List getLiveStreamFile(streamId, container)
 
 Gets a live tv channel stream.
 
@@ -866,14 +866,14 @@ Gets a live tv channel stream.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = LiveTvApi();
-final streamId = streamId_example; // String | Stream id.
-final container = container_example; // String | Container type.
+final api = Openapi().getLiveTvApi();
+final String streamId = streamId_example; // String | Stream id.
+final String container = container_example; // String | Container type.
 
 try {
-    final result = api_instance.getLiveStreamFile(streamId, container);
-    print(result);
-} catch (e) {
+    final response = api.getLiveStreamFile(streamId, container);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getLiveStreamFile: $e\n');
 }
 ```
@@ -887,7 +887,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -913,33 +913,33 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final type = ; // ChannelType | Optional. Filter by channel type.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final isMovie = true; // bool | Optional. Filter for movies.
-final isSeries = true; // bool | Optional. Filter for series.
-final isNews = true; // bool | Optional. Filter for news.
-final isKids = true; // bool | Optional. Filter for kids.
-final isSports = true; // bool | Optional. Filter for sports.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final isFavorite = true; // bool | Optional. Filter by channels that are favorites, or not.
-final isLiked = true; // bool | Optional. Filter by channels that are liked, or not.
-final isDisliked = true; // bool | Optional. Filter by channels that are disliked, or not.
-final enableImages = true; // bool | Optional. Include image information in output.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | \"Optional. The image types to include in the output.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final enableUserData = true; // bool | Optional. Include user data.
-final sortBy = []; // List<String> | Optional. Key to sort by.
-final sortOrder = ; // SortOrder | Optional. Sort order.
-final enableFavoriteSorting = true; // bool | Optional. Incorporate favorite and like status into channel sorting.
-final addCurrentProgram = true; // bool | Optional. Adds current program info to each channel.
+final api = Openapi().getLiveTvApi();
+final ChannelType type = ; // ChannelType | Optional. Filter by channel type.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final bool isMovie = true; // bool | Optional. Filter for movies.
+final bool isSeries = true; // bool | Optional. Filter for series.
+final bool isNews = true; // bool | Optional. Filter for news.
+final bool isKids = true; // bool | Optional. Filter for kids.
+final bool isSports = true; // bool | Optional. Filter for sports.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final bool isFavorite = true; // bool | Optional. Filter by channels that are favorites, or not.
+final bool isLiked = true; // bool | Optional. Filter by channels that are liked, or not.
+final bool isDisliked = true; // bool | Optional. Filter by channels that are disliked, or not.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | \"Optional. The image types to include in the output.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final bool enableUserData = true; // bool | Optional. Include user data.
+final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Key to sort by.
+final SortOrder sortOrder = ; // SortOrder | Optional. Sort order.
+final bool enableFavoriteSorting = true; // bool | Optional. Incorporate favorite and like status into channel sorting.
+final bool addCurrentProgram = true; // bool | Optional. Adds current program info to each channel.
 
 try {
-    final result = api_instance.getLiveTvChannels(type, userId, startIndex, isMovie, isSeries, isNews, isKids, isSports, limit, isFavorite, isLiked, isDisliked, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, sortBy, sortOrder, enableFavoriteSorting, addCurrentProgram);
-    print(result);
-} catch (e) {
+    final response = api.getLiveTvChannels(type, userId, startIndex, isMovie, isSeries, isNews, isKids, isSports, limit, isFavorite, isLiked, isDisliked, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, sortBy, sortOrder, enableFavoriteSorting, addCurrentProgram);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getLiveTvChannels: $e\n');
 }
 ```
@@ -962,10 +962,10 @@ Name | Type | Description  | Notes
  **isDisliked** | **bool**| Optional. Filter by channels that are disliked, or not. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| \"Optional. The image types to include in the output. | [optional] [default to const []]
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| \"Optional. The image types to include in the output. | [optional] 
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **sortBy** | [**List<String>**](String.md)| Optional. Key to sort by. | [optional] [default to const []]
+ **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Key to sort by. | [optional] 
  **sortOrder** | [**SortOrder**](.md)| Optional. Sort order. | [optional] 
  **enableFavoriteSorting** | **bool**| Optional. Incorporate favorite and like status into channel sorting. | [optional] [default to false]
  **addCurrentProgram** | **bool**| Optional. Adds current program info to each channel. | [optional] [default to true]
@@ -998,12 +998,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
+final api = Openapi().getLiveTvApi();
 
 try {
-    final result = api_instance.getLiveTvInfo();
-    print(result);
-} catch (e) {
+    final response = api.getLiveTvInfo();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getLiveTvInfo: $e\n');
 }
 ```
@@ -1039,39 +1039,39 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final channelIds = []; // List<String> | The channels to return guide information for.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id.
-final minStartDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum premiere start date.
-final hasAired = true; // bool | Optional. Filter by programs that have completed airing, or not.
-final isAiring = true; // bool | Optional. Filter by programs that are currently airing, or not.
-final maxStartDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The maximum premiere start date.
-final minEndDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum premiere end date.
-final maxEndDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The maximum premiere end date.
-final isMovie = true; // bool | Optional. Filter for movies.
-final isSeries = true; // bool | Optional. Filter for series.
-final isNews = true; // bool | Optional. Filter for news.
-final isKids = true; // bool | Optional. Filter for kids.
-final isSports = true; // bool | Optional. Filter for sports.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final sortBy = []; // List<String> | Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate.
-final sortOrder = []; // List<SortOrder> | Sort Order - Ascending,Descending.
-final genres = []; // List<String> | The genres to return guide information for.
-final genreIds = []; // List<String> | The genre ids to return guide information for.
-final enableImages = true; // bool | Optional. Include image information in output.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final enableUserData = true; // bool | Optional. Include user data.
-final seriesTimerId = seriesTimerId_example; // String | Optional. Filter by series timer id.
-final librarySeriesId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by library series id.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final enableTotalRecordCount = true; // bool | Retrieve total record count.
+final api = Openapi().getLiveTvApi();
+final BuiltList<String> channelIds = ; // BuiltList<String> | The channels to return guide information for.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id.
+final DateTime minStartDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum premiere start date.
+final bool hasAired = true; // bool | Optional. Filter by programs that have completed airing, or not.
+final bool isAiring = true; // bool | Optional. Filter by programs that are currently airing, or not.
+final DateTime maxStartDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The maximum premiere start date.
+final DateTime minEndDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum premiere end date.
+final DateTime maxEndDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The maximum premiere end date.
+final bool isMovie = true; // bool | Optional. Filter for movies.
+final bool isSeries = true; // bool | Optional. Filter for series.
+final bool isNews = true; // bool | Optional. Filter for news.
+final bool isKids = true; // bool | Optional. Filter for kids.
+final bool isSports = true; // bool | Optional. Filter for sports.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate.
+final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
+final BuiltList<String> genres = ; // BuiltList<String> | The genres to return guide information for.
+final BuiltList<String> genreIds = ; // BuiltList<String> | The genre ids to return guide information for.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final bool enableUserData = true; // bool | Optional. Include user data.
+final String seriesTimerId = seriesTimerId_example; // String | Optional. Filter by series timer id.
+final String librarySeriesId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by library series id.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final bool enableTotalRecordCount = true; // bool | Retrieve total record count.
 
 try {
-    final result = api_instance.getLiveTvPrograms(channelIds, userId, minStartDate, hasAired, isAiring, maxStartDate, minEndDate, maxEndDate, isMovie, isSeries, isNews, isKids, isSports, startIndex, limit, sortBy, sortOrder, genres, genreIds, enableImages, imageTypeLimit, enableImageTypes, enableUserData, seriesTimerId, librarySeriesId, fields, enableTotalRecordCount);
-    print(result);
-} catch (e) {
+    final response = api.getLiveTvPrograms(channelIds, userId, minStartDate, hasAired, isAiring, maxStartDate, minEndDate, maxEndDate, isMovie, isSeries, isNews, isKids, isSports, startIndex, limit, sortBy, sortOrder, genres, genreIds, enableImages, imageTypeLimit, enableImageTypes, enableUserData, seriesTimerId, librarySeriesId, fields, enableTotalRecordCount);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getLiveTvPrograms: $e\n');
 }
 ```
@@ -1080,7 +1080,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **channelIds** | [**List<String>**](String.md)| The channels to return guide information for. | [optional] [default to const []]
+ **channelIds** | [**BuiltList&lt;String&gt;**](String.md)| The channels to return guide information for. | [optional] 
  **userId** | **String**| Optional. Filter by user id. | [optional] 
  **minStartDate** | **DateTime**| Optional. The minimum premiere start date. | [optional] 
  **hasAired** | **bool**| Optional. Filter by programs that have completed airing, or not. | [optional] 
@@ -1095,17 +1095,17 @@ Name | Type | Description  | Notes
  **isSports** | **bool**| Optional. Filter for sports. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **sortBy** | [**List<String>**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate. | [optional] [default to const []]
- **sortOrder** | [**List<SortOrder>**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] [default to const []]
- **genres** | [**List<String>**](String.md)| The genres to return guide information for. | [optional] [default to const []]
- **genreIds** | [**List<String>**](String.md)| The genre ids to return guide information for. | [optional] [default to const []]
+ **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate. | [optional] 
+ **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
+ **genres** | [**BuiltList&lt;String&gt;**](String.md)| The genres to return guide information for. | [optional] 
+ **genreIds** | [**BuiltList&lt;String&gt;**](String.md)| The genre ids to return guide information for. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
  **seriesTimerId** | **String**| Optional. Filter by series timer id. | [optional] 
  **librarySeriesId** | **String**| Optional. Filter by library series id. | [optional] 
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **enableTotalRecordCount** | **bool**| Retrieve total record count. | [optional] [default to true]
 
 ### Return type
@@ -1136,14 +1136,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final programId = programId_example; // String | Program id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
+final api = Openapi().getLiveTvApi();
+final String programId = programId_example; // String | Program id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
 
 try {
-    final result = api_instance.getProgram(programId, userId);
-    print(result);
-} catch (e) {
+    final response = api.getProgram(programId, userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getProgram: $e\n');
 }
 ```
@@ -1183,13 +1183,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final getProgramsRequest = GetProgramsRequest(); // GetProgramsRequest | Request body.
+final api = Openapi().getLiveTvApi();
+final GetProgramsRequest getProgramsRequest = ; // GetProgramsRequest | Request body.
 
 try {
-    final result = api_instance.getPrograms(getProgramsRequest);
-    print(result);
-} catch (e) {
+    final response = api.getPrograms(getProgramsRequest);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getPrograms: $e\n');
 }
 ```
@@ -1228,28 +1228,28 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. filter by user id.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final isAiring = true; // bool | Optional. Filter by programs that are currently airing, or not.
-final hasAired = true; // bool | Optional. Filter by programs that have completed airing, or not.
-final isSeries = true; // bool | Optional. Filter for series.
-final isMovie = true; // bool | Optional. Filter for movies.
-final isNews = true; // bool | Optional. Filter for news.
-final isKids = true; // bool | Optional. Filter for kids.
-final isSports = true; // bool | Optional. Filter for sports.
-final enableImages = true; // bool | Optional. Include image information in output.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final genreIds = []; // List<String> | The genres to return guide information for.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final enableUserData = true; // bool | Optional. include user data.
-final enableTotalRecordCount = true; // bool | Retrieve total record count.
+final api = Openapi().getLiveTvApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. filter by user id.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final bool isAiring = true; // bool | Optional. Filter by programs that are currently airing, or not.
+final bool hasAired = true; // bool | Optional. Filter by programs that have completed airing, or not.
+final bool isSeries = true; // bool | Optional. Filter for series.
+final bool isMovie = true; // bool | Optional. Filter for movies.
+final bool isNews = true; // bool | Optional. Filter for news.
+final bool isKids = true; // bool | Optional. Filter for kids.
+final bool isSports = true; // bool | Optional. Filter for sports.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final BuiltList<String> genreIds = ; // BuiltList<String> | The genres to return guide information for.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final bool enableUserData = true; // bool | Optional. include user data.
+final bool enableTotalRecordCount = true; // bool | Retrieve total record count.
 
 try {
-    final result = api_instance.getRecommendedPrograms(userId, limit, isAiring, hasAired, isSeries, isMovie, isNews, isKids, isSports, enableImages, imageTypeLimit, enableImageTypes, genreIds, fields, enableUserData, enableTotalRecordCount);
-    print(result);
-} catch (e) {
+    final response = api.getRecommendedPrograms(userId, limit, isAiring, hasAired, isSeries, isMovie, isNews, isKids, isSports, enableImages, imageTypeLimit, enableImageTypes, genreIds, fields, enableUserData, enableTotalRecordCount);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getRecommendedPrograms: $e\n');
 }
 ```
@@ -1269,9 +1269,9 @@ Name | Type | Description  | Notes
  **isSports** | **bool**| Optional. Filter for sports. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
- **genreIds** | [**List<String>**](String.md)| The genres to return guide information for. | [optional] [default to const []]
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **genreIds** | [**BuiltList&lt;String&gt;**](String.md)| The genres to return guide information for. | [optional] 
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **enableUserData** | **bool**| Optional. include user data. | [optional] 
  **enableTotalRecordCount** | **bool**| Retrieve total record count. | [optional] [default to true]
 
@@ -1303,14 +1303,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final recordingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Recording id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
+final api = Openapi().getLiveTvApi();
+final String recordingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Recording id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
 
 try {
-    final result = api_instance.getRecording(recordingId, userId);
-    print(result);
-} catch (e) {
+    final response = api.getRecording(recordingId, userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getRecording: $e\n');
 }
 ```
@@ -1350,13 +1350,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
+final api = Openapi().getLiveTvApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 
 try {
-    final result = api_instance.getRecordingFolders(userId);
-    print(result);
-} catch (e) {
+    final response = api.getRecordingFolders(userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getRecordingFolders: $e\n');
 }
 ```
@@ -1395,12 +1395,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final groupId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Group id.
+final api = Openapi().getLiveTvApi();
+final String groupId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Group id.
 
 try {
-    api_instance.getRecordingGroup(groupId);
-} catch (e) {
+    api.getRecordingGroup(groupId);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getRecordingGroup: $e\n');
 }
 ```
@@ -1439,13 +1439,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
+final api = Openapi().getLiveTvApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 
 try {
-    final result = api_instance.getRecordingGroups(userId);
-    print(result);
-} catch (e) {
+    final response = api.getRecordingGroups(userId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getRecordingGroups: $e\n');
 }
 ```
@@ -1484,31 +1484,31 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final channelId = channelId_example; // String | Optional. Filter by channel id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final status = ; // RecordingStatus | Optional. Filter by recording status.
-final isInProgress = true; // bool | Optional. Filter by recordings that are in progress, or not.
-final seriesTimerId = seriesTimerId_example; // String | Optional. Filter by recordings belonging to a series timer.
-final enableImages = true; // bool | Optional. Include image information in output.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final enableUserData = true; // bool | Optional. Include user data.
-final isMovie = true; // bool | Optional. Filter for movies.
-final isSeries = true; // bool | Optional. Filter for series.
-final isKids = true; // bool | Optional. Filter for kids.
-final isSports = true; // bool | Optional. Filter for sports.
-final isNews = true; // bool | Optional. Filter for news.
-final isLibraryItem = true; // bool | Optional. Filter for is library item.
-final enableTotalRecordCount = true; // bool | Optional. Return total record count.
+final api = Openapi().getLiveTvApi();
+final String channelId = channelId_example; // String | Optional. Filter by channel id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final RecordingStatus status = ; // RecordingStatus | Optional. Filter by recording status.
+final bool isInProgress = true; // bool | Optional. Filter by recordings that are in progress, or not.
+final String seriesTimerId = seriesTimerId_example; // String | Optional. Filter by recordings belonging to a series timer.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final bool enableUserData = true; // bool | Optional. Include user data.
+final bool isMovie = true; // bool | Optional. Filter for movies.
+final bool isSeries = true; // bool | Optional. Filter for series.
+final bool isKids = true; // bool | Optional. Filter for kids.
+final bool isSports = true; // bool | Optional. Filter for sports.
+final bool isNews = true; // bool | Optional. Filter for news.
+final bool isLibraryItem = true; // bool | Optional. Filter for is library item.
+final bool enableTotalRecordCount = true; // bool | Optional. Return total record count.
 
 try {
-    final result = api_instance.getRecordings(channelId, userId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, isMovie, isSeries, isKids, isSports, isNews, isLibraryItem, enableTotalRecordCount);
-    print(result);
-} catch (e) {
+    final response = api.getRecordings(channelId, userId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, isMovie, isSeries, isKids, isSports, isNews, isLibraryItem, enableTotalRecordCount);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getRecordings: $e\n');
 }
 ```
@@ -1526,8 +1526,8 @@ Name | Type | Description  | Notes
  **seriesTimerId** | **String**| Optional. Filter by recordings belonging to a series timer. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
  **isMovie** | **bool**| Optional. Filter for movies. | [optional] 
  **isSeries** | **bool**| Optional. Filter for series. | [optional] 
@@ -1565,26 +1565,26 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final channelId = channelId_example; // String | Optional. Filter by channel id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
-final groupId = groupId_example; // String | Optional. Filter by recording group.
-final startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final limit = 56; // int | Optional. The maximum number of records to return.
-final status = ; // RecordingStatus | Optional. Filter by recording status.
-final isInProgress = true; // bool | Optional. Filter by recordings that are in progress, or not.
-final seriesTimerId = seriesTimerId_example; // String | Optional. Filter by recordings belonging to a series timer.
-final enableImages = true; // bool | Optional. Include image information in output.
-final imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-final fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final enableUserData = true; // bool | Optional. Include user data.
-final enableTotalRecordCount = true; // bool | Optional. Return total record count.
+final api = Openapi().getLiveTvApi();
+final String channelId = channelId_example; // String | Optional. Filter by channel id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
+final String groupId = groupId_example; // String | Optional. Filter by recording group.
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final RecordingStatus status = ; // RecordingStatus | Optional. Filter by recording status.
+final bool isInProgress = true; // bool | Optional. Filter by recordings that are in progress, or not.
+final String seriesTimerId = seriesTimerId_example; // String | Optional. Filter by recordings belonging to a series timer.
+final bool enableImages = true; // bool | Optional. Include image information in output.
+final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final bool enableUserData = true; // bool | Optional. Include user data.
+final bool enableTotalRecordCount = true; // bool | Optional. Return total record count.
 
 try {
-    final result = api_instance.getRecordingsSeries(channelId, userId, groupId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, enableTotalRecordCount);
-    print(result);
-} catch (e) {
+    final response = api.getRecordingsSeries(channelId, userId, groupId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, enableTotalRecordCount);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getRecordingsSeries: $e\n');
 }
 ```
@@ -1603,8 +1603,8 @@ Name | Type | Description  | Notes
  **seriesTimerId** | **String**| Optional. Filter by recordings belonging to a series timer. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
  **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**List<ImageType>**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
- **fields** | [**List<ItemFields>**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
  **enableTotalRecordCount** | **bool**| Optional. Return total record count. | [optional] [default to true]
 
@@ -1624,7 +1624,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSchedulesDirectCountries**
-> MultipartFile getSchedulesDirectCountries()
+> Uint8List getSchedulesDirectCountries()
 
 Gets available countries.
 
@@ -1636,12 +1636,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
+final api = Openapi().getLiveTvApi();
 
 try {
-    final result = api_instance.getSchedulesDirectCountries();
-    print(result);
-} catch (e) {
+    final response = api.getSchedulesDirectCountries();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getSchedulesDirectCountries: $e\n');
 }
 ```
@@ -1651,7 +1651,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1677,13 +1677,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final timerId = timerId_example; // String | Timer id.
+final api = Openapi().getLiveTvApi();
+final String timerId = timerId_example; // String | Timer id.
 
 try {
-    final result = api_instance.getSeriesTimer(timerId);
-    print(result);
-} catch (e) {
+    final response = api.getSeriesTimer(timerId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getSeriesTimer: $e\n');
 }
 ```
@@ -1722,14 +1722,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final sortBy = sortBy_example; // String | Optional. Sort by SortName or Priority.
-final sortOrder = ; // SortOrder | Optional. Sort in Ascending or Descending order.
+final api = Openapi().getLiveTvApi();
+final String sortBy = sortBy_example; // String | Optional. Sort by SortName or Priority.
+final SortOrder sortOrder = ; // SortOrder | Optional. Sort in Ascending or Descending order.
 
 try {
-    final result = api_instance.getSeriesTimers(sortBy, sortOrder);
-    print(result);
-} catch (e) {
+    final response = api.getSeriesTimers(sortBy, sortOrder);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getSeriesTimers: $e\n');
 }
 ```
@@ -1769,13 +1769,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final timerId = timerId_example; // String | Timer id.
+final api = Openapi().getLiveTvApi();
+final String timerId = timerId_example; // String | Timer id.
 
 try {
-    final result = api_instance.getTimer(timerId);
-    print(result);
-} catch (e) {
+    final response = api.getTimer(timerId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getTimer: $e\n');
 }
 ```
@@ -1814,16 +1814,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final channelId = channelId_example; // String | Optional. Filter by channel id.
-final seriesTimerId = seriesTimerId_example; // String | Optional. Filter by timers belonging to a series timer.
-final isActive = true; // bool | Optional. Filter by timers that are active.
-final isScheduled = true; // bool | Optional. Filter by timers that are scheduled.
+final api = Openapi().getLiveTvApi();
+final String channelId = channelId_example; // String | Optional. Filter by channel id.
+final String seriesTimerId = seriesTimerId_example; // String | Optional. Filter by timers belonging to a series timer.
+final bool isActive = true; // bool | Optional. Filter by timers that are active.
+final bool isScheduled = true; // bool | Optional. Filter by timers that are scheduled.
 
 try {
-    final result = api_instance.getTimers(channelId, seriesTimerId, isActive, isScheduled);
-    print(result);
-} catch (e) {
+    final response = api.getTimers(channelId, seriesTimerId, isActive, isScheduled);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getTimers: $e\n');
 }
 ```
@@ -1853,7 +1853,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTunerHostTypes**
-> List<NameIdPair> getTunerHostTypes()
+> BuiltList<NameIdPair> getTunerHostTypes()
 
 Get tuner host types.
 
@@ -1865,12 +1865,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
+final api = Openapi().getLiveTvApi();
 
 try {
-    final result = api_instance.getTunerHostTypes();
-    print(result);
-} catch (e) {
+    final response = api.getTunerHostTypes();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->getTunerHostTypes: $e\n');
 }
 ```
@@ -1880,7 +1880,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<NameIdPair>**](NameIdPair.md)
+[**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md)
 
 ### Authorization
 
@@ -1906,12 +1906,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final tunerId = tunerId_example; // String | Tuner id.
+final api = Openapi().getLiveTvApi();
+final String tunerId = tunerId_example; // String | Tuner id.
 
 try {
-    api_instance.resetTuner(tunerId);
-} catch (e) {
+    api.resetTuner(tunerId);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->resetTuner: $e\n');
 }
 ```
@@ -1950,13 +1950,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final setChannelMappingRequest = SetChannelMappingRequest(); // SetChannelMappingRequest | The set channel mapping dto.
+final api = Openapi().getLiveTvApi();
+final SetChannelMappingRequest setChannelMappingRequest = ; // SetChannelMappingRequest | The set channel mapping dto.
 
 try {
-    final result = api_instance.setChannelMapping(setChannelMappingRequest);
-    print(result);
-} catch (e) {
+    final response = api.setChannelMapping(setChannelMappingRequest);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->setChannelMapping: $e\n');
 }
 ```
@@ -1995,13 +1995,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final timerId = timerId_example; // String | Timer id.
-final createSeriesTimerRequest = CreateSeriesTimerRequest(); // CreateSeriesTimerRequest | New series timer info.
+final api = Openapi().getLiveTvApi();
+final String timerId = timerId_example; // String | Timer id.
+final CreateSeriesTimerRequest createSeriesTimerRequest = ; // CreateSeriesTimerRequest | New series timer info.
 
 try {
-    api_instance.updateSeriesTimer(timerId, createSeriesTimerRequest);
-} catch (e) {
+    api.updateSeriesTimer(timerId, createSeriesTimerRequest);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->updateSeriesTimer: $e\n');
 }
 ```
@@ -2041,13 +2041,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = LiveTvApi();
-final timerId = timerId_example; // String | Timer id.
-final createTimerRequest = CreateTimerRequest(); // CreateTimerRequest | New timer info.
+final api = Openapi().getLiveTvApi();
+final String timerId = timerId_example; // String | Timer id.
+final CreateTimerRequest createTimerRequest = ; // CreateTimerRequest | New timer info.
 
 try {
-    api_instance.updateTimer(timerId, createTimerRequest);
-} catch (e) {
+    api.updateTimer(timerId, createTimerRequest);
+} catch on DioError (e) {
     print('Exception when calling LiveTvApi->updateTimer: $e\n');
 }
 ```

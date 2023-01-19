@@ -26,12 +26,12 @@ Method | HTTP request | Description
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = KodiSyncQueueApi();
+final api = Openapi().getKodiSyncQueueApi();
 
 try {
-    final result = api_instance.getKodiPluginSettings();
-    print(result);
-} catch (e) {
+    final response = api.getKodiPluginSettings();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling KodiSyncQueueApi->getKodiPluginSettings: $e\n');
 }
 ```
@@ -63,15 +63,15 @@ No authorization required
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = KodiSyncQueueApi();
-final userId = userId_example; // String | 
-final lastUpdateDt = lastUpdateDt_example; // String | 
-final filter = filter_example; // String | 
+final api = Openapi().getKodiSyncQueueApi();
+final String userId = userId_example; // String | 
+final String lastUpdateDt = lastUpdateDt_example; // String | 
+final String filter = filter_example; // String | 
 
 try {
-    final result = api_instance.getLibraryItemsQuery(userId, lastUpdateDt, filter);
-    print(result);
-} catch (e) {
+    final response = api.getLibraryItemsQuery(userId, lastUpdateDt, filter);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling KodiSyncQueueApi->getLibraryItemsQuery: $e\n');
 }
 ```
@@ -108,19 +108,19 @@ No authorization required
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = KodiSyncQueueApi();
-final type = type_example; // String | 
-final id = id_example; // String | 
-final parentId = parentId_example; // String | 
-final season = season_example; // String | 
-final kodiId = kodiId_example; // String | 
-final handler = handler_example; // String | 
-final name = name_example; // String | 
+final api = Openapi().getKodiSyncQueueApi();
+final String type = type_example; // String | 
+final String id = id_example; // String | 
+final String parentId = parentId_example; // String | 
+final String season = season_example; // String | 
+final String kodiId = kodiId_example; // String | 
+final String handler = handler_example; // String | 
+final String name = name_example; // String | 
 
 try {
-    final result = api_instance.getParentStrmFile(type, id, parentId, season, kodiId, handler, name);
-    print(result);
-} catch (e) {
+    final response = api.getParentStrmFile(type, id, parentId, season, kodiId, handler, name);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling KodiSyncQueueApi->getParentStrmFile: $e\n');
 }
 ```
@@ -161,19 +161,19 @@ No authorization required
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = KodiSyncQueueApi();
-final type = type_example; // String | 
-final id = id_example; // String | 
-final parentId = parentId_example; // String | 
-final season = season_example; // String | 
-final kodiId = kodiId_example; // String | 
-final handler = handler_example; // String | 
-final name = name_example; // String | 
+final api = Openapi().getKodiSyncQueueApi();
+final String type = type_example; // String | 
+final String id = id_example; // String | 
+final String parentId = parentId_example; // String | 
+final String season = season_example; // String | 
+final String kodiId = kodiId_example; // String | 
+final String handler = handler_example; // String | 
+final String name = name_example; // String | 
 
 try {
-    final result = api_instance.getSeasonStrmFile(type, id, parentId, season, kodiId, handler, name);
-    print(result);
-} catch (e) {
+    final response = api.getSeasonStrmFile(type, id, parentId, season, kodiId, handler, name);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling KodiSyncQueueApi->getSeasonStrmFile: $e\n');
 }
 ```
@@ -214,12 +214,12 @@ No authorization required
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = KodiSyncQueueApi();
+final api = Openapi().getKodiSyncQueueApi();
 
 try {
-    final result = api_instance.getServerTime();
-    print(result);
-} catch (e) {
+    final response = api.getServerTime();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling KodiSyncQueueApi->getServerTime: $e\n');
 }
 ```
@@ -251,19 +251,19 @@ No authorization required
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = KodiSyncQueueApi();
-final type = type_example; // String | 
-final id = id_example; // String | 
-final parentId = parentId_example; // String | 
-final season = season_example; // String | 
-final kodiId = kodiId_example; // String | 
-final handler = handler_example; // String | 
-final name = name_example; // String | 
+final api = Openapi().getKodiSyncQueueApi();
+final String type = type_example; // String | 
+final String id = id_example; // String | 
+final String parentId = parentId_example; // String | 
+final String season = season_example; // String | 
+final String kodiId = kodiId_example; // String | 
+final String handler = handler_example; // String | 
+final String name = name_example; // String | 
 
 try {
-    final result = api_instance.getStrmFile(type, id, parentId, season, kodiId, handler, name);
-    print(result);
-} catch (e) {
+    final response = api.getStrmFile(type, id, parentId, season, kodiId, handler, name);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling KodiSyncQueueApi->getStrmFile: $e\n');
 }
 ```

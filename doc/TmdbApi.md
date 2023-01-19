@@ -25,12 +25,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = TmdbApi();
+final api = Openapi().getTmdbApi();
 
 try {
-    final result = api_instance.tmdbClientConfiguration();
-    print(result);
-} catch (e) {
+    final response = api.tmdbClientConfiguration();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling TmdbApi->tmdbClientConfiguration: $e\n');
 }
 ```

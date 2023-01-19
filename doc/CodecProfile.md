@@ -9,8 +9,8 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**CodecType**](CodecType.md) |  | [optional] 
-**conditions** | [**List<ProfileCondition>**](ProfileCondition.md) |  | [optional] [default to const []]
-**applyConditions** | [**List<ProfileCondition>**](ProfileCondition.md) |  | [optional] [default to const []]
+**conditions** | [**BuiltList&lt;ProfileCondition&gt;**](ProfileCondition.md) |  | [optional] 
+**applyConditions** | [**BuiltList&lt;ProfileCondition&gt;**](ProfileCondition.md) |  | [optional] 
 **codec** | **String** |  | [optional] 
 **container** | **String** |  | [optional] 
 

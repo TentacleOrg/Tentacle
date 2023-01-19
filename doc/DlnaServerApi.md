@@ -28,7 +28,7 @@ Method | HTTP request | Description
 
 
 # **getConnectionManager**
-> MultipartFile getConnectionManager(serverId)
+> Uint8List getConnectionManager(serverId)
 
 Gets Dlna media receiver registrar xml.
 
@@ -40,13 +40,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getConnectionManager(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getConnectionManager(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getConnectionManager: $e\n');
 }
 ```
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getConnectionManager2**
-> MultipartFile getConnectionManager2(serverId)
+> Uint8List getConnectionManager2(serverId)
 
 Gets Dlna media receiver registrar xml.
 
@@ -85,13 +85,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getConnectionManager2(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getConnectionManager2(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getConnectionManager2: $e\n');
 }
 ```
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getConnectionManager3**
-> MultipartFile getConnectionManager3(serverId)
+> Uint8List getConnectionManager3(serverId)
 
 Gets Dlna media receiver registrar xml.
 
@@ -130,13 +130,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getConnectionManager3(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getConnectionManager3(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getConnectionManager3: $e\n');
 }
 ```
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getContentDirectory**
-> MultipartFile getContentDirectory(serverId)
+> Uint8List getContentDirectory(serverId)
 
 Gets Dlna content directory xml.
 
@@ -175,13 +175,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getContentDirectory(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getContentDirectory(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getContentDirectory: $e\n');
 }
 ```
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getContentDirectory2**
-> MultipartFile getContentDirectory2(serverId)
+> Uint8List getContentDirectory2(serverId)
 
 Gets Dlna content directory xml.
 
@@ -220,13 +220,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getContentDirectory2(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getContentDirectory2(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getContentDirectory2: $e\n');
 }
 ```
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -253,7 +253,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getContentDirectory3**
-> MultipartFile getContentDirectory3(serverId)
+> Uint8List getContentDirectory3(serverId)
 
 Gets Dlna content directory xml.
 
@@ -265,13 +265,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getContentDirectory3(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getContentDirectory3(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getContentDirectory3: $e\n');
 }
 ```
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDescriptionXml**
-> MultipartFile getDescriptionXml(serverId)
+> Uint8List getDescriptionXml(serverId)
 
 Get Description Xml.
 
@@ -310,13 +310,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getDescriptionXml(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getDescriptionXml(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getDescriptionXml: $e\n');
 }
 ```
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDescriptionXml2**
-> MultipartFile getDescriptionXml2(serverId)
+> Uint8List getDescriptionXml2(serverId)
 
 Get Description Xml.
 
@@ -355,13 +355,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getDescriptionXml2(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getDescriptionXml2(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getDescriptionXml2: $e\n');
 }
 ```
@@ -374,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getIcon**
-> MultipartFile getIcon(fileName)
+> Uint8List getIcon(fileName)
 
 Gets a server icon.
 
@@ -400,13 +400,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final fileName = fileName_example; // String | The icon filename.
+final api = Openapi().getDlnaServerApi();
+final String fileName = fileName_example; // String | The icon filename.
 
 try {
-    final result = api_instance.getIcon(fileName);
-    print(result);
-} catch (e) {
+    final response = api.getIcon(fileName);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getIcon: $e\n');
 }
 ```
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getIconId**
-> MultipartFile getIconId(serverId, fileName)
+> Uint8List getIconId(serverId, fileName)
 
 Gets a server icon.
 
@@ -445,14 +445,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
-final fileName = fileName_example; // String | The icon filename.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
+final String fileName = fileName_example; // String | The icon filename.
 
 try {
-    final result = api_instance.getIconId(serverId, fileName);
-    print(result);
-} catch (e) {
+    final response = api.getIconId(serverId, fileName);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getIconId: $e\n');
 }
 ```
@@ -466,7 +466,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaReceiverRegistrar**
-> MultipartFile getMediaReceiverRegistrar(serverId)
+> Uint8List getMediaReceiverRegistrar(serverId)
 
 Gets Dlna media receiver registrar xml.
 
@@ -492,13 +492,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getMediaReceiverRegistrar(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getMediaReceiverRegistrar(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getMediaReceiverRegistrar: $e\n');
 }
 ```
@@ -511,7 +511,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -525,7 +525,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaReceiverRegistrar2**
-> MultipartFile getMediaReceiverRegistrar2(serverId)
+> Uint8List getMediaReceiverRegistrar2(serverId)
 
 Gets Dlna media receiver registrar xml.
 
@@ -537,13 +537,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getMediaReceiverRegistrar2(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getMediaReceiverRegistrar2(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getMediaReceiverRegistrar2: $e\n');
 }
 ```
@@ -556,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaReceiverRegistrar3**
-> MultipartFile getMediaReceiverRegistrar3(serverId)
+> Uint8List getMediaReceiverRegistrar3(serverId)
 
 Gets Dlna media receiver registrar xml.
 
@@ -582,13 +582,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.getMediaReceiverRegistrar3(serverId);
-    print(result);
-} catch (e) {
+    final response = api.getMediaReceiverRegistrar3(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->getMediaReceiverRegistrar3: $e\n');
 }
 ```
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -615,7 +615,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **processConnectionManagerControlRequest**
-> MultipartFile processConnectionManagerControlRequest(serverId)
+> Uint8List processConnectionManagerControlRequest(serverId)
 
 Process a connection manager control request.
 
@@ -627,13 +627,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.processConnectionManagerControlRequest(serverId);
-    print(result);
-} catch (e) {
+    final response = api.processConnectionManagerControlRequest(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->processConnectionManagerControlRequest: $e\n');
 }
 ```
@@ -646,7 +646,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -660,7 +660,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **processContentDirectoryControlRequest**
-> MultipartFile processContentDirectoryControlRequest(serverId)
+> Uint8List processContentDirectoryControlRequest(serverId)
 
 Process a content directory control request.
 
@@ -672,13 +672,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.processContentDirectoryControlRequest(serverId);
-    print(result);
-} catch (e) {
+    final response = api.processContentDirectoryControlRequest(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->processContentDirectoryControlRequest: $e\n');
 }
 ```
@@ -691,7 +691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -705,7 +705,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **processMediaReceiverRegistrarControlRequest**
-> MultipartFile processMediaReceiverRegistrarControlRequest(serverId)
+> Uint8List processMediaReceiverRegistrarControlRequest(serverId)
 
 Process a media receiver registrar control request.
 
@@ -717,13 +717,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = DlnaServerApi();
-final serverId = serverId_example; // String | Server UUID.
+final api = Openapi().getDlnaServerApi();
+final String serverId = serverId_example; // String | Server UUID.
 
 try {
-    final result = api_instance.processMediaReceiverRegistrarControlRequest(serverId);
-    print(result);
-} catch (e) {
+    final response = api.processMediaReceiverRegistrarControlRequest(serverId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling DlnaServerApi->processMediaReceiverRegistrarControlRequest: $e\n');
 }
 ```
@@ -736,7 +736,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 

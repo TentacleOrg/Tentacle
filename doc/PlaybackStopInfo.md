@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **failed** | **bool** | Gets or sets a value indicating whether this MediaBrowser.Model.Session.PlaybackStopInfo is failed. | [optional] 
 **nextMediaType** | **String** |  | [optional] 
 **playlistItemId** | **String** |  | [optional] 
-**nowPlayingQueue** | [**List<QueueItem>**](QueueItem.md) |  | [optional] [default to const []]
+**nowPlayingQueue** | [**BuiltList&lt;QueueItem&gt;**](QueueItem.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

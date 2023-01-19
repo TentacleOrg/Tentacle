@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **liveStreamId** | **String** | Gets or sets the live stream identifier. | [optional] 
 **playSessionId** | **String** | Gets or sets the play session identifier. | [optional] 
 **repeatMode** | [**RepeatMode**](RepeatMode.md) | Gets or sets the repeat mode. | [optional] 
-**nowPlayingQueue** | [**List<QueueItem>**](QueueItem.md) |  | [optional] [default to const []]
+**nowPlayingQueue** | [**BuiltList&lt;QueueItem&gt;**](QueueItem.md) |  | [optional] 
 **playlistItemId** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

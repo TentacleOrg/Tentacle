@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Gets the id. | [optional] [readonly] 
+**id** | **int** | Gets the id. | [optional] 
 **deviceId** | **String** | Gets the device id. | [optional] 
 **customName** | **String** | Gets or sets the custom name. | [optional] 
 

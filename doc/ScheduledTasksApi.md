@@ -29,13 +29,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ScheduledTasksApi();
-final taskId = taskId_example; // String | Task Id.
+final api = Openapi().getScheduledTasksApi();
+final String taskId = taskId_example; // String | Task Id.
 
 try {
-    final result = api_instance.getTask(taskId);
-    print(result);
-} catch (e) {
+    final response = api.getTask(taskId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ScheduledTasksApi->getTask: $e\n');
 }
 ```
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTasks**
-> List<TaskInfo> getTasks(isHidden, isEnabled)
+> BuiltList<TaskInfo> getTasks(isHidden, isEnabled)
 
 Get tasks.
 
@@ -74,14 +74,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ScheduledTasksApi();
-final isHidden = true; // bool | Optional filter tasks that are hidden, or not.
-final isEnabled = true; // bool | Optional filter tasks that are enabled, or not.
+final api = Openapi().getScheduledTasksApi();
+final bool isHidden = true; // bool | Optional filter tasks that are hidden, or not.
+final bool isEnabled = true; // bool | Optional filter tasks that are enabled, or not.
 
 try {
-    final result = api_instance.getTasks(isHidden, isEnabled);
-    print(result);
-} catch (e) {
+    final response = api.getTasks(isHidden, isEnabled);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ScheduledTasksApi->getTasks: $e\n');
 }
 ```
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<TaskInfo>**](TaskInfo.md)
+[**BuiltList&lt;TaskInfo&gt;**](TaskInfo.md)
 
 ### Authorization
 
@@ -121,12 +121,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ScheduledTasksApi();
-final taskId = taskId_example; // String | Task Id.
+final api = Openapi().getScheduledTasksApi();
+final String taskId = taskId_example; // String | Task Id.
 
 try {
-    api_instance.startTask(taskId);
-} catch (e) {
+    api.startTask(taskId);
+} catch on DioError (e) {
     print('Exception when calling ScheduledTasksApi->startTask: $e\n');
 }
 ```
@@ -165,12 +165,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ScheduledTasksApi();
-final taskId = taskId_example; // String | Task Id.
+final api = Openapi().getScheduledTasksApi();
+final String taskId = taskId_example; // String | Task Id.
 
 try {
-    api_instance.stopTask(taskId);
-} catch (e) {
+    api.stopTask(taskId);
+} catch on DioError (e) {
     print('Exception when calling ScheduledTasksApi->stopTask: $e\n');
 }
 ```
@@ -209,13 +209,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ScheduledTasksApi();
-final taskId = taskId_example; // String | Task Id.
-final taskTriggerInfo = [List<TaskTriggerInfo>()]; // List<TaskTriggerInfo> | Triggers.
+final api = Openapi().getScheduledTasksApi();
+final String taskId = taskId_example; // String | Task Id.
+final BuiltList<TaskTriggerInfo> taskTriggerInfo = ; // BuiltList<TaskTriggerInfo> | Triggers.
 
 try {
-    api_instance.updateTask(taskId, taskTriggerInfo);
-} catch (e) {
+    api.updateTask(taskId, taskTriggerInfo);
+} catch on DioError (e) {
     print('Exception when calling ScheduledTasksApi->updateTask: $e\n');
 }
 ```
@@ -225,7 +225,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **taskId** | **String**| Task Id. | 
- **taskTriggerInfo** | [**List<TaskTriggerInfo>**](TaskTriggerInfo.md)| Triggers. | 
+ **taskTriggerInfo** | [**BuiltList&lt;TaskTriggerInfo&gt;**](TaskTriggerInfo.md)| Triggers. | 
 
 ### Return type
 

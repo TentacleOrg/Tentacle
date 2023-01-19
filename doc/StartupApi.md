@@ -31,11 +31,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = StartupApi();
+final api = Openapi().getStartupApi();
 
 try {
-    api_instance.completeWizard();
-} catch (e) {
+    api.completeWizard();
+} catch on DioError (e) {
     print('Exception when calling StartupApi->completeWizard: $e\n');
 }
 ```
@@ -71,12 +71,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = StartupApi();
+final api = Openapi().getStartupApi();
 
 try {
-    final result = api_instance.getFirstUser();
-    print(result);
-} catch (e) {
+    final response = api.getFirstUser();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling StartupApi->getFirstUser: $e\n');
 }
 ```
@@ -112,12 +112,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = StartupApi();
+final api = Openapi().getStartupApi();
 
 try {
-    final result = api_instance.getFirstUser2();
-    print(result);
-} catch (e) {
+    final response = api.getFirstUser2();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling StartupApi->getFirstUser2: $e\n');
 }
 ```
@@ -153,12 +153,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = StartupApi();
+final api = Openapi().getStartupApi();
 
 try {
-    final result = api_instance.getStartupConfiguration();
-    print(result);
-} catch (e) {
+    final response = api.getStartupConfiguration();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling StartupApi->getStartupConfiguration: $e\n');
 }
 ```
@@ -194,12 +194,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = StartupApi();
-final setRemoteAccessRequest = SetRemoteAccessRequest(); // SetRemoteAccessRequest | The startup remote access dto.
+final api = Openapi().getStartupApi();
+final SetRemoteAccessRequest setRemoteAccessRequest = ; // SetRemoteAccessRequest | The startup remote access dto.
 
 try {
-    api_instance.setRemoteAccess(setRemoteAccessRequest);
-} catch (e) {
+    api.setRemoteAccess(setRemoteAccessRequest);
+} catch on DioError (e) {
     print('Exception when calling StartupApi->setRemoteAccess: $e\n');
 }
 ```
@@ -238,12 +238,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = StartupApi();
-final updateInitialConfigurationRequest = UpdateInitialConfigurationRequest(); // UpdateInitialConfigurationRequest | The updated startup configuration.
+final api = Openapi().getStartupApi();
+final UpdateInitialConfigurationRequest updateInitialConfigurationRequest = ; // UpdateInitialConfigurationRequest | The updated startup configuration.
 
 try {
-    api_instance.updateInitialConfiguration(updateInitialConfigurationRequest);
-} catch (e) {
+    api.updateInitialConfiguration(updateInitialConfigurationRequest);
+} catch on DioError (e) {
     print('Exception when calling StartupApi->updateInitialConfiguration: $e\n');
 }
 ```
@@ -282,12 +282,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = StartupApi();
-final updateStartupUserRequest = UpdateStartupUserRequest(); // UpdateStartupUserRequest | The DTO containing username and password.
+final api = Openapi().getStartupApi();
+final UpdateStartupUserRequest updateStartupUserRequest = ; // UpdateStartupUserRequest | The DTO containing username and password.
 
 try {
-    api_instance.updateStartupUser(updateStartupUserRequest);
-} catch (e) {
+    api.updateStartupUser(updateStartupUserRequest);
+} catch on DioError (e) {
     print('Exception when calling StartupApi->updateStartupUser: $e\n');
 }
 ```

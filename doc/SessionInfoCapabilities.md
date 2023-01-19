@@ -8,8 +8,8 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**playableMediaTypes** | **List<String>** |  | [optional] [default to const []]
-**supportedCommands** | [**List<GeneralCommandType>**](GeneralCommandType.md) |  | [optional] [default to const []]
+**playableMediaTypes** | **BuiltList&lt;String&gt;** |  | [optional] 
+**supportedCommands** | [**BuiltList&lt;GeneralCommandType&gt;**](GeneralCommandType.md) |  | [optional] 
 **supportsMediaControl** | **bool** |  | [optional] 
 **supportsContentUploading** | **bool** |  | [optional] 
 **messageCallbackUrl** | **String** |  | [optional] 

@@ -40,13 +40,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 
 try {
-    api_instance.addUserToSession(sessionId, userId);
-} catch (e) {
+    api.addUserToSession(sessionId, userId);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->addUserToSession: $e\n');
 }
 ```
@@ -86,15 +86,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session Id.
-final itemType = ; // BaseItemKind | The type of item to browse to.
-final itemId = itemId_example; // String | The Id of the item.
-final itemName = itemName_example; // String | The name of the item.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session Id.
+final BaseItemKind itemType = ; // BaseItemKind | The type of item to browse to.
+final String itemId = itemId_example; // String | The Id of the item.
+final String itemName = itemName_example; // String | The name of the item.
 
 try {
-    api_instance.displayContent(sessionId, itemType, itemId, itemName);
-} catch (e) {
+    api.displayContent(sessionId, itemType, itemId, itemName);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->displayContent: $e\n');
 }
 ```
@@ -124,7 +124,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAuthProviders**
-> List<NameIdPair> getAuthProviders()
+> BuiltList<NameIdPair> getAuthProviders()
 
 Get all auth providers.
 
@@ -136,12 +136,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
+final api = Openapi().getSessionApi();
 
 try {
-    final result = api_instance.getAuthProviders();
-    print(result);
-} catch (e) {
+    final response = api.getAuthProviders();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->getAuthProviders: $e\n');
 }
 ```
@@ -151,7 +151,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<NameIdPair>**](NameIdPair.md)
+[**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md)
 
 ### Authorization
 
@@ -165,7 +165,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPasswordResetProviders**
-> List<NameIdPair> getPasswordResetProviders()
+> BuiltList<NameIdPair> getPasswordResetProviders()
 
 Get all password reset providers.
 
@@ -177,12 +177,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
+final api = Openapi().getSessionApi();
 
 try {
-    final result = api_instance.getPasswordResetProviders();
-    print(result);
-} catch (e) {
+    final response = api.getPasswordResetProviders();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->getPasswordResetProviders: $e\n');
 }
 ```
@@ -192,7 +192,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<NameIdPair>**](NameIdPair.md)
+[**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md)
 
 ### Authorization
 
@@ -206,7 +206,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSessions**
-> List<SessionInfo> getSessions(controllableByUserId, deviceId, activeWithinSeconds)
+> BuiltList<SessionInfo> getSessions(controllableByUserId, deviceId, activeWithinSeconds)
 
 Gets a list of sessions.
 
@@ -218,15 +218,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final controllableByUserId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Filter by sessions that a given user is allowed to remote control.
-final deviceId = deviceId_example; // String | Filter by device Id.
-final activeWithinSeconds = 56; // int | Optional. Filter by sessions that were active in the last n seconds.
+final api = Openapi().getSessionApi();
+final String controllableByUserId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Filter by sessions that a given user is allowed to remote control.
+final String deviceId = deviceId_example; // String | Filter by device Id.
+final int activeWithinSeconds = 56; // int | Optional. Filter by sessions that were active in the last n seconds.
 
 try {
-    final result = api_instance.getSessions(controllableByUserId, deviceId, activeWithinSeconds);
-    print(result);
-} catch (e) {
+    final response = api.getSessions(controllableByUserId, deviceId, activeWithinSeconds);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->getSessions: $e\n');
 }
 ```
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<SessionInfo>**](SessionInfo.md)
+[**BuiltList&lt;SessionInfo&gt;**](SessionInfo.md)
 
 ### Authorization
 
@@ -267,19 +267,19 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session id.
-final playCommand = ; // PlayCommand | The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.
-final itemIds = []; // List<String> | The ids of the items to play, comma delimited.
-final startPositionTicks = 789; // int | The starting position of the first item.
-final mediaSourceId = mediaSourceId_example; // String | Optional. The media source id.
-final audioStreamIndex = 56; // int | Optional. The index of the audio stream to play.
-final subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to play.
-final startIndex = 56; // int | Optional. The start index.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session id.
+final PlayCommand playCommand = ; // PlayCommand | The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.
+final BuiltList<String> itemIds = ; // BuiltList<String> | The ids of the items to play, comma delimited.
+final int startPositionTicks = 789; // int | The starting position of the first item.
+final String mediaSourceId = mediaSourceId_example; // String | Optional. The media source id.
+final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to play.
+final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to play.
+final int startIndex = 56; // int | Optional. The start index.
 
 try {
-    api_instance.play(sessionId, playCommand, itemIds, startPositionTicks, mediaSourceId, audioStreamIndex, subtitleStreamIndex, startIndex);
-} catch (e) {
+    api.play(sessionId, playCommand, itemIds, startPositionTicks, mediaSourceId, audioStreamIndex, subtitleStreamIndex, startIndex);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->play: $e\n');
 }
 ```
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sessionId** | **String**| The session id. | 
  **playCommand** | [**PlayCommand**](.md)| The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now. | 
- **itemIds** | [**List<String>**](String.md)| The ids of the items to play, comma delimited. | [default to const []]
+ **itemIds** | [**BuiltList&lt;String&gt;**](String.md)| The ids of the items to play, comma delimited. | 
  **startPositionTicks** | **int**| The starting position of the first item. | [optional] 
  **mediaSourceId** | **String**| Optional. The media source id. | [optional] 
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to play. | [optional] 
@@ -325,17 +325,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final id = id_example; // String | The session id.
-final playableMediaTypes = []; // List<String> | A list of playable media types, comma delimited. Audio, Video, Book, Photo.
-final supportedCommands = []; // List<GeneralCommandType> | A list of supported remote control commands, comma delimited.
-final supportsMediaControl = true; // bool | Determines whether media can be played remotely..
-final supportsSync = true; // bool | Determines whether sync is supported.
-final supportsPersistentIdentifier = true; // bool | Determines whether the device supports a unique identifier.
+final api = Openapi().getSessionApi();
+final String id = id_example; // String | The session id.
+final BuiltList<String> playableMediaTypes = ; // BuiltList<String> | A list of playable media types, comma delimited. Audio, Video, Book, Photo.
+final BuiltList<GeneralCommandType> supportedCommands = ; // BuiltList<GeneralCommandType> | A list of supported remote control commands, comma delimited.
+final bool supportsMediaControl = true; // bool | Determines whether media can be played remotely..
+final bool supportsSync = true; // bool | Determines whether sync is supported.
+final bool supportsPersistentIdentifier = true; // bool | Determines whether the device supports a unique identifier.
 
 try {
-    api_instance.postCapabilities(id, playableMediaTypes, supportedCommands, supportsMediaControl, supportsSync, supportsPersistentIdentifier);
-} catch (e) {
+    api.postCapabilities(id, playableMediaTypes, supportedCommands, supportsMediaControl, supportsSync, supportsPersistentIdentifier);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->postCapabilities: $e\n');
 }
 ```
@@ -345,8 +345,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The session id. | [optional] 
- **playableMediaTypes** | [**List<String>**](String.md)| A list of playable media types, comma delimited. Audio, Video, Book, Photo. | [optional] [default to const []]
- **supportedCommands** | [**List<GeneralCommandType>**](GeneralCommandType.md)| A list of supported remote control commands, comma delimited. | [optional] [default to const []]
+ **playableMediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| A list of playable media types, comma delimited. Audio, Video, Book, Photo. | [optional] 
+ **supportedCommands** | [**BuiltList&lt;GeneralCommandType&gt;**](GeneralCommandType.md)| A list of supported remote control commands, comma delimited. | [optional] 
  **supportsMediaControl** | **bool**| Determines whether media can be played remotely.. | [optional] [default to false]
  **supportsSync** | **bool**| Determines whether sync is supported. | [optional] [default to false]
  **supportsPersistentIdentifier** | **bool**| Determines whether the device supports a unique identifier. | [optional] [default to true]
@@ -379,13 +379,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final postFullCapabilitiesRequest = PostFullCapabilitiesRequest(); // PostFullCapabilitiesRequest | The MediaBrowser.Model.Session.ClientCapabilities.
-final id = id_example; // String | The session id.
+final api = Openapi().getSessionApi();
+final PostFullCapabilitiesRequest postFullCapabilitiesRequest = ; // PostFullCapabilitiesRequest | The MediaBrowser.Model.Session.ClientCapabilities.
+final String id = id_example; // String | The session id.
 
 try {
-    api_instance.postFullCapabilities(postFullCapabilitiesRequest, id);
-} catch (e) {
+    api.postFullCapabilities(postFullCapabilitiesRequest, id);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->postFullCapabilities: $e\n');
 }
 ```
@@ -425,13 +425,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session id.
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 
 try {
-    api_instance.removeUserFromSession(sessionId, userId);
-} catch (e) {
+    api.removeUserFromSession(sessionId, userId);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->removeUserFromSession: $e\n');
 }
 ```
@@ -471,11 +471,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
+final api = Openapi().getSessionApi();
 
 try {
-    api_instance.reportSessionEnded();
-} catch (e) {
+    api.reportSessionEnded();
+} catch on DioError (e) {
     print('Exception when calling SessionApi->reportSessionEnded: $e\n');
 }
 ```
@@ -511,13 +511,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final itemId = itemId_example; // String | The item id.
-final sessionId = sessionId_example; // String | The session id.
+final api = Openapi().getSessionApi();
+final String itemId = itemId_example; // String | The item id.
+final String sessionId = sessionId_example; // String | The session id.
 
 try {
-    api_instance.reportViewing(itemId, sessionId);
-} catch (e) {
+    api.reportViewing(itemId, sessionId);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->reportViewing: $e\n');
 }
 ```
@@ -557,13 +557,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session id.
-final sendFullGeneralCommandRequest = SendFullGeneralCommandRequest(); // SendFullGeneralCommandRequest | The MediaBrowser.Model.Session.GeneralCommand.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session id.
+final SendFullGeneralCommandRequest sendFullGeneralCommandRequest = ; // SendFullGeneralCommandRequest | The MediaBrowser.Model.Session.GeneralCommand.
 
 try {
-    api_instance.sendFullGeneralCommand(sessionId, sendFullGeneralCommandRequest);
-} catch (e) {
+    api.sendFullGeneralCommand(sessionId, sendFullGeneralCommandRequest);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->sendFullGeneralCommand: $e\n');
 }
 ```
@@ -603,13 +603,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session id.
-final command = ; // GeneralCommandType | The command to send.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session id.
+final GeneralCommandType command = ; // GeneralCommandType | The command to send.
 
 try {
-    api_instance.sendGeneralCommand(sessionId, command);
-} catch (e) {
+    api.sendGeneralCommand(sessionId, command);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->sendGeneralCommand: $e\n');
 }
 ```
@@ -649,13 +649,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session id.
-final sendMessageCommandRequest = SendMessageCommandRequest(); // SendMessageCommandRequest | The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session id.
+final SendMessageCommandRequest sendMessageCommandRequest = ; // SendMessageCommandRequest | The MediaBrowser.Model.Session.MessageCommand object containing Header, Message Text, and TimeoutMs.
 
 try {
-    api_instance.sendMessageCommand(sessionId, sendMessageCommandRequest);
-} catch (e) {
+    api.sendMessageCommand(sessionId, sendMessageCommandRequest);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->sendMessageCommand: $e\n');
 }
 ```
@@ -695,15 +695,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session id.
-final command = ; // PlaystateCommand | The MediaBrowser.Model.Session.PlaystateCommand.
-final seekPositionTicks = 789; // int | The optional position ticks.
-final controllingUserId = controllingUserId_example; // String | The optional controlling user id.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session id.
+final PlaystateCommand command = ; // PlaystateCommand | The MediaBrowser.Model.Session.PlaystateCommand.
+final int seekPositionTicks = 789; // int | The optional position ticks.
+final String controllingUserId = controllingUserId_example; // String | The optional controlling user id.
 
 try {
-    api_instance.sendPlaystateCommand(sessionId, command, seekPositionTicks, controllingUserId);
-} catch (e) {
+    api.sendPlaystateCommand(sessionId, command, seekPositionTicks, controllingUserId);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->sendPlaystateCommand: $e\n');
 }
 ```
@@ -745,13 +745,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = SessionApi();
-final sessionId = sessionId_example; // String | The session id.
-final command = ; // GeneralCommandType | The command to send.
+final api = Openapi().getSessionApi();
+final String sessionId = sessionId_example; // String | The session id.
+final GeneralCommandType command = ; // GeneralCommandType | The command to send.
 
 try {
-    api_instance.sendSystemCommand(sessionId, command);
-} catch (e) {
+    api.sendSystemCommand(sessionId, command);
+} catch on DioError (e) {
     print('Exception when calling SessionApi->sendSystemCommand: $e\n');
 }
 ```

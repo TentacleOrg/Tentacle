@@ -23,12 +23,12 @@ Gets branding css.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = BrandingApi();
+final api = Openapi().getBrandingApi();
 
 try {
-    final result = api_instance.getBrandingCss();
-    print(result);
-} catch (e) {
+    final response = api.getBrandingCss();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling BrandingApi->getBrandingCss: $e\n');
 }
 ```
@@ -60,12 +60,12 @@ Gets branding css.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = BrandingApi();
+final api = Openapi().getBrandingApi();
 
 try {
-    final result = api_instance.getBrandingCss2();
-    print(result);
-} catch (e) {
+    final response = api.getBrandingCss2();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling BrandingApi->getBrandingCss2: $e\n');
 }
 ```
@@ -97,12 +97,12 @@ Gets branding configuration.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = BrandingApi();
+final api = Openapi().getBrandingApi();
 
 try {
-    final result = api_instance.getBrandingOptions();
-    print(result);
-} catch (e) {
+    final response = api.getBrandingOptions();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling BrandingApi->getBrandingOptions: $e\n');
 }
 ```

@@ -8,19 +8,19 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**primary** | **Map<String, String>** |  | [optional] [default to const {}]
-**art** | **Map<String, String>** |  | [optional] [default to const {}]
-**backdrop** | **Map<String, String>** |  | [optional] [default to const {}]
-**banner** | **Map<String, String>** |  | [optional] [default to const {}]
-**logo** | **Map<String, String>** |  | [optional] [default to const {}]
-**thumb** | **Map<String, String>** |  | [optional] [default to const {}]
-**disc** | **Map<String, String>** |  | [optional] [default to const {}]
-**box** | **Map<String, String>** |  | [optional] [default to const {}]
-**screenshot** | **Map<String, String>** |  | [optional] [default to const {}]
-**menu** | **Map<String, String>** |  | [optional] [default to const {}]
-**chapter** | **Map<String, String>** |  | [optional] [default to const {}]
-**boxRear** | **Map<String, String>** |  | [optional] [default to const {}]
-**profile** | **Map<String, String>** |  | [optional] [default to const {}]
+**primary** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**art** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**backdrop** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**banner** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**logo** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**thumb** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**disc** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**box** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**screenshot** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**menu** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**chapter** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**boxRear** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
+**profile** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

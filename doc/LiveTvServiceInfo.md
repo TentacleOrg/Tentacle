@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **version** | **String** | Gets or sets the version. | [optional] 
 **hasUpdateAvailable** | **bool** | Gets or sets a value indicating whether this instance has update available. | [optional] 
 **isVisible** | **bool** | Gets or sets a value indicating whether this instance is visible. | [optional] 
-**tuners** | **List<String>** |  | [optional] [default to const []]
+**tuners** | **BuiltList&lt;String&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

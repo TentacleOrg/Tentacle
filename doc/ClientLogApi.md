@@ -25,13 +25,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ClientLogApi();
-final body = MultipartFile(); // MultipartFile | 
+final api = Openapi().getClientLogApi();
+final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    final result = api_instance.logFile(body);
-    print(result);
-} catch (e) {
+    final response = api.logFile(body);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ClientLogApi->logFile: $e\n');
 }
 ```

@@ -9,12 +9,12 @@ import 'package:openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **itemType** | **String** |  | [optional] 
-**disabledMetadataSavers** | **List<String>** |  | [optional] [default to const []]
-**localMetadataReaderOrder** | **List<String>** |  | [optional] [default to const []]
-**disabledMetadataFetchers** | **List<String>** |  | [optional] [default to const []]
-**metadataFetcherOrder** | **List<String>** |  | [optional] [default to const []]
-**disabledImageFetchers** | **List<String>** |  | [optional] [default to const []]
-**imageFetcherOrder** | **List<String>** |  | [optional] [default to const []]
+**disabledMetadataSavers** | **BuiltList&lt;String&gt;** |  | [optional] 
+**localMetadataReaderOrder** | **BuiltList&lt;String&gt;** |  | [optional] 
+**disabledMetadataFetchers** | **BuiltList&lt;String&gt;** |  | [optional] 
+**metadataFetcherOrder** | **BuiltList&lt;String&gt;** |  | [optional] 
+**disabledImageFetchers** | **BuiltList&lt;String&gt;** |  | [optional] 
+**imageFetcherOrder** | **BuiltList&lt;String&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -40,13 +40,13 @@ Name | Type | Description | Notes
 **requiresPlainFolders** | **bool** | Gets or sets a value indicating whether RequiresPlainFolders. | [optional] [default to false]
 **enableMSMediaReceiverRegistrar** | **bool** | Gets or sets a value indicating whether EnableMSMediaReceiverRegistrar. | [optional] [default to false]
 **ignoreTranscodeByteRangeRequests** | **bool** | Gets or sets a value indicating whether IgnoreTranscodeByteRangeRequests. | [optional] [default to false]
-**xmlRootAttributes** | [**List<XmlAttribute>**](XmlAttribute.md) | Gets or sets the XmlRootAttributes. | [optional] [default to const []]
-**directPlayProfiles** | [**List<DirectPlayProfile>**](DirectPlayProfile.md) | Gets or sets the direct play profiles. | [optional] [default to const []]
-**transcodingProfiles** | [**List<TranscodingProfile>**](TranscodingProfile.md) | Gets or sets the transcoding profiles. | [optional] [default to const []]
-**containerProfiles** | [**List<ContainerProfile>**](ContainerProfile.md) | Gets or sets the container profiles. | [optional] [default to const []]
-**codecProfiles** | [**List<CodecProfile>**](CodecProfile.md) | Gets or sets the codec profiles. | [optional] [default to const []]
-**responseProfiles** | [**List<ResponseProfile>**](ResponseProfile.md) | Gets or sets the ResponseProfiles. | [optional] [default to const []]
-**subtitleProfiles** | [**List<SubtitleProfile>**](SubtitleProfile.md) | Gets or sets the subtitle profiles. | [optional] [default to const []]
+**xmlRootAttributes** | [**BuiltList&lt;XmlAttribute&gt;**](XmlAttribute.md) | Gets or sets the XmlRootAttributes. | [optional] 
+**directPlayProfiles** | [**BuiltList&lt;DirectPlayProfile&gt;**](DirectPlayProfile.md) | Gets or sets the direct play profiles. | [optional] 
+**transcodingProfiles** | [**BuiltList&lt;TranscodingProfile&gt;**](TranscodingProfile.md) | Gets or sets the transcoding profiles. | [optional] 
+**containerProfiles** | [**BuiltList&lt;ContainerProfile&gt;**](ContainerProfile.md) | Gets or sets the container profiles. | [optional] 
+**codecProfiles** | [**BuiltList&lt;CodecProfile&gt;**](CodecProfile.md) | Gets or sets the codec profiles. | [optional] 
+**responseProfiles** | [**BuiltList&lt;ResponseProfile&gt;**](ResponseProfile.md) | Gets or sets the ResponseProfiles. | [optional] 
+**subtitleProfiles** | [**BuiltList&lt;SubtitleProfile&gt;**](SubtitleProfile.md) | Gets or sets the subtitle profiles. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

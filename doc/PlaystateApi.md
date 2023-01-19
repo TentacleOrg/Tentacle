@@ -11,7 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**markPlayedItem**](PlaystateApi.md#markplayeditem) | **POST** /Users/{userId}/PlayedItems/{itemId} | Marks an item as played for user.
 [**markUnplayedItem**](PlaystateApi.md#markunplayeditem) | **DELETE** /Users/{userId}/PlayedItems/{itemId} | Marks an item as unplayed for user.
-[**onPlaybackProgress**](PlaystateApi.md#onplaybackprogress) | **POST** /Users/{userId}/PlayingItems/{itemId}/Progress | Reports a user's playback progress.
+[**onPlaybackProgress**](PlaystateApi.md#onplaybackprogress) | **POST** /Users/{userId}/PlayingItems/{itemId}/Progress | Reports a user&#39;s playback progress.
 [**onPlaybackStart**](PlaystateApi.md#onplaybackstart) | **POST** /Users/{userId}/PlayingItems/{itemId} | Reports that a user has begun playing an item.
 [**onPlaybackStopped**](PlaystateApi.md#onplaybackstopped) | **DELETE** /Users/{userId}/PlayingItems/{itemId} | Reports that a user has stopped playing an item.
 [**pingPlaybackSession**](PlaystateApi.md#pingplaybacksession) | **POST** /Sessions/Playing/Ping | Pings a playback session.
@@ -33,15 +33,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final datePlayed = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The date the item was played.
+final api = Openapi().getPlaystateApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final DateTime datePlayed = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The date the item was played.
 
 try {
-    final result = api_instance.markPlayedItem(userId, itemId, datePlayed);
-    print(result);
-} catch (e) {
+    final response = api.markPlayedItem(userId, itemId, datePlayed);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->markPlayedItem: $e\n');
 }
 ```
@@ -82,14 +82,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final api = Openapi().getPlaystateApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
-    final result = api_instance.markUnplayedItem(userId, itemId);
-    print(result);
-} catch (e) {
+    final response = api.markUnplayedItem(userId, itemId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->markUnplayedItem: $e\n');
 }
 ```
@@ -129,24 +129,24 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
-final positionTicks = 789; // int | Optional. The current position, in ticks. 1 tick = 10000 ms.
-final audioStreamIndex = 56; // int | The audio stream index.
-final subtitleStreamIndex = 56; // int | The subtitle stream index.
-final volumeLevel = 56; // int | Scale of 0-100.
-final playMethod = ; // PlayMethod | The play method.
-final liveStreamId = liveStreamId_example; // String | The live stream id.
-final playSessionId = playSessionId_example; // String | The play session id.
-final repeatMode = ; // RepeatMode | The repeat mode.
-final isPaused = true; // bool | Indicates if the player is paused.
-final isMuted = true; // bool | Indicates if the player is muted.
+final api = Openapi().getPlaystateApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final String mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
+final int positionTicks = 789; // int | Optional. The current position, in ticks. 1 tick = 10000 ms.
+final int audioStreamIndex = 56; // int | The audio stream index.
+final int subtitleStreamIndex = 56; // int | The subtitle stream index.
+final int volumeLevel = 56; // int | Scale of 0-100.
+final PlayMethod playMethod = ; // PlayMethod | The play method.
+final String liveStreamId = liveStreamId_example; // String | The live stream id.
+final String playSessionId = playSessionId_example; // String | The play session id.
+final RepeatMode repeatMode = ; // RepeatMode | The repeat mode.
+final bool isPaused = true; // bool | Indicates if the player is paused.
+final bool isMuted = true; // bool | Indicates if the player is muted.
 
 try {
-    api_instance.onPlaybackProgress(userId, itemId, mediaSourceId, positionTicks, audioStreamIndex, subtitleStreamIndex, volumeLevel, playMethod, liveStreamId, playSessionId, repeatMode, isPaused, isMuted);
-} catch (e) {
+    api.onPlaybackProgress(userId, itemId, mediaSourceId, positionTicks, audioStreamIndex, subtitleStreamIndex, volumeLevel, playMethod, liveStreamId, playSessionId, repeatMode, isPaused, isMuted);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->onPlaybackProgress: $e\n');
 }
 ```
@@ -197,20 +197,20 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
-final audioStreamIndex = 56; // int | The audio stream index.
-final subtitleStreamIndex = 56; // int | The subtitle stream index.
-final playMethod = ; // PlayMethod | The play method.
-final liveStreamId = liveStreamId_example; // String | The live stream id.
-final playSessionId = playSessionId_example; // String | The play session id.
-final canSeek = true; // bool | Indicates if the client can seek.
+final api = Openapi().getPlaystateApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final String mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
+final int audioStreamIndex = 56; // int | The audio stream index.
+final int subtitleStreamIndex = 56; // int | The subtitle stream index.
+final PlayMethod playMethod = ; // PlayMethod | The play method.
+final String liveStreamId = liveStreamId_example; // String | The live stream id.
+final String playSessionId = playSessionId_example; // String | The play session id.
+final bool canSeek = true; // bool | Indicates if the client can seek.
 
 try {
-    api_instance.onPlaybackStart(userId, itemId, mediaSourceId, audioStreamIndex, subtitleStreamIndex, playMethod, liveStreamId, playSessionId, canSeek);
-} catch (e) {
+    api.onPlaybackStart(userId, itemId, mediaSourceId, audioStreamIndex, subtitleStreamIndex, playMethod, liveStreamId, playSessionId, canSeek);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->onPlaybackStart: $e\n');
 }
 ```
@@ -257,18 +257,18 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
-final nextMediaType = nextMediaType_example; // String | The next media type that will play.
-final positionTicks = 789; // int | Optional. The position, in ticks, where playback stopped. 1 tick = 10000 ms.
-final liveStreamId = liveStreamId_example; // String | The live stream id.
-final playSessionId = playSessionId_example; // String | The play session id.
+final api = Openapi().getPlaystateApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final String mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
+final String nextMediaType = nextMediaType_example; // String | The next media type that will play.
+final int positionTicks = 789; // int | Optional. The position, in ticks, where playback stopped. 1 tick = 10000 ms.
+final String liveStreamId = liveStreamId_example; // String | The live stream id.
+final String playSessionId = playSessionId_example; // String | The play session id.
 
 try {
-    api_instance.onPlaybackStopped(userId, itemId, mediaSourceId, nextMediaType, positionTicks, liveStreamId, playSessionId);
-} catch (e) {
+    api.onPlaybackStopped(userId, itemId, mediaSourceId, nextMediaType, positionTicks, liveStreamId, playSessionId);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->onPlaybackStopped: $e\n');
 }
 ```
@@ -313,12 +313,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final playSessionId = playSessionId_example; // String | Playback session id.
+final api = Openapi().getPlaystateApi();
+final String playSessionId = playSessionId_example; // String | Playback session id.
 
 try {
-    api_instance.pingPlaybackSession(playSessionId);
-} catch (e) {
+    api.pingPlaybackSession(playSessionId);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->pingPlaybackSession: $e\n');
 }
 ```
@@ -357,12 +357,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final reportPlaybackProgressRequest = ReportPlaybackProgressRequest(); // ReportPlaybackProgressRequest | The playback progress info.
+final api = Openapi().getPlaystateApi();
+final ReportPlaybackProgressRequest reportPlaybackProgressRequest = ; // ReportPlaybackProgressRequest | The playback progress info.
 
 try {
-    api_instance.reportPlaybackProgress(reportPlaybackProgressRequest);
-} catch (e) {
+    api.reportPlaybackProgress(reportPlaybackProgressRequest);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->reportPlaybackProgress: $e\n');
 }
 ```
@@ -401,12 +401,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final reportPlaybackStartRequest = ReportPlaybackStartRequest(); // ReportPlaybackStartRequest | The playback start info.
+final api = Openapi().getPlaystateApi();
+final ReportPlaybackStartRequest reportPlaybackStartRequest = ; // ReportPlaybackStartRequest | The playback start info.
 
 try {
-    api_instance.reportPlaybackStart(reportPlaybackStartRequest);
-} catch (e) {
+    api.reportPlaybackStart(reportPlaybackStartRequest);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->reportPlaybackStart: $e\n');
 }
 ```
@@ -445,12 +445,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = PlaystateApi();
-final reportPlaybackStoppedRequest = ReportPlaybackStoppedRequest(); // ReportPlaybackStoppedRequest | The playback stop info.
+final api = Openapi().getPlaystateApi();
+final ReportPlaybackStoppedRequest reportPlaybackStoppedRequest = ; // ReportPlaybackStoppedRequest | The playback stop info.
 
 try {
-    api_instance.reportPlaybackStopped(reportPlaybackStoppedRequest);
-} catch (e) {
+    api.reportPlaybackStopped(reportPlaybackStoppedRequest);
+} catch on DioError (e) {
     print('Exception when calling PlaystateApi->reportPlaybackStopped: $e\n');
 }
 ```

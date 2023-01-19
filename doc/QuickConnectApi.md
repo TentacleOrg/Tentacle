@@ -28,13 +28,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = QuickConnectApi();
-final code = code_example; // String | Quick connect code to authorize.
+final api = Openapi().getQuickConnectApi();
+final String code = code_example; // String | Quick connect code to authorize.
 
 try {
-    final result = api_instance.authorize(code);
-    print(result);
-} catch (e) {
+    final response = api.authorize(code);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling QuickConnectApi->authorize: $e\n');
 }
 ```
@@ -69,13 +69,13 @@ Attempts to retrieve authentication information.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = QuickConnectApi();
-final secret = secret_example; // String | Secret previously returned from the Initiate endpoint.
+final api = Openapi().getQuickConnectApi();
+final String secret = secret_example; // String | Secret previously returned from the Initiate endpoint.
 
 try {
-    final result = api_instance.connect(secret);
-    print(result);
-} catch (e) {
+    final response = api.connect(secret);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling QuickConnectApi->connect: $e\n');
 }
 ```
@@ -110,12 +110,12 @@ Gets the current quick connect state.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = QuickConnectApi();
+final api = Openapi().getQuickConnectApi();
 
 try {
-    final result = api_instance.getEnabled();
-    print(result);
-} catch (e) {
+    final response = api.getEnabled();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling QuickConnectApi->getEnabled: $e\n');
 }
 ```
@@ -147,12 +147,12 @@ Initiate a new quick connect request.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = QuickConnectApi();
+final api = Openapi().getQuickConnectApi();
 
 try {
-    final result = api_instance.initiate();
-    print(result);
-} catch (e) {
+    final response = api.initiate();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling QuickConnectApi->initiate: $e\n');
 }
 ```

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **isShuttingDown** | **bool** |  | [optional] 
 **supportsLibraryMonitor** | **bool** | Gets or sets a value indicating whether [supports library monitor]. | [optional] 
 **webSocketPortNumber** | **int** | Gets or sets the web socket port number. | [optional] 
-**completedInstallations** | [**List<InstallationInfo>**](InstallationInfo.md) | Gets or sets the completed installations. | [optional] [default to const []]
+**completedInstallations** | [**BuiltList&lt;InstallationInfo&gt;**](InstallationInfo.md) | Gets or sets the completed installations. | [optional] 
 **canSelfRestart** | **bool** | Gets or sets a value indicating whether this instance can self restart. | [optional] 
 **canLaunchWebBrowser** | **bool** |  | [optional] 
 **programDataPath** | **String** | Gets or sets the program data path. | [optional] 

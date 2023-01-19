@@ -27,13 +27,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = CollectionApi();
-final collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
-final ids = []; // List<String> | Item ids, comma delimited.
+final api = Openapi().getCollectionApi();
+final String collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
+final BuiltList<String> ids = ; // BuiltList<String> | Item ids, comma delimited.
 
 try {
-    api_instance.addToCollection(collectionId, ids);
-} catch (e) {
+    api.addToCollection(collectionId, ids);
+} catch on DioError (e) {
     print('Exception when calling CollectionApi->addToCollection: $e\n');
 }
 ```
@@ -43,7 +43,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection id. | 
- **ids** | [**List<String>**](String.md)| Item ids, comma delimited. | [default to const []]
+ **ids** | [**BuiltList&lt;String&gt;**](String.md)| Item ids, comma delimited. | 
 
 ### Return type
 
@@ -73,16 +73,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = CollectionApi();
-final name = name_example; // String | The name of the collection.
-final ids = []; // List<String> | Item Ids to add to the collection.
-final parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Create the collection within a specific folder.
-final isLocked = true; // bool | Whether or not to lock the new collection.
+final api = Openapi().getCollectionApi();
+final String name = name_example; // String | The name of the collection.
+final BuiltList<String> ids = ; // BuiltList<String> | Item Ids to add to the collection.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Create the collection within a specific folder.
+final bool isLocked = true; // bool | Whether or not to lock the new collection.
 
 try {
-    final result = api_instance.createCollection(name, ids, parentId, isLocked);
-    print(result);
-} catch (e) {
+    final response = api.createCollection(name, ids, parentId, isLocked);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling CollectionApi->createCollection: $e\n');
 }
 ```
@@ -92,7 +92,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The name of the collection. | [optional] 
- **ids** | [**List<String>**](String.md)| Item Ids to add to the collection. | [optional] [default to const []]
+ **ids** | [**BuiltList&lt;String&gt;**](String.md)| Item Ids to add to the collection. | [optional] 
  **parentId** | **String**| Optional. Create the collection within a specific folder. | [optional] 
  **isLocked** | **bool**| Whether or not to lock the new collection. | [optional] [default to false]
 
@@ -124,13 +124,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = CollectionApi();
-final collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
-final ids = []; // List<String> | Item ids, comma delimited.
+final api = Openapi().getCollectionApi();
+final String collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
+final BuiltList<String> ids = ; // BuiltList<String> | Item ids, comma delimited.
 
 try {
-    api_instance.removeFromCollection(collectionId, ids);
-} catch (e) {
+    api.removeFromCollection(collectionId, ids);
+} catch on DioError (e) {
     print('Exception when calling CollectionApi->removeFromCollection: $e\n');
 }
 ```
@@ -140,7 +140,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **String**| The collection id. | 
- **ids** | [**List<String>**](String.md)| Item ids, comma delimited. | [default to const []]
+ **ids** | [**BuiltList&lt;String&gt;**](String.md)| Item ids, comma delimited. | 
 
 ### Return type
 

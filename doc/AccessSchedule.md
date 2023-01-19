@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Gets the id of this instance. | [optional] [readonly] 
+**id** | **int** | Gets the id of this instance. | [optional] 
 **userId** | **String** | Gets the id of the associated user. | [optional] 
 **dayOfWeek** | [**DynamicDayOfWeek**](DynamicDayOfWeek.md) | Gets or sets the day of week. | [optional] 
 **startHour** | **double** | Gets or sets the start hour. | [optional] 

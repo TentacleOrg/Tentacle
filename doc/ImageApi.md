@@ -10,16 +10,16 @@ All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteCustomSplashscreen**](ImageApi.md#deletecustomsplashscreen) | **DELETE** /Branding/Splashscreen | Delete a custom splashscreen.
-[**deleteItemImage**](ImageApi.md#deleteitemimage) | **DELETE** /Items/{itemId}/Images/{imageType} | Delete an item's image.
-[**deleteItemImageByIndex**](ImageApi.md#deleteitemimagebyindex) | **DELETE** /Items/{itemId}/Images/{imageType}/{imageIndex} | Delete an item's image.
-[**deleteUserImage**](ImageApi.md#deleteuserimage) | **DELETE** /Users/{userId}/Images/{imageType} | Delete the user's image.
-[**deleteUserImageByIndex**](ImageApi.md#deleteuserimagebyindex) | **DELETE** /Users/{userId}/Images/{imageType}/{index} | Delete the user's image.
+[**deleteItemImage**](ImageApi.md#deleteitemimage) | **DELETE** /Items/{itemId}/Images/{imageType} | Delete an item&#39;s image.
+[**deleteItemImageByIndex**](ImageApi.md#deleteitemimagebyindex) | **DELETE** /Items/{itemId}/Images/{imageType}/{imageIndex} | Delete an item&#39;s image.
+[**deleteUserImage**](ImageApi.md#deleteuserimage) | **DELETE** /Users/{userId}/Images/{imageType} | Delete the user&#39;s image.
+[**deleteUserImageByIndex**](ImageApi.md#deleteuserimagebyindex) | **DELETE** /Users/{userId}/Images/{imageType}/{index} | Delete the user&#39;s image.
 [**getArtistImage**](ImageApi.md#getartistimage) | **GET** /Artists/{name}/Images/{imageType}/{imageIndex} | Get artist image by name.
 [**getGenreImage**](ImageApi.md#getgenreimage) | **GET** /Genres/{name}/Images/{imageType} | Get genre image by name.
 [**getGenreImageByIndex**](ImageApi.md#getgenreimagebyindex) | **GET** /Genres/{name}/Images/{imageType}/{imageIndex} | Get genre image by name.
-[**getItemImage**](ImageApi.md#getitemimage) | **GET** /Items/{itemId}/Images/{imageType} | Gets the item's image.
-[**getItemImage2**](ImageApi.md#getitemimage2) | **GET** /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount} | Gets the item's image.
-[**getItemImageByIndex**](ImageApi.md#getitemimagebyindex) | **GET** /Items/{itemId}/Images/{imageType}/{imageIndex} | Gets the item's image.
+[**getItemImage**](ImageApi.md#getitemimage) | **GET** /Items/{itemId}/Images/{imageType} | Gets the item&#39;s image.
+[**getItemImage2**](ImageApi.md#getitemimage2) | **GET** /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount} | Gets the item&#39;s image.
+[**getItemImageByIndex**](ImageApi.md#getitemimagebyindex) | **GET** /Items/{itemId}/Images/{imageType}/{imageIndex} | Gets the item&#39;s image.
 [**getItemImageInfos**](ImageApi.md#getitemimageinfos) | **GET** /Items/{itemId}/Images | Get item image infos.
 [**getMusicGenreImage**](ImageApi.md#getmusicgenreimage) | **GET** /MusicGenres/{name}/Images/{imageType} | Get music genre image by name.
 [**getMusicGenreImageByIndex**](ImageApi.md#getmusicgenreimagebyindex) | **GET** /MusicGenres/{name}/Images/{imageType}/{imageIndex} | Get music genre image by name.
@@ -33,9 +33,9 @@ Method | HTTP request | Description
 [**headArtistImage**](ImageApi.md#headartistimage) | **HEAD** /Artists/{name}/Images/{imageType}/{imageIndex} | Get artist image by name.
 [**headGenreImage**](ImageApi.md#headgenreimage) | **HEAD** /Genres/{name}/Images/{imageType} | Get genre image by name.
 [**headGenreImageByIndex**](ImageApi.md#headgenreimagebyindex) | **HEAD** /Genres/{name}/Images/{imageType}/{imageIndex} | Get genre image by name.
-[**headItemImage**](ImageApi.md#headitemimage) | **HEAD** /Items/{itemId}/Images/{imageType} | Gets the item's image.
-[**headItemImage2**](ImageApi.md#headitemimage2) | **HEAD** /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount} | Gets the item's image.
-[**headItemImageByIndex**](ImageApi.md#headitemimagebyindex) | **HEAD** /Items/{itemId}/Images/{imageType}/{imageIndex} | Gets the item's image.
+[**headItemImage**](ImageApi.md#headitemimage) | **HEAD** /Items/{itemId}/Images/{imageType} | Gets the item&#39;s image.
+[**headItemImage2**](ImageApi.md#headitemimage2) | **HEAD** /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount} | Gets the item&#39;s image.
+[**headItemImageByIndex**](ImageApi.md#headitemimagebyindex) | **HEAD** /Items/{itemId}/Images/{imageType}/{imageIndex} | Gets the item&#39;s image.
 [**headMusicGenreImage**](ImageApi.md#headmusicgenreimage) | **HEAD** /MusicGenres/{name}/Images/{imageType} | Get music genre image by name.
 [**headMusicGenreImageByIndex**](ImageApi.md#headmusicgenreimagebyindex) | **HEAD** /MusicGenres/{name}/Images/{imageType}/{imageIndex} | Get music genre image by name.
 [**headPersonImage**](ImageApi.md#headpersonimage) | **HEAD** /Persons/{name}/Images/{imageType} | Get person image by name.
@@ -65,11 +65,11 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
+final api = Openapi().getImageApi();
 
 try {
-    api_instance.deleteCustomSplashscreen();
-} catch (e) {
+    api.deleteCustomSplashscreen();
+} catch on DioError (e) {
     print('Exception when calling ImageApi->deleteCustomSplashscreen: $e\n');
 }
 ```
@@ -105,14 +105,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | The image index.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | The image index.
 
 try {
-    api_instance.deleteItemImage(itemId, imageType, imageIndex);
-} catch (e) {
+    api.deleteItemImage(itemId, imageType, imageIndex);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->deleteItemImage: $e\n');
 }
 ```
@@ -153,14 +153,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | The image index.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | The image index.
 
 try {
-    api_instance.deleteItemImageByIndex(itemId, imageType, imageIndex);
-} catch (e) {
+    api.deleteItemImageByIndex(itemId, imageType, imageIndex);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->deleteItemImageByIndex: $e\n');
 }
 ```
@@ -201,14 +201,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final imageType = ; // ImageType | (Unused) Image type.
-final index = 56; // int | (Unused) Image index.
+final api = Openapi().getImageApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+final ImageType imageType = ; // ImageType | (Unused) Image type.
+final int index = 56; // int | (Unused) Image index.
 
 try {
-    api_instance.deleteUserImage(userId, imageType, index);
-} catch (e) {
+    api.deleteUserImage(userId, imageType, index);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->deleteUserImage: $e\n');
 }
 ```
@@ -249,14 +249,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final imageType = ; // ImageType | (Unused) Image type.
-final index = 56; // int | (Unused) Image index.
+final api = Openapi().getImageApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+final ImageType imageType = ; // ImageType | (Unused) Image type.
+final int index = 56; // int | (Unused) Image index.
 
 try {
-    api_instance.deleteUserImageByIndex(userId, imageType, index);
-} catch (e) {
+    api.deleteUserImageByIndex(userId, imageType, index);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->deleteUserImageByIndex: $e\n');
 }
 ```
@@ -285,7 +285,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getArtistImage**
-> MultipartFile getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get artist image by name.
 
@@ -293,31 +293,31 @@ Get artist image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Artist name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Artist name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getArtistImage: $e\n');
 }
 ```
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -362,7 +362,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGenreImage**
-> MultipartFile getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get genre image by name.
 
@@ -370,31 +370,31 @@ Get genre image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Genre name.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Genre name.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getGenreImage: $e\n');
 }
 ```
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -439,7 +439,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGenreImageByIndex**
-> MultipartFile getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get genre image by name.
 
@@ -447,31 +447,31 @@ Get genre image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Genre name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Genre name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getGenreImageByIndex: $e\n');
 }
 ```
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -516,7 +516,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemImage**
-> MultipartFile getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Gets the item's image.
 
@@ -524,31 +524,31 @@ Gets the item's image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getItemImage: $e\n');
 }
 ```
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -593,7 +593,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemImage2**
-> MultipartFile getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Gets the item's image.
 
@@ -601,31 +601,31 @@ Gets the item's image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final imageIndex = 56; // int | Image index.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int imageIndex = 56; // int | Image index.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getItemImage2: $e\n');
 }
 ```
@@ -656,7 +656,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -670,7 +670,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemImageByIndex**
-> MultipartFile getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer)
+> Uint8List getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer)
 
 Gets the item's image.
 
@@ -678,31 +678,31 @@ Gets the item's image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getItemImageByIndex: $e\n');
 }
 ```
@@ -733,7 +733,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -747,7 +747,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemImageInfos**
-> List<ImageInfo> getItemImageInfos(itemId)
+> BuiltList<ImageInfo> getItemImageInfos(itemId)
 
 Get item image infos.
 
@@ -759,13 +759,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
-    final result = api_instance.getItemImageInfos(itemId);
-    print(result);
-} catch (e) {
+    final response = api.getItemImageInfos(itemId);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getItemImageInfos: $e\n');
 }
 ```
@@ -778,7 +778,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List<ImageInfo>**](ImageInfo.md)
+[**BuiltList&lt;ImageInfo&gt;**](ImageInfo.md)
 
 ### Authorization
 
@@ -792,7 +792,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMusicGenreImage**
-> MultipartFile getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get music genre image by name.
 
@@ -800,31 +800,31 @@ Get music genre image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Music genre name.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Music genre name.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getMusicGenreImage: $e\n');
 }
 ```
@@ -855,7 +855,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -869,7 +869,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMusicGenreImageByIndex**
-> MultipartFile getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get music genre image by name.
 
@@ -877,31 +877,31 @@ Get music genre image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Music genre name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Music genre name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getMusicGenreImageByIndex: $e\n');
 }
 ```
@@ -932,7 +932,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -946,7 +946,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPersonImage**
-> MultipartFile getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get person image by name.
 
@@ -954,31 +954,31 @@ Get person image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Person name.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Person name.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getPersonImage: $e\n');
 }
 ```
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1023,7 +1023,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPersonImageByIndex**
-> MultipartFile getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get person image by name.
 
@@ -1031,31 +1031,31 @@ Get person image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Person name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Person name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getPersonImageByIndex: $e\n');
 }
 ```
@@ -1086,7 +1086,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1100,7 +1100,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSplashscreen**
-> MultipartFile getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality)
+> Uint8List getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality)
 
 Generates or gets the splashscreen.
 
@@ -1108,24 +1108,24 @@ Generates or gets the splashscreen.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final tag = tag_example; // String | Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final blur = 56; // int | Blur image.
-final backgroundColor = backgroundColor_example; // String | Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Apply a foreground layer on top of the image.
-final quality = 56; // int | Quality setting, from 0-100.
+final api = Openapi().getImageApi();
+final String tag = tag_example; // String | Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final int blur = 56; // int | Blur image.
+final String backgroundColor = backgroundColor_example; // String | Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Apply a foreground layer on top of the image.
+final int quality = 56; // int | Quality setting, from 0-100.
 
 try {
-    final result = api_instance.getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality);
-    print(result);
-} catch (e) {
+    final response = api.getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getSplashscreen: $e\n');
 }
 ```
@@ -1149,7 +1149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1163,7 +1163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getStudioImage**
-> MultipartFile getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get studio image by name.
 
@@ -1171,31 +1171,31 @@ Get studio image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Studio name.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Studio name.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getStudioImage: $e\n');
 }
 ```
@@ -1226,7 +1226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1240,7 +1240,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getStudioImageByIndex**
-> MultipartFile getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get studio image by name.
 
@@ -1248,31 +1248,31 @@ Get studio image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Studio name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Studio name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getStudioImageByIndex: $e\n');
 }
 ```
@@ -1303,7 +1303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1317,7 +1317,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserImage**
-> MultipartFile getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get user profile image.
 
@@ -1325,31 +1325,31 @@ Get user profile image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getUserImage: $e\n');
 }
 ```
@@ -1380,7 +1380,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1394,7 +1394,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserImageByIndex**
-> MultipartFile getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get user profile image.
 
@@ -1402,31 +1402,31 @@ Get user profile image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->getUserImageByIndex: $e\n');
 }
 ```
@@ -1457,7 +1457,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1471,7 +1471,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headArtistImage**
-> MultipartFile headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get artist image by name.
 
@@ -1479,31 +1479,31 @@ Get artist image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Artist name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Artist name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headArtistImage: $e\n');
 }
 ```
@@ -1534,7 +1534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1548,7 +1548,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headGenreImage**
-> MultipartFile headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get genre image by name.
 
@@ -1556,31 +1556,31 @@ Get genre image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Genre name.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Genre name.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headGenreImage: $e\n');
 }
 ```
@@ -1611,7 +1611,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1625,7 +1625,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headGenreImageByIndex**
-> MultipartFile headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get genre image by name.
 
@@ -1633,31 +1633,31 @@ Get genre image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Genre name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Genre name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headGenreImageByIndex: $e\n');
 }
 ```
@@ -1688,7 +1688,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1702,7 +1702,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headItemImage**
-> MultipartFile headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Gets the item's image.
 
@@ -1710,31 +1710,31 @@ Gets the item's image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headItemImage: $e\n');
 }
 ```
@@ -1765,7 +1765,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1779,7 +1779,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headItemImage2**
-> MultipartFile headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Gets the item's image.
 
@@ -1787,31 +1787,31 @@ Gets the item's image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final imageIndex = 56; // int | Image index.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int imageIndex = 56; // int | Image index.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headItemImage2: $e\n');
 }
 ```
@@ -1842,7 +1842,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1856,7 +1856,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headItemImageByIndex**
-> MultipartFile headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer)
+> Uint8List headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer)
 
 Gets the item's image.
 
@@ -1864,31 +1864,31 @@ Gets the item's image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headItemImageByIndex: $e\n');
 }
 ```
@@ -1919,7 +1919,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -1933,7 +1933,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headMusicGenreImage**
-> MultipartFile headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get music genre image by name.
 
@@ -1941,31 +1941,31 @@ Get music genre image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Music genre name.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Music genre name.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headMusicGenreImage: $e\n');
 }
 ```
@@ -1996,7 +1996,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -2010,7 +2010,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headMusicGenreImageByIndex**
-> MultipartFile headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get music genre image by name.
 
@@ -2018,31 +2018,31 @@ Get music genre image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Music genre name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Music genre name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headMusicGenreImageByIndex: $e\n');
 }
 ```
@@ -2073,7 +2073,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -2087,7 +2087,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headPersonImage**
-> MultipartFile headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get person image by name.
 
@@ -2095,31 +2095,31 @@ Get person image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Person name.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Person name.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headPersonImage: $e\n');
 }
 ```
@@ -2150,7 +2150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -2164,7 +2164,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headPersonImageByIndex**
-> MultipartFile headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get person image by name.
 
@@ -2172,31 +2172,31 @@ Get person image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Person name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Person name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headPersonImageByIndex: $e\n');
 }
 ```
@@ -2227,7 +2227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -2241,7 +2241,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headStudioImage**
-> MultipartFile headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get studio image by name.
 
@@ -2249,31 +2249,31 @@ Get studio image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Studio name.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Studio name.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headStudioImage: $e\n');
 }
 ```
@@ -2304,7 +2304,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -2318,7 +2318,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headStudioImageByIndex**
-> MultipartFile headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get studio image by name.
 
@@ -2326,31 +2326,31 @@ Get studio image by name.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final name = name_example; // String | Studio name.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String name = name_example; // String | Studio name.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headStudioImageByIndex: $e\n');
 }
 ```
@@ -2381,7 +2381,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -2395,7 +2395,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headUserImage**
-> MultipartFile headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get user profile image.
 
@@ -2403,31 +2403,31 @@ Get user profile image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final imageType = ; // ImageType | Image type.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final imageIndex = 56; // int | Image index.
+final api = Openapi().getImageApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final ImageType imageType = ; // ImageType | Image type.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final int imageIndex = 56; // int | Image index.
 
 try {
-    final result = api_instance.headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(result);
-} catch (e) {
+    final response = api.headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headUserImage: $e\n');
 }
 ```
@@ -2458,7 +2458,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -2472,7 +2472,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headUserImageByIndex**
-> MultipartFile headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
 
 Get user profile image.
 
@@ -2480,31 +2480,31 @@ Get user profile image.
 ```dart
 import 'package:openapi/api.dart';
 
-final api_instance = ImageApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Image index.
-final tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final maxWidth = 56; // int | The maximum image width to return.
-final maxHeight = 56; // int | The maximum image height to return.
-final percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final width = 56; // int | The fixed image width to return.
-final height = 56; // int | The fixed image height to return.
-final quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final fillWidth = 56; // int | Width of box to fill.
-final fillHeight = 56; // int | Height of box to fill.
-final cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final blur = 56; // int | Optional. Blur image.
-final backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+final api = Openapi().getImageApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Image index.
+final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final int maxWidth = 56; // int | The maximum image width to return.
+final int maxHeight = 56; // int | The maximum image height to return.
+final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+final int width = 56; // int | The fixed image width to return.
+final int height = 56; // int | The fixed image height to return.
+final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+final int fillWidth = 56; // int | Width of box to fill.
+final int fillHeight = 56; // int | Height of box to fill.
+final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final int blur = 56; // int | Optional. Blur image.
+final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final result = api_instance.headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(result);
-} catch (e) {
+    final response = api.headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->headUserImageByIndex: $e\n');
 }
 ```
@@ -2535,7 +2535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MultipartFile**](MultipartFile.md)
+[**Uint8List**](Uint8List.md)
 
 ### Authorization
 
@@ -2561,15 +2561,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final imageType = ; // ImageType | (Unused) Image type.
-final index = 56; // int | (Unused) Image index.
-final body = MultipartFile(); // MultipartFile | 
+final api = Openapi().getImageApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+final ImageType imageType = ; // ImageType | (Unused) Image type.
+final int index = 56; // int | (Unused) Image index.
+final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api_instance.postUserImage(userId, imageType, index, body);
-} catch (e) {
+    api.postUserImage(userId, imageType, index, body);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->postUserImage: $e\n');
 }
 ```
@@ -2611,15 +2611,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final imageType = ; // ImageType | (Unused) Image type.
-final index = 56; // int | (Unused) Image index.
-final body = MultipartFile(); // MultipartFile | 
+final api = Openapi().getImageApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+final ImageType imageType = ; // ImageType | (Unused) Image type.
+final int index = 56; // int | (Unused) Image index.
+final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api_instance.postUserImageByIndex(userId, imageType, index, body);
-} catch (e) {
+    api.postUserImageByIndex(userId, imageType, index, body);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->postUserImageByIndex: $e\n');
 }
 ```
@@ -2661,14 +2661,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final body = MultipartFile(); // MultipartFile | 
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api_instance.setItemImage(itemId, imageType, body);
-} catch (e) {
+    api.setItemImage(itemId, imageType, body);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->setItemImage: $e\n');
 }
 ```
@@ -2709,15 +2709,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | (Unused) Image index.
-final body = MultipartFile(); // MultipartFile | 
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | (Unused) Image index.
+final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api_instance.setItemImageByIndex(itemId, imageType, imageIndex, body);
-} catch (e) {
+    api.setItemImageByIndex(itemId, imageType, imageIndex, body);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->setItemImageByIndex: $e\n');
 }
 ```
@@ -2759,15 +2759,15 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final imageType = ; // ImageType | Image type.
-final imageIndex = 56; // int | Old image index.
-final newIndex = 56; // int | New image index.
+final api = Openapi().getImageApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final ImageType imageType = ; // ImageType | Image type.
+final int imageIndex = 56; // int | Old image index.
+final int newIndex = 56; // int | New image index.
 
 try {
-    api_instance.updateItemImageIndex(itemId, imageType, imageIndex, newIndex);
-} catch (e) {
+    api.updateItemImageIndex(itemId, imageType, imageIndex, newIndex);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->updateItemImageIndex: $e\n');
 }
 ```
@@ -2809,12 +2809,12 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api_instance = ImageApi();
-final body = MultipartFile(); // MultipartFile | 
+final api = Openapi().getImageApi();
+final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api_instance.uploadCustomSplashscreen(body);
-} catch (e) {
+    api.uploadCustomSplashscreen(body);
+} catch on DioError (e) {
     print('Exception when calling ImageApi->uploadCustomSplashscreen: $e\n');
 }
 ```
