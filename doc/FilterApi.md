@@ -1,16 +1,16 @@
-# jellyfin_api.api.FilterApi
+# openapi.api.FilterApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getQueryFilters**](FilterApi.md#getQueryFilters) | **get** /Items/Filters2 | Gets query filters.
-[**getQueryFiltersLegacy**](FilterApi.md#getQueryFiltersLegacy) | **get** /Items/Filters | Gets legacy query filters.
+[**getQueryFilters**](FilterApi.md#getqueryfilters) | **GET** /Items/Filters2 | Gets query filters.
+[**getQueryFiltersLegacy**](FilterApi.md#getqueryfilterslegacy) | **GET** /Items/Filters | Gets legacy query filters.
 
 
 # **getQueryFilters**
@@ -18,31 +18,31 @@ Method | HTTP request | Description
 
 Gets query filters.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new FilterApi();
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
-var parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
-var includeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
-var isAiring = true; // bool | Optional. Is item airing.
-var isMovie = true; // bool | Optional. Is item movie.
-var isSports = true; // bool | Optional. Is item sports.
-var isKids = true; // bool | Optional. Is item kids.
-var isNews = true; // bool | Optional. Is item news.
-var isSeries = true; // bool | Optional. Is item series.
-var recursive = true; // bool | Optional. Search recursive.
+final api = Openapi().getFilterApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
+final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
+final bool isAiring = true; // bool | Optional. Is item airing.
+final bool isMovie = true; // bool | Optional. Is item movie.
+final bool isSports = true; // bool | Optional. Is item sports.
+final bool isKids = true; // bool | Optional. Is item kids.
+final bool isNews = true; // bool | Optional. Is item news.
+final bool isSeries = true; // bool | Optional. Is item series.
+final bool recursive = true; // bool | Optional. Search recursive.
 
-try { 
-    var result = api_instance.getQueryFilters(userId, parentId, includeItemTypes, isAiring, isMovie, isSports, isKids, isNews, isSeries, recursive);
-    print(result);
-} catch (e) {
-    print("Exception when calling FilterApi->getQueryFilters: $e\n");
+try {
+    final response = api.getQueryFilters(userId, parentId, includeItemTypes, isAiring, isMovie, isSports, isKids, isNews, isSeries, recursive);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling FilterApi->getQueryFilters: $e\n');
 }
 ```
 
@@ -50,16 +50,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)| Optional. User id. | [optional] [default to null]
- **parentId** | [**String**](.md)| Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] [default to null]
- **includeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
- **isAiring** | **bool**| Optional. Is item airing. | [optional] [default to null]
- **isMovie** | **bool**| Optional. Is item movie. | [optional] [default to null]
- **isSports** | **bool**| Optional. Is item sports. | [optional] [default to null]
- **isKids** | **bool**| Optional. Is item kids. | [optional] [default to null]
- **isNews** | **bool**| Optional. Is item news. | [optional] [default to null]
- **isSeries** | **bool**| Optional. Is item series. | [optional] [default to null]
- **recursive** | **bool**| Optional. Search recursive. | [optional] [default to null]
+ **userId** | **String**| Optional. User id. | [optional] 
+ **parentId** | **String**| Optional. Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
+ **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
+ **isAiring** | **bool**| Optional. Is item airing. | [optional] 
+ **isMovie** | **bool**| Optional. Is item movie. | [optional] 
+ **isSports** | **bool**| Optional. Is item sports. | [optional] 
+ **isKids** | **bool**| Optional. Is item kids. | [optional] 
+ **isNews** | **bool**| Optional. Is item news. | [optional] 
+ **isSeries** | **bool**| Optional. Is item series. | [optional] 
+ **recursive** | **bool**| Optional. Search recursive. | [optional] 
 
 ### Return type
 
@@ -81,25 +81,25 @@ Name | Type | Description  | Notes
 
 Gets legacy query filters.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new FilterApi();
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
-var parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Parent id.
-var includeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
-var mediaTypes = []; // List<String> | Optional. Filter by MediaType. Allows multiple, comma delimited.
+final api = Openapi().getFilterApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Parent id.
+final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
+final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional. Filter by MediaType. Allows multiple, comma delimited.
 
-try { 
-    var result = api_instance.getQueryFiltersLegacy(userId, parentId, includeItemTypes, mediaTypes);
-    print(result);
-} catch (e) {
-    print("Exception when calling FilterApi->getQueryFiltersLegacy: $e\n");
+try {
+    final response = api.getQueryFiltersLegacy(userId, parentId, includeItemTypes, mediaTypes);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling FilterApi->getQueryFiltersLegacy: $e\n');
 }
 ```
 
@@ -107,10 +107,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)| Optional. User id. | [optional] [default to null]
- **parentId** | [**String**](.md)| Optional. Parent id. | [optional] [default to null]
- **includeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
- **mediaTypes** | [**List&lt;String&gt;**](String.md)| Optional. Filter by MediaType. Allows multiple, comma delimited. | [optional] [default to const []]
+ **userId** | **String**| Optional. User id. | [optional] 
+ **parentId** | **String**| Optional. Parent id. | [optional] 
+ **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
+ **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Filter by MediaType. Allows multiple, comma delimited. | [optional] 
 
 ### Return type
 

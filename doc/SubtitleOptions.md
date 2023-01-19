@@ -1,22 +1,22 @@
-# jellyfin_api.model.SubtitleOptions
+# openapi.model.SubtitleOptions
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**skipIfEmbeddedSubtitlesPresent** | **bool** |  | [optional] [default to null]
-**skipIfAudioTrackMatches** | **bool** |  | [optional] [default to null]
-**downloadLanguages** | **BuiltList&lt;String&gt;** |  | [optional] [default to const []]
-**downloadMovieSubtitles** | **bool** |  | [optional] [default to null]
-**downloadEpisodeSubtitles** | **bool** |  | [optional] [default to null]
-**openSubtitlesUsername** | **String** |  | [optional] [default to null]
-**openSubtitlesPasswordHash** | **String** |  | [optional] [default to null]
-**isOpenSubtitleVipAccount** | **bool** |  | [optional] [default to null]
-**requirePerfectMatch** | **bool** |  | [optional] [default to null]
+**skipIfEmbeddedSubtitlesPresent** | **bool** |  | [optional] 
+**skipIfAudioTrackMatches** | **bool** |  | [optional] 
+**downloadLanguages** | **BuiltList&lt;String&gt;** |  | [optional] 
+**downloadMovieSubtitles** | **bool** |  | [optional] 
+**downloadEpisodeSubtitles** | **bool** |  | [optional] 
+**openSubtitlesUsername** | **String** |  | [optional] 
+**openSubtitlesPasswordHash** | **String** |  | [optional] 
+**isOpenSubtitleVipAccount** | **bool** |  | [optional] 
+**requirePerfectMatch** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

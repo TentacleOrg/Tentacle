@@ -1,20 +1,20 @@
-# jellyfin_api.api.EnvironmentApi
+# openapi.api.EnvironmentApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getDefaultDirectoryBrowser**](EnvironmentApi.md#getDefaultDirectoryBrowser) | **get** /Environment/DefaultDirectoryBrowser | Get Default directory browser.
-[**getDirectoryContents**](EnvironmentApi.md#getDirectoryContents) | **get** /Environment/DirectoryContents | Gets the contents of a given directory in the file system.
-[**getDrives**](EnvironmentApi.md#getDrives) | **get** /Environment/Drives | Gets available drives from the server&#39;s file system.
-[**getNetworkShares**](EnvironmentApi.md#getNetworkShares) | **get** /Environment/NetworkShares | Gets network paths.
-[**getParentPath**](EnvironmentApi.md#getParentPath) | **get** /Environment/ParentPath | Gets the parent path of a given path.
-[**validatePath**](EnvironmentApi.md#validatePath) | **post** /Environment/ValidatePath | Validates path.
+[**getDefaultDirectoryBrowser**](EnvironmentApi.md#getdefaultdirectorybrowser) | **GET** /Environment/DefaultDirectoryBrowser | Get Default directory browser.
+[**getDirectoryContents**](EnvironmentApi.md#getdirectorycontents) | **GET** /Environment/DirectoryContents | Gets the contents of a given directory in the file system.
+[**getDrives**](EnvironmentApi.md#getdrives) | **GET** /Environment/Drives | Gets available drives from the server&#39;s file system.
+[**getNetworkShares**](EnvironmentApi.md#getnetworkshares) | **GET** /Environment/NetworkShares | Gets network paths.
+[**getParentPath**](EnvironmentApi.md#getparentpath) | **GET** /Environment/ParentPath | Gets the parent path of a given path.
+[**validatePath**](EnvironmentApi.md#validatepath) | **POST** /Environment/ValidatePath | Validates path.
 
 
 # **getDefaultDirectoryBrowser**
@@ -22,21 +22,21 @@ Method | HTTP request | Description
 
 Get Default directory browser.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EnvironmentApi();
+final api = Openapi().getEnvironmentApi();
 
-try { 
-    var result = api_instance.getDefaultDirectoryBrowser();
-    print(result);
-} catch (e) {
-    print("Exception when calling EnvironmentApi->getDefaultDirectoryBrowser: $e\n");
+try {
+    final response = api.getDefaultDirectoryBrowser();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling EnvironmentApi->getDefaultDirectoryBrowser: $e\n');
 }
 ```
 
@@ -59,28 +59,28 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDirectoryContents**
-> List<FileSystemEntryInfo> getDirectoryContents(path, includeFiles, includeDirectories)
+> BuiltList<FileSystemEntryInfo> getDirectoryContents(path, includeFiles, includeDirectories)
 
 Gets the contents of a given directory in the file system.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EnvironmentApi();
-var path = path_example; // String | The path.
-var includeFiles = true; // bool | An optional filter to include or exclude files from the results. true/false.
-var includeDirectories = true; // bool | An optional filter to include or exclude folders from the results. true/false.
+final api = Openapi().getEnvironmentApi();
+final String path = path_example; // String | The path.
+final bool includeFiles = true; // bool | An optional filter to include or exclude files from the results. true/false.
+final bool includeDirectories = true; // bool | An optional filter to include or exclude folders from the results. true/false.
 
-try { 
-    var result = api_instance.getDirectoryContents(path, includeFiles, includeDirectories);
-    print(result);
-} catch (e) {
-    print("Exception when calling EnvironmentApi->getDirectoryContents: $e\n");
+try {
+    final response = api.getDirectoryContents(path, includeFiles, includeDirectories);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling EnvironmentApi->getDirectoryContents: $e\n');
 }
 ```
 
@@ -88,13 +88,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The path. | [default to null]
+ **path** | **String**| The path. | 
  **includeFiles** | **bool**| An optional filter to include or exclude files from the results. true/false. | [optional] [default to false]
  **includeDirectories** | **bool**| An optional filter to include or exclude folders from the results. true/false. | [optional] [default to false]
 
 ### Return type
 
-[**List<FileSystemEntryInfo>**](FileSystemEntryInfo.md)
+[**BuiltList&lt;FileSystemEntryInfo&gt;**](FileSystemEntryInfo.md)
 
 ### Authorization
 
@@ -108,25 +108,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDrives**
-> List<FileSystemEntryInfo> getDrives()
+> BuiltList<FileSystemEntryInfo> getDrives()
 
 Gets available drives from the server's file system.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EnvironmentApi();
+final api = Openapi().getEnvironmentApi();
 
-try { 
-    var result = api_instance.getDrives();
-    print(result);
-} catch (e) {
-    print("Exception when calling EnvironmentApi->getDrives: $e\n");
+try {
+    final response = api.getDrives();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling EnvironmentApi->getDrives: $e\n');
 }
 ```
 
@@ -135,7 +135,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<FileSystemEntryInfo>**](FileSystemEntryInfo.md)
+[**BuiltList&lt;FileSystemEntryInfo&gt;**](FileSystemEntryInfo.md)
 
 ### Authorization
 
@@ -149,25 +149,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNetworkShares**
-> List<FileSystemEntryInfo> getNetworkShares()
+> BuiltList<FileSystemEntryInfo> getNetworkShares()
 
 Gets network paths.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EnvironmentApi();
+final api = Openapi().getEnvironmentApi();
 
-try { 
-    var result = api_instance.getNetworkShares();
-    print(result);
-} catch (e) {
-    print("Exception when calling EnvironmentApi->getNetworkShares: $e\n");
+try {
+    final response = api.getNetworkShares();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling EnvironmentApi->getNetworkShares: $e\n');
 }
 ```
 
@@ -176,7 +176,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<FileSystemEntryInfo>**](FileSystemEntryInfo.md)
+[**BuiltList&lt;FileSystemEntryInfo&gt;**](FileSystemEntryInfo.md)
 
 ### Authorization
 
@@ -194,22 +194,22 @@ This endpoint does not need any parameter.
 
 Gets the parent path of a given path.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EnvironmentApi();
-var path = path_example; // String | The path.
+final api = Openapi().getEnvironmentApi();
+final String path = path_example; // String | The path.
 
-try { 
-    var result = api_instance.getParentPath(path);
-    print(result);
-} catch (e) {
-    print("Exception when calling EnvironmentApi->getParentPath: $e\n");
+try {
+    final response = api.getParentPath(path);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling EnvironmentApi->getParentPath: $e\n');
 }
 ```
 
@@ -217,7 +217,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **path** | **String**| The path. | [default to null]
+ **path** | **String**| The path. | 
 
 ### Return type
 
@@ -235,25 +235,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validatePath**
-> validatePath(UNKNOWN_BASE_TYPE)
+> validatePath(validatePathRequest)
 
 Validates path.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new EnvironmentApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | Validate request object.
+final api = Openapi().getEnvironmentApi();
+final ValidatePathRequest validatePathRequest = ; // ValidatePathRequest | Validate request object.
 
-try { 
-    api_instance.validatePath(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling EnvironmentApi->validatePath: $e\n");
+try {
+    api.validatePath(validatePathRequest);
+} catch on DioError (e) {
+    print('Exception when calling EnvironmentApi->validatePath: $e\n');
 }
 ```
 
@@ -261,7 +261,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Validate request object. | 
+ **validatePathRequest** | [**ValidatePathRequest**](ValidatePathRequest.md)| Validate request object. | 
 
 ### Return type
 
@@ -273,7 +273,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

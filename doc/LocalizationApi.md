@@ -1,40 +1,40 @@
-# jellyfin_api.api.LocalizationApi
+# openapi.api.LocalizationApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCountries**](LocalizationApi.md#getCountries) | **get** /Localization/Countries | Gets known countries.
-[**getCultures**](LocalizationApi.md#getCultures) | **get** /Localization/Cultures | Gets known cultures.
-[**getLocalizationOptions**](LocalizationApi.md#getLocalizationOptions) | **get** /Localization/Options | Gets localization options.
-[**getParentalRatings**](LocalizationApi.md#getParentalRatings) | **get** /Localization/ParentalRatings | Gets known parental ratings.
+[**getCountries**](LocalizationApi.md#getcountries) | **GET** /Localization/Countries | Gets known countries.
+[**getCultures**](LocalizationApi.md#getcultures) | **GET** /Localization/Cultures | Gets known cultures.
+[**getLocalizationOptions**](LocalizationApi.md#getlocalizationoptions) | **GET** /Localization/Options | Gets localization options.
+[**getParentalRatings**](LocalizationApi.md#getparentalratings) | **GET** /Localization/ParentalRatings | Gets known parental ratings.
 
 
 # **getCountries**
-> List<CountryInfo> getCountries()
+> BuiltList<CountryInfo> getCountries()
 
 Gets known countries.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new LocalizationApi();
+final api = Openapi().getLocalizationApi();
 
-try { 
-    var result = api_instance.getCountries();
-    print(result);
-} catch (e) {
-    print("Exception when calling LocalizationApi->getCountries: $e\n");
+try {
+    final response = api.getCountries();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling LocalizationApi->getCountries: $e\n');
 }
 ```
 
@@ -43,7 +43,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<CountryInfo>**](CountryInfo.md)
+[**BuiltList&lt;CountryInfo&gt;**](CountryInfo.md)
 
 ### Authorization
 
@@ -57,25 +57,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCultures**
-> List<CultureDto> getCultures()
+> BuiltList<CultureDto> getCultures()
 
 Gets known cultures.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new LocalizationApi();
+final api = Openapi().getLocalizationApi();
 
-try { 
-    var result = api_instance.getCultures();
-    print(result);
-} catch (e) {
-    print("Exception when calling LocalizationApi->getCultures: $e\n");
+try {
+    final response = api.getCultures();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling LocalizationApi->getCultures: $e\n');
 }
 ```
 
@@ -84,7 +84,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<CultureDto>**](CultureDto.md)
+[**BuiltList&lt;CultureDto&gt;**](CultureDto.md)
 
 ### Authorization
 
@@ -98,25 +98,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLocalizationOptions**
-> List<LocalizationOption> getLocalizationOptions()
+> BuiltList<LocalizationOption> getLocalizationOptions()
 
 Gets localization options.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new LocalizationApi();
+final api = Openapi().getLocalizationApi();
 
-try { 
-    var result = api_instance.getLocalizationOptions();
-    print(result);
-} catch (e) {
-    print("Exception when calling LocalizationApi->getLocalizationOptions: $e\n");
+try {
+    final response = api.getLocalizationOptions();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling LocalizationApi->getLocalizationOptions: $e\n');
 }
 ```
 
@@ -125,7 +125,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<LocalizationOption>**](LocalizationOption.md)
+[**BuiltList&lt;LocalizationOption&gt;**](LocalizationOption.md)
 
 ### Authorization
 
@@ -139,25 +139,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getParentalRatings**
-> List<ParentalRating> getParentalRatings()
+> BuiltList<ParentalRating> getParentalRatings()
 
 Gets known parental ratings.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new LocalizationApi();
+final api = Openapi().getLocalizationApi();
 
-try { 
-    var result = api_instance.getParentalRatings();
-    print(result);
-} catch (e) {
-    print("Exception when calling LocalizationApi->getParentalRatings: $e\n");
+try {
+    final response = api.getParentalRatings();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling LocalizationApi->getParentalRatings: $e\n');
 }
 ```
 
@@ -166,7 +166,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<ParentalRating>**](ParentalRating.md)
+[**BuiltList&lt;ParentalRating&gt;**](ParentalRating.md)
 
 ### Authorization
 

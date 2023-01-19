@@ -1,16 +1,16 @@
-# jellyfin_api.api.DisplayPreferencesApi
+# openapi.api.DisplayPreferencesApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getDisplayPreferences**](DisplayPreferencesApi.md#getDisplayPreferences) | **get** /DisplayPreferences/{displayPreferencesId} | Get Display Preferences.
-[**updateDisplayPreferences**](DisplayPreferencesApi.md#updateDisplayPreferences) | **post** /DisplayPreferences/{displayPreferencesId} | Update Display Preferences.
+[**getDisplayPreferences**](DisplayPreferencesApi.md#getdisplaypreferences) | **GET** /DisplayPreferences/{displayPreferencesId} | Get Display Preferences.
+[**updateDisplayPreferences**](DisplayPreferencesApi.md#updatedisplaypreferences) | **POST** /DisplayPreferences/{displayPreferencesId} | Update Display Preferences.
 
 
 # **getDisplayPreferences**
@@ -18,24 +18,24 @@ Method | HTTP request | Description
 
 Get Display Preferences.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DisplayPreferencesApi();
-var displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-var client = client_example; // String | Client.
+final api = Openapi().getDisplayPreferencesApi();
+final String displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final String client = client_example; // String | Client.
 
-try { 
-    var result = api_instance.getDisplayPreferences(displayPreferencesId, userId, client);
-    print(result);
-} catch (e) {
-    print("Exception when calling DisplayPreferencesApi->getDisplayPreferences: $e\n");
+try {
+    final response = api.getDisplayPreferences(displayPreferencesId, userId, client);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DisplayPreferencesApi->getDisplayPreferences: $e\n');
 }
 ```
 
@@ -43,9 +43,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **displayPreferencesId** | **String**| Display preferences id. | [default to null]
- **userId** | [**String**](.md)| User id. | [default to null]
- **client** | **String**| Client. | [default to null]
+ **displayPreferencesId** | **String**| Display preferences id. | 
+ **userId** | **String**| User id. | 
+ **client** | **String**| Client. | 
 
 ### Return type
 
@@ -63,28 +63,28 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateDisplayPreferences**
-> updateDisplayPreferences(displayPreferencesId, userId, client, UNKNOWN_BASE_TYPE)
+> updateDisplayPreferences(displayPreferencesId, userId, client, updateDisplayPreferencesRequest)
 
 Update Display Preferences.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DisplayPreferencesApi();
-var displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-var client = client_example; // String | Client.
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | New Display Preferences object.
+final api = Openapi().getDisplayPreferencesApi();
+final String displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+final String client = client_example; // String | Client.
+final UpdateDisplayPreferencesRequest updateDisplayPreferencesRequest = ; // UpdateDisplayPreferencesRequest | New Display Preferences object.
 
-try { 
-    api_instance.updateDisplayPreferences(displayPreferencesId, userId, client, UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling DisplayPreferencesApi->updateDisplayPreferences: $e\n");
+try {
+    api.updateDisplayPreferences(displayPreferencesId, userId, client, updateDisplayPreferencesRequest);
+} catch on DioError (e) {
+    print('Exception when calling DisplayPreferencesApi->updateDisplayPreferences: $e\n');
 }
 ```
 
@@ -92,10 +92,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **displayPreferencesId** | **String**| Display preferences id. | [default to null]
- **userId** | [**String**](.md)| User Id. | [default to null]
- **client** | **String**| Client. | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| New Display Preferences object. | 
+ **displayPreferencesId** | **String**| Display preferences id. | 
+ **userId** | **String**| User Id. | 
+ **client** | **String**| Client. | 
+ **updateDisplayPreferencesRequest** | [**UpdateDisplayPreferencesRequest**](UpdateDisplayPreferencesRequest.md)| New Display Preferences object. | 
 
 ### Return type
 
@@ -107,7 +107,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

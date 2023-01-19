@@ -1,57 +1,57 @@
-# jellyfin_api.api.SyncPlayApi
+# openapi.api.SyncPlayApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**syncPlayBuffering**](SyncPlayApi.md#syncPlayBuffering) | **post** /SyncPlay/Buffering | Notify SyncPlay group that member is buffering.
-[**syncPlayCreateGroup**](SyncPlayApi.md#syncPlayCreateGroup) | **post** /SyncPlay/New | Create a new SyncPlay group.
-[**syncPlayGetGroups**](SyncPlayApi.md#syncPlayGetGroups) | **get** /SyncPlay/List | Gets all SyncPlay groups.
-[**syncPlayJoinGroup**](SyncPlayApi.md#syncPlayJoinGroup) | **post** /SyncPlay/Join | Join an existing SyncPlay group.
-[**syncPlayLeaveGroup**](SyncPlayApi.md#syncPlayLeaveGroup) | **post** /SyncPlay/Leave | Leave the joined SyncPlay group.
-[**syncPlayMovePlaylistItem**](SyncPlayApi.md#syncPlayMovePlaylistItem) | **post** /SyncPlay/MovePlaylistItem | Request to move an item in the playlist in SyncPlay group.
-[**syncPlayNextItem**](SyncPlayApi.md#syncPlayNextItem) | **post** /SyncPlay/NextItem | Request next item in SyncPlay group.
-[**syncPlayPause**](SyncPlayApi.md#syncPlayPause) | **post** /SyncPlay/Pause | Request pause in SyncPlay group.
-[**syncPlayPing**](SyncPlayApi.md#syncPlayPing) | **post** /SyncPlay/Ping | Update session ping.
-[**syncPlayPreviousItem**](SyncPlayApi.md#syncPlayPreviousItem) | **post** /SyncPlay/PreviousItem | Request previous item in SyncPlay group.
-[**syncPlayQueue**](SyncPlayApi.md#syncPlayQueue) | **post** /SyncPlay/Queue | Request to queue items to the playlist of a SyncPlay group.
-[**syncPlayReady**](SyncPlayApi.md#syncPlayReady) | **post** /SyncPlay/Ready | Notify SyncPlay group that member is ready for playback.
-[**syncPlayRemoveFromPlaylist**](SyncPlayApi.md#syncPlayRemoveFromPlaylist) | **post** /SyncPlay/RemoveFromPlaylist | Request to remove items from the playlist in SyncPlay group.
-[**syncPlaySeek**](SyncPlayApi.md#syncPlaySeek) | **post** /SyncPlay/Seek | Request seek in SyncPlay group.
-[**syncPlaySetIgnoreWait**](SyncPlayApi.md#syncPlaySetIgnoreWait) | **post** /SyncPlay/SetIgnoreWait | Request SyncPlay group to ignore member during group-wait.
-[**syncPlaySetNewQueue**](SyncPlayApi.md#syncPlaySetNewQueue) | **post** /SyncPlay/SetNewQueue | Request to set new playlist in SyncPlay group.
-[**syncPlaySetPlaylistItem**](SyncPlayApi.md#syncPlaySetPlaylistItem) | **post** /SyncPlay/SetPlaylistItem | Request to change playlist item in SyncPlay group.
-[**syncPlaySetRepeatMode**](SyncPlayApi.md#syncPlaySetRepeatMode) | **post** /SyncPlay/SetRepeatMode | Request to set repeat mode in SyncPlay group.
-[**syncPlaySetShuffleMode**](SyncPlayApi.md#syncPlaySetShuffleMode) | **post** /SyncPlay/SetShuffleMode | Request to set shuffle mode in SyncPlay group.
-[**syncPlayStop**](SyncPlayApi.md#syncPlayStop) | **post** /SyncPlay/Stop | Request stop in SyncPlay group.
-[**syncPlayUnpause**](SyncPlayApi.md#syncPlayUnpause) | **post** /SyncPlay/Unpause | Request unpause in SyncPlay group.
+[**syncPlayBuffering**](SyncPlayApi.md#syncplaybuffering) | **POST** /SyncPlay/Buffering | Notify SyncPlay group that member is buffering.
+[**syncPlayCreateGroup**](SyncPlayApi.md#syncplaycreategroup) | **POST** /SyncPlay/New | Create a new SyncPlay group.
+[**syncPlayGetGroups**](SyncPlayApi.md#syncplaygetgroups) | **GET** /SyncPlay/List | Gets all SyncPlay groups.
+[**syncPlayJoinGroup**](SyncPlayApi.md#syncplayjoingroup) | **POST** /SyncPlay/Join | Join an existing SyncPlay group.
+[**syncPlayLeaveGroup**](SyncPlayApi.md#syncplayleavegroup) | **POST** /SyncPlay/Leave | Leave the joined SyncPlay group.
+[**syncPlayMovePlaylistItem**](SyncPlayApi.md#syncplaymoveplaylistitem) | **POST** /SyncPlay/MovePlaylistItem | Request to move an item in the playlist in SyncPlay group.
+[**syncPlayNextItem**](SyncPlayApi.md#syncplaynextitem) | **POST** /SyncPlay/NextItem | Request next item in SyncPlay group.
+[**syncPlayPause**](SyncPlayApi.md#syncplaypause) | **POST** /SyncPlay/Pause | Request pause in SyncPlay group.
+[**syncPlayPing**](SyncPlayApi.md#syncplayping) | **POST** /SyncPlay/Ping | Update session ping.
+[**syncPlayPreviousItem**](SyncPlayApi.md#syncplaypreviousitem) | **POST** /SyncPlay/PreviousItem | Request previous item in SyncPlay group.
+[**syncPlayQueue**](SyncPlayApi.md#syncplayqueue) | **POST** /SyncPlay/Queue | Request to queue items to the playlist of a SyncPlay group.
+[**syncPlayReady**](SyncPlayApi.md#syncplayready) | **POST** /SyncPlay/Ready | Notify SyncPlay group that member is ready for playback.
+[**syncPlayRemoveFromPlaylist**](SyncPlayApi.md#syncplayremovefromplaylist) | **POST** /SyncPlay/RemoveFromPlaylist | Request to remove items from the playlist in SyncPlay group.
+[**syncPlaySeek**](SyncPlayApi.md#syncplayseek) | **POST** /SyncPlay/Seek | Request seek in SyncPlay group.
+[**syncPlaySetIgnoreWait**](SyncPlayApi.md#syncplaysetignorewait) | **POST** /SyncPlay/SetIgnoreWait | Request SyncPlay group to ignore member during group-wait.
+[**syncPlaySetNewQueue**](SyncPlayApi.md#syncplaysetnewqueue) | **POST** /SyncPlay/SetNewQueue | Request to set new playlist in SyncPlay group.
+[**syncPlaySetPlaylistItem**](SyncPlayApi.md#syncplaysetplaylistitem) | **POST** /SyncPlay/SetPlaylistItem | Request to change playlist item in SyncPlay group.
+[**syncPlaySetRepeatMode**](SyncPlayApi.md#syncplaysetrepeatmode) | **POST** /SyncPlay/SetRepeatMode | Request to set repeat mode in SyncPlay group.
+[**syncPlaySetShuffleMode**](SyncPlayApi.md#syncplaysetshufflemode) | **POST** /SyncPlay/SetShuffleMode | Request to set shuffle mode in SyncPlay group.
+[**syncPlayStop**](SyncPlayApi.md#syncplaystop) | **POST** /SyncPlay/Stop | Request stop in SyncPlay group.
+[**syncPlayUnpause**](SyncPlayApi.md#syncplayunpause) | **POST** /SyncPlay/Unpause | Request unpause in SyncPlay group.
 
 
 # **syncPlayBuffering**
-> syncPlayBuffering(UNKNOWN_BASE_TYPE)
+> syncPlayBuffering(syncPlayBufferingRequest)
 
 Notify SyncPlay group that member is buffering.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The player status.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayBufferingRequest syncPlayBufferingRequest = ; // SyncPlayBufferingRequest | The player status.
 
-try { 
-    api_instance.syncPlayBuffering(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayBuffering: $e\n");
+try {
+    api.syncPlayBuffering(syncPlayBufferingRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayBuffering: $e\n');
 }
 ```
 
@@ -59,7 +59,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The player status. | 
+ **syncPlayBufferingRequest** | [**SyncPlayBufferingRequest**](SyncPlayBufferingRequest.md)| The player status. | 
 
 ### Return type
 
@@ -71,31 +71,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayCreateGroup**
-> syncPlayCreateGroup(UNKNOWN_BASE_TYPE)
+> syncPlayCreateGroup(syncPlayCreateGroupRequest)
 
 Create a new SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The settings of the new group.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayCreateGroupRequest syncPlayCreateGroupRequest = ; // SyncPlayCreateGroupRequest | The settings of the new group.
 
-try { 
-    api_instance.syncPlayCreateGroup(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayCreateGroup: $e\n");
+try {
+    api.syncPlayCreateGroup(syncPlayCreateGroupRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayCreateGroup: $e\n');
 }
 ```
 
@@ -103,7 +103,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The settings of the new group. | 
+ **syncPlayCreateGroupRequest** | [**SyncPlayCreateGroupRequest**](SyncPlayCreateGroupRequest.md)| The settings of the new group. | 
 
 ### Return type
 
@@ -115,31 +115,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayGetGroups**
-> List<GroupInfoDto> syncPlayGetGroups()
+> BuiltList<GroupInfoDto> syncPlayGetGroups()
 
 Gets all SyncPlay groups.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
-try { 
-    var result = api_instance.syncPlayGetGroups();
-    print(result);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayGetGroups: $e\n");
+try {
+    final response = api.syncPlayGetGroups();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayGetGroups: $e\n');
 }
 ```
 
@@ -148,7 +148,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<GroupInfoDto>**](GroupInfoDto.md)
+[**BuiltList&lt;GroupInfoDto&gt;**](GroupInfoDto.md)
 
 ### Authorization
 
@@ -162,25 +162,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayJoinGroup**
-> syncPlayJoinGroup(UNKNOWN_BASE_TYPE)
+> syncPlayJoinGroup(syncPlayJoinGroupRequest)
 
 Join an existing SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The group to join.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayJoinGroupRequest syncPlayJoinGroupRequest = ; // SyncPlayJoinGroupRequest | The group to join.
 
-try { 
-    api_instance.syncPlayJoinGroup(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayJoinGroup: $e\n");
+try {
+    api.syncPlayJoinGroup(syncPlayJoinGroupRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayJoinGroup: $e\n');
 }
 ```
 
@@ -188,7 +188,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The group to join. | 
+ **syncPlayJoinGroupRequest** | [**SyncPlayJoinGroupRequest**](SyncPlayJoinGroupRequest.md)| The group to join. | 
 
 ### Return type
 
@@ -200,7 +200,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -210,20 +210,20 @@ void (empty response body)
 
 Leave the joined SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
-try { 
-    api_instance.syncPlayLeaveGroup();
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayLeaveGroup: $e\n");
+try {
+    api.syncPlayLeaveGroup();
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayLeaveGroup: $e\n');
 }
 ```
 
@@ -246,25 +246,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayMovePlaylistItem**
-> syncPlayMovePlaylistItem(UNKNOWN_BASE_TYPE)
+> syncPlayMovePlaylistItem(syncPlayMovePlaylistItemRequest)
 
 Request to move an item in the playlist in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The new position for the item.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayMovePlaylistItemRequest syncPlayMovePlaylistItemRequest = ; // SyncPlayMovePlaylistItemRequest | The new position for the item.
 
-try { 
-    api_instance.syncPlayMovePlaylistItem(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayMovePlaylistItem: $e\n");
+try {
+    api.syncPlayMovePlaylistItem(syncPlayMovePlaylistItemRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayMovePlaylistItem: $e\n');
 }
 ```
 
@@ -272,7 +272,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new position for the item. | 
+ **syncPlayMovePlaylistItemRequest** | [**SyncPlayMovePlaylistItemRequest**](SyncPlayMovePlaylistItemRequest.md)| The new position for the item. | 
 
 ### Return type
 
@@ -284,31 +284,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayNextItem**
-> syncPlayNextItem(UNKNOWN_BASE_TYPE)
+> syncPlayNextItem(syncPlayNextItemRequest)
 
 Request next item in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The current item information.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayNextItemRequest syncPlayNextItemRequest = ; // SyncPlayNextItemRequest | The current item information.
 
-try { 
-    api_instance.syncPlayNextItem(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayNextItem: $e\n");
+try {
+    api.syncPlayNextItem(syncPlayNextItemRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayNextItem: $e\n');
 }
 ```
 
@@ -316,7 +316,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The current item information. | 
+ **syncPlayNextItemRequest** | [**SyncPlayNextItemRequest**](SyncPlayNextItemRequest.md)| The current item information. | 
 
 ### Return type
 
@@ -328,7 +328,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -338,20 +338,20 @@ void (empty response body)
 
 Request pause in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
-try { 
-    api_instance.syncPlayPause();
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayPause: $e\n");
+try {
+    api.syncPlayPause();
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayPause: $e\n');
 }
 ```
 
@@ -374,25 +374,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayPing**
-> syncPlayPing(UNKNOWN_BASE_TYPE)
+> syncPlayPing(syncPlayPingRequest)
 
 Update session ping.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The new ping.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayPingRequest syncPlayPingRequest = ; // SyncPlayPingRequest | The new ping.
 
-try { 
-    api_instance.syncPlayPing(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayPing: $e\n");
+try {
+    api.syncPlayPing(syncPlayPingRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayPing: $e\n');
 }
 ```
 
@@ -400,7 +400,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new ping. | 
+ **syncPlayPingRequest** | [**SyncPlayPingRequest**](SyncPlayPingRequest.md)| The new ping. | 
 
 ### Return type
 
@@ -412,31 +412,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayPreviousItem**
-> syncPlayPreviousItem(UNKNOWN_BASE_TYPE)
+> syncPlayPreviousItem(syncPlayPreviousItemRequest)
 
 Request previous item in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The current item information.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayPreviousItemRequest syncPlayPreviousItemRequest = ; // SyncPlayPreviousItemRequest | The current item information.
 
-try { 
-    api_instance.syncPlayPreviousItem(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayPreviousItem: $e\n");
+try {
+    api.syncPlayPreviousItem(syncPlayPreviousItemRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayPreviousItem: $e\n');
 }
 ```
 
@@ -444,7 +444,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The current item information. | 
+ **syncPlayPreviousItemRequest** | [**SyncPlayPreviousItemRequest**](SyncPlayPreviousItemRequest.md)| The current item information. | 
 
 ### Return type
 
@@ -456,31 +456,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayQueue**
-> syncPlayQueue(UNKNOWN_BASE_TYPE)
+> syncPlayQueue(syncPlayQueueRequest)
 
 Request to queue items to the playlist of a SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The items to add.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayQueueRequest syncPlayQueueRequest = ; // SyncPlayQueueRequest | The items to add.
 
-try { 
-    api_instance.syncPlayQueue(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayQueue: $e\n");
+try {
+    api.syncPlayQueue(syncPlayQueueRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayQueue: $e\n');
 }
 ```
 
@@ -488,7 +488,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The items to add. | 
+ **syncPlayQueueRequest** | [**SyncPlayQueueRequest**](SyncPlayQueueRequest.md)| The items to add. | 
 
 ### Return type
 
@@ -500,31 +500,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayReady**
-> syncPlayReady(UNKNOWN_BASE_TYPE)
+> syncPlayReady(syncPlayReadyRequest)
 
 Notify SyncPlay group that member is ready for playback.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The player status.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayReadyRequest syncPlayReadyRequest = ; // SyncPlayReadyRequest | The player status.
 
-try { 
-    api_instance.syncPlayReady(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayReady: $e\n");
+try {
+    api.syncPlayReady(syncPlayReadyRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayReady: $e\n');
 }
 ```
 
@@ -532,7 +532,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The player status. | 
+ **syncPlayReadyRequest** | [**SyncPlayReadyRequest**](SyncPlayReadyRequest.md)| The player status. | 
 
 ### Return type
 
@@ -544,31 +544,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayRemoveFromPlaylist**
-> syncPlayRemoveFromPlaylist(UNKNOWN_BASE_TYPE)
+> syncPlayRemoveFromPlaylist(syncPlayRemoveFromPlaylistRequest)
 
 Request to remove items from the playlist in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The items to remove.
+final api = Openapi().getSyncPlayApi();
+final SyncPlayRemoveFromPlaylistRequest syncPlayRemoveFromPlaylistRequest = ; // SyncPlayRemoveFromPlaylistRequest | The items to remove.
 
-try { 
-    api_instance.syncPlayRemoveFromPlaylist(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayRemoveFromPlaylist: $e\n");
+try {
+    api.syncPlayRemoveFromPlaylist(syncPlayRemoveFromPlaylistRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayRemoveFromPlaylist: $e\n');
 }
 ```
 
@@ -576,7 +576,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The items to remove. | 
+ **syncPlayRemoveFromPlaylistRequest** | [**SyncPlayRemoveFromPlaylistRequest**](SyncPlayRemoveFromPlaylistRequest.md)| The items to remove. | 
 
 ### Return type
 
@@ -588,31 +588,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySeek**
-> syncPlaySeek(UNKNOWN_BASE_TYPE)
+> syncPlaySeek(syncPlaySeekRequest)
 
 Request seek in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The new playback position.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySeekRequest syncPlaySeekRequest = ; // SyncPlaySeekRequest | The new playback position.
 
-try { 
-    api_instance.syncPlaySeek(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlaySeek: $e\n");
+try {
+    api.syncPlaySeek(syncPlaySeekRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlaySeek: $e\n');
 }
 ```
 
@@ -620,7 +620,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new playback position. | 
+ **syncPlaySeekRequest** | [**SyncPlaySeekRequest**](SyncPlaySeekRequest.md)| The new playback position. | 
 
 ### Return type
 
@@ -632,31 +632,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetIgnoreWait**
-> syncPlaySetIgnoreWait(UNKNOWN_BASE_TYPE)
+> syncPlaySetIgnoreWait(syncPlaySetIgnoreWaitRequest)
 
 Request SyncPlay group to ignore member during group-wait.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The settings to set.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetIgnoreWaitRequest syncPlaySetIgnoreWaitRequest = ; // SyncPlaySetIgnoreWaitRequest | The settings to set.
 
-try { 
-    api_instance.syncPlaySetIgnoreWait(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlaySetIgnoreWait: $e\n");
+try {
+    api.syncPlaySetIgnoreWait(syncPlaySetIgnoreWaitRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlaySetIgnoreWait: $e\n');
 }
 ```
 
@@ -664,7 +664,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The settings to set. | 
+ **syncPlaySetIgnoreWaitRequest** | [**SyncPlaySetIgnoreWaitRequest**](SyncPlaySetIgnoreWaitRequest.md)| The settings to set. | 
 
 ### Return type
 
@@ -676,31 +676,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetNewQueue**
-> syncPlaySetNewQueue(UNKNOWN_BASE_TYPE)
+> syncPlaySetNewQueue(syncPlaySetNewQueueRequest)
 
 Request to set new playlist in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The new playlist to play in the group.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetNewQueueRequest syncPlaySetNewQueueRequest = ; // SyncPlaySetNewQueueRequest | The new playlist to play in the group.
 
-try { 
-    api_instance.syncPlaySetNewQueue(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlaySetNewQueue: $e\n");
+try {
+    api.syncPlaySetNewQueue(syncPlaySetNewQueueRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlaySetNewQueue: $e\n');
 }
 ```
 
@@ -708,7 +708,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new playlist to play in the group. | 
+ **syncPlaySetNewQueueRequest** | [**SyncPlaySetNewQueueRequest**](SyncPlaySetNewQueueRequest.md)| The new playlist to play in the group. | 
 
 ### Return type
 
@@ -720,31 +720,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetPlaylistItem**
-> syncPlaySetPlaylistItem(UNKNOWN_BASE_TYPE)
+> syncPlaySetPlaylistItem(syncPlaySetPlaylistItemRequest)
 
 Request to change playlist item in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The new item to play.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetPlaylistItemRequest syncPlaySetPlaylistItemRequest = ; // SyncPlaySetPlaylistItemRequest | The new item to play.
 
-try { 
-    api_instance.syncPlaySetPlaylistItem(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlaySetPlaylistItem: $e\n");
+try {
+    api.syncPlaySetPlaylistItem(syncPlaySetPlaylistItemRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlaySetPlaylistItem: $e\n');
 }
 ```
 
@@ -752,7 +752,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new item to play. | 
+ **syncPlaySetPlaylistItemRequest** | [**SyncPlaySetPlaylistItemRequest**](SyncPlaySetPlaylistItemRequest.md)| The new item to play. | 
 
 ### Return type
 
@@ -764,31 +764,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetRepeatMode**
-> syncPlaySetRepeatMode(UNKNOWN_BASE_TYPE)
+> syncPlaySetRepeatMode(syncPlaySetRepeatModeRequest)
 
 Request to set repeat mode in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The new repeat mode.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetRepeatModeRequest syncPlaySetRepeatModeRequest = ; // SyncPlaySetRepeatModeRequest | The new repeat mode.
 
-try { 
-    api_instance.syncPlaySetRepeatMode(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlaySetRepeatMode: $e\n");
+try {
+    api.syncPlaySetRepeatMode(syncPlaySetRepeatModeRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlaySetRepeatMode: $e\n');
 }
 ```
 
@@ -796,7 +796,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new repeat mode. | 
+ **syncPlaySetRepeatModeRequest** | [**SyncPlaySetRepeatModeRequest**](SyncPlaySetRepeatModeRequest.md)| The new repeat mode. | 
 
 ### Return type
 
@@ -808,31 +808,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetShuffleMode**
-> syncPlaySetShuffleMode(UNKNOWN_BASE_TYPE)
+> syncPlaySetShuffleMode(syncPlaySetShuffleModeRequest)
 
 Request to set shuffle mode in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The new shuffle mode.
+final api = Openapi().getSyncPlayApi();
+final SyncPlaySetShuffleModeRequest syncPlaySetShuffleModeRequest = ; // SyncPlaySetShuffleModeRequest | The new shuffle mode.
 
-try { 
-    api_instance.syncPlaySetShuffleMode(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlaySetShuffleMode: $e\n");
+try {
+    api.syncPlaySetShuffleMode(syncPlaySetShuffleModeRequest);
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlaySetShuffleMode: $e\n');
 }
 ```
 
@@ -840,7 +840,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new shuffle mode. | 
+ **syncPlaySetShuffleModeRequest** | [**SyncPlaySetShuffleModeRequest**](SyncPlaySetShuffleModeRequest.md)| The new shuffle mode. | 
 
 ### Return type
 
@@ -852,7 +852,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -862,20 +862,20 @@ void (empty response body)
 
 Request stop in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
-try { 
-    api_instance.syncPlayStop();
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayStop: $e\n");
+try {
+    api.syncPlayStop();
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayStop: $e\n');
 }
 ```
 
@@ -902,20 +902,20 @@ void (empty response body)
 
 Request unpause in SyncPlay group.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SyncPlayApi();
+final api = Openapi().getSyncPlayApi();
 
-try { 
-    api_instance.syncPlayUnpause();
-} catch (e) {
-    print("Exception when calling SyncPlayApi->syncPlayUnpause: $e\n");
+try {
+    api.syncPlayUnpause();
+} catch on DioError (e) {
+    print('Exception when calling SyncPlayApi->syncPlayUnpause: $e\n');
 }
 ```
 

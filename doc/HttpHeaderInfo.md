@@ -1,16 +1,16 @@
-# jellyfin_api.model.HttpHeaderInfo
+# openapi.model.HttpHeaderInfo
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | [optional] [default to null]
-**value** | **String** |  | [optional] [default to null]
-**match** | [**HeaderMatchType**](HeaderMatchType.md) |  | [optional] [default to null]
+**name** | **String** |  | [optional] 
+**value** | **String** |  | [optional] 
+**match** | [**HeaderMatchType**](HeaderMatchType.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

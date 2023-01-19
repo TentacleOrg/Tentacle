@@ -1,16 +1,16 @@
-# jellyfin_api.api.MusicGenresApi
+# openapi.api.MusicGenresApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getMusicGenre**](MusicGenresApi.md#getMusicGenre) | **get** /MusicGenres/{genreName} | Gets a music genre, by name.
-[**getMusicGenres**](MusicGenresApi.md#getMusicGenres) | **get** /MusicGenres | Gets all music genres from a given item, folder, or the entire library.
+[**getMusicGenre**](MusicGenresApi.md#getmusicgenre) | **GET** /MusicGenres/{genreName} | Gets a music genre, by name.
+[**getMusicGenres**](MusicGenresApi.md#getmusicgenres) | **GET** /MusicGenres | Gets all music genres from a given item, folder, or the entire library.
 
 
 # **getMusicGenre**
@@ -18,23 +18,23 @@ Method | HTTP request | Description
 
 Gets a music genre, by name.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new MusicGenresApi();
-var genreName = genreName_example; // String | The genre name.
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final api = Openapi().getMusicGenresApi();
+final String genreName = genreName_example; // String | The genre name.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
-try { 
-    var result = api_instance.getMusicGenre(genreName, userId);
-    print(result);
-} catch (e) {
-    print("Exception when calling MusicGenresApi->getMusicGenre: $e\n");
+try {
+    final response = api.getMusicGenre(genreName, userId);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling MusicGenresApi->getMusicGenre: $e\n');
 }
 ```
 
@@ -42,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **genreName** | **String**| The genre name. | [default to null]
- **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **genreName** | **String**| The genre name. | 
+ **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
 
 ### Return type
 
@@ -65,39 +65,39 @@ Name | Type | Description  | Notes
 
 Gets all music genres from a given item, folder, or the entire library.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new MusicGenresApi();
-var startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-var limit = 56; // int | Optional. The maximum number of records to return.
-var searchTerm = searchTerm_example; // String | The search term.
-var parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
-var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-var excludeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited.
-var includeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered in based on item type. This allows multiple, comma delimited.
-var isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
-var imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
-var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-var nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
-var nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
-var nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
-var sortBy = []; // List<String> | Optional. Specify one or more sort orders, comma delimited.
-var sortOrder = []; // List<SortOrder> | Sort Order - Ascending,Descending.
-var enableImages = true; // bool | Optional, include image information in output.
-var enableTotalRecordCount = true; // bool | Optional. Include total record count.
+final api = Openapi().getMusicGenresApi();
+final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final String searchTerm = searchTerm_example; // String | The search term.
+final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final BuiltList<BaseItemKind> excludeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited.
+final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered in based on item type. This allows multiple, comma delimited.
+final bool isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
+final int imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final String nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
+final String nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
+final String nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
+final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited.
+final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
+final bool enableImages = true; // bool | Optional, include image information in output.
+final bool enableTotalRecordCount = true; // bool | Optional. Include total record count.
 
-try { 
-    var result = api_instance.getMusicGenres(startIndex, limit, searchTerm, parentId, fields, excludeItemTypes, includeItemTypes, isFavorite, imageTypeLimit, enableImageTypes, userId, nameStartsWithOrGreater, nameStartsWith, nameLessThan, sortBy, sortOrder, enableImages, enableTotalRecordCount);
-    print(result);
-} catch (e) {
-    print("Exception when calling MusicGenresApi->getMusicGenres: $e\n");
+try {
+    final response = api.getMusicGenres(startIndex, limit, searchTerm, parentId, fields, excludeItemTypes, includeItemTypes, isFavorite, imageTypeLimit, enableImageTypes, userId, nameStartsWithOrGreater, nameStartsWith, nameLessThan, sortBy, sortOrder, enableImages, enableTotalRecordCount);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling MusicGenresApi->getMusicGenres: $e\n');
 }
 ```
 
@@ -105,22 +105,22 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] [default to null]
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
- **searchTerm** | **String**| The search term. | [optional] [default to null]
- **parentId** | [**String**](.md)| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] [default to null]
- **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
- **excludeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
- **includeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered in based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
- **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] [default to null]
- **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] [default to null]
- **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
- **userId** | [**String**](.md)| User id. | [optional] [default to null]
- **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] [default to null]
- **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] [default to null]
- **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] [default to null]
- **sortBy** | [**List&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] [default to const []]
- **sortOrder** | [**List&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] [default to const []]
+ **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
+ **searchTerm** | **String**| The search term. | [optional] 
+ **parentId** | **String**| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
+ **excludeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. | [optional] 
+ **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered in based on item type. This allows multiple, comma delimited. | [optional] 
+ **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] 
+ **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] 
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **userId** | **String**| User id. | [optional] 
+ **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] 
+ **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] 
+ **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] 
+ **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
+ **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
  **enableImages** | **bool**| Optional, include image information in output. | [optional] [default to true]
  **enableTotalRecordCount** | **bool**| Optional. Include total record count. | [optional] [default to true]
 

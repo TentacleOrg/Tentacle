@@ -1,14 +1,14 @@
-# jellyfin_api.model.SetPlaylistItemRequestDto
+# openapi.model.SetPlaylistItemRequestDto
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**playlistItemId** | **String** | Gets or sets the playlist identifier of the playing item. | [optional] [default to null]
+**playlistItemId** | **String** | Gets or sets the playlist identifier of the playing item. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

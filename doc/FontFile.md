@@ -1,17 +1,17 @@
-# jellyfin_api.model.FontFile
+# openapi.model.FontFile
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Gets or sets the name. | [optional] [default to null]
-**size** | **int** | Gets or sets the size. | [optional] [default to null]
-**dateCreated** | [**DateTime**](DateTime.md) | Gets or sets the date created. | [optional] [default to null]
-**dateModified** | [**DateTime**](DateTime.md) | Gets or sets the date modified. | [optional] [default to null]
+**name** | **String** | Gets or sets the name. | [optional] 
+**size** | **int** | Gets or sets the size. | [optional] 
+**dateCreated** | [**DateTime**](DateTime.md) | Gets or sets the date created. | [optional] 
+**dateModified** | [**DateTime**](DateTime.md) | Gets or sets the date modified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,16 +1,16 @@
-# jellyfin_api.api.PersonsApi
+# openapi.api.PersonsApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getPerson**](PersonsApi.md#getPerson) | **get** /Persons/{name} | Get person by name.
-[**getPersons**](PersonsApi.md#getPersons) | **get** /Persons | Gets all persons.
+[**getPerson**](PersonsApi.md#getperson) | **GET** /Persons/{name} | Get person by name.
+[**getPersons**](PersonsApi.md#getpersons) | **GET** /Persons | Gets all persons.
 
 
 # **getPerson**
@@ -18,23 +18,23 @@ Method | HTTP request | Description
 
 Get person by name.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new PersonsApi();
-var name = name_example; // String | Person name.
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+final api = Openapi().getPersonsApi();
+final String name = name_example; // String | Person name.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
-try { 
-    var result = api_instance.getPerson(name, userId);
-    print(result);
-} catch (e) {
-    print("Exception when calling PersonsApi->getPerson: $e\n");
+try {
+    final response = api.getPerson(name, userId);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling PersonsApi->getPerson: $e\n');
 }
 ```
 
@@ -42,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Person name. | [default to null]
- **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **name** | **String**| Person name. | 
+ **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
 
 ### Return type
 
@@ -65,34 +65,34 @@ Name | Type | Description  | Notes
 
 Gets all persons.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new PersonsApi();
-var limit = 56; // int | Optional. The maximum number of records to return.
-var searchTerm = searchTerm_example; // String | The search term.
-var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
-var filters = []; // List<ItemFilter> | Optional. Specify additional filters to apply.
-var isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not. userId is required.
-var enableUserData = true; // bool | Optional, include user data.
-var imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
-var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
-var excludePersonTypes = []; // List<String> | Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited.
-var personTypes = []; // List<String> | Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited.
-var appearsInItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. If specified, person results will be filtered on items related to said persons.
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-var enableImages = true; // bool | Optional, include image information in output.
+final api = Openapi().getPersonsApi();
+final int limit = 56; // int | Optional. The maximum number of records to return.
+final String searchTerm = searchTerm_example; // String | The search term.
+final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
+final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
+final bool isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not. userId is required.
+final bool enableUserData = true; // bool | Optional, include user data.
+final int imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
+final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+final BuiltList<String> excludePersonTypes = ; // BuiltList<String> | Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited.
+final BuiltList<String> personTypes = ; // BuiltList<String> | Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited.
+final String appearsInItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. If specified, person results will be filtered on items related to said persons.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final bool enableImages = true; // bool | Optional, include image information in output.
 
-try { 
-    var result = api_instance.getPersons(limit, searchTerm, fields, filters, isFavorite, enableUserData, imageTypeLimit, enableImageTypes, excludePersonTypes, personTypes, appearsInItemId, userId, enableImages);
-    print(result);
-} catch (e) {
-    print("Exception when calling PersonsApi->getPersons: $e\n");
+try {
+    final response = api.getPersons(limit, searchTerm, fields, filters, isFavorite, enableUserData, imageTypeLimit, enableImageTypes, excludePersonTypes, personTypes, appearsInItemId, userId, enableImages);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling PersonsApi->getPersons: $e\n');
 }
 ```
 
@@ -100,18 +100,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
- **searchTerm** | **String**| The search term. | [optional] [default to null]
- **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
- **filters** | [**List&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] [default to const []]
- **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. userId is required. | [optional] [default to null]
- **enableUserData** | **bool**| Optional, include user data. | [optional] [default to null]
- **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] [default to null]
- **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
- **excludePersonTypes** | [**List&lt;String&gt;**](String.md)| Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited. | [optional] [default to const []]
- **personTypes** | [**List&lt;String&gt;**](String.md)| Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited. | [optional] [default to const []]
- **appearsInItemId** | [**String**](.md)| Optional. If specified, person results will be filtered on items related to said persons. | [optional] [default to null]
- **userId** | [**String**](.md)| User id. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
+ **searchTerm** | **String**| The search term. | [optional] 
+ **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
+ **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
+ **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. userId is required. | [optional] 
+ **enableUserData** | **bool**| Optional, include user data. | [optional] 
+ **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] 
+ **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **excludePersonTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified results will be filtered to exclude those containing the specified PersonType. Allows multiple, comma-delimited. | [optional] 
+ **personTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified results will be filtered to include only those containing the specified PersonType. Allows multiple, comma-delimited. | [optional] 
+ **appearsInItemId** | **String**| Optional. If specified, person results will be filtered on items related to said persons. | [optional] 
+ **userId** | **String**| User id. | [optional] 
  **enableImages** | **bool**| Optional, include image information in output. | [optional] [default to true]
 
 ### Return type

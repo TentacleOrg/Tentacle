@@ -85,8 +85,6 @@ doc/CreateTimerRequest.md
 doc/CreateUserByName.md
 doc/CreateUserByNameRequest.md
 doc/CultureDto.md
-doc/CustomQueryData.md
-doc/CustomQueryRequest.md
 doc/DashboardApi.md
 doc/DayOfWeek.md
 doc/DayPattern.md
@@ -181,7 +179,6 @@ doc/ItemUpdateApi.md
 doc/ItemsApi.md
 doc/JoinGroupRequestDto.md
 doc/KeepUntil.md
-doc/KodiSyncQueueApi.md
 doc/LibraryApi.md
 doc/LibraryOptionInfoDto.md
 doc/LibraryOptions.md
@@ -202,7 +199,6 @@ doc/LocalizationOption.md
 doc/LocationType.md
 doc/LogFile.md
 doc/LogLevel.md
-doc/LoginInfoInput.md
 doc/MediaAttachment.md
 doc/MediaEncoderPathDto.md
 doc/MediaInfoApi.md
@@ -249,7 +245,6 @@ doc/NotificationsSummaryDto.md
 doc/ObjectGroupUpdate.md
 doc/OpenLiveStreamDto.md
 doc/OpenLiveStreamRequest.md
-doc/OpenSubtitlesApi.md
 doc/PackageApi.md
 doc/PackageInfo.md
 doc/ParentalRating.md
@@ -270,7 +265,6 @@ doc/PlaybackInfoDto.md
 doc/PlaybackInfoResponse.md
 doc/PlaybackProgressInfo.md
 doc/PlaybackProgressInfoItem.md
-doc/PlaybackReportingActivityApi.md
 doc/PlaybackStartInfo.md
 doc/PlaybackStopInfo.md
 doc/PlayerStateInfo.md
@@ -280,7 +274,6 @@ doc/PlaystateApi.md
 doc/PlaystateCommand.md
 doc/PlaystateRequest.md
 doc/PluginInfo.md
-doc/PluginSettings.md
 doc/PluginStatus.md
 doc/PluginsApi.md
 doc/PostFullCapabilitiesRequest.md
@@ -312,7 +305,6 @@ doc/RemoteSearchResultAlbumArtist.md
 doc/RemoteSubtitleInfo.md
 doc/RemoveFromPlaylistRequestDto.md
 doc/RepeatMode.md
-doc/ReportPlaybackOptions.md
 doc/ReportPlaybackProgressRequest.md
 doc/ReportPlaybackStartRequest.md
 doc/ReportPlaybackStoppedRequest.md
@@ -337,12 +329,12 @@ doc/SeriesTimerInfoDto.md
 doc/SeriesTimerInfoDtoQueryResult.md
 doc/ServerConfiguration.md
 doc/ServerDiscoveryInfo.md
-doc/ServerTimeInfo.md
 doc/SessionApi.md
 doc/SessionInfo.md
 doc/SessionInfoCapabilities.md
 doc/SessionInfoFullNowPlayingItem.md
 doc/SessionInfoNowPlayingItem.md
+doc/SessionInfoNowViewingItem.md
 doc/SessionInfoPlayState.md
 doc/SessionInfoTranscodingInfo.md
 doc/SessionMessageType.md
@@ -385,7 +377,6 @@ doc/SyncPlaySetPlaylistItemRequest.md
 doc/SyncPlaySetRepeatModeRequest.md
 doc/SyncPlaySetShuffleModeRequest.md
 doc/SyncPlayUserAccessType.md
-doc/SyncUpdateInfo.md
 doc/SystemApi.md
 doc/SystemInfo.md
 doc/TaskCompletionStatus.md
@@ -447,7 +438,6 @@ doc/UserLibraryApi.md
 doc/UserPolicy.md
 doc/UserViewsApi.md
 doc/UtcTimeResponse.md
-doc/ValidateLoginInfoRequest.md
 doc/ValidatePathDto.md
 doc/ValidatePathRequest.md
 doc/VersionInfo.md
@@ -489,7 +479,6 @@ lib/src/api/item_lookup_api.dart
 lib/src/api/item_refresh_api.dart
 lib/src/api/item_update_api.dart
 lib/src/api/items_api.dart
-lib/src/api/kodi_sync_queue_api.dart
 lib/src/api/library_api.dart
 lib/src/api/library_structure_api.dart
 lib/src/api/live_tv_api.dart
@@ -498,10 +487,8 @@ lib/src/api/media_info_api.dart
 lib/src/api/movies_api.dart
 lib/src/api/music_genres_api.dart
 lib/src/api/notifications_api.dart
-lib/src/api/open_subtitles_api.dart
 lib/src/api/package_api.dart
 lib/src/api/persons_api.dart
-lib/src/api/playback_reporting_activity_api.dart
 lib/src/api/playlists_api.dart
 lib/src/api/playstate_api.dart
 lib/src/api/plugins_api.dart
@@ -609,8 +596,6 @@ lib/src/model/create_timer_request.dart
 lib/src/model/create_user_by_name.dart
 lib/src/model/create_user_by_name_request.dart
 lib/src/model/culture_dto.dart
-lib/src/model/custom_query_data.dart
-lib/src/model/custom_query_request.dart
 lib/src/model/date.dart
 lib/src/model/day_of_week.dart
 lib/src/model/day_pattern.dart
@@ -705,7 +690,6 @@ lib/src/model/localization_option.dart
 lib/src/model/location_type.dart
 lib/src/model/log_file.dart
 lib/src/model/log_level.dart
-lib/src/model/login_info_input.dart
 lib/src/model/media_attachment.dart
 lib/src/model/media_encoder_path_dto.dart
 lib/src/model/media_path_dto.dart
@@ -773,7 +757,6 @@ lib/src/model/playlist_creation_result.dart
 lib/src/model/playstate_command.dart
 lib/src/model/playstate_request.dart
 lib/src/model/plugin_info.dart
-lib/src/model/plugin_settings.dart
 lib/src/model/plugin_status.dart
 lib/src/model/post_full_capabilities_request.dart
 lib/src/model/post_updated_media_request.dart
@@ -802,7 +785,6 @@ lib/src/model/remote_search_result_album_artist.dart
 lib/src/model/remote_subtitle_info.dart
 lib/src/model/remove_from_playlist_request_dto.dart
 lib/src/model/repeat_mode.dart
-lib/src/model/report_playback_options.dart
 lib/src/model/report_playback_progress_request.dart
 lib/src/model/report_playback_start_request.dart
 lib/src/model/report_playback_stopped_request.dart
@@ -825,11 +807,11 @@ lib/src/model/series_timer_info_dto.dart
 lib/src/model/series_timer_info_dto_query_result.dart
 lib/src/model/server_configuration.dart
 lib/src/model/server_discovery_info.dart
-lib/src/model/server_time_info.dart
 lib/src/model/session_info.dart
 lib/src/model/session_info_capabilities.dart
 lib/src/model/session_info_full_now_playing_item.dart
 lib/src/model/session_info_now_playing_item.dart
+lib/src/model/session_info_now_viewing_item.dart
 lib/src/model/session_info_play_state.dart
 lib/src/model/session_info_transcoding_info.dart
 lib/src/model/session_message_type.dart
@@ -867,7 +849,6 @@ lib/src/model/sync_play_set_playlist_item_request.dart
 lib/src/model/sync_play_set_repeat_mode_request.dart
 lib/src/model/sync_play_set_shuffle_mode_request.dart
 lib/src/model/sync_play_user_access_type.dart
-lib/src/model/sync_update_info.dart
 lib/src/model/system_info.dart
 lib/src/model/task_completion_status.dart
 lib/src/model/task_info.dart
@@ -920,7 +901,6 @@ lib/src/model/user_dto_policy.dart
 lib/src/model/user_item_data_dto.dart
 lib/src/model/user_policy.dart
 lib/src/model/utc_time_response.dart
-lib/src/model/validate_login_info_request.dart
 lib/src/model/validate_path_dto.dart
 lib/src/model/validate_path_request.dart
 lib/src/model/version_info.dart
@@ -1017,8 +997,6 @@ test/create_timer_request_test.dart
 test/create_user_by_name_request_test.dart
 test/create_user_by_name_test.dart
 test/culture_dto_test.dart
-test/custom_query_data_test.dart
-test/custom_query_request_test.dart
 test/dashboard_api_test.dart
 test/day_of_week_test.dart
 test/day_pattern_test.dart
@@ -1113,7 +1091,6 @@ test/item_update_api_test.dart
 test/items_api_test.dart
 test/join_group_request_dto_test.dart
 test/keep_until_test.dart
-test/kodi_sync_queue_api_test.dart
 test/library_api_test.dart
 test/library_option_info_dto_test.dart
 test/library_options_result_dto_test.dart
@@ -1134,7 +1111,6 @@ test/localization_option_test.dart
 test/location_type_test.dart
 test/log_file_test.dart
 test/log_level_test.dart
-test/login_info_input_test.dart
 test/media_attachment_test.dart
 test/media_encoder_path_dto_test.dart
 test/media_info_api_test.dart
@@ -1181,7 +1157,6 @@ test/notifications_summary_dto_test.dart
 test/object_group_update_test.dart
 test/open_live_stream_dto_test.dart
 test/open_live_stream_request_test.dart
-test/open_subtitles_api_test.dart
 test/package_api_test.dart
 test/package_info_test.dart
 test/parental_rating_test.dart
@@ -1202,7 +1177,6 @@ test/playback_info_dto_test.dart
 test/playback_info_response_test.dart
 test/playback_progress_info_item_test.dart
 test/playback_progress_info_test.dart
-test/playback_reporting_activity_api_test.dart
 test/playback_start_info_test.dart
 test/playback_stop_info_test.dart
 test/player_state_info_test.dart
@@ -1212,7 +1186,6 @@ test/playstate_api_test.dart
 test/playstate_command_test.dart
 test/playstate_request_test.dart
 test/plugin_info_test.dart
-test/plugin_settings_test.dart
 test/plugin_status_test.dart
 test/plugins_api_test.dart
 test/post_full_capabilities_request_test.dart
@@ -1244,7 +1217,6 @@ test/remote_search_result_test.dart
 test/remote_subtitle_info_test.dart
 test/remove_from_playlist_request_dto_test.dart
 test/repeat_mode_test.dart
-test/report_playback_options_test.dart
 test/report_playback_progress_request_test.dart
 test/report_playback_start_request_test.dart
 test/report_playback_stopped_request_test.dart
@@ -1269,11 +1241,11 @@ test/series_timer_info_dto_query_result_test.dart
 test/series_timer_info_dto_test.dart
 test/server_configuration_test.dart
 test/server_discovery_info_test.dart
-test/server_time_info_test.dart
 test/session_api_test.dart
 test/session_info_capabilities_test.dart
 test/session_info_full_now_playing_item_test.dart
 test/session_info_now_playing_item_test.dart
+test/session_info_now_viewing_item_test.dart
 test/session_info_play_state_test.dart
 test/session_info_test.dart
 test/session_info_transcoding_info_test.dart
@@ -1317,7 +1289,6 @@ test/sync_play_set_playlist_item_request_test.dart
 test/sync_play_set_repeat_mode_request_test.dart
 test/sync_play_set_shuffle_mode_request_test.dart
 test/sync_play_user_access_type_test.dart
-test/sync_update_info_test.dart
 test/system_api_test.dart
 test/system_info_test.dart
 test/task_completion_status_test.dart
@@ -1379,7 +1350,6 @@ test/user_library_api_test.dart
 test/user_policy_test.dart
 test/user_views_api_test.dart
 test/utc_time_response_test.dart
-test/validate_login_info_request_test.dart
 test/validate_path_dto_test.dart
 test/validate_path_request_test.dart
 test/version_info_test.dart

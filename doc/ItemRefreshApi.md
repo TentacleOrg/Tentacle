@@ -1,15 +1,15 @@
-# jellyfin_api.api.ItemRefreshApi
+# openapi.api.ItemRefreshApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**refreshItem**](ItemRefreshApi.md#refreshItem) | **post** /Items/{itemId}/Refresh | Refreshes metadata for an item.
+[**refreshItem**](ItemRefreshApi.md#refreshitem) | **POST** /Items/{itemId}/Refresh | Refreshes metadata for an item.
 
 
 # **refreshItem**
@@ -17,25 +17,25 @@ Method | HTTP request | Description
 
 Refreshes metadata for an item.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new ItemRefreshApi();
-var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-var metadataRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the metadata refresh mode.
-var imageRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the image refresh mode.
-var replaceAllMetadata = true; // bool | (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh.
-var replaceAllImages = true; // bool | (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh.
+final api = Openapi().getItemRefreshApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+final MetadataRefreshMode metadataRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the metadata refresh mode.
+final MetadataRefreshMode imageRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the image refresh mode.
+final bool replaceAllMetadata = true; // bool | (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh.
+final bool replaceAllImages = true; // bool | (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh.
 
-try { 
-    api_instance.refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages);
-} catch (e) {
-    print("Exception when calling ItemRefreshApi->refreshItem: $e\n");
+try {
+    api.refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages);
+} catch on DioError (e) {
+    print('Exception when calling ItemRefreshApi->refreshItem: $e\n');
 }
 ```
 
@@ -43,9 +43,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | [**String**](.md)| Item id. | [default to null]
- **metadataRefreshMode** | [**MetadataRefreshMode**](.md)| (Optional) Specifies the metadata refresh mode. | [optional] [default to null]
- **imageRefreshMode** | [**MetadataRefreshMode**](.md)| (Optional) Specifies the image refresh mode. | [optional] [default to null]
+ **itemId** | **String**| Item id. | 
+ **metadataRefreshMode** | [**MetadataRefreshMode**](.md)| (Optional) Specifies the metadata refresh mode. | [optional] [default to None]
+ **imageRefreshMode** | [**MetadataRefreshMode**](.md)| (Optional) Specifies the image refresh mode. | [optional] [default to None]
  **replaceAllMetadata** | **bool**| (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh. | [optional] [default to false]
  **replaceAllImages** | **bool**| (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh. | [optional] [default to false]
 

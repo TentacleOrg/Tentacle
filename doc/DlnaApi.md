@@ -1,42 +1,42 @@
-# jellyfin_api.api.DlnaApi
+# openapi.api.DlnaApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createProfile**](DlnaApi.md#createProfile) | **post** /Dlna/Profiles | Creates a profile.
-[**deleteProfile**](DlnaApi.md#deleteProfile) | **delete** /Dlna/Profiles/{profileId} | Deletes a profile.
-[**getDefaultProfile**](DlnaApi.md#getDefaultProfile) | **get** /Dlna/Profiles/Default | Gets the default profile.
-[**getProfile**](DlnaApi.md#getProfile) | **get** /Dlna/Profiles/{profileId} | Gets a single profile.
-[**getProfileInfos**](DlnaApi.md#getProfileInfos) | **get** /Dlna/ProfileInfos | Get profile infos.
-[**updateProfile**](DlnaApi.md#updateProfile) | **post** /Dlna/Profiles/{profileId} | Updates a profile.
+[**createProfile**](DlnaApi.md#createprofile) | **POST** /Dlna/Profiles | Creates a profile.
+[**deleteProfile**](DlnaApi.md#deleteprofile) | **DELETE** /Dlna/Profiles/{profileId} | Deletes a profile.
+[**getDefaultProfile**](DlnaApi.md#getdefaultprofile) | **GET** /Dlna/Profiles/Default | Gets the default profile.
+[**getProfile**](DlnaApi.md#getprofile) | **GET** /Dlna/Profiles/{profileId} | Gets a single profile.
+[**getProfileInfos**](DlnaApi.md#getprofileinfos) | **GET** /Dlna/ProfileInfos | Get profile infos.
+[**updateProfile**](DlnaApi.md#updateprofile) | **POST** /Dlna/Profiles/{profileId} | Updates a profile.
 
 
 # **createProfile**
-> createProfile(UNKNOWN_BASE_TYPE)
+> createProfile(createProfileRequest)
 
 Creates a profile.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DlnaApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | Device profile.
+final api = Openapi().getDlnaApi();
+final CreateProfileRequest createProfileRequest = ; // CreateProfileRequest | Device profile.
 
-try { 
-    api_instance.createProfile(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling DlnaApi->createProfile: $e\n");
+try {
+    api.createProfile(createProfileRequest);
+} catch on DioError (e) {
+    print('Exception when calling DlnaApi->createProfile: $e\n');
 }
 ```
 
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Device profile. | [optional] 
+ **createProfileRequest** | [**CreateProfileRequest**](CreateProfileRequest.md)| Device profile. | [optional] 
 
 ### Return type
 
@@ -56,7 +56,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -66,21 +66,21 @@ void (empty response body)
 
 Deletes a profile.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DlnaApi();
-var profileId = profileId_example; // String | Profile id.
+final api = Openapi().getDlnaApi();
+final String profileId = profileId_example; // String | Profile id.
 
-try { 
-    api_instance.deleteProfile(profileId);
-} catch (e) {
-    print("Exception when calling DlnaApi->deleteProfile: $e\n");
+try {
+    api.deleteProfile(profileId);
+} catch on DioError (e) {
+    print('Exception when calling DlnaApi->deleteProfile: $e\n');
 }
 ```
 
@@ -88,7 +88,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **String**| Profile id. | [default to null]
+ **profileId** | **String**| Profile id. | 
 
 ### Return type
 
@@ -110,21 +110,21 @@ void (empty response body)
 
 Gets the default profile.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DlnaApi();
+final api = Openapi().getDlnaApi();
 
-try { 
-    var result = api_instance.getDefaultProfile();
-    print(result);
-} catch (e) {
-    print("Exception when calling DlnaApi->getDefaultProfile: $e\n");
+try {
+    final response = api.getDefaultProfile();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DlnaApi->getDefaultProfile: $e\n');
 }
 ```
 
@@ -151,22 +151,22 @@ This endpoint does not need any parameter.
 
 Gets a single profile.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DlnaApi();
-var profileId = profileId_example; // String | Profile Id.
+final api = Openapi().getDlnaApi();
+final String profileId = profileId_example; // String | Profile Id.
 
-try { 
-    var result = api_instance.getProfile(profileId);
-    print(result);
-} catch (e) {
-    print("Exception when calling DlnaApi->getProfile: $e\n");
+try {
+    final response = api.getProfile(profileId);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DlnaApi->getProfile: $e\n');
 }
 ```
 
@@ -174,7 +174,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **String**| Profile Id. | [default to null]
+ **profileId** | **String**| Profile Id. | 
 
 ### Return type
 
@@ -192,25 +192,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getProfileInfos**
-> List<DeviceProfileInfo> getProfileInfos()
+> BuiltList<DeviceProfileInfo> getProfileInfos()
 
 Get profile infos.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DlnaApi();
+final api = Openapi().getDlnaApi();
 
-try { 
-    var result = api_instance.getProfileInfos();
-    print(result);
-} catch (e) {
-    print("Exception when calling DlnaApi->getProfileInfos: $e\n");
+try {
+    final response = api.getProfileInfos();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DlnaApi->getProfileInfos: $e\n');
 }
 ```
 
@@ -219,7 +219,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<DeviceProfileInfo>**](DeviceProfileInfo.md)
+[**BuiltList&lt;DeviceProfileInfo&gt;**](DeviceProfileInfo.md)
 
 ### Authorization
 
@@ -233,26 +233,26 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateProfile**
-> updateProfile(profileId, UNKNOWN_BASE_TYPE)
+> updateProfile(profileId, createProfileRequest)
 
 Updates a profile.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DlnaApi();
-var profileId = profileId_example; // String | Profile id.
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | Device profile.
+final api = Openapi().getDlnaApi();
+final String profileId = profileId_example; // String | Profile id.
+final CreateProfileRequest createProfileRequest = ; // CreateProfileRequest | Device profile.
 
-try { 
-    api_instance.updateProfile(profileId, UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling DlnaApi->updateProfile: $e\n");
+try {
+    api.updateProfile(profileId, createProfileRequest);
+} catch on DioError (e) {
+    print('Exception when calling DlnaApi->updateProfile: $e\n');
 }
 ```
 
@@ -260,8 +260,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **profileId** | **String**| Profile id. | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Device profile. | [optional] 
+ **profileId** | **String**| Profile id. | 
+ **createProfileRequest** | [**CreateProfileRequest**](CreateProfileRequest.md)| Device profile. | [optional] 
 
 ### Return type
 
@@ -273,7 +273,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,20 +1,20 @@
-# jellyfin_api.model.ConfigImageTypes
+# openapi.model.ConfigImageTypes
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**backdropSizes** | **BuiltList&lt;String&gt;** |  | [optional] [default to const []]
-**baseUrl** | **String** |  | [optional] [default to null]
-**logoSizes** | **BuiltList&lt;String&gt;** |  | [optional] [default to const []]
-**posterSizes** | **BuiltList&lt;String&gt;** |  | [optional] [default to const []]
-**profileSizes** | **BuiltList&lt;String&gt;** |  | [optional] [default to const []]
-**secureBaseUrl** | **String** |  | [optional] [default to null]
-**stillSizes** | **BuiltList&lt;String&gt;** |  | [optional] [default to const []]
+**backdropSizes** | **BuiltList&lt;String&gt;** |  | [optional] 
+**baseUrl** | **String** |  | [optional] 
+**logoSizes** | **BuiltList&lt;String&gt;** |  | [optional] 
+**posterSizes** | **BuiltList&lt;String&gt;** |  | [optional] 
+**profileSizes** | **BuiltList&lt;String&gt;** |  | [optional] 
+**secureBaseUrl** | **String** |  | [optional] 
+**stillSizes** | **BuiltList&lt;String&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

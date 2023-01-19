@@ -1,18 +1,18 @@
-# jellyfin_api.model.XbmcMetadataOptions
+# openapi.model.XbmcMetadataOptions
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**userId** | **String** |  | [optional] [default to null]
-**releaseDateFormat** | **String** |  | [optional] [default to null]
-**saveImagePathsInNfo** | **bool** |  | [optional] [default to null]
-**enablePathSubstitution** | **bool** |  | [optional] [default to null]
-**enableExtraThumbsDuplication** | **bool** |  | [optional] [default to null]
+**userId** | **String** |  | [optional] 
+**releaseDateFormat** | **String** |  | [optional] 
+**saveImagePathsInNfo** | **bool** |  | [optional] 
+**enablePathSubstitution** | **bool** |  | [optional] 
+**enableExtraThumbsDuplication** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

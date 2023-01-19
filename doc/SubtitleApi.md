@@ -1,24 +1,24 @@
-# jellyfin_api.api.SubtitleApi
+# openapi.api.SubtitleApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteSubtitle**](SubtitleApi.md#deleteSubtitle) | **delete** /Videos/{itemId}/Subtitles/{index} | Deletes an external subtitle file.
-[**downloadRemoteSubtitles**](SubtitleApi.md#downloadRemoteSubtitles) | **post** /Items/{itemId}/RemoteSearch/Subtitles/{subtitleId} | Downloads a remote subtitle.
-[**getFallbackFont**](SubtitleApi.md#getFallbackFont) | **get** /FallbackFont/Fonts/{name} | Gets a fallback font file.
-[**getFallbackFontList**](SubtitleApi.md#getFallbackFontList) | **get** /FallbackFont/Fonts | Gets a list of available fallback font files.
-[**getRemoteSubtitles**](SubtitleApi.md#getRemoteSubtitles) | **get** /Providers/Subtitles/Subtitles/{id} | Gets the remote subtitles.
-[**getSubtitle**](SubtitleApi.md#getSubtitle) | **get** /Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/Stream.{routeFormat} | Gets subtitles in a specified format.
-[**getSubtitlePlaylist**](SubtitleApi.md#getSubtitlePlaylist) | **get** /Videos/{itemId}/{mediaSourceId}/Subtitles/{index}/subtitles.m3u8 | Gets an HLS subtitle playlist.
-[**getSubtitleWithTicks**](SubtitleApi.md#getSubtitleWithTicks) | **get** /Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat} | Gets subtitles in a specified format.
-[**searchRemoteSubtitles**](SubtitleApi.md#searchRemoteSubtitles) | **get** /Items/{itemId}/RemoteSearch/Subtitles/{language} | Search remote subtitles.
-[**uploadSubtitle**](SubtitleApi.md#uploadSubtitle) | **post** /Videos/{itemId}/Subtitles | Upload an external subtitle file.
+[**deleteSubtitle**](SubtitleApi.md#deletesubtitle) | **DELETE** /Videos/{itemId}/Subtitles/{index} | Deletes an external subtitle file.
+[**downloadRemoteSubtitles**](SubtitleApi.md#downloadremotesubtitles) | **POST** /Items/{itemId}/RemoteSearch/Subtitles/{subtitleId} | Downloads a remote subtitle.
+[**getFallbackFont**](SubtitleApi.md#getfallbackfont) | **GET** /FallbackFont/Fonts/{name} | Gets a fallback font file.
+[**getFallbackFontList**](SubtitleApi.md#getfallbackfontlist) | **GET** /FallbackFont/Fonts | Gets a list of available fallback font files.
+[**getRemoteSubtitles**](SubtitleApi.md#getremotesubtitles) | **GET** /Providers/Subtitles/Subtitles/{id} | Gets the remote subtitles.
+[**getSubtitle**](SubtitleApi.md#getsubtitle) | **GET** /Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/Stream.{routeFormat} | Gets subtitles in a specified format.
+[**getSubtitlePlaylist**](SubtitleApi.md#getsubtitleplaylist) | **GET** /Videos/{itemId}/{mediaSourceId}/Subtitles/{index}/subtitles.m3u8 | Gets an HLS subtitle playlist.
+[**getSubtitleWithTicks**](SubtitleApi.md#getsubtitlewithticks) | **GET** /Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat} | Gets subtitles in a specified format.
+[**searchRemoteSubtitles**](SubtitleApi.md#searchremotesubtitles) | **GET** /Items/{itemId}/RemoteSearch/Subtitles/{language} | Search remote subtitles.
+[**uploadSubtitle**](SubtitleApi.md#uploadsubtitle) | **POST** /Videos/{itemId}/Subtitles | Upload an external subtitle file.
 
 
 # **deleteSubtitle**
@@ -26,22 +26,22 @@ Method | HTTP request | Description
 
 Deletes an external subtitle file.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SubtitleApi();
-var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-var index = 56; // int | The index of the subtitle file.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final int index = 56; // int | The index of the subtitle file.
 
-try { 
-    api_instance.deleteSubtitle(itemId, index);
-} catch (e) {
-    print("Exception when calling SubtitleApi->deleteSubtitle: $e\n");
+try {
+    api.deleteSubtitle(itemId, index);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->deleteSubtitle: $e\n');
 }
 ```
 
@@ -49,8 +49,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | [**String**](.md)| The item id. | [default to null]
- **index** | **int**| The index of the subtitle file. | [default to null]
+ **itemId** | **String**| The item id. | 
+ **index** | **int**| The index of the subtitle file. | 
 
 ### Return type
 
@@ -72,22 +72,22 @@ void (empty response body)
 
 Downloads a remote subtitle.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SubtitleApi();
-var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-var subtitleId = subtitleId_example; // String | The subtitle id.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String subtitleId = subtitleId_example; // String | The subtitle id.
 
-try { 
-    api_instance.downloadRemoteSubtitles(itemId, subtitleId);
-} catch (e) {
-    print("Exception when calling SubtitleApi->downloadRemoteSubtitles: $e\n");
+try {
+    api.downloadRemoteSubtitles(itemId, subtitleId);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->downloadRemoteSubtitles: $e\n');
 }
 ```
 
@@ -95,8 +95,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | [**String**](.md)| The item id. | [default to null]
- **subtitleId** | **String**| The subtitle id. | [default to null]
+ **itemId** | **String**| The item id. | 
+ **subtitleId** | **String**| The subtitle id. | 
 
 ### Return type
 
@@ -118,22 +118,22 @@ void (empty response body)
 
 Gets a fallback font file.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SubtitleApi();
-var name = name_example; // String | The name of the fallback font file to get.
+final api = Openapi().getSubtitleApi();
+final String name = name_example; // String | The name of the fallback font file to get.
 
-try { 
-    var result = api_instance.getFallbackFont(name);
-    print(result);
-} catch (e) {
-    print("Exception when calling SubtitleApi->getFallbackFont: $e\n");
+try {
+    final response = api.getFallbackFont(name);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->getFallbackFont: $e\n');
 }
 ```
 
@@ -141,7 +141,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the fallback font file to get. | [default to null]
+ **name** | **String**| The name of the fallback font file to get. | 
 
 ### Return type
 
@@ -154,30 +154,30 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: font/_*
+ - **Accept**: font/*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getFallbackFontList**
-> List<FontFile> getFallbackFontList()
+> BuiltList<FontFile> getFallbackFontList()
 
 Gets a list of available fallback font files.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SubtitleApi();
+final api = Openapi().getSubtitleApi();
 
-try { 
-    var result = api_instance.getFallbackFontList();
-    print(result);
-} catch (e) {
-    print("Exception when calling SubtitleApi->getFallbackFontList: $e\n");
+try {
+    final response = api.getFallbackFontList();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->getFallbackFontList: $e\n');
 }
 ```
 
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<FontFile>**](FontFile.md)
+[**BuiltList&lt;FontFile&gt;**](FontFile.md)
 
 ### Authorization
 
@@ -204,22 +204,22 @@ This endpoint does not need any parameter.
 
 Gets the remote subtitles.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SubtitleApi();
-var id = id_example; // String | The item id.
+final api = Openapi().getSubtitleApi();
+final String id = id_example; // String | The item id.
 
-try { 
-    var result = api_instance.getRemoteSubtitles(id);
-    print(result);
-} catch (e) {
-    print("Exception when calling SubtitleApi->getRemoteSubtitles: $e\n");
+try {
+    final response = api.getRemoteSubtitles(id);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->getRemoteSubtitles: $e\n');
 }
 ```
 
@@ -227,7 +227,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | [default to null]
+ **id** | **String**| The item id. | 
 
 ### Return type
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/_*
+ - **Accept**: text/*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -249,29 +249,29 @@ Name | Type | Description  | Notes
 
 Gets subtitles in a specified format.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 
-var api_instance = new SubtitleApi();
-var routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
-var routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
-var routeIndex = 56; // int | The (route) subtitle stream index.
-var routeFormat = routeFormat_example; // String | The (route) format of the returned subtitle.
-var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-var mediaSourceId = mediaSourceId_example; // String | The media source id.
-var index = 56; // int | The subtitle stream index.
-var format = format_example; // String | The format of the returned subtitle.
-var endPositionTicks = 789; // int | Optional. The end position of the subtitle in ticks.
-var copyTimestamps = true; // bool | Optional. Whether to copy the timestamps.
-var addVttTimeMap = true; // bool | Optional. Whether to add a VTT time map.
-var startPositionTicks = 789; // int | The start position of the subtitle in ticks.
+final api = Openapi().getSubtitleApi();
+final String routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
+final String routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
+final int routeIndex = 56; // int | The (route) subtitle stream index.
+final String routeFormat = routeFormat_example; // String | The (route) format of the returned subtitle.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String mediaSourceId = mediaSourceId_example; // String | The media source id.
+final int index = 56; // int | The subtitle stream index.
+final String format = format_example; // String | The format of the returned subtitle.
+final int endPositionTicks = 789; // int | Optional. The end position of the subtitle in ticks.
+final bool copyTimestamps = true; // bool | Optional. Whether to copy the timestamps.
+final bool addVttTimeMap = true; // bool | Optional. Whether to add a VTT time map.
+final int startPositionTicks = 789; // int | The start position of the subtitle in ticks.
 
-try { 
-    var result = api_instance.getSubtitle(routeItemId, routeMediaSourceId, routeIndex, routeFormat, itemId, mediaSourceId, index, format, endPositionTicks, copyTimestamps, addVttTimeMap, startPositionTicks);
-    print(result);
-} catch (e) {
-    print("Exception when calling SubtitleApi->getSubtitle: $e\n");
+try {
+    final response = api.getSubtitle(routeItemId, routeMediaSourceId, routeIndex, routeFormat, itemId, mediaSourceId, index, format, endPositionTicks, copyTimestamps, addVttTimeMap, startPositionTicks);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->getSubtitle: $e\n');
 }
 ```
 
@@ -279,15 +279,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **routeItemId** | [**String**](.md)| The (route) item id. | [default to null]
- **routeMediaSourceId** | **String**| The (route) media source id. | [default to null]
- **routeIndex** | **int**| The (route) subtitle stream index. | [default to null]
- **routeFormat** | **String**| The (route) format of the returned subtitle. | [default to null]
- **itemId** | [**String**](.md)| The item id. | [optional] [default to null]
- **mediaSourceId** | **String**| The media source id. | [optional] [default to null]
- **index** | **int**| The subtitle stream index. | [optional] [default to null]
- **format** | **String**| The format of the returned subtitle. | [optional] [default to null]
- **endPositionTicks** | **int**| Optional. The end position of the subtitle in ticks. | [optional] [default to null]
+ **routeItemId** | **String**| The (route) item id. | 
+ **routeMediaSourceId** | **String**| The (route) media source id. | 
+ **routeIndex** | **int**| The (route) subtitle stream index. | 
+ **routeFormat** | **String**| The (route) format of the returned subtitle. | 
+ **itemId** | **String**| The item id. | [optional] 
+ **mediaSourceId** | **String**| The media source id. | [optional] 
+ **index** | **int**| The subtitle stream index. | [optional] 
+ **format** | **String**| The format of the returned subtitle. | [optional] 
+ **endPositionTicks** | **int**| Optional. The end position of the subtitle in ticks. | [optional] 
  **copyTimestamps** | **bool**| Optional. Whether to copy the timestamps. | [optional] [default to false]
  **addVttTimeMap** | **bool**| Optional. Whether to add a VTT time map. | [optional] [default to false]
  **startPositionTicks** | **int**| The start position of the subtitle in ticks. | [optional] [default to 0]
@@ -303,7 +303,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/_*
+ - **Accept**: text/*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -312,25 +312,25 @@ No authorization required
 
 Gets an HLS subtitle playlist.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SubtitleApi();
-var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-var index = 56; // int | The subtitle stream index.
-var mediaSourceId = mediaSourceId_example; // String | The media source id.
-var segmentLength = 56; // int | The subtitle segment length.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final int index = 56; // int | The subtitle stream index.
+final String mediaSourceId = mediaSourceId_example; // String | The media source id.
+final int segmentLength = 56; // int | The subtitle segment length.
 
-try { 
-    var result = api_instance.getSubtitlePlaylist(itemId, index, mediaSourceId, segmentLength);
-    print(result);
-} catch (e) {
-    print("Exception when calling SubtitleApi->getSubtitlePlaylist: $e\n");
+try {
+    final response = api.getSubtitlePlaylist(itemId, index, mediaSourceId, segmentLength);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->getSubtitlePlaylist: $e\n');
 }
 ```
 
@@ -338,10 +338,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | [**String**](.md)| The item id. | [default to null]
- **index** | **int**| The subtitle stream index. | [default to null]
- **mediaSourceId** | **String**| The media source id. | [default to null]
- **segmentLength** | **int**| The subtitle segment length. | [default to null]
+ **itemId** | **String**| The item id. | 
+ **index** | **int**| The subtitle stream index. | 
+ **mediaSourceId** | **String**| The media source id. | 
+ **segmentLength** | **int**| The subtitle segment length. | 
 
 ### Return type
 
@@ -363,30 +363,30 @@ Name | Type | Description  | Notes
 
 Gets subtitles in a specified format.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 
-var api_instance = new SubtitleApi();
-var routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
-var routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
-var routeIndex = 56; // int | The (route) subtitle stream index.
-var routeStartPositionTicks = 789; // int | The (route) start position of the subtitle in ticks.
-var routeFormat = routeFormat_example; // String | The (route) format of the returned subtitle.
-var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-var mediaSourceId = mediaSourceId_example; // String | The media source id.
-var index = 56; // int | The subtitle stream index.
-var startPositionTicks = 789; // int | The start position of the subtitle in ticks.
-var format = format_example; // String | The format of the returned subtitle.
-var endPositionTicks = 789; // int | Optional. The end position of the subtitle in ticks.
-var copyTimestamps = true; // bool | Optional. Whether to copy the timestamps.
-var addVttTimeMap = true; // bool | Optional. Whether to add a VTT time map.
+final api = Openapi().getSubtitleApi();
+final String routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
+final String routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
+final int routeIndex = 56; // int | The (route) subtitle stream index.
+final int routeStartPositionTicks = 789; // int | The (route) start position of the subtitle in ticks.
+final String routeFormat = routeFormat_example; // String | The (route) format of the returned subtitle.
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String mediaSourceId = mediaSourceId_example; // String | The media source id.
+final int index = 56; // int | The subtitle stream index.
+final int startPositionTicks = 789; // int | The start position of the subtitle in ticks.
+final String format = format_example; // String | The format of the returned subtitle.
+final int endPositionTicks = 789; // int | Optional. The end position of the subtitle in ticks.
+final bool copyTimestamps = true; // bool | Optional. Whether to copy the timestamps.
+final bool addVttTimeMap = true; // bool | Optional. Whether to add a VTT time map.
 
-try { 
-    var result = api_instance.getSubtitleWithTicks(routeItemId, routeMediaSourceId, routeIndex, routeStartPositionTicks, routeFormat, itemId, mediaSourceId, index, startPositionTicks, format, endPositionTicks, copyTimestamps, addVttTimeMap);
-    print(result);
-} catch (e) {
-    print("Exception when calling SubtitleApi->getSubtitleWithTicks: $e\n");
+try {
+    final response = api.getSubtitleWithTicks(routeItemId, routeMediaSourceId, routeIndex, routeStartPositionTicks, routeFormat, itemId, mediaSourceId, index, startPositionTicks, format, endPositionTicks, copyTimestamps, addVttTimeMap);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->getSubtitleWithTicks: $e\n');
 }
 ```
 
@@ -394,17 +394,17 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **routeItemId** | [**String**](.md)| The (route) item id. | [default to null]
- **routeMediaSourceId** | **String**| The (route) media source id. | [default to null]
- **routeIndex** | **int**| The (route) subtitle stream index. | [default to null]
- **routeStartPositionTicks** | **int**| The (route) start position of the subtitle in ticks. | [default to null]
- **routeFormat** | **String**| The (route) format of the returned subtitle. | [default to null]
- **itemId** | [**String**](.md)| The item id. | [optional] [default to null]
- **mediaSourceId** | **String**| The media source id. | [optional] [default to null]
- **index** | **int**| The subtitle stream index. | [optional] [default to null]
- **startPositionTicks** | **int**| The start position of the subtitle in ticks. | [optional] [default to null]
- **format** | **String**| The format of the returned subtitle. | [optional] [default to null]
- **endPositionTicks** | **int**| Optional. The end position of the subtitle in ticks. | [optional] [default to null]
+ **routeItemId** | **String**| The (route) item id. | 
+ **routeMediaSourceId** | **String**| The (route) media source id. | 
+ **routeIndex** | **int**| The (route) subtitle stream index. | 
+ **routeStartPositionTicks** | **int**| The (route) start position of the subtitle in ticks. | 
+ **routeFormat** | **String**| The (route) format of the returned subtitle. | 
+ **itemId** | **String**| The item id. | [optional] 
+ **mediaSourceId** | **String**| The media source id. | [optional] 
+ **index** | **int**| The subtitle stream index. | [optional] 
+ **startPositionTicks** | **int**| The start position of the subtitle in ticks. | [optional] 
+ **format** | **String**| The format of the returned subtitle. | [optional] 
+ **endPositionTicks** | **int**| Optional. The end position of the subtitle in ticks. | [optional] 
  **copyTimestamps** | **bool**| Optional. Whether to copy the timestamps. | [optional] [default to false]
  **addVttTimeMap** | **bool**| Optional. Whether to add a VTT time map. | [optional] [default to false]
 
@@ -419,33 +419,33 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/_*
+ - **Accept**: text/*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **searchRemoteSubtitles**
-> List<RemoteSubtitleInfo> searchRemoteSubtitles(itemId, language, isPerfectMatch)
+> BuiltList<RemoteSubtitleInfo> searchRemoteSubtitles(itemId, language, isPerfectMatch)
 
 Search remote subtitles.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SubtitleApi();
-var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-var language = language_example; // String | The language of the subtitles.
-var isPerfectMatch = true; // bool | Optional. Only show subtitles which are a perfect match.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final String language = language_example; // String | The language of the subtitles.
+final bool isPerfectMatch = true; // bool | Optional. Only show subtitles which are a perfect match.
 
-try { 
-    var result = api_instance.searchRemoteSubtitles(itemId, language, isPerfectMatch);
-    print(result);
-} catch (e) {
-    print("Exception when calling SubtitleApi->searchRemoteSubtitles: $e\n");
+try {
+    final response = api.searchRemoteSubtitles(itemId, language, isPerfectMatch);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->searchRemoteSubtitles: $e\n');
 }
 ```
 
@@ -453,13 +453,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | [**String**](.md)| The item id. | [default to null]
- **language** | **String**| The language of the subtitles. | [default to null]
- **isPerfectMatch** | **bool**| Optional. Only show subtitles which are a perfect match. | [optional] [default to null]
+ **itemId** | **String**| The item id. | 
+ **language** | **String**| The language of the subtitles. | 
+ **isPerfectMatch** | **bool**| Optional. Only show subtitles which are a perfect match. | [optional] 
 
 ### Return type
 
-[**List<RemoteSubtitleInfo>**](RemoteSubtitleInfo.md)
+[**BuiltList&lt;RemoteSubtitleInfo&gt;**](RemoteSubtitleInfo.md)
 
 ### Authorization
 
@@ -473,26 +473,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **uploadSubtitle**
-> uploadSubtitle(itemId, UNKNOWN_BASE_TYPE)
+> uploadSubtitle(itemId, uploadSubtitleRequest)
 
 Upload an external subtitle file.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new SubtitleApi();
-var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item the subtitle belongs to.
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The request body.
+final api = Openapi().getSubtitleApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item the subtitle belongs to.
+final UploadSubtitleRequest uploadSubtitleRequest = ; // UploadSubtitleRequest | The request body.
 
-try { 
-    api_instance.uploadSubtitle(itemId, UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling SubtitleApi->uploadSubtitle: $e\n");
+try {
+    api.uploadSubtitle(itemId, uploadSubtitleRequest);
+} catch on DioError (e) {
+    print('Exception when calling SubtitleApi->uploadSubtitle: $e\n');
 }
 ```
 
@@ -500,8 +500,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | [**String**](.md)| The item the subtitle belongs to. | [default to null]
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The request body. | 
+ **itemId** | **String**| The item the subtitle belongs to. | 
+ **uploadSubtitleRequest** | [**UploadSubtitleRequest**](UploadSubtitleRequest.md)| The request body. | 
 
 ### Return type
 
@@ -513,7 +513,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -1,21 +1,21 @@
-# jellyfin_api.api.StartupApi
+# openapi.api.StartupApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**completeWizard**](StartupApi.md#completeWizard) | **post** /Startup/Complete | Completes the startup wizard.
-[**getFirstUser**](StartupApi.md#getFirstUser) | **get** /Startup/User | Gets the first user.
-[**getFirstUser2**](StartupApi.md#getFirstUser2) | **get** /Startup/FirstUser | Gets the first user.
-[**getStartupConfiguration**](StartupApi.md#getStartupConfiguration) | **get** /Startup/Configuration | Gets the initial startup wizard configuration.
-[**setRemoteAccess**](StartupApi.md#setRemoteAccess) | **post** /Startup/RemoteAccess | Sets remote access and UPnP.
-[**updateInitialConfiguration**](StartupApi.md#updateInitialConfiguration) | **post** /Startup/Configuration | Sets the initial startup wizard configuration.
-[**updateStartupUser**](StartupApi.md#updateStartupUser) | **post** /Startup/User | Sets the user name and password.
+[**completeWizard**](StartupApi.md#completewizard) | **POST** /Startup/Complete | Completes the startup wizard.
+[**getFirstUser**](StartupApi.md#getfirstuser) | **GET** /Startup/User | Gets the first user.
+[**getFirstUser2**](StartupApi.md#getfirstuser2) | **GET** /Startup/FirstUser | Gets the first user.
+[**getStartupConfiguration**](StartupApi.md#getstartupconfiguration) | **GET** /Startup/Configuration | Gets the initial startup wizard configuration.
+[**setRemoteAccess**](StartupApi.md#setremoteaccess) | **POST** /Startup/RemoteAccess | Sets remote access and UPnP.
+[**updateInitialConfiguration**](StartupApi.md#updateinitialconfiguration) | **POST** /Startup/Configuration | Sets the initial startup wizard configuration.
+[**updateStartupUser**](StartupApi.md#updatestartupuser) | **POST** /Startup/User | Sets the user name and password.
 
 
 # **completeWizard**
@@ -23,20 +23,20 @@ Method | HTTP request | Description
 
 Completes the startup wizard.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new StartupApi();
+final api = Openapi().getStartupApi();
 
-try { 
-    api_instance.completeWizard();
-} catch (e) {
-    print("Exception when calling StartupApi->completeWizard: $e\n");
+try {
+    api.completeWizard();
+} catch on DioError (e) {
+    print('Exception when calling StartupApi->completeWizard: $e\n');
 }
 ```
 
@@ -63,21 +63,21 @@ void (empty response body)
 
 Gets the first user.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new StartupApi();
+final api = Openapi().getStartupApi();
 
-try { 
-    var result = api_instance.getFirstUser();
-    print(result);
-} catch (e) {
-    print("Exception when calling StartupApi->getFirstUser: $e\n");
+try {
+    final response = api.getFirstUser();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling StartupApi->getFirstUser: $e\n');
 }
 ```
 
@@ -104,21 +104,21 @@ This endpoint does not need any parameter.
 
 Gets the first user.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new StartupApi();
+final api = Openapi().getStartupApi();
 
-try { 
-    var result = api_instance.getFirstUser2();
-    print(result);
-} catch (e) {
-    print("Exception when calling StartupApi->getFirstUser2: $e\n");
+try {
+    final response = api.getFirstUser2();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling StartupApi->getFirstUser2: $e\n');
 }
 ```
 
@@ -145,21 +145,21 @@ This endpoint does not need any parameter.
 
 Gets the initial startup wizard configuration.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new StartupApi();
+final api = Openapi().getStartupApi();
 
-try { 
-    var result = api_instance.getStartupConfiguration();
-    print(result);
-} catch (e) {
-    print("Exception when calling StartupApi->getStartupConfiguration: $e\n");
+try {
+    final response = api.getStartupConfiguration();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling StartupApi->getStartupConfiguration: $e\n');
 }
 ```
 
@@ -182,25 +182,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setRemoteAccess**
-> setRemoteAccess(UNKNOWN_BASE_TYPE)
+> setRemoteAccess(setRemoteAccessRequest)
 
 Sets remote access and UPnP.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new StartupApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The startup remote access dto.
+final api = Openapi().getStartupApi();
+final SetRemoteAccessRequest setRemoteAccessRequest = ; // SetRemoteAccessRequest | The startup remote access dto.
 
-try { 
-    api_instance.setRemoteAccess(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling StartupApi->setRemoteAccess: $e\n");
+try {
+    api.setRemoteAccess(setRemoteAccessRequest);
+} catch on DioError (e) {
+    print('Exception when calling StartupApi->setRemoteAccess: $e\n');
 }
 ```
 
@@ -208,7 +208,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The startup remote access dto. | 
+ **setRemoteAccessRequest** | [**SetRemoteAccessRequest**](SetRemoteAccessRequest.md)| The startup remote access dto. | 
 
 ### Return type
 
@@ -220,31 +220,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateInitialConfiguration**
-> updateInitialConfiguration(UNKNOWN_BASE_TYPE)
+> updateInitialConfiguration(updateInitialConfigurationRequest)
 
 Sets the initial startup wizard configuration.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new StartupApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The updated startup configuration.
+final api = Openapi().getStartupApi();
+final UpdateInitialConfigurationRequest updateInitialConfigurationRequest = ; // UpdateInitialConfigurationRequest | The updated startup configuration.
 
-try { 
-    api_instance.updateInitialConfiguration(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling StartupApi->updateInitialConfiguration: $e\n");
+try {
+    api.updateInitialConfiguration(updateInitialConfigurationRequest);
+} catch on DioError (e) {
+    print('Exception when calling StartupApi->updateInitialConfiguration: $e\n');
 }
 ```
 
@@ -252,7 +252,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The updated startup configuration. | 
+ **updateInitialConfigurationRequest** | [**UpdateInitialConfigurationRequest**](UpdateInitialConfigurationRequest.md)| The updated startup configuration. | 
 
 ### Return type
 
@@ -264,31 +264,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateStartupUser**
-> updateStartupUser(UNKNOWN_BASE_TYPE)
+> updateStartupUser(updateStartupUserRequest)
 
 Sets the user name and password.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new StartupApi();
-var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The DTO containing username and password.
+final api = Openapi().getStartupApi();
+final UpdateStartupUserRequest updateStartupUserRequest = ; // UpdateStartupUserRequest | The DTO containing username and password.
 
-try { 
-    api_instance.updateStartupUser(UNKNOWN_BASE_TYPE);
-} catch (e) {
-    print("Exception when calling StartupApi->updateStartupUser: $e\n");
+try {
+    api.updateStartupUser(updateStartupUserRequest);
+} catch on DioError (e) {
+    print('Exception when calling StartupApi->updateStartupUser: $e\n');
 }
 ```
 
@@ -296,7 +296,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The DTO containing username and password. | [optional] 
+ **updateStartupUserRequest** | [**UpdateStartupUserRequest**](UpdateStartupUserRequest.md)| The DTO containing username and password. | [optional] 
 
 ### Return type
 
@@ -308,7 +308,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

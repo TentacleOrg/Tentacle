@@ -1,8 +1,8 @@
-# jellyfin_api.model.FFmpegLocation
+# openapi.model.FFmpegLocation
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties

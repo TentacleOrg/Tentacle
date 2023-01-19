@@ -1,20 +1,20 @@
-# jellyfin_api.api.PackageApi
+# openapi.api.PackageApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancelPackageInstallation**](PackageApi.md#cancelPackageInstallation) | **delete** /Packages/Installing/{packageId} | Cancels a package installation.
-[**getPackageInfo**](PackageApi.md#getPackageInfo) | **get** /Packages/{name} | Gets a package by name or assembly GUID.
-[**getPackages**](PackageApi.md#getPackages) | **get** /Packages | Gets available packages.
-[**getRepositories**](PackageApi.md#getRepositories) | **get** /Repositories | Gets all package repositories.
-[**installPackage**](PackageApi.md#installPackage) | **post** /Packages/Installed/{name} | Installs a package.
-[**setRepositories**](PackageApi.md#setRepositories) | **post** /Repositories | Sets the enabled and existing package repositories.
+[**cancelPackageInstallation**](PackageApi.md#cancelpackageinstallation) | **DELETE** /Packages/Installing/{packageId} | Cancels a package installation.
+[**getPackageInfo**](PackageApi.md#getpackageinfo) | **GET** /Packages/{name} | Gets a package by name or assembly GUID.
+[**getPackages**](PackageApi.md#getpackages) | **GET** /Packages | Gets available packages.
+[**getRepositories**](PackageApi.md#getrepositories) | **GET** /Repositories | Gets all package repositories.
+[**installPackage**](PackageApi.md#installpackage) | **POST** /Packages/Installed/{name} | Installs a package.
+[**setRepositories**](PackageApi.md#setrepositories) | **POST** /Repositories | Sets the enabled and existing package repositories.
 
 
 # **cancelPackageInstallation**
@@ -22,21 +22,21 @@ Method | HTTP request | Description
 
 Cancels a package installation.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new PackageApi();
-var packageId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Installation Id.
+final api = Openapi().getPackageApi();
+final String packageId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Installation Id.
 
-try { 
-    api_instance.cancelPackageInstallation(packageId);
-} catch (e) {
-    print("Exception when calling PackageApi->cancelPackageInstallation: $e\n");
+try {
+    api.cancelPackageInstallation(packageId);
+} catch on DioError (e) {
+    print('Exception when calling PackageApi->cancelPackageInstallation: $e\n');
 }
 ```
 
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **packageId** | [**String**](.md)| Installation Id. | [default to null]
+ **packageId** | **String**| Installation Id. | 
 
 ### Return type
 
@@ -66,23 +66,23 @@ void (empty response body)
 
 Gets a package by name or assembly GUID.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new PackageApi();
-var name = name_example; // String | The name of the package.
-var assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The GUID of the associated assembly.
+final api = Openapi().getPackageApi();
+final String name = name_example; // String | The name of the package.
+final String assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The GUID of the associated assembly.
 
-try { 
-    var result = api_instance.getPackageInfo(name, assemblyGuid);
-    print(result);
-} catch (e) {
-    print("Exception when calling PackageApi->getPackageInfo: $e\n");
+try {
+    final response = api.getPackageInfo(name, assemblyGuid);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling PackageApi->getPackageInfo: $e\n');
 }
 ```
 
@@ -90,8 +90,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the package. | [default to null]
- **assemblyGuid** | [**String**](.md)| The GUID of the associated assembly. | [optional] [default to null]
+ **name** | **String**| The name of the package. | 
+ **assemblyGuid** | **String**| The GUID of the associated assembly. | [optional] 
 
 ### Return type
 
@@ -109,25 +109,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPackages**
-> List<PackageInfo> getPackages()
+> BuiltList<PackageInfo> getPackages()
 
 Gets available packages.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new PackageApi();
+final api = Openapi().getPackageApi();
 
-try { 
-    var result = api_instance.getPackages();
-    print(result);
-} catch (e) {
-    print("Exception when calling PackageApi->getPackages: $e\n");
+try {
+    final response = api.getPackages();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling PackageApi->getPackages: $e\n');
 }
 ```
 
@@ -136,7 +136,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<PackageInfo>**](PackageInfo.md)
+[**BuiltList&lt;PackageInfo&gt;**](PackageInfo.md)
 
 ### Authorization
 
@@ -150,25 +150,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRepositories**
-> List<RepositoryInfo> getRepositories()
+> BuiltList<RepositoryInfo> getRepositories()
 
 Gets all package repositories.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new PackageApi();
+final api = Openapi().getPackageApi();
 
-try { 
-    var result = api_instance.getRepositories();
-    print(result);
-} catch (e) {
-    print("Exception when calling PackageApi->getRepositories: $e\n");
+try {
+    final response = api.getRepositories();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling PackageApi->getRepositories: $e\n');
 }
 ```
 
@@ -177,7 +177,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<RepositoryInfo>**](RepositoryInfo.md)
+[**BuiltList&lt;RepositoryInfo&gt;**](RepositoryInfo.md)
 
 ### Authorization
 
@@ -195,24 +195,24 @@ This endpoint does not need any parameter.
 
 Installs a package.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new PackageApi();
-var name = name_example; // String | Package name.
-var assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | GUID of the associated assembly.
-var version = version_example; // String | Optional version. Defaults to latest version.
-var repositoryUrl = repositoryUrl_example; // String | Optional. Specify the repository to install from.
+final api = Openapi().getPackageApi();
+final String name = name_example; // String | Package name.
+final String assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | GUID of the associated assembly.
+final String version = version_example; // String | Optional version. Defaults to latest version.
+final String repositoryUrl = repositoryUrl_example; // String | Optional. Specify the repository to install from.
 
-try { 
-    api_instance.installPackage(name, assemblyGuid, version, repositoryUrl);
-} catch (e) {
-    print("Exception when calling PackageApi->installPackage: $e\n");
+try {
+    api.installPackage(name, assemblyGuid, version, repositoryUrl);
+} catch on DioError (e) {
+    print('Exception when calling PackageApi->installPackage: $e\n');
 }
 ```
 
@@ -220,10 +220,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Package name. | [default to null]
- **assemblyGuid** | [**String**](.md)| GUID of the associated assembly. | [optional] [default to null]
- **version** | **String**| Optional version. Defaults to latest version. | [optional] [default to null]
- **repositoryUrl** | **String**| Optional. Specify the repository to install from. | [optional] [default to null]
+ **name** | **String**| Package name. | 
+ **assemblyGuid** | **String**| GUID of the associated assembly. | [optional] 
+ **version** | **String**| Optional version. Defaults to latest version. | [optional] 
+ **repositoryUrl** | **String**| Optional. Specify the repository to install from. | [optional] 
 
 ### Return type
 
@@ -245,21 +245,21 @@ void (empty response body)
 
 Sets the enabled and existing package repositories.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new PackageApi();
-var repositoryInfo = [new List&lt;RepositoryInfo&gt;()]; // List<RepositoryInfo> | The list of package repositories.
+final api = Openapi().getPackageApi();
+final BuiltList<RepositoryInfo> repositoryInfo = ; // BuiltList<RepositoryInfo> | The list of package repositories.
 
-try { 
-    api_instance.setRepositories(repositoryInfo);
-} catch (e) {
-    print("Exception when calling PackageApi->setRepositories: $e\n");
+try {
+    api.setRepositories(repositoryInfo);
+} catch on DioError (e) {
+    print('Exception when calling PackageApi->setRepositories: $e\n');
 }
 ```
 
@@ -267,7 +267,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **repositoryInfo** | [**List&lt;RepositoryInfo&gt;**](RepositoryInfo.md)| The list of package repositories. | 
+ **repositoryInfo** | [**BuiltList&lt;RepositoryInfo&gt;**](RepositoryInfo.md)| The list of package repositories. | 
 
 ### Return type
 
@@ -279,7 +279,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/_*+json
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

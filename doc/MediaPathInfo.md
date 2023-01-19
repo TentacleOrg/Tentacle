@@ -1,15 +1,15 @@
-# jellyfin_api.model.MediaPathInfo
+# openapi.model.MediaPathInfo
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**path** | **String** |  | [optional] [default to null]
-**networkPath** | **String** |  | [optional] [default to null]
+**path** | **String** |  | [optional] 
+**networkPath** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

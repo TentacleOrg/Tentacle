@@ -1,14 +1,14 @@
-# jellyfin_api.model.NewGroupRequestDto
+# openapi.model.NewGroupRequestDto
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**groupName** | **String** | Gets or sets the group name. | [optional] [default to null]
+**groupName** | **String** | Gets or sets the group name. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

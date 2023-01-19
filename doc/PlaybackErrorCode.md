@@ -1,8 +1,8 @@
-# jellyfin_api.model.PlaybackErrorCode
+# openapi.model.PlaybackErrorCode
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties

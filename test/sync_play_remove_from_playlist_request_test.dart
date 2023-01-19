@@ -1,0 +1,29 @@
+import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
+
+// tests for SyncPlayRemoveFromPlaylistRequest
+void main() {
+  final instance = SyncPlayRemoveFromPlaylistRequestBuilder();
+  // TODO add properties to the builder and call build()
+
+  group(SyncPlayRemoveFromPlaylistRequest, () {
+    // Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist.
+    // BuiltList<String> playlistItemIds
+    test('to test the property `playlistItemIds`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether the entire playlist should be cleared.
+    // bool clearPlaylist
+    test('to test the property `clearPlaylist`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether the playing item should be removed as well. Used only when clearing the playlist.
+    // bool clearPlayingItem
+    test('to test the property `clearPlayingItem`', () async {
+      // TODO
+    });
+
+  });
+}

@@ -1,15 +1,15 @@
-# jellyfin_api.model.MediaUrl
+# openapi.model.MediaUrl
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **String** |  | [optional] [default to null]
-**name** | **String** |  | [optional] [default to null]
+**url** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,18 +1,18 @@
-# jellyfin_api.model.CodecProfile
+# openapi.model.CodecProfile
 
 ## Load the model package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | [**CodecType**](CodecType.md) |  | [optional] [default to null]
-**conditions** | [**BuiltList&lt;ProfileCondition&gt;**](ProfileCondition.md) |  | [optional] [default to const []]
-**applyConditions** | [**BuiltList&lt;ProfileCondition&gt;**](ProfileCondition.md) |  | [optional] [default to const []]
-**codec** | **String** |  | [optional] [default to null]
-**container** | **String** |  | [optional] [default to null]
+**type** | [**CodecType**](CodecType.md) |  | [optional] 
+**conditions** | [**BuiltList&lt;ProfileCondition&gt;**](ProfileCondition.md) |  | [optional] 
+**applyConditions** | [**BuiltList&lt;ProfileCondition&gt;**](ProfileCondition.md) |  | [optional] 
+**codec** | **String** |  | [optional] 
+**container** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,18 +1,18 @@
-# jellyfin_api.api.QuickConnectApi
+# openapi.api.QuickConnectApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authorize**](QuickConnectApi.md#authorize) | **post** /QuickConnect/Authorize | Authorizes a pending quick connect request.
-[**connect**](QuickConnectApi.md#connect) | **get** /QuickConnect/Connect | Attempts to retrieve authentication information.
-[**getEnabled**](QuickConnectApi.md#getEnabled) | **get** /QuickConnect/Enabled | Gets the current quick connect state.
-[**initiate**](QuickConnectApi.md#initiate) | **get** /QuickConnect/Initiate | Initiate a new quick connect request.
+[**authorize**](QuickConnectApi.md#authorize) | **POST** /QuickConnect/Authorize | Authorizes a pending quick connect request.
+[**connect**](QuickConnectApi.md#connect) | **GET** /QuickConnect/Connect | Attempts to retrieve authentication information.
+[**getEnabled**](QuickConnectApi.md#getenabled) | **GET** /QuickConnect/Enabled | Gets the current quick connect state.
+[**initiate**](QuickConnectApi.md#initiate) | **GET** /QuickConnect/Initiate | Initiate a new quick connect request.
 
 
 # **authorize**
@@ -20,22 +20,22 @@ Method | HTTP request | Description
 
 Authorizes a pending quick connect request.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new QuickConnectApi();
-var code = code_example; // String | Quick connect code to authorize.
+final api = Openapi().getQuickConnectApi();
+final String code = code_example; // String | Quick connect code to authorize.
 
-try { 
-    var result = api_instance.authorize(code);
-    print(result);
-} catch (e) {
-    print("Exception when calling QuickConnectApi->authorize: $e\n");
+try {
+    final response = api.authorize(code);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling QuickConnectApi->authorize: $e\n');
 }
 ```
 
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| Quick connect code to authorize. | [default to null]
+ **code** | **String**| Quick connect code to authorize. | 
 
 ### Return type
 
@@ -65,18 +65,18 @@ Name | Type | Description  | Notes
 
 Attempts to retrieve authentication information.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 
-var api_instance = new QuickConnectApi();
-var secret = secret_example; // String | Secret previously returned from the Initiate endpoint.
+final api = Openapi().getQuickConnectApi();
+final String secret = secret_example; // String | Secret previously returned from the Initiate endpoint.
 
-try { 
-    var result = api_instance.connect(secret);
-    print(result);
-} catch (e) {
-    print("Exception when calling QuickConnectApi->connect: $e\n");
+try {
+    final response = api.connect(secret);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling QuickConnectApi->connect: $e\n');
 }
 ```
 
@@ -84,7 +84,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **secret** | **String**| Secret previously returned from the Initiate endpoint. | [default to null]
+ **secret** | **String**| Secret previously returned from the Initiate endpoint. | 
 
 ### Return type
 
@@ -106,17 +106,17 @@ No authorization required
 
 Gets the current quick connect state.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 
-var api_instance = new QuickConnectApi();
+final api = Openapi().getQuickConnectApi();
 
-try { 
-    var result = api_instance.getEnabled();
-    print(result);
-} catch (e) {
-    print("Exception when calling QuickConnectApi->getEnabled: $e\n");
+try {
+    final response = api.getEnabled();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling QuickConnectApi->getEnabled: $e\n');
 }
 ```
 
@@ -143,17 +143,17 @@ No authorization required
 
 Initiate a new quick connect request.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 
-var api_instance = new QuickConnectApi();
+final api = Openapi().getQuickConnectApi();
 
-try { 
-    var result = api_instance.initiate();
-    print(result);
-} catch (e) {
-    print("Exception when calling QuickConnectApi->initiate: $e\n");
+try {
+    final response = api.initiate();
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling QuickConnectApi->initiate: $e\n');
 }
 ```
 

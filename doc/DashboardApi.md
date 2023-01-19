@@ -1,39 +1,39 @@
-# jellyfin_api.api.DashboardApi
+# openapi.api.DashboardApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getConfigurationPages**](DashboardApi.md#getConfigurationPages) | **get** /web/ConfigurationPages | Gets the configuration pages.
-[**getDashboardConfigurationPage**](DashboardApi.md#getDashboardConfigurationPage) | **get** /web/ConfigurationPage | Gets a dashboard configuration page.
+[**getConfigurationPages**](DashboardApi.md#getconfigurationpages) | **GET** /web/ConfigurationPages | Gets the configuration pages.
+[**getDashboardConfigurationPage**](DashboardApi.md#getdashboardconfigurationpage) | **GET** /web/ConfigurationPage | Gets a dashboard configuration page.
 
 
 # **getConfigurationPages**
-> List<ConfigurationPageInfo> getConfigurationPages(enableInMainMenu)
+> BuiltList<ConfigurationPageInfo> getConfigurationPages(enableInMainMenu)
 
 Gets the configuration pages.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new DashboardApi();
-var enableInMainMenu = true; // bool | Whether to enable in the main menu.
+final api = Openapi().getDashboardApi();
+final bool enableInMainMenu = true; // bool | Whether to enable in the main menu.
 
-try { 
-    var result = api_instance.getConfigurationPages(enableInMainMenu);
-    print(result);
-} catch (e) {
-    print("Exception when calling DashboardApi->getConfigurationPages: $e\n");
+try {
+    final response = api.getConfigurationPages(enableInMainMenu);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DashboardApi->getConfigurationPages: $e\n');
 }
 ```
 
@@ -41,11 +41,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **enableInMainMenu** | **bool**| Whether to enable in the main menu. | [optional] [default to null]
+ **enableInMainMenu** | **bool**| Whether to enable in the main menu. | [optional] 
 
 ### Return type
 
-[**List<ConfigurationPageInfo>**](ConfigurationPageInfo.md)
+[**BuiltList&lt;ConfigurationPageInfo&gt;**](ConfigurationPageInfo.md)
 
 ### Authorization
 
@@ -63,18 +63,18 @@ Name | Type | Description  | Notes
 
 Gets a dashboard configuration page.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 
-var api_instance = new DashboardApi();
-var name = name_example; // String | The name of the page.
+final api = Openapi().getDashboardApi();
+final String name = name_example; // String | The name of the page.
 
-try { 
-    var result = api_instance.getDashboardConfigurationPage(name);
-    print(result);
-} catch (e) {
-    print("Exception when calling DashboardApi->getDashboardConfigurationPage: $e\n");
+try {
+    final response = api.getDashboardConfigurationPage(name);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling DashboardApi->getDashboardConfigurationPage: $e\n');
 }
 ```
 
@@ -82,7 +82,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the page. | [optional] [default to null]
+ **name** | **String**| The name of the page. | [optional] 
 
 ### Return type
 

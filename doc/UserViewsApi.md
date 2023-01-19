@@ -1,39 +1,39 @@
-# jellyfin_api.api.UserViewsApi
+# openapi.api.UserViewsApi
 
 ## Load the API package
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 ```
 
-All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getGroupingOptions**](UserViewsApi.md#getGroupingOptions) | **get** /Users/{userId}/GroupingOptions | Get user view grouping options.
-[**getUserViews**](UserViewsApi.md#getUserViews) | **get** /Users/{userId}/Views | Get user views.
+[**getGroupingOptions**](UserViewsApi.md#getgroupingoptions) | **GET** /Users/{userId}/GroupingOptions | Get user view grouping options.
+[**getUserViews**](UserViewsApi.md#getuserviews) | **GET** /Users/{userId}/Views | Get user views.
 
 
 # **getGroupingOptions**
-> List<SpecialViewOptionDto> getGroupingOptions(userId)
+> BuiltList<SpecialViewOptionDto> getGroupingOptions(userId)
 
 Get user view grouping options.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new UserViewsApi();
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final api = Openapi().getUserViewsApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 
-try { 
-    var result = api_instance.getGroupingOptions(userId);
-    print(result);
-} catch (e) {
-    print("Exception when calling UserViewsApi->getGroupingOptions: $e\n");
+try {
+    final response = api.getGroupingOptions(userId);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling UserViewsApi->getGroupingOptions: $e\n');
 }
 ```
 
@@ -41,11 +41,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)| User id. | [default to null]
+ **userId** | **String**| User id. | 
 
 ### Return type
 
-[**List<SpecialViewOptionDto>**](SpecialViewOptionDto.md)
+[**BuiltList&lt;SpecialViewOptionDto&gt;**](SpecialViewOptionDto.md)
 
 ### Authorization
 
@@ -63,25 +63,25 @@ Name | Type | Description  | Notes
 
 Get user views.
 
-### Example 
+### Example
 ```dart
-import 'package:jellyfin_api/api.dart';
+import 'package:openapi/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-var api_instance = new UserViewsApi();
-var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-var includeExternalContent = true; // bool | Whether or not to include external views such as channels or live tv.
-var presetViews = []; // List<String> | Preset views.
-var includeHidden = true; // bool | Whether or not to include hidden content.
+final api = Openapi().getUserViewsApi();
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+final bool includeExternalContent = true; // bool | Whether or not to include external views such as channels or live tv.
+final BuiltList<String> presetViews = ; // BuiltList<String> | Preset views.
+final bool includeHidden = true; // bool | Whether or not to include hidden content.
 
-try { 
-    var result = api_instance.getUserViews(userId, includeExternalContent, presetViews, includeHidden);
-    print(result);
-} catch (e) {
-    print("Exception when calling UserViewsApi->getUserViews: $e\n");
+try {
+    final response = api.getUserViews(userId, includeExternalContent, presetViews, includeHidden);
+    print(response);
+} catch on DioError (e) {
+    print('Exception when calling UserViewsApi->getUserViews: $e\n');
 }
 ```
 
@@ -89,9 +89,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | [**String**](.md)| User id. | [default to null]
- **includeExternalContent** | **bool**| Whether or not to include external views such as channels or live tv. | [optional] [default to null]
- **presetViews** | [**List&lt;String&gt;**](String.md)| Preset views. | [optional] [default to const []]
+ **userId** | **String**| User id. | 
+ **includeExternalContent** | **bool**| Whether or not to include external views such as channels or live tv. | [optional] 
+ **presetViews** | [**BuiltList&lt;String&gt;**](String.md)| Preset views. | [optional] 
  **includeHidden** | **bool**| Whether or not to include hidden content. | [optional] [default to false]
 
 ### Return type
