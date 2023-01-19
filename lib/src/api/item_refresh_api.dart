@@ -12,7 +12,6 @@ import 'package:openapi/src/model/metadata_refresh_mode.dart';
 import 'package:openapi/src/model/problem_details.dart';
 
 class ItemRefreshApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,7 +19,7 @@ class ItemRefreshApi {
   const ItemRefreshApi(this._dio, this._serializers);
 
   /// Refreshes metadata for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -37,10 +36,10 @@ class ItemRefreshApi {
   ///
   /// Returns a [Future]
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> refreshItem({ 
+  Future<Response<void>> refreshItem({
     required String itemId,
-    MetadataRefreshMode? metadataRefreshMode = None,
-    MetadataRefreshMode? imageRefreshMode = None,
+    MetadataRefreshMode? metadataRefreshMode = MetadataRefreshMode.none,
+    MetadataRefreshMode? imageRefreshMode = MetadataRefreshMode.none,
     bool? replaceAllMetadata = false,
     bool? replaceAllImages = false,
     CancelToken? cancelToken,
@@ -50,7 +49,8 @@ class ItemRefreshApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Refresh'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/Refresh'
+        .replaceAll('{' r'itemId' '}', itemId.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -71,10 +71,18 @@ class ItemRefreshApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (metadataRefreshMode != null) r'metadataRefreshMode': encodeQueryParameter(_serializers, metadataRefreshMode, const FullType(MetadataRefreshMode)),
-      if (imageRefreshMode != null) r'imageRefreshMode': encodeQueryParameter(_serializers, imageRefreshMode, const FullType(MetadataRefreshMode)),
-      if (replaceAllMetadata != null) r'replaceAllMetadata': encodeQueryParameter(_serializers, replaceAllMetadata, const FullType(bool)),
-      if (replaceAllImages != null) r'replaceAllImages': encodeQueryParameter(_serializers, replaceAllImages, const FullType(bool)),
+      if (metadataRefreshMode != null)
+        r'metadataRefreshMode': encodeQueryParameter(_serializers,
+            metadataRefreshMode, const FullType(MetadataRefreshMode)),
+      if (imageRefreshMode != null)
+        r'imageRefreshMode': encodeQueryParameter(_serializers,
+            imageRefreshMode, const FullType(MetadataRefreshMode)),
+      if (replaceAllMetadata != null)
+        r'replaceAllMetadata': encodeQueryParameter(
+            _serializers, replaceAllMetadata, const FullType(bool)),
+      if (replaceAllImages != null)
+        r'replaceAllImages': encodeQueryParameter(
+            _serializers, replaceAllImages, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -88,5 +96,4 @@ class ItemRefreshApi {
 
     return _response;
   }
-
 }

@@ -16,21 +16,32 @@ part 'authenticate_user_by_name_request.g.dart';
 /// * [pw] - Gets or sets the plain text password.
 /// * [password] - Gets or sets the sha1-hashed password.
 @BuiltValue()
-abstract class AuthenticateUserByNameRequest implements AuthenticateUserByName, Built<AuthenticateUserByNameRequest, AuthenticateUserByNameRequestBuilder> {
+abstract class AuthenticateUserByNameRequest
+    implements
+        AuthenticateUserByName,
+        Built<AuthenticateUserByNameRequest,
+            AuthenticateUserByNameRequestBuilder> {
   AuthenticateUserByNameRequest._();
 
-  factory AuthenticateUserByNameRequest([void updates(AuthenticateUserByNameRequestBuilder b)]) = _$AuthenticateUserByNameRequest;
+  factory AuthenticateUserByNameRequest(
+          [void updates(AuthenticateUserByNameRequestBuilder b)]) =
+      _$AuthenticateUserByNameRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AuthenticateUserByNameRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AuthenticateUserByNameRequest> get serializer => _$AuthenticateUserByNameRequestSerializer();
+  static Serializer<AuthenticateUserByNameRequest> get serializer =>
+      _$AuthenticateUserByNameRequestSerializer();
 }
 
-class _$AuthenticateUserByNameRequestSerializer implements PrimitiveSerializer<AuthenticateUserByNameRequest> {
+class _$AuthenticateUserByNameRequestSerializer
+    implements PrimitiveSerializer<AuthenticateUserByNameRequest> {
   @override
-  final Iterable<Type> types = const [AuthenticateUserByNameRequest, _$AuthenticateUserByNameRequest];
+  final Iterable<Type> types = const [
+    AuthenticateUserByNameRequest,
+    _$AuthenticateUserByNameRequest
+  ];
 
   @override
   final String wireName = r'AuthenticateUserByNameRequest';
@@ -69,7 +80,9 @@ class _$AuthenticateUserByNameRequestSerializer implements PrimitiveSerializer<A
     AuthenticateUserByNameRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -136,4 +149,6 @@ class _$AuthenticateUserByNameRequestSerializer implements PrimitiveSerializer<A
     return result.build();
   }
 }
+
+// how would i call this from my flutter app?
 

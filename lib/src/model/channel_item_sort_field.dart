@@ -10,9 +10,8 @@ import 'package:built_value/serializer.dart';
 part 'channel_item_sort_field.g.dart';
 
 class ChannelItemSortField extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Name')
-  static const ChannelItemSortField name = _$name;
+  static const ChannelItemSortField communityName = _$name;
   @BuiltValueEnumConst(wireName: r'CommunityRating')
   static const ChannelItemSortField communityRating = _$communityRating;
   @BuiltValueEnumConst(wireName: r'PremiereDate')
@@ -26,9 +25,10 @@ class ChannelItemSortField extends EnumClass {
   @BuiltValueEnumConst(wireName: r'CommunityPlayCount')
   static const ChannelItemSortField communityPlayCount = _$communityPlayCount;
 
-  static Serializer<ChannelItemSortField> get serializer => _$channelItemSortFieldSerializer;
+  static Serializer<ChannelItemSortField> get serializer =>
+      _$channelItemSortFieldSerializer;
 
-  const ChannelItemSortField._(String name): super(name);
+  const ChannelItemSortField._(String name) : super(name);
 
   static BuiltSet<ChannelItemSortField> get values => _$values;
   static ChannelItemSortField valueOf(String name) => _$valueOf(name);
@@ -40,5 +40,5 @@ class ChannelItemSortField extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class ChannelItemSortFieldMixin = Object with _$ChannelItemSortFieldMixin;
-
+abstract class ChannelItemSortFieldMixin = Object
+    with _$ChannelItemSortFieldMixin;

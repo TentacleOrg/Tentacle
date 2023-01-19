@@ -16,24 +16,25 @@ part 'transcoding_profile.g.dart';
 /// TranscodingProfile
 ///
 /// Properties:
-/// * [container] 
-/// * [type] 
-/// * [videoCodec] 
-/// * [audioCodec] 
-/// * [protocol] 
-/// * [estimateContentLength] 
-/// * [enableMpegtsM2TsMode] 
-/// * [transcodeSeekInfo] 
-/// * [copyTimestamps] 
-/// * [context] 
-/// * [enableSubtitlesInManifest] 
-/// * [maxAudioChannels] 
-/// * [minSegments] 
-/// * [segmentLength] 
-/// * [breakOnNonKeyFrames] 
-/// * [conditions] 
+/// * [container]
+/// * [type]
+/// * [videoCodec]
+/// * [audioCodec]
+/// * [protocol]
+/// * [estimateContentLength]
+/// * [enableMpegtsM2TsMode]
+/// * [transcodeSeekInfo]
+/// * [copyTimestamps]
+/// * [context]
+/// * [enableSubtitlesInManifest]
+/// * [maxAudioChannels]
+/// * [minSegments]
+/// * [segmentLength]
+/// * [breakOnNonKeyFrames]
+/// * [conditions]
 @BuiltValue()
-abstract class TranscodingProfile implements Built<TranscodingProfile, TranscodingProfileBuilder> {
+abstract class TranscodingProfile
+    implements Built<TranscodingProfile, TranscodingProfileBuilder> {
   @BuiltValueField(wireName: r'Container')
   String? get container;
 
@@ -84,25 +85,28 @@ abstract class TranscodingProfile implements Built<TranscodingProfile, Transcodi
 
   TranscodingProfile._();
 
-  factory TranscodingProfile([void updates(TranscodingProfileBuilder b)]) = _$TranscodingProfile;
+  factory TranscodingProfile([void updates(TranscodingProfileBuilder b)]) =
+      _$TranscodingProfile;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TranscodingProfileBuilder b) => b
-      ..estimateContentLength = false
-      ..enableMpegtsM2TsMode = false
-      ..transcodeSeekInfo = const ._(Auto)
-      ..copyTimestamps = false
-      ..context = const ._(Streaming)
-      ..enableSubtitlesInManifest = false
-      ..minSegments = 0
-      ..segmentLength = 0
-      ..breakOnNonKeyFrames = false;
+    ..estimateContentLength = false
+    ..enableMpegtsM2TsMode = false
+    ..transcodeSeekInfo = TranscodeSeekInfo.auto
+    ..copyTimestamps = false
+    ..context = EncodingContext.streaming
+    ..enableSubtitlesInManifest = false
+    ..minSegments = 0
+    ..segmentLength = 0
+    ..breakOnNonKeyFrames = false;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TranscodingProfile> get serializer => _$TranscodingProfileSerializer();
+  static Serializer<TranscodingProfile> get serializer =>
+      _$TranscodingProfileSerializer();
 }
 
-class _$TranscodingProfileSerializer implements PrimitiveSerializer<TranscodingProfile> {
+class _$TranscodingProfileSerializer
+    implements PrimitiveSerializer<TranscodingProfile> {
   @override
   final Iterable<Type> types = const [TranscodingProfile, _$TranscodingProfile];
 
@@ -234,7 +238,9 @@ class _$TranscodingProfileSerializer implements PrimitiveSerializer<TranscodingP
     TranscodingProfile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -358,7 +364,8 @@ class _$TranscodingProfileSerializer implements PrimitiveSerializer<TranscodingP
         case r'Conditions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ProfileCondition)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ProfileCondition)]),
           ) as BuiltList<ProfileCondition>;
           result.conditions.replace(valueDes);
           break;
@@ -390,4 +397,3 @@ class _$TranscodingProfileSerializer implements PrimitiveSerializer<TranscodingP
     return result.build();
   }
 }
-
