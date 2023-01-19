@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for PlayerStateInfo
 void main() {
-  // final instance = PlayerStateInfo();
+  //final instance = PlayerStateInfoBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test PlayerStateInfo', () {
+  group(PlayerStateInfo, () {
     // Gets or sets the now playing position ticks.
     // int positionTicks
     test('to test the property `positionTicks`', () async {
@@ -82,7 +73,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

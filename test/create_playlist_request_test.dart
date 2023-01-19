@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for CreatePlaylistRequest
 void main() {
-  // final instance = CreatePlaylistRequest();
+  final instance = CreatePlaylistRequestBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test CreatePlaylistRequest', () {
+  group(CreatePlaylistRequest, () {
     // Gets or sets the name of the new playlist.
     // String name
     test('to test the property `name`', () async {
@@ -23,7 +14,7 @@ void main() {
     });
 
     // Gets or sets item ids to add to the playlist.
-    // List<String> ids (default value: const [])
+    // BuiltList<String> ids
     test('to test the property `ids`', () async {
       // TODO
     });
@@ -40,7 +31,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for LibraryStructureApi
 void main() {
-  // final instance = LibraryStructureApi();
+  final instance = Openapi().getLibraryStructureApi();
 
-  group('tests for LibraryStructureApi', () {
+  group(LibraryStructureApi, () {
     // Add a media path to a library.
     //
     //Future addMediaPath(AddMediaPathRequest addMediaPathRequest, { bool refreshLibrary }) async
@@ -26,14 +16,14 @@ void main() {
 
     // Adds a virtual folder.
     //
-    //Future addVirtualFolder({ String name, CollectionTypeOptions collectionType, List<String> paths, bool refreshLibrary, AddVirtualFolderRequest addVirtualFolderRequest }) async
+    //Future addVirtualFolder({ String name, CollectionTypeOptions collectionType, BuiltList<String> paths, bool refreshLibrary, AddVirtualFolderRequest addVirtualFolderRequest }) async
     test('test addVirtualFolder', () async {
       // TODO
     });
 
     // Gets all virtual folders.
     //
-    //Future<List<VirtualFolderInfo>> getVirtualFolders() async
+    //Future<BuiltList<VirtualFolderInfo>> getVirtualFolders() async
     test('test getVirtualFolders', () async {
       // TODO
     });

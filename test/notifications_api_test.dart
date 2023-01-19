@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for NotificationsApi
 void main() {
-  // final instance = NotificationsApi();
+  final instance = Openapi().getNotificationsApi();
 
-  group('tests for NotificationsApi', () {
+  group(NotificationsApi, () {
     // Sends a notification to all admins.
     //
     //Future createAdminNotification(CreateAdminNotificationRequest createAdminNotificationRequest) async
@@ -26,14 +16,14 @@ void main() {
 
     // Gets notification services.
     //
-    //Future<List<NameIdPair>> getNotificationServices() async
+    //Future<BuiltList<NameIdPair>> getNotificationServices() async
     test('test getNotificationServices', () async {
       // TODO
     });
 
     // Gets notification types.
     //
-    //Future<List<NotificationTypeInfo>> getNotificationTypes() async
+    //Future<BuiltList<NotificationTypeInfo>> getNotificationTypes() async
     test('test getNotificationTypes', () async {
       // TODO
     });

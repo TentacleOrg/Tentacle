@@ -1,32 +1,23 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for CodecProfile
 void main() {
-  // final instance = CodecProfile();
+  final instance = CodecProfileBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test CodecProfile', () {
+  group(CodecProfile, () {
     // CodecType type
     test('to test the property `type`', () async {
       // TODO
     });
 
-    // List<ProfileCondition> conditions (default value: const [])
+    // BuiltList<ProfileCondition> conditions
     test('to test the property `conditions`', () async {
       // TODO
     });
 
-    // List<ProfileCondition> applyConditions (default value: const [])
+    // BuiltList<ProfileCondition> applyConditions
     test('to test the property `applyConditions`', () async {
       // TODO
     });
@@ -41,7 +32,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

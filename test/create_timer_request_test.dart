@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for CreateTimerRequest
 void main() {
-  // final instance = CreateTimerRequest();
+  final instance = CreateTimerRequestBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test CreateTimerRequest', () {
+  group(CreateTimerRequest, () {
     // Gets or sets the Id of the recording.
     // String id
     test('to test the property `id`', () async {
@@ -135,7 +126,7 @@ void main() {
     });
 
     // Gets or sets the parent backdrop image tags.
-    // List<String> parentBackdropImageTags (default value: const [])
+    // BuiltList<String> parentBackdropImageTags
     test('to test the property `parentBackdropImageTags`', () async {
       // TODO
     });
@@ -180,7 +171,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for ServerConfiguration
 void main() {
-  // final instance = ServerConfiguration();
+  //final instance = ServerConfigurationBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test ServerConfiguration', () {
+  group(ServerConfiguration, () {
     // Gets or sets the number of days we should retain log files.
     // int logFileRetentionDays
     test('to test the property `logFileRetentionDays`', () async {
@@ -104,19 +95,19 @@ void main() {
     });
 
     // Gets or sets characters to be replaced with a ' ' in strings to create a sort name.
-    // List<String> sortReplaceCharacters (default value: const [])
+    // BuiltList<String> sortReplaceCharacters
     test('to test the property `sortReplaceCharacters`', () async {
       // TODO
     });
 
     // Gets or sets characters to be removed from strings to create a sort name.
-    // List<String> sortRemoveCharacters (default value: const [])
+    // BuiltList<String> sortRemoveCharacters
     test('to test the property `sortRemoveCharacters`', () async {
       // TODO
     });
 
     // Gets or sets words to be removed from strings to create a sort name.
-    // List<String> sortRemoveWords (default value: const [])
+    // BuiltList<String> sortRemoveWords
     test('to test the property `sortRemoveWords`', () async {
       // TODO
     });
@@ -163,7 +154,7 @@ void main() {
       // TODO
     });
 
-    // List<MetadataOptions> metadataOptions (default value: const [])
+    // BuiltList<MetadataOptions> metadataOptions
     test('to test the property `metadataOptions`', () async {
       // TODO
     });
@@ -188,7 +179,7 @@ void main() {
       // TODO
     });
 
-    // List<NameValuePair> contentTypes (default value: const [])
+    // BuiltList<NameValuePair> contentTypes
     test('to test the property `contentTypes`', () async {
       // TODO
     });
@@ -213,12 +204,12 @@ void main() {
       // TODO
     });
 
-    // List<String> codecsUsed (default value: const [])
+    // BuiltList<String> codecsUsed
     test('to test the property `codecsUsed`', () async {
       // TODO
     });
 
-    // List<RepositoryInfo> pluginRepositories (default value: const [])
+    // BuiltList<RepositoryInfo> pluginRepositories
     test('to test the property `pluginRepositories`', () async {
       // TODO
     });
@@ -233,7 +224,7 @@ void main() {
       // TODO
     });
 
-    // List<PathSubstitution> pathSubstitutions (default value: const [])
+    // BuiltList<PathSubstitution> pathSubstitutions
     test('to test the property `pathSubstitutions`', () async {
       // TODO
     });
@@ -251,7 +242,7 @@ void main() {
     });
 
     // Gets or sets the cors hosts.
-    // List<String> corsHosts (default value: const [])
+    // BuiltList<String> corsHosts
     test('to test the property `corsHosts`', () async {
       // TODO
     });
@@ -286,7 +277,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

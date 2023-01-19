@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for UserDtoConfiguration
 void main() {
-  // final instance = UserDtoConfiguration();
+  final instance = UserDtoConfigurationBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test UserDtoConfiguration', () {
+  group(UserDtoConfiguration, () {
     // Gets or sets the audio language preference.
     // String audioLanguagePreference
     test('to test the property `audioLanguagePreference`', () async {
@@ -39,7 +30,7 @@ void main() {
       // TODO
     });
 
-    // List<String> groupedFolders (default value: const [])
+    // BuiltList<String> groupedFolders
     test('to test the property `groupedFolders`', () async {
       // TODO
     });
@@ -60,17 +51,17 @@ void main() {
       // TODO
     });
 
-    // List<String> orderedViews (default value: const [])
+    // BuiltList<String> orderedViews
     test('to test the property `orderedViews`', () async {
       // TODO
     });
 
-    // List<String> latestItemsExcludes (default value: const [])
+    // BuiltList<String> latestItemsExcludes
     test('to test the property `latestItemsExcludes`', () async {
       // TODO
     });
 
-    // List<String> myMediaExcludes (default value: const [])
+    // BuiltList<String> myMediaExcludes
     test('to test the property `myMediaExcludes`', () async {
       // TODO
     });
@@ -95,7 +86,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

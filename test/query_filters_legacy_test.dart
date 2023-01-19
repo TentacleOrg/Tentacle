@@ -1,42 +1,31 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for QueryFiltersLegacy
 void main() {
-  // final instance = QueryFiltersLegacy();
+  final instance = QueryFiltersLegacyBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test QueryFiltersLegacy', () {
-    // List<String> genres (default value: const [])
+  group(QueryFiltersLegacy, () {
+    // BuiltList<String> genres
     test('to test the property `genres`', () async {
       // TODO
     });
 
-    // List<String> tags (default value: const [])
+    // BuiltList<String> tags
     test('to test the property `tags`', () async {
       // TODO
     });
 
-    // List<String> officialRatings (default value: const [])
+    // BuiltList<String> officialRatings
     test('to test the property `officialRatings`', () async {
       // TODO
     });
 
-    // List<int> years (default value: const [])
+    // BuiltList<int> years
     test('to test the property `years`', () async {
       // TODO
     });
 
-
   });
-
 }

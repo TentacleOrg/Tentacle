@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for OpenLiveStreamDto
 void main() {
-  // final instance = OpenLiveStreamDto();
+  //final instance = OpenLiveStreamDtoBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test OpenLiveStreamDto', () {
+  group(OpenLiveStreamDto, () {
     // Gets or sets the open token.
     // String openToken
     test('to test the property `openToken`', () async {
@@ -88,12 +79,10 @@ void main() {
     });
 
     // Gets or sets the device play protocols.
-    // List<MediaProtocol> directPlayProtocols (default value: const [])
+    // BuiltList<MediaProtocol> directPlayProtocols
     test('to test the property `directPlayProtocols`', () async {
       // TODO
     });
 
-
   });
-
 }

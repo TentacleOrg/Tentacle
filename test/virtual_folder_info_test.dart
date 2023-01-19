@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for VirtualFolderInfo
 void main() {
-  // final instance = VirtualFolderInfo();
+  final instance = VirtualFolderInfoBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test VirtualFolderInfo', () {
+  group(VirtualFolderInfo, () {
     // Gets or sets the name.
     // String name
     test('to test the property `name`', () async {
@@ -23,7 +14,7 @@ void main() {
     });
 
     // Gets or sets the locations.
-    // List<String> locations (default value: const [])
+    // BuiltList<String> locations
     test('to test the property `locations`', () async {
       // TODO
     });
@@ -61,7 +52,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

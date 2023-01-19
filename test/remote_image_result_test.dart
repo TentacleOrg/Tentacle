@@ -1,23 +1,14 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for RemoteImageResult
 void main() {
-  // final instance = RemoteImageResult();
+  final instance = RemoteImageResultBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test RemoteImageResult', () {
+  group(RemoteImageResult, () {
     // Gets or sets the images.
-    // List<RemoteImageInfo> images (default value: const [])
+    // BuiltList<RemoteImageInfo> images
     test('to test the property `images`', () async {
       // TODO
     });
@@ -29,12 +20,10 @@ void main() {
     });
 
     // Gets or sets the providers.
-    // List<String> providers (default value: const [])
+    // BuiltList<String> providers
     test('to test the property `providers`', () async {
       // TODO
     });
 
-
   });
-
 }

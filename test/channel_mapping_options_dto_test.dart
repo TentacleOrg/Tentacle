@@ -1,35 +1,26 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for ChannelMappingOptionsDto
 void main() {
-  // final instance = ChannelMappingOptionsDto();
+  final instance = ChannelMappingOptionsDtoBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test ChannelMappingOptionsDto', () {
+  group(ChannelMappingOptionsDto, () {
     // Gets or sets list of tuner channels.
-    // List<TunerChannelMapping> tunerChannels (default value: const [])
+    // BuiltList<TunerChannelMapping> tunerChannels
     test('to test the property `tunerChannels`', () async {
       // TODO
     });
 
     // Gets or sets list of provider channels.
-    // List<NameIdPair> providerChannels (default value: const [])
+    // BuiltList<NameIdPair> providerChannels
     test('to test the property `providerChannels`', () async {
       // TODO
     });
 
     // Gets or sets list of mappings.
-    // List<NameValuePair> mappings (default value: const [])
+    // BuiltList<NameValuePair> mappings
     test('to test the property `mappings`', () async {
       // TODO
     });
@@ -40,7 +31,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

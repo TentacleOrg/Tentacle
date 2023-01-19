@@ -1,22 +1,13 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for ConfigImageTypes
 void main() {
-  // final instance = ConfigImageTypes();
+  final instance = ConfigImageTypesBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test ConfigImageTypes', () {
-    // List<String> backdropSizes (default value: const [])
+  group(ConfigImageTypes, () {
+    // BuiltList<String> backdropSizes
     test('to test the property `backdropSizes`', () async {
       // TODO
     });
@@ -26,17 +17,17 @@ void main() {
       // TODO
     });
 
-    // List<String> logoSizes (default value: const [])
+    // BuiltList<String> logoSizes
     test('to test the property `logoSizes`', () async {
       // TODO
     });
 
-    // List<String> posterSizes (default value: const [])
+    // BuiltList<String> posterSizes
     test('to test the property `posterSizes`', () async {
       // TODO
     });
 
-    // List<String> profileSizes (default value: const [])
+    // BuiltList<String> profileSizes
     test('to test the property `profileSizes`', () async {
       // TODO
     });
@@ -46,12 +37,10 @@ void main() {
       // TODO
     });
 
-    // List<String> stillSizes (default value: const [])
+    // BuiltList<String> stillSizes
     test('to test the property `stillSizes`', () async {
       // TODO
     });
 
-
   });
-
 }

@@ -1,25 +1,15 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for VideoAttachmentsApi
 void main() {
-  // final instance = VideoAttachmentsApi();
+  final instance = Openapi().getVideoAttachmentsApi();
 
-  group('tests for VideoAttachmentsApi', () {
+  group(VideoAttachmentsApi, () {
     // Get video attachment.
     //
-    //Future<MultipartFile> getAttachment(String videoId, String mediaSourceId, int index) async
+    //Future<Uint8List> getAttachment(String videoId, String mediaSourceId, int index) async
     test('test getAttachment', () async {
       // TODO
     });

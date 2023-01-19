@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for UserPolicy
 void main() {
-  // final instance = UserPolicy();
+  //final instance = UserPolicyBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test UserPolicy', () {
+  group(UserPolicy, () {
     // Gets or sets a value indicating whether this instance is administrator.
     // bool isAdministrator
     test('to test the property `isAdministrator`', () async {
@@ -40,7 +31,7 @@ void main() {
       // TODO
     });
 
-    // List<String> blockedTags (default value: const [])
+    // BuiltList<String> blockedTags
     test('to test the property `blockedTags`', () async {
       // TODO
     });
@@ -50,12 +41,12 @@ void main() {
       // TODO
     });
 
-    // List<AccessSchedule> accessSchedules (default value: const [])
+    // BuiltList<AccessSchedule> accessSchedules
     test('to test the property `accessSchedules`', () async {
       // TODO
     });
 
-    // List<UnratedItem> blockUnratedItems (default value: const [])
+    // BuiltList<UnratedItem> blockUnratedItems
     test('to test the property `blockUnratedItems`', () async {
       // TODO
     });
@@ -115,7 +106,7 @@ void main() {
       // TODO
     });
 
-    // List<String> enableContentDeletionFromFolders (default value: const [])
+    // BuiltList<String> enableContentDeletionFromFolders
     test('to test the property `enableContentDeletionFromFolders`', () async {
       // TODO
     });
@@ -136,7 +127,7 @@ void main() {
       // TODO
     });
 
-    // List<String> enabledDevices (default value: const [])
+    // BuiltList<String> enabledDevices
     test('to test the property `enabledDevices`', () async {
       // TODO
     });
@@ -146,7 +137,7 @@ void main() {
       // TODO
     });
 
-    // List<String> enabledChannels (default value: const [])
+    // BuiltList<String> enabledChannels
     test('to test the property `enabledChannels`', () async {
       // TODO
     });
@@ -156,7 +147,7 @@ void main() {
       // TODO
     });
 
-    // List<String> enabledFolders (default value: const [])
+    // BuiltList<String> enabledFolders
     test('to test the property `enabledFolders`', () async {
       // TODO
     });
@@ -186,12 +177,12 @@ void main() {
       // TODO
     });
 
-    // List<String> blockedMediaFolders (default value: const [])
+    // BuiltList<String> blockedMediaFolders
     test('to test the property `blockedMediaFolders`', () async {
       // TODO
     });
 
-    // List<String> blockedChannels (default value: const [])
+    // BuiltList<String> blockedChannels
     test('to test the property `blockedChannels`', () async {
       // TODO
     });
@@ -211,13 +202,11 @@ void main() {
       // TODO
     });
 
-    // Enum SyncPlayUserAccessType.
+    // Gets or sets a value indicating what SyncPlay features the user can access.
     // SyncPlayUserAccessType syncPlayAccess
     test('to test the property `syncPlayAccess`', () async {
       // TODO
     });
 
-
   });
-
 }

@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for SystemApi
 void main() {
-  // final instance = SystemApi();
+  final instance = Openapi().getSystemApi();
 
-  group('tests for SystemApi', () {
+  group(SystemApi, () {
     // Gets information about the request endpoint.
     //
     //Future<EndPointInfo> getEndpointInfo() async
@@ -26,7 +16,7 @@ void main() {
 
     // Gets a log file.
     //
-    //Future<MultipartFile> getLogFile(String name) async
+    //Future<Uint8List> getLogFile(String name) async
     test('test getLogFile', () async {
       // TODO
     });
@@ -47,7 +37,7 @@ void main() {
 
     // Gets a list of available server log files.
     //
-    //Future<List<LogFile>> getServerLogs() async
+    //Future<BuiltList<LogFile>> getServerLogs() async
     test('test getServerLogs', () async {
       // TODO
     });
@@ -61,7 +51,7 @@ void main() {
 
     // Gets wake on lan information.
     //
-    //Future<List<WakeOnLanInfo>> getWakeOnLanInfo() async
+    //Future<BuiltList<WakeOnLanInfo>> getWakeOnLanInfo() async
     test('test getWakeOnLanInfo', () async {
       // TODO
     });

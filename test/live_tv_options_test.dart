@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for LiveTvOptions
 void main() {
-  // final instance = LiveTvOptions();
+  final instance = LiveTvOptionsBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test LiveTvOptions', () {
+  group(LiveTvOptions, () {
     // int guideDays
     test('to test the property `guideDays`', () async {
       // TODO
@@ -46,12 +37,12 @@ void main() {
       // TODO
     });
 
-    // List<TunerHostInfo> tunerHosts (default value: const [])
+    // BuiltList<TunerHostInfo> tunerHosts
     test('to test the property `tunerHosts`', () async {
       // TODO
     });
 
-    // List<ListingsProviderInfo> listingProviders (default value: const [])
+    // BuiltList<ListingsProviderInfo> listingProviders
     test('to test the property `listingProviders`', () async {
       // TODO
     });
@@ -66,7 +57,7 @@ void main() {
       // TODO
     });
 
-    // List<String> mediaLocationsCreated (default value: const [])
+    // BuiltList<String> mediaLocationsCreated
     test('to test the property `mediaLocationsCreated`', () async {
       // TODO
     });
@@ -81,7 +72,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

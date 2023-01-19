@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for VirtualFolderInfoLibraryOptions
 void main() {
-  // final instance = VirtualFolderInfoLibraryOptions();
+  final instance = VirtualFolderInfoLibraryOptionsBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test VirtualFolderInfoLibraryOptions', () {
+  group(VirtualFolderInfoLibraryOptions, () {
     // bool enablePhotos
     test('to test the property `enablePhotos`', () async {
       // TODO
@@ -36,7 +27,7 @@ void main() {
       // TODO
     });
 
-    // List<MediaPathInfo> pathInfos (default value: const [])
+    // BuiltList<MediaPathInfo> pathInfos
     test('to test the property `pathInfos`', () async {
       // TODO
     });
@@ -88,27 +79,27 @@ void main() {
       // TODO
     });
 
-    // List<String> metadataSavers (default value: const [])
+    // BuiltList<String> metadataSavers
     test('to test the property `metadataSavers`', () async {
       // TODO
     });
 
-    // List<String> disabledLocalMetadataReaders (default value: const [])
+    // BuiltList<String> disabledLocalMetadataReaders
     test('to test the property `disabledLocalMetadataReaders`', () async {
       // TODO
     });
 
-    // List<String> localMetadataReaderOrder (default value: const [])
+    // BuiltList<String> localMetadataReaderOrder
     test('to test the property `localMetadataReaderOrder`', () async {
       // TODO
     });
 
-    // List<String> disabledSubtitleFetchers (default value: const [])
+    // BuiltList<String> disabledSubtitleFetchers
     test('to test the property `disabledSubtitleFetchers`', () async {
       // TODO
     });
 
-    // List<String> subtitleFetcherOrder (default value: const [])
+    // BuiltList<String> subtitleFetcherOrder
     test('to test the property `subtitleFetcherOrder`', () async {
       // TODO
     });
@@ -123,7 +114,7 @@ void main() {
       // TODO
     });
 
-    // List<String> subtitleDownloadLanguages (default value: const [])
+    // BuiltList<String> subtitleDownloadLanguages
     test('to test the property `subtitleDownloadLanguages`', () async {
       // TODO
     });
@@ -149,12 +140,10 @@ void main() {
       // TODO
     });
 
-    // List<TypeOptions> typeOptions (default value: const [])
+    // BuiltList<TypeOptions> typeOptions
     test('to test the property `typeOptions`', () async {
       // TODO
     });
 
-
   });
-
 }

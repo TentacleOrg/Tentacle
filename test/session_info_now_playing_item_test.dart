@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for SessionInfoNowPlayingItem
 void main() {
-  // final instance = SessionInfoNowPlayingItem();
+  final instance = SessionInfoNowPlayingItemBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test SessionInfoNowPlayingItem', () {
+  group(SessionInfoNowPlayingItem, () {
     // Gets or sets the name.
     // String name
     test('to test the property `name`', () async {
@@ -148,13 +139,13 @@ void main() {
     });
 
     // Gets or sets the external urls.
-    // List<ExternalUrl> externalUrls (default value: const [])
+    // BuiltList<ExternalUrl> externalUrls
     test('to test the property `externalUrls`', () async {
       // TODO
     });
 
     // Gets or sets the media versions.
-    // List<MediaSourceInfo> mediaSources (default value: const [])
+    // BuiltList<MediaSourceInfo> mediaSources
     test('to test the property `mediaSources`', () async {
       // TODO
     });
@@ -165,7 +156,7 @@ void main() {
       // TODO
     });
 
-    // List<String> productionLocations (default value: const [])
+    // BuiltList<String> productionLocations
     test('to test the property `productionLocations`', () async {
       // TODO
     });
@@ -211,13 +202,13 @@ void main() {
     });
 
     // Gets or sets the taglines.
-    // List<String> taglines (default value: const [])
+    // BuiltList<String> taglines
     test('to test the property `taglines`', () async {
       // TODO
     });
 
     // Gets or sets the genres.
-    // List<String> genres (default value: const [])
+    // BuiltList<String> genres
     test('to test the property `genres`', () async {
       // TODO
     });
@@ -294,13 +285,13 @@ void main() {
     });
 
     // Gets or sets the trailer urls.
-    // List<MediaUrl> remoteTrailers (default value: const [])
+    // BuiltList<MediaUrl> remoteTrailers
     test('to test the property `remoteTrailers`', () async {
       // TODO
     });
 
     // Gets or sets the provider ids.
-    // Map<String, String> providerIds (default value: const {})
+    // BuiltMap<String, String> providerIds
     test('to test the property `providerIds`', () async {
       // TODO
     });
@@ -323,25 +314,25 @@ void main() {
       // TODO
     });
 
-    // The base item kind.
+    // Gets or sets the type.
     // BaseItemKind type
     test('to test the property `type`', () async {
       // TODO
     });
 
     // Gets or sets the people.
-    // List<BaseItemPerson> people (default value: const [])
+    // BuiltList<BaseItemPerson> people
     test('to test the property `people`', () async {
       // TODO
     });
 
     // Gets or sets the studios.
-    // List<NameGuidPair> studios (default value: const [])
+    // BuiltList<NameGuidPair> studios
     test('to test the property `studios`', () async {
       // TODO
     });
 
-    // List<NameGuidPair> genreItems (default value: const [])
+    // BuiltList<NameGuidPair> genreItems
     test('to test the property `genreItems`', () async {
       // TODO
     });
@@ -359,7 +350,7 @@ void main() {
     });
 
     // Gets or sets the parent backdrop image tags.
-    // List<String> parentBackdropImageTags (default value: const [])
+    // BuiltList<String> parentBackdropImageTags
     test('to test the property `parentBackdropImageTags`', () async {
       // TODO
     });
@@ -430,13 +421,13 @@ void main() {
     });
 
     // Gets or sets the air days.
-    // List<DayOfWeek> airDays (default value: const [])
+    // BuiltList<DayOfWeek> airDays
     test('to test the property `airDays`', () async {
       // TODO
     });
 
     // Gets or sets the tags.
-    // List<String> tags (default value: const [])
+    // BuiltList<String> tags
     test('to test the property `tags`', () async {
       // TODO
     });
@@ -448,13 +439,13 @@ void main() {
     });
 
     // Gets or sets the artists.
-    // List<String> artists (default value: const [])
+    // BuiltList<String> artists
     test('to test the property `artists`', () async {
       // TODO
     });
 
     // Gets or sets the artist items.
-    // List<NameGuidPair> artistItems (default value: const [])
+    // BuiltList<NameGuidPair> artistItems
     test('to test the property `artistItems`', () async {
       // TODO
     });
@@ -502,7 +493,7 @@ void main() {
     });
 
     // Gets or sets the album artists.
-    // List<NameGuidPair> albumArtists (default value: const [])
+    // BuiltList<NameGuidPair> albumArtists
     test('to test the property `albumArtists`', () async {
       // TODO
     });
@@ -514,7 +505,7 @@ void main() {
     });
 
     // Gets or sets the media streams.
-    // List<MediaStream> mediaStreams (default value: const [])
+    // BuiltList<MediaStream> mediaStreams
     test('to test the property `mediaStreams`', () async {
       // TODO
     });
@@ -537,19 +528,19 @@ void main() {
     });
 
     // Gets or sets the image tags.
-    // Map<String, String> imageTags (default value: const {})
+    // BuiltMap<String, String> imageTags
     test('to test the property `imageTags`', () async {
       // TODO
     });
 
     // Gets or sets the backdrop image tags.
-    // List<String> backdropImageTags (default value: const [])
+    // BuiltList<String> backdropImageTags
     test('to test the property `backdropImageTags`', () async {
       // TODO
     });
 
     // Gets or sets the screenshot image tags.
-    // List<String> screenshotImageTags (default value: const [])
+    // BuiltList<String> screenshotImageTags
     test('to test the property `screenshotImageTags`', () async {
       // TODO
     });
@@ -614,7 +605,7 @@ void main() {
     });
 
     // Gets or sets the chapters.
-    // List<ChapterInfo> chapters (default value: const [])
+    // BuiltList<ChapterInfo> chapters
     test('to test the property `chapters`', () async {
       // TODO
     });
@@ -644,7 +635,7 @@ void main() {
     });
 
     // Gets or sets the locked fields.
-    // List<MetadataField> lockedFields (default value: const [])
+    // BuiltList<MetadataField> lockedFields
     test('to test the property `lockedFields`', () async {
       // TODO
     });
@@ -884,7 +875,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

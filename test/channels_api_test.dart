@@ -1,25 +1,15 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for ChannelsApi
 void main() {
-  // final instance = ChannelsApi();
+  final instance = Openapi().getChannelsApi();
 
-  group('tests for ChannelsApi', () {
+  group(ChannelsApi, () {
     // Get all channel features.
     //
-    //Future<List<ChannelFeatures>> getAllChannelFeatures() async
+    //Future<BuiltList<ChannelFeatures>> getAllChannelFeatures() async
     test('test getAllChannelFeatures', () async {
       // TODO
     });
@@ -33,7 +23,7 @@ void main() {
 
     // Get channel items.
     //
-    //Future<BaseItemDtoQueryResult> getChannelItems(String channelId, { String folderId, String userId, int startIndex, int limit, List<SortOrder> sortOrder, List<ItemFilter> filters, List<String> sortBy, List<ItemFields> fields }) async
+    //Future<BaseItemDtoQueryResult> getChannelItems(String channelId, { String folderId, String userId, int startIndex, int limit, BuiltList<SortOrder> sortOrder, BuiltList<ItemFilter> filters, BuiltList<String> sortBy, BuiltList<ItemFields> fields }) async
     test('test getChannelItems', () async {
       // TODO
     });
@@ -47,7 +37,7 @@ void main() {
 
     // Gets latest channel items.
     //
-    //Future<BaseItemDtoQueryResult> getLatestChannelItems({ String userId, int startIndex, int limit, List<ItemFilter> filters, List<ItemFields> fields, List<String> channelIds }) async
+    //Future<BaseItemDtoQueryResult> getLatestChannelItems({ String userId, int startIndex, int limit, BuiltList<ItemFilter> filters, BuiltList<ItemFields> fields, BuiltList<String> channelIds }) async
     test('test getLatestChannelItems', () async {
       // TODO
     });

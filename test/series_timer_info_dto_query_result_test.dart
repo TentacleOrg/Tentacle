@@ -1,23 +1,14 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for SeriesTimerInfoDtoQueryResult
 void main() {
-  // final instance = SeriesTimerInfoDtoQueryResult();
+  final instance = SeriesTimerInfoDtoQueryResultBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test SeriesTimerInfoDtoQueryResult', () {
+  group(SeriesTimerInfoDtoQueryResult, () {
     // Gets or sets the items.
-    // List<SeriesTimerInfoDto> items (default value: const [])
+    // BuiltList<SeriesTimerInfoDto> items
     test('to test the property `items`', () async {
       // TODO
     });
@@ -34,7 +25,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

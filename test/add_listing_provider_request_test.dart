@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for AddListingProviderRequest
 void main() {
-  // final instance = AddListingProviderRequest();
+  final instance = AddListingProviderRequestBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test AddListingProviderRequest', () {
+  group(AddListingProviderRequest, () {
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -56,7 +47,7 @@ void main() {
       // TODO
     });
 
-    // List<String> enabledTuners (default value: const [])
+    // BuiltList<String> enabledTuners
     test('to test the property `enabledTuners`', () async {
       // TODO
     });
@@ -66,27 +57,27 @@ void main() {
       // TODO
     });
 
-    // List<String> newsCategories (default value: const [])
+    // BuiltList<String> newsCategories
     test('to test the property `newsCategories`', () async {
       // TODO
     });
 
-    // List<String> sportsCategories (default value: const [])
+    // BuiltList<String> sportsCategories
     test('to test the property `sportsCategories`', () async {
       // TODO
     });
 
-    // List<String> kidsCategories (default value: const [])
+    // BuiltList<String> kidsCategories
     test('to test the property `kidsCategories`', () async {
       // TODO
     });
 
-    // List<String> movieCategories (default value: const [])
+    // BuiltList<String> movieCategories
     test('to test the property `movieCategories`', () async {
       // TODO
     });
 
-    // List<NameValuePair> channelMappings (default value: const [])
+    // BuiltList<NameValuePair> channelMappings
     test('to test the property `channelMappings`', () async {
       // TODO
     });
@@ -106,7 +97,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

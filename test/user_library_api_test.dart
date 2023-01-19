@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for UserLibraryApi
 void main() {
-  // final instance = UserLibraryApi();
+  final instance = Openapi().getUserLibraryApi();
 
-  group('tests for UserLibraryApi', () {
+  group(UserLibraryApi, () {
     // Deletes a user's saved personal rating for an item.
     //
     //Future<UserItemDataDto> deleteUserItemRating(String userId, String itemId) async
@@ -40,14 +30,14 @@ void main() {
 
     // Gets latest media.
     //
-    //Future<List<BaseItemDto>> getLatestMedia(String userId, { String parentId, List<ItemFields> fields, List<BaseItemKind> includeItemTypes, bool isPlayed, bool enableImages, int imageTypeLimit, List<ImageType> enableImageTypes, bool enableUserData, int limit, bool groupItems }) async
+    //Future<BuiltList<BaseItemDto>> getLatestMedia(String userId, { String parentId, BuiltList<ItemFields> fields, BuiltList<BaseItemKind> includeItemTypes, bool isPlayed, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, bool enableUserData, int limit, bool groupItems }) async
     test('test getLatestMedia', () async {
       // TODO
     });
 
     // Gets local trailers for an item.
     //
-    //Future<List<BaseItemDto>> getLocalTrailers(String userId, String itemId) async
+    //Future<BuiltList<BaseItemDto>> getLocalTrailers(String userId, String itemId) async
     test('test getLocalTrailers', () async {
       // TODO
     });
@@ -61,7 +51,7 @@ void main() {
 
     // Gets special features for an item.
     //
-    //Future<List<BaseItemDto>> getSpecialFeatures(String userId, String itemId) async
+    //Future<BuiltList<BaseItemDto>> getSpecialFeatures(String userId, String itemId) async
     test('test getSpecialFeatures', () async {
       // TODO
     });

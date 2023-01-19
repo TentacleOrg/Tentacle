@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for UpdateDisplayPreferencesRequest
 void main() {
-  // final instance = UpdateDisplayPreferencesRequest();
+  final instance = UpdateDisplayPreferencesRequestBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test UpdateDisplayPreferencesRequest', () {
+  group(UpdateDisplayPreferencesRequest, () {
     // Gets or sets the user id.
     // String id
     test('to test the property `id`', () async {
@@ -59,12 +50,12 @@ void main() {
     });
 
     // Gets or sets the custom prefs.
-    // Map<String, String> customPrefs (default value: const {})
+    // BuiltMap<String, String> customPrefs
     test('to test the property `customPrefs`', () async {
       // TODO
     });
 
-    // An enum representing the axis that should be scrolled.
+    // Gets or sets the scroll direction.
     // ScrollDirection scrollDirection
     test('to test the property `scrollDirection`', () async {
       // TODO
@@ -82,7 +73,7 @@ void main() {
       // TODO
     });
 
-    // An enum representing the sorting order.
+    // Gets or sets the sort order.
     // SortOrder sortOrder
     test('to test the property `sortOrder`', () async {
       // TODO
@@ -100,7 +91,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

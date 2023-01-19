@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for AlbumInfo
 void main() {
-  // final instance = AlbumInfo();
+  //final instance = AlbumInfoBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test AlbumInfo', () {
+  group(AlbumInfo, () {
     // Gets or sets the name.
     // String name
     test('to test the property `name`', () async {
@@ -47,7 +38,7 @@ void main() {
     });
 
     // Gets or sets the provider ids.
-    // Map<String, String> providerIds (default value: const {})
+    // BuiltMap<String, String> providerIds
     test('to test the property `providerIds`', () async {
       // TODO
     });
@@ -79,23 +70,21 @@ void main() {
     });
 
     // Gets or sets the album artist.
-    // List<String> albumArtists (default value: const [])
+    // BuiltList<String> albumArtists
     test('to test the property `albumArtists`', () async {
       // TODO
     });
 
     // Gets or sets the artist provider ids.
-    // Map<String, String> artistProviderIds (default value: const {})
+    // BuiltMap<String, String> artistProviderIds
     test('to test the property `artistProviderIds`', () async {
       // TODO
     });
 
-    // List<SongInfo> songInfos (default value: const [])
+    // BuiltList<SongInfo> songInfos
     test('to test the property `songInfos`', () async {
       // TODO
     });
 
-
   });
-
 }

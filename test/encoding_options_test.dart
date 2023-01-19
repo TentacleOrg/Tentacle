@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for EncodingOptions
 void main() {
-  // final instance = EncodingOptions();
+  final instance = EncodingOptionsBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test EncodingOptions', () {
+  group(EncodingOptions, () {
     // int encodingThreadCount
     test('to test the property `encodingThreadCount`', () async {
       // TODO
@@ -198,17 +189,15 @@ void main() {
       // TODO
     });
 
-    // List<String> hardwareDecodingCodecs (default value: const [])
+    // BuiltList<String> hardwareDecodingCodecs
     test('to test the property `hardwareDecodingCodecs`', () async {
       // TODO
     });
 
-    // List<String> allowOnDemandMetadataBasedKeyframeExtractionForExtensions (default value: const [])
+    // BuiltList<String> allowOnDemandMetadataBasedKeyframeExtractionForExtensions
     test('to test the property `allowOnDemandMetadataBasedKeyframeExtractionForExtensions`', () async {
       // TODO
     });
 
-
   });
-
 }

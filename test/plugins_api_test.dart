@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for PluginsApi
 void main() {
-  // final instance = PluginsApi();
+  final instance = Openapi().getPluginsApi();
 
-  group('tests for PluginsApi', () {
+  group(PluginsApi, () {
     // Disable a plugin.
     //
     //Future disablePlugin(String pluginId, String version) async
@@ -33,14 +23,14 @@ void main() {
 
     // Gets plugin configuration.
     //
-    //Future<Object> getPluginConfiguration(String pluginId) async
+    //Future<JsonObject> getPluginConfiguration(String pluginId) async
     test('test getPluginConfiguration', () async {
       // TODO
     });
 
     // Gets a plugin's image.
     //
-    //Future<MultipartFile> getPluginImage(String pluginId, String version) async
+    //Future<Uint8List> getPluginImage(String pluginId, String version) async
     test('test getPluginImage', () async {
       // TODO
     });
@@ -54,7 +44,7 @@ void main() {
 
     // Gets a list of currently installed plugins.
     //
-    //Future<List<PluginInfo>> getPlugins() async
+    //Future<BuiltList<PluginInfo>> getPlugins() async
     test('test getPlugins', () async {
       // TODO
     });

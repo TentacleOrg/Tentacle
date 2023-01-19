@@ -1,25 +1,15 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for SuggestionsApi
 void main() {
-  // final instance = SuggestionsApi();
+  final instance = Openapi().getSuggestionsApi();
 
-  group('tests for SuggestionsApi', () {
+  group(SuggestionsApi, () {
     // Gets suggestions.
     //
-    //Future<BaseItemDtoQueryResult> getSuggestions(String userId, { List<String> mediaType, List<BaseItemKind> type, int startIndex, int limit, bool enableTotalRecordCount }) async
+    //Future<BaseItemDtoQueryResult> getSuggestions(String userId, { BuiltList<String> mediaType, BuiltList<BaseItemKind> type, int startIndex, int limit, bool enableTotalRecordCount }) async
     test('test getSuggestions', () async {
       // TODO
     });

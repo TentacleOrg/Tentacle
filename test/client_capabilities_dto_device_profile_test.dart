@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for ClientCapabilitiesDtoDeviceProfile
 void main() {
-  // final instance = ClientCapabilitiesDtoDeviceProfile();
+  final instance = ClientCapabilitiesDtoDeviceProfileBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test ClientCapabilitiesDtoDeviceProfile', () {
+  group(ClientCapabilitiesDtoDeviceProfile, () {
     // Gets or sets the name of this device profile.
     // String name
     test('to test the property `name`', () async {
@@ -208,48 +199,46 @@ void main() {
     });
 
     // Gets or sets the XmlRootAttributes.
-    // List<XmlAttribute> xmlRootAttributes (default value: const [])
+    // BuiltList<XmlAttribute> xmlRootAttributes
     test('to test the property `xmlRootAttributes`', () async {
       // TODO
     });
 
     // Gets or sets the direct play profiles.
-    // List<DirectPlayProfile> directPlayProfiles (default value: const [])
+    // BuiltList<DirectPlayProfile> directPlayProfiles
     test('to test the property `directPlayProfiles`', () async {
       // TODO
     });
 
     // Gets or sets the transcoding profiles.
-    // List<TranscodingProfile> transcodingProfiles (default value: const [])
+    // BuiltList<TranscodingProfile> transcodingProfiles
     test('to test the property `transcodingProfiles`', () async {
       // TODO
     });
 
     // Gets or sets the container profiles.
-    // List<ContainerProfile> containerProfiles (default value: const [])
+    // BuiltList<ContainerProfile> containerProfiles
     test('to test the property `containerProfiles`', () async {
       // TODO
     });
 
     // Gets or sets the codec profiles.
-    // List<CodecProfile> codecProfiles (default value: const [])
+    // BuiltList<CodecProfile> codecProfiles
     test('to test the property `codecProfiles`', () async {
       // TODO
     });
 
     // Gets or sets the ResponseProfiles.
-    // List<ResponseProfile> responseProfiles (default value: const [])
+    // BuiltList<ResponseProfile> responseProfiles
     test('to test the property `responseProfiles`', () async {
       // TODO
     });
 
     // Gets or sets the subtitle profiles.
-    // List<SubtitleProfile> subtitleProfiles (default value: const [])
+    // BuiltList<SubtitleProfile> subtitleProfiles
     test('to test the property `subtitleProfiles`', () async {
       // TODO
     });
 
-
   });
-
 }

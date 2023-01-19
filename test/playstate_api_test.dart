@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for PlaystateApi
 void main() {
-  // final instance = PlaystateApi();
+  final instance = Openapi().getPlaystateApi();
 
-  group('tests for PlaystateApi', () {
+  group(PlaystateApi, () {
     // Marks an item as played for user.
     //
     //Future<UserItemDataDto> markPlayedItem(String userId, String itemId, { DateTime datePlayed }) async

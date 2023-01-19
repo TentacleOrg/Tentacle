@@ -1,52 +1,43 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for LibraryUpdateInfo
 void main() {
-  // final instance = LibraryUpdateInfo();
+  final instance = LibraryUpdateInfoBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test LibraryUpdateInfo', () {
+  group(LibraryUpdateInfo, () {
     // Gets or sets the folders added to.
-    // List<String> foldersAddedTo (default value: const [])
+    // BuiltList<String> foldersAddedTo
     test('to test the property `foldersAddedTo`', () async {
       // TODO
     });
 
     // Gets or sets the folders removed from.
-    // List<String> foldersRemovedFrom (default value: const [])
+    // BuiltList<String> foldersRemovedFrom
     test('to test the property `foldersRemovedFrom`', () async {
       // TODO
     });
 
     // Gets or sets the items added.
-    // List<String> itemsAdded (default value: const [])
+    // BuiltList<String> itemsAdded
     test('to test the property `itemsAdded`', () async {
       // TODO
     });
 
     // Gets or sets the items removed.
-    // List<String> itemsRemoved (default value: const [])
+    // BuiltList<String> itemsRemoved
     test('to test the property `itemsRemoved`', () async {
       // TODO
     });
 
     // Gets or sets the items updated.
-    // List<String> itemsUpdated (default value: const [])
+    // BuiltList<String> itemsUpdated
     test('to test the property `itemsUpdated`', () async {
       // TODO
     });
 
-    // List<String> collectionFolders (default value: const [])
+    // BuiltList<String> collectionFolders
     test('to test the property `collectionFolders`', () async {
       // TODO
     });
@@ -56,7 +47,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

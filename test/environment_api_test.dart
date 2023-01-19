@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for EnvironmentApi
 void main() {
-  // final instance = EnvironmentApi();
+  final instance = Openapi().getEnvironmentApi();
 
-  group('tests for EnvironmentApi', () {
+  group(EnvironmentApi, () {
     // Get Default directory browser.
     //
     //Future<DefaultDirectoryBrowserInfoDto> getDefaultDirectoryBrowser() async
@@ -26,21 +16,21 @@ void main() {
 
     // Gets the contents of a given directory in the file system.
     //
-    //Future<List<FileSystemEntryInfo>> getDirectoryContents(String path, { bool includeFiles, bool includeDirectories }) async
+    //Future<BuiltList<FileSystemEntryInfo>> getDirectoryContents(String path, { bool includeFiles, bool includeDirectories }) async
     test('test getDirectoryContents', () async {
       // TODO
     });
 
     // Gets available drives from the server's file system.
     //
-    //Future<List<FileSystemEntryInfo>> getDrives() async
+    //Future<BuiltList<FileSystemEntryInfo>> getDrives() async
     test('test getDrives', () async {
       // TODO
     });
 
     // Gets network paths.
     //
-    //Future<List<FileSystemEntryInfo>> getNetworkShares() async
+    //Future<BuiltList<FileSystemEntryInfo>> getNetworkShares() async
     test('test getNetworkShares', () async {
       // TODO
     });

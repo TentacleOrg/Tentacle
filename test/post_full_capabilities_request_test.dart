@@ -1,29 +1,20 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for PostFullCapabilitiesRequest
 void main() {
-  // final instance = PostFullCapabilitiesRequest();
+  final instance = PostFullCapabilitiesRequestBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test PostFullCapabilitiesRequest', () {
+  group(PostFullCapabilitiesRequest, () {
     // Gets or sets the list of playable media types.
-    // List<String> playableMediaTypes (default value: const [])
+    // BuiltList<String> playableMediaTypes
     test('to test the property `playableMediaTypes`', () async {
       // TODO
     });
 
     // Gets or sets the list of supported commands.
-    // List<GeneralCommandType> supportedCommands (default value: const [])
+    // BuiltList<GeneralCommandType> supportedCommands
     test('to test the property `supportedCommands`', () async {
       // TODO
     });
@@ -75,7 +66,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

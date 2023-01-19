@@ -1,27 +1,18 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for DeviceInfoCapabilities
 void main() {
-  // final instance = DeviceInfoCapabilities();
+  final instance = DeviceInfoCapabilitiesBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test DeviceInfoCapabilities', () {
-    // List<String> playableMediaTypes (default value: const [])
+  group(DeviceInfoCapabilities, () {
+    // BuiltList<String> playableMediaTypes
     test('to test the property `playableMediaTypes`', () async {
       // TODO
     });
 
-    // List<GeneralCommandType> supportedCommands (default value: const [])
+    // BuiltList<GeneralCommandType> supportedCommands
     test('to test the property `supportedCommands`', () async {
       // TODO
     });
@@ -66,7 +57,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

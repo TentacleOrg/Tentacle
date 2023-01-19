@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for SyncPlayApi
 void main() {
-  // final instance = SyncPlayApi();
+  final instance = Openapi().getSyncPlayApi();
 
-  group('tests for SyncPlayApi', () {
+  group(SyncPlayApi, () {
     // Notify SyncPlay group that member is buffering.
     //
     //Future syncPlayBuffering(SyncPlayBufferingRequest syncPlayBufferingRequest) async
@@ -33,7 +23,7 @@ void main() {
 
     // Gets all SyncPlay groups.
     //
-    //Future<List<GroupInfoDto>> syncPlayGetGroups() async
+    //Future<BuiltList<GroupInfoDto>> syncPlayGetGroups() async
     test('test syncPlayGetGroups', () async {
       // TODO
     });

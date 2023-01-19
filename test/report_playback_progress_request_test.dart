@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for ReportPlaybackProgressRequest
 void main() {
-  // final instance = ReportPlaybackProgressRequest();
+  final instance = ReportPlaybackProgressRequestBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test ReportPlaybackProgressRequest', () {
+  group(ReportPlaybackProgressRequest, () {
     // Gets or sets a value indicating whether this instance can seek.
     // bool canSeek
     test('to test the property `canSeek`', () async {
@@ -120,7 +111,7 @@ void main() {
       // TODO
     });
 
-    // List<QueueItem> nowPlayingQueue (default value: const [])
+    // BuiltList<QueueItem> nowPlayingQueue
     test('to test the property `nowPlayingQueue`', () async {
       // TODO
     });
@@ -130,7 +121,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

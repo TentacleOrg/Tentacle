@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for LibraryApi
 void main() {
-  // final instance = LibraryApi();
+  final instance = Openapi().getLibraryApi();
 
-  group('tests for LibraryApi', () {
+  group(LibraryApi, () {
     // Deletes an item from the library and filesystem.
     //
     //Future deleteItem(String itemId) async
@@ -26,14 +16,14 @@ void main() {
 
     // Deletes items from the library and filesystem.
     //
-    //Future deleteItems({ List<String> ids }) async
+    //Future deleteItems({ BuiltList<String> ids }) async
     test('test deleteItems', () async {
       // TODO
     });
 
     // Gets all parents of an item.
     //
-    //Future<List<BaseItemDto>> getAncestors(String itemId, { String userId }) async
+    //Future<BuiltList<BaseItemDto>> getAncestors(String itemId, { String userId }) async
     test('test getAncestors', () async {
       // TODO
     });
@@ -47,14 +37,14 @@ void main() {
 
     // Downloads item media.
     //
-    //Future<MultipartFile> getDownload(String itemId) async
+    //Future<Uint8List> getDownload(String itemId) async
     test('test getDownload', () async {
       // TODO
     });
 
     // Get the original file of an item.
     //
-    //Future<MultipartFile> getFile(String itemId) async
+    //Future<Uint8List> getFile(String itemId) async
     test('test getFile', () async {
       // TODO
     });
@@ -82,49 +72,49 @@ void main() {
 
     // Gets a list of physical paths from virtual folders.
     //
-    //Future<List<String>> getPhysicalPaths() async
+    //Future<BuiltList<String>> getPhysicalPaths() async
     test('test getPhysicalPaths', () async {
       // TODO
     });
 
     // Gets similar items.
     //
-    //Future<BaseItemDtoQueryResult> getSimilarAlbums(String itemId, { List<String> excludeArtistIds, String userId, int limit, List<ItemFields> fields }) async
+    //Future<BaseItemDtoQueryResult> getSimilarAlbums(String itemId, { BuiltList<String> excludeArtistIds, String userId, int limit, BuiltList<ItemFields> fields }) async
     test('test getSimilarAlbums', () async {
       // TODO
     });
 
     // Gets similar items.
     //
-    //Future<BaseItemDtoQueryResult> getSimilarArtists(String itemId, { List<String> excludeArtistIds, String userId, int limit, List<ItemFields> fields }) async
+    //Future<BaseItemDtoQueryResult> getSimilarArtists(String itemId, { BuiltList<String> excludeArtistIds, String userId, int limit, BuiltList<ItemFields> fields }) async
     test('test getSimilarArtists', () async {
       // TODO
     });
 
     // Gets similar items.
     //
-    //Future<BaseItemDtoQueryResult> getSimilarItems(String itemId, { List<String> excludeArtistIds, String userId, int limit, List<ItemFields> fields }) async
+    //Future<BaseItemDtoQueryResult> getSimilarItems(String itemId, { BuiltList<String> excludeArtistIds, String userId, int limit, BuiltList<ItemFields> fields }) async
     test('test getSimilarItems', () async {
       // TODO
     });
 
     // Gets similar items.
     //
-    //Future<BaseItemDtoQueryResult> getSimilarMovies(String itemId, { List<String> excludeArtistIds, String userId, int limit, List<ItemFields> fields }) async
+    //Future<BaseItemDtoQueryResult> getSimilarMovies(String itemId, { BuiltList<String> excludeArtistIds, String userId, int limit, BuiltList<ItemFields> fields }) async
     test('test getSimilarMovies', () async {
       // TODO
     });
 
     // Gets similar items.
     //
-    //Future<BaseItemDtoQueryResult> getSimilarShows(String itemId, { List<String> excludeArtistIds, String userId, int limit, List<ItemFields> fields }) async
+    //Future<BaseItemDtoQueryResult> getSimilarShows(String itemId, { BuiltList<String> excludeArtistIds, String userId, int limit, BuiltList<ItemFields> fields }) async
     test('test getSimilarShows', () async {
       // TODO
     });
 
     // Gets similar items.
     //
-    //Future<BaseItemDtoQueryResult> getSimilarTrailers(String itemId, { List<String> excludeArtistIds, String userId, int limit, List<ItemFields> fields }) async
+    //Future<BaseItemDtoQueryResult> getSimilarTrailers(String itemId, { BuiltList<String> excludeArtistIds, String userId, int limit, BuiltList<ItemFields> fields }) async
     test('test getSimilarTrailers', () async {
       // TODO
     });

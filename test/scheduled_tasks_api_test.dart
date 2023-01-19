@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for ScheduledTasksApi
 void main() {
-  // final instance = ScheduledTasksApi();
+  final instance = Openapi().getScheduledTasksApi();
 
-  group('tests for ScheduledTasksApi', () {
+  group(ScheduledTasksApi, () {
     // Get task by id.
     //
     //Future<TaskInfo> getTask(String taskId) async
@@ -26,7 +16,7 @@ void main() {
 
     // Get tasks.
     //
-    //Future<List<TaskInfo>> getTasks({ bool isHidden, bool isEnabled }) async
+    //Future<BuiltList<TaskInfo>> getTasks({ bool isHidden, bool isEnabled }) async
     test('test getTasks', () async {
       // TODO
     });
@@ -47,7 +37,7 @@ void main() {
 
     // Update specified task triggers.
     //
-    //Future updateTask(String taskId, List<TaskTriggerInfo> taskTriggerInfo) async
+    //Future updateTask(String taskId, BuiltList<TaskTriggerInfo> taskTriggerInfo) async
     test('test updateTask', () async {
       // TODO
     });

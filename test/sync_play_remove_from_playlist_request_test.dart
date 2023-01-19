@@ -1,23 +1,14 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for SyncPlayRemoveFromPlaylistRequest
 void main() {
-  // final instance = SyncPlayRemoveFromPlaylistRequest();
+  final instance = SyncPlayRemoveFromPlaylistRequestBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test SyncPlayRemoveFromPlaylistRequest', () {
+  group(SyncPlayRemoveFromPlaylistRequest, () {
     // Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist.
-    // List<String> playlistItemIds (default value: const [])
+    // BuiltList<String> playlistItemIds
     test('to test the property `playlistItemIds`', () async {
       // TODO
     });
@@ -34,7 +25,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for PackageApi
 void main() {
-  // final instance = PackageApi();
+  final instance = Openapi().getPackageApi();
 
-  group('tests for PackageApi', () {
+  group(PackageApi, () {
     // Cancels a package installation.
     //
     //Future cancelPackageInstallation(String packageId) async
@@ -33,14 +23,14 @@ void main() {
 
     // Gets available packages.
     //
-    //Future<List<PackageInfo>> getPackages() async
+    //Future<BuiltList<PackageInfo>> getPackages() async
     test('test getPackages', () async {
       // TODO
     });
 
     // Gets all package repositories.
     //
-    //Future<List<RepositoryInfo>> getRepositories() async
+    //Future<BuiltList<RepositoryInfo>> getRepositories() async
     test('test getRepositories', () async {
       // TODO
     });
@@ -54,7 +44,7 @@ void main() {
 
     // Sets the enabled and existing package repositories.
     //
-    //Future setRepositories(List<RepositoryInfo> repositoryInfo) async
+    //Future setRepositories(BuiltList<RepositoryInfo> repositoryInfo) async
     test('test setRepositories', () async {
       // TODO
     });

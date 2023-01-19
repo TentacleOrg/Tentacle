@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for UserApi
 void main() {
-  // final instance = UserApi();
+  final instance = Openapi().getUserApi();
 
-  group('tests for UserApi', () {
+  group(UserApi, () {
     // Authenticates a user.
     //
     //Future<AuthenticationResult> authenticateUser(String userId, String pw, { String password }) async
@@ -75,7 +65,7 @@ void main() {
 
     // Gets a list of publicly visible users for display on a login screen.
     //
-    //Future<List<UserDto>> getPublicUsers() async
+    //Future<BuiltList<UserDto>> getPublicUsers() async
     test('test getPublicUsers', () async {
       // TODO
     });
@@ -89,7 +79,7 @@ void main() {
 
     // Gets a list of users.
     //
-    //Future<List<UserDto>> getUsers({ bool isHidden, bool isDisabled }) async
+    //Future<BuiltList<UserDto>> getUsers({ bool isHidden, bool isDisabled }) async
     test('test getUsers', () async {
       // TODO
     });

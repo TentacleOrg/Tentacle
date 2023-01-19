@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for NetworkConfiguration
 void main() {
-  // final instance = NetworkConfiguration();
+  final instance = NetworkConfigurationBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test NetworkConfiguration', () {
+  group(NetworkConfiguration, () {
     // Gets or sets a value indicating whether the server should force connections over HTTPS.
     // bool requireHttps
     test('to test the property `requireHttps`', () async {
@@ -155,7 +146,7 @@ void main() {
     });
 
     // Gets or sets the PublishedServerUriBySubnet  Gets or sets PublishedServerUri to advertise for specific subnets.
-    // List<String> publishedServerUriBySubnet (default value: const [])
+    // BuiltList<String> publishedServerUriBySubnet
     test('to test the property `publishedServerUriBySubnet`', () async {
       // TODO
     });
@@ -173,7 +164,7 @@ void main() {
     });
 
     // Gets or sets the filter for remote IP connectivity. Used in conjuntion with <seealso cref=\"P:Jellyfin.Networking.Configuration.NetworkConfiguration.IsRemoteIPFilterBlacklist\" />.
-    // List<String> remoteIPFilter (default value: const [])
+    // BuiltList<String> remoteIPFilter
     test('to test the property `remoteIPFilter`', () async {
       // TODO
     });
@@ -197,19 +188,19 @@ void main() {
     });
 
     // Gets or sets the subnets that are deemed to make up the LAN.
-    // List<String> localNetworkSubnets (default value: const [])
+    // BuiltList<String> localNetworkSubnets
     test('to test the property `localNetworkSubnets`', () async {
       // TODO
     });
 
     // Gets or sets the interface addresses which Jellyfin will bind to. If empty, all interfaces will be used.
-    // List<String> localNetworkAddresses (default value: const [])
+    // BuiltList<String> localNetworkAddresses
     test('to test the property `localNetworkAddresses`', () async {
       // TODO
     });
 
     // Gets or sets the known proxies. If the proxy is a network, it's added to the KnownNetworks.
-    // List<String> knownProxies (default value: const [])
+    // BuiltList<String> knownProxies
     test('to test the property `knownProxies`', () async {
       // TODO
     });
@@ -220,7 +211,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

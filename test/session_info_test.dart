@@ -1,27 +1,18 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for SessionInfo
 void main() {
-  // final instance = SessionInfo();
+  //final instance = SessionInfoBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test SessionInfo', () {
+  group(SessionInfo, () {
     // SessionInfoPlayState playState
     test('to test the property `playState`', () async {
       // TODO
     });
 
-    // List<SessionUserInfo> additionalUsers (default value: const [])
+    // BuiltList<SessionUserInfo> additionalUsers
     test('to test the property `additionalUsers`', () async {
       // TODO
     });
@@ -38,7 +29,7 @@ void main() {
     });
 
     // Gets the playable media types.
-    // List<String> playableMediaTypes (default value: const [])
+    // BuiltList<String> playableMediaTypes
     test('to test the property `playableMediaTypes`', () async {
       // TODO
     });
@@ -101,7 +92,7 @@ void main() {
       // TODO
     });
 
-    // SessionInfoNowViewingItem nowViewingItem
+    // SessionInfoNowPlayingItem nowViewingItem
     test('to test the property `nowViewingItem`', () async {
       // TODO
     });
@@ -139,12 +130,12 @@ void main() {
       // TODO
     });
 
-    // List<QueueItem> nowPlayingQueue (default value: const [])
+    // BuiltList<QueueItem> nowPlayingQueue
     test('to test the property `nowPlayingQueue`', () async {
       // TODO
     });
 
-    // List<BaseItemDto> nowPlayingQueueFullItems (default value: const [])
+    // BuiltList<BaseItemDto> nowPlayingQueueFullItems
     test('to test the property `nowPlayingQueueFullItems`', () async {
       // TODO
     });
@@ -170,12 +161,10 @@ void main() {
     });
 
     // Gets the supported commands.
-    // List<GeneralCommandType> supportedCommands (default value: const [])
+    // BuiltList<GeneralCommandType> supportedCommands
     test('to test the property `supportedCommands`', () async {
       // TODO
     });
 
-
   });
-
 }

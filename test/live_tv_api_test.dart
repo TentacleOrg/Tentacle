@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for LiveTvApi
 void main() {
-  // final instance = LiveTvApi();
+  final instance = Openapi().getLiveTvApi();
 
-  group('tests for LiveTvApi', () {
+  group(LiveTvApi, () {
     // Adds a listings provider.
     //
     //Future<ListingsProviderInfo> addListingProvider({ String pw, bool validateListings, bool validateLogin, AddListingProviderRequest addListingProviderRequest }) async
@@ -82,14 +72,14 @@ void main() {
 
     // Discover tuners.
     //
-    //Future<List<TunerHostInfo>> discoverTuners({ bool newDevicesOnly }) async
+    //Future<BuiltList<TunerHostInfo>> discoverTuners({ bool newDevicesOnly }) async
     test('test discoverTuners', () async {
       // TODO
     });
 
     // Discover tuners.
     //
-    //Future<List<TunerHostInfo>> discvoverTuners({ bool newDevicesOnly }) async
+    //Future<BuiltList<TunerHostInfo>> discvoverTuners({ bool newDevicesOnly }) async
     test('test discvoverTuners', () async {
       // TODO
     });
@@ -131,28 +121,28 @@ void main() {
 
     // Gets available lineups.
     //
-    //Future<List<NameIdPair>> getLineups({ String id, String type, String location, String country }) async
+    //Future<BuiltList<NameIdPair>> getLineups({ String id, String type, String location, String country }) async
     test('test getLineups', () async {
       // TODO
     });
 
     // Gets a live tv recording stream.
     //
-    //Future<MultipartFile> getLiveRecordingFile(String recordingId) async
+    //Future<Uint8List> getLiveRecordingFile(String recordingId) async
     test('test getLiveRecordingFile', () async {
       // TODO
     });
 
     // Gets a live tv channel stream.
     //
-    //Future<MultipartFile> getLiveStreamFile(String streamId, String container) async
+    //Future<Uint8List> getLiveStreamFile(String streamId, String container) async
     test('test getLiveStreamFile', () async {
       // TODO
     });
 
     // Gets available live tv channels.
     //
-    //Future<BaseItemDtoQueryResult> getLiveTvChannels({ ChannelType type, String userId, int startIndex, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, int limit, bool isFavorite, bool isLiked, bool isDisliked, bool enableImages, int imageTypeLimit, List<ImageType> enableImageTypes, List<ItemFields> fields, bool enableUserData, List<String> sortBy, SortOrder sortOrder, bool enableFavoriteSorting, bool addCurrentProgram }) async
+    //Future<BaseItemDtoQueryResult> getLiveTvChannels({ ChannelType type, String userId, int startIndex, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, int limit, bool isFavorite, bool isLiked, bool isDisliked, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<ItemFields> fields, bool enableUserData, BuiltList<String> sortBy, SortOrder sortOrder, bool enableFavoriteSorting, bool addCurrentProgram }) async
     test('test getLiveTvChannels', () async {
       // TODO
     });
@@ -166,7 +156,7 @@ void main() {
 
     // Gets available live tv epgs.
     //
-    //Future<BaseItemDtoQueryResult> getLiveTvPrograms({ List<String> channelIds, String userId, DateTime minStartDate, bool hasAired, bool isAiring, DateTime maxStartDate, DateTime minEndDate, DateTime maxEndDate, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, int startIndex, int limit, List<String> sortBy, List<SortOrder> sortOrder, List<String> genres, List<String> genreIds, bool enableImages, int imageTypeLimit, List<ImageType> enableImageTypes, bool enableUserData, String seriesTimerId, String librarySeriesId, List<ItemFields> fields, bool enableTotalRecordCount }) async
+    //Future<BaseItemDtoQueryResult> getLiveTvPrograms({ BuiltList<String> channelIds, String userId, DateTime minStartDate, bool hasAired, bool isAiring, DateTime maxStartDate, DateTime minEndDate, DateTime maxEndDate, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, int startIndex, int limit, BuiltList<String> sortBy, BuiltList<SortOrder> sortOrder, BuiltList<String> genres, BuiltList<String> genreIds, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, bool enableUserData, String seriesTimerId, String librarySeriesId, BuiltList<ItemFields> fields, bool enableTotalRecordCount }) async
     test('test getLiveTvPrograms', () async {
       // TODO
     });
@@ -187,7 +177,7 @@ void main() {
 
     // Gets recommended live tv epgs.
     //
-    //Future<BaseItemDtoQueryResult> getRecommendedPrograms({ String userId, int limit, bool isAiring, bool hasAired, bool isSeries, bool isMovie, bool isNews, bool isKids, bool isSports, bool enableImages, int imageTypeLimit, List<ImageType> enableImageTypes, List<String> genreIds, List<ItemFields> fields, bool enableUserData, bool enableTotalRecordCount }) async
+    //Future<BaseItemDtoQueryResult> getRecommendedPrograms({ String userId, int limit, bool isAiring, bool hasAired, bool isSeries, bool isMovie, bool isNews, bool isKids, bool isSports, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<String> genreIds, BuiltList<ItemFields> fields, bool enableUserData, bool enableTotalRecordCount }) async
     test('test getRecommendedPrograms', () async {
       // TODO
     });
@@ -222,21 +212,21 @@ void main() {
 
     // Gets live tv recordings.
     //
-    //Future<BaseItemDtoQueryResult> getRecordings({ String channelId, String userId, int startIndex, int limit, RecordingStatus status, bool isInProgress, String seriesTimerId, bool enableImages, int imageTypeLimit, List<ImageType> enableImageTypes, List<ItemFields> fields, bool enableUserData, bool isMovie, bool isSeries, bool isKids, bool isSports, bool isNews, bool isLibraryItem, bool enableTotalRecordCount }) async
+    //Future<BaseItemDtoQueryResult> getRecordings({ String channelId, String userId, int startIndex, int limit, RecordingStatus status, bool isInProgress, String seriesTimerId, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<ItemFields> fields, bool enableUserData, bool isMovie, bool isSeries, bool isKids, bool isSports, bool isNews, bool isLibraryItem, bool enableTotalRecordCount }) async
     test('test getRecordings', () async {
       // TODO
     });
 
     // Gets live tv recording series.
     //
-    //Future<BaseItemDtoQueryResult> getRecordingsSeries({ String channelId, String userId, String groupId, int startIndex, int limit, RecordingStatus status, bool isInProgress, String seriesTimerId, bool enableImages, int imageTypeLimit, List<ImageType> enableImageTypes, List<ItemFields> fields, bool enableUserData, bool enableTotalRecordCount }) async
+    //Future<BaseItemDtoQueryResult> getRecordingsSeries({ String channelId, String userId, String groupId, int startIndex, int limit, RecordingStatus status, bool isInProgress, String seriesTimerId, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<ItemFields> fields, bool enableUserData, bool enableTotalRecordCount }) async
     test('test getRecordingsSeries', () async {
       // TODO
     });
 
     // Gets available countries.
     //
-    //Future<MultipartFile> getSchedulesDirectCountries() async
+    //Future<Uint8List> getSchedulesDirectCountries() async
     test('test getSchedulesDirectCountries', () async {
       // TODO
     });
@@ -271,7 +261,7 @@ void main() {
 
     // Get tuner host types.
     //
-    //Future<List<NameIdPair>> getTunerHostTypes() async
+    //Future<BuiltList<NameIdPair>> getTunerHostTypes() async
     test('test getTunerHostTypes', () async {
       // TODO
     });

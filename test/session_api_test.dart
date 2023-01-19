@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for SessionApi
 void main() {
-  // final instance = SessionApi();
+  final instance = Openapi().getSessionApi();
 
-  group('tests for SessionApi', () {
+  group(SessionApi, () {
     // Adds an additional user to a session.
     //
     //Future addUserToSession(String sessionId, String userId) async
@@ -33,35 +23,35 @@ void main() {
 
     // Get all auth providers.
     //
-    //Future<List<NameIdPair>> getAuthProviders() async
+    //Future<BuiltList<NameIdPair>> getAuthProviders() async
     test('test getAuthProviders', () async {
       // TODO
     });
 
     // Get all password reset providers.
     //
-    //Future<List<NameIdPair>> getPasswordResetProviders() async
+    //Future<BuiltList<NameIdPair>> getPasswordResetProviders() async
     test('test getPasswordResetProviders', () async {
       // TODO
     });
 
     // Gets a list of sessions.
     //
-    //Future<List<SessionInfo>> getSessions({ String controllableByUserId, String deviceId, int activeWithinSeconds }) async
+    //Future<BuiltList<SessionInfo>> getSessions({ String controllableByUserId, String deviceId, int activeWithinSeconds }) async
     test('test getSessions', () async {
       // TODO
     });
 
     // Instructs a session to play an item.
     //
-    //Future play(String sessionId, PlayCommand playCommand, List<String> itemIds, { int startPositionTicks, String mediaSourceId, int audioStreamIndex, int subtitleStreamIndex, int startIndex }) async
+    //Future play(String sessionId, PlayCommand playCommand, BuiltList<String> itemIds, { int startPositionTicks, String mediaSourceId, int audioStreamIndex, int subtitleStreamIndex, int startIndex }) async
     test('test play', () async {
       // TODO
     });
 
     // Updates capabilities for a device.
     //
-    //Future postCapabilities({ String id, List<String> playableMediaTypes, List<GeneralCommandType> supportedCommands, bool supportsMediaControl, bool supportsSync, bool supportsPersistentIdentifier }) async
+    //Future postCapabilities({ String id, BuiltList<String> playableMediaTypes, BuiltList<GeneralCommandType> supportedCommands, bool supportsMediaControl, bool supportsSync, bool supportsPersistentIdentifier }) async
     test('test postCapabilities', () async {
       // TODO
     });

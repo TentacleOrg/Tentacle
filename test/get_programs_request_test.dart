@@ -1,23 +1,14 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for GetProgramsRequest
 void main() {
-  // final instance = GetProgramsRequest();
+  final instance = GetProgramsRequestBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test GetProgramsRequest', () {
+  group(GetProgramsRequest, () {
     // Gets or sets the channels to return guide information for.
-    // List<String> channelIds (default value: const [])
+    // BuiltList<String> channelIds
     test('to test the property `channelIds`', () async {
       // TODO
     });
@@ -107,25 +98,25 @@ void main() {
     });
 
     // Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.  Optional.
-    // List<String> sortBy (default value: const [])
+    // BuiltList<String> sortBy
     test('to test the property `sortBy`', () async {
       // TODO
     });
 
     // Gets or sets sort Order - Ascending,Descending.
-    // List<SortOrder> sortOrder (default value: const [])
+    // BuiltList<SortOrder> sortOrder
     test('to test the property `sortOrder`', () async {
       // TODO
     });
 
     // Gets or sets the genres to return guide information for.
-    // List<String> genres (default value: const [])
+    // BuiltList<String> genres
     test('to test the property `genres`', () async {
       // TODO
     });
 
     // Gets or sets the genre ids to return guide information for.
-    // List<String> genreIds (default value: const [])
+    // BuiltList<String> genreIds
     test('to test the property `genreIds`', () async {
       // TODO
     });
@@ -149,7 +140,7 @@ void main() {
     });
 
     // Gets or sets the image types to include in the output.  Optional.
-    // List<ImageType> enableImageTypes (default value: const [])
+    // BuiltList<ImageType> enableImageTypes
     test('to test the property `enableImageTypes`', () async {
       // TODO
     });
@@ -173,12 +164,10 @@ void main() {
     });
 
     // Gets or sets specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines.  Optional.
-    // List<ItemFields> fields (default value: const [])
+    // BuiltList<ItemFields> fields
     test('to test the property `fields`', () async {
       // TODO
     });
 
-
   });
-
 }

@@ -1,57 +1,46 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for MetadataOptions
 void main() {
-  // final instance = MetadataOptions();
+  final instance = MetadataOptionsBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test MetadataOptions', () {
+  group(MetadataOptions, () {
     // String itemType
     test('to test the property `itemType`', () async {
       // TODO
     });
 
-    // List<String> disabledMetadataSavers (default value: const [])
+    // BuiltList<String> disabledMetadataSavers
     test('to test the property `disabledMetadataSavers`', () async {
       // TODO
     });
 
-    // List<String> localMetadataReaderOrder (default value: const [])
+    // BuiltList<String> localMetadataReaderOrder
     test('to test the property `localMetadataReaderOrder`', () async {
       // TODO
     });
 
-    // List<String> disabledMetadataFetchers (default value: const [])
+    // BuiltList<String> disabledMetadataFetchers
     test('to test the property `disabledMetadataFetchers`', () async {
       // TODO
     });
 
-    // List<String> metadataFetcherOrder (default value: const [])
+    // BuiltList<String> metadataFetcherOrder
     test('to test the property `metadataFetcherOrder`', () async {
       // TODO
     });
 
-    // List<String> disabledImageFetchers (default value: const [])
+    // BuiltList<String> disabledImageFetchers
     test('to test the property `disabledImageFetchers`', () async {
       // TODO
     });
 
-    // List<String> imageFetcherOrder (default value: const [])
+    // BuiltList<String> imageFetcherOrder
     test('to test the property `imageFetcherOrder`', () async {
       // TODO
     });
 
-
   });
-
 }

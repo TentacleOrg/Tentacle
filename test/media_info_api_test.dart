@@ -1,22 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for MediaInfoApi
 void main() {
-  // final instance = MediaInfoApi();
+  final instance = Openapi().getMediaInfoApi();
 
-  group('tests for MediaInfoApi', () {
+  group(MediaInfoApi, () {
     // Closes a media source.
     //
     //Future closeLiveStream(String liveStreamId) async
@@ -26,7 +16,7 @@ void main() {
 
     // Tests the network with a request with the size of the bitrate.
     //
-    //Future<MultipartFile> getBitrateTestBytes({ int size }) async
+    //Future<Uint8List> getBitrateTestBytes({ int size }) async
     test('test getBitrateTestBytes', () async {
       // TODO
     });

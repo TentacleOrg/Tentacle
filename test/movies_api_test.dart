@@ -1,25 +1,15 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 
 /// tests for MoviesApi
 void main() {
-  // final instance = MoviesApi();
+  final instance = Openapi().getMoviesApi();
 
-  group('tests for MoviesApi', () {
+  group(MoviesApi, () {
     // Gets movie recommendations.
     //
-    //Future<List<RecommendationDto>> getMovieRecommendations({ String userId, String parentId, List<ItemFields> fields, int categoryLimit, int itemLimit }) async
+    //Future<BuiltList<RecommendationDto>> getMovieRecommendations({ String userId, String parentId, BuiltList<ItemFields> fields, int categoryLimit, int itemLimit }) async
     test('test getMovieRecommendations', () async {
       // TODO
     });

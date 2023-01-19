@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for LiveStreamResponseMediaSource
 void main() {
-  // final instance = LiveStreamResponseMediaSource();
+  final instance = LiveStreamResponseMediaSourceBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test LiveStreamResponseMediaSource', () {
+  group(LiveStreamResponseMediaSource, () {
     // MediaProtocol protocol
     test('to test the property `protocol`', () async {
       // TODO
@@ -167,17 +158,17 @@ void main() {
       // TODO
     });
 
-    // List<MediaStream> mediaStreams (default value: const [])
+    // BuiltList<MediaStream> mediaStreams
     test('to test the property `mediaStreams`', () async {
       // TODO
     });
 
-    // List<MediaAttachment> mediaAttachments (default value: const [])
+    // BuiltList<MediaAttachment> mediaAttachments
     test('to test the property `mediaAttachments`', () async {
       // TODO
     });
 
-    // List<String> formats (default value: const [])
+    // BuiltList<String> formats
     test('to test the property `formats`', () async {
       // TODO
     });
@@ -192,7 +183,7 @@ void main() {
       // TODO
     });
 
-    // Map<String, String> requiredHttpHeaders (default value: const {})
+    // BuiltMap<String, String> requiredHttpHeaders
     test('to test the property `requiredHttpHeaders`', () async {
       // TODO
     });
@@ -227,7 +218,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }

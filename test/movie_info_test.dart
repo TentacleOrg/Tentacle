@@ -1,21 +1,12 @@
-//
-// AUTO-GENERATED FILE, DO NOT MODIFY!
-//
-// @dart=2.12
-
-// ignore_for_file: unused_element, unused_import
-// ignore_for_file: always_put_required_named_parameters_first
-// ignore_for_file: constant_identifier_names
-// ignore_for_file: lines_longer_than_80_chars
-
-import 'package:openapi/api.dart';
 import 'package:test/test.dart';
+import 'package:openapi/openapi.dart';
 
 // tests for MovieInfo
 void main() {
-  // final instance = MovieInfo();
+  //final instance = MovieInfoBuilder();
+  // TODO add properties to the builder and call build()
 
-  group('test MovieInfo', () {
+  group(MovieInfo, () {
     // Gets or sets the name.
     // String name
     test('to test the property `name`', () async {
@@ -47,7 +38,7 @@ void main() {
     });
 
     // Gets or sets the provider ids.
-    // Map<String, String> providerIds (default value: const {})
+    // BuiltMap<String, String> providerIds
     test('to test the property `providerIds`', () async {
       // TODO
     });
@@ -78,7 +69,5 @@ void main() {
       // TODO
     });
 
-
   });
-
 }
