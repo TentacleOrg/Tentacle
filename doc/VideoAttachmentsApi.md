@@ -1,15 +1,15 @@
-# openapi.api.VideoAttachmentsApi
+# jellyfin_api.api.VideoAttachmentsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAttachment**](VideoAttachmentsApi.md#getattachment) | **GET** /Videos/{videoId}/{mediaSourceId}/Attachments/{index} | Get video attachment.
+[**getAttachment**](VideoAttachmentsApi.md#getAttachment) | **get** /Videos/{videoId}/{mediaSourceId}/Attachments/{index} | Get video attachment.
 
 
 # **getAttachment**
@@ -17,20 +17,20 @@ Method | HTTP request | Description
 
 Get video attachment.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getVideoAttachmentsApi();
-final String videoId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Video ID.
-final String mediaSourceId = mediaSourceId_example; // String | Media Source ID.
-final int index = 56; // int | Attachment Index.
+var api_instance = new VideoAttachmentsApi();
+var videoId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Video ID.
+var mediaSourceId = mediaSourceId_example; // String | Media Source ID.
+var index = 56; // int | Attachment Index.
 
-try {
-    final response = api.getAttachment(videoId, mediaSourceId, index);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling VideoAttachmentsApi->getAttachment: $e\n');
+try { 
+    var result = api_instance.getAttachment(videoId, mediaSourceId, index);
+    print(result);
+} catch (e) {
+    print("Exception when calling VideoAttachmentsApi->getAttachment: $e\n");
 }
 ```
 
@@ -38,9 +38,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **videoId** | **String**| Video ID. | 
- **mediaSourceId** | **String**| Media Source ID. | 
- **index** | **int**| Attachment Index. | 
+ **videoId** | [**String**](.md)| Video ID. | [default to null]
+ **mediaSourceId** | **String**| Media Source ID. | [default to null]
+ **index** | **int**| Attachment Index. | [default to null]
 
 ### Return type
 

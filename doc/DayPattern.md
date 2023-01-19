@@ -1,8 +1,8 @@
-# openapi.model.DayPattern
+# jellyfin_api.model.DayPattern
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

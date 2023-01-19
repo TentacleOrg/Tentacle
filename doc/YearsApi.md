@@ -1,16 +1,16 @@
-# openapi.api.YearsApi
+# jellyfin_api.api.YearsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getYear**](YearsApi.md#getyear) | **GET** /Years/{year} | Gets a year.
-[**getYears**](YearsApi.md#getyears) | **GET** /Years | Get years.
+[**getYear**](YearsApi.md#getYear) | **get** /Years/{year} | Gets a year.
+[**getYears**](YearsApi.md#getYears) | **get** /Years | Get years.
 
 
 # **getYear**
@@ -18,23 +18,23 @@ Method | HTTP request | Description
 
 Gets a year.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getYearsApi();
-final int year = 56; // int | The year.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var api_instance = new YearsApi();
+var year = 56; // int | The year.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
-try {
-    final response = api.getYear(year, userId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling YearsApi->getYear: $e\n');
+try { 
+    var result = api_instance.getYear(year, userId);
+    print(result);
+} catch (e) {
+    print("Exception when calling YearsApi->getYear: $e\n");
 }
 ```
 
@@ -42,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **year** | **int**| The year. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
+ **year** | **int**| The year. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
 
 ### Return type
 
@@ -65,36 +65,36 @@ Name | Type | Description  | Notes
 
 Get years.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getYearsApi();
-final int startIndex = 56; // int | Skips over a given number of items within the results. Use for paging.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
-final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final BuiltList<BaseItemKind> excludeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be excluded based on item type. This allows multiple, comma delimited.
-final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be included based on item type. This allows multiple, comma delimited.
-final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional. Filter by MediaType. Allows multiple, comma delimited.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final bool recursive = true; // bool | Search recursively.
-final bool enableImages = true; // bool | Optional. Include image information in output.
+var api_instance = new YearsApi();
+var startIndex = 56; // int | Skips over a given number of items within the results. Use for paging.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var sortOrder = []; // List<SortOrder> | Sort Order - Ascending,Descending.
+var parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var excludeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be excluded based on item type. This allows multiple, comma delimited.
+var includeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be included based on item type. This allows multiple, comma delimited.
+var mediaTypes = []; // List<String> | Optional. Filter by MediaType. Allows multiple, comma delimited.
+var sortBy = []; // List<String> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+var recursive = true; // bool | Search recursively.
+var enableImages = true; // bool | Optional. Include image information in output.
 
-try {
-    final response = api.getYears(startIndex, limit, sortOrder, parentId, fields, excludeItemTypes, includeItemTypes, mediaTypes, sortBy, enableUserData, imageTypeLimit, enableImageTypes, userId, recursive, enableImages);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling YearsApi->getYears: $e\n');
+try { 
+    var result = api_instance.getYears(startIndex, limit, sortOrder, parentId, fields, excludeItemTypes, includeItemTypes, mediaTypes, sortBy, enableUserData, imageTypeLimit, enableImageTypes, userId, recursive, enableImages);
+    print(result);
+} catch (e) {
+    print("Exception when calling YearsApi->getYears: $e\n");
 }
 ```
 
@@ -102,19 +102,19 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startIndex** | **int**| Skips over a given number of items within the results. Use for paging. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
- **parentId** | **String**| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **excludeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be excluded based on item type. This allows multiple, comma delimited. | [optional] 
- **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be included based on item type. This allows multiple, comma delimited. | [optional] 
- **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Filter by MediaType. Allows multiple, comma delimited. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
- **userId** | **String**| User Id. | [optional] 
+ **startIndex** | **int**| Skips over a given number of items within the results. Use for paging. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **sortOrder** | [**List&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] [default to const []]
+ **parentId** | [**String**](.md)| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **excludeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be excluded based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
+ **includeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be included based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
+ **mediaTypes** | [**List&lt;String&gt;**](String.md)| Optional. Filter by MediaType. Allows multiple, comma delimited. | [optional] [default to const []]
+ **sortBy** | [**List&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] [default to const []]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **userId** | [**String**](.md)| User Id. | [optional] [default to null]
  **recursive** | **bool**| Search recursively. | [optional] [default to true]
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to true]
 

@@ -1,20 +1,20 @@
-# openapi.api.KodiSyncQueueApi
+# jellyfin_api.api.KodiSyncQueueApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getKodiPluginSettings**](KodiSyncQueueApi.md#getkodipluginsettings) | **GET** /Jellyfin.Plugin.KodiSyncQueue/GetPluginSettings | 
-[**getLibraryItemsQuery**](KodiSyncQueueApi.md#getlibraryitemsquery) | **GET** /Jellyfin.Plugin.KodiSyncQueue/{userId}/GetItems | 
-[**getParentStrmFile**](KodiSyncQueueApi.md#getparentstrmfile) | **GET** /Kodi/{type}/{parentId}/{id}/file.strm | 
-[**getSeasonStrmFile**](KodiSyncQueueApi.md#getseasonstrmfile) | **GET** /Kodi/{type}/{parentId}/{season}/{id}/file.strm | 
-[**getServerTime**](KodiSyncQueueApi.md#getservertime) | **GET** /Jellyfin.Plugin.KodiSyncQueue/GetServerDateTime | 
-[**getStrmFile**](KodiSyncQueueApi.md#getstrmfile) | **GET** /Kodi/{type}/{id}/file.strm | 
+[**getKodiPluginSettings**](KodiSyncQueueApi.md#getKodiPluginSettings) | **get** /Jellyfin.Plugin.KodiSyncQueue/GetPluginSettings | 
+[**getLibraryItemsQuery**](KodiSyncQueueApi.md#getLibraryItemsQuery) | **get** /Jellyfin.Plugin.KodiSyncQueue/{userId}/GetItems | 
+[**getParentStrmFile**](KodiSyncQueueApi.md#getParentStrmFile) | **get** /Kodi/{type}/{parentId}/{id}/file.strm | 
+[**getSeasonStrmFile**](KodiSyncQueueApi.md#getSeasonStrmFile) | **get** /Kodi/{type}/{parentId}/{season}/{id}/file.strm | 
+[**getServerTime**](KodiSyncQueueApi.md#getServerTime) | **get** /Jellyfin.Plugin.KodiSyncQueue/GetServerDateTime | 
+[**getStrmFile**](KodiSyncQueueApi.md#getStrmFile) | **get** /Kodi/{type}/{id}/file.strm | 
 
 
 # **getKodiPluginSettings**
@@ -22,17 +22,17 @@ Method | HTTP request | Description
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getKodiSyncQueueApi();
+var api_instance = new KodiSyncQueueApi();
 
-try {
-    final response = api.getKodiPluginSettings();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling KodiSyncQueueApi->getKodiPluginSettings: $e\n');
+try { 
+    var result = api_instance.getKodiPluginSettings();
+    print(result);
+} catch (e) {
+    print("Exception when calling KodiSyncQueueApi->getKodiPluginSettings: $e\n");
 }
 ```
 
@@ -59,20 +59,20 @@ No authorization required
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getKodiSyncQueueApi();
-final String userId = userId_example; // String | 
-final String lastUpdateDt = lastUpdateDt_example; // String | 
-final String filter = filter_example; // String | 
+var api_instance = new KodiSyncQueueApi();
+var userId = userId_example; // String | 
+var lastUpdateDt = lastUpdateDt_example; // String | 
+var filter = filter_example; // String | 
 
-try {
-    final response = api.getLibraryItemsQuery(userId, lastUpdateDt, filter);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling KodiSyncQueueApi->getLibraryItemsQuery: $e\n');
+try { 
+    var result = api_instance.getLibraryItemsQuery(userId, lastUpdateDt, filter);
+    print(result);
+} catch (e) {
+    print("Exception when calling KodiSyncQueueApi->getLibraryItemsQuery: $e\n");
 }
 ```
 
@@ -80,9 +80,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **lastUpdateDt** | **String**|  | [optional] 
- **filter** | **String**|  | [optional] 
+ **userId** | **String**|  | [default to null]
+ **lastUpdateDt** | **String**|  | [optional] [default to null]
+ **filter** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -104,24 +104,24 @@ No authorization required
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getKodiSyncQueueApi();
-final String type = type_example; // String | 
-final String id = id_example; // String | 
-final String parentId = parentId_example; // String | 
-final String season = season_example; // String | 
-final String kodiId = kodiId_example; // String | 
-final String handler = handler_example; // String | 
-final String name = name_example; // String | 
+var api_instance = new KodiSyncQueueApi();
+var type = type_example; // String | 
+var id = id_example; // String | 
+var parentId = parentId_example; // String | 
+var season = season_example; // String | 
+var kodiId = kodiId_example; // String | 
+var handler = handler_example; // String | 
+var name = name_example; // String | 
 
-try {
-    final response = api.getParentStrmFile(type, id, parentId, season, kodiId, handler, name);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling KodiSyncQueueApi->getParentStrmFile: $e\n');
+try { 
+    var result = api_instance.getParentStrmFile(type, id, parentId, season, kodiId, handler, name);
+    print(result);
+} catch (e) {
+    print("Exception when calling KodiSyncQueueApi->getParentStrmFile: $e\n");
 }
 ```
 
@@ -129,13 +129,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**|  | 
- **id** | **String**|  | 
- **parentId** | **String**|  | 
- **season** | **String**|  | 
- **kodiId** | **String**|  | [optional] 
- **handler** | **String**|  | [optional] 
- **name** | **String**|  | [optional] 
+ **type** | **String**|  | [default to null]
+ **id** | **String**|  | [default to null]
+ **parentId** | **String**|  | [default to null]
+ **season** | **String**|  | [default to null]
+ **kodiId** | **String**|  | [optional] [default to null]
+ **handler** | **String**|  | [optional] [default to null]
+ **name** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -157,24 +157,24 @@ No authorization required
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getKodiSyncQueueApi();
-final String type = type_example; // String | 
-final String id = id_example; // String | 
-final String parentId = parentId_example; // String | 
-final String season = season_example; // String | 
-final String kodiId = kodiId_example; // String | 
-final String handler = handler_example; // String | 
-final String name = name_example; // String | 
+var api_instance = new KodiSyncQueueApi();
+var type = type_example; // String | 
+var id = id_example; // String | 
+var parentId = parentId_example; // String | 
+var season = season_example; // String | 
+var kodiId = kodiId_example; // String | 
+var handler = handler_example; // String | 
+var name = name_example; // String | 
 
-try {
-    final response = api.getSeasonStrmFile(type, id, parentId, season, kodiId, handler, name);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling KodiSyncQueueApi->getSeasonStrmFile: $e\n');
+try { 
+    var result = api_instance.getSeasonStrmFile(type, id, parentId, season, kodiId, handler, name);
+    print(result);
+} catch (e) {
+    print("Exception when calling KodiSyncQueueApi->getSeasonStrmFile: $e\n");
 }
 ```
 
@@ -182,13 +182,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**|  | 
- **id** | **String**|  | 
- **parentId** | **String**|  | 
- **season** | **String**|  | 
- **kodiId** | **String**|  | [optional] 
- **handler** | **String**|  | [optional] 
- **name** | **String**|  | [optional] 
+ **type** | **String**|  | [default to null]
+ **id** | **String**|  | [default to null]
+ **parentId** | **String**|  | [default to null]
+ **season** | **String**|  | [default to null]
+ **kodiId** | **String**|  | [optional] [default to null]
+ **handler** | **String**|  | [optional] [default to null]
+ **name** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -210,17 +210,17 @@ No authorization required
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getKodiSyncQueueApi();
+var api_instance = new KodiSyncQueueApi();
 
-try {
-    final response = api.getServerTime();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling KodiSyncQueueApi->getServerTime: $e\n');
+try { 
+    var result = api_instance.getServerTime();
+    print(result);
+} catch (e) {
+    print("Exception when calling KodiSyncQueueApi->getServerTime: $e\n");
 }
 ```
 
@@ -247,24 +247,24 @@ No authorization required
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getKodiSyncQueueApi();
-final String type = type_example; // String | 
-final String id = id_example; // String | 
-final String parentId = parentId_example; // String | 
-final String season = season_example; // String | 
-final String kodiId = kodiId_example; // String | 
-final String handler = handler_example; // String | 
-final String name = name_example; // String | 
+var api_instance = new KodiSyncQueueApi();
+var type = type_example; // String | 
+var id = id_example; // String | 
+var parentId = parentId_example; // String | 
+var season = season_example; // String | 
+var kodiId = kodiId_example; // String | 
+var handler = handler_example; // String | 
+var name = name_example; // String | 
 
-try {
-    final response = api.getStrmFile(type, id, parentId, season, kodiId, handler, name);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling KodiSyncQueueApi->getStrmFile: $e\n');
+try { 
+    var result = api_instance.getStrmFile(type, id, parentId, season, kodiId, handler, name);
+    print(result);
+} catch (e) {
+    print("Exception when calling KodiSyncQueueApi->getStrmFile: $e\n");
 }
 ```
 
@@ -272,13 +272,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**|  | 
- **id** | **String**|  | 
- **parentId** | **String**|  | 
- **season** | **String**|  | 
- **kodiId** | **String**|  | [optional] 
- **handler** | **String**|  | [optional] 
- **name** | **String**|  | [optional] 
+ **type** | **String**|  | [default to null]
+ **id** | **String**|  | [default to null]
+ **parentId** | **String**|  | [default to null]
+ **season** | **String**|  | [default to null]
+ **kodiId** | **String**|  | [optional] [default to null]
+ **handler** | **String**|  | [optional] [default to null]
+ **name** | **String**|  | [optional] [default to null]
 
 ### Return type
 

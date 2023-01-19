@@ -1,8 +1,8 @@
-# openapi.model.ImageType
+# jellyfin_api.model.ImageType
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

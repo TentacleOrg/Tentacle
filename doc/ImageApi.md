@@ -1,55 +1,55 @@
-# openapi.api.ImageApi
+# jellyfin_api.api.ImageApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteCustomSplashscreen**](ImageApi.md#deletecustomsplashscreen) | **DELETE** /Branding/Splashscreen | Delete a custom splashscreen.
-[**deleteItemImage**](ImageApi.md#deleteitemimage) | **DELETE** /Items/{itemId}/Images/{imageType} | Delete an item&#39;s image.
-[**deleteItemImageByIndex**](ImageApi.md#deleteitemimagebyindex) | **DELETE** /Items/{itemId}/Images/{imageType}/{imageIndex} | Delete an item&#39;s image.
-[**deleteUserImage**](ImageApi.md#deleteuserimage) | **DELETE** /Users/{userId}/Images/{imageType} | Delete the user&#39;s image.
-[**deleteUserImageByIndex**](ImageApi.md#deleteuserimagebyindex) | **DELETE** /Users/{userId}/Images/{imageType}/{index} | Delete the user&#39;s image.
-[**getArtistImage**](ImageApi.md#getartistimage) | **GET** /Artists/{name}/Images/{imageType}/{imageIndex} | Get artist image by name.
-[**getGenreImage**](ImageApi.md#getgenreimage) | **GET** /Genres/{name}/Images/{imageType} | Get genre image by name.
-[**getGenreImageByIndex**](ImageApi.md#getgenreimagebyindex) | **GET** /Genres/{name}/Images/{imageType}/{imageIndex} | Get genre image by name.
-[**getItemImage**](ImageApi.md#getitemimage) | **GET** /Items/{itemId}/Images/{imageType} | Gets the item&#39;s image.
-[**getItemImage2**](ImageApi.md#getitemimage2) | **GET** /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount} | Gets the item&#39;s image.
-[**getItemImageByIndex**](ImageApi.md#getitemimagebyindex) | **GET** /Items/{itemId}/Images/{imageType}/{imageIndex} | Gets the item&#39;s image.
-[**getItemImageInfos**](ImageApi.md#getitemimageinfos) | **GET** /Items/{itemId}/Images | Get item image infos.
-[**getMusicGenreImage**](ImageApi.md#getmusicgenreimage) | **GET** /MusicGenres/{name}/Images/{imageType} | Get music genre image by name.
-[**getMusicGenreImageByIndex**](ImageApi.md#getmusicgenreimagebyindex) | **GET** /MusicGenres/{name}/Images/{imageType}/{imageIndex} | Get music genre image by name.
-[**getPersonImage**](ImageApi.md#getpersonimage) | **GET** /Persons/{name}/Images/{imageType} | Get person image by name.
-[**getPersonImageByIndex**](ImageApi.md#getpersonimagebyindex) | **GET** /Persons/{name}/Images/{imageType}/{imageIndex} | Get person image by name.
-[**getSplashscreen**](ImageApi.md#getsplashscreen) | **GET** /Branding/Splashscreen | Generates or gets the splashscreen.
-[**getStudioImage**](ImageApi.md#getstudioimage) | **GET** /Studios/{name}/Images/{imageType} | Get studio image by name.
-[**getStudioImageByIndex**](ImageApi.md#getstudioimagebyindex) | **GET** /Studios/{name}/Images/{imageType}/{imageIndex} | Get studio image by name.
-[**getUserImage**](ImageApi.md#getuserimage) | **GET** /Users/{userId}/Images/{imageType} | Get user profile image.
-[**getUserImageByIndex**](ImageApi.md#getuserimagebyindex) | **GET** /Users/{userId}/Images/{imageType}/{imageIndex} | Get user profile image.
-[**headArtistImage**](ImageApi.md#headartistimage) | **HEAD** /Artists/{name}/Images/{imageType}/{imageIndex} | Get artist image by name.
-[**headGenreImage**](ImageApi.md#headgenreimage) | **HEAD** /Genres/{name}/Images/{imageType} | Get genre image by name.
-[**headGenreImageByIndex**](ImageApi.md#headgenreimagebyindex) | **HEAD** /Genres/{name}/Images/{imageType}/{imageIndex} | Get genre image by name.
-[**headItemImage**](ImageApi.md#headitemimage) | **HEAD** /Items/{itemId}/Images/{imageType} | Gets the item&#39;s image.
-[**headItemImage2**](ImageApi.md#headitemimage2) | **HEAD** /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount} | Gets the item&#39;s image.
-[**headItemImageByIndex**](ImageApi.md#headitemimagebyindex) | **HEAD** /Items/{itemId}/Images/{imageType}/{imageIndex} | Gets the item&#39;s image.
-[**headMusicGenreImage**](ImageApi.md#headmusicgenreimage) | **HEAD** /MusicGenres/{name}/Images/{imageType} | Get music genre image by name.
-[**headMusicGenreImageByIndex**](ImageApi.md#headmusicgenreimagebyindex) | **HEAD** /MusicGenres/{name}/Images/{imageType}/{imageIndex} | Get music genre image by name.
-[**headPersonImage**](ImageApi.md#headpersonimage) | **HEAD** /Persons/{name}/Images/{imageType} | Get person image by name.
-[**headPersonImageByIndex**](ImageApi.md#headpersonimagebyindex) | **HEAD** /Persons/{name}/Images/{imageType}/{imageIndex} | Get person image by name.
-[**headStudioImage**](ImageApi.md#headstudioimage) | **HEAD** /Studios/{name}/Images/{imageType} | Get studio image by name.
-[**headStudioImageByIndex**](ImageApi.md#headstudioimagebyindex) | **HEAD** /Studios/{name}/Images/{imageType}/{imageIndex} | Get studio image by name.
-[**headUserImage**](ImageApi.md#headuserimage) | **HEAD** /Users/{userId}/Images/{imageType} | Get user profile image.
-[**headUserImageByIndex**](ImageApi.md#headuserimagebyindex) | **HEAD** /Users/{userId}/Images/{imageType}/{imageIndex} | Get user profile image.
-[**postUserImage**](ImageApi.md#postuserimage) | **POST** /Users/{userId}/Images/{imageType} | Sets the user image.
-[**postUserImageByIndex**](ImageApi.md#postuserimagebyindex) | **POST** /Users/{userId}/Images/{imageType}/{index} | Sets the user image.
-[**setItemImage**](ImageApi.md#setitemimage) | **POST** /Items/{itemId}/Images/{imageType} | Set item image.
-[**setItemImageByIndex**](ImageApi.md#setitemimagebyindex) | **POST** /Items/{itemId}/Images/{imageType}/{imageIndex} | Set item image.
-[**updateItemImageIndex**](ImageApi.md#updateitemimageindex) | **POST** /Items/{itemId}/Images/{imageType}/{imageIndex}/Index | Updates the index for an item image.
-[**uploadCustomSplashscreen**](ImageApi.md#uploadcustomsplashscreen) | **POST** /Branding/Splashscreen | Uploads a custom splashscreen.  The body is expected to the image contents base64 encoded.
+[**deleteCustomSplashscreen**](ImageApi.md#deleteCustomSplashscreen) | **delete** /Branding/Splashscreen | Delete a custom splashscreen.
+[**deleteItemImage**](ImageApi.md#deleteItemImage) | **delete** /Items/{itemId}/Images/{imageType} | Delete an item&#39;s image.
+[**deleteItemImageByIndex**](ImageApi.md#deleteItemImageByIndex) | **delete** /Items/{itemId}/Images/{imageType}/{imageIndex} | Delete an item&#39;s image.
+[**deleteUserImage**](ImageApi.md#deleteUserImage) | **delete** /Users/{userId}/Images/{imageType} | Delete the user&#39;s image.
+[**deleteUserImageByIndex**](ImageApi.md#deleteUserImageByIndex) | **delete** /Users/{userId}/Images/{imageType}/{index} | Delete the user&#39;s image.
+[**getArtistImage**](ImageApi.md#getArtistImage) | **get** /Artists/{name}/Images/{imageType}/{imageIndex} | Get artist image by name.
+[**getGenreImage**](ImageApi.md#getGenreImage) | **get** /Genres/{name}/Images/{imageType} | Get genre image by name.
+[**getGenreImageByIndex**](ImageApi.md#getGenreImageByIndex) | **get** /Genres/{name}/Images/{imageType}/{imageIndex} | Get genre image by name.
+[**getItemImage**](ImageApi.md#getItemImage) | **get** /Items/{itemId}/Images/{imageType} | Gets the item&#39;s image.
+[**getItemImage2**](ImageApi.md#getItemImage2) | **get** /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount} | Gets the item&#39;s image.
+[**getItemImageByIndex**](ImageApi.md#getItemImageByIndex) | **get** /Items/{itemId}/Images/{imageType}/{imageIndex} | Gets the item&#39;s image.
+[**getItemImageInfos**](ImageApi.md#getItemImageInfos) | **get** /Items/{itemId}/Images | Get item image infos.
+[**getMusicGenreImage**](ImageApi.md#getMusicGenreImage) | **get** /MusicGenres/{name}/Images/{imageType} | Get music genre image by name.
+[**getMusicGenreImageByIndex**](ImageApi.md#getMusicGenreImageByIndex) | **get** /MusicGenres/{name}/Images/{imageType}/{imageIndex} | Get music genre image by name.
+[**getPersonImage**](ImageApi.md#getPersonImage) | **get** /Persons/{name}/Images/{imageType} | Get person image by name.
+[**getPersonImageByIndex**](ImageApi.md#getPersonImageByIndex) | **get** /Persons/{name}/Images/{imageType}/{imageIndex} | Get person image by name.
+[**getSplashscreen**](ImageApi.md#getSplashscreen) | **get** /Branding/Splashscreen | Generates or gets the splashscreen.
+[**getStudioImage**](ImageApi.md#getStudioImage) | **get** /Studios/{name}/Images/{imageType} | Get studio image by name.
+[**getStudioImageByIndex**](ImageApi.md#getStudioImageByIndex) | **get** /Studios/{name}/Images/{imageType}/{imageIndex} | Get studio image by name.
+[**getUserImage**](ImageApi.md#getUserImage) | **get** /Users/{userId}/Images/{imageType} | Get user profile image.
+[**getUserImageByIndex**](ImageApi.md#getUserImageByIndex) | **get** /Users/{userId}/Images/{imageType}/{imageIndex} | Get user profile image.
+[**headArtistImage**](ImageApi.md#headArtistImage) | **head** /Artists/{name}/Images/{imageType}/{imageIndex} | Get artist image by name.
+[**headGenreImage**](ImageApi.md#headGenreImage) | **head** /Genres/{name}/Images/{imageType} | Get genre image by name.
+[**headGenreImageByIndex**](ImageApi.md#headGenreImageByIndex) | **head** /Genres/{name}/Images/{imageType}/{imageIndex} | Get genre image by name.
+[**headItemImage**](ImageApi.md#headItemImage) | **head** /Items/{itemId}/Images/{imageType} | Gets the item&#39;s image.
+[**headItemImage2**](ImageApi.md#headItemImage2) | **head** /Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount} | Gets the item&#39;s image.
+[**headItemImageByIndex**](ImageApi.md#headItemImageByIndex) | **head** /Items/{itemId}/Images/{imageType}/{imageIndex} | Gets the item&#39;s image.
+[**headMusicGenreImage**](ImageApi.md#headMusicGenreImage) | **head** /MusicGenres/{name}/Images/{imageType} | Get music genre image by name.
+[**headMusicGenreImageByIndex**](ImageApi.md#headMusicGenreImageByIndex) | **head** /MusicGenres/{name}/Images/{imageType}/{imageIndex} | Get music genre image by name.
+[**headPersonImage**](ImageApi.md#headPersonImage) | **head** /Persons/{name}/Images/{imageType} | Get person image by name.
+[**headPersonImageByIndex**](ImageApi.md#headPersonImageByIndex) | **head** /Persons/{name}/Images/{imageType}/{imageIndex} | Get person image by name.
+[**headStudioImage**](ImageApi.md#headStudioImage) | **head** /Studios/{name}/Images/{imageType} | Get studio image by name.
+[**headStudioImageByIndex**](ImageApi.md#headStudioImageByIndex) | **head** /Studios/{name}/Images/{imageType}/{imageIndex} | Get studio image by name.
+[**headUserImage**](ImageApi.md#headUserImage) | **head** /Users/{userId}/Images/{imageType} | Get user profile image.
+[**headUserImageByIndex**](ImageApi.md#headUserImageByIndex) | **head** /Users/{userId}/Images/{imageType}/{imageIndex} | Get user profile image.
+[**postUserImage**](ImageApi.md#postUserImage) | **post** /Users/{userId}/Images/{imageType} | Sets the user image.
+[**postUserImageByIndex**](ImageApi.md#postUserImageByIndex) | **post** /Users/{userId}/Images/{imageType}/{index} | Sets the user image.
+[**setItemImage**](ImageApi.md#setItemImage) | **post** /Items/{itemId}/Images/{imageType} | Set item image.
+[**setItemImageByIndex**](ImageApi.md#setItemImageByIndex) | **post** /Items/{itemId}/Images/{imageType}/{imageIndex} | Set item image.
+[**updateItemImageIndex**](ImageApi.md#updateItemImageIndex) | **post** /Items/{itemId}/Images/{imageType}/{imageIndex}/Index | Updates the index for an item image.
+[**uploadCustomSplashscreen**](ImageApi.md#uploadCustomSplashscreen) | **post** /Branding/Splashscreen | Uploads a custom splashscreen.  The body is expected to the image contents base64 encoded.
 
 
 # **deleteCustomSplashscreen**
@@ -57,20 +57,20 @@ Method | HTTP request | Description
 
 Delete a custom splashscreen.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+var api_instance = new ImageApi();
 
-try {
-    api.deleteCustomSplashscreen();
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->deleteCustomSplashscreen: $e\n');
+try { 
+    api_instance.deleteCustomSplashscreen();
+} catch (e) {
+    print("Exception when calling ImageApi->deleteCustomSplashscreen: $e\n");
 }
 ```
 
@@ -97,23 +97,23 @@ void (empty response body)
 
 Delete an item's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | The image index.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | The image index.
 
-try {
-    api.deleteItemImage(itemId, imageType, imageIndex);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->deleteItemImage: $e\n');
+try { 
+    api_instance.deleteItemImage(itemId, imageType, imageIndex);
+} catch (e) {
+    print("Exception when calling ImageApi->deleteItemImage: $e\n");
 }
 ```
 
@@ -121,9 +121,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| The image index. | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| The image index. | [optional] [default to null]
 
 ### Return type
 
@@ -145,23 +145,23 @@ void (empty response body)
 
 Delete an item's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | The image index.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | The image index.
 
-try {
-    api.deleteItemImageByIndex(itemId, imageType, imageIndex);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->deleteItemImageByIndex: $e\n');
+try { 
+    api_instance.deleteItemImageByIndex(itemId, imageType, imageIndex);
+} catch (e) {
+    print("Exception when calling ImageApi->deleteItemImageByIndex: $e\n");
 }
 ```
 
@@ -169,9 +169,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| The image index. | 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| The image index. | [default to null]
 
 ### Return type
 
@@ -193,23 +193,23 @@ void (empty response body)
 
 Delete the user's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final ImageType imageType = ; // ImageType | (Unused) Image type.
-final int index = 56; // int | (Unused) Image index.
+var api_instance = new ImageApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+var imageType = ; // ImageType | (Unused) Image type.
+var index = 56; // int | (Unused) Image index.
 
-try {
-    api.deleteUserImage(userId, imageType, index);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->deleteUserImage: $e\n');
+try { 
+    api_instance.deleteUserImage(userId, imageType, index);
+} catch (e) {
+    print("Exception when calling ImageApi->deleteUserImage: $e\n");
 }
 ```
 
@@ -217,9 +217,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User Id. | 
- **imageType** | [**ImageType**](.md)| (Unused) Image type. | 
- **index** | **int**| (Unused) Image index. | [optional] 
+ **userId** | [**String**](.md)| User Id. | [default to null]
+ **imageType** | [**ImageType**](.md)| (Unused) Image type. | [default to null]
+ **index** | **int**| (Unused) Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -241,23 +241,23 @@ void (empty response body)
 
 Delete the user's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final ImageType imageType = ; // ImageType | (Unused) Image type.
-final int index = 56; // int | (Unused) Image index.
+var api_instance = new ImageApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+var imageType = ; // ImageType | (Unused) Image type.
+var index = 56; // int | (Unused) Image index.
 
-try {
-    api.deleteUserImageByIndex(userId, imageType, index);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->deleteUserImageByIndex: $e\n');
+try { 
+    api_instance.deleteUserImageByIndex(userId, imageType, index);
+} catch (e) {
+    print("Exception when calling ImageApi->deleteUserImageByIndex: $e\n");
 }
 ```
 
@@ -265,9 +265,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User Id. | 
- **imageType** | [**ImageType**](.md)| (Unused) Image type. | 
- **index** | **int**| (Unused) Image index. | 
+ **userId** | [**String**](.md)| User Id. | [default to null]
+ **imageType** | [**ImageType**](.md)| (Unused) Image type. | [default to null]
+ **index** | **int**| (Unused) Image index. | [default to null]
 
 ### Return type
 
@@ -289,36 +289,36 @@ void (empty response body)
 
 Get artist image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Artist name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Artist name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getArtistImage: $e\n');
+try { 
+    var result = api_instance.getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getArtistImage: $e\n");
 }
 ```
 
@@ -326,25 +326,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Artist name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Artist name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -357,7 +357,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -366,36 +366,36 @@ No authorization required
 
 Get genre image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Genre name.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var name = name_example; // String | Genre name.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getGenreImage: $e\n');
+try { 
+    var result = api_instance.getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getGenreImage: $e\n");
 }
 ```
 
@@ -403,25 +403,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **name** | **String**| Genre name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -434,7 +434,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -443,36 +443,36 @@ No authorization required
 
 Get genre image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Genre name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Genre name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getGenreImageByIndex: $e\n');
+try { 
+    var result = api_instance.getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getGenreImageByIndex: $e\n");
 }
 ```
 
@@ -480,25 +480,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Genre name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -511,7 +511,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -520,36 +520,36 @@ No authorization required
 
 Gets the item's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getItemImage: $e\n');
+try { 
+    var result = api_instance.getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getItemImage: $e\n");
 }
 ```
 
@@ -557,25 +557,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -588,7 +588,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -597,36 +597,36 @@ No authorization required
 
 Gets the item's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int imageIndex = 56; // int | Image index.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var imageIndex = 56; // int | Image index.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getItemImage2: $e\n');
+try { 
+    var result = api_instance.getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getItemImage2: $e\n");
 }
 ```
 
@@ -634,25 +634,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **maxWidth** | **int**| The maximum image width to return. | 
- **maxHeight** | **int**| The maximum image height to return. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | 
- **imageIndex** | **int**| Image index. | 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -665,7 +665,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -674,36 +674,36 @@ No authorization required
 
 Gets the item's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getItemImageByIndex: $e\n');
+try { 
+    var result = api_instance.getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getItemImageByIndex: $e\n");
 }
 ```
 
@@ -711,25 +711,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -742,31 +742,31 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemImageInfos**
-> BuiltList<ImageInfo> getItemImageInfos(itemId)
+> List<ImageInfo> getItemImageInfos(itemId)
 
 Get item image infos.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
-try {
-    final response = api.getItemImageInfos(itemId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getItemImageInfos: $e\n');
+try { 
+    var result = api_instance.getItemImageInfos(itemId);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getItemImageInfos: $e\n");
 }
 ```
 
@@ -774,11 +774,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
 
 ### Return type
 
-[**BuiltList&lt;ImageInfo&gt;**](ImageInfo.md)
+[**List<ImageInfo>**](ImageInfo.md)
 
 ### Authorization
 
@@ -796,36 +796,36 @@ Name | Type | Description  | Notes
 
 Get music genre image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Music genre name.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var name = name_example; // String | Music genre name.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getMusicGenreImage: $e\n');
+try { 
+    var result = api_instance.getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getMusicGenreImage: $e\n");
 }
 ```
 
@@ -833,25 +833,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Music genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **name** | **String**| Music genre name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -864,7 +864,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -873,36 +873,36 @@ No authorization required
 
 Get music genre image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Music genre name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Music genre name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getMusicGenreImageByIndex: $e\n');
+try { 
+    var result = api_instance.getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getMusicGenreImageByIndex: $e\n");
 }
 ```
 
@@ -910,25 +910,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Music genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Music genre name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -941,7 +941,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -950,36 +950,36 @@ No authorization required
 
 Get person image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Person name.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var name = name_example; // String | Person name.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getPersonImage: $e\n');
+try { 
+    var result = api_instance.getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getPersonImage: $e\n");
 }
 ```
 
@@ -987,25 +987,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Person name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **name** | **String**| Person name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -1018,7 +1018,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1027,36 +1027,36 @@ No authorization required
 
 Get person image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Person name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Person name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getPersonImageByIndex: $e\n');
+try { 
+    var result = api_instance.getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getPersonImageByIndex: $e\n");
 }
 ```
 
@@ -1064,25 +1064,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Person name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Person name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -1095,7 +1095,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1104,29 +1104,29 @@ No authorization required
 
 Generates or gets the splashscreen.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String tag = tag_example; // String | Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final int blur = 56; // int | Blur image.
-final String backgroundColor = backgroundColor_example; // String | Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Apply a foreground layer on top of the image.
-final int quality = 56; // int | Quality setting, from 0-100.
+var api_instance = new ImageApi();
+var tag = tag_example; // String | Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var blur = 56; // int | Blur image.
+var backgroundColor = backgroundColor_example; // String | Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Apply a foreground layer on top of the image.
+var quality = 56; // int | Quality setting, from 0-100.
 
-try {
-    final response = api.getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getSplashscreen: $e\n');
+try { 
+    var result = api_instance.getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getSplashscreen: $e\n");
 }
 ```
 
@@ -1134,17 +1134,17 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tag** | **String**| Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **blur** | **int**| Blur image. | [optional] 
- **backgroundColor** | **String**| Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Apply a foreground layer on top of the image. | [optional] 
+ **tag** | **String**| Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **blur** | **int**| Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Apply a foreground layer on top of the image. | [optional] [default to null]
  **quality** | **int**| Quality setting, from 0-100. | [optional] [default to 90]
 
 ### Return type
@@ -1158,7 +1158,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*
+ - **Accept**: image/_*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1167,36 +1167,36 @@ No authorization required
 
 Get studio image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Studio name.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var name = name_example; // String | Studio name.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getStudioImage: $e\n');
+try { 
+    var result = api_instance.getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getStudioImage: $e\n");
 }
 ```
 
@@ -1204,25 +1204,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Studio name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **name** | **String**| Studio name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -1235,7 +1235,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1244,36 +1244,36 @@ No authorization required
 
 Get studio image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Studio name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Studio name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getStudioImageByIndex: $e\n');
+try { 
+    var result = api_instance.getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getStudioImageByIndex: $e\n");
 }
 ```
 
@@ -1281,25 +1281,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Studio name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Studio name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -1312,7 +1312,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1321,36 +1321,36 @@ No authorization required
 
 Get user profile image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getUserImage: $e\n');
+try { 
+    var result = api_instance.getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getUserImage: $e\n");
 }
 ```
 
@@ -1358,25 +1358,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **userId** | [**String**](.md)| User id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -1389,7 +1389,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1398,36 +1398,36 @@ No authorization required
 
 Get user profile image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->getUserImageByIndex: $e\n');
+try { 
+    var result = api_instance.getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->getUserImageByIndex: $e\n");
 }
 ```
 
@@ -1435,25 +1435,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **userId** | [**String**](.md)| User id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -1466,7 +1466,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1475,36 +1475,36 @@ No authorization required
 
 Get artist image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Artist name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Artist name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headArtistImage: $e\n');
+try { 
+    var result = api_instance.headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headArtistImage: $e\n");
 }
 ```
 
@@ -1512,25 +1512,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Artist name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Artist name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -1543,7 +1543,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1552,36 +1552,36 @@ No authorization required
 
 Get genre image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Genre name.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var name = name_example; // String | Genre name.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headGenreImage: $e\n');
+try { 
+    var result = api_instance.headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headGenreImage: $e\n");
 }
 ```
 
@@ -1589,25 +1589,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **name** | **String**| Genre name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -1620,7 +1620,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1629,36 +1629,36 @@ No authorization required
 
 Get genre image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Genre name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Genre name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headGenreImageByIndex: $e\n');
+try { 
+    var result = api_instance.headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headGenreImageByIndex: $e\n");
 }
 ```
 
@@ -1666,25 +1666,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Genre name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -1697,7 +1697,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1706,36 +1706,36 @@ No authorization required
 
 Gets the item's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headItemImage: $e\n');
+try { 
+    var result = api_instance.headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headItemImage: $e\n");
 }
 ```
 
@@ -1743,25 +1743,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -1774,7 +1774,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1783,36 +1783,36 @@ No authorization required
 
 Gets the item's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int imageIndex = 56; // int | Image index.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var imageIndex = 56; // int | Image index.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headItemImage2: $e\n');
+try { 
+    var result = api_instance.headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headItemImage2: $e\n");
 }
 ```
 
@@ -1820,25 +1820,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **maxWidth** | **int**| The maximum image width to return. | 
- **maxHeight** | **int**| The maximum image height to return. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | 
- **imageIndex** | **int**| Image index. | 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -1851,7 +1851,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1860,36 +1860,36 @@ No authorization required
 
 Gets the item's image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headItemImageByIndex: $e\n');
+try { 
+    var result = api_instance.headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headItemImageByIndex: $e\n");
 }
 ```
 
@@ -1897,25 +1897,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -1928,7 +1928,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1937,36 +1937,36 @@ No authorization required
 
 Get music genre image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Music genre name.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var name = name_example; // String | Music genre name.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headMusicGenreImage: $e\n');
+try { 
+    var result = api_instance.headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headMusicGenreImage: $e\n");
 }
 ```
 
@@ -1974,25 +1974,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Music genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **name** | **String**| Music genre name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -2005,7 +2005,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2014,36 +2014,36 @@ No authorization required
 
 Get music genre image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Music genre name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Music genre name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headMusicGenreImageByIndex: $e\n');
+try { 
+    var result = api_instance.headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headMusicGenreImageByIndex: $e\n");
 }
 ```
 
@@ -2051,25 +2051,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Music genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Music genre name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -2082,7 +2082,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2091,36 +2091,36 @@ No authorization required
 
 Get person image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Person name.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var name = name_example; // String | Person name.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headPersonImage: $e\n');
+try { 
+    var result = api_instance.headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headPersonImage: $e\n");
 }
 ```
 
@@ -2128,25 +2128,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Person name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **name** | **String**| Person name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -2159,7 +2159,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2168,36 +2168,36 @@ No authorization required
 
 Get person image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Person name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Person name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headPersonImageByIndex: $e\n');
+try { 
+    var result = api_instance.headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headPersonImageByIndex: $e\n");
 }
 ```
 
@@ -2205,25 +2205,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Person name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Person name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -2236,7 +2236,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2245,36 +2245,36 @@ No authorization required
 
 Get studio image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Studio name.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var name = name_example; // String | Studio name.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headStudioImage: $e\n');
+try { 
+    var result = api_instance.headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headStudioImage: $e\n");
 }
 ```
 
@@ -2282,25 +2282,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Studio name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **name** | **String**| Studio name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -2313,7 +2313,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2322,36 +2322,36 @@ No authorization required
 
 Get studio image by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String name = name_example; // String | Studio name.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var name = name_example; // String | Studio name.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headStudioImageByIndex: $e\n');
+try { 
+    var result = api_instance.headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headStudioImageByIndex: $e\n");
 }
 ```
 
@@ -2359,25 +2359,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Studio name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **name** | **String**| Studio name. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -2390,7 +2390,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2399,36 +2399,36 @@ No authorization required
 
 Get user profile image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final ImageType imageType = ; // ImageType | Image type.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
+var api_instance = new ImageApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+var imageType = ; // ImageType | Image type.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var imageIndex = 56; // int | Image index.
 
-try {
-    final response = api.headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headUserImage: $e\n');
+try { 
+    var result = api_instance.headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headUserImage: $e\n");
 }
 ```
 
@@ -2436,25 +2436,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
+ **userId** | [**String**](.md)| User id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
+ **imageIndex** | **int**| Image index. | [optional] [default to null]
 
 ### Return type
 
@@ -2467,7 +2467,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2476,36 +2476,36 @@ No authorization required
 
 Get user profile image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
+var api_instance = new ImageApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Image index.
+var tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
+var format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+var maxWidth = 56; // int | The maximum image width to return.
+var maxHeight = 56; // int | The maximum image height to return.
+var percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
+var unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
+var width = 56; // int | The fixed image width to return.
+var height = 56; // int | The fixed image height to return.
+var quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
+var fillWidth = 56; // int | Width of box to fill.
+var fillHeight = 56; // int | Height of box to fill.
+var cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
+var addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+var blur = 56; // int | Optional. Blur image.
+var backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
+var foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
-try {
-    final response = api.headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->headUserImageByIndex: $e\n');
+try { 
+    var result = api_instance.headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageApi->headUserImageByIndex: $e\n");
 }
 ```
 
@@ -2513,25 +2513,25 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
+ **userId** | [**String**](.md)| User id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Image index. | [default to null]
+ **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] [default to null]
+ **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] [default to null]
+ **maxWidth** | **int**| The maximum image width to return. | [optional] [default to null]
+ **maxHeight** | **int**| The maximum image height to return. | [optional] [default to null]
+ **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] [default to null]
+ **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] [default to null]
+ **width** | **int**| The fixed image width to return. | [optional] [default to null]
+ **height** | **int**| The fixed image height to return. | [optional] [default to null]
+ **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] [default to null]
+ **fillWidth** | **int**| Width of box to fill. | [optional] [default to null]
+ **fillHeight** | **int**| Height of box to fill. | [optional] [default to null]
+ **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] [default to null]
+ **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] [default to null]
+ **blur** | **int**| Optional. Blur image. | [optional] [default to null]
+ **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] [default to null]
+ **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] [default to null]
 
 ### Return type
 
@@ -2544,7 +2544,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2553,24 +2553,24 @@ No authorization required
 
 Sets the user image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final ImageType imageType = ; // ImageType | (Unused) Image type.
-final int index = 56; // int | (Unused) Image index.
-final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
+var api_instance = new ImageApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+var imageType = ; // ImageType | (Unused) Image type.
+var index = 56; // int | (Unused) Image index.
+var body = new Uint8List(); // Uint8List | 
 
-try {
-    api.postUserImage(userId, imageType, index, body);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->postUserImage: $e\n');
+try { 
+    api_instance.postUserImage(userId, imageType, index, body);
+} catch (e) {
+    print("Exception when calling ImageApi->postUserImage: $e\n");
 }
 ```
 
@@ -2578,10 +2578,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User Id. | 
- **imageType** | [**ImageType**](.md)| (Unused) Image type. | 
- **index** | **int**| (Unused) Image index. | [optional] 
- **body** | **MultipartFile**|  | [optional] 
+ **userId** | [**String**](.md)| User Id. | [default to null]
+ **imageType** | [**ImageType**](.md)| (Unused) Image type. | [default to null]
+ **index** | **int**| (Unused) Image index. | [optional] [default to null]
+ **body** | **Uint8List**|  | [optional] 
 
 ### Return type
 
@@ -2593,7 +2593,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: image/*
+ - **Content-Type**: image/_*
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2603,24 +2603,24 @@ void (empty response body)
 
 Sets the user image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final ImageType imageType = ; // ImageType | (Unused) Image type.
-final int index = 56; // int | (Unused) Image index.
-final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
+var api_instance = new ImageApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
+var imageType = ; // ImageType | (Unused) Image type.
+var index = 56; // int | (Unused) Image index.
+var body = new Uint8List(); // Uint8List | 
 
-try {
-    api.postUserImageByIndex(userId, imageType, index, body);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->postUserImageByIndex: $e\n');
+try { 
+    api_instance.postUserImageByIndex(userId, imageType, index, body);
+} catch (e) {
+    print("Exception when calling ImageApi->postUserImageByIndex: $e\n");
 }
 ```
 
@@ -2628,10 +2628,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User Id. | 
- **imageType** | [**ImageType**](.md)| (Unused) Image type. | 
- **index** | **int**| (Unused) Image index. | 
- **body** | **MultipartFile**|  | [optional] 
+ **userId** | [**String**](.md)| User Id. | [default to null]
+ **imageType** | [**ImageType**](.md)| (Unused) Image type. | [default to null]
+ **index** | **int**| (Unused) Image index. | [default to null]
+ **body** | **Uint8List**|  | [optional] 
 
 ### Return type
 
@@ -2643,7 +2643,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: image/*
+ - **Content-Type**: image/_*
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2653,23 +2653,23 @@ void (empty response body)
 
 Set item image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var body = new Uint8List(); // Uint8List | 
 
-try {
-    api.setItemImage(itemId, imageType, body);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->setItemImage: $e\n');
+try { 
+    api_instance.setItemImage(itemId, imageType, body);
+} catch (e) {
+    print("Exception when calling ImageApi->setItemImage: $e\n");
 }
 ```
 
@@ -2677,9 +2677,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **body** | **MultipartFile**|  | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **body** | **Uint8List**|  | [optional] 
 
 ### Return type
 
@@ -2691,7 +2691,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: image/*
+ - **Content-Type**: image/_*
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2701,24 +2701,24 @@ void (empty response body)
 
 Set item image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | (Unused) Image index.
-final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | (Unused) Image index.
+var body = new Uint8List(); // Uint8List | 
 
-try {
-    api.setItemImageByIndex(itemId, imageType, imageIndex, body);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->setItemImageByIndex: $e\n');
+try { 
+    api_instance.setItemImageByIndex(itemId, imageType, imageIndex, body);
+} catch (e) {
+    print("Exception when calling ImageApi->setItemImageByIndex: $e\n");
 }
 ```
 
@@ -2726,10 +2726,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| (Unused) Image index. | 
- **body** | **MultipartFile**|  | [optional] 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| (Unused) Image index. | [default to null]
+ **body** | **Uint8List**|  | [optional] 
 
 ### Return type
 
@@ -2741,7 +2741,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: image/*
+ - **Content-Type**: image/_*
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2751,24 +2751,24 @@ void (empty response body)
 
 Updates the index for an item image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Old image index.
-final int newIndex = 56; // int | New image index.
+var api_instance = new ImageApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
+var imageType = ; // ImageType | Image type.
+var imageIndex = 56; // int | Old image index.
+var newIndex = 56; // int | New image index.
 
-try {
-    api.updateItemImageIndex(itemId, imageType, imageIndex, newIndex);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->updateItemImageIndex: $e\n');
+try { 
+    api_instance.updateItemImageIndex(itemId, imageType, imageIndex, newIndex);
+} catch (e) {
+    print("Exception when calling ImageApi->updateItemImageIndex: $e\n");
 }
 ```
 
@@ -2776,10 +2776,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Old image index. | 
- **newIndex** | **int**| New image index. | 
+ **itemId** | [**String**](.md)| Item id. | [default to null]
+ **imageType** | [**ImageType**](.md)| Image type. | [default to null]
+ **imageIndex** | **int**| Old image index. | [default to null]
+ **newIndex** | **int**| New image index. | [default to null]
 
 ### Return type
 
@@ -2801,21 +2801,21 @@ void (empty response body)
 
 Uploads a custom splashscreen.  The body is expected to the image contents base64 encoded.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
-final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
+var api_instance = new ImageApi();
+var body = new Uint8List(); // Uint8List | 
 
-try {
-    api.uploadCustomSplashscreen(body);
-} catch on DioError (e) {
-    print('Exception when calling ImageApi->uploadCustomSplashscreen: $e\n');
+try { 
+    api_instance.uploadCustomSplashscreen(body);
+} catch (e) {
+    print("Exception when calling ImageApi->uploadCustomSplashscreen: $e\n");
 }
 ```
 
@@ -2823,7 +2823,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **MultipartFile**|  | [optional] 
+ **body** | **Uint8List**|  | [optional] 
 
 ### Return type
 
@@ -2835,7 +2835,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: image/*
+ - **Content-Type**: image/_*
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

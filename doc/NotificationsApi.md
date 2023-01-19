@@ -1,43 +1,43 @@
-# openapi.api.NotificationsApi
+# jellyfin_api.api.NotificationsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAdminNotification**](NotificationsApi.md#createadminnotification) | **POST** /Notifications/Admin | Sends a notification to all admins.
-[**getNotificationServices**](NotificationsApi.md#getnotificationservices) | **GET** /Notifications/Services | Gets notification services.
-[**getNotificationTypes**](NotificationsApi.md#getnotificationtypes) | **GET** /Notifications/Types | Gets notification types.
-[**getNotifications**](NotificationsApi.md#getnotifications) | **GET** /Notifications/{userId} | Gets a user&#39;s notifications.
-[**getNotificationsSummary**](NotificationsApi.md#getnotificationssummary) | **GET** /Notifications/{userId}/Summary | Gets a user&#39;s notification summary.
-[**setRead**](NotificationsApi.md#setread) | **POST** /Notifications/{userId}/Read | Sets notifications as read.
-[**setUnread**](NotificationsApi.md#setunread) | **POST** /Notifications/{userId}/Unread | Sets notifications as unread.
+[**createAdminNotification**](NotificationsApi.md#createAdminNotification) | **post** /Notifications/Admin | Sends a notification to all admins.
+[**getNotificationServices**](NotificationsApi.md#getNotificationServices) | **get** /Notifications/Services | Gets notification services.
+[**getNotificationTypes**](NotificationsApi.md#getNotificationTypes) | **get** /Notifications/Types | Gets notification types.
+[**getNotifications**](NotificationsApi.md#getNotifications) | **get** /Notifications/{userId} | Gets a user&#39;s notifications.
+[**getNotificationsSummary**](NotificationsApi.md#getNotificationsSummary) | **get** /Notifications/{userId}/Summary | Gets a user&#39;s notification summary.
+[**setRead**](NotificationsApi.md#setRead) | **post** /Notifications/{userId}/Read | Sets notifications as read.
+[**setUnread**](NotificationsApi.md#setUnread) | **post** /Notifications/{userId}/Unread | Sets notifications as unread.
 
 
 # **createAdminNotification**
-> createAdminNotification(createAdminNotificationRequest)
+> createAdminNotification(UNKNOWN_BASE_TYPE)
 
 Sends a notification to all admins.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
-final CreateAdminNotificationRequest createAdminNotificationRequest = ; // CreateAdminNotificationRequest | The notification request.
+var api_instance = new NotificationsApi();
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The notification request.
 
-try {
-    api.createAdminNotification(createAdminNotificationRequest);
-} catch on DioError (e) {
-    print('Exception when calling NotificationsApi->createAdminNotification: $e\n');
+try { 
+    api_instance.createAdminNotification(UNKNOWN_BASE_TYPE);
+} catch (e) {
+    print("Exception when calling NotificationsApi->createAdminNotification: $e\n");
 }
 ```
 
@@ -45,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createAdminNotificationRequest** | [**CreateAdminNotificationRequest**](CreateAdminNotificationRequest.md)| The notification request. | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The notification request. | 
 
 ### Return type
 
@@ -57,31 +57,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNotificationServices**
-> BuiltList<NameIdPair> getNotificationServices()
+> List<NameIdPair> getNotificationServices()
 
 Gets notification services.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
+var api_instance = new NotificationsApi();
 
-try {
-    final response = api.getNotificationServices();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling NotificationsApi->getNotificationServices: $e\n');
+try { 
+    var result = api_instance.getNotificationServices();
+    print(result);
+} catch (e) {
+    print("Exception when calling NotificationsApi->getNotificationServices: $e\n");
 }
 ```
 
@@ -90,7 +90,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md)
+[**List<NameIdPair>**](NameIdPair.md)
 
 ### Authorization
 
@@ -104,25 +104,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNotificationTypes**
-> BuiltList<NotificationTypeInfo> getNotificationTypes()
+> List<NotificationTypeInfo> getNotificationTypes()
 
 Gets notification types.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
+var api_instance = new NotificationsApi();
 
-try {
-    final response = api.getNotificationTypes();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling NotificationsApi->getNotificationTypes: $e\n');
+try { 
+    var result = api_instance.getNotificationTypes();
+    print(result);
+} catch (e) {
+    print("Exception when calling NotificationsApi->getNotificationTypes: $e\n");
 }
 ```
 
@@ -131,7 +131,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;NotificationTypeInfo&gt;**](NotificationTypeInfo.md)
+[**List<NotificationTypeInfo>**](NotificationTypeInfo.md)
 
 ### Authorization
 
@@ -149,22 +149,22 @@ This endpoint does not need any parameter.
 
 Gets a user's notifications.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
-final String userId = userId_example; // String | 
+var api_instance = new NotificationsApi();
+var userId = userId_example; // String | 
 
-try {
-    final response = api.getNotifications(userId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling NotificationsApi->getNotifications: $e\n');
+try { 
+    var result = api_instance.getNotifications(userId);
+    print(result);
+} catch (e) {
+    print("Exception when calling NotificationsApi->getNotifications: $e\n");
 }
 ```
 
@@ -172,7 +172,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  | [default to null]
 
 ### Return type
 
@@ -194,22 +194,22 @@ Name | Type | Description  | Notes
 
 Gets a user's notification summary.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
-final String userId = userId_example; // String | 
+var api_instance = new NotificationsApi();
+var userId = userId_example; // String | 
 
-try {
-    final response = api.getNotificationsSummary(userId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling NotificationsApi->getNotificationsSummary: $e\n');
+try { 
+    var result = api_instance.getNotificationsSummary(userId);
+    print(result);
+} catch (e) {
+    print("Exception when calling NotificationsApi->getNotificationsSummary: $e\n");
 }
 ```
 
@@ -217,7 +217,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  | [default to null]
 
 ### Return type
 
@@ -239,21 +239,21 @@ Name | Type | Description  | Notes
 
 Sets notifications as read.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
-final String userId = userId_example; // String | 
+var api_instance = new NotificationsApi();
+var userId = userId_example; // String | 
 
-try {
-    api.setRead(userId);
-} catch on DioError (e) {
-    print('Exception when calling NotificationsApi->setRead: $e\n');
+try { 
+    api_instance.setRead(userId);
+} catch (e) {
+    print("Exception when calling NotificationsApi->setRead: $e\n");
 }
 ```
 
@@ -261,7 +261,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  | [default to null]
 
 ### Return type
 
@@ -283,21 +283,21 @@ void (empty response body)
 
 Sets notifications as unread.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
-final String userId = userId_example; // String | 
+var api_instance = new NotificationsApi();
+var userId = userId_example; // String | 
 
-try {
-    api.setUnread(userId);
-} catch on DioError (e) {
-    print('Exception when calling NotificationsApi->setUnread: $e\n');
+try { 
+    api_instance.setUnread(userId);
+} catch (e) {
+    print("Exception when calling NotificationsApi->setUnread: $e\n");
 }
 ```
 
@@ -305,7 +305,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
+ **userId** | **String**|  | [default to null]
 
 ### Return type
 

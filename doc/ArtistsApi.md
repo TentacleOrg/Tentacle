@@ -1,17 +1,17 @@
-# openapi.api.ArtistsApi
+# jellyfin_api.api.ArtistsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAlbumArtists**](ArtistsApi.md#getalbumartists) | **GET** /Artists/AlbumArtists | Gets all album artists from a given item, folder, or the entire library.
-[**getArtistByName**](ArtistsApi.md#getartistbyname) | **GET** /Artists/{name} | Gets an artist by name.
-[**getArtists**](ArtistsApi.md#getartists) | **GET** /Artists | Gets all artists from a given item, folder, or the entire library.
+[**getAlbumArtists**](ArtistsApi.md#getAlbumArtists) | **get** /Artists/AlbumArtists | Gets all album artists from a given item, folder, or the entire library.
+[**getArtistByName**](ArtistsApi.md#getArtistByName) | **get** /Artists/{name} | Gets an artist by name.
+[**getArtists**](ArtistsApi.md#getArtists) | **get** /Artists | Gets all artists from a given item, folder, or the entire library.
 
 
 # **getAlbumArtists**
@@ -19,53 +19,53 @@ Method | HTTP request | Description
 
 Gets all album artists from a given item, folder, or the entire library.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getArtistsApi();
-final double minCommunityRating = 1.2; // double | Optional filter by minimum community rating.
-final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final String searchTerm = searchTerm_example; // String | Optional. Search term.
-final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final BuiltList<BaseItemKind> excludeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited.
-final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
-final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
-final bool isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
-final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional filter by MediaType. Allows multiple, comma delimited.
-final BuiltList<String> genres = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited.
-final BuiltList<String> genreIds = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited.
-final BuiltList<String> officialRatings = ; // BuiltList<String> | Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited.
-final BuiltList<String> tags = ; // BuiltList<String> | Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited.
-final BuiltList<int> years = ; // BuiltList<int> | Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited.
-final bool enableUserData = true; // bool | Optional, include user data.
-final int imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
-final String person = person_example; // String | Optional. If specified, results will be filtered to include only those containing the specified person.
-final BuiltList<String> personIds = ; // BuiltList<String> | Optional. If specified, results will be filtered to include only those containing the specified person ids.
-final BuiltList<String> personTypes = ; // BuiltList<String> | Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited.
-final BuiltList<String> studios = ; // BuiltList<String> | Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited.
-final BuiltList<String> studioIds = ; // BuiltList<String> | Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final String nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
-final String nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
-final String nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited.
-final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
-final bool enableImages = true; // bool | Optional, include image information in output.
-final bool enableTotalRecordCount = true; // bool | Total record count.
+var api_instance = new ArtistsApi();
+var minCommunityRating = 1.2; // double | Optional filter by minimum community rating.
+var startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var searchTerm = searchTerm_example; // String | Optional. Search term.
+var parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var excludeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited.
+var includeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
+var filters = []; // List<ItemFilter> | Optional. Specify additional filters to apply.
+var isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
+var mediaTypes = []; // List<String> | Optional filter by MediaType. Allows multiple, comma delimited.
+var genres = []; // List<String> | Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited.
+var genreIds = []; // List<String> | Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited.
+var officialRatings = []; // List<String> | Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited.
+var tags = []; // List<String> | Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited.
+var years = []; // List<int> | Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited.
+var enableUserData = true; // bool | Optional, include user data.
+var imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
+var person = person_example; // String | Optional. If specified, results will be filtered to include only those containing the specified person.
+var personIds = []; // List<String> | Optional. If specified, results will be filtered to include only those containing the specified person ids.
+var personTypes = []; // List<String> | Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited.
+var studios = []; // List<String> | Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited.
+var studioIds = []; // List<String> | Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+var nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
+var nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
+var nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
+var sortBy = []; // List<String> | Optional. Specify one or more sort orders, comma delimited.
+var sortOrder = []; // List<SortOrder> | Sort Order - Ascending,Descending.
+var enableImages = true; // bool | Optional, include image information in output.
+var enableTotalRecordCount = true; // bool | Total record count.
 
-try {
-    final response = api.getAlbumArtists(minCommunityRating, startIndex, limit, searchTerm, parentId, fields, excludeItemTypes, includeItemTypes, filters, isFavorite, mediaTypes, genres, genreIds, officialRatings, tags, years, enableUserData, imageTypeLimit, enableImageTypes, person, personIds, personTypes, studios, studioIds, userId, nameStartsWithOrGreater, nameStartsWith, nameLessThan, sortBy, sortOrder, enableImages, enableTotalRecordCount);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ArtistsApi->getAlbumArtists: $e\n');
+try { 
+    var result = api_instance.getAlbumArtists(minCommunityRating, startIndex, limit, searchTerm, parentId, fields, excludeItemTypes, includeItemTypes, filters, isFavorite, mediaTypes, genres, genreIds, officialRatings, tags, years, enableUserData, imageTypeLimit, enableImageTypes, person, personIds, personTypes, studios, studioIds, userId, nameStartsWithOrGreater, nameStartsWith, nameLessThan, sortBy, sortOrder, enableImages, enableTotalRecordCount);
+    print(result);
+} catch (e) {
+    print("Exception when calling ArtistsApi->getAlbumArtists: $e\n");
 }
 ```
 
@@ -73,36 +73,36 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minCommunityRating** | **double**| Optional filter by minimum community rating. | [optional] 
- **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **searchTerm** | **String**| Optional. Search term. | [optional] 
- **parentId** | **String**| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **excludeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. | [optional] 
- **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
- **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
- **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] 
- **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] 
- **genres** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. | [optional] 
- **genreIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. | [optional] 
- **officialRatings** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. | [optional] 
- **tags** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. | [optional] 
- **years** | [**BuiltList&lt;int&gt;**](int.md)| Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. | [optional] 
- **enableUserData** | **bool**| Optional, include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
- **person** | **String**| Optional. If specified, results will be filtered to include only those containing the specified person. | [optional] 
- **personIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered to include only those containing the specified person ids. | [optional] 
- **personTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. | [optional] 
- **studios** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. | [optional] 
- **studioIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. | [optional] 
- **userId** | **String**| User id. | [optional] 
- **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] 
- **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] 
- **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
- **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
+ **minCommunityRating** | **double**| Optional filter by minimum community rating. | [optional] [default to null]
+ **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **searchTerm** | **String**| Optional. Search term. | [optional] [default to null]
+ **parentId** | [**String**](.md)| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **excludeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
+ **includeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
+ **filters** | [**List&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] [default to const []]
+ **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] [default to null]
+ **mediaTypes** | [**List&lt;String&gt;**](String.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] [default to const []]
+ **genres** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **genreIds** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **officialRatings** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **tags** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **years** | [**List&lt;int&gt;**](int.md)| Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. | [optional] [default to const []]
+ **enableUserData** | **bool**| Optional, include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **person** | **String**| Optional. If specified, results will be filtered to include only those containing the specified person. | [optional] [default to null]
+ **personIds** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered to include only those containing the specified person ids. | [optional] [default to const []]
+ **personTypes** | [**List&lt;String&gt;**](String.md)| Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. | [optional] [default to const []]
+ **studios** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **studioIds** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **userId** | [**String**](.md)| User id. | [optional] [default to null]
+ **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] [default to null]
+ **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] [default to null]
+ **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] [default to null]
+ **sortBy** | [**List&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] [default to const []]
+ **sortOrder** | [**List&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] [default to const []]
  **enableImages** | **bool**| Optional, include image information in output. | [optional] [default to true]
  **enableTotalRecordCount** | **bool**| Total record count. | [optional] [default to true]
 
@@ -126,23 +126,23 @@ Name | Type | Description  | Notes
 
 Gets an artist by name.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getArtistsApi();
-final String name = name_example; // String | Studio name.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var api_instance = new ArtistsApi();
+var name = name_example; // String | Studio name.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
-try {
-    final response = api.getArtistByName(name, userId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ArtistsApi->getArtistByName: $e\n');
+try { 
+    var result = api_instance.getArtistByName(name, userId);
+    print(result);
+} catch (e) {
+    print("Exception when calling ArtistsApi->getArtistByName: $e\n");
 }
 ```
 
@@ -150,8 +150,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Studio name. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
+ **name** | **String**| Studio name. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
 
 ### Return type
 
@@ -173,53 +173,53 @@ Name | Type | Description  | Notes
 
 Gets all artists from a given item, folder, or the entire library.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getArtistsApi();
-final double minCommunityRating = 1.2; // double | Optional filter by minimum community rating.
-final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final String searchTerm = searchTerm_example; // String | Optional. Search term.
-final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final BuiltList<BaseItemKind> excludeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited.
-final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
-final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
-final bool isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
-final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional filter by MediaType. Allows multiple, comma delimited.
-final BuiltList<String> genres = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited.
-final BuiltList<String> genreIds = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited.
-final BuiltList<String> officialRatings = ; // BuiltList<String> | Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited.
-final BuiltList<String> tags = ; // BuiltList<String> | Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited.
-final BuiltList<int> years = ; // BuiltList<int> | Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited.
-final bool enableUserData = true; // bool | Optional, include user data.
-final int imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
-final String person = person_example; // String | Optional. If specified, results will be filtered to include only those containing the specified person.
-final BuiltList<String> personIds = ; // BuiltList<String> | Optional. If specified, results will be filtered to include only those containing the specified person ids.
-final BuiltList<String> personTypes = ; // BuiltList<String> | Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited.
-final BuiltList<String> studios = ; // BuiltList<String> | Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited.
-final BuiltList<String> studioIds = ; // BuiltList<String> | Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final String nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
-final String nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
-final String nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited.
-final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
-final bool enableImages = true; // bool | Optional, include image information in output.
-final bool enableTotalRecordCount = true; // bool | Total record count.
+var api_instance = new ArtistsApi();
+var minCommunityRating = 1.2; // double | Optional filter by minimum community rating.
+var startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var searchTerm = searchTerm_example; // String | Optional. Search term.
+var parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var excludeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited.
+var includeItemTypes = []; // List<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
+var filters = []; // List<ItemFilter> | Optional. Specify additional filters to apply.
+var isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
+var mediaTypes = []; // List<String> | Optional filter by MediaType. Allows multiple, comma delimited.
+var genres = []; // List<String> | Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited.
+var genreIds = []; // List<String> | Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited.
+var officialRatings = []; // List<String> | Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited.
+var tags = []; // List<String> | Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited.
+var years = []; // List<int> | Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited.
+var enableUserData = true; // bool | Optional, include user data.
+var imageTypeLimit = 56; // int | Optional, the max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
+var person = person_example; // String | Optional. If specified, results will be filtered to include only those containing the specified person.
+var personIds = []; // List<String> | Optional. If specified, results will be filtered to include only those containing the specified person ids.
+var personTypes = []; // List<String> | Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited.
+var studios = []; // List<String> | Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited.
+var studioIds = []; // List<String> | Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
+var nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
+var nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
+var nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
+var sortBy = []; // List<String> | Optional. Specify one or more sort orders, comma delimited.
+var sortOrder = []; // List<SortOrder> | Sort Order - Ascending,Descending.
+var enableImages = true; // bool | Optional, include image information in output.
+var enableTotalRecordCount = true; // bool | Total record count.
 
-try {
-    final response = api.getArtists(minCommunityRating, startIndex, limit, searchTerm, parentId, fields, excludeItemTypes, includeItemTypes, filters, isFavorite, mediaTypes, genres, genreIds, officialRatings, tags, years, enableUserData, imageTypeLimit, enableImageTypes, person, personIds, personTypes, studios, studioIds, userId, nameStartsWithOrGreater, nameStartsWith, nameLessThan, sortBy, sortOrder, enableImages, enableTotalRecordCount);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ArtistsApi->getArtists: $e\n');
+try { 
+    var result = api_instance.getArtists(minCommunityRating, startIndex, limit, searchTerm, parentId, fields, excludeItemTypes, includeItemTypes, filters, isFavorite, mediaTypes, genres, genreIds, officialRatings, tags, years, enableUserData, imageTypeLimit, enableImageTypes, person, personIds, personTypes, studios, studioIds, userId, nameStartsWithOrGreater, nameStartsWith, nameLessThan, sortBy, sortOrder, enableImages, enableTotalRecordCount);
+    print(result);
+} catch (e) {
+    print("Exception when calling ArtistsApi->getArtists: $e\n");
 }
 ```
 
@@ -227,36 +227,36 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **minCommunityRating** | **double**| Optional filter by minimum community rating. | [optional] 
- **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **searchTerm** | **String**| Optional. Search term. | [optional] 
- **parentId** | **String**| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **excludeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. | [optional] 
- **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
- **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
- **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] 
- **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] 
- **genres** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. | [optional] 
- **genreIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. | [optional] 
- **officialRatings** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. | [optional] 
- **tags** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. | [optional] 
- **years** | [**BuiltList&lt;int&gt;**](int.md)| Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. | [optional] 
- **enableUserData** | **bool**| Optional, include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
- **person** | **String**| Optional. If specified, results will be filtered to include only those containing the specified person. | [optional] 
- **personIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered to include only those containing the specified person ids. | [optional] 
- **personTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. | [optional] 
- **studios** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. | [optional] 
- **studioIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. | [optional] 
- **userId** | **String**| User id. | [optional] 
- **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] 
- **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] 
- **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
- **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
+ **minCommunityRating** | **double**| Optional filter by minimum community rating. | [optional] [default to null]
+ **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **searchTerm** | **String**| Optional. Search term. | [optional] [default to null]
+ **parentId** | [**String**](.md)| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **excludeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered out based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
+ **includeItemTypes** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] [default to const []]
+ **filters** | [**List&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] [default to const []]
+ **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] [default to null]
+ **mediaTypes** | [**List&lt;String&gt;**](String.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] [default to const []]
+ **genres** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **genreIds** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **officialRatings** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **tags** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on tag. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **years** | [**List&lt;int&gt;**](int.md)| Optional. If specified, results will be filtered based on production year. This allows multiple, comma delimited. | [optional] [default to const []]
+ **enableUserData** | **bool**| Optional, include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional, the max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
+ **person** | **String**| Optional. If specified, results will be filtered to include only those containing the specified person. | [optional] [default to null]
+ **personIds** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered to include only those containing the specified person ids. | [optional] [default to const []]
+ **personTypes** | [**List&lt;String&gt;**](String.md)| Optional. If specified, along with Person, results will be filtered to include only those containing the specified person and PersonType. Allows multiple, comma-delimited. | [optional] [default to const []]
+ **studios** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on studio. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **studioIds** | [**List&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on studio id. This allows multiple, pipe delimited. | [optional] [default to const []]
+ **userId** | [**String**](.md)| User id. | [optional] [default to null]
+ **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] [default to null]
+ **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] [default to null]
+ **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] [default to null]
+ **sortBy** | [**List&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] [default to const []]
+ **sortOrder** | [**List&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] [default to const []]
  **enableImages** | **bool**| Optional, include image information in output. | [optional] [default to true]
  **enableTotalRecordCount** | **bool**| Total record count. | [optional] [default to true]
 

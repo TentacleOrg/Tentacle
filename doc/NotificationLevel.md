@@ -1,8 +1,8 @@
-# openapi.model.NotificationLevel
+# jellyfin_api.model.NotificationLevel
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

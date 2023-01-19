@@ -1,39 +1,39 @@
-# openapi.api.LibraryApi
+# jellyfin_api.api.LibraryApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteItem**](LibraryApi.md#deleteitem) | **DELETE** /Items/{itemId} | Deletes an item from the library and filesystem.
-[**deleteItems**](LibraryApi.md#deleteitems) | **DELETE** /Items | Deletes items from the library and filesystem.
-[**getAncestors**](LibraryApi.md#getancestors) | **GET** /Items/{itemId}/Ancestors | Gets all parents of an item.
-[**getCriticReviews**](LibraryApi.md#getcriticreviews) | **GET** /Items/{itemId}/CriticReviews | Gets critic review for an item.
-[**getDownload**](LibraryApi.md#getdownload) | **GET** /Items/{itemId}/Download | Downloads item media.
-[**getFile**](LibraryApi.md#getfile) | **GET** /Items/{itemId}/File | Get the original file of an item.
-[**getItemCounts**](LibraryApi.md#getitemcounts) | **GET** /Items/Counts | Get item counts.
-[**getLibraryOptionsInfo**](LibraryApi.md#getlibraryoptionsinfo) | **GET** /Libraries/AvailableOptions | Gets the library options info.
-[**getMediaFolders**](LibraryApi.md#getmediafolders) | **GET** /Library/MediaFolders | Gets all user media folders.
-[**getPhysicalPaths**](LibraryApi.md#getphysicalpaths) | **GET** /Library/PhysicalPaths | Gets a list of physical paths from virtual folders.
-[**getSimilarAlbums**](LibraryApi.md#getsimilaralbums) | **GET** /Albums/{itemId}/Similar | Gets similar items.
-[**getSimilarArtists**](LibraryApi.md#getsimilarartists) | **GET** /Artists/{itemId}/Similar | Gets similar items.
-[**getSimilarItems**](LibraryApi.md#getsimilaritems) | **GET** /Items/{itemId}/Similar | Gets similar items.
-[**getSimilarMovies**](LibraryApi.md#getsimilarmovies) | **GET** /Movies/{itemId}/Similar | Gets similar items.
-[**getSimilarShows**](LibraryApi.md#getsimilarshows) | **GET** /Shows/{itemId}/Similar | Gets similar items.
-[**getSimilarTrailers**](LibraryApi.md#getsimilartrailers) | **GET** /Trailers/{itemId}/Similar | Gets similar items.
-[**getThemeMedia**](LibraryApi.md#getthememedia) | **GET** /Items/{itemId}/ThemeMedia | Get theme songs and videos for an item.
-[**getThemeSongs**](LibraryApi.md#getthemesongs) | **GET** /Items/{itemId}/ThemeSongs | Get theme songs for an item.
-[**getThemeVideos**](LibraryApi.md#getthemevideos) | **GET** /Items/{itemId}/ThemeVideos | Get theme videos for an item.
-[**postAddedMovies**](LibraryApi.md#postaddedmovies) | **POST** /Library/Movies/Added | Reports that new movies have been added by an external source.
-[**postAddedSeries**](LibraryApi.md#postaddedseries) | **POST** /Library/Series/Added | Reports that new episodes of a series have been added by an external source.
-[**postUpdatedMedia**](LibraryApi.md#postupdatedmedia) | **POST** /Library/Media/Updated | Reports that new movies have been added by an external source.
-[**postUpdatedMovies**](LibraryApi.md#postupdatedmovies) | **POST** /Library/Movies/Updated | Reports that new movies have been added by an external source.
-[**postUpdatedSeries**](LibraryApi.md#postupdatedseries) | **POST** /Library/Series/Updated | Reports that new episodes of a series have been added by an external source.
-[**refreshLibrary**](LibraryApi.md#refreshlibrary) | **POST** /Library/Refresh | Starts a library scan.
+[**deleteItem**](LibraryApi.md#deleteItem) | **delete** /Items/{itemId} | Deletes an item from the library and filesystem.
+[**deleteItems**](LibraryApi.md#deleteItems) | **delete** /Items | Deletes items from the library and filesystem.
+[**getAncestors**](LibraryApi.md#getAncestors) | **get** /Items/{itemId}/Ancestors | Gets all parents of an item.
+[**getCriticReviews**](LibraryApi.md#getCriticReviews) | **get** /Items/{itemId}/CriticReviews | Gets critic review for an item.
+[**getDownload**](LibraryApi.md#getDownload) | **get** /Items/{itemId}/Download | Downloads item media.
+[**getFile**](LibraryApi.md#getFile) | **get** /Items/{itemId}/File | Get the original file of an item.
+[**getItemCounts**](LibraryApi.md#getItemCounts) | **get** /Items/Counts | Get item counts.
+[**getLibraryOptionsInfo**](LibraryApi.md#getLibraryOptionsInfo) | **get** /Libraries/AvailableOptions | Gets the library options info.
+[**getMediaFolders**](LibraryApi.md#getMediaFolders) | **get** /Library/MediaFolders | Gets all user media folders.
+[**getPhysicalPaths**](LibraryApi.md#getPhysicalPaths) | **get** /Library/PhysicalPaths | Gets a list of physical paths from virtual folders.
+[**getSimilarAlbums**](LibraryApi.md#getSimilarAlbums) | **get** /Albums/{itemId}/Similar | Gets similar items.
+[**getSimilarArtists**](LibraryApi.md#getSimilarArtists) | **get** /Artists/{itemId}/Similar | Gets similar items.
+[**getSimilarItems**](LibraryApi.md#getSimilarItems) | **get** /Items/{itemId}/Similar | Gets similar items.
+[**getSimilarMovies**](LibraryApi.md#getSimilarMovies) | **get** /Movies/{itemId}/Similar | Gets similar items.
+[**getSimilarShows**](LibraryApi.md#getSimilarShows) | **get** /Shows/{itemId}/Similar | Gets similar items.
+[**getSimilarTrailers**](LibraryApi.md#getSimilarTrailers) | **get** /Trailers/{itemId}/Similar | Gets similar items.
+[**getThemeMedia**](LibraryApi.md#getThemeMedia) | **get** /Items/{itemId}/ThemeMedia | Get theme songs and videos for an item.
+[**getThemeSongs**](LibraryApi.md#getThemeSongs) | **get** /Items/{itemId}/ThemeSongs | Get theme songs for an item.
+[**getThemeVideos**](LibraryApi.md#getThemeVideos) | **get** /Items/{itemId}/ThemeVideos | Get theme videos for an item.
+[**postAddedMovies**](LibraryApi.md#postAddedMovies) | **post** /Library/Movies/Added | Reports that new movies have been added by an external source.
+[**postAddedSeries**](LibraryApi.md#postAddedSeries) | **post** /Library/Series/Added | Reports that new episodes of a series have been added by an external source.
+[**postUpdatedMedia**](LibraryApi.md#postUpdatedMedia) | **post** /Library/Media/Updated | Reports that new movies have been added by an external source.
+[**postUpdatedMovies**](LibraryApi.md#postUpdatedMovies) | **post** /Library/Movies/Updated | Reports that new movies have been added by an external source.
+[**postUpdatedSeries**](LibraryApi.md#postUpdatedSeries) | **post** /Library/Series/Updated | Reports that new episodes of a series have been added by an external source.
+[**refreshLibrary**](LibraryApi.md#refreshLibrary) | **post** /Library/Refresh | Starts a library scan.
 
 
 # **deleteItem**
@@ -41,21 +41,21 @@ Method | HTTP request | Description
 
 Deletes an item from the library and filesystem.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
-try {
-    api.deleteItem(itemId);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->deleteItem: $e\n');
+try { 
+    api_instance.deleteItem(itemId);
+} catch (e) {
+    print("Exception when calling LibraryApi->deleteItem: $e\n");
 }
 ```
 
@@ -63,7 +63,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
 
 ### Return type
 
@@ -85,21 +85,21 @@ void (empty response body)
 
 Deletes items from the library and filesystem.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final BuiltList<String> ids = ; // BuiltList<String> | The item ids.
+var api_instance = new LibraryApi();
+var ids = []; // List<String> | The item ids.
 
-try {
-    api.deleteItems(ids);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->deleteItems: $e\n');
+try { 
+    api_instance.deleteItems(ids);
+} catch (e) {
+    print("Exception when calling LibraryApi->deleteItems: $e\n");
 }
 ```
 
@@ -107,7 +107,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ids** | [**BuiltList&lt;String&gt;**](String.md)| The item ids. | [optional] 
+ **ids** | [**List&lt;String&gt;**](String.md)| The item ids. | [optional] [default to const []]
 
 ### Return type
 
@@ -125,27 +125,27 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAncestors**
-> BuiltList<BaseItemDto> getAncestors(itemId, userId)
+> List<BaseItemDto> getAncestors(itemId, userId)
 
 Gets all parents of an item.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
-try {
-    final response = api.getAncestors(itemId, userId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getAncestors: $e\n');
+try { 
+    var result = api_instance.getAncestors(itemId, userId);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getAncestors: $e\n");
 }
 ```
 
@@ -153,12 +153,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
 
 ### Return type
 
-[**BuiltList&lt;BaseItemDto&gt;**](BaseItemDto.md)
+[**List<BaseItemDto>**](BaseItemDto.md)
 
 ### Authorization
 
@@ -176,22 +176,22 @@ Name | Type | Description  | Notes
 
 Gets critic review for an item.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = itemId_example; // String | 
+var api_instance = new LibraryApi();
+var itemId = itemId_example; // String | 
 
-try {
-    final response = api.getCriticReviews(itemId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getCriticReviews: $e\n');
+try { 
+    var result = api_instance.getCriticReviews(itemId);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getCriticReviews: $e\n");
 }
 ```
 
@@ -199,7 +199,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**|  | 
+ **itemId** | **String**|  | [default to null]
 
 ### Return type
 
@@ -221,22 +221,22 @@ Name | Type | Description  | Notes
 
 Downloads item media.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
-try {
-    final response = api.getDownload(itemId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getDownload: $e\n');
+try { 
+    var result = api_instance.getDownload(itemId);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getDownload: $e\n");
 }
 ```
 
@@ -244,7 +244,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
 
 ### Return type
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: video/*, audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: video/_*, audio/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -266,22 +266,22 @@ Name | Type | Description  | Notes
 
 Get the original file of an item.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
-try {
-    final response = api.getFile(itemId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getFile: $e\n');
+try { 
+    var result = api_instance.getFile(itemId);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getFile: $e\n");
 }
 ```
 
@@ -289,7 +289,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
 
 ### Return type
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: video/*, audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: video/_*, audio/_*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -311,23 +311,23 @@ Name | Type | Description  | Notes
 
 Get item counts.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Get counts from a specific user's library.
-final bool isFavorite = true; // bool | Optional. Get counts of favorite items.
+var api_instance = new LibraryApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Get counts from a specific user's library.
+var isFavorite = true; // bool | Optional. Get counts of favorite items.
 
-try {
-    final response = api.getItemCounts(userId, isFavorite);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getItemCounts: $e\n');
+try { 
+    var result = api_instance.getItemCounts(userId, isFavorite);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getItemCounts: $e\n");
 }
 ```
 
@@ -335,8 +335,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| Optional. Get counts from a specific user's library. | [optional] 
- **isFavorite** | **bool**| Optional. Get counts of favorite items. | [optional] 
+ **userId** | [**String**](.md)| Optional. Get counts from a specific user&#39;s library. | [optional] [default to null]
+ **isFavorite** | **bool**| Optional. Get counts of favorite items. | [optional] [default to null]
 
 ### Return type
 
@@ -358,23 +358,23 @@ Name | Type | Description  | Notes
 
 Gets the library options info.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String libraryContentType = libraryContentType_example; // String | Library content type.
-final bool isNewLibrary = true; // bool | Whether this is a new library.
+var api_instance = new LibraryApi();
+var libraryContentType = libraryContentType_example; // String | Library content type.
+var isNewLibrary = true; // bool | Whether this is a new library.
 
-try {
-    final response = api.getLibraryOptionsInfo(libraryContentType, isNewLibrary);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getLibraryOptionsInfo: $e\n');
+try { 
+    var result = api_instance.getLibraryOptionsInfo(libraryContentType, isNewLibrary);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getLibraryOptionsInfo: $e\n");
 }
 ```
 
@@ -382,7 +382,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **libraryContentType** | **String**| Library content type. | [optional] 
+ **libraryContentType** | **String**| Library content type. | [optional] [default to null]
  **isNewLibrary** | **bool**| Whether this is a new library. | [optional] [default to false]
 
 ### Return type
@@ -405,22 +405,22 @@ Name | Type | Description  | Notes
 
 Gets all user media folders.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final bool isHidden = true; // bool | Optional. Filter by folders that are marked hidden, or not.
+var api_instance = new LibraryApi();
+var isHidden = true; // bool | Optional. Filter by folders that are marked hidden, or not.
 
-try {
-    final response = api.getMediaFolders(isHidden);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getMediaFolders: $e\n');
+try { 
+    var result = api_instance.getMediaFolders(isHidden);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getMediaFolders: $e\n");
 }
 ```
 
@@ -428,7 +428,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isHidden** | **bool**| Optional. Filter by folders that are marked hidden, or not. | [optional] 
+ **isHidden** | **bool**| Optional. Filter by folders that are marked hidden, or not. | [optional] [default to null]
 
 ### Return type
 
@@ -446,25 +446,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPhysicalPaths**
-> BuiltList<String> getPhysicalPaths()
+> List<String> getPhysicalPaths()
 
 Gets a list of physical paths from virtual folders.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+var api_instance = new LibraryApi();
 
-try {
-    final response = api.getPhysicalPaths();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getPhysicalPaths: $e\n');
+try { 
+    var result = api_instance.getPhysicalPaths();
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getPhysicalPaths: $e\n");
 }
 ```
 
@@ -473,7 +473,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**BuiltList&lt;String&gt;**
+**List<String>**
 
 ### Authorization
 
@@ -491,26 +491,26 @@ This endpoint does not need any parameter.
 
 Gets similar items.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var excludeArtistIds = []; // List<String> | Exclude artist ids.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
-try {
-    final response = api.getSimilarAlbums(itemId, excludeArtistIds, userId, limit, fields);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getSimilarAlbums: $e\n');
+try { 
+    var result = api_instance.getSimilarAlbums(itemId, excludeArtistIds, userId, limit, fields);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getSimilarAlbums: $e\n");
 }
 ```
 
@@ -518,11 +518,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **excludeArtistIds** | [**List&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
 
 ### Return type
 
@@ -544,26 +544,26 @@ Name | Type | Description  | Notes
 
 Gets similar items.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var excludeArtistIds = []; // List<String> | Exclude artist ids.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
-try {
-    final response = api.getSimilarArtists(itemId, excludeArtistIds, userId, limit, fields);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getSimilarArtists: $e\n');
+try { 
+    var result = api_instance.getSimilarArtists(itemId, excludeArtistIds, userId, limit, fields);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getSimilarArtists: $e\n");
 }
 ```
 
@@ -571,11 +571,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **excludeArtistIds** | [**List&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
 
 ### Return type
 
@@ -597,26 +597,26 @@ Name | Type | Description  | Notes
 
 Gets similar items.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var excludeArtistIds = []; // List<String> | Exclude artist ids.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
-try {
-    final response = api.getSimilarItems(itemId, excludeArtistIds, userId, limit, fields);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getSimilarItems: $e\n');
+try { 
+    var result = api_instance.getSimilarItems(itemId, excludeArtistIds, userId, limit, fields);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getSimilarItems: $e\n");
 }
 ```
 
@@ -624,11 +624,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **excludeArtistIds** | [**List&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
 
 ### Return type
 
@@ -650,26 +650,26 @@ Name | Type | Description  | Notes
 
 Gets similar items.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var excludeArtistIds = []; // List<String> | Exclude artist ids.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
-try {
-    final response = api.getSimilarMovies(itemId, excludeArtistIds, userId, limit, fields);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getSimilarMovies: $e\n');
+try { 
+    var result = api_instance.getSimilarMovies(itemId, excludeArtistIds, userId, limit, fields);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getSimilarMovies: $e\n");
 }
 ```
 
@@ -677,11 +677,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **excludeArtistIds** | [**List&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
 
 ### Return type
 
@@ -703,26 +703,26 @@ Name | Type | Description  | Notes
 
 Gets similar items.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var excludeArtistIds = []; // List<String> | Exclude artist ids.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
-try {
-    final response = api.getSimilarShows(itemId, excludeArtistIds, userId, limit, fields);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getSimilarShows: $e\n');
+try { 
+    var result = api_instance.getSimilarShows(itemId, excludeArtistIds, userId, limit, fields);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getSimilarShows: $e\n");
 }
 ```
 
@@ -730,11 +730,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **excludeArtistIds** | [**List&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
 
 ### Return type
 
@@ -756,26 +756,26 @@ Name | Type | Description  | Notes
 
 Gets similar items.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var excludeArtistIds = []; // List<String> | Exclude artist ids.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
 
-try {
-    final response = api.getSimilarTrailers(itemId, excludeArtistIds, userId, limit, fields);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getSimilarTrailers: $e\n');
+try { 
+    var result = api_instance.getSimilarTrailers(itemId, excludeArtistIds, userId, limit, fields);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getSimilarTrailers: $e\n");
 }
 ```
 
@@ -783,11 +783,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **excludeArtistIds** | [**BuiltList&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **excludeArtistIds** | [**List&lt;String&gt;**](String.md)| Exclude artist ids. | [optional] [default to const []]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls. | [optional] [default to const []]
 
 ### Return type
 
@@ -809,24 +809,24 @@ Name | Type | Description  | Notes
 
 Get theme songs and videos for an item.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
 
-try {
-    final response = api.getThemeMedia(itemId, userId, inheritFromParent);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getThemeMedia: $e\n');
+try { 
+    var result = api_instance.getThemeMedia(itemId, userId, inheritFromParent);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getThemeMedia: $e\n");
 }
 ```
 
@@ -834,8 +834,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
  **inheritFromParent** | **bool**| Optional. Determines whether or not parent items should be searched for theme media. | [optional] [default to false]
 
 ### Return type
@@ -858,24 +858,24 @@ Name | Type | Description  | Notes
 
 Get theme songs for an item.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
 
-try {
-    final response = api.getThemeSongs(itemId, userId, inheritFromParent);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getThemeSongs: $e\n');
+try { 
+    var result = api_instance.getThemeSongs(itemId, userId, inheritFromParent);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getThemeSongs: $e\n");
 }
 ```
 
@@ -883,8 +883,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
  **inheritFromParent** | **bool**| Optional. Determines whether or not parent items should be searched for theme media. | [optional] [default to false]
 
 ### Return type
@@ -907,24 +907,24 @@ Name | Type | Description  | Notes
 
 Get theme videos for an item.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+var api_instance = new LibraryApi();
+var itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
 
-try {
-    final response = api.getThemeVideos(itemId, userId, inheritFromParent);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->getThemeVideos: $e\n');
+try { 
+    var result = api_instance.getThemeVideos(itemId, userId, inheritFromParent);
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryApi->getThemeVideos: $e\n");
 }
 ```
 
@@ -932,8 +932,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **itemId** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
+ **itemId** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
  **inheritFromParent** | **bool**| Optional. Determines whether or not parent items should be searched for theme media. | [optional] [default to false]
 
 ### Return type
@@ -956,22 +956,22 @@ Name | Type | Description  | Notes
 
 Reports that new movies have been added by an external source.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String tmdbId = tmdbId_example; // String | The tmdbId.
-final String imdbId = imdbId_example; // String | The imdbId.
+var api_instance = new LibraryApi();
+var tmdbId = tmdbId_example; // String | The tmdbId.
+var imdbId = imdbId_example; // String | The imdbId.
 
-try {
-    api.postAddedMovies(tmdbId, imdbId);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->postAddedMovies: $e\n');
+try { 
+    api_instance.postAddedMovies(tmdbId, imdbId);
+} catch (e) {
+    print("Exception when calling LibraryApi->postAddedMovies: $e\n");
 }
 ```
 
@@ -979,8 +979,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tmdbId** | **String**| The tmdbId. | [optional] 
- **imdbId** | **String**| The imdbId. | [optional] 
+ **tmdbId** | **String**| The tmdbId. | [optional] [default to null]
+ **imdbId** | **String**| The imdbId. | [optional] [default to null]
 
 ### Return type
 
@@ -1002,21 +1002,21 @@ void (empty response body)
 
 Reports that new episodes of a series have been added by an external source.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String tvdbId = tvdbId_example; // String | The tvdbId.
+var api_instance = new LibraryApi();
+var tvdbId = tvdbId_example; // String | The tvdbId.
 
-try {
-    api.postAddedSeries(tvdbId);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->postAddedSeries: $e\n');
+try { 
+    api_instance.postAddedSeries(tvdbId);
+} catch (e) {
+    print("Exception when calling LibraryApi->postAddedSeries: $e\n");
 }
 ```
 
@@ -1024,7 +1024,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tvdbId** | **String**| The tvdbId. | [optional] 
+ **tvdbId** | **String**| The tvdbId. | [optional] [default to null]
 
 ### Return type
 
@@ -1042,25 +1042,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postUpdatedMedia**
-> postUpdatedMedia(postUpdatedMediaRequest)
+> postUpdatedMedia(UNKNOWN_BASE_TYPE)
 
 Reports that new movies have been added by an external source.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final PostUpdatedMediaRequest postUpdatedMediaRequest = ; // PostUpdatedMediaRequest | The update paths.
+var api_instance = new LibraryApi();
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The update paths.
 
-try {
-    api.postUpdatedMedia(postUpdatedMediaRequest);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->postUpdatedMedia: $e\n');
+try { 
+    api_instance.postUpdatedMedia(UNKNOWN_BASE_TYPE);
+} catch (e) {
+    print("Exception when calling LibraryApi->postUpdatedMedia: $e\n");
 }
 ```
 
@@ -1068,7 +1068,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postUpdatedMediaRequest** | [**PostUpdatedMediaRequest**](PostUpdatedMediaRequest.md)| The update paths. | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The update paths. | 
 
 ### Return type
 
@@ -1080,7 +1080,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1090,22 +1090,22 @@ void (empty response body)
 
 Reports that new movies have been added by an external source.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String tmdbId = tmdbId_example; // String | The tmdbId.
-final String imdbId = imdbId_example; // String | The imdbId.
+var api_instance = new LibraryApi();
+var tmdbId = tmdbId_example; // String | The tmdbId.
+var imdbId = imdbId_example; // String | The imdbId.
 
-try {
-    api.postUpdatedMovies(tmdbId, imdbId);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->postUpdatedMovies: $e\n');
+try { 
+    api_instance.postUpdatedMovies(tmdbId, imdbId);
+} catch (e) {
+    print("Exception when calling LibraryApi->postUpdatedMovies: $e\n");
 }
 ```
 
@@ -1113,8 +1113,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tmdbId** | **String**| The tmdbId. | [optional] 
- **imdbId** | **String**| The imdbId. | [optional] 
+ **tmdbId** | **String**| The tmdbId. | [optional] [default to null]
+ **imdbId** | **String**| The imdbId. | [optional] [default to null]
 
 ### Return type
 
@@ -1136,21 +1136,21 @@ void (empty response body)
 
 Reports that new episodes of a series have been added by an external source.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final String tvdbId = tvdbId_example; // String | The tvdbId.
+var api_instance = new LibraryApi();
+var tvdbId = tvdbId_example; // String | The tvdbId.
 
-try {
-    api.postUpdatedSeries(tvdbId);
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->postUpdatedSeries: $e\n');
+try { 
+    api_instance.postUpdatedSeries(tvdbId);
+} catch (e) {
+    print("Exception when calling LibraryApi->postUpdatedSeries: $e\n");
 }
 ```
 
@@ -1158,7 +1158,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tvdbId** | **String**| The tvdbId. | [optional] 
+ **tvdbId** | **String**| The tvdbId. | [optional] [default to null]
 
 ### Return type
 
@@ -1180,20 +1180,20 @@ void (empty response body)
 
 Starts a library scan.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+var api_instance = new LibraryApi();
 
-try {
-    api.refreshLibrary();
-} catch on DioError (e) {
-    print('Exception when calling LibraryApi->refreshLibrary: $e\n');
+try { 
+    api_instance.refreshLibrary();
+} catch (e) {
+    print("Exception when calling LibraryApi->refreshLibrary: $e\n");
 }
 ```
 

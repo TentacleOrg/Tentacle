@@ -1,37 +1,37 @@
-# openapi.api.OpenSubtitlesApi
+# jellyfin_api.api.OpenSubtitlesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**validateLoginInfo**](OpenSubtitlesApi.md#validatelogininfo) | **POST** /Jellyfin.Plugin.OpenSubtitles/ValidateLoginInfo | 
+[**validateLoginInfo**](OpenSubtitlesApi.md#validateLoginInfo) | **post** /Jellyfin.Plugin.OpenSubtitles/ValidateLoginInfo | 
 
 
 # **validateLoginInfo**
-> validateLoginInfo(validateLoginInfoRequest)
+> validateLoginInfo(UNKNOWN_BASE_TYPE)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getOpenSubtitlesApi();
-final ValidateLoginInfoRequest validateLoginInfoRequest = ; // ValidateLoginInfoRequest | 
+var api_instance = new OpenSubtitlesApi();
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 
-try {
-    api.validateLoginInfo(validateLoginInfoRequest);
-} catch on DioError (e) {
-    print('Exception when calling OpenSubtitlesApi->validateLoginInfo: $e\n');
+try { 
+    api_instance.validateLoginInfo(UNKNOWN_BASE_TYPE);
+} catch (e) {
+    print("Exception when calling OpenSubtitlesApi->validateLoginInfo: $e\n");
 }
 ```
 
@@ -39,7 +39,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **validateLoginInfoRequest** | [**ValidateLoginInfoRequest**](ValidateLoginInfoRequest.md)|  | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
 
 ### Return type
 
@@ -51,7 +51,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

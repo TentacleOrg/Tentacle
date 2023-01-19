@@ -1,22 +1,22 @@
-# openapi.api.InstantMixApi
+# jellyfin_api.api.InstantMixApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getInstantMixFromAlbum**](InstantMixApi.md#getinstantmixfromalbum) | **GET** /Albums/{id}/InstantMix | Creates an instant playlist based on a given album.
-[**getInstantMixFromArtists**](InstantMixApi.md#getinstantmixfromartists) | **GET** /Artists/{id}/InstantMix | Creates an instant playlist based on a given artist.
-[**getInstantMixFromArtists2**](InstantMixApi.md#getinstantmixfromartists2) | **GET** /Artists/InstantMix | Creates an instant playlist based on a given artist.
-[**getInstantMixFromItem**](InstantMixApi.md#getinstantmixfromitem) | **GET** /Items/{id}/InstantMix | Creates an instant playlist based on a given item.
-[**getInstantMixFromMusicGenreById**](InstantMixApi.md#getinstantmixfrommusicgenrebyid) | **GET** /MusicGenres/InstantMix | Creates an instant playlist based on a given genre.
-[**getInstantMixFromMusicGenreByName**](InstantMixApi.md#getinstantmixfrommusicgenrebyname) | **GET** /MusicGenres/{name}/InstantMix | Creates an instant playlist based on a given genre.
-[**getInstantMixFromPlaylist**](InstantMixApi.md#getinstantmixfromplaylist) | **GET** /Playlists/{id}/InstantMix | Creates an instant playlist based on a given playlist.
-[**getInstantMixFromSong**](InstantMixApi.md#getinstantmixfromsong) | **GET** /Songs/{id}/InstantMix | Creates an instant playlist based on a given song.
+[**getInstantMixFromAlbum**](InstantMixApi.md#getInstantMixFromAlbum) | **get** /Albums/{id}/InstantMix | Creates an instant playlist based on a given album.
+[**getInstantMixFromArtists**](InstantMixApi.md#getInstantMixFromArtists) | **get** /Artists/{id}/InstantMix | Creates an instant playlist based on a given artist.
+[**getInstantMixFromArtists2**](InstantMixApi.md#getInstantMixFromArtists2) | **get** /Artists/InstantMix | Creates an instant playlist based on a given artist.
+[**getInstantMixFromItem**](InstantMixApi.md#getInstantMixFromItem) | **get** /Items/{id}/InstantMix | Creates an instant playlist based on a given item.
+[**getInstantMixFromMusicGenreById**](InstantMixApi.md#getInstantMixFromMusicGenreById) | **get** /MusicGenres/InstantMix | Creates an instant playlist based on a given genre.
+[**getInstantMixFromMusicGenreByName**](InstantMixApi.md#getInstantMixFromMusicGenreByName) | **get** /MusicGenres/{name}/InstantMix | Creates an instant playlist based on a given genre.
+[**getInstantMixFromPlaylist**](InstantMixApi.md#getInstantMixFromPlaylist) | **get** /Playlists/{id}/InstantMix | Creates an instant playlist based on a given playlist.
+[**getInstantMixFromSong**](InstantMixApi.md#getInstantMixFromSong) | **get** /Songs/{id}/InstantMix | Creates an instant playlist based on a given song.
 
 
 # **getInstantMixFromAlbum**
@@ -24,29 +24,29 @@ Method | HTTP request | Description
 
 Creates an instant playlist based on a given album.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+var api_instance = new InstantMixApi();
+var id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var enableImages = true; // bool | Optional. Include image information in output.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
 
-try {
-    final response = api.getInstantMixFromAlbum(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling InstantMixApi->getInstantMixFromAlbum: $e\n');
+try { 
+    var result = api_instance.getInstantMixFromAlbum(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(result);
+} catch (e) {
+    print("Exception when calling InstantMixApi->getInstantMixFromAlbum: $e\n");
 }
 ```
 
@@ -54,14 +54,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **id** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to null]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
 
 ### Return type
 
@@ -83,29 +83,29 @@ Name | Type | Description  | Notes
 
 Creates an instant playlist based on a given artist.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+var api_instance = new InstantMixApi();
+var id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var enableImages = true; // bool | Optional. Include image information in output.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
 
-try {
-    final response = api.getInstantMixFromArtists(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling InstantMixApi->getInstantMixFromArtists: $e\n');
+try { 
+    var result = api_instance.getInstantMixFromArtists(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(result);
+} catch (e) {
+    print("Exception when calling InstantMixApi->getInstantMixFromArtists: $e\n");
 }
 ```
 
@@ -113,14 +113,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **id** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to null]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
 
 ### Return type
 
@@ -142,29 +142,29 @@ Name | Type | Description  | Notes
 
 Creates an instant playlist based on a given artist.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+var api_instance = new InstantMixApi();
+var id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var enableImages = true; // bool | Optional. Include image information in output.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
 
-try {
-    final response = api.getInstantMixFromArtists2(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling InstantMixApi->getInstantMixFromArtists2: $e\n');
+try { 
+    var result = api_instance.getInstantMixFromArtists2(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(result);
+} catch (e) {
+    print("Exception when calling InstantMixApi->getInstantMixFromArtists2: $e\n");
 }
 ```
 
@@ -172,14 +172,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **id** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to null]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
 
 ### Return type
 
@@ -201,29 +201,29 @@ Name | Type | Description  | Notes
 
 Creates an instant playlist based on a given item.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+var api_instance = new InstantMixApi();
+var id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var enableImages = true; // bool | Optional. Include image information in output.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
 
-try {
-    final response = api.getInstantMixFromItem(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling InstantMixApi->getInstantMixFromItem: $e\n');
+try { 
+    var result = api_instance.getInstantMixFromItem(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(result);
+} catch (e) {
+    print("Exception when calling InstantMixApi->getInstantMixFromItem: $e\n");
 }
 ```
 
@@ -231,14 +231,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **id** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to null]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
 
 ### Return type
 
@@ -260,29 +260,29 @@ Name | Type | Description  | Notes
 
 Creates an instant playlist based on a given genre.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+var api_instance = new InstantMixApi();
+var id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var enableImages = true; // bool | Optional. Include image information in output.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
 
-try {
-    final response = api.getInstantMixFromMusicGenreById(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling InstantMixApi->getInstantMixFromMusicGenreById: $e\n');
+try { 
+    var result = api_instance.getInstantMixFromMusicGenreById(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(result);
+} catch (e) {
+    print("Exception when calling InstantMixApi->getInstantMixFromMusicGenreById: $e\n");
 }
 ```
 
@@ -290,14 +290,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **id** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to null]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
 
 ### Return type
 
@@ -319,29 +319,29 @@ Name | Type | Description  | Notes
 
 Creates an instant playlist based on a given genre.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
-final String name = name_example; // String | The genre name.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+var api_instance = new InstantMixApi();
+var name = name_example; // String | The genre name.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var enableImages = true; // bool | Optional. Include image information in output.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
 
-try {
-    final response = api.getInstantMixFromMusicGenreByName(name, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling InstantMixApi->getInstantMixFromMusicGenreByName: $e\n');
+try { 
+    var result = api_instance.getInstantMixFromMusicGenreByName(name, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(result);
+} catch (e) {
+    print("Exception when calling InstantMixApi->getInstantMixFromMusicGenreByName: $e\n");
 }
 ```
 
@@ -349,14 +349,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The genre name. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **name** | **String**| The genre name. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to null]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
 
 ### Return type
 
@@ -378,29 +378,29 @@ Name | Type | Description  | Notes
 
 Creates an instant playlist based on a given playlist.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+var api_instance = new InstantMixApi();
+var id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var enableImages = true; // bool | Optional. Include image information in output.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
 
-try {
-    final response = api.getInstantMixFromPlaylist(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling InstantMixApi->getInstantMixFromPlaylist: $e\n');
+try { 
+    var result = api_instance.getInstantMixFromPlaylist(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(result);
+} catch (e) {
+    print("Exception when calling InstantMixApi->getInstantMixFromPlaylist: $e\n");
 }
 ```
 
@@ -408,14 +408,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **id** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to null]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
 
 ### Return type
 
@@ -437,29 +437,29 @@ Name | Type | Description  | Notes
 
 Creates an instant playlist based on a given song.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
-final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
+var api_instance = new InstantMixApi();
+var id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var fields = []; // List<ItemFields> | Optional. Specify additional fields of information to return in the output.
+var enableImages = true; // bool | Optional. Include image information in output.
+var enableUserData = true; // bool | Optional. Include user data.
+var imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
+var enableImageTypes = []; // List<ImageType> | Optional. The image types to include in the output.
 
-try {
-    final response = api.getInstantMixFromSong(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling InstantMixApi->getInstantMixFromSong: $e\n');
+try { 
+    var result = api_instance.getInstantMixFromSong(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
+    print(result);
+} catch (e) {
+    print("Exception when calling InstantMixApi->getInstantMixFromSong: $e\n");
 }
 ```
 
@@ -467,14 +467,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | 
- **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
+ **id** | [**String**](.md)| The item id. | [default to null]
+ **userId** | [**String**](.md)| Optional. Filter by user id, and attach user data. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **fields** | [**List&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] [default to const []]
+ **enableImages** | **bool**| Optional. Include image information in output. | [optional] [default to null]
+ **enableUserData** | **bool**| Optional. Include user data. | [optional] [default to null]
+ **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] [default to null]
+ **enableImageTypes** | [**List&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] [default to const []]
 
 ### Return type
 

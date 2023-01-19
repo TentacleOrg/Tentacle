@@ -1,27 +1,27 @@
-# openapi.model.AlbumInfo
+# jellyfin_api.model.AlbumInfo
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Gets or sets the name. | [optional] 
-**originalTitle** | **String** | Gets or sets the original title. | [optional] 
-**path** | **String** | Gets or sets the path. | [optional] 
-**metadataLanguage** | **String** | Gets or sets the metadata language. | [optional] 
-**metadataCountryCode** | **String** | Gets or sets the metadata country code. | [optional] 
-**providerIds** | **BuiltMap&lt;String, String&gt;** | Gets or sets the provider ids. | [optional] 
-**year** | **int** | Gets or sets the year. | [optional] 
-**indexNumber** | **int** |  | [optional] 
-**parentIndexNumber** | **int** |  | [optional] 
-**premiereDate** | [**DateTime**](DateTime.md) |  | [optional] 
-**isAutomated** | **bool** |  | [optional] 
-**albumArtists** | **BuiltList&lt;String&gt;** | Gets or sets the album artist. | [optional] 
-**artistProviderIds** | **BuiltMap&lt;String, String&gt;** | Gets or sets the artist provider ids. | [optional] 
-**songInfos** | [**BuiltList&lt;SongInfo&gt;**](SongInfo.md) |  | [optional] 
+**name** | **String** | Gets or sets the name. | [optional] [default to null]
+**originalTitle** | **String** | Gets or sets the original title. | [optional] [default to null]
+**path** | **String** | Gets or sets the path. | [optional] [default to null]
+**metadataLanguage** | **String** | Gets or sets the metadata language. | [optional] [default to null]
+**metadataCountryCode** | **String** | Gets or sets the metadata country code. | [optional] [default to null]
+**providerIds** | **BuiltMap&lt;String, String&gt;** | Gets or sets the provider ids. | [optional] [default to const {}]
+**year** | **int** | Gets or sets the year. | [optional] [default to null]
+**indexNumber** | **int** |  | [optional] [default to null]
+**parentIndexNumber** | **int** |  | [optional] [default to null]
+**premiereDate** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
+**isAutomated** | **bool** |  | [optional] [default to null]
+**albumArtists** | **BuiltList&lt;String&gt;** | Gets or sets the album artist. | [optional] [default to const []]
+**artistProviderIds** | **BuiltMap&lt;String, String&gt;** | Gets or sets the artist provider ids. | [optional] [default to const {}]
+**songInfos** | [**BuiltList&lt;SongInfo&gt;**](SongInfo.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

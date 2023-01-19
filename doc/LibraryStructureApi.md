@@ -1,45 +1,45 @@
-# openapi.api.LibraryStructureApi
+# jellyfin_api.api.LibraryStructureApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addMediaPath**](LibraryStructureApi.md#addmediapath) | **POST** /Library/VirtualFolders/Paths | Add a media path to a library.
-[**addVirtualFolder**](LibraryStructureApi.md#addvirtualfolder) | **POST** /Library/VirtualFolders | Adds a virtual folder.
-[**getVirtualFolders**](LibraryStructureApi.md#getvirtualfolders) | **GET** /Library/VirtualFolders | Gets all virtual folders.
-[**removeMediaPath**](LibraryStructureApi.md#removemediapath) | **DELETE** /Library/VirtualFolders/Paths | Remove a media path.
-[**removeVirtualFolder**](LibraryStructureApi.md#removevirtualfolder) | **DELETE** /Library/VirtualFolders | Removes a virtual folder.
-[**renameVirtualFolder**](LibraryStructureApi.md#renamevirtualfolder) | **POST** /Library/VirtualFolders/Name | Renames a virtual folder.
-[**updateLibraryOptions**](LibraryStructureApi.md#updatelibraryoptions) | **POST** /Library/VirtualFolders/LibraryOptions | Update library options.
-[**updateMediaPath**](LibraryStructureApi.md#updatemediapath) | **POST** /Library/VirtualFolders/Paths/Update | Updates a media path.
+[**addMediaPath**](LibraryStructureApi.md#addMediaPath) | **post** /Library/VirtualFolders/Paths | Add a media path to a library.
+[**addVirtualFolder**](LibraryStructureApi.md#addVirtualFolder) | **post** /Library/VirtualFolders | Adds a virtual folder.
+[**getVirtualFolders**](LibraryStructureApi.md#getVirtualFolders) | **get** /Library/VirtualFolders | Gets all virtual folders.
+[**removeMediaPath**](LibraryStructureApi.md#removeMediaPath) | **delete** /Library/VirtualFolders/Paths | Remove a media path.
+[**removeVirtualFolder**](LibraryStructureApi.md#removeVirtualFolder) | **delete** /Library/VirtualFolders | Removes a virtual folder.
+[**renameVirtualFolder**](LibraryStructureApi.md#renameVirtualFolder) | **post** /Library/VirtualFolders/Name | Renames a virtual folder.
+[**updateLibraryOptions**](LibraryStructureApi.md#updateLibraryOptions) | **post** /Library/VirtualFolders/LibraryOptions | Update library options.
+[**updateMediaPath**](LibraryStructureApi.md#updateMediaPath) | **post** /Library/VirtualFolders/Paths/Update | Updates a media path.
 
 
 # **addMediaPath**
-> addMediaPath(addMediaPathRequest, refreshLibrary)
+> addMediaPath(UNKNOWN_BASE_TYPE, refreshLibrary)
 
 Add a media path to a library.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final AddMediaPathRequest addMediaPathRequest = ; // AddMediaPathRequest | The media path dto.
-final bool refreshLibrary = true; // bool | Whether to refresh the library.
+var api_instance = new LibraryStructureApi();
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The media path dto.
+var refreshLibrary = true; // bool | Whether to refresh the library.
 
-try {
-    api.addMediaPath(addMediaPathRequest, refreshLibrary);
-} catch on DioError (e) {
-    print('Exception when calling LibraryStructureApi->addMediaPath: $e\n');
+try { 
+    api_instance.addMediaPath(UNKNOWN_BASE_TYPE, refreshLibrary);
+} catch (e) {
+    print("Exception when calling LibraryStructureApi->addMediaPath: $e\n");
 }
 ```
 
@@ -47,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addMediaPathRequest** | [**AddMediaPathRequest**](AddMediaPathRequest.md)| The media path dto. | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The media path dto. | 
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
 
 ### Return type
@@ -60,35 +60,35 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addVirtualFolder**
-> addVirtualFolder(name, collectionType, paths, refreshLibrary, addVirtualFolderRequest)
+> addVirtualFolder(name, collectionType, paths, refreshLibrary, UNKNOWN_BASE_TYPE)
 
 Adds a virtual folder.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final String name = name_example; // String | The name of the virtual folder.
-final CollectionTypeOptions collectionType = ; // CollectionTypeOptions | The type of the collection.
-final BuiltList<String> paths = ; // BuiltList<String> | The paths of the virtual folder.
-final bool refreshLibrary = true; // bool | Whether to refresh the library.
-final AddVirtualFolderRequest addVirtualFolderRequest = ; // AddVirtualFolderRequest | The library options.
+var api_instance = new LibraryStructureApi();
+var name = name_example; // String | The name of the virtual folder.
+var collectionType = ; // CollectionTypeOptions | The type of the collection.
+var paths = []; // List<String> | The paths of the virtual folder.
+var refreshLibrary = true; // bool | Whether to refresh the library.
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The library options.
 
-try {
-    api.addVirtualFolder(name, collectionType, paths, refreshLibrary, addVirtualFolderRequest);
-} catch on DioError (e) {
-    print('Exception when calling LibraryStructureApi->addVirtualFolder: $e\n');
+try { 
+    api_instance.addVirtualFolder(name, collectionType, paths, refreshLibrary, UNKNOWN_BASE_TYPE);
+} catch (e) {
+    print("Exception when calling LibraryStructureApi->addVirtualFolder: $e\n");
 }
 ```
 
@@ -96,11 +96,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the virtual folder. | [optional] 
- **collectionType** | [**CollectionTypeOptions**](.md)| The type of the collection. | [optional] 
- **paths** | [**BuiltList&lt;String&gt;**](String.md)| The paths of the virtual folder. | [optional] 
+ **name** | **String**| The name of the virtual folder. | [optional] [default to null]
+ **collectionType** | [**CollectionTypeOptions**](.md)| The type of the collection. | [optional] [default to null]
+ **paths** | [**List&lt;String&gt;**](String.md)| The paths of the virtual folder. | [optional] [default to const []]
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
- **addVirtualFolderRequest** | [**AddVirtualFolderRequest**](AddVirtualFolderRequest.md)| The library options. | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The library options. | [optional] 
 
 ### Return type
 
@@ -112,31 +112,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getVirtualFolders**
-> BuiltList<VirtualFolderInfo> getVirtualFolders()
+> List<VirtualFolderInfo> getVirtualFolders()
 
 Gets all virtual folders.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
+var api_instance = new LibraryStructureApi();
 
-try {
-    final response = api.getVirtualFolders();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling LibraryStructureApi->getVirtualFolders: $e\n');
+try { 
+    var result = api_instance.getVirtualFolders();
+    print(result);
+} catch (e) {
+    print("Exception when calling LibraryStructureApi->getVirtualFolders: $e\n");
 }
 ```
 
@@ -145,7 +145,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;VirtualFolderInfo&gt;**](VirtualFolderInfo.md)
+[**List<VirtualFolderInfo>**](VirtualFolderInfo.md)
 
 ### Authorization
 
@@ -163,23 +163,23 @@ This endpoint does not need any parameter.
 
 Remove a media path.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final String name = name_example; // String | The name of the library.
-final String path = path_example; // String | The path to remove.
-final bool refreshLibrary = true; // bool | Whether to refresh the library.
+var api_instance = new LibraryStructureApi();
+var name = name_example; // String | The name of the library.
+var path = path_example; // String | The path to remove.
+var refreshLibrary = true; // bool | Whether to refresh the library.
 
-try {
-    api.removeMediaPath(name, path, refreshLibrary);
-} catch on DioError (e) {
-    print('Exception when calling LibraryStructureApi->removeMediaPath: $e\n');
+try { 
+    api_instance.removeMediaPath(name, path, refreshLibrary);
+} catch (e) {
+    print("Exception when calling LibraryStructureApi->removeMediaPath: $e\n");
 }
 ```
 
@@ -187,8 +187,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the library. | [optional] 
- **path** | **String**| The path to remove. | [optional] 
+ **name** | **String**| The name of the library. | [optional] [default to null]
+ **path** | **String**| The path to remove. | [optional] [default to null]
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
 
 ### Return type
@@ -211,22 +211,22 @@ void (empty response body)
 
 Removes a virtual folder.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final String name = name_example; // String | The name of the folder.
-final bool refreshLibrary = true; // bool | Whether to refresh the library.
+var api_instance = new LibraryStructureApi();
+var name = name_example; // String | The name of the folder.
+var refreshLibrary = true; // bool | Whether to refresh the library.
 
-try {
-    api.removeVirtualFolder(name, refreshLibrary);
-} catch on DioError (e) {
-    print('Exception when calling LibraryStructureApi->removeVirtualFolder: $e\n');
+try { 
+    api_instance.removeVirtualFolder(name, refreshLibrary);
+} catch (e) {
+    print("Exception when calling LibraryStructureApi->removeVirtualFolder: $e\n");
 }
 ```
 
@@ -234,7 +234,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the folder. | [optional] 
+ **name** | **String**| The name of the folder. | [optional] [default to null]
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
 
 ### Return type
@@ -257,23 +257,23 @@ void (empty response body)
 
 Renames a virtual folder.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final String name = name_example; // String | The name of the virtual folder.
-final String newName = newName_example; // String | The new name.
-final bool refreshLibrary = true; // bool | Whether to refresh the library.
+var api_instance = new LibraryStructureApi();
+var name = name_example; // String | The name of the virtual folder.
+var newName = newName_example; // String | The new name.
+var refreshLibrary = true; // bool | Whether to refresh the library.
 
-try {
-    api.renameVirtualFolder(name, newName, refreshLibrary);
-} catch on DioError (e) {
-    print('Exception when calling LibraryStructureApi->renameVirtualFolder: $e\n');
+try { 
+    api_instance.renameVirtualFolder(name, newName, refreshLibrary);
+} catch (e) {
+    print("Exception when calling LibraryStructureApi->renameVirtualFolder: $e\n");
 }
 ```
 
@@ -281,8 +281,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the virtual folder. | [optional] 
- **newName** | **String**| The new name. | [optional] 
+ **name** | **String**| The name of the virtual folder. | [optional] [default to null]
+ **newName** | **String**| The new name. | [optional] [default to null]
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
 
 ### Return type
@@ -301,25 +301,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateLibraryOptions**
-> updateLibraryOptions(updateLibraryOptionsRequest)
+> updateLibraryOptions(UNKNOWN_BASE_TYPE)
 
 Update library options.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final UpdateLibraryOptionsRequest updateLibraryOptionsRequest = ; // UpdateLibraryOptionsRequest | The library name and options.
+var api_instance = new LibraryStructureApi();
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The library name and options.
 
-try {
-    api.updateLibraryOptions(updateLibraryOptionsRequest);
-} catch on DioError (e) {
-    print('Exception when calling LibraryStructureApi->updateLibraryOptions: $e\n');
+try { 
+    api_instance.updateLibraryOptions(UNKNOWN_BASE_TYPE);
+} catch (e) {
+    print("Exception when calling LibraryStructureApi->updateLibraryOptions: $e\n");
 }
 ```
 
@@ -327,7 +327,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateLibraryOptionsRequest** | [**UpdateLibraryOptionsRequest**](UpdateLibraryOptionsRequest.md)| The library name and options. | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The library name and options. | [optional] 
 
 ### Return type
 
@@ -339,31 +339,31 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateMediaPath**
-> updateMediaPath(updateMediaPathRequest)
+> updateMediaPath(UNKNOWN_BASE_TYPE)
 
 Updates a media path.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final UpdateMediaPathRequest updateMediaPathRequest = ; // UpdateMediaPathRequest | The name of the library and path infos.
+var api_instance = new LibraryStructureApi();
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | The name of the library and path infos.
 
-try {
-    api.updateMediaPath(updateMediaPathRequest);
-} catch on DioError (e) {
-    print('Exception when calling LibraryStructureApi->updateMediaPath: $e\n');
+try { 
+    api_instance.updateMediaPath(UNKNOWN_BASE_TYPE);
+} catch (e) {
+    print("Exception when calling LibraryStructureApi->updateMediaPath: $e\n");
 }
 ```
 
@@ -371,7 +371,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateMediaPathRequest** | [**UpdateMediaPathRequest**](UpdateMediaPathRequest.md)| The name of the library and path infos. | 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The name of the library and path infos. | 
 
 ### Return type
 
@@ -383,7 +383,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

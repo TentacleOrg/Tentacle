@@ -1,8 +1,8 @@
-# openapi.model.PlayAccess
+# jellyfin_api.model.PlayAccess
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

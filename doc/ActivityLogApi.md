@@ -1,15 +1,15 @@
-# openapi.api.ActivityLogApi
+# jellyfin_api.api.ActivityLogApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getLogEntries**](ActivityLogApi.md#getlogentries) | **GET** /System/ActivityLog/Entries | Gets activity log entries.
+[**getLogEntries**](ActivityLogApi.md#getLogEntries) | **get** /System/ActivityLog/Entries | Gets activity log entries.
 
 
 # **getLogEntries**
@@ -17,25 +17,25 @@ Method | HTTP request | Description
 
 Gets activity log entries.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getActivityLogApi();
-final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final DateTime minDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum date. Format = ISO.
-final bool hasUserId = true; // bool | Optional. Filter log entries if it has user id, or not.
+var api_instance = new ActivityLogApi();
+var startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
+var limit = 56; // int | Optional. The maximum number of records to return.
+var minDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum date. Format = ISO.
+var hasUserId = true; // bool | Optional. Filter log entries if it has user id, or not.
 
-try {
-    final response = api.getLogEntries(startIndex, limit, minDate, hasUserId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ActivityLogApi->getLogEntries: $e\n');
+try { 
+    var result = api_instance.getLogEntries(startIndex, limit, minDate, hasUserId);
+    print(result);
+} catch (e) {
+    print("Exception when calling ActivityLogApi->getLogEntries: $e\n");
 }
 ```
 
@@ -43,10 +43,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **minDate** | **DateTime**| Optional. The minimum date. Format = ISO. | [optional] 
- **hasUserId** | **bool**| Optional. Filter log entries if it has user id, or not. | [optional] 
+ **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] [default to null]
+ **limit** | **int**| Optional. The maximum number of records to return. | [optional] [default to null]
+ **minDate** | **DateTime**| Optional. The minimum date. Format &#x3D; ISO. | [optional] [default to null]
+ **hasUserId** | **bool**| Optional. Filter log entries if it has user id, or not. | [optional] [default to null]
 
 ### Return type
 

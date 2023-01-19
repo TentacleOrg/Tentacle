@@ -1,8 +1,8 @@
-# openapi.model.TaskState
+# jellyfin_api.model.TaskState
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

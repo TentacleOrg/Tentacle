@@ -1,8 +1,8 @@
-# openapi.model.RecordingStatus
+# jellyfin_api.model.RecordingStatus
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

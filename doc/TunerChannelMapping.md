@@ -1,17 +1,17 @@
-# openapi.model.TunerChannelMapping
+# jellyfin_api.model.TunerChannelMapping
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | [optional] 
-**providerChannelName** | **String** |  | [optional] 
-**providerChannelId** | **String** |  | [optional] 
-**id** | **String** |  | [optional] 
+**name** | **String** |  | [optional] [default to null]
+**providerChannelName** | **String** |  | [optional] [default to null]
+**providerChannelId** | **String** |  | [optional] [default to null]
+**id** | **String** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

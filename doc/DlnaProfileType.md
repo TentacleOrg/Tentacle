@@ -1,8 +1,8 @@
-# openapi.model.DlnaProfileType
+# jellyfin_api.model.DlnaProfileType
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

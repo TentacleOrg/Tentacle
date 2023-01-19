@@ -1,8 +1,8 @@
-# openapi.model.TranscodeSeekInfo
+# jellyfin_api.model.TranscodeSeekInfo
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

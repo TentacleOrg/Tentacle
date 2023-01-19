@@ -1,15 +1,15 @@
-# openapi.api.SuggestionsApi
+# jellyfin_api.api.SuggestionsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSuggestions**](SuggestionsApi.md#getsuggestions) | **GET** /Users/{userId}/Suggestions | Gets suggestions.
+[**getSuggestions**](SuggestionsApi.md#getSuggestions) | **get** /Users/{userId}/Suggestions | Gets suggestions.
 
 
 # **getSuggestions**
@@ -17,27 +17,27 @@ Method | HTTP request | Description
 
 Gets suggestions.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSuggestionsApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final BuiltList<String> mediaType = ; // BuiltList<String> | The media types.
-final BuiltList<BaseItemKind> type = ; // BuiltList<BaseItemKind> | The type.
-final int startIndex = 56; // int | Optional. The start index.
-final int limit = 56; // int | Optional. The limit.
-final bool enableTotalRecordCount = true; // bool | Whether to enable the total record count.
+var api_instance = new SuggestionsApi();
+var userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+var mediaType = []; // List<String> | The media types.
+var type = []; // List<BaseItemKind> | The type.
+var startIndex = 56; // int | Optional. The start index.
+var limit = 56; // int | Optional. The limit.
+var enableTotalRecordCount = true; // bool | Whether to enable the total record count.
 
-try {
-    final response = api.getSuggestions(userId, mediaType, type, startIndex, limit, enableTotalRecordCount);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling SuggestionsApi->getSuggestions: $e\n');
+try { 
+    var result = api_instance.getSuggestions(userId, mediaType, type, startIndex, limit, enableTotalRecordCount);
+    print(result);
+} catch (e) {
+    print("Exception when calling SuggestionsApi->getSuggestions: $e\n");
 }
 ```
 
@@ -45,11 +45,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The user id. | 
- **mediaType** | [**BuiltList&lt;String&gt;**](String.md)| The media types. | [optional] 
- **type** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| The type. | [optional] 
- **startIndex** | **int**| Optional. The start index. | [optional] 
- **limit** | **int**| Optional. The limit. | [optional] 
+ **userId** | [**String**](.md)| The user id. | [default to null]
+ **mediaType** | [**List&lt;String&gt;**](String.md)| The media types. | [optional] [default to const []]
+ **type** | [**List&lt;BaseItemKind&gt;**](BaseItemKind.md)| The type. | [optional] [default to const []]
+ **startIndex** | **int**| Optional. The start index. | [optional] [default to null]
+ **limit** | **int**| Optional. The limit. | [optional] [default to null]
  **enableTotalRecordCount** | **bool**| Whether to enable the total record count. | [optional] [default to false]
 
 ### Return type

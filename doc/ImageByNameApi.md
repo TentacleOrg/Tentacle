@@ -1,20 +1,20 @@
-# openapi.api.ImageByNameApi
+# jellyfin_api.api.ImageByNameApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getGeneralImage**](ImageByNameApi.md#getgeneralimage) | **GET** /Images/General/{name}/{type} | Get General Image.
-[**getGeneralImages**](ImageByNameApi.md#getgeneralimages) | **GET** /Images/General | Get all general images.
-[**getMediaInfoImage**](ImageByNameApi.md#getmediainfoimage) | **GET** /Images/MediaInfo/{theme}/{name} | Get media info image.
-[**getMediaInfoImages**](ImageByNameApi.md#getmediainfoimages) | **GET** /Images/MediaInfo | Get all media info images.
-[**getRatingImage**](ImageByNameApi.md#getratingimage) | **GET** /Images/Ratings/{theme}/{name} | Get rating image.
-[**getRatingImages**](ImageByNameApi.md#getratingimages) | **GET** /Images/Ratings | Get all general images.
+[**getGeneralImage**](ImageByNameApi.md#getGeneralImage) | **get** /Images/General/{name}/{type} | Get General Image.
+[**getGeneralImages**](ImageByNameApi.md#getGeneralImages) | **get** /Images/General | Get all general images.
+[**getMediaInfoImage**](ImageByNameApi.md#getMediaInfoImage) | **get** /Images/MediaInfo/{theme}/{name} | Get media info image.
+[**getMediaInfoImages**](ImageByNameApi.md#getMediaInfoImages) | **get** /Images/MediaInfo | Get all media info images.
+[**getRatingImage**](ImageByNameApi.md#getRatingImage) | **get** /Images/Ratings/{theme}/{name} | Get rating image.
+[**getRatingImages**](ImageByNameApi.md#getRatingImages) | **get** /Images/Ratings | Get all general images.
 
 
 # **getGeneralImage**
@@ -22,19 +22,19 @@ Method | HTTP request | Description
 
 Get General Image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageByNameApi();
-final String name = name_example; // String | The name of the image.
-final String type = type_example; // String | Image Type (primary, backdrop, logo, etc).
+var api_instance = new ImageByNameApi();
+var name = name_example; // String | The name of the image.
+var type = type_example; // String | Image Type (primary, backdrop, logo, etc).
 
-try {
-    final response = api.getGeneralImage(name, type);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageByNameApi->getGeneralImage: $e\n');
+try { 
+    var result = api_instance.getGeneralImage(name, type);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageByNameApi->getGeneralImage: $e\n");
 }
 ```
 
@@ -42,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the image. | 
- **type** | **String**| Image Type (primary, backdrop, logo, etc). | 
+ **name** | **String**| The name of the image. | [default to null]
+ **type** | **String**| Image Type (primary, backdrop, logo, etc). | [default to null]
 
 ### Return type
 
@@ -56,30 +56,30 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/octet-stream, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/octet-stream, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGeneralImages**
-> BuiltList<ImageByNameInfo> getGeneralImages()
+> List<ImageByNameInfo> getGeneralImages()
 
 Get all general images.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageByNameApi();
+var api_instance = new ImageByNameApi();
 
-try {
-    final response = api.getGeneralImages();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageByNameApi->getGeneralImages: $e\n');
+try { 
+    var result = api_instance.getGeneralImages();
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageByNameApi->getGeneralImages: $e\n");
 }
 ```
 
@@ -88,7 +88,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;ImageByNameInfo&gt;**](ImageByNameInfo.md)
+[**List<ImageByNameInfo>**](ImageByNameInfo.md)
 
 ### Authorization
 
@@ -106,19 +106,19 @@ This endpoint does not need any parameter.
 
 Get media info image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageByNameApi();
-final String theme = theme_example; // String | The theme to get the image from.
-final String name = name_example; // String | The name of the image.
+var api_instance = new ImageByNameApi();
+var theme = theme_example; // String | The theme to get the image from.
+var name = name_example; // String | The name of the image.
 
-try {
-    final response = api.getMediaInfoImage(theme, name);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageByNameApi->getMediaInfoImage: $e\n');
+try { 
+    var result = api_instance.getMediaInfoImage(theme, name);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageByNameApi->getMediaInfoImage: $e\n");
 }
 ```
 
@@ -126,8 +126,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **theme** | **String**| The theme to get the image from. | 
- **name** | **String**| The name of the image. | 
+ **theme** | **String**| The theme to get the image from. | [default to null]
+ **name** | **String**| The name of the image. | [default to null]
 
 ### Return type
 
@@ -140,30 +140,30 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/octet-stream, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/octet-stream, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMediaInfoImages**
-> BuiltList<ImageByNameInfo> getMediaInfoImages()
+> List<ImageByNameInfo> getMediaInfoImages()
 
 Get all media info images.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageByNameApi();
+var api_instance = new ImageByNameApi();
 
-try {
-    final response = api.getMediaInfoImages();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageByNameApi->getMediaInfoImages: $e\n');
+try { 
+    var result = api_instance.getMediaInfoImages();
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageByNameApi->getMediaInfoImages: $e\n");
 }
 ```
 
@@ -172,7 +172,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;ImageByNameInfo&gt;**](ImageByNameInfo.md)
+[**List<ImageByNameInfo>**](ImageByNameInfo.md)
 
 ### Authorization
 
@@ -190,19 +190,19 @@ This endpoint does not need any parameter.
 
 Get rating image.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getImageByNameApi();
-final String theme = theme_example; // String | The theme to get the image from.
-final String name = name_example; // String | The name of the image.
+var api_instance = new ImageByNameApi();
+var theme = theme_example; // String | The theme to get the image from.
+var name = name_example; // String | The name of the image.
 
-try {
-    final response = api.getRatingImage(theme, name);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageByNameApi->getRatingImage: $e\n');
+try { 
+    var result = api_instance.getRatingImage(theme, name);
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageByNameApi->getRatingImage: $e\n");
 }
 ```
 
@@ -210,8 +210,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **theme** | **String**| The theme to get the image from. | 
- **name** | **String**| The name of the image. | 
+ **theme** | **String**| The theme to get the image from. | [default to null]
+ **name** | **String**| The name of the image. | [default to null]
 
 ### Return type
 
@@ -224,30 +224,30 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/octet-stream, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/_*, application/octet-stream, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRatingImages**
-> BuiltList<ImageByNameInfo> getRatingImages()
+> List<ImageByNameInfo> getRatingImages()
 
 Get all general images.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageByNameApi();
+var api_instance = new ImageByNameApi();
 
-try {
-    final response = api.getRatingImages();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ImageByNameApi->getRatingImages: $e\n');
+try { 
+    var result = api_instance.getRatingImages();
+    print(result);
+} catch (e) {
+    print("Exception when calling ImageByNameApi->getRatingImages: $e\n");
 }
 ```
 
@@ -256,7 +256,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;ImageByNameInfo&gt;**](ImageByNameInfo.md)
+[**List<ImageByNameInfo>**](ImageByNameInfo.md)
 
 ### Authorization
 

@@ -1,15 +1,15 @@
-# openapi.api.TmdbApi
+# jellyfin_api.api.TmdbApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**tmdbClientConfiguration**](TmdbApi.md#tmdbclientconfiguration) | **GET** /Tmdb/ClientConfiguration | Gets the TMDb image configuration options.
+[**tmdbClientConfiguration**](TmdbApi.md#tmdbClientConfiguration) | **get** /Tmdb/ClientConfiguration | Gets the TMDb image configuration options.
 
 
 # **tmdbClientConfiguration**
@@ -17,21 +17,21 @@ Method | HTTP request | Description
 
 Gets the TMDb image configuration options.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getTmdbApi();
+var api_instance = new TmdbApi();
 
-try {
-    final response = api.tmdbClientConfiguration();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling TmdbApi->tmdbClientConfiguration: $e\n');
+try { 
+    var result = api_instance.tmdbClientConfiguration();
+    print(result);
+} catch (e) {
+    print("Exception when calling TmdbApi->tmdbClientConfiguration: $e\n");
 }
 ```
 

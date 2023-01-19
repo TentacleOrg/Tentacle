@@ -1,53 +1,53 @@
-# openapi.api.PlaybackReportingActivityApi
+# jellyfin_api.api.PlaybackReportingActivityApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**customQuery**](PlaybackReportingActivityApi.md#customquery) | **POST** /user_usage_stats/submit_custom_query | 
-[**getBreakdownReport**](PlaybackReportingActivityApi.md#getbreakdownreport) | **GET** /user_usage_stats/{breakdownType}/BreakdownReport | 
-[**getDurationHistogramReport**](PlaybackReportingActivityApi.md#getdurationhistogramreport) | **GET** /user_usage_stats/DurationHistogramReport | 
-[**getHourlyReport**](PlaybackReportingActivityApi.md#gethourlyreport) | **GET** /user_usage_stats/HourlyReport | 
-[**getJellyfinUsers**](PlaybackReportingActivityApi.md#getjellyfinusers) | **GET** /user_usage_stats/user_list | 
-[**getMovieReport**](PlaybackReportingActivityApi.md#getmoviereport) | **GET** /user_usage_stats/MoviesReport | 
-[**getTvShowsReport**](PlaybackReportingActivityApi.md#gettvshowsreport) | **GET** /user_usage_stats/GetTvShowsReport | 
-[**getTypeFilterList**](PlaybackReportingActivityApi.md#gettypefilterlist) | **GET** /user_usage_stats/type_filter_list | 
-[**getUsageStats**](PlaybackReportingActivityApi.md#getusagestats) | **GET** /user_usage_stats/PlayActivity | 
-[**getUserReport**](PlaybackReportingActivityApi.md#getuserreport) | **GET** /user_usage_stats/user_activity | 
-[**getUserReportData**](PlaybackReportingActivityApi.md#getuserreportdata) | **GET** /user_usage_stats/{userId}/{date}/GetItems | 
-[**ignoreListAdd**](PlaybackReportingActivityApi.md#ignorelistadd) | **GET** /user_usage_stats/user_manage/add | 
-[**ignoreListRemove**](PlaybackReportingActivityApi.md#ignorelistremove) | **GET** /user_usage_stats/user_manage/remove | 
-[**loadBackup**](PlaybackReportingActivityApi.md#loadbackup) | **GET** /user_usage_stats/load_backup | 
-[**pruneUnknownUsers**](PlaybackReportingActivityApi.md#pruneunknownusers) | **GET** /user_usage_stats/user_manage/prune | 
-[**saveBackup**](PlaybackReportingActivityApi.md#savebackup) | **GET** /user_usage_stats/save_backup | 
+[**customQuery**](PlaybackReportingActivityApi.md#customQuery) | **post** /user_usage_stats/submit_custom_query | 
+[**getBreakdownReport**](PlaybackReportingActivityApi.md#getBreakdownReport) | **get** /user_usage_stats/{breakdownType}/BreakdownReport | 
+[**getDurationHistogramReport**](PlaybackReportingActivityApi.md#getDurationHistogramReport) | **get** /user_usage_stats/DurationHistogramReport | 
+[**getHourlyReport**](PlaybackReportingActivityApi.md#getHourlyReport) | **get** /user_usage_stats/HourlyReport | 
+[**getJellyfinUsers**](PlaybackReportingActivityApi.md#getJellyfinUsers) | **get** /user_usage_stats/user_list | 
+[**getMovieReport**](PlaybackReportingActivityApi.md#getMovieReport) | **get** /user_usage_stats/MoviesReport | 
+[**getTvShowsReport**](PlaybackReportingActivityApi.md#getTvShowsReport) | **get** /user_usage_stats/GetTvShowsReport | 
+[**getTypeFilterList**](PlaybackReportingActivityApi.md#getTypeFilterList) | **get** /user_usage_stats/type_filter_list | 
+[**getUsageStats**](PlaybackReportingActivityApi.md#getUsageStats) | **get** /user_usage_stats/PlayActivity | 
+[**getUserReport**](PlaybackReportingActivityApi.md#getUserReport) | **get** /user_usage_stats/user_activity | 
+[**getUserReportData**](PlaybackReportingActivityApi.md#getUserReportData) | **get** /user_usage_stats/{userId}/{date}/GetItems | 
+[**ignoreListAdd**](PlaybackReportingActivityApi.md#ignoreListAdd) | **get** /user_usage_stats/user_manage/add | 
+[**ignoreListRemove**](PlaybackReportingActivityApi.md#ignoreListRemove) | **get** /user_usage_stats/user_manage/remove | 
+[**loadBackup**](PlaybackReportingActivityApi.md#loadBackup) | **get** /user_usage_stats/load_backup | 
+[**pruneUnknownUsers**](PlaybackReportingActivityApi.md#pruneUnknownUsers) | **get** /user_usage_stats/user_manage/prune | 
+[**saveBackup**](PlaybackReportingActivityApi.md#saveBackup) | **get** /user_usage_stats/save_backup | 
 
 
 # **customQuery**
-> BuiltMap<String, JsonObject> customQuery(customQueryRequest)
+> Map<String, AnyType> customQuery(UNKNOWN_BASE_TYPE)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final CustomQueryRequest customQueryRequest = ; // CustomQueryRequest | 
+var api_instance = new PlaybackReportingActivityApi();
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 
-try {
-    final response = api.customQuery(customQueryRequest);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->customQuery: $e\n');
+try { 
+    var result = api_instance.customQuery(UNKNOWN_BASE_TYPE);
+    print(result);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->customQuery: $e\n");
 }
 ```
 
@@ -55,11 +55,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customQueryRequest** | [**CustomQueryRequest**](CustomQueryRequest.md)|  | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
 
 ### Return type
 
-[**BuiltMap&lt;String, JsonObject&gt;**](JsonObject.md)
+[**Map<String, AnyType>**](AnyType.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -77,24 +77,24 @@ Name | Type | Description  | Notes
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final String breakdownType = breakdownType_example; // String | 
-final int days = 56; // int | 
-final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final double timezoneOffset = 3.4; // double | 
+var api_instance = new PlaybackReportingActivityApi();
+var breakdownType = breakdownType_example; // String | 
+var days = 56; // int | 
+var endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+var timezoneOffset = 3.4; // double | 
 
-try {
-    api.getBreakdownReport(breakdownType, days, endDate, timezoneOffset);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getBreakdownReport: $e\n');
+try { 
+    api_instance.getBreakdownReport(breakdownType, days, endDate, timezoneOffset);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getBreakdownReport: $e\n");
 }
 ```
 
@@ -102,10 +102,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **breakdownType** | **String**|  | 
- **days** | **int**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **timezoneOffset** | **double**|  | [optional] 
+ **breakdownType** | **String**|  | [default to null]
+ **days** | **int**|  | [optional] [default to null]
+ **endDate** | **DateTime**|  | [optional] [default to null]
+ **timezoneOffset** | **double**|  | [optional] [default to null]
 
 ### Return type
 
@@ -127,23 +127,23 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final int days = 56; // int | 
-final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final String filter = filter_example; // String | 
+var api_instance = new PlaybackReportingActivityApi();
+var days = 56; // int | 
+var endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+var filter = filter_example; // String | 
 
-try {
-    api.getDurationHistogramReport(days, endDate, filter);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getDurationHistogramReport: $e\n');
+try { 
+    api_instance.getDurationHistogramReport(days, endDate, filter);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getDurationHistogramReport: $e\n");
 }
 ```
 
@@ -151,9 +151,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **days** | **int**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **filter** | **String**|  | [optional] 
+ **days** | **int**|  | [optional] [default to null]
+ **endDate** | **DateTime**|  | [optional] [default to null]
+ **filter** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -175,24 +175,24 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final int days = 56; // int | 
-final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final String filter = filter_example; // String | 
-final double timezoneOffset = 3.4; // double | 
+var api_instance = new PlaybackReportingActivityApi();
+var days = 56; // int | 
+var endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+var filter = filter_example; // String | 
+var timezoneOffset = 3.4; // double | 
 
-try {
-    api.getHourlyReport(days, endDate, filter, timezoneOffset);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getHourlyReport: $e\n');
+try { 
+    api_instance.getHourlyReport(days, endDate, filter, timezoneOffset);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getHourlyReport: $e\n");
 }
 ```
 
@@ -200,10 +200,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **days** | **int**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **filter** | **String**|  | [optional] 
- **timezoneOffset** | **double**|  | [optional] 
+ **days** | **int**|  | [optional] [default to null]
+ **endDate** | **DateTime**|  | [optional] [default to null]
+ **filter** | **String**|  | [optional] [default to null]
+ **timezoneOffset** | **double**|  | [optional] [default to null]
 
 ### Return type
 
@@ -225,20 +225,20 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
+var api_instance = new PlaybackReportingActivityApi();
 
-try {
-    api.getJellyfinUsers();
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getJellyfinUsers: $e\n');
+try { 
+    api_instance.getJellyfinUsers();
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getJellyfinUsers: $e\n");
 }
 ```
 
@@ -265,23 +265,23 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final int days = 56; // int | 
-final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final double timezoneOffset = 3.4; // double | 
+var api_instance = new PlaybackReportingActivityApi();
+var days = 56; // int | 
+var endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+var timezoneOffset = 3.4; // double | 
 
-try {
-    api.getMovieReport(days, endDate, timezoneOffset);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getMovieReport: $e\n');
+try { 
+    api_instance.getMovieReport(days, endDate, timezoneOffset);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getMovieReport: $e\n");
 }
 ```
 
@@ -289,9 +289,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **days** | **int**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **timezoneOffset** | **double**|  | [optional] 
+ **days** | **int**|  | [optional] [default to null]
+ **endDate** | **DateTime**|  | [optional] [default to null]
+ **timezoneOffset** | **double**|  | [optional] [default to null]
 
 ### Return type
 
@@ -313,23 +313,23 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final int days = 56; // int | 
-final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final double timezoneOffset = 3.4; // double | 
+var api_instance = new PlaybackReportingActivityApi();
+var days = 56; // int | 
+var endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+var timezoneOffset = 3.4; // double | 
 
-try {
-    api.getTvShowsReport(days, endDate, timezoneOffset);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getTvShowsReport: $e\n');
+try { 
+    api_instance.getTvShowsReport(days, endDate, timezoneOffset);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getTvShowsReport: $e\n");
 }
 ```
 
@@ -337,9 +337,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **days** | **int**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **timezoneOffset** | **double**|  | [optional] 
+ **days** | **int**|  | [optional] [default to null]
+ **endDate** | **DateTime**|  | [optional] [default to null]
+ **timezoneOffset** | **double**|  | [optional] [default to null]
 
 ### Return type
 
@@ -361,20 +361,20 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
+var api_instance = new PlaybackReportingActivityApi();
 
-try {
-    api.getTypeFilterList();
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getTypeFilterList: $e\n');
+try { 
+    api_instance.getTypeFilterList();
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getTypeFilterList: $e\n");
 }
 ```
 
@@ -401,25 +401,25 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final int days = 56; // int | 
-final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final String filter = filter_example; // String | 
-final String dataType = dataType_example; // String | 
-final double timezoneOffset = 3.4; // double | 
+var api_instance = new PlaybackReportingActivityApi();
+var days = 56; // int | 
+var endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+var filter = filter_example; // String | 
+var dataType = dataType_example; // String | 
+var timezoneOffset = 3.4; // double | 
 
-try {
-    api.getUsageStats(days, endDate, filter, dataType, timezoneOffset);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getUsageStats: $e\n');
+try { 
+    api_instance.getUsageStats(days, endDate, filter, dataType, timezoneOffset);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getUsageStats: $e\n");
 }
 ```
 
@@ -427,11 +427,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **days** | **int**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **filter** | **String**|  | [optional] 
- **dataType** | **String**|  | [optional] 
- **timezoneOffset** | **double**|  | [optional] 
+ **days** | **int**|  | [optional] [default to null]
+ **endDate** | **DateTime**|  | [optional] [default to null]
+ **filter** | **String**|  | [optional] [default to null]
+ **dataType** | **String**|  | [optional] [default to null]
+ **timezoneOffset** | **double**|  | [optional] [default to null]
 
 ### Return type
 
@@ -453,23 +453,23 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final int days = 56; // int | 
-final DateTime endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
-final double timezoneOffset = 3.4; // double | 
+var api_instance = new PlaybackReportingActivityApi();
+var days = 56; // int | 
+var endDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+var timezoneOffset = 3.4; // double | 
 
-try {
-    api.getUserReport(days, endDate, timezoneOffset);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getUserReport: $e\n');
+try { 
+    api_instance.getUserReport(days, endDate, timezoneOffset);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getUserReport: $e\n");
 }
 ```
 
@@ -477,9 +477,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **days** | **int**|  | [optional] 
- **endDate** | **DateTime**|  | [optional] 
- **timezoneOffset** | **double**|  | [optional] 
+ **days** | **int**|  | [optional] [default to null]
+ **endDate** | **DateTime**|  | [optional] [default to null]
+ **timezoneOffset** | **double**|  | [optional] [default to null]
 
 ### Return type
 
@@ -501,24 +501,24 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final String userId = userId_example; // String | 
-final String date = date_example; // String | 
-final String filter = filter_example; // String | 
-final double timezoneOffset = 3.4; // double | 
+var api_instance = new PlaybackReportingActivityApi();
+var userId = userId_example; // String | 
+var date = date_example; // String | 
+var filter = filter_example; // String | 
+var timezoneOffset = 3.4; // double | 
 
-try {
-    api.getUserReportData(userId, date, filter, timezoneOffset);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->getUserReportData: $e\n');
+try { 
+    api_instance.getUserReportData(userId, date, filter, timezoneOffset);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->getUserReportData: $e\n");
 }
 ```
 
@@ -526,10 +526,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**|  | 
- **date** | **String**|  | 
- **filter** | **String**|  | [optional] 
- **timezoneOffset** | **double**|  | [optional] 
+ **userId** | **String**|  | [default to null]
+ **date** | **String**|  | [default to null]
+ **filter** | **String**|  | [optional] [default to null]
+ **timezoneOffset** | **double**|  | [optional] [default to null]
 
 ### Return type
 
@@ -551,22 +551,22 @@ void (empty response body)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final String id = id_example; // String | 
+var api_instance = new PlaybackReportingActivityApi();
+var id = id_example; // String | 
 
-try {
-    final response = api.ignoreListAdd(id);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->ignoreListAdd: $e\n');
+try { 
+    var result = api_instance.ignoreListAdd(id);
+    print(result);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->ignoreListAdd: $e\n");
 }
 ```
 
@@ -574,7 +574,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | [optional] 
+ **id** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -596,22 +596,22 @@ Name | Type | Description  | Notes
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final String id = id_example; // String | 
+var api_instance = new PlaybackReportingActivityApi();
+var id = id_example; // String | 
 
-try {
-    final response = api.ignoreListRemove(id);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->ignoreListRemove: $e\n');
+try { 
+    var result = api_instance.ignoreListRemove(id);
+    print(result);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->ignoreListRemove: $e\n");
 }
 ```
 
@@ -619,7 +619,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**|  | [optional] 
+ **id** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -637,26 +637,26 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **loadBackup**
-> BuiltList<String> loadBackup(backupFilePath)
+> List<String> loadBackup(backupFilePath)
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
-final String backupFilePath = backupFilePath_example; // String | 
+var api_instance = new PlaybackReportingActivityApi();
+var backupFilePath = backupFilePath_example; // String | 
 
-try {
-    final response = api.loadBackup(backupFilePath);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->loadBackup: $e\n');
+try { 
+    var result = api_instance.loadBackup(backupFilePath);
+    print(result);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->loadBackup: $e\n");
 }
 ```
 
@@ -664,11 +664,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **backupFilePath** | **String**|  | [optional] 
+ **backupFilePath** | **String**|  | [optional] [default to null]
 
 ### Return type
 
-**BuiltList&lt;String&gt;**
+**List<String>**
 
 ### Authorization
 
@@ -686,21 +686,21 @@ Name | Type | Description  | Notes
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
+var api_instance = new PlaybackReportingActivityApi();
 
-try {
-    final response = api.pruneUnknownUsers();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->pruneUnknownUsers: $e\n');
+try { 
+    var result = api_instance.pruneUnknownUsers();
+    print(result);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->pruneUnknownUsers: $e\n");
 }
 ```
 
@@ -723,25 +723,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **saveBackup**
-> BuiltList<String> saveBackup()
+> List<String> saveBackup()
 
 
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaybackReportingActivityApi();
+var api_instance = new PlaybackReportingActivityApi();
 
-try {
-    final response = api.saveBackup();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling PlaybackReportingActivityApi->saveBackup: $e\n');
+try { 
+    var result = api_instance.saveBackup();
+    print(result);
+} catch (e) {
+    print("Exception when calling PlaybackReportingActivityApi->saveBackup: $e\n");
 }
 ```
 
@@ -750,7 +750,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**BuiltList&lt;String&gt;**
+**List<String>**
 
 ### Authorization
 

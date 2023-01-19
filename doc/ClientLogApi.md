@@ -1,15 +1,15 @@
-# openapi.api.ClientLogApi
+# jellyfin_api.api.ClientLogApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**logFile**](ClientLogApi.md#logfile) | **POST** /ClientLog/Document | Upload a document.
+[**logFile**](ClientLogApi.md#logFile) | **post** /ClientLog/Document | Upload a document.
 
 
 # **logFile**
@@ -17,22 +17,22 @@ Method | HTTP request | Description
 
 Upload a document.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getClientLogApi();
-final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
+var api_instance = new ClientLogApi();
+var body = new Uint8List(); // Uint8List | 
 
-try {
-    final response = api.logFile(body);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ClientLogApi->logFile: $e\n');
+try { 
+    var result = api_instance.logFile(body);
+    print(result);
+} catch (e) {
+    print("Exception when calling ClientLogApi->logFile: $e\n");
 }
 ```
 
@@ -40,7 +40,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **MultipartFile**|  | [optional] 
+ **body** | **Uint8List**|  | [optional] 
 
 ### Return type
 

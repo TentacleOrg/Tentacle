@@ -1,8 +1,8 @@
-# openapi.model.GroupStateType
+# jellyfin_api.model.GroupStateType
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

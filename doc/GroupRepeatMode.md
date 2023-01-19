@@ -1,8 +1,8 @@
-# openapi.model.GroupRepeatMode
+# jellyfin_api.model.GroupRepeatMode
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

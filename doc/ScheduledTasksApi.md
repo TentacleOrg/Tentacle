@@ -1,19 +1,19 @@
-# openapi.api.ScheduledTasksApi
+# jellyfin_api.api.ScheduledTasksApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getTask**](ScheduledTasksApi.md#gettask) | **GET** /ScheduledTasks/{taskId} | Get task by id.
-[**getTasks**](ScheduledTasksApi.md#gettasks) | **GET** /ScheduledTasks | Get tasks.
-[**startTask**](ScheduledTasksApi.md#starttask) | **POST** /ScheduledTasks/Running/{taskId} | Start specified task.
-[**stopTask**](ScheduledTasksApi.md#stoptask) | **DELETE** /ScheduledTasks/Running/{taskId} | Stop specified task.
-[**updateTask**](ScheduledTasksApi.md#updatetask) | **POST** /ScheduledTasks/{taskId}/Triggers | Update specified task triggers.
+[**getTask**](ScheduledTasksApi.md#getTask) | **get** /ScheduledTasks/{taskId} | Get task by id.
+[**getTasks**](ScheduledTasksApi.md#getTasks) | **get** /ScheduledTasks | Get tasks.
+[**startTask**](ScheduledTasksApi.md#startTask) | **post** /ScheduledTasks/Running/{taskId} | Start specified task.
+[**stopTask**](ScheduledTasksApi.md#stopTask) | **delete** /ScheduledTasks/Running/{taskId} | Stop specified task.
+[**updateTask**](ScheduledTasksApi.md#updateTask) | **post** /ScheduledTasks/{taskId}/Triggers | Update specified task triggers.
 
 
 # **getTask**
@@ -21,22 +21,22 @@ Method | HTTP request | Description
 
 Get task by id.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
-final String taskId = taskId_example; // String | Task Id.
+var api_instance = new ScheduledTasksApi();
+var taskId = taskId_example; // String | Task Id.
 
-try {
-    final response = api.getTask(taskId);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ScheduledTasksApi->getTask: $e\n');
+try { 
+    var result = api_instance.getTask(taskId);
+    print(result);
+} catch (e) {
+    print("Exception when calling ScheduledTasksApi->getTask: $e\n");
 }
 ```
 
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskId** | **String**| Task Id. | 
+ **taskId** | **String**| Task Id. | [default to null]
 
 ### Return type
 
@@ -62,27 +62,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTasks**
-> BuiltList<TaskInfo> getTasks(isHidden, isEnabled)
+> List<TaskInfo> getTasks(isHidden, isEnabled)
 
 Get tasks.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
-final bool isHidden = true; // bool | Optional filter tasks that are hidden, or not.
-final bool isEnabled = true; // bool | Optional filter tasks that are enabled, or not.
+var api_instance = new ScheduledTasksApi();
+var isHidden = true; // bool | Optional filter tasks that are hidden, or not.
+var isEnabled = true; // bool | Optional filter tasks that are enabled, or not.
 
-try {
-    final response = api.getTasks(isHidden, isEnabled);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling ScheduledTasksApi->getTasks: $e\n');
+try { 
+    var result = api_instance.getTasks(isHidden, isEnabled);
+    print(result);
+} catch (e) {
+    print("Exception when calling ScheduledTasksApi->getTasks: $e\n");
 }
 ```
 
@@ -90,12 +90,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isHidden** | **bool**| Optional filter tasks that are hidden, or not. | [optional] 
- **isEnabled** | **bool**| Optional filter tasks that are enabled, or not. | [optional] 
+ **isHidden** | **bool**| Optional filter tasks that are hidden, or not. | [optional] [default to null]
+ **isEnabled** | **bool**| Optional filter tasks that are enabled, or not. | [optional] [default to null]
 
 ### Return type
 
-[**BuiltList&lt;TaskInfo&gt;**](TaskInfo.md)
+[**List<TaskInfo>**](TaskInfo.md)
 
 ### Authorization
 
@@ -113,21 +113,21 @@ Name | Type | Description  | Notes
 
 Start specified task.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
-final String taskId = taskId_example; // String | Task Id.
+var api_instance = new ScheduledTasksApi();
+var taskId = taskId_example; // String | Task Id.
 
-try {
-    api.startTask(taskId);
-} catch on DioError (e) {
-    print('Exception when calling ScheduledTasksApi->startTask: $e\n');
+try { 
+    api_instance.startTask(taskId);
+} catch (e) {
+    print("Exception when calling ScheduledTasksApi->startTask: $e\n");
 }
 ```
 
@@ -135,7 +135,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskId** | **String**| Task Id. | 
+ **taskId** | **String**| Task Id. | [default to null]
 
 ### Return type
 
@@ -157,21 +157,21 @@ void (empty response body)
 
 Stop specified task.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
-final String taskId = taskId_example; // String | Task Id.
+var api_instance = new ScheduledTasksApi();
+var taskId = taskId_example; // String | Task Id.
 
-try {
-    api.stopTask(taskId);
-} catch on DioError (e) {
-    print('Exception when calling ScheduledTasksApi->stopTask: $e\n');
+try { 
+    api_instance.stopTask(taskId);
+} catch (e) {
+    print("Exception when calling ScheduledTasksApi->stopTask: $e\n");
 }
 ```
 
@@ -179,7 +179,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskId** | **String**| Task Id. | 
+ **taskId** | **String**| Task Id. | [default to null]
 
 ### Return type
 
@@ -201,22 +201,22 @@ void (empty response body)
 
 Update specified task triggers.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
-final String taskId = taskId_example; // String | Task Id.
-final BuiltList<TaskTriggerInfo> taskTriggerInfo = ; // BuiltList<TaskTriggerInfo> | Triggers.
+var api_instance = new ScheduledTasksApi();
+var taskId = taskId_example; // String | Task Id.
+var taskTriggerInfo = [new List&lt;TaskTriggerInfo&gt;()]; // List<TaskTriggerInfo> | Triggers.
 
-try {
-    api.updateTask(taskId, taskTriggerInfo);
-} catch on DioError (e) {
-    print('Exception when calling ScheduledTasksApi->updateTask: $e\n');
+try { 
+    api_instance.updateTask(taskId, taskTriggerInfo);
+} catch (e) {
+    print("Exception when calling ScheduledTasksApi->updateTask: $e\n");
 }
 ```
 
@@ -224,8 +224,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **taskId** | **String**| Task Id. | 
- **taskTriggerInfo** | [**BuiltList&lt;TaskTriggerInfo&gt;**](TaskTriggerInfo.md)| Triggers. | 
+ **taskId** | **String**| Task Id. | [default to null]
+ **taskTriggerInfo** | [**List&lt;TaskTriggerInfo&gt;**](TaskTriggerInfo.md)| Triggers. | 
 
 ### Return type
 
@@ -237,7 +237,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json, text/json, application/*+json
+ - **Content-Type**: application/json, text/json, application/_*+json
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

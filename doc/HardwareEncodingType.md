@@ -1,8 +1,8 @@
-# openapi.model.HardwareEncodingType
+# jellyfin_api.model.HardwareEncodingType
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

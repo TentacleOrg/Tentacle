@@ -1,17 +1,17 @@
-# openapi.api.CollectionApi
+# jellyfin_api.api.CollectionApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addToCollection**](CollectionApi.md#addtocollection) | **POST** /Collections/{collectionId}/Items | Adds items to a collection.
-[**createCollection**](CollectionApi.md#createcollection) | **POST** /Collections | Creates a new collection.
-[**removeFromCollection**](CollectionApi.md#removefromcollection) | **DELETE** /Collections/{collectionId}/Items | Removes items from a collection.
+[**addToCollection**](CollectionApi.md#addToCollection) | **post** /Collections/{collectionId}/Items | Adds items to a collection.
+[**createCollection**](CollectionApi.md#createCollection) | **post** /Collections | Creates a new collection.
+[**removeFromCollection**](CollectionApi.md#removeFromCollection) | **delete** /Collections/{collectionId}/Items | Removes items from a collection.
 
 
 # **addToCollection**
@@ -19,22 +19,22 @@ Method | HTTP request | Description
 
 Adds items to a collection.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getCollectionApi();
-final String collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
-final BuiltList<String> ids = ; // BuiltList<String> | Item ids, comma delimited.
+var api_instance = new CollectionApi();
+var collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
+var ids = []; // List<String> | Item ids, comma delimited.
 
-try {
-    api.addToCollection(collectionId, ids);
-} catch on DioError (e) {
-    print('Exception when calling CollectionApi->addToCollection: $e\n');
+try { 
+    api_instance.addToCollection(collectionId, ids);
+} catch (e) {
+    print("Exception when calling CollectionApi->addToCollection: $e\n");
 }
 ```
 
@@ -42,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection id. | 
- **ids** | [**BuiltList&lt;String&gt;**](String.md)| Item ids, comma delimited. | 
+ **collectionId** | [**String**](.md)| The collection id. | [default to null]
+ **ids** | [**List&lt;String&gt;**](String.md)| Item ids, comma delimited. | [default to const []]
 
 ### Return type
 
@@ -65,25 +65,25 @@ void (empty response body)
 
 Creates a new collection.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getCollectionApi();
-final String name = name_example; // String | The name of the collection.
-final BuiltList<String> ids = ; // BuiltList<String> | Item Ids to add to the collection.
-final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Create the collection within a specific folder.
-final bool isLocked = true; // bool | Whether or not to lock the new collection.
+var api_instance = new CollectionApi();
+var name = name_example; // String | The name of the collection.
+var ids = []; // List<String> | Item Ids to add to the collection.
+var parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Create the collection within a specific folder.
+var isLocked = true; // bool | Whether or not to lock the new collection.
 
-try {
-    final response = api.createCollection(name, ids, parentId, isLocked);
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling CollectionApi->createCollection: $e\n');
+try { 
+    var result = api_instance.createCollection(name, ids, parentId, isLocked);
+    print(result);
+} catch (e) {
+    print("Exception when calling CollectionApi->createCollection: $e\n");
 }
 ```
 
@@ -91,9 +91,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The name of the collection. | [optional] 
- **ids** | [**BuiltList&lt;String&gt;**](String.md)| Item Ids to add to the collection. | [optional] 
- **parentId** | **String**| Optional. Create the collection within a specific folder. | [optional] 
+ **name** | **String**| The name of the collection. | [optional] [default to null]
+ **ids** | [**List&lt;String&gt;**](String.md)| Item Ids to add to the collection. | [optional] [default to const []]
+ **parentId** | [**String**](.md)| Optional. Create the collection within a specific folder. | [optional] [default to null]
  **isLocked** | **bool**| Whether or not to lock the new collection. | [optional] [default to false]
 
 ### Return type
@@ -116,22 +116,22 @@ Name | Type | Description  | Notes
 
 Removes items from a collection.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getCollectionApi();
-final String collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
-final BuiltList<String> ids = ; // BuiltList<String> | Item ids, comma delimited.
+var api_instance = new CollectionApi();
+var collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
+var ids = []; // List<String> | Item ids, comma delimited.
 
-try {
-    api.removeFromCollection(collectionId, ids);
-} catch on DioError (e) {
-    print('Exception when calling CollectionApi->removeFromCollection: $e\n');
+try { 
+    api_instance.removeFromCollection(collectionId, ids);
+} catch (e) {
+    print("Exception when calling CollectionApi->removeFromCollection: $e\n");
 }
 ```
 
@@ -139,8 +139,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **collectionId** | **String**| The collection id. | 
- **ids** | [**BuiltList&lt;String&gt;**](String.md)| Item ids, comma delimited. | 
+ **collectionId** | [**String**](.md)| The collection id. | [default to null]
+ **ids** | [**List&lt;String&gt;**](String.md)| Item ids, comma delimited. | [default to const []]
 
 ### Return type
 

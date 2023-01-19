@@ -1,8 +1,8 @@
-# openapi.model.SendCommandType
+# jellyfin_api.model.SendCommandType
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties

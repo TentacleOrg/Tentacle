@@ -1,15 +1,15 @@
-# openapi.api.TimeSyncApi
+# jellyfin_api.api.TimeSyncApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 All URIs are relative to *https://jpuerto.ddns.net/jellyfin*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUtcTime**](TimeSyncApi.md#getutctime) | **GET** /GetUtcTime | Gets the current UTC time.
+[**getUtcTime**](TimeSyncApi.md#getUtcTime) | **get** /GetUtcTime | Gets the current UTC time.
 
 
 # **getUtcTime**
@@ -17,17 +17,17 @@ Method | HTTP request | Description
 
 Gets the current UTC time.
 
-### Example
+### Example 
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 
-final api = Openapi().getTimeSyncApi();
+var api_instance = new TimeSyncApi();
 
-try {
-    final response = api.getUtcTime();
-    print(response);
-} catch on DioError (e) {
-    print('Exception when calling TimeSyncApi->getUtcTime: $e\n');
+try { 
+    var result = api_instance.getUtcTime();
+    print(result);
+} catch (e) {
+    print("Exception when calling TimeSyncApi->getUtcTime: $e\n");
 }
 ```
 

@@ -1,8 +1,8 @@
-# openapi.model.LogLevel
+# jellyfin_api.model.LogLevel
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:jellyfin_api/api.dart';
 ```
 
 ## Properties
