@@ -17,7 +17,6 @@ import 'package:openapi/src/model/item_fields.dart';
 import 'package:openapi/src/model/user_item_data_dto.dart';
 
 class UserLibraryApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -25,7 +24,7 @@ class UserLibraryApi {
   const UserLibraryApi(this._dio, this._serializers);
 
   /// Deletes a user&#39;s saved personal rating for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -39,7 +38,7 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<UserItemDataDto>> deleteUserItemRating({ 
+  Future<Response<UserItemDataDto>> deleteUserItemRating({
     required String userId,
     required String itemId,
     CancelToken? cancelToken,
@@ -49,7 +48,9 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/Rating'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Users/{userId}/Items/{itemId}/Rating'
+        .replaceAll('{' r'userId' '}', userId.toString())
+        .replaceAll('{' r'itemId' '}', itemId.toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -85,7 +86,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as UserItemDataDto;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -108,7 +108,7 @@ class UserLibraryApi {
   }
 
   /// Gets intros to play before the main media item plays.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -122,7 +122,7 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getIntros({ 
+  Future<Response<BaseItemDtoQueryResult>> getIntros({
     required String userId,
     required String itemId,
     CancelToken? cancelToken,
@@ -132,7 +132,9 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/Intros'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Users/{userId}/Items/{itemId}/Intros'
+        .replaceAll('{' r'userId' '}', userId.toString())
+        .replaceAll('{' r'itemId' '}', itemId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -168,7 +170,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as BaseItemDtoQueryResult;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -191,7 +192,7 @@ class UserLibraryApi {
   }
 
   /// Gets an item from a user&#39;s library.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -205,7 +206,7 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDto>> getItem({ 
+  Future<Response<BaseItemDto>> getItem({
     required String userId,
     required String itemId,
     CancelToken? cancelToken,
@@ -215,7 +216,9 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Users/{userId}/Items/{itemId}'
+        .replaceAll('{' r'userId' '}', userId.toString())
+        .replaceAll('{' r'itemId' '}', itemId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -251,7 +254,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as BaseItemDto;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -274,7 +276,7 @@ class UserLibraryApi {
   }
 
   /// Gets latest media.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -297,7 +299,7 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<BaseItemDto>>> getLatestMedia({ 
+  Future<Response<BuiltList<BaseItemDto>>> getLatestMedia({
     required String userId,
     String? parentId,
     BuiltList<ItemFields>? fields,
@@ -316,7 +318,8 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/Latest'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/Items/Latest'
+        .replaceAll('{' r'userId' '}', userId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -337,16 +340,48 @@ class UserLibraryApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (includeItemTypes != null) r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, includeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (isPlayed != null) r'isPlayed': encodeQueryParameter(_serializers, isPlayed, const FullType(bool)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (groupItems != null) r'groupItems': encodeQueryParameter(_serializers, groupItems, const FullType(bool)),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (includeItemTypes != null)
+        r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          includeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (isPlayed != null)
+        r'isPlayed':
+            encodeQueryParameter(_serializers, isPlayed, const FullType(bool)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (groupItems != null)
+        r'groupItems': encodeQueryParameter(
+            _serializers, groupItems, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -366,7 +401,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as BuiltList<BaseItemDto>;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -389,7 +423,7 @@ class UserLibraryApi {
   }
 
   /// Gets local trailers for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -403,7 +437,7 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<BaseItemDto>>> getLocalTrailers({ 
+  Future<Response<BuiltList<BaseItemDto>>> getLocalTrailers({
     required String userId,
     required String itemId,
     CancelToken? cancelToken,
@@ -413,7 +447,9 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/LocalTrailers'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Users/{userId}/Items/{itemId}/LocalTrailers'
+        .replaceAll('{' r'userId' '}', userId.toString())
+        .replaceAll('{' r'itemId' '}', itemId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -449,7 +485,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as BuiltList<BaseItemDto>;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -472,7 +507,7 @@ class UserLibraryApi {
   }
 
   /// Gets the root folder from a user&#39;s library.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -485,7 +520,7 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDto>> getRootFolder({ 
+  Future<Response<BaseItemDto>> getRootFolder({
     required String userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -494,7 +529,8 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/Root'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/Items/Root'
+        .replaceAll('{' r'userId' '}', userId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -530,7 +566,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as BaseItemDto;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -553,7 +588,7 @@ class UserLibraryApi {
   }
 
   /// Gets special features for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -567,7 +602,7 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<BaseItemDto>>> getSpecialFeatures({ 
+  Future<Response<BuiltList<BaseItemDto>>> getSpecialFeatures({
     required String userId,
     required String itemId,
     CancelToken? cancelToken,
@@ -577,7 +612,9 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/SpecialFeatures'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Users/{userId}/Items/{itemId}/SpecialFeatures'
+        .replaceAll('{' r'userId' '}', userId.toString())
+        .replaceAll('{' r'itemId' '}', itemId.toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -613,7 +650,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as BuiltList<BaseItemDto>;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -636,11 +672,12 @@ class UserLibraryApi {
   }
 
   /// Marks an item as a favorite.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [url] - The url to the server.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -650,9 +687,10 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<UserItemDataDto>> markFavoriteItem({ 
+  Future<Response<UserItemDataDto>> markFavoriteItem({
     required String userId,
     required String itemId,
+    required String url,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -660,7 +698,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/FavoriteItems/{itemId}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'{url}/Users/{userId}/FavoriteItems/{itemId}'
+        .replaceAll('{' r'userId' '}', userId.toString())
+        .replaceAll('{' r'itemId' '}', itemId.toString())
+        .replaceAll('{' r'url' '}', url.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -696,7 +737,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as UserItemDataDto;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -719,11 +759,12 @@ class UserLibraryApi {
   }
 
   /// Unmarks item as a favorite.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [url] - The url of the server.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -733,9 +774,10 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<UserItemDataDto>> unmarkFavoriteItem({ 
+  Future<Response<UserItemDataDto>> unmarkFavoriteItem({
     required String userId,
     required String itemId,
+    required String url,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -743,7 +785,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/FavoriteItems/{itemId}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'{url}/Users/{userId}/FavoriteItems/{itemId}'
+        .replaceAll('{' r'userId' '}', userId.toString())
+        .replaceAll('{' r'itemId' '}', itemId.toString())
+        .replaceAll('{' r'url' '}', url.toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -779,7 +824,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as UserItemDataDto;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -802,7 +846,7 @@ class UserLibraryApi {
   }
 
   /// Updates a user&#39;s rating for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -817,7 +861,7 @@ class UserLibraryApi {
   ///
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioError] if API call or serialization fails
-  Future<Response<UserItemDataDto>> updateUserItemRating({ 
+  Future<Response<UserItemDataDto>> updateUserItemRating({
     required String userId,
     required String itemId,
     bool? likes,
@@ -828,7 +872,9 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/Rating'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Users/{userId}/Items/{itemId}/Rating'
+        .replaceAll('{' r'userId' '}', userId.toString())
+        .replaceAll('{' r'itemId' '}', itemId.toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -849,7 +895,9 @@ class UserLibraryApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (likes != null) r'likes': encodeQueryParameter(_serializers, likes, const FullType(bool)),
+      if (likes != null)
+        r'likes':
+            encodeQueryParameter(_serializers, likes, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -869,7 +917,6 @@ class UserLibraryApi {
         _response.data!,
         specifiedType: _responseType,
       ) as UserItemDataDto;
-
     } catch (error, stackTrace) {
       throw DioError(
         requestOptions: _response.requestOptions,
@@ -890,5 +937,4 @@ class UserLibraryApi {
       extra: _response.extra,
     );
   }
-
 }
