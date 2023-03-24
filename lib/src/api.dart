@@ -86,7 +86,7 @@ class Openapi {
         this.dio = dio ??
             Dio(BaseOptions(
               baseUrl: basePathOverride ?? basePath,
-              connectTimeout: 5000,
+              connectTimeout: Duration(milliseconds: 5000),
               // receiveTimeout: 3000,
             )) {
     if (interceptors == null) {
