@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/model/config_image_types.dart';
+import 'package:tentacle/src/model/config_image_types.dart';
 
 class TmdbApi {
 

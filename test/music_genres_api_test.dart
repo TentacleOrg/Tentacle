@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for MusicGenresApi
 void main() {
-  final instance = Openapi().getMusicGenresApi();
+  final instance = Tentacle().getMusicGenresApi();
 
   group(MusicGenresApi, () {
     // Gets a music genre, by name.

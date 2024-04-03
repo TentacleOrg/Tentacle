@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/book_info_remote_search_query_search_info.dart';
-import 'package:openapi/src/model/book_info_remote_search_query.dart';
+import 'package:tentacle/src/model/book_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/book_info_remote_search_query.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

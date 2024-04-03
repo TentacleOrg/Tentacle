@@ -7,8 +7,8 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/activity_log_entry_query_result.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/activity_log_entry_query_result.dart';
 
 class ActivityLogApi {
 

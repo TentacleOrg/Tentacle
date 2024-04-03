@@ -8,16 +8,16 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/base_item_kind.dart';
-import 'package:openapi/src/model/general_command_type.dart';
-import 'package:openapi/src/model/name_id_pair.dart';
-import 'package:openapi/src/model/play_command.dart';
-import 'package:openapi/src/model/playstate_command.dart';
-import 'package:openapi/src/model/post_full_capabilities_request.dart';
-import 'package:openapi/src/model/send_full_general_command_request.dart';
-import 'package:openapi/src/model/send_message_command_request.dart';
-import 'package:openapi/src/model/session_info.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/name_id_pair.dart';
+import 'package:tentacle/src/model/play_command.dart';
+import 'package:tentacle/src/model/playstate_command.dart';
+import 'package:tentacle/src/model/post_full_capabilities_request.dart';
+import 'package:tentacle/src/model/send_full_general_command_request.dart';
+import 'package:tentacle/src/model/send_message_command_request.dart';
+import 'package:tentacle/src/model/session_info.dart';
 
 class SessionApi {
 

@@ -8,23 +8,23 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/group_info_dto.dart';
-import 'package:openapi/src/model/sync_play_buffering_request.dart';
-import 'package:openapi/src/model/sync_play_create_group_request.dart';
-import 'package:openapi/src/model/sync_play_join_group_request.dart';
-import 'package:openapi/src/model/sync_play_move_playlist_item_request.dart';
-import 'package:openapi/src/model/sync_play_next_item_request.dart';
-import 'package:openapi/src/model/sync_play_ping_request.dart';
-import 'package:openapi/src/model/sync_play_previous_item_request.dart';
-import 'package:openapi/src/model/sync_play_queue_request.dart';
-import 'package:openapi/src/model/sync_play_ready_request.dart';
-import 'package:openapi/src/model/sync_play_remove_from_playlist_request.dart';
-import 'package:openapi/src/model/sync_play_seek_request.dart';
-import 'package:openapi/src/model/sync_play_set_ignore_wait_request.dart';
-import 'package:openapi/src/model/sync_play_set_new_queue_request.dart';
-import 'package:openapi/src/model/sync_play_set_playlist_item_request.dart';
-import 'package:openapi/src/model/sync_play_set_repeat_mode_request.dart';
-import 'package:openapi/src/model/sync_play_set_shuffle_mode_request.dart';
+import 'package:tentacle/src/model/group_info_dto.dart';
+import 'package:tentacle/src/model/sync_play_buffering_request.dart';
+import 'package:tentacle/src/model/sync_play_create_group_request.dart';
+import 'package:tentacle/src/model/sync_play_join_group_request.dart';
+import 'package:tentacle/src/model/sync_play_move_playlist_item_request.dart';
+import 'package:tentacle/src/model/sync_play_next_item_request.dart';
+import 'package:tentacle/src/model/sync_play_ping_request.dart';
+import 'package:tentacle/src/model/sync_play_previous_item_request.dart';
+import 'package:tentacle/src/model/sync_play_queue_request.dart';
+import 'package:tentacle/src/model/sync_play_ready_request.dart';
+import 'package:tentacle/src/model/sync_play_remove_from_playlist_request.dart';
+import 'package:tentacle/src/model/sync_play_seek_request.dart';
+import 'package:tentacle/src/model/sync_play_set_ignore_wait_request.dart';
+import 'package:tentacle/src/model/sync_play_set_new_queue_request.dart';
+import 'package:tentacle/src/model/sync_play_set_playlist_item_request.dart';
+import 'package:tentacle/src/model/sync_play_set_repeat_mode_request.dart';
+import 'package:tentacle/src/model/sync_play_set_shuffle_mode_request.dart';
 
 class SyncPlayApi {
 

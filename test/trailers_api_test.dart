@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for TrailersApi
 void main() {
-  final instance = Openapi().getTrailersApi();
+  final instance = Tentacle().getTrailersApi();
 
   group(TrailersApi, () {
     // Finds movies and trailers similar to a given trailer.

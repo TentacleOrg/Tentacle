@@ -3,18 +3,18 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/session_info_full_now_playing_item.dart';
-import 'package:openapi/src/model/session_info_capabilities.dart';
-import 'package:openapi/src/model/session_info_now_playing_item.dart';
+import 'package:tentacle/src/model/session_info_full_now_playing_item.dart';
+import 'package:tentacle/src/model/session_info_capabilities.dart';
+import 'package:tentacle/src/model/session_info_now_playing_item.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/session_user_info.dart';
-import 'package:openapi/src/model/general_command_type.dart';
-import 'package:openapi/src/model/queue_item.dart';
-import 'package:openapi/src/model/session_info_transcoding_info.dart';
-import 'package:openapi/src/model/base_item_dto.dart';
-import 'package:openapi/src/model/session_info_play_state.dart';
-import 'package:openapi/src/model/session_info_now_viewing_item.dart';
-import 'package:openapi/src/model/session_info.dart';
+import 'package:tentacle/src/model/session_user_info.dart';
+import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/queue_item.dart';
+import 'package:tentacle/src/model/session_info_transcoding_info.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:tentacle/src/model/session_info_play_state.dart';
+import 'package:tentacle/src/model/session_info_now_viewing_item.dart';
+import 'package:tentacle/src/model/session_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

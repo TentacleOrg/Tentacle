@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for HlsSegmentApi
 void main() {
-  final instance = Openapi().getHlsSegmentApi();
+  final instance = Tentacle().getHlsSegmentApi();
 
   group(HlsSegmentApi, () {
     // Gets the specified audio segment for an audio item.

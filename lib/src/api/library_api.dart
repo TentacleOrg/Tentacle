@@ -9,16 +9,16 @@ import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/all_theme_media_result.dart';
-import 'package:openapi/src/model/base_item_dto.dart';
-import 'package:openapi/src/model/base_item_dto_query_result.dart';
-import 'package:openapi/src/model/item_counts.dart';
-import 'package:openapi/src/model/item_fields.dart';
-import 'package:openapi/src/model/library_options_result_dto.dart';
-import 'package:openapi/src/model/post_updated_media_request.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/theme_media_result.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/all_theme_media_result.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:tentacle/src/model/base_item_dto_query_result.dart';
+import 'package:tentacle/src/model/item_counts.dart';
+import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/library_options_result_dto.dart';
+import 'package:tentacle/src/model/post_updated_media_request.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/theme_media_result.dart';
 
 class LibraryApi {
 

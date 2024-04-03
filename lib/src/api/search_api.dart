@@ -8,9 +8,9 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/base_item_kind.dart';
-import 'package:openapi/src/model/search_hint_result.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/search_hint_result.dart';
 
 class SearchApi {
 

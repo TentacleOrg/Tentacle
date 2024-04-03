@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for BrandingApi
 void main() {
-  final instance = Openapi().getBrandingApi();
+  final instance = Tentacle().getBrandingApi();
 
   group(BrandingApi, () {
     // Gets branding css.

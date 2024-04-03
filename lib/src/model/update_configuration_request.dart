@@ -3,13 +3,13 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/image_saving_convention.dart';
-import 'package:openapi/src/model/name_value_pair.dart';
+import 'package:tentacle/src/model/image_saving_convention.dart';
+import 'package:tentacle/src/model/name_value_pair.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/server_configuration.dart';
-import 'package:openapi/src/model/metadata_options.dart';
-import 'package:openapi/src/model/path_substitution.dart';
-import 'package:openapi/src/model/repository_info.dart';
+import 'package:tentacle/src/model/server_configuration.dart';
+import 'package:tentacle/src/model/metadata_options.dart';
+import 'package:tentacle/src/model/path_substitution.dart';
+import 'package:tentacle/src/model/repository_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

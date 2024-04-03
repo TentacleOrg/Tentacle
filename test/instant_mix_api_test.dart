@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for InstantMixApi
 void main() {
-  final instance = Openapi().getInstantMixApi();
+  final instance = Tentacle().getInstantMixApi();
 
   group(InstantMixApi, () {
     // Creates an instant playlist based on a given album.

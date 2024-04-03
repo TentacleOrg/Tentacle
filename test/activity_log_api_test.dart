@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ActivityLogApi
 void main() {
-  final instance = Openapi().getActivityLogApi();
+  final instance = Tentacle().getActivityLogApi();
 
   group(ActivityLogApi, () {
     // Gets activity log entries.

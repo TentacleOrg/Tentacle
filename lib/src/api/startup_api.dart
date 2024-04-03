@@ -7,11 +7,11 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/model/set_remote_access_request.dart';
-import 'package:openapi/src/model/startup_configuration_dto.dart';
-import 'package:openapi/src/model/startup_user_dto.dart';
-import 'package:openapi/src/model/update_initial_configuration_request.dart';
-import 'package:openapi/src/model/update_startup_user_request.dart';
+import 'package:tentacle/src/model/set_remote_access_request.dart';
+import 'package:tentacle/src/model/startup_configuration_dto.dart';
+import 'package:tentacle/src/model/startup_user_dto.dart';
+import 'package:tentacle/src/model/update_initial_configuration_request.dart';
+import 'package:tentacle/src/model/update_startup_user_request.dart';
 
 class StartupApi {
 

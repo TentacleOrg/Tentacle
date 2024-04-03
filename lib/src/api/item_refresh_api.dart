@@ -7,9 +7,9 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/metadata_refresh_mode.dart';
-import 'package:openapi/src/model/problem_details.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/metadata_refresh_mode.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 
 class ItemRefreshApi {
   final Dio _dio;

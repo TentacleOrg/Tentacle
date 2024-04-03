@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for DlnaServerApi
 void main() {
-  final instance = Openapi().getDlnaServerApi();
+  final instance = Tentacle().getDlnaServerApi();
 
   group(DlnaServerApi, () {
     // Gets Dlna media receiver registrar xml.

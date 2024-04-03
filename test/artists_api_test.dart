@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ArtistsApi
 void main() {
-  final instance = Openapi().getArtistsApi();
+  final instance = Tentacle().getArtistsApi();
 
   group(ArtistsApi, () {
     // Gets all album artists from a given item, folder, or the entire library.

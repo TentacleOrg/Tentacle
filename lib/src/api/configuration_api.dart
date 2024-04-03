@@ -9,10 +9,10 @@ import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
 import 'package:built_value/json_object.dart';
-import 'package:openapi/src/model/metadata_options.dart';
-import 'package:openapi/src/model/server_configuration.dart';
-import 'package:openapi/src/model/update_configuration_request.dart';
-import 'package:openapi/src/model/update_media_encoder_path_request.dart';
+import 'package:tentacle/src/model/metadata_options.dart';
+import 'package:tentacle/src/model/server_configuration.dart';
+import 'package:tentacle/src/model/update_configuration_request.dart';
+import 'package:tentacle/src/model/update_media_encoder_path_request.dart';
 
 class ConfigurationApi {
 

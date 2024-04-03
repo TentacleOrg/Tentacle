@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ItemRefreshApi
 void main() {
-  final instance = Openapi().getItemRefreshApi();
+  final instance = Tentacle().getItemRefreshApi();
 
   group(ItemRefreshApi, () {
     // Refreshes metadata for an item.

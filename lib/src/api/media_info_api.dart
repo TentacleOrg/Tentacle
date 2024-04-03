@@ -8,11 +8,11 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/get_posted_playback_info_request.dart';
-import 'package:openapi/src/model/live_stream_response.dart';
-import 'package:openapi/src/model/open_live_stream_request.dart';
-import 'package:openapi/src/model/playback_info_response.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/get_posted_playback_info_request.dart';
+import 'package:tentacle/src/model/live_stream_response.dart';
+import 'package:tentacle/src/model/open_live_stream_request.dart';
+import 'package:tentacle/src/model/playback_info_response.dart';
 
 class MediaInfoApi {
 

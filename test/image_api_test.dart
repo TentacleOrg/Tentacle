@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ImageApi
 void main() {
-  final instance = Openapi().getImageApi();
+  final instance = Tentacle().getImageApi();
 
   group(ImageApi, () {
     // Delete a custom splashscreen.

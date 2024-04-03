@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for LocalizationApi
 void main() {
-  final instance = Openapi().getLocalizationApi();
+  final instance = Tentacle().getLocalizationApi();
 
   group(LocalizationApi, () {
     // Gets known countries.

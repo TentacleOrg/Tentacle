@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for PlaylistsApi
 void main() {
-  final instance = Openapi().getPlaylistsApi();
+  final instance = Tentacle().getPlaylistsApi();
 
   group(PlaylistsApi, () {
     // Adds items to a playlist.

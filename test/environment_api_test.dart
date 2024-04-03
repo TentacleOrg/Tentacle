@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for EnvironmentApi
 void main() {
-  final instance = Openapi().getEnvironmentApi();
+  final instance = Tentacle().getEnvironmentApi();
 
   group(EnvironmentApi, () {
     // Get Default directory browser.

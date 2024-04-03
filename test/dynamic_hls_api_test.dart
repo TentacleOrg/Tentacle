@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for DynamicHlsApi
 void main() {
-  final instance = Openapi().getDynamicHlsApi();
+  final instance = Tentacle().getDynamicHlsApi();
 
   group(DynamicHlsApi, () {
     // Gets a video stream using HTTP live streaming.

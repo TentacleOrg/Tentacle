@@ -8,22 +8,22 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/authenticate_user_by_name_request.dart';
-import 'package:openapi/src/model/authenticate_with_quick_connect_request.dart';
-import 'package:openapi/src/model/authentication_result.dart';
-import 'package:openapi/src/model/create_user_by_name_request.dart';
-import 'package:openapi/src/model/forgot_password_pin_request.dart';
-import 'package:openapi/src/model/forgot_password_request.dart';
-import 'package:openapi/src/model/forgot_password_result.dart';
-import 'package:openapi/src/model/pin_redeem_result.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/update_user_configuration_request.dart';
-import 'package:openapi/src/model/update_user_easy_password_request.dart';
-import 'package:openapi/src/model/update_user_password_request.dart';
-import 'package:openapi/src/model/update_user_policy_request.dart';
-import 'package:openapi/src/model/update_user_request.dart';
-import 'package:openapi/src/model/user_dto.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/authenticate_user_by_name_request.dart';
+import 'package:tentacle/src/model/authenticate_with_quick_connect_request.dart';
+import 'package:tentacle/src/model/authentication_result.dart';
+import 'package:tentacle/src/model/create_user_by_name_request.dart';
+import 'package:tentacle/src/model/forgot_password_pin_request.dart';
+import 'package:tentacle/src/model/forgot_password_request.dart';
+import 'package:tentacle/src/model/forgot_password_result.dart';
+import 'package:tentacle/src/model/pin_redeem_result.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/update_user_configuration_request.dart';
+import 'package:tentacle/src/model/update_user_easy_password_request.dart';
+import 'package:tentacle/src/model/update_user_password_request.dart';
+import 'package:tentacle/src/model/update_user_policy_request.dart';
+import 'package:tentacle/src/model/update_user_request.dart';
+import 'package:tentacle/src/model/user_dto.dart';
 
 class UserApi {
 

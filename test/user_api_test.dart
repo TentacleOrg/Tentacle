@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for UserApi
 void main() {
-  final instance = Openapi().getUserApi();
+  final instance = Tentacle().getUserApi();
 
   group(UserApi, () {
     // Authenticates a user.

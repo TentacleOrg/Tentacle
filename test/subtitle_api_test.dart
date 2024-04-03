@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for SubtitleApi
 void main() {
-  final instance = Openapi().getSubtitleApi();
+  final instance = Tentacle().getSubtitleApi();
 
   group(SubtitleApi, () {
     // Deletes an external subtitle file.

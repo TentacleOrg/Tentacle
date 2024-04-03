@@ -4,9 +4,9 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/channel_media_type.dart';
-import 'package:openapi/src/model/channel_media_content_type.dart';
-import 'package:openapi/src/model/channel_item_sort_field.dart';
+import 'package:tentacle/src/model/channel_media_type.dart';
+import 'package:tentacle/src/model/channel_media_content_type.dart';
+import 'package:tentacle/src/model/channel_item_sort_field.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

@@ -8,11 +8,11 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/default_directory_browser_info_dto.dart';
-import 'package:openapi/src/model/file_system_entry_info.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/validate_path_request.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/default_directory_browser_info_dto.dart';
+import 'package:tentacle/src/model/file_system_entry_info.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/validate_path_request.dart';
 
 class EnvironmentApi {
 

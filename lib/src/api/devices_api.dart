@@ -7,12 +7,12 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/device_info.dart';
-import 'package:openapi/src/model/device_info_query_result.dart';
-import 'package:openapi/src/model/device_options.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/update_device_options_request.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/device_info.dart';
+import 'package:tentacle/src/model/device_info_query_result.dart';
+import 'package:tentacle/src/model/device_options.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/update_device_options_request.dart';
 
 class DevicesApi {
 

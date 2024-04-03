@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/task_info_last_execution_result.dart';
+import 'package:tentacle/src/model/task_info_last_execution_result.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/task_trigger_info.dart';
-import 'package:openapi/src/model/task_state.dart';
+import 'package:tentacle/src/model/task_trigger_info.dart';
+import 'package:tentacle/src/model/task_state.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

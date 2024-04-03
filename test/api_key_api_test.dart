@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ApiKeyApi
 void main() {
-  final instance = Openapi().getApiKeyApi();
+  final instance = Tentacle().getApiKeyApi();
 
   group(ApiKeyApi, () {
     // Create a new api key.

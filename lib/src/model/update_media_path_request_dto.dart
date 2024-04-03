@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/update_media_path_request_dto_path_info.dart';
+import 'package:tentacle/src/model/update_media_path_request_dto_path_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

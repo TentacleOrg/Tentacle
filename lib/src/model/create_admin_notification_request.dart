@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/admin_notification_dto.dart';
-import 'package:openapi/src/model/notification_level.dart';
+import 'package:tentacle/src/model/admin_notification_dto.dart';
+import 'package:tentacle/src/model/notification_level.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

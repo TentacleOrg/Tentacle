@@ -7,13 +7,13 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/play_method.dart';
-import 'package:openapi/src/model/repeat_mode.dart';
-import 'package:openapi/src/model/report_playback_progress_request.dart';
-import 'package:openapi/src/model/report_playback_start_request.dart';
-import 'package:openapi/src/model/report_playback_stopped_request.dart';
-import 'package:openapi/src/model/user_item_data_dto.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/play_method.dart';
+import 'package:tentacle/src/model/repeat_mode.dart';
+import 'package:tentacle/src/model/report_playback_progress_request.dart';
+import 'package:tentacle/src/model/report_playback_start_request.dart';
+import 'package:tentacle/src/model/report_playback_stopped_request.dart';
+import 'package:tentacle/src/model/user_item_data_dto.dart';
 
 class PlaystateApi {
 

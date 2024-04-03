@@ -7,9 +7,9 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/display_preferences_dto.dart';
-import 'package:openapi/src/model/update_display_preferences_request.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/display_preferences_dto.dart';
+import 'package:tentacle/src/model/update_display_preferences_request.dart';
 
 class DisplayPreferencesApi {
 

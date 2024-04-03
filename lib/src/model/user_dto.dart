@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/user_dto_configuration.dart';
-import 'package:openapi/src/model/user_dto_policy.dart';
+import 'package:tentacle/src/model/user_dto_configuration.dart';
+import 'package:tentacle/src/model/user_dto_policy.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

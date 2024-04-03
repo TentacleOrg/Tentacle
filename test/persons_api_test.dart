@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for PersonsApi
 void main() {
-  final instance = Openapi().getPersonsApi();
+  final instance = Tentacle().getPersonsApi();
 
   group(PersonsApi, () {
     // Get person by name.

@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for LibraryApi
 void main() {
-  final instance = Openapi().getLibraryApi();
+  final instance = Tentacle().getLibraryApi();
 
   group(LibraryApi, () {
     // Deletes an item from the library and filesystem.

@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/package_info.dart';
+import 'package:tentacle/src/model/package_info.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/version_info.dart';
+import 'package:tentacle/src/model/version_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

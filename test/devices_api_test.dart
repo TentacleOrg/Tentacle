@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for DevicesApi
 void main() {
-  final instance = Openapi().getDevicesApi();
+  final instance = Tentacle().getDevicesApi();
 
   group(DevicesApi, () {
     // Deletes a device.

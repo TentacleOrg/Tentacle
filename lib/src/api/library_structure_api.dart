@@ -8,14 +8,14 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/add_media_path_request.dart';
-import 'package:openapi/src/model/add_virtual_folder_request.dart';
-import 'package:openapi/src/model/collection_type_options.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/update_library_options_request.dart';
-import 'package:openapi/src/model/update_media_path_request.dart';
-import 'package:openapi/src/model/virtual_folder_info.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/add_media_path_request.dart';
+import 'package:tentacle/src/model/add_virtual_folder_request.dart';
+import 'package:tentacle/src/model/collection_type_options.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/update_library_options_request.dart';
+import 'package:tentacle/src/model/update_media_path_request.dart';
+import 'package:tentacle/src/model/virtual_folder_info.dart';
 
 class LibraryStructureApi {
 

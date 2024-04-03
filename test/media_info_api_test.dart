@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for MediaInfoApi
 void main() {
-  final instance = Openapi().getMediaInfoApi();
+  final instance = Tentacle().getMediaInfoApi();
 
   group(MediaInfoApi, () {
     // Closes a media source.

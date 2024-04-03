@@ -8,10 +8,10 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/task_info.dart';
-import 'package:openapi/src/model/task_trigger_info.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/task_info.dart';
+import 'package:tentacle/src/model/task_trigger_info.dart';
 
 class ScheduledTasksApi {
 

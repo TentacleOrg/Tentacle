@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for YearsApi
 void main() {
-  final instance = Openapi().getYearsApi();
+  final instance = Tentacle().getYearsApi();
 
   group(YearsApi, () {
     // Gets a year.

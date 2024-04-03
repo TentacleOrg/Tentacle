@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for NotificationsApi
 void main() {
-  final instance = Openapi().getNotificationsApi();
+  final instance = Tentacle().getNotificationsApi();
 
   group(NotificationsApi, () {
     // Sends a notification to all admins.

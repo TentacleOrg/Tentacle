@@ -8,16 +8,16 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/base_item_dto_query_result.dart';
-import 'package:openapi/src/model/base_item_kind.dart';
-import 'package:openapi/src/model/image_type.dart';
-import 'package:openapi/src/model/item_fields.dart';
-import 'package:openapi/src/model/item_filter.dart';
-import 'package:openapi/src/model/location_type.dart';
-import 'package:openapi/src/model/series_status.dart';
-import 'package:openapi/src/model/sort_order.dart';
-import 'package:openapi/src/model/video_type.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/base_item_dto_query_result.dart';
+import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/image_type.dart';
+import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/item_filter.dart';
+import 'package:tentacle/src/model/location_type.dart';
+import 'package:tentacle/src/model/series_status.dart';
+import 'package:tentacle/src/model/sort_order.dart';
+import 'package:tentacle/src/model/video_type.dart';
 
 class TrailersApi {
 

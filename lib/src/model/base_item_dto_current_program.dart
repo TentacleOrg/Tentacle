@@ -3,28 +3,28 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/iso_type.dart';
-import 'package:openapi/src/model/channel_type.dart';
-import 'package:openapi/src/model/external_url.dart';
-import 'package:openapi/src/model/base_item_person.dart';
-import 'package:openapi/src/model/metadata_field.dart';
-import 'package:openapi/src/model/media_url.dart';
-import 'package:openapi/src/model/program_audio.dart';
-import 'package:openapi/src/model/day_of_week.dart';
-import 'package:openapi/src/model/base_item_dto.dart';
-import 'package:openapi/src/model/media_source_info.dart';
-import 'package:openapi/src/model/video3_d_format.dart';
-import 'package:openapi/src/model/play_access.dart';
-import 'package:openapi/src/model/base_item_kind.dart';
-import 'package:openapi/src/model/location_type.dart';
-import 'package:openapi/src/model/base_item_dto_image_blur_hashes.dart';
+import 'package:tentacle/src/model/iso_type.dart';
+import 'package:tentacle/src/model/channel_type.dart';
+import 'package:tentacle/src/model/external_url.dart';
+import 'package:tentacle/src/model/base_item_person.dart';
+import 'package:tentacle/src/model/metadata_field.dart';
+import 'package:tentacle/src/model/media_url.dart';
+import 'package:tentacle/src/model/program_audio.dart';
+import 'package:tentacle/src/model/day_of_week.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:tentacle/src/model/media_source_info.dart';
+import 'package:tentacle/src/model/video3_d_format.dart';
+import 'package:tentacle/src/model/play_access.dart';
+import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/location_type.dart';
+import 'package:tentacle/src/model/base_item_dto_image_blur_hashes.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/media_stream.dart';
-import 'package:openapi/src/model/name_guid_pair.dart';
-import 'package:openapi/src/model/video_type.dart';
-import 'package:openapi/src/model/chapter_info.dart';
-import 'package:openapi/src/model/image_orientation.dart';
-import 'package:openapi/src/model/base_item_dto_user_data.dart';
+import 'package:tentacle/src/model/media_stream.dart';
+import 'package:tentacle/src/model/name_guid_pair.dart';
+import 'package:tentacle/src/model/video_type.dart';
+import 'package:tentacle/src/model/chapter_info.dart';
+import 'package:tentacle/src/model/image_orientation.dart';
+import 'package:tentacle/src/model/base_item_dto_user_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

@@ -8,9 +8,9 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/item_fields.dart';
-import 'package:openapi/src/model/recommendation_dto.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/recommendation_dto.dart';
 
 class MoviesApi {
 

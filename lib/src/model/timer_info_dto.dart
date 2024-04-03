@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/keep_until.dart';
+import 'package:tentacle/src/model/keep_until.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/recording_status.dart';
-import 'package:openapi/src/model/timer_info_dto_program_info.dart';
+import 'package:tentacle/src/model/recording_status.dart';
+import 'package:tentacle/src/model/timer_info_dto_program_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ItemLookupApi
 void main() {
-  final instance = Openapi().getItemLookupApi();
+  final instance = Tentacle().getItemLookupApi();
 
   group(ItemLookupApi, () {
     // Applies search criteria to an item and refreshes metadata.

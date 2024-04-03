@@ -7,8 +7,8 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/model/client_log_document_response_dto.dart';
-import 'package:openapi/src/model/problem_details.dart';
+import 'package:tentacle/src/model/client_log_document_response_dto.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 
 class ClientLogApi {
 

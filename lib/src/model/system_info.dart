@@ -4,9 +4,9 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/installation_info.dart';
-import 'package:openapi/src/model/architecture.dart';
-import 'package:openapi/src/model/f_fmpeg_location.dart';
+import 'package:tentacle/src/model/installation_info.dart';
+import 'package:tentacle/src/model/architecture.dart';
+import 'package:tentacle/src/model/f_fmpeg_location.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

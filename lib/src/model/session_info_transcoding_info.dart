@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/hardware_encoding_type.dart';
+import 'package:tentacle/src/model/hardware_encoding_type.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/transcoding_info.dart';
-import 'package:openapi/src/model/transcode_reason.dart';
+import 'package:tentacle/src/model/transcoding_info.dart';
+import 'package:tentacle/src/model/transcode_reason.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ClientLogApi
 void main() {
-  final instance = Openapi().getClientLogApi();
+  final instance = Tentacle().getClientLogApi();
 
   group(ClientLogApi, () {
     // Upload a document.

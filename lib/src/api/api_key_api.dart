@@ -7,8 +7,8 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/authentication_info_query_result.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/authentication_info_query_result.dart';
 
 class ApiKeyApi {
 

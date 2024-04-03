@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for TimeSyncApi
 void main() {
-  final instance = Openapi().getTimeSyncApi();
+  final instance = Tentacle().getTimeSyncApi();
 
   group(TimeSyncApi, () {
     // Gets the current UTC time.

@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for VideoAttachmentsApi
 void main() {
-  final instance = Openapi().getVideoAttachmentsApi();
+  final instance = Tentacle().getVideoAttachmentsApi();
 
   group(VideoAttachmentsApi, () {
     // Get video attachment.

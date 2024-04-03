@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for QuickConnectApi
 void main() {
-  final instance = Openapi().getQuickConnectApi();
+  final instance = Tentacle().getQuickConnectApi();
 
   group(QuickConnectApi, () {
     // Authorizes a pending quick connect request.

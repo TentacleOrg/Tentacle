@@ -9,11 +9,11 @@ import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/font_file.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/remote_subtitle_info.dart';
-import 'package:openapi/src/model/upload_subtitle_request.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/font_file.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/remote_subtitle_info.dart';
+import 'package:tentacle/src/model/upload_subtitle_request.dart';
 
 class SubtitleApi {
 

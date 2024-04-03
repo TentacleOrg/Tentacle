@@ -9,8 +9,8 @@ import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/image_by_name_info.dart';
-import 'package:openapi/src/model/problem_details.dart';
+import 'package:tentacle/src/model/image_by_name_info.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 
 class ImageByNameApi {
 

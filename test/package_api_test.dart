@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for PackageApi
 void main() {
-  final instance = Openapi().getPackageApi();
+  final instance = Tentacle().getPackageApi();
 
   group(PackageApi, () {
     // Cancels a package installation.

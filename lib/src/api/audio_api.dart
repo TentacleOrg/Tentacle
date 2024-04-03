@@ -9,9 +9,9 @@ import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/encoding_context.dart';
-import 'package:openapi/src/model/subtitle_delivery_method.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/encoding_context.dart';
+import 'package:tentacle/src/model/subtitle_delivery_method.dart';
 
 class AudioApi {
 

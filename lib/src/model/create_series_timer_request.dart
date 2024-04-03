@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/day_pattern.dart';
-import 'package:openapi/src/model/keep_until.dart';
+import 'package:tentacle/src/model/day_pattern.dart';
+import 'package:tentacle/src/model/keep_until.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/day_of_week.dart';
-import 'package:openapi/src/model/series_timer_info_dto.dart';
+import 'package:tentacle/src/model/day_of_week.dart';
+import 'package:tentacle/src/model/series_timer_info_dto.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

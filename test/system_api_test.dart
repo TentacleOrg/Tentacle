@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for SystemApi
 void main() {
-  final instance = Openapi().getSystemApi();
+  final instance = Tentacle().getSystemApi();
 
   group(SystemApi, () {
     // Gets information about the request endpoint.

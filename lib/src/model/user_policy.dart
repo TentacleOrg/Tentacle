@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/unrated_item.dart';
-import 'package:openapi/src/model/access_schedule.dart';
+import 'package:tentacle/src/model/unrated_item.dart';
+import 'package:tentacle/src/model/access_schedule.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/sync_play_user_access_type.dart';
+import 'package:tentacle/src/model/sync_play_user_access_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

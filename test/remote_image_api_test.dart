@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for RemoteImageApi
 void main() {
-  final instance = Openapi().getRemoteImageApi();
+  final instance = Tentacle().getRemoteImageApi();
 
   group(RemoteImageApi, () {
     // Downloads a remote image for an item.

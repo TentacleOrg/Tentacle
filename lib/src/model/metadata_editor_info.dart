@@ -3,12 +3,12 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/name_value_pair.dart';
-import 'package:openapi/src/model/culture_dto.dart';
+import 'package:tentacle/src/model/name_value_pair.dart';
+import 'package:tentacle/src/model/culture_dto.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/parental_rating.dart';
-import 'package:openapi/src/model/external_id_info.dart';
-import 'package:openapi/src/model/country_info.dart';
+import 'package:tentacle/src/model/parental_rating.dart';
+import 'package:tentacle/src/model/external_id_info.dart';
+import 'package:tentacle/src/model/country_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

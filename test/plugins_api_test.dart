@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for PluginsApi
 void main() {
-  final instance = Openapi().getPluginsApi();
+  final instance = Tentacle().getPluginsApi();
 
   group(PluginsApi, () {
     // Disable a plugin.

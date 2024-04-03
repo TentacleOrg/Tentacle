@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for SessionApi
 void main() {
-  final instance = Openapi().getSessionApi();
+  final instance = Tentacle().getSessionApi();
 
   group(SessionApi, () {
     // Adds an additional user to a session.

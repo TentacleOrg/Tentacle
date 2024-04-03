@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for DisplayPreferencesApi
 void main() {
-  final instance = Openapi().getDisplayPreferencesApi();
+  final instance = Tentacle().getDisplayPreferencesApi();
 
   group(DisplayPreferencesApi, () {
     // Get Display Preferences.

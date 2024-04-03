@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for TmdbApi
 void main() {
-  final instance = Openapi().getTmdbApi();
+  final instance = Tentacle().getTmdbApi();
 
   group(TmdbApi, () {
     // Gets the TMDb image configuration options.

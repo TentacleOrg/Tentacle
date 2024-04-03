@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/model/utc_time_response.dart';
+import 'package:tentacle/src/model/utc_time_response.dart';
 
 class TimeSyncApi {
 

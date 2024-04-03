@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/subtitle_delivery_method.dart';
-import 'package:openapi/src/model/media_stream_type.dart';
+import 'package:tentacle/src/model/subtitle_delivery_method.dart';
+import 'package:tentacle/src/model/media_stream_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

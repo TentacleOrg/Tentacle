@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ItemUpdateApi
 void main() {
-  final instance = Openapi().getItemUpdateApi();
+  final instance = Tentacle().getItemUpdateApi();
 
   group(ItemUpdateApi, () {
     // Gets metadata editor info for an item.

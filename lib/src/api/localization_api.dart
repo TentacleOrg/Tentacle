@@ -8,10 +8,10 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/country_info.dart';
-import 'package:openapi/src/model/culture_dto.dart';
-import 'package:openapi/src/model/localization_option.dart';
-import 'package:openapi/src/model/parental_rating.dart';
+import 'package:tentacle/src/model/country_info.dart';
+import 'package:tentacle/src/model/culture_dto.dart';
+import 'package:tentacle/src/model/localization_option.dart';
+import 'package:tentacle/src/model/parental_rating.dart';
 
 class LocalizationApi {
 

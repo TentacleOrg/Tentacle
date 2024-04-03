@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ScheduledTasksApi
 void main() {
-  final instance = Openapi().getScheduledTasksApi();
+  final instance = Tentacle().getScheduledTasksApi();
 
   group(ScheduledTasksApi, () {
     // Get task by id.

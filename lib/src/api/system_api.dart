@@ -9,12 +9,12 @@ import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/end_point_info.dart';
-import 'package:openapi/src/model/log_file.dart';
-import 'package:openapi/src/model/public_system_info.dart';
-import 'package:openapi/src/model/system_info.dart';
-import 'package:openapi/src/model/wake_on_lan_info.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/end_point_info.dart';
+import 'package:tentacle/src/model/log_file.dart';
+import 'package:tentacle/src/model/public_system_info.dart';
+import 'package:tentacle/src/model/system_info.dart';
+import 'package:tentacle/src/model/wake_on_lan_info.dart';
 
 class SystemApi {
 

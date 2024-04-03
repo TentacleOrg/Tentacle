@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ChannelsApi
 void main() {
-  final instance = Openapi().getChannelsApi();
+  final instance = Tentacle().getChannelsApi();
 
   group(ChannelsApi, () {
     // Get all channel features.

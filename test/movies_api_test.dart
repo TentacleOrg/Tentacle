@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for MoviesApi
 void main() {
-  final instance = Openapi().getMoviesApi();
+  final instance = Tentacle().getMoviesApi();
 
   group(MoviesApi, () {
     // Gets movie recommendations.

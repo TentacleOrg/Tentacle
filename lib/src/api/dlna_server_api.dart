@@ -8,7 +8,7 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
-import 'package:openapi/src/model/problem_details.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 
 class DlnaServerApi {
 

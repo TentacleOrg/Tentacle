@@ -8,11 +8,11 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/create_admin_notification_request.dart';
-import 'package:openapi/src/model/name_id_pair.dart';
-import 'package:openapi/src/model/notification_result_dto.dart';
-import 'package:openapi/src/model/notification_type_info.dart';
-import 'package:openapi/src/model/notifications_summary_dto.dart';
+import 'package:tentacle/src/model/create_admin_notification_request.dart';
+import 'package:tentacle/src/model/name_id_pair.dart';
+import 'package:tentacle/src/model/notification_result_dto.dart';
+import 'package:tentacle/src/model/notification_type_info.dart';
+import 'package:tentacle/src/model/notifications_summary_dto.dart';
 
 class NotificationsApi {
 

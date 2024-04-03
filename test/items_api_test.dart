@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for ItemsApi
 void main() {
-  final instance = Openapi().getItemsApi();
+  final instance = Tentacle().getItemsApi();
 
   group(ItemsApi, () {
     // Gets items based on a query.

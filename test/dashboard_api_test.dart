@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for DashboardApi
 void main() {
-  final instance = Openapi().getDashboardApi();
+  final instance = Tentacle().getDashboardApi();
 
   group(DashboardApi, () {
     // Gets the configuration pages.

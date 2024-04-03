@@ -10,8 +10,8 @@ import 'package:dio/dio.dart';
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
-import 'package:openapi/src/model/plugin_info.dart';
-import 'package:openapi/src/model/problem_details.dart';
+import 'package:tentacle/src/model/plugin_info.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 
 class PluginsApi {
 

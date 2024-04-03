@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for AudioApi
 void main() {
-  final instance = Openapi().getAudioApi();
+  final instance = Tentacle().getAudioApi();
 
   group(AudioApi, () {
     // Gets an audio stream.

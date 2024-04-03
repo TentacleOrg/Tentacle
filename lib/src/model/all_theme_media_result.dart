@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/all_theme_media_result_theme_videos_result.dart';
+import 'package:tentacle/src/model/all_theme_media_result_theme_videos_result.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

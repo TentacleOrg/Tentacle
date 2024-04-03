@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for CollectionApi
 void main() {
-  final instance = Openapi().getCollectionApi();
+  final instance = Tentacle().getCollectionApi();
 
   group(CollectionApi, () {
     // Adds items to a collection.

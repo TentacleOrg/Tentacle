@@ -9,11 +9,11 @@ import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/base_item_dto_query_result.dart';
-import 'package:openapi/src/model/encoding_context.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/subtitle_delivery_method.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/base_item_dto_query_result.dart';
+import 'package:tentacle/src/model/encoding_context.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/subtitle_delivery_method.dart';
 
 class VideosApi {
 

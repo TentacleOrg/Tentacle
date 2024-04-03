@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/task_result.dart';
-import 'package:openapi/src/model/task_completion_status.dart';
+import 'package:tentacle/src/model/task_result.dart';
+import 'package:tentacle/src/model/task_completion_status.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

@@ -8,20 +8,20 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/apply_search_criteria_request.dart';
-import 'package:openapi/src/model/external_id_info.dart';
-import 'package:openapi/src/model/get_book_remote_search_results_request.dart';
-import 'package:openapi/src/model/get_box_set_remote_search_results_request.dart';
-import 'package:openapi/src/model/get_movie_remote_search_results_request.dart';
-import 'package:openapi/src/model/get_music_album_remote_search_results_request.dart';
-import 'package:openapi/src/model/get_music_artist_remote_search_results_request.dart';
-import 'package:openapi/src/model/get_music_video_remote_search_results_request.dart';
-import 'package:openapi/src/model/get_person_remote_search_results_request.dart';
-import 'package:openapi/src/model/get_series_remote_search_results_request.dart';
-import 'package:openapi/src/model/get_trailer_remote_search_results_request.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/remote_search_result.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/apply_search_criteria_request.dart';
+import 'package:tentacle/src/model/external_id_info.dart';
+import 'package:tentacle/src/model/get_book_remote_search_results_request.dart';
+import 'package:tentacle/src/model/get_box_set_remote_search_results_request.dart';
+import 'package:tentacle/src/model/get_movie_remote_search_results_request.dart';
+import 'package:tentacle/src/model/get_music_album_remote_search_results_request.dart';
+import 'package:tentacle/src/model/get_music_artist_remote_search_results_request.dart';
+import 'package:tentacle/src/model/get_music_video_remote_search_results_request.dart';
+import 'package:tentacle/src/model/get_person_remote_search_results_request.dart';
+import 'package:tentacle/src/model/get_series_remote_search_results_request.dart';
+import 'package:tentacle/src/model/get_trailer_remote_search_results_request.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/remote_search_result.dart';
 
 class ItemLookupApi {
 

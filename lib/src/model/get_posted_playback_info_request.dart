@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/playback_info_dto.dart';
-import 'package:openapi/src/model/client_capabilities_dto_device_profile.dart';
+import 'package:tentacle/src/model/playback_info_dto.dart';
+import 'package:tentacle/src/model/client_capabilities_dto_device_profile.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

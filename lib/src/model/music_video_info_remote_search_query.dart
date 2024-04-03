@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/music_video_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/music_video_info_remote_search_query_search_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

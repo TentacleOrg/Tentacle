@@ -3,15 +3,15 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/iso_type.dart';
-import 'package:openapi/src/model/video3_d_format.dart';
-import 'package:openapi/src/model/media_attachment.dart';
+import 'package:tentacle/src/model/iso_type.dart';
+import 'package:tentacle/src/model/video3_d_format.dart';
+import 'package:tentacle/src/model/media_attachment.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/media_stream.dart';
-import 'package:openapi/src/model/transport_stream_timestamp.dart';
-import 'package:openapi/src/model/video_type.dart';
-import 'package:openapi/src/model/media_protocol.dart';
-import 'package:openapi/src/model/media_source_type.dart';
+import 'package:tentacle/src/model/media_stream.dart';
+import 'package:tentacle/src/model/transport_stream_timestamp.dart';
+import 'package:tentacle/src/model/video_type.dart';
+import 'package:tentacle/src/model/media_protocol.dart';
+import 'package:tentacle/src/model/media_source_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

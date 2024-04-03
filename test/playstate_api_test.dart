@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for PlaystateApi
 void main() {
-  final instance = Openapi().getPlaystateApi();
+  final instance = Tentacle().getPlaystateApi();
 
   group(PlaystateApi, () {
     // Marks an item as played for user.

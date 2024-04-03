@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for DlnaApi
 void main() {
-  final instance = Openapi().getDlnaApi();
+  final instance = Tentacle().getDlnaApi();
 
   group(DlnaApi, () {
     // Creates a profile.

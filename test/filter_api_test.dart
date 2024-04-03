@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for FilterApi
 void main() {
-  final instance = Openapi().getFilterApi();
+  final instance = Tentacle().getFilterApi();
 
   group(FilterApi, () {
     // Gets query filters.

@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/type_options.dart';
+import 'package:tentacle/src/model/type_options.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/media_path_info.dart';
-import 'package:openapi/src/model/embedded_subtitle_options.dart';
+import 'package:tentacle/src/model/media_path_info.dart';
+import 'package:tentacle/src/model/embedded_subtitle_options.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

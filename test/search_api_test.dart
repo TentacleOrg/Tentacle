@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for SearchApi
 void main() {
-  final instance = Openapi().getSearchApi();
+  final instance = Tentacle().getSearchApi();
 
   group(SearchApi, () {
     // Gets the search hint result.

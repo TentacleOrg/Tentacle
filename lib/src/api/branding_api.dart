@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/model/branding_options.dart';
+import 'package:tentacle/src/model/branding_options.dart';
 
 class BrandingApi {
 

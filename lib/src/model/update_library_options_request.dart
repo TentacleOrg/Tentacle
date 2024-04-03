@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/add_virtual_folder_dto_library_options.dart';
-import 'package:openapi/src/model/update_library_options_dto.dart';
+import 'package:tentacle/src/model/add_virtual_folder_dto_library_options.dart';
+import 'package:tentacle/src/model/update_library_options_dto.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

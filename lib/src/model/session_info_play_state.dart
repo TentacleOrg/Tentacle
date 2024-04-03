@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/player_state_info.dart';
-import 'package:openapi/src/model/repeat_mode.dart';
-import 'package:openapi/src/model/play_method.dart';
+import 'package:tentacle/src/model/player_state_info.dart';
+import 'package:tentacle/src/model/repeat_mode.dart';
+import 'package:tentacle/src/model/play_method.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

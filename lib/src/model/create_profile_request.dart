@@ -3,16 +3,16 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/codec_profile.dart';
-import 'package:openapi/src/model/transcoding_profile.dart';
-import 'package:openapi/src/model/xml_attribute.dart';
-import 'package:openapi/src/model/subtitle_profile.dart';
+import 'package:tentacle/src/model/codec_profile.dart';
+import 'package:tentacle/src/model/transcoding_profile.dart';
+import 'package:tentacle/src/model/xml_attribute.dart';
+import 'package:tentacle/src/model/subtitle_profile.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:openapi/src/model/device_profile.dart';
-import 'package:openapi/src/model/response_profile.dart';
-import 'package:openapi/src/model/container_profile.dart';
-import 'package:openapi/src/model/device_profile_identification.dart';
-import 'package:openapi/src/model/direct_play_profile.dart';
+import 'package:tentacle/src/model/device_profile.dart';
+import 'package:tentacle/src/model/response_profile.dart';
+import 'package:tentacle/src/model/container_profile.dart';
+import 'package:tentacle/src/model/device_profile_identification.dart';
+import 'package:tentacle/src/model/direct_play_profile.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

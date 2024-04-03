@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:openapi/src/model/image_type.dart';
-import 'package:openapi/src/model/rating_type.dart';
+import 'package:tentacle/src/model/image_type.dart';
+import 'package:tentacle/src/model/rating_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

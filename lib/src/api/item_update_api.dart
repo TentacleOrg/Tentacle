@@ -7,10 +7,10 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/api_util.dart';
-import 'package:openapi/src/model/metadata_editor_info.dart';
-import 'package:openapi/src/model/problem_details.dart';
-import 'package:openapi/src/model/update_item_request.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/metadata_editor_info.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/update_item_request.dart';
 
 class ItemUpdateApi {
 

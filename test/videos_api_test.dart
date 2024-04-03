@@ -1,10 +1,10 @@
 import 'package:test/test.dart';
-import 'package:openapi/openapi.dart';
+import 'package:tentacle/tentacle.dart';
 
 
 /// tests for VideosApi
 void main() {
-  final instance = Openapi().getVideosApi();
+  final instance = Tentacle().getVideosApi();
 
   group(VideosApi, () {
     // Removes alternate video sources.
