@@ -1,6 +1,14 @@
 JELLYFIN_API_VERSION := ""
 JELLSEERR_API_VERSION := ""
 
+UNAME_S := $(shell uname -s)
+
+ifeq ($(UNAME_S),Linux)
+    SED_INPLACE = -i
+else
+    SED_INPLACE = -i ''
+endif
+
 .PHONY: downloadApis
 downloadApis:
 	@echo "Downloading latest Jellyfin OpenAPI"
@@ -55,16 +63,16 @@ buildRunner:
 .PHONY: fixErrors
 fixErrors:
 	@echo "Fixing Jellyfin errors in lib/src/model/transcoding_profile.dart"
-	@sed -i '' 's/const ._(TranscodeSeekInfo.auto)/TranscodeSeekInfo.auto/' jellyfin/lib/src/model/transcoding_profile.dart
-	@sed -i '' 's/const ._(EncodingContext.streaming)/EncodingContext.streaming/' jellyfin/lib/src/model/transcoding_profile.dart
+	@sed $(SED_INPLACE) 's/const ._(TranscodeSeekInfo.auto)/TranscodeSeekInfo.auto/' jellyfin/lib/src/model/transcoding_profile.dart
+	@sed $(SED_INPLACE) 's/const ._(EncodingContext.streaming)/EncodingContext.streaming/' jellyfin/lib/src/model/transcoding_profile.dart
 	@echo "Fixing Jellyfin errors in lib/src/model/channel_item_sort_field.dart"
-	@sed -i '' 's/const ChannelItemSortField name/const ChannelItemSortField itemName/' jellyfin/lib/src/model/channel_item_sort_field.dart
+	@sed $(SED_INPLACE) 's/const ChannelItemSortField name/const ChannelItemSortField itemName/' jellyfin/lib/src/model/channel_item_sort_field.dart
 	@echo "Fixing Jellyfin errors in lib/src/model/metadata_field.dart"
-	@sed -i '' 's/const MetadataField name/const MetadataField metadataName/' jellyfin/lib/src/model/metadata_field.dart
+	@sed $(SED_INPLACE) 's/const MetadataField name/const MetadataField metadataName/' jellyfin/lib/src/model/metadata_field.dart
 	@echo "Fixing jellyfin errors in lib/src/api/item_refresh_api.dart"
-	@sed -i '' 's/= None/ = MetadataRefreshMode.none/' jellyfin/lib/src/api/item_refresh_api.dart
+	@sed $(SED_INPLACE) 's/= None/ = MetadataRefreshMode.none/' jellyfin/lib/src/api/item_refresh_api.dart
 	@echo "Fixing jellyseerr error in lib/src/model/request_post_request_seasons.dart"
-	@sed -i '' 's/OneOf1Enum/OneOf1/' jellyseerr/lib/src/model/request_post_request_seasons.dart
+	@sed $(SED_INPLACE) 's/OneOf1Enum/OneOf1/' jellyseerr/lib/src/model/request_post_request_seasons.dart
 
 .PHONY: test
 test:
