@@ -89,13 +89,19 @@ format:
 	@dart format ./jellyseerr
 
 .PHONY: all
-all: downloadApis generateApis changePubspecDartVersion buildRunner test
+all: downloadApis generateApis changePubspecDartVersion fixErrors buildRunner test format
 
-.PHONY: stage1
-stage1: downloadApis generateApis changePubspecDartVersion
-
-.PHONY: stage2
-stage2: fixErrors buildRunner
-
-.PHONY: stage3
-stage3: test format
+.PHONY: help
+help:
+	@echo "Usage: make [target]"
+	@echo ""
+	@echo "Targets:"
+	@echo " - downloadApis: Download the latest Jellyfin and Jellyseerr OpenAPIs"
+	@echo " - generateApis: Generate the Jellyfin and Jellyseerr APIs"
+	@echo " - changePubspecDartVersion: Change the pubspec.yaml version to >=3.0.0 <4.0.0"
+	@echo " - buildRunner: Build the runner for Jellyfin and Jellyseerr"
+	@echo " - fixErrors: Fix errors in the Jellyfin and Jellyseerr APIs"
+	@echo " - test: Test the Jellyfin and Jellyseerr APIs"
+	@echo " - format: Format the Jellyfin and Jellyseerr APIs"
+	@echo " - all: Run all the above commands"
+	@echo " - help: Show this help message"
