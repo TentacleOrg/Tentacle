@@ -19,7 +19,7 @@ downloadApis:
 	@wget -O jellyseerr-openapi-stable.yml https://raw.githubusercontent.com/Kara-Zor-El/jellyseerr/develop/overseerr-api.yml --quiet
 	# @wget -O jellyseerr-openapi-stable.yml https://raw.githubusercontent.com/Fallenbagel/jellyseerr/main/overseerr-api.yml --quiet
 	$(eval JELLSEER_API_VERSION := $(shell yq eval '.openapi' jellyseerr-openapi-stable.yml))
-	@echo "Current Jellyseerr API version: $(JELLSEER_API_VERSION)"
+	@echo "Current Jellyseerr API version: $(JELLSEERR_API_VERSION)"
 
 .phony: updateApis
 generateApis:
@@ -41,7 +41,7 @@ generateApis:
 		@mv jellyseerr-openapi-stable.yml jellyseerr/jellyseerr-openapi-$(JELLSEERR_API_VERSION).yml
 		@openapi-generator generate \
 			-i jellyseerr/jellyseerr-openapi-${JELLSEERR_API_VERSION}.yml \
-			--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubDescription="A Jellyseerr api for dart via dio",pubLibarary="tentacle.api.jellyseerr",pubVersion=${JELLSEERR_API_VERSION},allowUnicodeIdentifiers=false \
+			--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubDescription="A Jellyseerr api for dart via dio",pubLibarary="jellyseer.api.jellyfin",pubVersion=${JELLSEERR_API_VERSION},allowUnicodeIdentifiers=false \
 			-g dart-dio \
 			--enable-post-process-file \
 			-o jellyseerr
