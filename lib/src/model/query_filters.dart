@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/name_guid_pair.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,10 +13,11 @@ part 'query_filters.g.dart';
 /// QueryFilters
 ///
 /// Properties:
-/// * [genres] 
-/// * [tags] 
+/// * [genres]
+/// * [tags]
 @BuiltValue()
-abstract class QueryFilters implements Built<QueryFilters, QueryFiltersBuilder> {
+abstract class QueryFilters
+    implements Built<QueryFilters, QueryFiltersBuilder> {
   @BuiltValueField(wireName: r'Genres')
   BuiltList<NameGuidPair>? get genres;
 
@@ -50,7 +51,8 @@ class _$QueryFiltersSerializer implements PrimitiveSerializer<QueryFilters> {
       yield r'Genres';
       yield serializers.serialize(
         object.genres,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.tags != null) {
@@ -68,7 +70,9 @@ class _$QueryFiltersSerializer implements PrimitiveSerializer<QueryFilters> {
     QueryFilters object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -86,7 +90,8 @@ class _$QueryFiltersSerializer implements PrimitiveSerializer<QueryFilters> {
         case r'Genres':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.genres.replace(valueDes);
@@ -94,7 +99,8 @@ class _$QueryFiltersSerializer implements PrimitiveSerializer<QueryFilters> {
         case r'Tags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.tags.replace(valueDes);
@@ -127,4 +133,3 @@ class _$QueryFiltersSerializer implements PrimitiveSerializer<QueryFilters> {
     return result.build();
   }
 }
-

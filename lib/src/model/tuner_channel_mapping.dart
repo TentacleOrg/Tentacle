@@ -11,12 +11,13 @@ part 'tuner_channel_mapping.g.dart';
 /// TunerChannelMapping
 ///
 /// Properties:
-/// * [name] 
-/// * [providerChannelName] 
-/// * [providerChannelId] 
-/// * [id] 
+/// * [name]
+/// * [providerChannelName]
+/// * [providerChannelId]
+/// * [id]
 @BuiltValue()
-abstract class TunerChannelMapping implements Built<TunerChannelMapping, TunerChannelMappingBuilder> {
+abstract class TunerChannelMapping
+    implements Built<TunerChannelMapping, TunerChannelMappingBuilder> {
   @BuiltValueField(wireName: r'Name')
   String? get name;
 
@@ -31,18 +32,24 @@ abstract class TunerChannelMapping implements Built<TunerChannelMapping, TunerCh
 
   TunerChannelMapping._();
 
-  factory TunerChannelMapping([void updates(TunerChannelMappingBuilder b)]) = _$TunerChannelMapping;
+  factory TunerChannelMapping([void updates(TunerChannelMappingBuilder b)]) =
+      _$TunerChannelMapping;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TunerChannelMappingBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TunerChannelMapping> get serializer => _$TunerChannelMappingSerializer();
+  static Serializer<TunerChannelMapping> get serializer =>
+      _$TunerChannelMappingSerializer();
 }
 
-class _$TunerChannelMappingSerializer implements PrimitiveSerializer<TunerChannelMapping> {
+class _$TunerChannelMappingSerializer
+    implements PrimitiveSerializer<TunerChannelMapping> {
   @override
-  final Iterable<Type> types = const [TunerChannelMapping, _$TunerChannelMapping];
+  final Iterable<Type> types = const [
+    TunerChannelMapping,
+    _$TunerChannelMapping
+  ];
 
   @override
   final String wireName = r'TunerChannelMapping';
@@ -88,7 +95,9 @@ class _$TunerChannelMappingSerializer implements PrimitiveSerializer<TunerChanne
     TunerChannelMapping object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -163,4 +172,3 @@ class _$TunerChannelMappingSerializer implements PrimitiveSerializer<TunerChanne
     return result.build();
   }
 }
-

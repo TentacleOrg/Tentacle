@@ -17,26 +17,17 @@ import 'package:tentacle/src/model/date.dart';
 import 'package:tentacle/src/model/access_schedule.dart';
 import 'package:tentacle/src/model/activity_log_entry.dart';
 import 'package:tentacle/src/model/activity_log_entry_query_result.dart';
-import 'package:tentacle/src/model/add_listing_provider_request.dart';
-import 'package:tentacle/src/model/add_media_path_request.dart';
-import 'package:tentacle/src/model/add_tuner_host_request.dart';
 import 'package:tentacle/src/model/add_virtual_folder_dto.dart';
 import 'package:tentacle/src/model/add_virtual_folder_dto_library_options.dart';
-import 'package:tentacle/src/model/add_virtual_folder_request.dart';
 import 'package:tentacle/src/model/admin_notification_dto.dart';
 import 'package:tentacle/src/model/album_info.dart';
 import 'package:tentacle/src/model/album_info_remote_search_query.dart';
-import 'package:tentacle/src/model/album_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/all_theme_media_result.dart';
 import 'package:tentacle/src/model/all_theme_media_result_theme_videos_result.dart';
-import 'package:tentacle/src/model/apply_search_criteria_request.dart';
 import 'package:tentacle/src/model/architecture.dart';
 import 'package:tentacle/src/model/artist_info.dart';
 import 'package:tentacle/src/model/artist_info_remote_search_query.dart';
-import 'package:tentacle/src/model/artist_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/authenticate_user_by_name.dart';
-import 'package:tentacle/src/model/authenticate_user_by_name_request.dart';
-import 'package:tentacle/src/model/authenticate_with_quick_connect_request.dart';
 import 'package:tentacle/src/model/authentication_info.dart';
 import 'package:tentacle/src/model/authentication_info_query_result.dart';
 import 'package:tentacle/src/model/authentication_result.dart';
@@ -53,10 +44,8 @@ import 'package:tentacle/src/model/base_item_person.dart';
 import 'package:tentacle/src/model/base_item_person_image_blur_hashes.dart';
 import 'package:tentacle/src/model/book_info.dart';
 import 'package:tentacle/src/model/book_info_remote_search_query.dart';
-import 'package:tentacle/src/model/book_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/box_set_info.dart';
 import 'package:tentacle/src/model/box_set_info_remote_search_query.dart';
-import 'package:tentacle/src/model/box_set_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/branding_options.dart';
 import 'package:tentacle/src/model/buffer_request_dto.dart';
 import 'package:tentacle/src/model/channel_features.dart';
@@ -69,7 +58,6 @@ import 'package:tentacle/src/model/chapter_info.dart';
 import 'package:tentacle/src/model/client_capabilities.dart';
 import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:tentacle/src/model/client_capabilities_dto.dart';
-import 'package:tentacle/src/model/client_capabilities_dto_device_profile.dart';
 import 'package:tentacle/src/model/client_log_document_response_dto.dart';
 import 'package:tentacle/src/model/codec_profile.dart';
 import 'package:tentacle/src/model/codec_type.dart';
@@ -80,14 +68,8 @@ import 'package:tentacle/src/model/configuration_page_info.dart';
 import 'package:tentacle/src/model/container_profile.dart';
 import 'package:tentacle/src/model/control_response.dart';
 import 'package:tentacle/src/model/country_info.dart';
-import 'package:tentacle/src/model/create_admin_notification_request.dart';
 import 'package:tentacle/src/model/create_playlist_dto.dart';
-import 'package:tentacle/src/model/create_playlist_request.dart';
-import 'package:tentacle/src/model/create_profile_request.dart';
-import 'package:tentacle/src/model/create_series_timer_request.dart';
-import 'package:tentacle/src/model/create_timer_request.dart';
 import 'package:tentacle/src/model/create_user_by_name.dart';
-import 'package:tentacle/src/model/create_user_by_name_request.dart';
 import 'package:tentacle/src/model/culture_dto.dart';
 import 'package:tentacle/src/model/day_of_week.dart';
 import 'package:tentacle/src/model/day_pattern.dart';
@@ -121,23 +103,10 @@ import 'package:tentacle/src/model/font_file.dart';
 import 'package:tentacle/src/model/forgot_password_action.dart';
 import 'package:tentacle/src/model/forgot_password_dto.dart';
 import 'package:tentacle/src/model/forgot_password_pin_dto.dart';
-import 'package:tentacle/src/model/forgot_password_pin_request.dart';
-import 'package:tentacle/src/model/forgot_password_request.dart';
 import 'package:tentacle/src/model/forgot_password_result.dart';
 import 'package:tentacle/src/model/general_command.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
-import 'package:tentacle/src/model/get_book_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_box_set_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_movie_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_music_album_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_music_artist_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_music_video_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_person_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_posted_playback_info_request.dart';
 import 'package:tentacle/src/model/get_programs_dto.dart';
-import 'package:tentacle/src/model/get_programs_request.dart';
-import 'package:tentacle/src/model/get_series_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_trailer_remote_search_results_request.dart';
 import 'package:tentacle/src/model/group_info_dto.dart';
 import 'package:tentacle/src/model/group_queue_mode.dart';
 import 'package:tentacle/src/model/group_repeat_mode.dart';
@@ -173,7 +142,6 @@ import 'package:tentacle/src/model/library_type_options_dto.dart';
 import 'package:tentacle/src/model/library_update_info.dart';
 import 'package:tentacle/src/model/listings_provider_info.dart';
 import 'package:tentacle/src/model/live_stream_response.dart';
-import 'package:tentacle/src/model/live_stream_response_media_source.dart';
 import 'package:tentacle/src/model/live_tv_info.dart';
 import 'package:tentacle/src/model/live_tv_options.dart';
 import 'package:tentacle/src/model/live_tv_service_info.dart';
@@ -204,10 +172,8 @@ import 'package:tentacle/src/model/metadata_refresh_mode.dart';
 import 'package:tentacle/src/model/move_playlist_item_request_dto.dart';
 import 'package:tentacle/src/model/movie_info.dart';
 import 'package:tentacle/src/model/movie_info_remote_search_query.dart';
-import 'package:tentacle/src/model/movie_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/music_video_info.dart';
 import 'package:tentacle/src/model/music_video_info_remote_search_query.dart';
-import 'package:tentacle/src/model/music_video_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/name_guid_pair.dart';
 import 'package:tentacle/src/model/name_id_pair.dart';
 import 'package:tentacle/src/model/name_value_pair.dart';
@@ -223,13 +189,11 @@ import 'package:tentacle/src/model/notification_type_info.dart';
 import 'package:tentacle/src/model/notifications_summary_dto.dart';
 import 'package:tentacle/src/model/object_group_update.dart';
 import 'package:tentacle/src/model/open_live_stream_dto.dart';
-import 'package:tentacle/src/model/open_live_stream_request.dart';
 import 'package:tentacle/src/model/package_info.dart';
 import 'package:tentacle/src/model/parental_rating.dart';
 import 'package:tentacle/src/model/path_substitution.dart';
 import 'package:tentacle/src/model/person_lookup_info.dart';
 import 'package:tentacle/src/model/person_lookup_info_remote_search_query.dart';
-import 'package:tentacle/src/model/person_lookup_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/pin_redeem_result.dart';
 import 'package:tentacle/src/model/ping_request_dto.dart';
 import 'package:tentacle/src/model/play_access.dart';
@@ -250,8 +214,6 @@ import 'package:tentacle/src/model/playstate_command.dart';
 import 'package:tentacle/src/model/playstate_request.dart';
 import 'package:tentacle/src/model/plugin_info.dart';
 import 'package:tentacle/src/model/plugin_status.dart';
-import 'package:tentacle/src/model/post_full_capabilities_request.dart';
-import 'package:tentacle/src/model/post_updated_media_request.dart';
 import 'package:tentacle/src/model/previous_item_request_dto.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/profile_condition.dart';
@@ -273,13 +235,9 @@ import 'package:tentacle/src/model/recording_status.dart';
 import 'package:tentacle/src/model/remote_image_info.dart';
 import 'package:tentacle/src/model/remote_image_result.dart';
 import 'package:tentacle/src/model/remote_search_result.dart';
-import 'package:tentacle/src/model/remote_search_result_album_artist.dart';
 import 'package:tentacle/src/model/remote_subtitle_info.dart';
 import 'package:tentacle/src/model/remove_from_playlist_request_dto.dart';
 import 'package:tentacle/src/model/repeat_mode.dart';
-import 'package:tentacle/src/model/report_playback_progress_request.dart';
-import 'package:tentacle/src/model/report_playback_start_request.dart';
-import 'package:tentacle/src/model/report_playback_stopped_request.dart';
 import 'package:tentacle/src/model/repository_info.dart';
 import 'package:tentacle/src/model/response_profile.dart';
 import 'package:tentacle/src/model/scroll_direction.dart';
@@ -288,30 +246,22 @@ import 'package:tentacle/src/model/search_hint_result.dart';
 import 'package:tentacle/src/model/seek_request_dto.dart';
 import 'package:tentacle/src/model/send_command.dart';
 import 'package:tentacle/src/model/send_command_type.dart';
-import 'package:tentacle/src/model/send_full_general_command_request.dart';
-import 'package:tentacle/src/model/send_message_command_request.dart';
 import 'package:tentacle/src/model/send_to_user_type.dart';
 import 'package:tentacle/src/model/series_info.dart';
 import 'package:tentacle/src/model/series_info_remote_search_query.dart';
-import 'package:tentacle/src/model/series_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/series_status.dart';
 import 'package:tentacle/src/model/series_timer_info_dto.dart';
 import 'package:tentacle/src/model/series_timer_info_dto_query_result.dart';
 import 'package:tentacle/src/model/server_configuration.dart';
 import 'package:tentacle/src/model/server_discovery_info.dart';
 import 'package:tentacle/src/model/session_info.dart';
-import 'package:tentacle/src/model/session_info_capabilities.dart';
 import 'package:tentacle/src/model/session_info_full_now_playing_item.dart';
 import 'package:tentacle/src/model/session_info_now_playing_item.dart';
 import 'package:tentacle/src/model/session_info_now_viewing_item.dart';
-import 'package:tentacle/src/model/session_info_play_state.dart';
-import 'package:tentacle/src/model/session_info_transcoding_info.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:tentacle/src/model/session_user_info.dart';
 import 'package:tentacle/src/model/set_channel_mapping_dto.dart';
-import 'package:tentacle/src/model/set_channel_mapping_request.dart';
 import 'package:tentacle/src/model/set_playlist_item_request_dto.dart';
-import 'package:tentacle/src/model/set_remote_access_request.dart';
 import 'package:tentacle/src/model/set_repeat_mode_request_dto.dart';
 import 'package:tentacle/src/model/set_shuffle_mode_request_dto.dart';
 import 'package:tentacle/src/model/song_info.dart';
@@ -324,22 +274,6 @@ import 'package:tentacle/src/model/subtitle_delivery_method.dart';
 import 'package:tentacle/src/model/subtitle_options.dart';
 import 'package:tentacle/src/model/subtitle_playback_mode.dart';
 import 'package:tentacle/src/model/subtitle_profile.dart';
-import 'package:tentacle/src/model/sync_play_buffering_request.dart';
-import 'package:tentacle/src/model/sync_play_create_group_request.dart';
-import 'package:tentacle/src/model/sync_play_join_group_request.dart';
-import 'package:tentacle/src/model/sync_play_move_playlist_item_request.dart';
-import 'package:tentacle/src/model/sync_play_next_item_request.dart';
-import 'package:tentacle/src/model/sync_play_ping_request.dart';
-import 'package:tentacle/src/model/sync_play_previous_item_request.dart';
-import 'package:tentacle/src/model/sync_play_queue_request.dart';
-import 'package:tentacle/src/model/sync_play_ready_request.dart';
-import 'package:tentacle/src/model/sync_play_remove_from_playlist_request.dart';
-import 'package:tentacle/src/model/sync_play_seek_request.dart';
-import 'package:tentacle/src/model/sync_play_set_ignore_wait_request.dart';
-import 'package:tentacle/src/model/sync_play_set_new_queue_request.dart';
-import 'package:tentacle/src/model/sync_play_set_playlist_item_request.dart';
-import 'package:tentacle/src/model/sync_play_set_repeat_mode_request.dart';
-import 'package:tentacle/src/model/sync_play_set_shuffle_mode_request.dart';
 import 'package:tentacle/src/model/sync_play_user_access_type.dart';
 import 'package:tentacle/src/model/system_info.dart';
 import 'package:tentacle/src/model/task_completion_status.dart';
@@ -355,7 +289,6 @@ import 'package:tentacle/src/model/timer_info_dto_program_info.dart';
 import 'package:tentacle/src/model/timer_info_dto_query_result.dart';
 import 'package:tentacle/src/model/trailer_info.dart';
 import 'package:tentacle/src/model/trailer_info_remote_search_query.dart';
-import 'package:tentacle/src/model/trailer_info_remote_search_query_search_info.dart';
 import 'package:tentacle/src/model/transcode_reason.dart';
 import 'package:tentacle/src/model/transcode_seek_info.dart';
 import 'package:tentacle/src/model/transcoding_info.dart';
@@ -365,27 +298,11 @@ import 'package:tentacle/src/model/tuner_channel_mapping.dart';
 import 'package:tentacle/src/model/tuner_host_info.dart';
 import 'package:tentacle/src/model/type_options.dart';
 import 'package:tentacle/src/model/unrated_item.dart';
-import 'package:tentacle/src/model/update_configuration_request.dart';
-import 'package:tentacle/src/model/update_device_options_request.dart';
-import 'package:tentacle/src/model/update_display_preferences_request.dart';
-import 'package:tentacle/src/model/update_initial_configuration_request.dart';
-import 'package:tentacle/src/model/update_item_request.dart';
 import 'package:tentacle/src/model/update_library_options_dto.dart';
-import 'package:tentacle/src/model/update_library_options_request.dart';
-import 'package:tentacle/src/model/update_media_encoder_path_request.dart';
-import 'package:tentacle/src/model/update_media_path_request.dart';
 import 'package:tentacle/src/model/update_media_path_request_dto.dart';
-import 'package:tentacle/src/model/update_media_path_request_dto_path_info.dart';
-import 'package:tentacle/src/model/update_startup_user_request.dart';
-import 'package:tentacle/src/model/update_user_configuration_request.dart';
 import 'package:tentacle/src/model/update_user_easy_password.dart';
-import 'package:tentacle/src/model/update_user_easy_password_request.dart';
 import 'package:tentacle/src/model/update_user_password.dart';
-import 'package:tentacle/src/model/update_user_password_request.dart';
-import 'package:tentacle/src/model/update_user_policy_request.dart';
-import 'package:tentacle/src/model/update_user_request.dart';
 import 'package:tentacle/src/model/upload_subtitle_dto.dart';
-import 'package:tentacle/src/model/upload_subtitle_request.dart';
 import 'package:tentacle/src/model/user_configuration.dart';
 import 'package:tentacle/src/model/user_dto.dart';
 import 'package:tentacle/src/model/user_dto_configuration.dart';
@@ -394,12 +311,10 @@ import 'package:tentacle/src/model/user_item_data_dto.dart';
 import 'package:tentacle/src/model/user_policy.dart';
 import 'package:tentacle/src/model/utc_time_response.dart';
 import 'package:tentacle/src/model/validate_path_dto.dart';
-import 'package:tentacle/src/model/validate_path_request.dart';
 import 'package:tentacle/src/model/version_info.dart';
 import 'package:tentacle/src/model/video3_d_format.dart';
 import 'package:tentacle/src/model/video_type.dart';
 import 'package:tentacle/src/model/virtual_folder_info.dart';
-import 'package:tentacle/src/model/virtual_folder_info_library_options.dart';
 import 'package:tentacle/src/model/wake_on_lan_info.dart';
 import 'package:tentacle/src/model/xbmc_metadata_options.dart';
 import 'package:tentacle/src/model/xml_attribute.dart';
@@ -410,33 +325,26 @@ part 'serializers.g.dart';
   AccessSchedule,
   ActivityLogEntry,
   ActivityLogEntryQueryResult,
-  AddListingProviderRequest,
-  AddMediaPathRequest,
-  AddTunerHostRequest,
-  AddVirtualFolderDto,$AddVirtualFolderDto,
+  AddVirtualFolderDto,
   AddVirtualFolderDtoLibraryOptions,
-  AddVirtualFolderRequest,
-  AdminNotificationDto,$AdminNotificationDto,
-  AlbumInfo,$AlbumInfo,
-  AlbumInfoRemoteSearchQuery,$AlbumInfoRemoteSearchQuery,
-  AlbumInfoRemoteSearchQuerySearchInfo,
+  AdminNotificationDto,
+  AlbumInfo,
+  AlbumInfoRemoteSearchQuery,
   AllThemeMediaResult,
   AllThemeMediaResultThemeVideosResult,
-  ApplySearchCriteriaRequest,
   Architecture,
-  ArtistInfo,$ArtistInfo,
-  ArtistInfoRemoteSearchQuery,$ArtistInfoRemoteSearchQuery,
-  ArtistInfoRemoteSearchQuerySearchInfo,
-  AuthenticateUserByName,$AuthenticateUserByName,
-  AuthenticateUserByNameRequest,
-  AuthenticateWithQuickConnectRequest,
+  ArtistInfo,
+  ArtistInfoRemoteSearchQuery,
+  AuthenticateUserByName,
   AuthenticationInfo,
   AuthenticationInfoQueryResult,
   AuthenticationResult,
   AuthenticationResultSessionInfo,
   AuthenticationResultUser,
-  BaseItem,$BaseItem,
-  BaseItemDto,$BaseItemDto,
+  BaseItem,
+  $BaseItem,
+  BaseItemDto,
+  $BaseItemDto,
   BaseItemDtoCurrentProgram,
   BaseItemDtoImageBlurHashes,
   BaseItemDtoQueryResult,
@@ -444,14 +352,12 @@ part 'serializers.g.dart';
   BaseItemKind,
   BaseItemPerson,
   BaseItemPersonImageBlurHashes,
-  BookInfo,$BookInfo,
-  BookInfoRemoteSearchQuery,$BookInfoRemoteSearchQuery,
-  BookInfoRemoteSearchQuerySearchInfo,
-  BoxSetInfo,$BoxSetInfo,
-  BoxSetInfoRemoteSearchQuery,$BoxSetInfoRemoteSearchQuery,
-  BoxSetInfoRemoteSearchQuerySearchInfo,
+  BookInfo,
+  BookInfoRemoteSearchQuery,
+  BoxSetInfo,
+  BoxSetInfoRemoteSearchQuery,
   BrandingOptions,
-  BufferRequestDto,$BufferRequestDto,
+  BufferRequestDto,
   ChannelFeatures,
   ChannelItemSortField,
   ChannelMappingOptionsDto,
@@ -459,10 +365,10 @@ part 'serializers.g.dart';
   ChannelMediaType,
   ChannelType,
   ChapterInfo,
-  ClientCapabilities,$ClientCapabilities,
+  ClientCapabilities,
+  $ClientCapabilities,
   ClientCapabilitiesDeviceProfile,
-  ClientCapabilitiesDto,$ClientCapabilitiesDto,
-  ClientCapabilitiesDtoDeviceProfile,
+  ClientCapabilitiesDto,
   ClientLogDocumentResponseDto,
   CodecProfile,
   CodecType,
@@ -473,30 +379,26 @@ part 'serializers.g.dart';
   ContainerProfile,
   ControlResponse,
   CountryInfo,
-  CreateAdminNotificationRequest,
-  CreatePlaylistDto,$CreatePlaylistDto,
-  CreatePlaylistRequest,
-  CreateProfileRequest,
-  CreateSeriesTimerRequest,
-  CreateTimerRequest,
-  CreateUserByName,$CreateUserByName,
-  CreateUserByNameRequest,
+  CreatePlaylistDto,
+  CreateUserByName,
   CultureDto,
   DayOfWeek,
   DayPattern,
   DefaultDirectoryBrowserInfoDto,
-  DeviceIdentification,$DeviceIdentification,
+  DeviceIdentification,
+  $DeviceIdentification,
   DeviceInfo,
   DeviceInfoCapabilities,
   DeviceInfoQueryResult,
   DeviceOptions,
-  DeviceOptionsDto,$DeviceOptionsDto,
-  DeviceProfile,$DeviceProfile,
+  DeviceOptionsDto,
+  DeviceProfile,
+  $DeviceProfile,
   DeviceProfileIdentification,
   DeviceProfileInfo,
   DeviceProfileType,
   DirectPlayProfile,
-  DisplayPreferencesDto,$DisplayPreferencesDto,
+  DisplayPreferencesDto,
   DlnaOptions,
   DlnaProfileType,
   DynamicDayOfWeek,
@@ -512,25 +414,12 @@ part 'serializers.g.dart';
   FileSystemEntryType,
   FontFile,
   ForgotPasswordAction,
-  ForgotPasswordDto,$ForgotPasswordDto,
-  ForgotPasswordPinDto,$ForgotPasswordPinDto,
-  ForgotPasswordPinRequest,
-  ForgotPasswordRequest,
+  ForgotPasswordDto,
+  ForgotPasswordPinDto,
   ForgotPasswordResult,
-  GeneralCommand,$GeneralCommand,
+  GeneralCommand,
   GeneralCommandType,
-  GetBookRemoteSearchResultsRequest,
-  GetBoxSetRemoteSearchResultsRequest,
-  GetMovieRemoteSearchResultsRequest,
-  GetMusicAlbumRemoteSearchResultsRequest,
-  GetMusicArtistRemoteSearchResultsRequest,
-  GetMusicVideoRemoteSearchResultsRequest,
-  GetPersonRemoteSearchResultsRequest,
-  GetPostedPlaybackInfoRequest,
-  GetProgramsDto,$GetProgramsDto,
-  GetProgramsRequest,
-  GetSeriesRemoteSearchResultsRequest,
-  GetTrailerRemoteSearchResultsRequest,
+  GetProgramsDto,
   GroupInfoDto,
   GroupQueueMode,
   GroupRepeatMode,
@@ -542,7 +431,7 @@ part 'serializers.g.dart';
   HeaderMatchType,
   HttpHeaderInfo,
   IPlugin,
-  IgnoreWaitRequestDto,$IgnoreWaitRequestDto,
+  IgnoreWaitRequestDto,
   ImageByNameInfo,
   ImageFormat,
   ImageInfo,
@@ -557,16 +446,16 @@ part 'serializers.g.dart';
   ItemCounts,
   ItemFields,
   ItemFilter,
-  JoinGroupRequestDto,$JoinGroupRequestDto,
+  JoinGroupRequestDto,
   KeepUntil,
   LibraryOptionInfoDto,
-  LibraryOptions,$LibraryOptions,
+  LibraryOptions,
+  $LibraryOptions,
   LibraryOptionsResultDto,
   LibraryTypeOptionsDto,
   LibraryUpdateInfo,
-  ListingsProviderInfo,$ListingsProviderInfo,
+  ListingsProviderInfo,
   LiveStreamResponse,
-  LiveStreamResponseMediaSource,
   LiveTvInfo,
   LiveTvOptions,
   LiveTvServiceInfo,
@@ -576,37 +465,36 @@ part 'serializers.g.dart';
   LogFile,
   LogLevel,
   MediaAttachment,
-  MediaEncoderPathDto,$MediaEncoderPathDto,
-  MediaPathDto,$MediaPathDto,
+  MediaEncoderPathDto,
+  MediaPathDto,
   MediaPathDtoPathInfo,
-  MediaPathInfo,$MediaPathInfo,
+  MediaPathInfo,
+  $MediaPathInfo,
   MediaProtocol,
-  MediaSourceInfo,$MediaSourceInfo,
+  MediaSourceInfo,
   MediaSourceType,
   MediaStream,
   MediaStreamType,
-  MediaUpdateInfoDto,$MediaUpdateInfoDto,
+  MediaUpdateInfoDto,
   MediaUpdateInfoPathDto,
   MediaUrl,
-  MessageCommand,$MessageCommand,
+  MessageCommand,
   MetadataConfiguration,
   MetadataEditorInfo,
   MetadataField,
   MetadataOptions,
   MetadataRefreshMode,
-  MovePlaylistItemRequestDto,$MovePlaylistItemRequestDto,
-  MovieInfo,$MovieInfo,
-  MovieInfoRemoteSearchQuery,$MovieInfoRemoteSearchQuery,
-  MovieInfoRemoteSearchQuerySearchInfo,
-  MusicVideoInfo,$MusicVideoInfo,
-  MusicVideoInfoRemoteSearchQuery,$MusicVideoInfoRemoteSearchQuery,
-  MusicVideoInfoRemoteSearchQuerySearchInfo,
+  MovePlaylistItemRequestDto,
+  MovieInfo,
+  MovieInfoRemoteSearchQuery,
+  MusicVideoInfo,
+  MusicVideoInfoRemoteSearchQuery,
   NameGuidPair,
   NameIdPair,
   NameValuePair,
   NetworkConfiguration,
-  NewGroupRequestDto,$NewGroupRequestDto,
-  NextItemRequestDto,$NextItemRequestDto,
+  NewGroupRequestDto,
+  NextItemRequestDto,
   NotificationDto,
   NotificationLevel,
   NotificationOption,
@@ -615,37 +503,34 @@ part 'serializers.g.dart';
   NotificationTypeInfo,
   NotificationsSummaryDto,
   ObjectGroupUpdate,
-  OpenLiveStreamDto,$OpenLiveStreamDto,
-  OpenLiveStreamRequest,
-  PackageInfo,$PackageInfo,
+  OpenLiveStreamDto,
+  PackageInfo,
+  $PackageInfo,
   ParentalRating,
   PathSubstitution,
-  PersonLookupInfo,$PersonLookupInfo,
-  PersonLookupInfoRemoteSearchQuery,$PersonLookupInfoRemoteSearchQuery,
-  PersonLookupInfoRemoteSearchQuerySearchInfo,
+  PersonLookupInfo,
+  PersonLookupInfoRemoteSearchQuery,
   PinRedeemResult,
-  PingRequestDto,$PingRequestDto,
+  PingRequestDto,
   PlayAccess,
   PlayCommand,
   PlayMethod,
   PlayRequest,
-  PlayRequestDto,$PlayRequestDto,
+  PlayRequestDto,
   PlaybackErrorCode,
-  PlaybackInfoDto,$PlaybackInfoDto,
+  PlaybackInfoDto,
   PlaybackInfoResponse,
-  PlaybackProgressInfo,$PlaybackProgressInfo,
+  PlaybackProgressInfo,
   PlaybackProgressInfoItem,
-  PlaybackStartInfo,$PlaybackStartInfo,
-  PlaybackStopInfo,$PlaybackStopInfo,
-  PlayerStateInfo,$PlayerStateInfo,
+  PlaybackStartInfo,
+  PlaybackStopInfo,
+  PlayerStateInfo,
   PlaylistCreationResult,
   PlaystateCommand,
   PlaystateRequest,
   PluginInfo,
   PluginStatus,
-  PostFullCapabilitiesRequest,
-  PostUpdatedMediaRequest,
-  PreviousItemRequestDto,$PreviousItemRequestDto,
+  PreviousItemRequestDto,
   ProblemDetails,
   ProfileCondition,
   ProfileConditionType,
@@ -655,144 +540,104 @@ part 'serializers.g.dart';
   QueryFilters,
   QueryFiltersLegacy,
   QueueItem,
-  QueueRequestDto,$QueueRequestDto,
-  QuickConnectDto,$QuickConnectDto,
+  QueueRequestDto,
+  QuickConnectDto,
   QuickConnectResult,
   RatingType,
-  ReadyRequestDto,$ReadyRequestDto,
+  ReadyRequestDto,
   RecommendationDto,
   RecommendationType,
   RecordingStatus,
   RemoteImageInfo,
   RemoteImageResult,
-  RemoteSearchResult,$RemoteSearchResult,
-  RemoteSearchResultAlbumArtist,
+  RemoteSearchResult,
   RemoteSubtitleInfo,
-  RemoveFromPlaylistRequestDto,$RemoveFromPlaylistRequestDto,
+  RemoveFromPlaylistRequestDto,
   RepeatMode,
-  ReportPlaybackProgressRequest,
-  ReportPlaybackStartRequest,
-  ReportPlaybackStoppedRequest,
   RepositoryInfo,
   ResponseProfile,
   ScrollDirection,
   SearchHint,
   SearchHintResult,
-  SeekRequestDto,$SeekRequestDto,
+  SeekRequestDto,
   SendCommand,
   SendCommandType,
-  SendFullGeneralCommandRequest,
-  SendMessageCommandRequest,
   SendToUserType,
-  SeriesInfo,$SeriesInfo,
-  SeriesInfoRemoteSearchQuery,$SeriesInfoRemoteSearchQuery,
-  SeriesInfoRemoteSearchQuerySearchInfo,
+  SeriesInfo,
+  SeriesInfoRemoteSearchQuery,
   SeriesStatus,
-  SeriesTimerInfoDto,$SeriesTimerInfoDto,
+  SeriesTimerInfoDto,
   SeriesTimerInfoDtoQueryResult,
-  ServerConfiguration,$ServerConfiguration,
+  ServerConfiguration,
   ServerDiscoveryInfo,
-  SessionInfo,$SessionInfo,
-  SessionInfoCapabilities,
+  SessionInfo,
+  $SessionInfo,
   SessionInfoFullNowPlayingItem,
   SessionInfoNowPlayingItem,
   SessionInfoNowViewingItem,
-  SessionInfoPlayState,
-  SessionInfoTranscodingInfo,
   SessionMessageType,
   SessionUserInfo,
-  SetChannelMappingDto,$SetChannelMappingDto,
-  SetChannelMappingRequest,
-  SetPlaylistItemRequestDto,$SetPlaylistItemRequestDto,
-  SetRemoteAccessRequest,
-  SetRepeatModeRequestDto,$SetRepeatModeRequestDto,
-  SetShuffleModeRequestDto,$SetShuffleModeRequestDto,
+  SetChannelMappingDto,
+  SetPlaylistItemRequestDto,
+  SetRepeatModeRequestDto,
+  SetShuffleModeRequestDto,
   SongInfo,
   SortOrder,
   SpecialViewOptionDto,
-  StartupConfigurationDto,$StartupConfigurationDto,
-  StartupRemoteAccessDto,$StartupRemoteAccessDto,
-  StartupUserDto,$StartupUserDto,
+  StartupConfigurationDto,
+  StartupRemoteAccessDto,
+  StartupUserDto,
   SubtitleDeliveryMethod,
   SubtitleOptions,
   SubtitlePlaybackMode,
   SubtitleProfile,
-  SyncPlayBufferingRequest,
-  SyncPlayCreateGroupRequest,
-  SyncPlayJoinGroupRequest,
-  SyncPlayMovePlaylistItemRequest,
-  SyncPlayNextItemRequest,
-  SyncPlayPingRequest,
-  SyncPlayPreviousItemRequest,
-  SyncPlayQueueRequest,
-  SyncPlayReadyRequest,
-  SyncPlayRemoveFromPlaylistRequest,
-  SyncPlaySeekRequest,
-  SyncPlaySetIgnoreWaitRequest,
-  SyncPlaySetNewQueueRequest,
-  SyncPlaySetPlaylistItemRequest,
-  SyncPlaySetRepeatModeRequest,
-  SyncPlaySetShuffleModeRequest,
   SyncPlayUserAccessType,
   SystemInfo,
   TaskCompletionStatus,
   TaskInfo,
   TaskInfoLastExecutionResult,
-  TaskResult,$TaskResult,
+  TaskResult,
+  $TaskResult,
   TaskState,
   TaskTriggerInfo,
-  ThemeMediaResult,$ThemeMediaResult,
+  ThemeMediaResult,
+  $ThemeMediaResult,
   TimerEventInfo,
-  TimerInfoDto,$TimerInfoDto,
+  TimerInfoDto,
   TimerInfoDtoProgramInfo,
   TimerInfoDtoQueryResult,
-  TrailerInfo,$TrailerInfo,
-  TrailerInfoRemoteSearchQuery,$TrailerInfoRemoteSearchQuery,
-  TrailerInfoRemoteSearchQuerySearchInfo,
+  TrailerInfo,
+  TrailerInfoRemoteSearchQuery,
   TranscodeReason,
   TranscodeSeekInfo,
-  TranscodingInfo,$TranscodingInfo,
+  TranscodingInfo,
   TranscodingProfile,
   TransportStreamTimestamp,
   TunerChannelMapping,
-  TunerHostInfo,$TunerHostInfo,
+  TunerHostInfo,
   TypeOptions,
   UnratedItem,
-  UpdateConfigurationRequest,
-  UpdateDeviceOptionsRequest,
-  UpdateDisplayPreferencesRequest,
-  UpdateInitialConfigurationRequest,
-  UpdateItemRequest,
-  UpdateLibraryOptionsDto,$UpdateLibraryOptionsDto,
-  UpdateLibraryOptionsRequest,
-  UpdateMediaEncoderPathRequest,
-  UpdateMediaPathRequest,
-  UpdateMediaPathRequestDto,$UpdateMediaPathRequestDto,
-  UpdateMediaPathRequestDtoPathInfo,
-  UpdateStartupUserRequest,
-  UpdateUserConfigurationRequest,
-  UpdateUserEasyPassword,$UpdateUserEasyPassword,
-  UpdateUserEasyPasswordRequest,
-  UpdateUserPassword,$UpdateUserPassword,
-  UpdateUserPasswordRequest,
-  UpdateUserPolicyRequest,
-  UpdateUserRequest,
-  UploadSubtitleDto,$UploadSubtitleDto,
-  UploadSubtitleRequest,
-  UserConfiguration,$UserConfiguration,
-  UserDto,$UserDto,
+  UpdateLibraryOptionsDto,
+  UpdateMediaPathRequestDto,
+  UpdateUserEasyPassword,
+  UpdateUserPassword,
+  UploadSubtitleDto,
+  UserConfiguration,
+  $UserConfiguration,
+  UserDto,
+  $UserDto,
   UserDtoConfiguration,
   UserDtoPolicy,
-  UserItemDataDto,$UserItemDataDto,
-  UserPolicy,$UserPolicy,
+  UserItemDataDto,
+  $UserItemDataDto,
+  UserPolicy,
+  $UserPolicy,
   UtcTimeResponse,
-  ValidatePathDto,$ValidatePathDto,
-  ValidatePathRequest,
+  ValidatePathDto,
   VersionInfo,
   Video3DFormat,
   VideoType,
   VirtualFolderInfo,
-  VirtualFolderInfoLibraryOptions,
   WakeOnLanInfo,
   XbmcMetadataOptions,
   XmlAttribute,
@@ -974,96 +819,21 @@ Serializers serializers = (_$serializers.toBuilder()
         const FullType(BuiltList, [FullType(UserDto)]),
         () => ListBuilder<UserDto>(),
       )
-      ..add(AddVirtualFolderDto.serializer)
-      ..add(AdminNotificationDto.serializer)
-      ..add(AlbumInfo.serializer)
-      ..add(AlbumInfoRemoteSearchQuery.serializer)
-      ..add(ArtistInfo.serializer)
-      ..add(ArtistInfoRemoteSearchQuery.serializer)
-      ..add(AuthenticateUserByName.serializer)
       ..add(BaseItem.serializer)
       ..add(BaseItemDto.serializer)
-      ..add(BookInfo.serializer)
-      ..add(BookInfoRemoteSearchQuery.serializer)
-      ..add(BoxSetInfo.serializer)
-      ..add(BoxSetInfoRemoteSearchQuery.serializer)
-      ..add(BufferRequestDto.serializer)
       ..add(ClientCapabilities.serializer)
-      ..add(ClientCapabilitiesDto.serializer)
-      ..add(CreatePlaylistDto.serializer)
-      ..add(CreateUserByName.serializer)
       ..add(DeviceIdentification.serializer)
-      ..add(DeviceOptionsDto.serializer)
       ..add(DeviceProfile.serializer)
-      ..add(DisplayPreferencesDto.serializer)
-      ..add(ForgotPasswordDto.serializer)
-      ..add(ForgotPasswordPinDto.serializer)
-      ..add(GeneralCommand.serializer)
-      ..add(GetProgramsDto.serializer)
-      ..add(IgnoreWaitRequestDto.serializer)
-      ..add(JoinGroupRequestDto.serializer)
       ..add(LibraryOptions.serializer)
-      ..add(ListingsProviderInfo.serializer)
-      ..add(MediaEncoderPathDto.serializer)
-      ..add(MediaPathDto.serializer)
       ..add(MediaPathInfo.serializer)
-      ..add(MediaSourceInfo.serializer)
-      ..add(MediaUpdateInfoDto.serializer)
-      ..add(MessageCommand.serializer)
-      ..add(MovePlaylistItemRequestDto.serializer)
-      ..add(MovieInfo.serializer)
-      ..add(MovieInfoRemoteSearchQuery.serializer)
-      ..add(MusicVideoInfo.serializer)
-      ..add(MusicVideoInfoRemoteSearchQuery.serializer)
-      ..add(NewGroupRequestDto.serializer)
-      ..add(NextItemRequestDto.serializer)
-      ..add(OpenLiveStreamDto.serializer)
       ..add(PackageInfo.serializer)
-      ..add(PersonLookupInfo.serializer)
-      ..add(PersonLookupInfoRemoteSearchQuery.serializer)
-      ..add(PingRequestDto.serializer)
-      ..add(PlayRequestDto.serializer)
-      ..add(PlaybackInfoDto.serializer)
-      ..add(PlaybackProgressInfo.serializer)
-      ..add(PlaybackStartInfo.serializer)
-      ..add(PlaybackStopInfo.serializer)
-      ..add(PlayerStateInfo.serializer)
-      ..add(PreviousItemRequestDto.serializer)
-      ..add(QueueRequestDto.serializer)
-      ..add(QuickConnectDto.serializer)
-      ..add(ReadyRequestDto.serializer)
-      ..add(RemoteSearchResult.serializer)
-      ..add(RemoveFromPlaylistRequestDto.serializer)
-      ..add(SeekRequestDto.serializer)
-      ..add(SeriesInfo.serializer)
-      ..add(SeriesInfoRemoteSearchQuery.serializer)
-      ..add(SeriesTimerInfoDto.serializer)
-      ..add(ServerConfiguration.serializer)
       ..add(SessionInfo.serializer)
-      ..add(SetChannelMappingDto.serializer)
-      ..add(SetPlaylistItemRequestDto.serializer)
-      ..add(SetRepeatModeRequestDto.serializer)
-      ..add(SetShuffleModeRequestDto.serializer)
-      ..add(StartupConfigurationDto.serializer)
-      ..add(StartupRemoteAccessDto.serializer)
-      ..add(StartupUserDto.serializer)
       ..add(TaskResult.serializer)
       ..add(ThemeMediaResult.serializer)
-      ..add(TimerInfoDto.serializer)
-      ..add(TrailerInfo.serializer)
-      ..add(TrailerInfoRemoteSearchQuery.serializer)
-      ..add(TranscodingInfo.serializer)
-      ..add(TunerHostInfo.serializer)
-      ..add(UpdateLibraryOptionsDto.serializer)
-      ..add(UpdateMediaPathRequestDto.serializer)
-      ..add(UpdateUserEasyPassword.serializer)
-      ..add(UpdateUserPassword.serializer)
-      ..add(UploadSubtitleDto.serializer)
       ..add(UserConfiguration.serializer)
       ..add(UserDto.serializer)
       ..add(UserItemDataDto.serializer)
       ..add(UserPolicy.serializer)
-      ..add(ValidatePathDto.serializer)
       ..add(const OneOfSerializer())
       ..add(const AnyOfSerializer())
       ..add(const DateSerializer())

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlayRequestDto
 void main() {
-  //final instance = PlayRequestDtoBuilder();
+  final instance = PlayRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PlayRequestDto, () {
@@ -24,6 +24,5 @@ void main() {
     test('to test the property `startPositionTicks`', () async {
       // TODO
     });
-
   });
 }

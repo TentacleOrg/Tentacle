@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'recording_status.g.dart';
 
 class RecordingStatus extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'New')
   static const RecordingStatus new_ = _$new_;
   @BuiltValueEnumConst(wireName: r'InProgress')
@@ -26,9 +25,10 @@ class RecordingStatus extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Error')
   static const RecordingStatus error = _$error;
 
-  static Serializer<RecordingStatus> get serializer => _$recordingStatusSerializer;
+  static Serializer<RecordingStatus> get serializer =>
+      _$recordingStatusSerializer;
 
-  const RecordingStatus._(String name): super(name);
+  const RecordingStatus._(String name) : super(name);
 
   static BuiltSet<RecordingStatus> get values => _$values;
   static RecordingStatus valueOf(String name) => _$valueOf(name);
@@ -41,4 +41,3 @@ class RecordingStatus extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class RecordingStatusMixin = Object with _$RecordingStatusMixin;
-

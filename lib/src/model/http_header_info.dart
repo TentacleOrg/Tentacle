@@ -12,11 +12,12 @@ part 'http_header_info.g.dart';
 /// HttpHeaderInfo
 ///
 /// Properties:
-/// * [name] 
-/// * [value] 
-/// * [match] 
+/// * [name]
+/// * [value]
+/// * [match]
 @BuiltValue()
-abstract class HttpHeaderInfo implements Built<HttpHeaderInfo, HttpHeaderInfoBuilder> {
+abstract class HttpHeaderInfo
+    implements Built<HttpHeaderInfo, HttpHeaderInfoBuilder> {
   @BuiltValueField(wireName: r'Name')
   String? get name;
 
@@ -25,19 +26,23 @@ abstract class HttpHeaderInfo implements Built<HttpHeaderInfo, HttpHeaderInfoBui
 
   @BuiltValueField(wireName: r'Match')
   HeaderMatchType? get match;
+  // enum matchEnum {  Equals,  Regex,  Substring,  };
 
   HttpHeaderInfo._();
 
-  factory HttpHeaderInfo([void updates(HttpHeaderInfoBuilder b)]) = _$HttpHeaderInfo;
+  factory HttpHeaderInfo([void updates(HttpHeaderInfoBuilder b)]) =
+      _$HttpHeaderInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(HttpHeaderInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<HttpHeaderInfo> get serializer => _$HttpHeaderInfoSerializer();
+  static Serializer<HttpHeaderInfo> get serializer =>
+      _$HttpHeaderInfoSerializer();
 }
 
-class _$HttpHeaderInfoSerializer implements PrimitiveSerializer<HttpHeaderInfo> {
+class _$HttpHeaderInfoSerializer
+    implements PrimitiveSerializer<HttpHeaderInfo> {
   @override
   final Iterable<Type> types = const [HttpHeaderInfo, _$HttpHeaderInfo];
 
@@ -78,7 +83,9 @@ class _$HttpHeaderInfoSerializer implements PrimitiveSerializer<HttpHeaderInfo> 
     HttpHeaderInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -144,4 +151,3 @@ class _$HttpHeaderInfoSerializer implements PrimitiveSerializer<HttpHeaderInfo> 
     return result.build();
   }
 }
-

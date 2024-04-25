@@ -39,7 +39,7 @@ class _$NotificationLevelMeta {
   BuiltSet<NotificationLevel> get values => _$values;
 }
 
-abstract class _$NotificationLevelMixin {
+mixin _$NotificationLevelMixin {
   // ignore: non_constant_identifier_names
   _$NotificationLevelMeta get NotificationLevel =>
       const _$NotificationLevelMeta();

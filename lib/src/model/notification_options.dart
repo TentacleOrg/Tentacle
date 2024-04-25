@@ -13,26 +13,33 @@ part 'notification_options.g.dart';
 /// NotificationOptions
 ///
 /// Properties:
-/// * [options] 
+/// * [options]
 @BuiltValue()
-abstract class NotificationOptions implements Built<NotificationOptions, NotificationOptionsBuilder> {
+abstract class NotificationOptions
+    implements Built<NotificationOptions, NotificationOptionsBuilder> {
   @BuiltValueField(wireName: r'Options')
   BuiltList<NotificationOption>? get options;
 
   NotificationOptions._();
 
-  factory NotificationOptions([void updates(NotificationOptionsBuilder b)]) = _$NotificationOptions;
+  factory NotificationOptions([void updates(NotificationOptionsBuilder b)]) =
+      _$NotificationOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NotificationOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationOptions> get serializer => _$NotificationOptionsSerializer();
+  static Serializer<NotificationOptions> get serializer =>
+      _$NotificationOptionsSerializer();
 }
 
-class _$NotificationOptionsSerializer implements PrimitiveSerializer<NotificationOptions> {
+class _$NotificationOptionsSerializer
+    implements PrimitiveSerializer<NotificationOptions> {
   @override
-  final Iterable<Type> types = const [NotificationOptions, _$NotificationOptions];
+  final Iterable<Type> types = const [
+    NotificationOptions,
+    _$NotificationOptions
+  ];
 
   @override
   final String wireName = r'NotificationOptions';
@@ -46,7 +53,8 @@ class _$NotificationOptionsSerializer implements PrimitiveSerializer<Notificatio
       yield r'Options';
       yield serializers.serialize(
         object.options,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NotificationOption)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NotificationOption)]),
       );
     }
   }
@@ -57,7 +65,9 @@ class _$NotificationOptionsSerializer implements PrimitiveSerializer<Notificatio
     NotificationOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -75,7 +85,8 @@ class _$NotificationOptionsSerializer implements PrimitiveSerializer<Notificatio
         case r'Options':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NotificationOption)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(NotificationOption)]),
           ) as BuiltList<NotificationOption>?;
           if (valueDes == null) continue;
           result.options.replace(valueDes);
@@ -108,4 +119,3 @@ class _$NotificationOptionsSerializer implements PrimitiveSerializer<Notificatio
     return result.build();
   }
 }
-

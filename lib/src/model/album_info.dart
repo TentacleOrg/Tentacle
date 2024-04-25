@@ -20,15 +20,15 @@ part 'album_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
 /// * [albumArtists] - Gets or sets the album artist.
 /// * [artistProviderIds] - Gets or sets the artist provider ids.
-/// * [songInfos] 
-@BuiltValue(instantiable: false)
-abstract class AlbumInfo  {
+/// * [songInfos]
+@BuiltValue()
+abstract class AlbumInfo implements Built<AlbumInfo, AlbumInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -80,13 +80,20 @@ abstract class AlbumInfo  {
   @BuiltValueField(wireName: r'SongInfos')
   BuiltList<SongInfo>? get songInfos;
 
+  AlbumInfo._();
+
+  factory AlbumInfo([void updates(AlbumInfoBuilder b)]) = _$AlbumInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AlbumInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<AlbumInfo> get serializer => _$AlbumInfoSerializer();
 }
 
 class _$AlbumInfoSerializer implements PrimitiveSerializer<AlbumInfo> {
   @override
-  final Iterable<Type> types = const [AlbumInfo];
+  final Iterable<Type> types = const [AlbumInfo, _$AlbumInfo];
 
   @override
   final String wireName = r'AlbumInfo';
@@ -135,7 +142,8 @@ class _$AlbumInfoSerializer implements PrimitiveSerializer<AlbumInfo> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -184,7 +192,8 @@ class _$AlbumInfoSerializer implements PrimitiveSerializer<AlbumInfo> {
       yield r'ArtistProviderIds';
       yield serializers.serialize(
         object.artistProviderIds,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.songInfos != null) {
@@ -202,47 +211,9 @@ class _$AlbumInfoSerializer implements PrimitiveSerializer<AlbumInfo> {
     AlbumInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  AlbumInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AlbumInfo)) as $AlbumInfo;
-  }
-}
-
-/// a concrete implementation of [AlbumInfo], since [AlbumInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $AlbumInfo implements AlbumInfo, Built<$AlbumInfo, $AlbumInfoBuilder> {
-  $AlbumInfo._();
-
-  factory $AlbumInfo([void Function($AlbumInfoBuilder)? updates]) = _$$AlbumInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AlbumInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$AlbumInfo> get serializer => _$$AlbumInfoSerializer();
-}
-
-class _$$AlbumInfoSerializer implements PrimitiveSerializer<$AlbumInfo> {
-  @override
-  final Iterable<Type> types = const [$AlbumInfo, _$$AlbumInfo];
-
-  @override
-  final String wireName = r'$AlbumInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $AlbumInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(AlbumInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -300,7 +271,8 @@ class _$$AlbumInfoSerializer implements PrimitiveSerializer<$AlbumInfo> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -354,7 +326,8 @@ class _$$AlbumInfoSerializer implements PrimitiveSerializer<$AlbumInfo> {
         case r'ArtistProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>;
           result.artistProviderIds.replace(valueDes);
           break;
@@ -374,12 +347,12 @@ class _$$AlbumInfoSerializer implements PrimitiveSerializer<$AlbumInfo> {
   }
 
   @override
-  $AlbumInfo deserialize(
+  AlbumInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $AlbumInfoBuilder();
+    final result = AlbumInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -393,4 +366,3 @@ class _$$AlbumInfoSerializer implements PrimitiveSerializer<$AlbumInfo> {
     return result.build();
   }
 }
-

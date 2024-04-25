@@ -15,7 +15,8 @@ part 'branding_options.g.dart';
 /// * [customCss] - Gets or sets the custom CSS.
 /// * [splashscreenEnabled] - Gets or sets a value indicating whether to enable the splashscreen.
 @BuiltValue()
-abstract class BrandingOptions implements Built<BrandingOptions, BrandingOptionsBuilder> {
+abstract class BrandingOptions
+    implements Built<BrandingOptions, BrandingOptionsBuilder> {
   /// Gets or sets the login disclaimer.
   @BuiltValueField(wireName: r'LoginDisclaimer')
   String? get loginDisclaimer;
@@ -30,16 +31,19 @@ abstract class BrandingOptions implements Built<BrandingOptions, BrandingOptions
 
   BrandingOptions._();
 
-  factory BrandingOptions([void updates(BrandingOptionsBuilder b)]) = _$BrandingOptions;
+  factory BrandingOptions([void updates(BrandingOptionsBuilder b)]) =
+      _$BrandingOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BrandingOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BrandingOptions> get serializer => _$BrandingOptionsSerializer();
+  static Serializer<BrandingOptions> get serializer =>
+      _$BrandingOptionsSerializer();
 }
 
-class _$BrandingOptionsSerializer implements PrimitiveSerializer<BrandingOptions> {
+class _$BrandingOptionsSerializer
+    implements PrimitiveSerializer<BrandingOptions> {
   @override
   final Iterable<Type> types = const [BrandingOptions, _$BrandingOptions];
 
@@ -80,7 +84,9 @@ class _$BrandingOptionsSerializer implements PrimitiveSerializer<BrandingOptions
     BrandingOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -146,4 +152,3 @@ class _$BrandingOptionsSerializer implements PrimitiveSerializer<BrandingOptions
     return result.build();
   }
 }
-

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TunerHostInfo
 void main() {
-  //final instance = TunerHostInfoBuilder();
+  final instance = TunerHostInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(TunerHostInfo, () {
@@ -61,6 +61,5 @@ void main() {
     test('to test the property `userAgent`', () async {
       // TODO
     });
-
   });
 }

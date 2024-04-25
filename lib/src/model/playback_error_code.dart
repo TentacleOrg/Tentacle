@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'playback_error_code.g.dart';
 
 class PlaybackErrorCode extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'NotAllowed')
   static const PlaybackErrorCode notAllowed = _$notAllowed;
   @BuiltValueEnumConst(wireName: r'NoCompatibleStream')
@@ -18,9 +17,10 @@ class PlaybackErrorCode extends EnumClass {
   @BuiltValueEnumConst(wireName: r'RateLimitExceeded')
   static const PlaybackErrorCode rateLimitExceeded = _$rateLimitExceeded;
 
-  static Serializer<PlaybackErrorCode> get serializer => _$playbackErrorCodeSerializer;
+  static Serializer<PlaybackErrorCode> get serializer =>
+      _$playbackErrorCodeSerializer;
 
-  const PlaybackErrorCode._(String name): super(name);
+  const PlaybackErrorCode._(String name) : super(name);
 
   static BuiltSet<PlaybackErrorCode> get values => _$values;
   static PlaybackErrorCode valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class PlaybackErrorCode extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class PlaybackErrorCodeMixin = Object with _$PlaybackErrorCodeMixin;
-

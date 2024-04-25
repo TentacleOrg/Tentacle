@@ -10,17 +10,17 @@ import 'package:built_value/serializer.dart';
 part 'iso_type.g.dart';
 
 class IsoType extends EnumClass {
-
   /// Enum IsoType.
   @BuiltValueEnumConst(wireName: r'Dvd')
   static const IsoType dvd = _$dvd;
+
   /// Enum IsoType.
   @BuiltValueEnumConst(wireName: r'BluRay')
   static const IsoType bluRay = _$bluRay;
 
   static Serializer<IsoType> get serializer => _$isoTypeSerializer;
 
-  const IsoType._(String name): super(name);
+  const IsoType._(String name) : super(name);
 
   static BuiltSet<IsoType> get values => _$values;
   static IsoType valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class IsoType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class IsoTypeMixin = Object with _$IsoTypeMixin;
-

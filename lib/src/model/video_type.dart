@@ -10,23 +10,25 @@ import 'package:built_value/serializer.dart';
 part 'video_type.g.dart';
 
 class VideoType extends EnumClass {
-
   /// Enum VideoType.
   @BuiltValueEnumConst(wireName: r'VideoFile')
   static const VideoType videoFile = _$videoFile;
+
   /// Enum VideoType.
   @BuiltValueEnumConst(wireName: r'Iso')
   static const VideoType iso = _$iso;
+
   /// Enum VideoType.
   @BuiltValueEnumConst(wireName: r'Dvd')
   static const VideoType dvd = _$dvd;
+
   /// Enum VideoType.
   @BuiltValueEnumConst(wireName: r'BluRay')
   static const VideoType bluRay = _$bluRay;
 
   static Serializer<VideoType> get serializer => _$videoTypeSerializer;
 
-  const VideoType._(String name): super(name);
+  const VideoType._(String name) : super(name);
 
   static BuiltSet<VideoType> get values => _$values;
   static VideoType valueOf(String name) => _$valueOf(name);
@@ -39,4 +41,3 @@ class VideoType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class VideoTypeMixin = Object with _$VideoTypeMixin;
-

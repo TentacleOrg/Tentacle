@@ -22,7 +22,7 @@ part 'package_info.g.dart';
 /// * [versions] - Gets or sets the versions.
 /// * [imageUrl] - Gets or sets the image url for the package.
 @BuiltValue(instantiable: false)
-abstract class PackageInfo  {
+abstract class PackageInfo {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'name')
   String? get name;
@@ -135,7 +135,9 @@ class _$PackageInfoSerializer implements PrimitiveSerializer<PackageInfo> {
     PackageInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -144,16 +146,19 @@ class _$PackageInfoSerializer implements PrimitiveSerializer<PackageInfo> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PackageInfo)) as $PackageInfo;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($PackageInfo)) as $PackageInfo;
   }
 }
 
 /// a concrete implementation of [PackageInfo], since [PackageInfo] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $PackageInfo implements PackageInfo, Built<$PackageInfo, $PackageInfoBuilder> {
+abstract class $PackageInfo
+    implements PackageInfo, Built<$PackageInfo, $PackageInfoBuilder> {
   $PackageInfo._();
 
-  factory $PackageInfo([void Function($PackageInfoBuilder)? updates]) = _$$PackageInfo;
+  factory $PackageInfo([void Function($PackageInfoBuilder)? updates]) =
+      _$$PackageInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($PackageInfoBuilder b) => b;
@@ -275,4 +280,3 @@ class _$$PackageInfoSerializer implements PrimitiveSerializer<$PackageInfo> {
     return result.build();
   }
 }
-

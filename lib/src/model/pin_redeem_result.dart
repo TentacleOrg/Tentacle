@@ -15,7 +15,8 @@ part 'pin_redeem_result.g.dart';
 /// * [success] - Gets or sets a value indicating whether this MediaBrowser.Model.Users.PinRedeemResult is success.
 /// * [usersReset] - Gets or sets the users reset.
 @BuiltValue()
-abstract class PinRedeemResult implements Built<PinRedeemResult, PinRedeemResultBuilder> {
+abstract class PinRedeemResult
+    implements Built<PinRedeemResult, PinRedeemResultBuilder> {
   /// Gets or sets a value indicating whether this MediaBrowser.Model.Users.PinRedeemResult is success.
   @BuiltValueField(wireName: r'Success')
   bool? get success;
@@ -26,16 +27,19 @@ abstract class PinRedeemResult implements Built<PinRedeemResult, PinRedeemResult
 
   PinRedeemResult._();
 
-  factory PinRedeemResult([void updates(PinRedeemResultBuilder b)]) = _$PinRedeemResult;
+  factory PinRedeemResult([void updates(PinRedeemResultBuilder b)]) =
+      _$PinRedeemResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PinRedeemResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PinRedeemResult> get serializer => _$PinRedeemResultSerializer();
+  static Serializer<PinRedeemResult> get serializer =>
+      _$PinRedeemResultSerializer();
 }
 
-class _$PinRedeemResultSerializer implements PrimitiveSerializer<PinRedeemResult> {
+class _$PinRedeemResultSerializer
+    implements PrimitiveSerializer<PinRedeemResult> {
   @override
   final Iterable<Type> types = const [PinRedeemResult, _$PinRedeemResult];
 
@@ -69,7 +73,9 @@ class _$PinRedeemResultSerializer implements PrimitiveSerializer<PinRedeemResult
     PinRedeemResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -126,4 +132,3 @@ class _$PinRedeemResultSerializer implements PrimitiveSerializer<PinRedeemResult
     return result.build();
   }
 }
-

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TranscodingInfo
 void main() {
-  //final instance = TranscodingInfoBuilder();
+  final instance = TranscodingInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(TranscodingInfo, () {
@@ -71,6 +71,5 @@ void main() {
     test('to test the property `transcodeReasons`', () async {
       // TODO
     });
-
   });
 }

@@ -55,7 +55,7 @@ class _$HardwareEncodingTypeMeta {
   BuiltSet<HardwareEncodingType> get values => _$values;
 }
 
-abstract class _$HardwareEncodingTypeMixin {
+mixin _$HardwareEncodingTypeMixin {
   // ignore: non_constant_identifier_names
   _$HardwareEncodingTypeMeta get HardwareEncodingType =>
       const _$HardwareEncodingTypeMeta();

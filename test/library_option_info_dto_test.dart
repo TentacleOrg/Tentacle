@@ -18,6 +18,5 @@ void main() {
     test('to test the property `defaultEnabled`', () async {
       // TODO
     });
-
   });
 }

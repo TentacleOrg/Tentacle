@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/repeat_mode.dart';
 import 'package:tentacle/src/model/play_method.dart';
+import 'package:tentacle/src/model/repeat_mode.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -24,8 +24,9 @@ part 'player_state_info.g.dart';
 /// * [playMethod] - Gets or sets the play method.
 /// * [repeatMode] - Gets or sets the repeat mode.
 /// * [liveStreamId] - Gets or sets the now playing live stream identifier.
-@BuiltValue(instantiable: false)
-abstract class PlayerStateInfo  {
+@BuiltValue()
+abstract class PlayerStateInfo
+    implements Built<PlayerStateInfo, PlayerStateInfoBuilder> {
   /// Gets or sets the now playing position ticks.
   @BuiltValueField(wireName: r'PositionTicks')
   int? get positionTicks;
@@ -61,22 +62,34 @@ abstract class PlayerStateInfo  {
   /// Gets or sets the play method.
   @BuiltValueField(wireName: r'PlayMethod')
   PlayMethod? get playMethod;
+  // enum playMethodEnum {  Transcode,  DirectStream,  DirectPlay,  };
 
   /// Gets or sets the repeat mode.
   @BuiltValueField(wireName: r'RepeatMode')
   RepeatMode? get repeatMode;
+  // enum repeatModeEnum {  RepeatNone,  RepeatAll,  RepeatOne,  };
 
   /// Gets or sets the now playing live stream identifier.
   @BuiltValueField(wireName: r'LiveStreamId')
   String? get liveStreamId;
 
+  PlayerStateInfo._();
+
+  factory PlayerStateInfo([void updates(PlayerStateInfoBuilder b)]) =
+      _$PlayerStateInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PlayerStateInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PlayerStateInfo> get serializer => _$PlayerStateInfoSerializer();
+  static Serializer<PlayerStateInfo> get serializer =>
+      _$PlayerStateInfoSerializer();
 }
 
-class _$PlayerStateInfoSerializer implements PrimitiveSerializer<PlayerStateInfo> {
+class _$PlayerStateInfoSerializer
+    implements PrimitiveSerializer<PlayerStateInfo> {
   @override
-  final Iterable<Type> types = const [PlayerStateInfo];
+  final Iterable<Type> types = const [PlayerStateInfo, _$PlayerStateInfo];
 
   @override
   final String wireName = r'PlayerStateInfo';
@@ -171,47 +184,9 @@ class _$PlayerStateInfoSerializer implements PrimitiveSerializer<PlayerStateInfo
     PlayerStateInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PlayerStateInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PlayerStateInfo)) as $PlayerStateInfo;
-  }
-}
-
-/// a concrete implementation of [PlayerStateInfo], since [PlayerStateInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PlayerStateInfo implements PlayerStateInfo, Built<$PlayerStateInfo, $PlayerStateInfoBuilder> {
-  $PlayerStateInfo._();
-
-  factory $PlayerStateInfo([void Function($PlayerStateInfoBuilder)? updates]) = _$$PlayerStateInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PlayerStateInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PlayerStateInfo> get serializer => _$$PlayerStateInfoSerializer();
-}
-
-class _$$PlayerStateInfoSerializer implements PrimitiveSerializer<$PlayerStateInfo> {
-  @override
-  final Iterable<Type> types = const [$PlayerStateInfo, _$$PlayerStateInfo];
-
-  @override
-  final String wireName = r'$PlayerStateInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PlayerStateInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PlayerStateInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -319,12 +294,12 @@ class _$$PlayerStateInfoSerializer implements PrimitiveSerializer<$PlayerStateIn
   }
 
   @override
-  $PlayerStateInfo deserialize(
+  PlayerStateInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PlayerStateInfoBuilder();
+    final result = PlayerStateInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -338,4 +313,3 @@ class _$$PlayerStateInfoSerializer implements PrimitiveSerializer<$PlayerStateIn
     return result.build();
   }
 }
-

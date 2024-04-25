@@ -19,12 +19,12 @@ part 'trailer_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-@BuiltValue(instantiable: false)
-abstract class TrailerInfo  {
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+@BuiltValue()
+abstract class TrailerInfo implements Built<TrailerInfo, TrailerInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -65,13 +65,20 @@ abstract class TrailerInfo  {
   @BuiltValueField(wireName: r'IsAutomated')
   bool? get isAutomated;
 
+  TrailerInfo._();
+
+  factory TrailerInfo([void updates(TrailerInfoBuilder b)]) = _$TrailerInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TrailerInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<TrailerInfo> get serializer => _$TrailerInfoSerializer();
 }
 
 class _$TrailerInfoSerializer implements PrimitiveSerializer<TrailerInfo> {
   @override
-  final Iterable<Type> types = const [TrailerInfo];
+  final Iterable<Type> types = const [TrailerInfo, _$TrailerInfo];
 
   @override
   final String wireName = r'TrailerInfo';
@@ -120,7 +127,8 @@ class _$TrailerInfoSerializer implements PrimitiveSerializer<TrailerInfo> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -166,47 +174,9 @@ class _$TrailerInfoSerializer implements PrimitiveSerializer<TrailerInfo> {
     TrailerInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  TrailerInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($TrailerInfo)) as $TrailerInfo;
-  }
-}
-
-/// a concrete implementation of [TrailerInfo], since [TrailerInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $TrailerInfo implements TrailerInfo, Built<$TrailerInfo, $TrailerInfoBuilder> {
-  $TrailerInfo._();
-
-  factory $TrailerInfo([void Function($TrailerInfoBuilder)? updates]) = _$$TrailerInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TrailerInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$TrailerInfo> get serializer => _$$TrailerInfoSerializer();
-}
-
-class _$$TrailerInfoSerializer implements PrimitiveSerializer<$TrailerInfo> {
-  @override
-  final Iterable<Type> types = const [$TrailerInfo, _$$TrailerInfo];
-
-  @override
-  final String wireName = r'$TrailerInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $TrailerInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(TrailerInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -264,7 +234,8 @@ class _$$TrailerInfoSerializer implements PrimitiveSerializer<$TrailerInfo> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -317,12 +288,12 @@ class _$$TrailerInfoSerializer implements PrimitiveSerializer<$TrailerInfo> {
   }
 
   @override
-  $TrailerInfo deserialize(
+  TrailerInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $TrailerInfoBuilder();
+    final result = TrailerInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -336,4 +307,3 @@ class _$$TrailerInfoSerializer implements PrimitiveSerializer<$TrailerInfo> {
     return result.build();
   }
 }
-

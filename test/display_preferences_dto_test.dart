@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for DisplayPreferencesDto
 void main() {
-  //final instance = DisplayPreferencesDtoBuilder();
+  final instance = DisplayPreferencesDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(DisplayPreferencesDto, () {
@@ -55,7 +55,7 @@ void main() {
       // TODO
     });
 
-    // An enum representing the axis that should be scrolled.
+    // Gets or sets the scroll direction.
     // ScrollDirection scrollDirection
     test('to test the property `scrollDirection`', () async {
       // TODO
@@ -73,7 +73,7 @@ void main() {
       // TODO
     });
 
-    // An enum representing the sorting order.
+    // Gets or sets the sort order.
     // SortOrder sortOrder
     test('to test the property `sortOrder`', () async {
       // TODO
@@ -90,6 +90,5 @@ void main() {
     test('to test the property `client`', () async {
       // TODO
     });
-
   });
 }

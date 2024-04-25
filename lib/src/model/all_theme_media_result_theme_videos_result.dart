@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/theme_media_result.dart';
-import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -19,21 +19,32 @@ part 'all_theme_media_result_theme_videos_result.g.dart';
 /// * [startIndex] - Gets or sets the index of the first record in Items.
 /// * [ownerId] - Gets or sets the owner id.
 @BuiltValue()
-abstract class AllThemeMediaResultThemeVideosResult implements ThemeMediaResult, Built<AllThemeMediaResultThemeVideosResult, AllThemeMediaResultThemeVideosResultBuilder> {
+abstract class AllThemeMediaResultThemeVideosResult
+    implements
+        ThemeMediaResult,
+        Built<AllThemeMediaResultThemeVideosResult,
+            AllThemeMediaResultThemeVideosResultBuilder> {
   AllThemeMediaResultThemeVideosResult._();
 
-  factory AllThemeMediaResultThemeVideosResult([void updates(AllThemeMediaResultThemeVideosResultBuilder b)]) = _$AllThemeMediaResultThemeVideosResult;
+  factory AllThemeMediaResultThemeVideosResult(
+          [void updates(AllThemeMediaResultThemeVideosResultBuilder b)]) =
+      _$AllThemeMediaResultThemeVideosResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AllThemeMediaResultThemeVideosResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AllThemeMediaResultThemeVideosResult> get serializer => _$AllThemeMediaResultThemeVideosResultSerializer();
+  static Serializer<AllThemeMediaResultThemeVideosResult> get serializer =>
+      _$AllThemeMediaResultThemeVideosResultSerializer();
 }
 
-class _$AllThemeMediaResultThemeVideosResultSerializer implements PrimitiveSerializer<AllThemeMediaResultThemeVideosResult> {
+class _$AllThemeMediaResultThemeVideosResultSerializer
+    implements PrimitiveSerializer<AllThemeMediaResultThemeVideosResult> {
   @override
-  final Iterable<Type> types = const [AllThemeMediaResultThemeVideosResult, _$AllThemeMediaResultThemeVideosResult];
+  final Iterable<Type> types = const [
+    AllThemeMediaResultThemeVideosResult,
+    _$AllThemeMediaResultThemeVideosResult
+  ];
 
   @override
   final String wireName = r'AllThemeMediaResultThemeVideosResult';
@@ -61,7 +72,8 @@ class _$AllThemeMediaResultThemeVideosResultSerializer implements PrimitiveSeria
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -79,7 +91,9 @@ class _$AllThemeMediaResultThemeVideosResultSerializer implements PrimitiveSeria
     AllThemeMediaResultThemeVideosResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -111,7 +125,8 @@ class _$AllThemeMediaResultThemeVideosResultSerializer implements PrimitiveSeria
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
           ) as BuiltList<BaseItemDto>?;
           if (valueDes == null) continue;
           result.items.replace(valueDes);
@@ -151,4 +166,3 @@ class _$AllThemeMediaResultThemeVideosResultSerializer implements PrimitiveSeria
     return result.build();
   }
 }
-

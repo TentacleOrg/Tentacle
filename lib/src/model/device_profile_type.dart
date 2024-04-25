@@ -10,15 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'device_profile_type.g.dart';
 
 class DeviceProfileType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'System')
   static const DeviceProfileType system = _$system;
   @BuiltValueEnumConst(wireName: r'User')
   static const DeviceProfileType user = _$user;
 
-  static Serializer<DeviceProfileType> get serializer => _$deviceProfileTypeSerializer;
+  static Serializer<DeviceProfileType> get serializer =>
+      _$deviceProfileTypeSerializer;
 
-  const DeviceProfileType._(String name): super(name);
+  const DeviceProfileType._(String name) : super(name);
 
   static BuiltSet<DeviceProfileType> get values => _$values;
   static DeviceProfileType valueOf(String name) => _$valueOf(name);
@@ -31,4 +31,3 @@ class DeviceProfileType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class DeviceProfileTypeMixin = Object with _$DeviceProfileTypeMixin;
-

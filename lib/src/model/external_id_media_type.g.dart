@@ -87,7 +87,7 @@ class _$ExternalIdMediaTypeMeta {
   BuiltSet<ExternalIdMediaType> get values => _$values;
 }
 
-abstract class _$ExternalIdMediaTypeMixin {
+mixin _$ExternalIdMediaTypeMixin {
   // ignore: non_constant_identifier_names
   _$ExternalIdMediaTypeMeta get ExternalIdMediaType =>
       const _$ExternalIdMediaTypeMeta();

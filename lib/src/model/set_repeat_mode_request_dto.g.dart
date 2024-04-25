@@ -6,36 +6,29 @@ part of 'set_repeat_mode_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class SetRepeatModeRequestDtoBuilder {
-  void replace(SetRepeatModeRequestDto other);
-  void update(void Function(SetRepeatModeRequestDtoBuilder) updates);
-  GroupRepeatMode? get mode;
-  set mode(GroupRepeatMode? mode);
-}
-
-class _$$SetRepeatModeRequestDto extends $SetRepeatModeRequestDto {
+class _$SetRepeatModeRequestDto extends SetRepeatModeRequestDto {
   @override
   final GroupRepeatMode? mode;
 
-  factory _$$SetRepeatModeRequestDto(
-          [void Function($SetRepeatModeRequestDtoBuilder)? updates]) =>
-      (new $SetRepeatModeRequestDtoBuilder()..update(updates))._build();
+  factory _$SetRepeatModeRequestDto(
+          [void Function(SetRepeatModeRequestDtoBuilder)? updates]) =>
+      (new SetRepeatModeRequestDtoBuilder()..update(updates))._build();
 
-  _$$SetRepeatModeRequestDto._({this.mode}) : super._();
+  _$SetRepeatModeRequestDto._({this.mode}) : super._();
 
   @override
-  $SetRepeatModeRequestDto rebuild(
-          void Function($SetRepeatModeRequestDtoBuilder) updates) =>
+  SetRepeatModeRequestDto rebuild(
+          void Function(SetRepeatModeRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $SetRepeatModeRequestDtoBuilder toBuilder() =>
-      new $SetRepeatModeRequestDtoBuilder()..replace(this);
+  SetRepeatModeRequestDtoBuilder toBuilder() =>
+      new SetRepeatModeRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $SetRepeatModeRequestDto && mode == other.mode;
+    return other is SetRepeatModeRequestDto && mode == other.mode;
   }
 
   @override
@@ -48,27 +41,26 @@ class _$$SetRepeatModeRequestDto extends $SetRepeatModeRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$SetRepeatModeRequestDto')
+    return (newBuiltValueToStringHelper(r'SetRepeatModeRequestDto')
           ..add('mode', mode))
         .toString();
   }
 }
 
-class $SetRepeatModeRequestDtoBuilder
+class SetRepeatModeRequestDtoBuilder
     implements
-        Builder<$SetRepeatModeRequestDto, $SetRepeatModeRequestDtoBuilder>,
-        SetRepeatModeRequestDtoBuilder {
-  _$$SetRepeatModeRequestDto? _$v;
+        Builder<SetRepeatModeRequestDto, SetRepeatModeRequestDtoBuilder> {
+  _$SetRepeatModeRequestDto? _$v;
 
   GroupRepeatMode? _mode;
   GroupRepeatMode? get mode => _$this._mode;
-  set mode(covariant GroupRepeatMode? mode) => _$this._mode = mode;
+  set mode(GroupRepeatMode? mode) => _$this._mode = mode;
 
-  $SetRepeatModeRequestDtoBuilder() {
-    $SetRepeatModeRequestDto._defaults(this);
+  SetRepeatModeRequestDtoBuilder() {
+    SetRepeatModeRequestDto._defaults(this);
   }
 
-  $SetRepeatModeRequestDtoBuilder get _$this {
+  SetRepeatModeRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _mode = $v.mode;
@@ -78,21 +70,21 @@ class $SetRepeatModeRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $SetRepeatModeRequestDto other) {
+  void replace(SetRepeatModeRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$SetRepeatModeRequestDto;
+    _$v = other as _$SetRepeatModeRequestDto;
   }
 
   @override
-  void update(void Function($SetRepeatModeRequestDtoBuilder)? updates) {
+  void update(void Function(SetRepeatModeRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $SetRepeatModeRequestDto build() => _build();
+  SetRepeatModeRequestDto build() => _build();
 
-  _$$SetRepeatModeRequestDto _build() {
-    final _$result = _$v ?? new _$$SetRepeatModeRequestDto._(mode: mode);
+  _$SetRepeatModeRequestDto _build() {
+    final _$result = _$v ?? new _$SetRepeatModeRequestDto._(mode: mode);
     replace(_$result);
     return _$result;
   }

@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for CollectionApi
 void main() {
   final instance = Tentacle().getCollectionApi();
@@ -27,6 +26,5 @@ void main() {
     test('test removeFromCollection', () async {
       // TODO
     });
-
   });
 }

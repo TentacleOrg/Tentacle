@@ -47,7 +47,7 @@ class _$FileSystemEntryTypeMeta {
   BuiltSet<FileSystemEntryType> get values => _$values;
 }
 
-abstract class _$FileSystemEntryTypeMixin {
+mixin _$FileSystemEntryTypeMixin {
   // ignore: non_constant_identifier_names
   _$FileSystemEntryTypeMeta get FileSystemEntryType =>
       const _$FileSystemEntryTypeMeta();

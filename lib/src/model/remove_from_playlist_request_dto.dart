@@ -15,8 +15,11 @@ part 'remove_from_playlist_request_dto.g.dart';
 /// * [playlistItemIds] - Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist.
 /// * [clearPlaylist] - Gets or sets a value indicating whether the entire playlist should be cleared.
 /// * [clearPlayingItem] - Gets or sets a value indicating whether the playing item should be removed as well. Used only when clearing the playlist.
-@BuiltValue(instantiable: false)
-abstract class RemoveFromPlaylistRequestDto  {
+@BuiltValue()
+abstract class RemoveFromPlaylistRequestDto
+    implements
+        Built<RemoveFromPlaylistRequestDto,
+            RemoveFromPlaylistRequestDtoBuilder> {
   /// Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist.
   @BuiltValueField(wireName: r'PlaylistItemIds')
   BuiltList<String>? get playlistItemIds;
@@ -29,13 +32,27 @@ abstract class RemoveFromPlaylistRequestDto  {
   @BuiltValueField(wireName: r'ClearPlayingItem')
   bool? get clearPlayingItem;
 
+  RemoveFromPlaylistRequestDto._();
+
+  factory RemoveFromPlaylistRequestDto(
+          [void updates(RemoveFromPlaylistRequestDtoBuilder b)]) =
+      _$RemoveFromPlaylistRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoveFromPlaylistRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<RemoveFromPlaylistRequestDto> get serializer => _$RemoveFromPlaylistRequestDtoSerializer();
+  static Serializer<RemoveFromPlaylistRequestDto> get serializer =>
+      _$RemoveFromPlaylistRequestDtoSerializer();
 }
 
-class _$RemoveFromPlaylistRequestDtoSerializer implements PrimitiveSerializer<RemoveFromPlaylistRequestDto> {
+class _$RemoveFromPlaylistRequestDtoSerializer
+    implements PrimitiveSerializer<RemoveFromPlaylistRequestDto> {
   @override
-  final Iterable<Type> types = const [RemoveFromPlaylistRequestDto];
+  final Iterable<Type> types = const [
+    RemoveFromPlaylistRequestDto,
+    _$RemoveFromPlaylistRequestDto
+  ];
 
   @override
   final String wireName = r'RemoveFromPlaylistRequestDto';
@@ -74,47 +91,9 @@ class _$RemoveFromPlaylistRequestDtoSerializer implements PrimitiveSerializer<Re
     RemoveFromPlaylistRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  RemoveFromPlaylistRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($RemoveFromPlaylistRequestDto)) as $RemoveFromPlaylistRequestDto;
-  }
-}
-
-/// a concrete implementation of [RemoveFromPlaylistRequestDto], since [RemoveFromPlaylistRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $RemoveFromPlaylistRequestDto implements RemoveFromPlaylistRequestDto, Built<$RemoveFromPlaylistRequestDto, $RemoveFromPlaylistRequestDtoBuilder> {
-  $RemoveFromPlaylistRequestDto._();
-
-  factory $RemoveFromPlaylistRequestDto([void Function($RemoveFromPlaylistRequestDtoBuilder)? updates]) = _$$RemoveFromPlaylistRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RemoveFromPlaylistRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$RemoveFromPlaylistRequestDto> get serializer => _$$RemoveFromPlaylistRequestDtoSerializer();
-}
-
-class _$$RemoveFromPlaylistRequestDtoSerializer implements PrimitiveSerializer<$RemoveFromPlaylistRequestDto> {
-  @override
-  final Iterable<Type> types = const [$RemoveFromPlaylistRequestDto, _$$RemoveFromPlaylistRequestDto];
-
-  @override
-  final String wireName = r'$RemoveFromPlaylistRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $RemoveFromPlaylistRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(RemoveFromPlaylistRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -159,12 +138,12 @@ class _$$RemoveFromPlaylistRequestDtoSerializer implements PrimitiveSerializer<$
   }
 
   @override
-  $RemoveFromPlaylistRequestDto deserialize(
+  RemoveFromPlaylistRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $RemoveFromPlaylistRequestDtoBuilder();
+    final result = RemoveFromPlaylistRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -178,4 +157,3 @@ class _$$RemoveFromPlaylistRequestDtoSerializer implements PrimitiveSerializer<$
     return result.build();
   }
 }
-

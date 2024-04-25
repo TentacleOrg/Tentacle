@@ -14,7 +14,8 @@ part 'session_user_info.g.dart';
 /// * [userId] - Gets or sets the user identifier.
 /// * [userName] - Gets or sets the name of the user.
 @BuiltValue()
-abstract class SessionUserInfo implements Built<SessionUserInfo, SessionUserInfoBuilder> {
+abstract class SessionUserInfo
+    implements Built<SessionUserInfo, SessionUserInfoBuilder> {
   /// Gets or sets the user identifier.
   @BuiltValueField(wireName: r'UserId')
   String? get userId;
@@ -25,16 +26,19 @@ abstract class SessionUserInfo implements Built<SessionUserInfo, SessionUserInfo
 
   SessionUserInfo._();
 
-  factory SessionUserInfo([void updates(SessionUserInfoBuilder b)]) = _$SessionUserInfo;
+  factory SessionUserInfo([void updates(SessionUserInfoBuilder b)]) =
+      _$SessionUserInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SessionUserInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SessionUserInfo> get serializer => _$SessionUserInfoSerializer();
+  static Serializer<SessionUserInfo> get serializer =>
+      _$SessionUserInfoSerializer();
 }
 
-class _$SessionUserInfoSerializer implements PrimitiveSerializer<SessionUserInfo> {
+class _$SessionUserInfoSerializer
+    implements PrimitiveSerializer<SessionUserInfo> {
   @override
   final Iterable<Type> types = const [SessionUserInfo, _$SessionUserInfo];
 
@@ -68,7 +72,9 @@ class _$SessionUserInfoSerializer implements PrimitiveSerializer<SessionUserInfo
     SessionUserInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -126,4 +132,3 @@ class _$SessionUserInfoSerializer implements PrimitiveSerializer<SessionUserInfo
     return result.build();
   }
 }
-

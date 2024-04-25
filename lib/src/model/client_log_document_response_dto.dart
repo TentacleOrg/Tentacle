@@ -13,25 +13,35 @@ part 'client_log_document_response_dto.g.dart';
 /// Properties:
 /// * [fileName] - Gets the resulting filename.
 @BuiltValue()
-abstract class ClientLogDocumentResponseDto implements Built<ClientLogDocumentResponseDto, ClientLogDocumentResponseDtoBuilder> {
+abstract class ClientLogDocumentResponseDto
+    implements
+        Built<ClientLogDocumentResponseDto,
+            ClientLogDocumentResponseDtoBuilder> {
   /// Gets the resulting filename.
   @BuiltValueField(wireName: r'FileName')
   String? get fileName;
 
   ClientLogDocumentResponseDto._();
 
-  factory ClientLogDocumentResponseDto([void updates(ClientLogDocumentResponseDtoBuilder b)]) = _$ClientLogDocumentResponseDto;
+  factory ClientLogDocumentResponseDto(
+          [void updates(ClientLogDocumentResponseDtoBuilder b)]) =
+      _$ClientLogDocumentResponseDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ClientLogDocumentResponseDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ClientLogDocumentResponseDto> get serializer => _$ClientLogDocumentResponseDtoSerializer();
+  static Serializer<ClientLogDocumentResponseDto> get serializer =>
+      _$ClientLogDocumentResponseDtoSerializer();
 }
 
-class _$ClientLogDocumentResponseDtoSerializer implements PrimitiveSerializer<ClientLogDocumentResponseDto> {
+class _$ClientLogDocumentResponseDtoSerializer
+    implements PrimitiveSerializer<ClientLogDocumentResponseDto> {
   @override
-  final Iterable<Type> types = const [ClientLogDocumentResponseDto, _$ClientLogDocumentResponseDto];
+  final Iterable<Type> types = const [
+    ClientLogDocumentResponseDto,
+    _$ClientLogDocumentResponseDto
+  ];
 
   @override
   final String wireName = r'ClientLogDocumentResponseDto';
@@ -56,7 +66,9 @@ class _$ClientLogDocumentResponseDtoSerializer implements PrimitiveSerializer<Cl
     ClientLogDocumentResponseDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -106,4 +118,3 @@ class _$ClientLogDocumentResponseDtoSerializer implements PrimitiveSerializer<Cl
     return result.build();
   }
 }
-

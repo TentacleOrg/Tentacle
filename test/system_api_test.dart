@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for SystemApi
 void main() {
   final instance = Tentacle().getSystemApi();
@@ -76,6 +75,5 @@ void main() {
     test('test shutdownApplication', () async {
       // TODO
     });
-
   });
 }

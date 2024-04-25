@@ -17,9 +17,10 @@ part 'base_item_person.g.dart';
 /// * [role] - Gets or sets the role.
 /// * [type] - Gets or sets the type.
 /// * [primaryImageTag] - Gets or sets the primary image tag.
-/// * [imageBlurHashes] 
+/// * [imageBlurHashes]
 @BuiltValue()
-abstract class BaseItemPerson implements Built<BaseItemPerson, BaseItemPersonBuilder> {
+abstract class BaseItemPerson
+    implements Built<BaseItemPerson, BaseItemPersonBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -45,16 +46,19 @@ abstract class BaseItemPerson implements Built<BaseItemPerson, BaseItemPersonBui
 
   BaseItemPerson._();
 
-  factory BaseItemPerson([void updates(BaseItemPersonBuilder b)]) = _$BaseItemPerson;
+  factory BaseItemPerson([void updates(BaseItemPersonBuilder b)]) =
+      _$BaseItemPerson;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BaseItemPersonBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BaseItemPerson> get serializer => _$BaseItemPersonSerializer();
+  static Serializer<BaseItemPerson> get serializer =>
+      _$BaseItemPersonSerializer();
 }
 
-class _$BaseItemPersonSerializer implements PrimitiveSerializer<BaseItemPerson> {
+class _$BaseItemPersonSerializer
+    implements PrimitiveSerializer<BaseItemPerson> {
   @override
   final Iterable<Type> types = const [BaseItemPerson, _$BaseItemPerson];
 
@@ -116,7 +120,9 @@ class _$BaseItemPersonSerializer implements PrimitiveSerializer<BaseItemPerson> 
     BaseItemPerson object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -173,7 +179,8 @@ class _$BaseItemPersonSerializer implements PrimitiveSerializer<BaseItemPerson> 
         case r'ImageBlurHashes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BaseItemPersonImageBlurHashes),
+            specifiedType:
+                const FullType.nullable(BaseItemPersonImageBlurHashes),
           ) as BaseItemPersonImageBlurHashes?;
           if (valueDes == null) continue;
           result.imageBlurHashes.replace(valueDes);
@@ -206,4 +213,3 @@ class _$BaseItemPersonSerializer implements PrimitiveSerializer<BaseItemPerson> 
     return result.build();
   }
 }
-

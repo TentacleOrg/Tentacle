@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
-import 'package:tentacle/src/model/client_capabilities_dto_device_profile.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -21,11 +21,12 @@ part 'client_capabilities_dto.g.dart';
 /// * [messageCallbackUrl] - Gets or sets the message callback url.
 /// * [supportsPersistentIdentifier] - Gets or sets a value indicating whether session supports a persistent identifier.
 /// * [supportsSync] - Gets or sets a value indicating whether session supports sync.
-/// * [deviceProfile] 
+/// * [deviceProfile]
 /// * [appStoreUrl] - Gets or sets the app store url.
 /// * [iconUrl] - Gets or sets the icon url.
-@BuiltValue(instantiable: false)
-abstract class ClientCapabilitiesDto  {
+@BuiltValue()
+abstract class ClientCapabilitiesDto
+    implements Built<ClientCapabilitiesDto, ClientCapabilitiesDtoBuilder> {
   /// Gets or sets the list of playable media types.
   @BuiltValueField(wireName: r'PlayableMediaTypes')
   BuiltList<String>? get playableMediaTypes;
@@ -55,7 +56,7 @@ abstract class ClientCapabilitiesDto  {
   bool? get supportsSync;
 
   @BuiltValueField(wireName: r'DeviceProfile')
-  ClientCapabilitiesDtoDeviceProfile? get deviceProfile;
+  ClientCapabilitiesDeviceProfile? get deviceProfile;
 
   /// Gets or sets the app store url.
   @BuiltValueField(wireName: r'AppStoreUrl')
@@ -65,13 +66,26 @@ abstract class ClientCapabilitiesDto  {
   @BuiltValueField(wireName: r'IconUrl')
   String? get iconUrl;
 
+  ClientCapabilitiesDto._();
+
+  factory ClientCapabilitiesDto(
+      [void updates(ClientCapabilitiesDtoBuilder b)]) = _$ClientCapabilitiesDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ClientCapabilitiesDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<ClientCapabilitiesDto> get serializer => _$ClientCapabilitiesDtoSerializer();
+  static Serializer<ClientCapabilitiesDto> get serializer =>
+      _$ClientCapabilitiesDtoSerializer();
 }
 
-class _$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<ClientCapabilitiesDto> {
+class _$ClientCapabilitiesDtoSerializer
+    implements PrimitiveSerializer<ClientCapabilitiesDto> {
   @override
-  final Iterable<Type> types = const [ClientCapabilitiesDto];
+  final Iterable<Type> types = const [
+    ClientCapabilitiesDto,
+    _$ClientCapabilitiesDto
+  ];
 
   @override
   final String wireName = r'ClientCapabilitiesDto';
@@ -92,7 +106,8 @@ class _$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<ClientCap
       yield r'SupportedCommands';
       yield serializers.serialize(
         object.supportedCommands,
-        specifiedType: const FullType(BuiltList, [FullType(GeneralCommandType)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(GeneralCommandType)]),
       );
     }
     if (object.supportsMediaControl != null) {
@@ -134,7 +149,7 @@ class _$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<ClientCap
       yield r'DeviceProfile';
       yield serializers.serialize(
         object.deviceProfile,
-        specifiedType: const FullType.nullable(ClientCapabilitiesDtoDeviceProfile),
+        specifiedType: const FullType.nullable(ClientCapabilitiesDeviceProfile),
       );
     }
     if (object.appStoreUrl != null) {
@@ -159,47 +174,9 @@ class _$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<ClientCap
     ClientCapabilitiesDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  ClientCapabilitiesDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ClientCapabilitiesDto)) as $ClientCapabilitiesDto;
-  }
-}
-
-/// a concrete implementation of [ClientCapabilitiesDto], since [ClientCapabilitiesDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ClientCapabilitiesDto implements ClientCapabilitiesDto, Built<$ClientCapabilitiesDto, $ClientCapabilitiesDtoBuilder> {
-  $ClientCapabilitiesDto._();
-
-  factory $ClientCapabilitiesDto([void Function($ClientCapabilitiesDtoBuilder)? updates]) = _$$ClientCapabilitiesDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ClientCapabilitiesDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ClientCapabilitiesDto> get serializer => _$$ClientCapabilitiesDtoSerializer();
-}
-
-class _$$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<$ClientCapabilitiesDto> {
-  @override
-  final Iterable<Type> types = const [$ClientCapabilitiesDto, _$$ClientCapabilitiesDto];
-
-  @override
-  final String wireName = r'$ClientCapabilitiesDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ClientCapabilitiesDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(ClientCapabilitiesDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -224,7 +201,8 @@ class _$$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<$ClientC
         case r'SupportedCommands':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(GeneralCommandType)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(GeneralCommandType)]),
           ) as BuiltList<GeneralCommandType>;
           result.supportedCommands.replace(valueDes);
           break;
@@ -267,8 +245,9 @@ class _$$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<$ClientC
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(ClientCapabilitiesDtoDeviceProfile),
-          ) as ClientCapabilitiesDtoDeviceProfile?;
+            specifiedType:
+                const FullType.nullable(ClientCapabilitiesDeviceProfile),
+          ) as ClientCapabilitiesDeviceProfile?;
           if (valueDes == null) continue;
           result.deviceProfile.replace(valueDes);
           break;
@@ -297,12 +276,12 @@ class _$$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<$ClientC
   }
 
   @override
-  $ClientCapabilitiesDto deserialize(
+  ClientCapabilitiesDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ClientCapabilitiesDtoBuilder();
+    final result = ClientCapabilitiesDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -316,4 +295,3 @@ class _$$ClientCapabilitiesDtoSerializer implements PrimitiveSerializer<$ClientC
     return result.build();
   }
 }
-

@@ -6,50 +6,7 @@ part of 'transcoding_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class TranscodingInfoBuilder {
-  void replace(TranscodingInfo other);
-  void update(void Function(TranscodingInfoBuilder) updates);
-  String? get audioCodec;
-  set audioCodec(String? audioCodec);
-
-  String? get videoCodec;
-  set videoCodec(String? videoCodec);
-
-  String? get container;
-  set container(String? container);
-
-  bool? get isVideoDirect;
-  set isVideoDirect(bool? isVideoDirect);
-
-  bool? get isAudioDirect;
-  set isAudioDirect(bool? isAudioDirect);
-
-  int? get bitrate;
-  set bitrate(int? bitrate);
-
-  double? get framerate;
-  set framerate(double? framerate);
-
-  double? get completionPercentage;
-  set completionPercentage(double? completionPercentage);
-
-  int? get width;
-  set width(int? width);
-
-  int? get height;
-  set height(int? height);
-
-  int? get audioChannels;
-  set audioChannels(int? audioChannels);
-
-  HardwareEncodingType? get hardwareAccelerationType;
-  set hardwareAccelerationType(HardwareEncodingType? hardwareAccelerationType);
-
-  ListBuilder<TranscodeReason> get transcodeReasons;
-  set transcodeReasons(ListBuilder<TranscodeReason>? transcodeReasons);
-}
-
-class _$$TranscodingInfo extends $TranscodingInfo {
+class _$TranscodingInfo extends TranscodingInfo {
   @override
   final String? audioCodec;
   @override
@@ -77,11 +34,10 @@ class _$$TranscodingInfo extends $TranscodingInfo {
   @override
   final BuiltList<TranscodeReason>? transcodeReasons;
 
-  factory _$$TranscodingInfo(
-          [void Function($TranscodingInfoBuilder)? updates]) =>
-      (new $TranscodingInfoBuilder()..update(updates))._build();
+  factory _$TranscodingInfo([void Function(TranscodingInfoBuilder)? updates]) =>
+      (new TranscodingInfoBuilder()..update(updates))._build();
 
-  _$$TranscodingInfo._(
+  _$TranscodingInfo._(
       {this.audioCodec,
       this.videoCodec,
       this.container,
@@ -98,17 +54,17 @@ class _$$TranscodingInfo extends $TranscodingInfo {
       : super._();
 
   @override
-  $TranscodingInfo rebuild(void Function($TranscodingInfoBuilder) updates) =>
+  TranscodingInfo rebuild(void Function(TranscodingInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $TranscodingInfoBuilder toBuilder() =>
-      new $TranscodingInfoBuilder()..replace(this);
+  TranscodingInfoBuilder toBuilder() =>
+      new TranscodingInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $TranscodingInfo &&
+    return other is TranscodingInfo &&
         audioCodec == other.audioCodec &&
         videoCodec == other.videoCodec &&
         container == other.container &&
@@ -146,7 +102,7 @@ class _$$TranscodingInfo extends $TranscodingInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$TranscodingInfo')
+    return (newBuiltValueToStringHelper(r'TranscodingInfo')
           ..add('audioCodec', audioCodec)
           ..add('videoCodec', videoCodec)
           ..add('container', container)
@@ -164,81 +120,76 @@ class _$$TranscodingInfo extends $TranscodingInfo {
   }
 }
 
-class $TranscodingInfoBuilder
-    implements
-        Builder<$TranscodingInfo, $TranscodingInfoBuilder>,
-        TranscodingInfoBuilder {
-  _$$TranscodingInfo? _$v;
+class TranscodingInfoBuilder
+    implements Builder<TranscodingInfo, TranscodingInfoBuilder> {
+  _$TranscodingInfo? _$v;
 
   String? _audioCodec;
   String? get audioCodec => _$this._audioCodec;
-  set audioCodec(covariant String? audioCodec) =>
-      _$this._audioCodec = audioCodec;
+  set audioCodec(String? audioCodec) => _$this._audioCodec = audioCodec;
 
   String? _videoCodec;
   String? get videoCodec => _$this._videoCodec;
-  set videoCodec(covariant String? videoCodec) =>
-      _$this._videoCodec = videoCodec;
+  set videoCodec(String? videoCodec) => _$this._videoCodec = videoCodec;
 
   String? _container;
   String? get container => _$this._container;
-  set container(covariant String? container) => _$this._container = container;
+  set container(String? container) => _$this._container = container;
 
   bool? _isVideoDirect;
   bool? get isVideoDirect => _$this._isVideoDirect;
-  set isVideoDirect(covariant bool? isVideoDirect) =>
+  set isVideoDirect(bool? isVideoDirect) =>
       _$this._isVideoDirect = isVideoDirect;
 
   bool? _isAudioDirect;
   bool? get isAudioDirect => _$this._isAudioDirect;
-  set isAudioDirect(covariant bool? isAudioDirect) =>
+  set isAudioDirect(bool? isAudioDirect) =>
       _$this._isAudioDirect = isAudioDirect;
 
   int? _bitrate;
   int? get bitrate => _$this._bitrate;
-  set bitrate(covariant int? bitrate) => _$this._bitrate = bitrate;
+  set bitrate(int? bitrate) => _$this._bitrate = bitrate;
 
   double? _framerate;
   double? get framerate => _$this._framerate;
-  set framerate(covariant double? framerate) => _$this._framerate = framerate;
+  set framerate(double? framerate) => _$this._framerate = framerate;
 
   double? _completionPercentage;
   double? get completionPercentage => _$this._completionPercentage;
-  set completionPercentage(covariant double? completionPercentage) =>
+  set completionPercentage(double? completionPercentage) =>
       _$this._completionPercentage = completionPercentage;
 
   int? _width;
   int? get width => _$this._width;
-  set width(covariant int? width) => _$this._width = width;
+  set width(int? width) => _$this._width = width;
 
   int? _height;
   int? get height => _$this._height;
-  set height(covariant int? height) => _$this._height = height;
+  set height(int? height) => _$this._height = height;
 
   int? _audioChannels;
   int? get audioChannels => _$this._audioChannels;
-  set audioChannels(covariant int? audioChannels) =>
+  set audioChannels(int? audioChannels) =>
       _$this._audioChannels = audioChannels;
 
   HardwareEncodingType? _hardwareAccelerationType;
   HardwareEncodingType? get hardwareAccelerationType =>
       _$this._hardwareAccelerationType;
   set hardwareAccelerationType(
-          covariant HardwareEncodingType? hardwareAccelerationType) =>
+          HardwareEncodingType? hardwareAccelerationType) =>
       _$this._hardwareAccelerationType = hardwareAccelerationType;
 
   ListBuilder<TranscodeReason>? _transcodeReasons;
   ListBuilder<TranscodeReason> get transcodeReasons =>
       _$this._transcodeReasons ??= new ListBuilder<TranscodeReason>();
-  set transcodeReasons(
-          covariant ListBuilder<TranscodeReason>? transcodeReasons) =>
+  set transcodeReasons(ListBuilder<TranscodeReason>? transcodeReasons) =>
       _$this._transcodeReasons = transcodeReasons;
 
-  $TranscodingInfoBuilder() {
-    $TranscodingInfo._defaults(this);
+  TranscodingInfoBuilder() {
+    TranscodingInfo._defaults(this);
   }
 
-  $TranscodingInfoBuilder get _$this {
+  TranscodingInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _audioCodec = $v.audioCodec;
@@ -260,24 +211,24 @@ class $TranscodingInfoBuilder
   }
 
   @override
-  void replace(covariant $TranscodingInfo other) {
+  void replace(TranscodingInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$TranscodingInfo;
+    _$v = other as _$TranscodingInfo;
   }
 
   @override
-  void update(void Function($TranscodingInfoBuilder)? updates) {
+  void update(void Function(TranscodingInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $TranscodingInfo build() => _build();
+  TranscodingInfo build() => _build();
 
-  _$$TranscodingInfo _build() {
-    _$$TranscodingInfo _$result;
+  _$TranscodingInfo _build() {
+    _$TranscodingInfo _$result;
     try {
       _$result = _$v ??
-          new _$$TranscodingInfo._(
+          new _$TranscodingInfo._(
               audioCodec: audioCodec,
               videoCodec: videoCodec,
               container: container,
@@ -298,7 +249,7 @@ class $TranscodingInfoBuilder
         _transcodeReasons?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$TranscodingInfo', _$failedField, e.toString());
+            r'TranscodingInfo', _$failedField, e.toString());
       }
       rethrow;
     }

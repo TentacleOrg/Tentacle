@@ -62,7 +62,7 @@ class _$RecommendationTypeMeta {
   BuiltSet<RecommendationType> get values => _$values;
 }
 
-abstract class _$RecommendationTypeMixin {
+mixin _$RecommendationTypeMixin {
   // ignore: non_constant_identifier_names
   _$RecommendationTypeMeta get RecommendationType =>
       const _$RecommendationTypeMeta();

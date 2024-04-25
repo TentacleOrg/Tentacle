@@ -17,7 +17,10 @@ part 'authentication_info_query_result.g.dart';
 /// * [totalRecordCount] - Gets or sets the total number of records available.
 /// * [startIndex] - Gets or sets the index of the first record in Items.
 @BuiltValue()
-abstract class AuthenticationInfoQueryResult implements Built<AuthenticationInfoQueryResult, AuthenticationInfoQueryResultBuilder> {
+abstract class AuthenticationInfoQueryResult
+    implements
+        Built<AuthenticationInfoQueryResult,
+            AuthenticationInfoQueryResultBuilder> {
   /// Gets or sets the items.
   @BuiltValueField(wireName: r'Items')
   BuiltList<AuthenticationInfo>? get items;
@@ -32,18 +35,25 @@ abstract class AuthenticationInfoQueryResult implements Built<AuthenticationInfo
 
   AuthenticationInfoQueryResult._();
 
-  factory AuthenticationInfoQueryResult([void updates(AuthenticationInfoQueryResultBuilder b)]) = _$AuthenticationInfoQueryResult;
+  factory AuthenticationInfoQueryResult(
+          [void updates(AuthenticationInfoQueryResultBuilder b)]) =
+      _$AuthenticationInfoQueryResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AuthenticationInfoQueryResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AuthenticationInfoQueryResult> get serializer => _$AuthenticationInfoQueryResultSerializer();
+  static Serializer<AuthenticationInfoQueryResult> get serializer =>
+      _$AuthenticationInfoQueryResultSerializer();
 }
 
-class _$AuthenticationInfoQueryResultSerializer implements PrimitiveSerializer<AuthenticationInfoQueryResult> {
+class _$AuthenticationInfoQueryResultSerializer
+    implements PrimitiveSerializer<AuthenticationInfoQueryResult> {
   @override
-  final Iterable<Type> types = const [AuthenticationInfoQueryResult, _$AuthenticationInfoQueryResult];
+  final Iterable<Type> types = const [
+    AuthenticationInfoQueryResult,
+    _$AuthenticationInfoQueryResult
+  ];
 
   @override
   final String wireName = r'AuthenticationInfoQueryResult';
@@ -57,7 +67,8 @@ class _$AuthenticationInfoQueryResultSerializer implements PrimitiveSerializer<A
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(AuthenticationInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(AuthenticationInfo)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -82,7 +93,9 @@ class _$AuthenticationInfoQueryResultSerializer implements PrimitiveSerializer<A
     AuthenticationInfoQueryResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -100,7 +113,8 @@ class _$AuthenticationInfoQueryResultSerializer implements PrimitiveSerializer<A
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(AuthenticationInfo)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(AuthenticationInfo)]),
           ) as BuiltList<AuthenticationInfo>?;
           if (valueDes == null) continue;
           result.items.replace(valueDes);
@@ -147,4 +161,3 @@ class _$AuthenticationInfoQueryResultSerializer implements PrimitiveSerializer<A
     return result.build();
   }
 }
-

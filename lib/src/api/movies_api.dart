@@ -13,7 +13,6 @@ import 'package:tentacle/src/model/item_fields.dart';
 import 'package:tentacle/src/model/recommendation_dto.dart';
 
 class MoviesApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -21,7 +20,7 @@ class MoviesApi {
   const MoviesApi(this._dio, this._serializers);
 
   /// Gets movie recommendations.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - Optional. Filter by user id, and attach user data.
@@ -37,8 +36,8 @@ class MoviesApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RecommendationDto>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RecommendationDto>>> getMovieRecommendations({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RecommendationDto>>> getMovieRecommendations({
     String? userId,
     String? parentId,
     BuiltList<ItemFields>? fields,
@@ -72,11 +71,25 @@ class MoviesApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (categoryLimit != null) r'categoryLimit': encodeQueryParameter(_serializers, categoryLimit, const FullType(int)),
-      if (itemLimit != null) r'itemLimit': encodeQueryParameter(_serializers, itemLimit, const FullType(int)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (categoryLimit != null)
+        r'categoryLimit': encodeQueryParameter(
+            _serializers, categoryLimit, const FullType(int)),
+      if (itemLimit != null)
+        r'itemLimit':
+            encodeQueryParameter(_serializers, itemLimit, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -88,22 +101,25 @@ class MoviesApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RecommendationDto> _responseData;
+    BuiltList<RecommendationDto>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RecommendationDto)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RecommendationDto>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RecommendationDto)]),
+            ) as BuiltList<RecommendationDto>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RecommendationDto>>(
@@ -117,5 +133,4 @@ class MoviesApi {
       extra: _response.extra,
     );
   }
-
 }

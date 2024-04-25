@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'keep_until.g.dart';
 
 class KeepUntil extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'UntilDeleted')
   static const KeepUntil untilDeleted = _$untilDeleted;
   @BuiltValueEnumConst(wireName: r'UntilSpaceNeeded')
@@ -22,7 +21,7 @@ class KeepUntil extends EnumClass {
 
   static Serializer<KeepUntil> get serializer => _$keepUntilSerializer;
 
-  const KeepUntil._(String name): super(name);
+  const KeepUntil._(String name) : super(name);
 
   static BuiltSet<KeepUntil> get values => _$values;
   static KeepUntil valueOf(String name) => _$valueOf(name);
@@ -35,4 +34,3 @@ class KeepUntil extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class KeepUntilMixin = Object with _$KeepUntilMixin;
-

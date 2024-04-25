@@ -6,44 +6,7 @@ part of 'series_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class SeriesInfoBuilder {
-  void replace(SeriesInfo other);
-  void update(void Function(SeriesInfoBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  String? get originalTitle;
-  set originalTitle(String? originalTitle);
-
-  String? get path;
-  set path(String? path);
-
-  String? get metadataLanguage;
-  set metadataLanguage(String? metadataLanguage);
-
-  String? get metadataCountryCode;
-  set metadataCountryCode(String? metadataCountryCode);
-
-  MapBuilder<String, String?> get providerIds;
-  set providerIds(MapBuilder<String, String?>? providerIds);
-
-  int? get year;
-  set year(int? year);
-
-  int? get indexNumber;
-  set indexNumber(int? indexNumber);
-
-  int? get parentIndexNumber;
-  set parentIndexNumber(int? parentIndexNumber);
-
-  DateTime? get premiereDate;
-  set premiereDate(DateTime? premiereDate);
-
-  bool? get isAutomated;
-  set isAutomated(bool? isAutomated);
-}
-
-class _$$SeriesInfo extends $SeriesInfo {
+class _$SeriesInfo extends SeriesInfo {
   @override
   final String? name;
   @override
@@ -67,10 +30,10 @@ class _$$SeriesInfo extends $SeriesInfo {
   @override
   final bool? isAutomated;
 
-  factory _$$SeriesInfo([void Function($SeriesInfoBuilder)? updates]) =>
-      (new $SeriesInfoBuilder()..update(updates))._build();
+  factory _$SeriesInfo([void Function(SeriesInfoBuilder)? updates]) =>
+      (new SeriesInfoBuilder()..update(updates))._build();
 
-  _$$SeriesInfo._(
+  _$SeriesInfo._(
       {this.name,
       this.originalTitle,
       this.path,
@@ -85,16 +48,16 @@ class _$$SeriesInfo extends $SeriesInfo {
       : super._();
 
   @override
-  $SeriesInfo rebuild(void Function($SeriesInfoBuilder) updates) =>
+  SeriesInfo rebuild(void Function(SeriesInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $SeriesInfoBuilder toBuilder() => new $SeriesInfoBuilder()..replace(this);
+  SeriesInfoBuilder toBuilder() => new SeriesInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $SeriesInfo &&
+    return other is SeriesInfo &&
         name == other.name &&
         originalTitle == other.originalTitle &&
         path == other.path &&
@@ -128,7 +91,7 @@ class _$$SeriesInfo extends $SeriesInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$SeriesInfo')
+    return (newBuiltValueToStringHelper(r'SeriesInfo')
           ..add('name', name)
           ..add('originalTitle', originalTitle)
           ..add('path', path)
@@ -144,68 +107,65 @@ class _$$SeriesInfo extends $SeriesInfo {
   }
 }
 
-class $SeriesInfoBuilder
-    implements Builder<$SeriesInfo, $SeriesInfoBuilder>, SeriesInfoBuilder {
-  _$$SeriesInfo? _$v;
+class SeriesInfoBuilder implements Builder<SeriesInfo, SeriesInfoBuilder> {
+  _$SeriesInfo? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _originalTitle;
   String? get originalTitle => _$this._originalTitle;
-  set originalTitle(covariant String? originalTitle) =>
+  set originalTitle(String? originalTitle) =>
       _$this._originalTitle = originalTitle;
 
   String? _path;
   String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
+  set path(String? path) => _$this._path = path;
 
   String? _metadataLanguage;
   String? get metadataLanguage => _$this._metadataLanguage;
-  set metadataLanguage(covariant String? metadataLanguage) =>
+  set metadataLanguage(String? metadataLanguage) =>
       _$this._metadataLanguage = metadataLanguage;
 
   String? _metadataCountryCode;
   String? get metadataCountryCode => _$this._metadataCountryCode;
-  set metadataCountryCode(covariant String? metadataCountryCode) =>
+  set metadataCountryCode(String? metadataCountryCode) =>
       _$this._metadataCountryCode = metadataCountryCode;
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
       _$this._providerIds ??= new MapBuilder<String, String?>();
-  set providerIds(covariant MapBuilder<String, String?>? providerIds) =>
+  set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
   int? _year;
   int? get year => _$this._year;
-  set year(covariant int? year) => _$this._year = year;
+  set year(int? year) => _$this._year = year;
 
   int? _indexNumber;
   int? get indexNumber => _$this._indexNumber;
-  set indexNumber(covariant int? indexNumber) =>
-      _$this._indexNumber = indexNumber;
+  set indexNumber(int? indexNumber) => _$this._indexNumber = indexNumber;
 
   int? _parentIndexNumber;
   int? get parentIndexNumber => _$this._parentIndexNumber;
-  set parentIndexNumber(covariant int? parentIndexNumber) =>
+  set parentIndexNumber(int? parentIndexNumber) =>
       _$this._parentIndexNumber = parentIndexNumber;
 
   DateTime? _premiereDate;
   DateTime? get premiereDate => _$this._premiereDate;
-  set premiereDate(covariant DateTime? premiereDate) =>
+  set premiereDate(DateTime? premiereDate) =>
       _$this._premiereDate = premiereDate;
 
   bool? _isAutomated;
   bool? get isAutomated => _$this._isAutomated;
-  set isAutomated(covariant bool? isAutomated) =>
-      _$this._isAutomated = isAutomated;
+  set isAutomated(bool? isAutomated) => _$this._isAutomated = isAutomated;
 
-  $SeriesInfoBuilder() {
-    $SeriesInfo._defaults(this);
+  SeriesInfoBuilder() {
+    SeriesInfo._defaults(this);
   }
 
-  $SeriesInfoBuilder get _$this {
+  SeriesInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -225,24 +185,24 @@ class $SeriesInfoBuilder
   }
 
   @override
-  void replace(covariant $SeriesInfo other) {
+  void replace(SeriesInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$SeriesInfo;
+    _$v = other as _$SeriesInfo;
   }
 
   @override
-  void update(void Function($SeriesInfoBuilder)? updates) {
+  void update(void Function(SeriesInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $SeriesInfo build() => _build();
+  SeriesInfo build() => _build();
 
-  _$$SeriesInfo _build() {
-    _$$SeriesInfo _$result;
+  _$SeriesInfo _build() {
+    _$SeriesInfo _$result;
     try {
       _$result = _$v ??
-          new _$$SeriesInfo._(
+          new _$SeriesInfo._(
               name: name,
               originalTitle: originalTitle,
               path: path,
@@ -261,7 +221,7 @@ class $SeriesInfoBuilder
         _providerIds?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$SeriesInfo', _$failedField, e.toString());
+            r'SeriesInfo', _$failedField, e.toString());
       }
       rethrow;
     }

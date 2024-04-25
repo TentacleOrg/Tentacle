@@ -3,11 +3,11 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TrailerInfoRemoteSearchQuery
 void main() {
-  //final instance = TrailerInfoRemoteSearchQueryBuilder();
+  final instance = TrailerInfoRemoteSearchQueryBuilder();
   // TODO add properties to the builder and call build()
 
   group(TrailerInfoRemoteSearchQuery, () {
-    // TrailerInfoRemoteSearchQuerySearchInfo searchInfo
+    // TrailerInfo searchInfo
     test('to test the property `searchInfo`', () async {
       // TODO
     });
@@ -28,6 +28,5 @@ void main() {
     test('to test the property `includeDisabledProviders`', () async {
       // TODO
     });
-
   });
 }

@@ -6,42 +6,32 @@ part of 'move_playlist_item_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class MovePlaylistItemRequestDtoBuilder {
-  void replace(MovePlaylistItemRequestDto other);
-  void update(void Function(MovePlaylistItemRequestDtoBuilder) updates);
-  String? get playlistItemId;
-  set playlistItemId(String? playlistItemId);
-
-  int? get newIndex;
-  set newIndex(int? newIndex);
-}
-
-class _$$MovePlaylistItemRequestDto extends $MovePlaylistItemRequestDto {
+class _$MovePlaylistItemRequestDto extends MovePlaylistItemRequestDto {
   @override
   final String? playlistItemId;
   @override
   final int? newIndex;
 
-  factory _$$MovePlaylistItemRequestDto(
-          [void Function($MovePlaylistItemRequestDtoBuilder)? updates]) =>
-      (new $MovePlaylistItemRequestDtoBuilder()..update(updates))._build();
+  factory _$MovePlaylistItemRequestDto(
+          [void Function(MovePlaylistItemRequestDtoBuilder)? updates]) =>
+      (new MovePlaylistItemRequestDtoBuilder()..update(updates))._build();
 
-  _$$MovePlaylistItemRequestDto._({this.playlistItemId, this.newIndex})
+  _$MovePlaylistItemRequestDto._({this.playlistItemId, this.newIndex})
       : super._();
 
   @override
-  $MovePlaylistItemRequestDto rebuild(
-          void Function($MovePlaylistItemRequestDtoBuilder) updates) =>
+  MovePlaylistItemRequestDto rebuild(
+          void Function(MovePlaylistItemRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $MovePlaylistItemRequestDtoBuilder toBuilder() =>
-      new $MovePlaylistItemRequestDtoBuilder()..replace(this);
+  MovePlaylistItemRequestDtoBuilder toBuilder() =>
+      new MovePlaylistItemRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $MovePlaylistItemRequestDto &&
+    return other is MovePlaylistItemRequestDto &&
         playlistItemId == other.playlistItemId &&
         newIndex == other.newIndex;
   }
@@ -57,34 +47,32 @@ class _$$MovePlaylistItemRequestDto extends $MovePlaylistItemRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$MovePlaylistItemRequestDto')
+    return (newBuiltValueToStringHelper(r'MovePlaylistItemRequestDto')
           ..add('playlistItemId', playlistItemId)
           ..add('newIndex', newIndex))
         .toString();
   }
 }
 
-class $MovePlaylistItemRequestDtoBuilder
+class MovePlaylistItemRequestDtoBuilder
     implements
-        Builder<$MovePlaylistItemRequestDto,
-            $MovePlaylistItemRequestDtoBuilder>,
-        MovePlaylistItemRequestDtoBuilder {
-  _$$MovePlaylistItemRequestDto? _$v;
+        Builder<MovePlaylistItemRequestDto, MovePlaylistItemRequestDtoBuilder> {
+  _$MovePlaylistItemRequestDto? _$v;
 
   String? _playlistItemId;
   String? get playlistItemId => _$this._playlistItemId;
-  set playlistItemId(covariant String? playlistItemId) =>
+  set playlistItemId(String? playlistItemId) =>
       _$this._playlistItemId = playlistItemId;
 
   int? _newIndex;
   int? get newIndex => _$this._newIndex;
-  set newIndex(covariant int? newIndex) => _$this._newIndex = newIndex;
+  set newIndex(int? newIndex) => _$this._newIndex = newIndex;
 
-  $MovePlaylistItemRequestDtoBuilder() {
-    $MovePlaylistItemRequestDto._defaults(this);
+  MovePlaylistItemRequestDtoBuilder() {
+    MovePlaylistItemRequestDto._defaults(this);
   }
 
-  $MovePlaylistItemRequestDtoBuilder get _$this {
+  MovePlaylistItemRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _playlistItemId = $v.playlistItemId;
@@ -95,22 +83,22 @@ class $MovePlaylistItemRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $MovePlaylistItemRequestDto other) {
+  void replace(MovePlaylistItemRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$MovePlaylistItemRequestDto;
+    _$v = other as _$MovePlaylistItemRequestDto;
   }
 
   @override
-  void update(void Function($MovePlaylistItemRequestDtoBuilder)? updates) {
+  void update(void Function(MovePlaylistItemRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $MovePlaylistItemRequestDto build() => _build();
+  MovePlaylistItemRequestDto build() => _build();
 
-  _$$MovePlaylistItemRequestDto _build() {
+  _$MovePlaylistItemRequestDto _build() {
     final _$result = _$v ??
-        new _$$MovePlaylistItemRequestDto._(
+        new _$MovePlaylistItemRequestDto._(
             playlistItemId: playlistItemId, newIndex: newIndex);
     replace(_$result);
     return _$result;

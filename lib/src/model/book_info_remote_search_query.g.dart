@@ -6,25 +6,9 @@ part of 'book_info_remote_search_query.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class BookInfoRemoteSearchQueryBuilder {
-  void replace(BookInfoRemoteSearchQuery other);
-  void update(void Function(BookInfoRemoteSearchQueryBuilder) updates);
-  BookInfoRemoteSearchQuerySearchInfoBuilder get searchInfo;
-  set searchInfo(BookInfoRemoteSearchQuerySearchInfoBuilder? searchInfo);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get searchProviderName;
-  set searchProviderName(String? searchProviderName);
-
-  bool? get includeDisabledProviders;
-  set includeDisabledProviders(bool? includeDisabledProviders);
-}
-
-class _$$BookInfoRemoteSearchQuery extends $BookInfoRemoteSearchQuery {
+class _$BookInfoRemoteSearchQuery extends BookInfoRemoteSearchQuery {
   @override
-  final BookInfoRemoteSearchQuerySearchInfo? searchInfo;
+  final BookInfo? searchInfo;
   @override
   final String? itemId;
   @override
@@ -32,11 +16,11 @@ class _$$BookInfoRemoteSearchQuery extends $BookInfoRemoteSearchQuery {
   @override
   final bool? includeDisabledProviders;
 
-  factory _$$BookInfoRemoteSearchQuery(
-          [void Function($BookInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new $BookInfoRemoteSearchQueryBuilder()..update(updates))._build();
+  factory _$BookInfoRemoteSearchQuery(
+          [void Function(BookInfoRemoteSearchQueryBuilder)? updates]) =>
+      (new BookInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
-  _$$BookInfoRemoteSearchQuery._(
+  _$BookInfoRemoteSearchQuery._(
       {this.searchInfo,
       this.itemId,
       this.searchProviderName,
@@ -44,18 +28,18 @@ class _$$BookInfoRemoteSearchQuery extends $BookInfoRemoteSearchQuery {
       : super._();
 
   @override
-  $BookInfoRemoteSearchQuery rebuild(
-          void Function($BookInfoRemoteSearchQueryBuilder) updates) =>
+  BookInfoRemoteSearchQuery rebuild(
+          void Function(BookInfoRemoteSearchQueryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $BookInfoRemoteSearchQueryBuilder toBuilder() =>
-      new $BookInfoRemoteSearchQueryBuilder()..replace(this);
+  BookInfoRemoteSearchQueryBuilder toBuilder() =>
+      new BookInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $BookInfoRemoteSearchQuery &&
+    return other is BookInfoRemoteSearchQuery &&
         searchInfo == other.searchInfo &&
         itemId == other.itemId &&
         searchProviderName == other.searchProviderName &&
@@ -75,7 +59,7 @@ class _$$BookInfoRemoteSearchQuery extends $BookInfoRemoteSearchQuery {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$BookInfoRemoteSearchQuery')
+    return (newBuiltValueToStringHelper(r'BookInfoRemoteSearchQuery')
           ..add('searchInfo', searchInfo)
           ..add('itemId', itemId)
           ..add('searchProviderName', searchProviderName)
@@ -84,38 +68,36 @@ class _$$BookInfoRemoteSearchQuery extends $BookInfoRemoteSearchQuery {
   }
 }
 
-class $BookInfoRemoteSearchQueryBuilder
+class BookInfoRemoteSearchQueryBuilder
     implements
-        Builder<$BookInfoRemoteSearchQuery, $BookInfoRemoteSearchQueryBuilder>,
-        BookInfoRemoteSearchQueryBuilder {
-  _$$BookInfoRemoteSearchQuery? _$v;
+        Builder<BookInfoRemoteSearchQuery, BookInfoRemoteSearchQueryBuilder> {
+  _$BookInfoRemoteSearchQuery? _$v;
 
-  BookInfoRemoteSearchQuerySearchInfoBuilder? _searchInfo;
-  BookInfoRemoteSearchQuerySearchInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new BookInfoRemoteSearchQuerySearchInfoBuilder();
-  set searchInfo(
-          covariant BookInfoRemoteSearchQuerySearchInfoBuilder? searchInfo) =>
+  BookInfoBuilder? _searchInfo;
+  BookInfoBuilder get searchInfo =>
+      _$this._searchInfo ??= new BookInfoBuilder();
+  set searchInfo(BookInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   String? _searchProviderName;
   String? get searchProviderName => _$this._searchProviderName;
-  set searchProviderName(covariant String? searchProviderName) =>
+  set searchProviderName(String? searchProviderName) =>
       _$this._searchProviderName = searchProviderName;
 
   bool? _includeDisabledProviders;
   bool? get includeDisabledProviders => _$this._includeDisabledProviders;
-  set includeDisabledProviders(covariant bool? includeDisabledProviders) =>
+  set includeDisabledProviders(bool? includeDisabledProviders) =>
       _$this._includeDisabledProviders = includeDisabledProviders;
 
-  $BookInfoRemoteSearchQueryBuilder() {
-    $BookInfoRemoteSearchQuery._defaults(this);
+  BookInfoRemoteSearchQueryBuilder() {
+    BookInfoRemoteSearchQuery._defaults(this);
   }
 
-  $BookInfoRemoteSearchQueryBuilder get _$this {
+  BookInfoRemoteSearchQueryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _searchInfo = $v.searchInfo?.toBuilder();
@@ -128,24 +110,24 @@ class $BookInfoRemoteSearchQueryBuilder
   }
 
   @override
-  void replace(covariant $BookInfoRemoteSearchQuery other) {
+  void replace(BookInfoRemoteSearchQuery other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$BookInfoRemoteSearchQuery;
+    _$v = other as _$BookInfoRemoteSearchQuery;
   }
 
   @override
-  void update(void Function($BookInfoRemoteSearchQueryBuilder)? updates) {
+  void update(void Function(BookInfoRemoteSearchQueryBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $BookInfoRemoteSearchQuery build() => _build();
+  BookInfoRemoteSearchQuery build() => _build();
 
-  _$$BookInfoRemoteSearchQuery _build() {
-    _$$BookInfoRemoteSearchQuery _$result;
+  _$BookInfoRemoteSearchQuery _build() {
+    _$BookInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$$BookInfoRemoteSearchQuery._(
+          new _$BookInfoRemoteSearchQuery._(
               searchInfo: _searchInfo?.build(),
               itemId: itemId,
               searchProviderName: searchProviderName,
@@ -157,7 +139,7 @@ class $BookInfoRemoteSearchQueryBuilder
         _searchInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$BookInfoRemoteSearchQuery', _$failedField, e.toString());
+            r'BookInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;
     }

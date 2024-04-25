@@ -1,8 +1,8 @@
-# openapi.api.VideosApi
+# tentacle.api.VideosApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -25,18 +25,18 @@ Removes alternate video sources.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getVideosApi();
+final api = Tentacle().getVideosApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
     api.deleteAlternateSources(itemId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling VideosApi->deleteAlternateSources: $e\n');
 }
 ```
@@ -69,20 +69,20 @@ Gets additional parts for a video.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getVideosApi();
+final api = Tentacle().getVideosApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
 try {
     final response = api.getAdditionalPart(itemId, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling VideosApi->getAdditionalPart: $e\n');
 }
 ```
@@ -116,9 +116,9 @@ Gets a video stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getVideosApi();
+final api = Tentacle().getVideosApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
 final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
@@ -174,7 +174,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 try {
     final response = api.getVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling VideosApi->getVideoStream: $e\n');
 }
 ```
@@ -257,9 +257,9 @@ Gets a video stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getVideosApi();
+final api = Tentacle().getVideosApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
 final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
@@ -315,7 +315,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 try {
     final response = api.getVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling VideosApi->getVideoStreamByContainer: $e\n');
 }
 ```
@@ -398,9 +398,9 @@ Gets a video stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getVideosApi();
+final api = Tentacle().getVideosApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
 final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
@@ -456,7 +456,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 try {
     final response = api.headVideoStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling VideosApi->headVideoStream: $e\n');
 }
 ```
@@ -539,9 +539,9 @@ Gets a video stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getVideosApi();
+final api = Tentacle().getVideosApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String container = container_example; // String | The video container. Possible values are: ts, webm, asf, wmv, ogv, mp4, m4v, mkv, mpeg, mpg, avi, 3gp, wmv, wtv, m2ts, mov, iso, flv.
 final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
@@ -597,7 +597,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 try {
     final response = api.headVideoStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, maxWidth, maxHeight, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling VideosApi->headVideoStreamByContainer: $e\n');
 }
 ```
@@ -680,18 +680,18 @@ Merges videos into a single record.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getVideosApi();
+final api = Tentacle().getVideosApi();
 final BuiltList<String> ids = ; // BuiltList<String> | Item id list. This allows multiple, comma delimited.
 
 try {
     api.mergeVersions(ids);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling VideosApi->mergeVersions: $e\n');
 }
 ```

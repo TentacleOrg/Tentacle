@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MediaUpdateInfoDto
 void main() {
-  //final instance = MediaUpdateInfoDtoBuilder();
+  final instance = MediaUpdateInfoDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(MediaUpdateInfoDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `updates`', () async {
       // TODO
     });
-
   });
 }

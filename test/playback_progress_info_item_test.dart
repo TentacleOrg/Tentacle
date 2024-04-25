@@ -314,7 +314,7 @@ void main() {
       // TODO
     });
 
-    // The base item kind.
+    // Gets or sets the type.
     // BaseItemKind type
     test('to test the property `type`', () async {
       // TODO
@@ -874,6 +874,5 @@ void main() {
     test('to test the property `currentProgram`', () async {
       // TODO
     });
-
   });
 }

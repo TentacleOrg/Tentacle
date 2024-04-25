@@ -14,7 +14,6 @@ import 'package:tentacle/src/model/query_filters.dart';
 import 'package:tentacle/src/model/query_filters_legacy.dart';
 
 class FilterApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +21,7 @@ class FilterApi {
   const FilterApi(this._dio, this._serializers);
 
   /// Gets query filters.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - Optional. User id.
@@ -43,8 +42,8 @@ class FilterApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [QueryFilters] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<QueryFilters>> getQueryFilters({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<QueryFilters>> getQueryFilters({
     String? userId,
     String? parentId,
     BuiltList<BaseItemKind>? includeItemTypes,
@@ -83,16 +82,40 @@ class FilterApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (includeItemTypes != null) r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, includeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (isAiring != null) r'isAiring': encodeQueryParameter(_serializers, isAiring, const FullType(bool)),
-      if (isMovie != null) r'isMovie': encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
-      if (isSports != null) r'isSports': encodeQueryParameter(_serializers, isSports, const FullType(bool)),
-      if (isKids != null) r'isKids': encodeQueryParameter(_serializers, isKids, const FullType(bool)),
-      if (isNews != null) r'isNews': encodeQueryParameter(_serializers, isNews, const FullType(bool)),
-      if (isSeries != null) r'isSeries': encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
-      if (recursive != null) r'recursive': encodeQueryParameter(_serializers, recursive, const FullType(bool)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (includeItemTypes != null)
+        r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          includeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (isAiring != null)
+        r'isAiring':
+            encodeQueryParameter(_serializers, isAiring, const FullType(bool)),
+      if (isMovie != null)
+        r'isMovie':
+            encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
+      if (isSports != null)
+        r'isSports':
+            encodeQueryParameter(_serializers, isSports, const FullType(bool)),
+      if (isKids != null)
+        r'isKids':
+            encodeQueryParameter(_serializers, isKids, const FullType(bool)),
+      if (isNews != null)
+        r'isNews':
+            encodeQueryParameter(_serializers, isNews, const FullType(bool)),
+      if (isSeries != null)
+        r'isSeries':
+            encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
+      if (recursive != null)
+        r'recursive':
+            encodeQueryParameter(_serializers, recursive, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -104,22 +127,24 @@ class FilterApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    QueryFilters _responseData;
+    QueryFilters? _responseData;
 
     try {
-      const _responseType = FullType(QueryFilters);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as QueryFilters;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(QueryFilters),
+            ) as QueryFilters;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<QueryFilters>(
@@ -135,7 +160,7 @@ class FilterApi {
   }
 
   /// Gets legacy query filters.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - Optional. User id.
@@ -150,8 +175,8 @@ class FilterApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [QueryFiltersLegacy] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<QueryFiltersLegacy>> getQueryFiltersLegacy({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<QueryFiltersLegacy>> getQueryFiltersLegacy({
     String? userId,
     String? parentId,
     BuiltList<BaseItemKind>? includeItemTypes,
@@ -184,10 +209,26 @@ class FilterApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (includeItemTypes != null) r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, includeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (mediaTypes != null) r'mediaTypes': encodeCollectionQueryParameter<String>(_serializers, mediaTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (includeItemTypes != null)
+        r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          includeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (mediaTypes != null)
+        r'mediaTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          mediaTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -199,22 +240,24 @@ class FilterApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    QueryFiltersLegacy _responseData;
+    QueryFiltersLegacy? _responseData;
 
     try {
-      const _responseType = FullType(QueryFiltersLegacy);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as QueryFiltersLegacy;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(QueryFiltersLegacy),
+            ) as QueryFiltersLegacy;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<QueryFiltersLegacy>(
@@ -228,5 +271,4 @@ class FilterApi {
       extra: _response.extra,
     );
   }
-
 }

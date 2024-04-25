@@ -14,8 +14,8 @@ part 'chapter_info.g.dart';
 /// * [startPositionTicks] - Gets or sets the start position ticks.
 /// * [name] - Gets or sets the name.
 /// * [imagePath] - Gets or sets the image path.
-/// * [imageDateModified] 
-/// * [imageTag] 
+/// * [imageDateModified]
+/// * [imageTag]
 @BuiltValue()
 abstract class ChapterInfo implements Built<ChapterInfo, ChapterInfoBuilder> {
   /// Gets or sets the start position ticks.
@@ -102,7 +102,9 @@ class _$ChapterInfoSerializer implements PrimitiveSerializer<ChapterInfo> {
     ChapterInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -183,4 +185,3 @@ class _$ChapterInfoSerializer implements PrimitiveSerializer<ChapterInfo> {
     return result.build();
   }
 }
-

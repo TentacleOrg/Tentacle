@@ -6,25 +6,9 @@ part of 'box_set_info_remote_search_query.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class BoxSetInfoRemoteSearchQueryBuilder {
-  void replace(BoxSetInfoRemoteSearchQuery other);
-  void update(void Function(BoxSetInfoRemoteSearchQueryBuilder) updates);
-  BoxSetInfoRemoteSearchQuerySearchInfoBuilder get searchInfo;
-  set searchInfo(BoxSetInfoRemoteSearchQuerySearchInfoBuilder? searchInfo);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get searchProviderName;
-  set searchProviderName(String? searchProviderName);
-
-  bool? get includeDisabledProviders;
-  set includeDisabledProviders(bool? includeDisabledProviders);
-}
-
-class _$$BoxSetInfoRemoteSearchQuery extends $BoxSetInfoRemoteSearchQuery {
+class _$BoxSetInfoRemoteSearchQuery extends BoxSetInfoRemoteSearchQuery {
   @override
-  final BoxSetInfoRemoteSearchQuerySearchInfo? searchInfo;
+  final BoxSetInfo? searchInfo;
   @override
   final String? itemId;
   @override
@@ -32,11 +16,11 @@ class _$$BoxSetInfoRemoteSearchQuery extends $BoxSetInfoRemoteSearchQuery {
   @override
   final bool? includeDisabledProviders;
 
-  factory _$$BoxSetInfoRemoteSearchQuery(
-          [void Function($BoxSetInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new $BoxSetInfoRemoteSearchQueryBuilder()..update(updates))._build();
+  factory _$BoxSetInfoRemoteSearchQuery(
+          [void Function(BoxSetInfoRemoteSearchQueryBuilder)? updates]) =>
+      (new BoxSetInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
-  _$$BoxSetInfoRemoteSearchQuery._(
+  _$BoxSetInfoRemoteSearchQuery._(
       {this.searchInfo,
       this.itemId,
       this.searchProviderName,
@@ -44,18 +28,18 @@ class _$$BoxSetInfoRemoteSearchQuery extends $BoxSetInfoRemoteSearchQuery {
       : super._();
 
   @override
-  $BoxSetInfoRemoteSearchQuery rebuild(
-          void Function($BoxSetInfoRemoteSearchQueryBuilder) updates) =>
+  BoxSetInfoRemoteSearchQuery rebuild(
+          void Function(BoxSetInfoRemoteSearchQueryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $BoxSetInfoRemoteSearchQueryBuilder toBuilder() =>
-      new $BoxSetInfoRemoteSearchQueryBuilder()..replace(this);
+  BoxSetInfoRemoteSearchQueryBuilder toBuilder() =>
+      new BoxSetInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $BoxSetInfoRemoteSearchQuery &&
+    return other is BoxSetInfoRemoteSearchQuery &&
         searchInfo == other.searchInfo &&
         itemId == other.itemId &&
         searchProviderName == other.searchProviderName &&
@@ -75,7 +59,7 @@ class _$$BoxSetInfoRemoteSearchQuery extends $BoxSetInfoRemoteSearchQuery {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$BoxSetInfoRemoteSearchQuery')
+    return (newBuiltValueToStringHelper(r'BoxSetInfoRemoteSearchQuery')
           ..add('searchInfo', searchInfo)
           ..add('itemId', itemId)
           ..add('searchProviderName', searchProviderName)
@@ -84,39 +68,37 @@ class _$$BoxSetInfoRemoteSearchQuery extends $BoxSetInfoRemoteSearchQuery {
   }
 }
 
-class $BoxSetInfoRemoteSearchQueryBuilder
+class BoxSetInfoRemoteSearchQueryBuilder
     implements
-        Builder<$BoxSetInfoRemoteSearchQuery,
-            $BoxSetInfoRemoteSearchQueryBuilder>,
-        BoxSetInfoRemoteSearchQueryBuilder {
-  _$$BoxSetInfoRemoteSearchQuery? _$v;
+        Builder<BoxSetInfoRemoteSearchQuery,
+            BoxSetInfoRemoteSearchQueryBuilder> {
+  _$BoxSetInfoRemoteSearchQuery? _$v;
 
-  BoxSetInfoRemoteSearchQuerySearchInfoBuilder? _searchInfo;
-  BoxSetInfoRemoteSearchQuerySearchInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new BoxSetInfoRemoteSearchQuerySearchInfoBuilder();
-  set searchInfo(
-          covariant BoxSetInfoRemoteSearchQuerySearchInfoBuilder? searchInfo) =>
+  BoxSetInfoBuilder? _searchInfo;
+  BoxSetInfoBuilder get searchInfo =>
+      _$this._searchInfo ??= new BoxSetInfoBuilder();
+  set searchInfo(BoxSetInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   String? _searchProviderName;
   String? get searchProviderName => _$this._searchProviderName;
-  set searchProviderName(covariant String? searchProviderName) =>
+  set searchProviderName(String? searchProviderName) =>
       _$this._searchProviderName = searchProviderName;
 
   bool? _includeDisabledProviders;
   bool? get includeDisabledProviders => _$this._includeDisabledProviders;
-  set includeDisabledProviders(covariant bool? includeDisabledProviders) =>
+  set includeDisabledProviders(bool? includeDisabledProviders) =>
       _$this._includeDisabledProviders = includeDisabledProviders;
 
-  $BoxSetInfoRemoteSearchQueryBuilder() {
-    $BoxSetInfoRemoteSearchQuery._defaults(this);
+  BoxSetInfoRemoteSearchQueryBuilder() {
+    BoxSetInfoRemoteSearchQuery._defaults(this);
   }
 
-  $BoxSetInfoRemoteSearchQueryBuilder get _$this {
+  BoxSetInfoRemoteSearchQueryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _searchInfo = $v.searchInfo?.toBuilder();
@@ -129,24 +111,24 @@ class $BoxSetInfoRemoteSearchQueryBuilder
   }
 
   @override
-  void replace(covariant $BoxSetInfoRemoteSearchQuery other) {
+  void replace(BoxSetInfoRemoteSearchQuery other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$BoxSetInfoRemoteSearchQuery;
+    _$v = other as _$BoxSetInfoRemoteSearchQuery;
   }
 
   @override
-  void update(void Function($BoxSetInfoRemoteSearchQueryBuilder)? updates) {
+  void update(void Function(BoxSetInfoRemoteSearchQueryBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $BoxSetInfoRemoteSearchQuery build() => _build();
+  BoxSetInfoRemoteSearchQuery build() => _build();
 
-  _$$BoxSetInfoRemoteSearchQuery _build() {
-    _$$BoxSetInfoRemoteSearchQuery _$result;
+  _$BoxSetInfoRemoteSearchQuery _build() {
+    _$BoxSetInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$$BoxSetInfoRemoteSearchQuery._(
+          new _$BoxSetInfoRemoteSearchQuery._(
               searchInfo: _searchInfo?.build(),
               itemId: itemId,
               searchProviderName: searchProviderName,
@@ -158,7 +140,7 @@ class $BoxSetInfoRemoteSearchQueryBuilder
         _searchInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$BoxSetInfoRemoteSearchQuery', _$failedField, e.toString());
+            r'BoxSetInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;
     }

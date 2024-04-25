@@ -12,46 +12,47 @@ part 'encoding_options.g.dart';
 /// EncodingOptions
 ///
 /// Properties:
-/// * [encodingThreadCount] 
-/// * [transcodingTempPath] 
-/// * [fallbackFontPath] 
-/// * [enableFallbackFont] 
-/// * [downMixAudioBoost] 
-/// * [maxMuxingQueueSize] 
-/// * [enableThrottling] 
-/// * [throttleDelaySeconds] 
-/// * [hardwareAccelerationType] 
+/// * [encodingThreadCount]
+/// * [transcodingTempPath]
+/// * [fallbackFontPath]
+/// * [enableFallbackFont]
+/// * [downMixAudioBoost]
+/// * [maxMuxingQueueSize]
+/// * [enableThrottling]
+/// * [throttleDelaySeconds]
+/// * [hardwareAccelerationType]
 /// * [encoderAppPath] - Gets or sets the FFmpeg path as set by the user via the UI.
 /// * [encoderAppPathDisplay] - Gets or sets the current FFmpeg path being used by the system and displayed on the transcode page.
-/// * [vaapiDevice] 
-/// * [enableTonemapping] 
-/// * [enableVppTonemapping] 
-/// * [tonemappingAlgorithm] 
-/// * [tonemappingRange] 
-/// * [tonemappingDesat] 
-/// * [tonemappingThreshold] 
-/// * [tonemappingPeak] 
-/// * [tonemappingParam] 
-/// * [vppTonemappingBrightness] 
-/// * [vppTonemappingContrast] 
-/// * [h264Crf] 
-/// * [h265Crf] 
-/// * [encoderPreset] 
-/// * [deinterlaceDoubleRate] 
-/// * [deinterlaceMethod] 
-/// * [enableDecodingColorDepth10Hevc] 
-/// * [enableDecodingColorDepth10Vp9] 
-/// * [enableEnhancedNvdecDecoder] 
-/// * [preferSystemNativeHwDecoder] 
-/// * [enableIntelLowPowerH264HwEncoder] 
-/// * [enableIntelLowPowerHevcHwEncoder] 
-/// * [enableHardwareEncoding] 
-/// * [allowHevcEncoding] 
-/// * [enableSubtitleExtraction] 
-/// * [hardwareDecodingCodecs] 
-/// * [allowOnDemandMetadataBasedKeyframeExtractionForExtensions] 
+/// * [vaapiDevice]
+/// * [enableTonemapping]
+/// * [enableVppTonemapping]
+/// * [tonemappingAlgorithm]
+/// * [tonemappingMode]
+/// * [tonemappingRange]
+/// * [tonemappingDesat]
+/// * [tonemappingPeak]
+/// * [tonemappingParam]
+/// * [vppTonemappingBrightness]
+/// * [vppTonemappingContrast]
+/// * [h264Crf]
+/// * [h265Crf]
+/// * [encoderPreset]
+/// * [deinterlaceDoubleRate]
+/// * [deinterlaceMethod]
+/// * [enableDecodingColorDepth10Hevc]
+/// * [enableDecodingColorDepth10Vp9]
+/// * [enableEnhancedNvdecDecoder]
+/// * [preferSystemNativeHwDecoder]
+/// * [enableIntelLowPowerH264HwEncoder]
+/// * [enableIntelLowPowerHevcHwEncoder]
+/// * [enableHardwareEncoding]
+/// * [allowHevcEncoding]
+/// * [enableSubtitleExtraction]
+/// * [hardwareDecodingCodecs]
+/// * [allowOnDemandMetadataBasedKeyframeExtractionForExtensions]
 @BuiltValue()
-abstract class EncodingOptions implements Built<EncodingOptions, EncodingOptionsBuilder> {
+abstract class EncodingOptions
+    implements Built<EncodingOptions, EncodingOptionsBuilder> {
   @BuiltValueField(wireName: r'EncodingThreadCount')
   int? get encodingThreadCount;
 
@@ -99,14 +100,14 @@ abstract class EncodingOptions implements Built<EncodingOptions, EncodingOptions
   @BuiltValueField(wireName: r'TonemappingAlgorithm')
   String? get tonemappingAlgorithm;
 
+  @BuiltValueField(wireName: r'TonemappingMode')
+  String? get tonemappingMode;
+
   @BuiltValueField(wireName: r'TonemappingRange')
   String? get tonemappingRange;
 
   @BuiltValueField(wireName: r'TonemappingDesat')
   double? get tonemappingDesat;
-
-  @BuiltValueField(wireName: r'TonemappingThreshold')
-  double? get tonemappingThreshold;
 
   @BuiltValueField(wireName: r'TonemappingPeak')
   double? get tonemappingPeak;
@@ -165,21 +166,26 @@ abstract class EncodingOptions implements Built<EncodingOptions, EncodingOptions
   @BuiltValueField(wireName: r'HardwareDecodingCodecs')
   BuiltList<String>? get hardwareDecodingCodecs;
 
-  @BuiltValueField(wireName: r'AllowOnDemandMetadataBasedKeyframeExtractionForExtensions')
-  BuiltList<String>? get allowOnDemandMetadataBasedKeyframeExtractionForExtensions;
+  @BuiltValueField(
+      wireName: r'AllowOnDemandMetadataBasedKeyframeExtractionForExtensions')
+  BuiltList<String>?
+      get allowOnDemandMetadataBasedKeyframeExtractionForExtensions;
 
   EncodingOptions._();
 
-  factory EncodingOptions([void updates(EncodingOptionsBuilder b)]) = _$EncodingOptions;
+  factory EncodingOptions([void updates(EncodingOptionsBuilder b)]) =
+      _$EncodingOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(EncodingOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<EncodingOptions> get serializer => _$EncodingOptionsSerializer();
+  static Serializer<EncodingOptions> get serializer =>
+      _$EncodingOptionsSerializer();
 }
 
-class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions> {
+class _$EncodingOptionsSerializer
+    implements PrimitiveSerializer<EncodingOptions> {
   @override
   final Iterable<Type> types = const [EncodingOptions, _$EncodingOptions];
 
@@ -296,6 +302,13 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
         specifiedType: const FullType.nullable(String),
       );
     }
+    if (object.tonemappingMode != null) {
+      yield r'TonemappingMode';
+      yield serializers.serialize(
+        object.tonemappingMode,
+        specifiedType: const FullType.nullable(String),
+      );
+    }
     if (object.tonemappingRange != null) {
       yield r'TonemappingRange';
       yield serializers.serialize(
@@ -307,13 +320,6 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
       yield r'TonemappingDesat';
       yield serializers.serialize(
         object.tonemappingDesat,
-        specifiedType: const FullType(double),
-      );
-    }
-    if (object.tonemappingThreshold != null) {
-      yield r'TonemappingThreshold';
-      yield serializers.serialize(
-        object.tonemappingThreshold,
         specifiedType: const FullType(double),
       );
     }
@@ -450,7 +456,8 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
         specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
       );
     }
-    if (object.allowOnDemandMetadataBasedKeyframeExtractionForExtensions != null) {
+    if (object.allowOnDemandMetadataBasedKeyframeExtractionForExtensions !=
+        null) {
       yield r'AllowOnDemandMetadataBasedKeyframeExtractionForExtensions';
       yield serializers.serialize(
         object.allowOnDemandMetadataBasedKeyframeExtractionForExtensions,
@@ -465,7 +472,9 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
     EncodingOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -592,6 +601,14 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
           if (valueDes == null) continue;
           result.tonemappingAlgorithm = valueDes;
           break;
+        case r'TonemappingMode':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.tonemappingMode = valueDes;
+          break;
         case r'TonemappingRange':
           final valueDes = serializers.deserialize(
             value,
@@ -606,13 +623,6 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
             specifiedType: const FullType(double),
           ) as double;
           result.tonemappingDesat = valueDes;
-          break;
-        case r'TonemappingThreshold':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(double),
-          ) as double;
-          result.tonemappingThreshold = valueDes;
           break;
         case r'TonemappingPeak':
           final valueDes = serializers.deserialize(
@@ -745,7 +755,8 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
         case r'HardwareDecodingCodecs':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.hardwareDecodingCodecs.replace(valueDes);
@@ -753,10 +764,12 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
         case r'AllowOnDemandMetadataBasedKeyframeExtractionForExtensions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
-          result.allowOnDemandMetadataBasedKeyframeExtractionForExtensions.replace(valueDes);
+          result.allowOnDemandMetadataBasedKeyframeExtractionForExtensions
+              .replace(valueDes);
           break;
         default:
           unhandled.add(key);
@@ -786,4 +799,3 @@ class _$EncodingOptionsSerializer implements PrimitiveSerializer<EncodingOptions
     return result.build();
   }
 }
-

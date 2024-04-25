@@ -19,12 +19,13 @@ part 'person_lookup_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-@BuiltValue(instantiable: false)
-abstract class PersonLookupInfo  {
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+@BuiltValue()
+abstract class PersonLookupInfo
+    implements Built<PersonLookupInfo, PersonLookupInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -65,13 +66,23 @@ abstract class PersonLookupInfo  {
   @BuiltValueField(wireName: r'IsAutomated')
   bool? get isAutomated;
 
+  PersonLookupInfo._();
+
+  factory PersonLookupInfo([void updates(PersonLookupInfoBuilder b)]) =
+      _$PersonLookupInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PersonLookupInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PersonLookupInfo> get serializer => _$PersonLookupInfoSerializer();
+  static Serializer<PersonLookupInfo> get serializer =>
+      _$PersonLookupInfoSerializer();
 }
 
-class _$PersonLookupInfoSerializer implements PrimitiveSerializer<PersonLookupInfo> {
+class _$PersonLookupInfoSerializer
+    implements PrimitiveSerializer<PersonLookupInfo> {
   @override
-  final Iterable<Type> types = const [PersonLookupInfo];
+  final Iterable<Type> types = const [PersonLookupInfo, _$PersonLookupInfo];
 
   @override
   final String wireName = r'PersonLookupInfo';
@@ -120,7 +131,8 @@ class _$PersonLookupInfoSerializer implements PrimitiveSerializer<PersonLookupIn
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -166,47 +178,9 @@ class _$PersonLookupInfoSerializer implements PrimitiveSerializer<PersonLookupIn
     PersonLookupInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PersonLookupInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PersonLookupInfo)) as $PersonLookupInfo;
-  }
-}
-
-/// a concrete implementation of [PersonLookupInfo], since [PersonLookupInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PersonLookupInfo implements PersonLookupInfo, Built<$PersonLookupInfo, $PersonLookupInfoBuilder> {
-  $PersonLookupInfo._();
-
-  factory $PersonLookupInfo([void Function($PersonLookupInfoBuilder)? updates]) = _$$PersonLookupInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PersonLookupInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PersonLookupInfo> get serializer => _$$PersonLookupInfoSerializer();
-}
-
-class _$$PersonLookupInfoSerializer implements PrimitiveSerializer<$PersonLookupInfo> {
-  @override
-  final Iterable<Type> types = const [$PersonLookupInfo, _$$PersonLookupInfo];
-
-  @override
-  final String wireName = r'$PersonLookupInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PersonLookupInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PersonLookupInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -264,7 +238,8 @@ class _$$PersonLookupInfoSerializer implements PrimitiveSerializer<$PersonLookup
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -317,12 +292,12 @@ class _$$PersonLookupInfoSerializer implements PrimitiveSerializer<$PersonLookup
   }
 
   @override
-  $PersonLookupInfo deserialize(
+  PersonLookupInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PersonLookupInfoBuilder();
+    final result = PersonLookupInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -336,4 +311,3 @@ class _$$PersonLookupInfoSerializer implements PrimitiveSerializer<$PersonLookup
     return result.build();
   }
 }
-

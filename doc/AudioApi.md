@@ -1,8 +1,8 @@
-# openapi.api.AudioApi
+# tentacle.api.AudioApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -22,9 +22,9 @@ Gets an audio stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getAudioApi();
+final api = Tentacle().getAudioApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String container = container_example; // String | The audio container.
 final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
@@ -78,7 +78,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 try {
     final response = api.getAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AudioApi->getAudioStream: $e\n');
 }
 ```
@@ -159,9 +159,9 @@ Gets an audio stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getAudioApi();
+final api = Tentacle().getAudioApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String container = container_example; // String | The audio container.
 final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
@@ -215,7 +215,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 try {
     final response = api.getAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AudioApi->getAudioStreamByContainer: $e\n');
 }
 ```
@@ -296,9 +296,9 @@ Gets an audio stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getAudioApi();
+final api = Tentacle().getAudioApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String container = container_example; // String | The audio container.
 final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
@@ -352,7 +352,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 try {
     final response = api.headAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AudioApi->headAudioStream: $e\n');
 }
 ```
@@ -433,9 +433,9 @@ Gets an audio stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getAudioApi();
+final api = Tentacle().getAudioApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String container = container_example; // String | The audio container.
 final bool static_ = true; // bool | Optional. If true, the original file will be streamed statically without any encoding. Use either no url extension or the original file extension. true/false.
@@ -489,7 +489,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 try {
     final response = api.headAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling AudioApi->headAudioStreamByContainer: $e\n');
 }
 ```

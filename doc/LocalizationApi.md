@@ -1,8 +1,8 @@
-# openapi.api.LocalizationApi
+# tentacle.api.LocalizationApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -22,18 +22,18 @@ Gets known countries.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLocalizationApi();
+final api = Tentacle().getLocalizationApi();
 
 try {
     final response = api.getCountries();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LocalizationApi->getCountries: $e\n');
 }
 ```
@@ -63,18 +63,18 @@ Gets known cultures.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLocalizationApi();
+final api = Tentacle().getLocalizationApi();
 
 try {
     final response = api.getCultures();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LocalizationApi->getCultures: $e\n');
 }
 ```
@@ -104,18 +104,18 @@ Gets localization options.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLocalizationApi();
+final api = Tentacle().getLocalizationApi();
 
 try {
     final response = api.getLocalizationOptions();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LocalizationApi->getLocalizationOptions: $e\n');
 }
 ```
@@ -145,18 +145,18 @@ Gets known parental ratings.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLocalizationApi();
+final api = Tentacle().getLocalizationApi();
 
 try {
     final response = api.getParentalRatings();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LocalizationApi->getParentalRatings: $e\n');
 }
 ```

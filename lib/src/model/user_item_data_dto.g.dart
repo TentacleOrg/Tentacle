@@ -6,7 +6,7 @@ part of 'user_item_data_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class UserItemDataDtoBuilder {
+abstract mixin class UserItemDataDtoBuilder {
   void replace(UserItemDataDto other);
   void update(void Function(UserItemDataDtoBuilder) updates);
   double? get rating;

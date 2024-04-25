@@ -14,7 +14,6 @@ import 'package:tentacle/src/model/configuration_page_info.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 
 class DashboardApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +21,7 @@ class DashboardApi {
   const DashboardApi(this._dio, this._serializers);
 
   /// Gets the configuration pages.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [enableInMainMenu] - Whether to enable in the main menu.
@@ -34,8 +33,8 @@ class DashboardApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<ConfigurationPageInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<ConfigurationPageInfo>>> getConfigurationPages({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<ConfigurationPageInfo>>> getConfigurationPages({
     bool? enableInMainMenu,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -65,7 +64,9 @@ class DashboardApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (enableInMainMenu != null) r'enableInMainMenu': encodeQueryParameter(_serializers, enableInMainMenu, const FullType(bool)),
+      if (enableInMainMenu != null)
+        r'enableInMainMenu': encodeQueryParameter(
+            _serializers, enableInMainMenu, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -77,22 +78,25 @@ class DashboardApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<ConfigurationPageInfo> _responseData;
+    BuiltList<ConfigurationPageInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(ConfigurationPageInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<ConfigurationPageInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(ConfigurationPageInfo)]),
+            ) as BuiltList<ConfigurationPageInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<ConfigurationPageInfo>>(
@@ -108,7 +112,7 @@ class DashboardApi {
   }
 
   /// Gets a dashboard configuration page.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the page.
@@ -120,8 +124,8 @@ class DashboardApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getDashboardConfigurationPage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getDashboardConfigurationPage({
     String? name,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -145,7 +149,9 @@ class DashboardApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (name != null) r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
+      if (name != null)
+        r'name':
+            encodeQueryParameter(_serializers, name, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -157,18 +163,19 @@ class DashboardApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -182,5 +189,4 @@ class DashboardApi {
       extra: _response.extra,
     );
   }
-
 }

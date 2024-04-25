@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for LocationType
 void main() {
-
-  group(LocationType, () {
-  });
+  group(LocationType, () {});
 }

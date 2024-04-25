@@ -14,7 +14,8 @@ part 'parental_rating.g.dart';
 /// * [name] - Gets or sets the name.
 /// * [value] - Gets or sets the value.
 @BuiltValue()
-abstract class ParentalRating implements Built<ParentalRating, ParentalRatingBuilder> {
+abstract class ParentalRating
+    implements Built<ParentalRating, ParentalRatingBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -25,16 +26,19 @@ abstract class ParentalRating implements Built<ParentalRating, ParentalRatingBui
 
   ParentalRating._();
 
-  factory ParentalRating([void updates(ParentalRatingBuilder b)]) = _$ParentalRating;
+  factory ParentalRating([void updates(ParentalRatingBuilder b)]) =
+      _$ParentalRating;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ParentalRatingBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ParentalRating> get serializer => _$ParentalRatingSerializer();
+  static Serializer<ParentalRating> get serializer =>
+      _$ParentalRatingSerializer();
 }
 
-class _$ParentalRatingSerializer implements PrimitiveSerializer<ParentalRating> {
+class _$ParentalRatingSerializer
+    implements PrimitiveSerializer<ParentalRating> {
   @override
   final Iterable<Type> types = const [ParentalRating, _$ParentalRating];
 
@@ -68,7 +72,9 @@ class _$ParentalRatingSerializer implements PrimitiveSerializer<ParentalRating> 
     ParentalRating object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -126,4 +132,3 @@ class _$ParentalRatingSerializer implements PrimitiveSerializer<ParentalRating> 
     return result.build();
   }
 }
-

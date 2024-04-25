@@ -14,8 +14,9 @@ part 'update_user_easy_password.g.dart';
 /// * [newPassword] - Gets or sets the new sha1-hashed password.
 /// * [newPw] - Gets or sets the new password.
 /// * [resetPassword] - Gets or sets a value indicating whether to reset the password.
-@BuiltValue(instantiable: false)
-abstract class UpdateUserEasyPassword  {
+@BuiltValue()
+abstract class UpdateUserEasyPassword
+    implements Built<UpdateUserEasyPassword, UpdateUserEasyPasswordBuilder> {
   /// Gets or sets the new sha1-hashed password.
   @BuiltValueField(wireName: r'NewPassword')
   String? get newPassword;
@@ -28,13 +29,27 @@ abstract class UpdateUserEasyPassword  {
   @BuiltValueField(wireName: r'ResetPassword')
   bool? get resetPassword;
 
+  UpdateUserEasyPassword._();
+
+  factory UpdateUserEasyPassword(
+          [void updates(UpdateUserEasyPasswordBuilder b)]) =
+      _$UpdateUserEasyPassword;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpdateUserEasyPasswordBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<UpdateUserEasyPassword> get serializer => _$UpdateUserEasyPasswordSerializer();
+  static Serializer<UpdateUserEasyPassword> get serializer =>
+      _$UpdateUserEasyPasswordSerializer();
 }
 
-class _$UpdateUserEasyPasswordSerializer implements PrimitiveSerializer<UpdateUserEasyPassword> {
+class _$UpdateUserEasyPasswordSerializer
+    implements PrimitiveSerializer<UpdateUserEasyPassword> {
   @override
-  final Iterable<Type> types = const [UpdateUserEasyPassword];
+  final Iterable<Type> types = const [
+    UpdateUserEasyPassword,
+    _$UpdateUserEasyPassword
+  ];
 
   @override
   final String wireName = r'UpdateUserEasyPassword';
@@ -73,47 +88,9 @@ class _$UpdateUserEasyPasswordSerializer implements PrimitiveSerializer<UpdateUs
     UpdateUserEasyPassword object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  UpdateUserEasyPassword deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($UpdateUserEasyPassword)) as $UpdateUserEasyPassword;
-  }
-}
-
-/// a concrete implementation of [UpdateUserEasyPassword], since [UpdateUserEasyPassword] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $UpdateUserEasyPassword implements UpdateUserEasyPassword, Built<$UpdateUserEasyPassword, $UpdateUserEasyPasswordBuilder> {
-  $UpdateUserEasyPassword._();
-
-  factory $UpdateUserEasyPassword([void Function($UpdateUserEasyPasswordBuilder)? updates]) = _$$UpdateUserEasyPassword;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UpdateUserEasyPasswordBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$UpdateUserEasyPassword> get serializer => _$$UpdateUserEasyPasswordSerializer();
-}
-
-class _$$UpdateUserEasyPasswordSerializer implements PrimitiveSerializer<$UpdateUserEasyPassword> {
-  @override
-  final Iterable<Type> types = const [$UpdateUserEasyPassword, _$$UpdateUserEasyPassword];
-
-  @override
-  final String wireName = r'$UpdateUserEasyPassword';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $UpdateUserEasyPassword object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(UpdateUserEasyPassword))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -160,12 +137,12 @@ class _$$UpdateUserEasyPasswordSerializer implements PrimitiveSerializer<$Update
   }
 
   @override
-  $UpdateUserEasyPassword deserialize(
+  UpdateUserEasyPassword deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $UpdateUserEasyPasswordBuilder();
+    final result = UpdateUserEasyPasswordBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -179,4 +156,3 @@ class _$$UpdateUserEasyPasswordSerializer implements PrimitiveSerializer<$Update
     return result.build();
   }
 }
-

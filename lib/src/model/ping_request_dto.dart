@@ -12,19 +12,30 @@ part 'ping_request_dto.g.dart';
 ///
 /// Properties:
 /// * [ping] - Gets or sets the ping time.
-@BuiltValue(instantiable: false)
-abstract class PingRequestDto  {
+@BuiltValue()
+abstract class PingRequestDto
+    implements Built<PingRequestDto, PingRequestDtoBuilder> {
   /// Gets or sets the ping time.
   @BuiltValueField(wireName: r'Ping')
   int? get ping;
 
+  PingRequestDto._();
+
+  factory PingRequestDto([void updates(PingRequestDtoBuilder b)]) =
+      _$PingRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PingRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PingRequestDto> get serializer => _$PingRequestDtoSerializer();
+  static Serializer<PingRequestDto> get serializer =>
+      _$PingRequestDtoSerializer();
 }
 
-class _$PingRequestDtoSerializer implements PrimitiveSerializer<PingRequestDto> {
+class _$PingRequestDtoSerializer
+    implements PrimitiveSerializer<PingRequestDto> {
   @override
-  final Iterable<Type> types = const [PingRequestDto];
+  final Iterable<Type> types = const [PingRequestDto, _$PingRequestDto];
 
   @override
   final String wireName = r'PingRequestDto';
@@ -49,47 +60,9 @@ class _$PingRequestDtoSerializer implements PrimitiveSerializer<PingRequestDto> 
     PingRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PingRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PingRequestDto)) as $PingRequestDto;
-  }
-}
-
-/// a concrete implementation of [PingRequestDto], since [PingRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PingRequestDto implements PingRequestDto, Built<$PingRequestDto, $PingRequestDtoBuilder> {
-  $PingRequestDto._();
-
-  factory $PingRequestDto([void Function($PingRequestDtoBuilder)? updates]) = _$$PingRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PingRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PingRequestDto> get serializer => _$$PingRequestDtoSerializer();
-}
-
-class _$$PingRequestDtoSerializer implements PrimitiveSerializer<$PingRequestDto> {
-  @override
-  final Iterable<Type> types = const [$PingRequestDto, _$$PingRequestDto];
-
-  @override
-  final String wireName = r'$PingRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PingRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PingRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,12 +93,12 @@ class _$$PingRequestDtoSerializer implements PrimitiveSerializer<$PingRequestDto
   }
 
   @override
-  $PingRequestDto deserialize(
+  PingRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PingRequestDtoBuilder();
+    final result = PingRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -139,4 +112,3 @@ class _$$PingRequestDtoSerializer implements PrimitiveSerializer<$PingRequestDto
     return result.build();
   }
 }
-

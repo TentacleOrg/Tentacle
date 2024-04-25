@@ -18,7 +18,8 @@ part 'access_schedule.g.dart';
 /// * [startHour] - Gets or sets the start hour.
 /// * [endHour] - Gets or sets the end hour.
 @BuiltValue()
-abstract class AccessSchedule implements Built<AccessSchedule, AccessScheduleBuilder> {
+abstract class AccessSchedule
+    implements Built<AccessSchedule, AccessScheduleBuilder> {
   /// Gets the id of this instance.
   @BuiltValueField(wireName: r'Id')
   int? get id;
@@ -30,6 +31,7 @@ abstract class AccessSchedule implements Built<AccessSchedule, AccessScheduleBui
   /// Gets or sets the day of week.
   @BuiltValueField(wireName: r'DayOfWeek')
   DynamicDayOfWeek? get dayOfWeek;
+  // enum dayOfWeekEnum {  Sunday,  Monday,  Tuesday,  Wednesday,  Thursday,  Friday,  Saturday,  Everyday,  Weekday,  Weekend,  };
 
   /// Gets or sets the start hour.
   @BuiltValueField(wireName: r'StartHour')
@@ -41,16 +43,19 @@ abstract class AccessSchedule implements Built<AccessSchedule, AccessScheduleBui
 
   AccessSchedule._();
 
-  factory AccessSchedule([void updates(AccessScheduleBuilder b)]) = _$AccessSchedule;
+  factory AccessSchedule([void updates(AccessScheduleBuilder b)]) =
+      _$AccessSchedule;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AccessScheduleBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AccessSchedule> get serializer => _$AccessScheduleSerializer();
+  static Serializer<AccessSchedule> get serializer =>
+      _$AccessScheduleSerializer();
 }
 
-class _$AccessScheduleSerializer implements PrimitiveSerializer<AccessSchedule> {
+class _$AccessScheduleSerializer
+    implements PrimitiveSerializer<AccessSchedule> {
   @override
   final Iterable<Type> types = const [AccessSchedule, _$AccessSchedule];
 
@@ -105,7 +110,9 @@ class _$AccessScheduleSerializer implements PrimitiveSerializer<AccessSchedule> 
     AccessSchedule object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -183,4 +190,3 @@ class _$AccessScheduleSerializer implements PrimitiveSerializer<AccessSchedule> 
     return result.build();
   }
 }
-

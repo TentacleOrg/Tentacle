@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -14,18 +14,18 @@ part 'client_capabilities.g.dart';
 /// ClientCapabilities
 ///
 /// Properties:
-/// * [playableMediaTypes] 
-/// * [supportedCommands] 
-/// * [supportsMediaControl] 
-/// * [supportsContentUploading] 
-/// * [messageCallbackUrl] 
-/// * [supportsPersistentIdentifier] 
-/// * [supportsSync] 
-/// * [deviceProfile] 
-/// * [appStoreUrl] 
-/// * [iconUrl] 
+/// * [playableMediaTypes]
+/// * [supportedCommands]
+/// * [supportsMediaControl]
+/// * [supportsContentUploading]
+/// * [messageCallbackUrl]
+/// * [supportsPersistentIdentifier]
+/// * [supportsSync]
+/// * [deviceProfile]
+/// * [appStoreUrl]
+/// * [iconUrl]
 @BuiltValue(instantiable: false)
-abstract class ClientCapabilities  {
+abstract class ClientCapabilities {
   @BuiltValueField(wireName: r'PlayableMediaTypes')
   BuiltList<String>? get playableMediaTypes;
 
@@ -57,10 +57,12 @@ abstract class ClientCapabilities  {
   String? get iconUrl;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ClientCapabilities> get serializer => _$ClientCapabilitiesSerializer();
+  static Serializer<ClientCapabilities> get serializer =>
+      _$ClientCapabilitiesSerializer();
 }
 
-class _$ClientCapabilitiesSerializer implements PrimitiveSerializer<ClientCapabilities> {
+class _$ClientCapabilitiesSerializer
+    implements PrimitiveSerializer<ClientCapabilities> {
   @override
   final Iterable<Type> types = const [ClientCapabilities];
 
@@ -83,7 +85,8 @@ class _$ClientCapabilitiesSerializer implements PrimitiveSerializer<ClientCapabi
       yield r'SupportedCommands';
       yield serializers.serialize(
         object.supportedCommands,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
       );
     }
     if (object.supportsMediaControl != null) {
@@ -150,7 +153,9 @@ class _$ClientCapabilitiesSerializer implements PrimitiveSerializer<ClientCapabi
     ClientCapabilities object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -159,27 +164,38 @@ class _$ClientCapabilitiesSerializer implements PrimitiveSerializer<ClientCapabi
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ClientCapabilities)) as $ClientCapabilities;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($ClientCapabilities)) as $ClientCapabilities;
   }
 }
 
 /// a concrete implementation of [ClientCapabilities], since [ClientCapabilities] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $ClientCapabilities implements ClientCapabilities, Built<$ClientCapabilities, $ClientCapabilitiesBuilder> {
+abstract class $ClientCapabilities
+    implements
+        ClientCapabilities,
+        Built<$ClientCapabilities, $ClientCapabilitiesBuilder> {
   $ClientCapabilities._();
 
-  factory $ClientCapabilities([void Function($ClientCapabilitiesBuilder)? updates]) = _$$ClientCapabilities;
+  factory $ClientCapabilities(
+          [void Function($ClientCapabilitiesBuilder)? updates]) =
+      _$$ClientCapabilities;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ClientCapabilitiesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$ClientCapabilities> get serializer => _$$ClientCapabilitiesSerializer();
+  static Serializer<$ClientCapabilities> get serializer =>
+      _$$ClientCapabilitiesSerializer();
 }
 
-class _$$ClientCapabilitiesSerializer implements PrimitiveSerializer<$ClientCapabilities> {
+class _$$ClientCapabilitiesSerializer
+    implements PrimitiveSerializer<$ClientCapabilities> {
   @override
-  final Iterable<Type> types = const [$ClientCapabilities, _$$ClientCapabilities];
+  final Iterable<Type> types = const [
+    $ClientCapabilities,
+    _$$ClientCapabilities
+  ];
 
   @override
   final String wireName = r'$ClientCapabilities';
@@ -190,7 +206,8 @@ class _$$ClientCapabilitiesSerializer implements PrimitiveSerializer<$ClientCapa
     $ClientCapabilities object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(ClientCapabilities))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(ClientCapabilities))!;
   }
 
   void _deserializeProperties(
@@ -208,7 +225,8 @@ class _$$ClientCapabilitiesSerializer implements PrimitiveSerializer<$ClientCapa
         case r'PlayableMediaTypes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.playableMediaTypes.replace(valueDes);
@@ -216,7 +234,8 @@ class _$$ClientCapabilitiesSerializer implements PrimitiveSerializer<$ClientCapa
         case r'SupportedCommands':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(GeneralCommandType)]),
           ) as BuiltList<GeneralCommandType>?;
           if (valueDes == null) continue;
           result.supportedCommands.replace(valueDes);
@@ -260,7 +279,8 @@ class _$$ClientCapabilitiesSerializer implements PrimitiveSerializer<$ClientCapa
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(ClientCapabilitiesDeviceProfile),
+            specifiedType:
+                const FullType.nullable(ClientCapabilitiesDeviceProfile),
           ) as ClientCapabilitiesDeviceProfile?;
           if (valueDes == null) continue;
           result.deviceProfile.replace(valueDes);
@@ -309,4 +329,3 @@ class _$$ClientCapabilitiesSerializer implements PrimitiveSerializer<$ClientCapa
     return result.build();
   }
 }
-

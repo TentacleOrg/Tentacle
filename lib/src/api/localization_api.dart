@@ -14,7 +14,6 @@ import 'package:tentacle/src/model/localization_option.dart';
 import 'package:tentacle/src/model/parental_rating.dart';
 
 class LocalizationApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +21,7 @@ class LocalizationApi {
   const LocalizationApi(this._dio, this._serializers);
 
   /// Gets known countries.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -33,8 +32,8 @@ class LocalizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<CountryInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<CountryInfo>>> getCountries({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<CountryInfo>>> getCountries({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -70,22 +69,24 @@ class LocalizationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<CountryInfo> _responseData;
+    BuiltList<CountryInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(CountryInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<CountryInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(CountryInfo)]),
+            ) as BuiltList<CountryInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<CountryInfo>>(
@@ -101,7 +102,7 @@ class LocalizationApi {
   }
 
   /// Gets known cultures.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -112,8 +113,8 @@ class LocalizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<CultureDto>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<CultureDto>>> getCultures({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<CultureDto>>> getCultures({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -149,22 +150,24 @@ class LocalizationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<CultureDto> _responseData;
+    BuiltList<CultureDto>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(CultureDto)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<CultureDto>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(CultureDto)]),
+            ) as BuiltList<CultureDto>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<CultureDto>>(
@@ -180,7 +183,7 @@ class LocalizationApi {
   }
 
   /// Gets localization options.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -191,8 +194,8 @@ class LocalizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<LocalizationOption>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<LocalizationOption>>> getLocalizationOptions({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<LocalizationOption>>> getLocalizationOptions({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -228,22 +231,25 @@ class LocalizationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<LocalizationOption> _responseData;
+    BuiltList<LocalizationOption>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(LocalizationOption)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<LocalizationOption>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(LocalizationOption)]),
+            ) as BuiltList<LocalizationOption>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<LocalizationOption>>(
@@ -259,7 +265,7 @@ class LocalizationApi {
   }
 
   /// Gets known parental ratings.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -270,8 +276,8 @@ class LocalizationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<ParentalRating>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<ParentalRating>>> getParentalRatings({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<ParentalRating>>> getParentalRatings({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -307,22 +313,25 @@ class LocalizationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<ParentalRating> _responseData;
+    BuiltList<ParentalRating>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(ParentalRating)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<ParentalRating>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(ParentalRating)]),
+            ) as BuiltList<ParentalRating>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<ParentalRating>>(
@@ -336,5 +345,4 @@ class LocalizationApi {
       extra: _response.extra,
     );
   }
-
 }

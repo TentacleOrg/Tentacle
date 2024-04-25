@@ -1,13 +1,13 @@
-name: tentacle 
-version: 1.0.0
-description: OpenAPI API client
+name: tentacle
+version: 3.0.1
+description: A Jellyfin api for dart via dio
 homepage: homepage
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
-  dio: ^5.0.2 
+  dio: '^5.2.0'
   one_of: '>=1.5.0 <2.0.0'
   one_of_serializer: '>=1.5.0 <2.0.0'
   built_value: '>=8.4.0 <9.0.0'

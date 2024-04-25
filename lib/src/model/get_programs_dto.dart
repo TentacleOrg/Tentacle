@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/image_type.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/sort_order.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/image_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -42,8 +42,9 @@ part 'get_programs_dto.g.dart';
 /// * [seriesTimerId] - Gets or sets filter by series timer id.  Optional.
 /// * [librarySeriesId] - Gets or sets filter by library series id.  Optional.
 /// * [fields] - Gets or sets specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines.  Optional.
-@BuiltValue(instantiable: false)
-abstract class GetProgramsDto  {
+@BuiltValue()
+abstract class GetProgramsDto
+    implements Built<GetProgramsDto, GetProgramsDtoBuilder> {
   /// Gets or sets the channels to return guide information for.
   @BuiltValueField(wireName: r'ChannelIds')
   BuiltList<String>? get channelIds;
@@ -152,13 +153,23 @@ abstract class GetProgramsDto  {
   @BuiltValueField(wireName: r'Fields')
   BuiltList<ItemFields>? get fields;
 
+  GetProgramsDto._();
+
+  factory GetProgramsDto([void updates(GetProgramsDtoBuilder b)]) =
+      _$GetProgramsDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GetProgramsDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<GetProgramsDto> get serializer => _$GetProgramsDtoSerializer();
+  static Serializer<GetProgramsDto> get serializer =>
+      _$GetProgramsDtoSerializer();
 }
 
-class _$GetProgramsDtoSerializer implements PrimitiveSerializer<GetProgramsDto> {
+class _$GetProgramsDtoSerializer
+    implements PrimitiveSerializer<GetProgramsDto> {
   @override
-  final Iterable<Type> types = const [GetProgramsDto];
+  final Iterable<Type> types = const [GetProgramsDto, _$GetProgramsDto];
 
   @override
   final String wireName = r'GetProgramsDto';
@@ -365,47 +376,9 @@ class _$GetProgramsDtoSerializer implements PrimitiveSerializer<GetProgramsDto> 
     GetProgramsDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  GetProgramsDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($GetProgramsDto)) as $GetProgramsDto;
-  }
-}
-
-/// a concrete implementation of [GetProgramsDto], since [GetProgramsDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $GetProgramsDto implements GetProgramsDto, Built<$GetProgramsDto, $GetProgramsDtoBuilder> {
-  $GetProgramsDto._();
-
-  factory $GetProgramsDto([void Function($GetProgramsDtoBuilder)? updates]) = _$$GetProgramsDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($GetProgramsDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$GetProgramsDto> get serializer => _$$GetProgramsDtoSerializer();
-}
-
-class _$$GetProgramsDtoSerializer implements PrimitiveSerializer<$GetProgramsDto> {
-  @override
-  final Iterable<Type> types = const [$GetProgramsDto, _$$GetProgramsDto];
-
-  @override
-  final String wireName = r'$GetProgramsDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $GetProgramsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(GetProgramsDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -635,12 +608,12 @@ class _$$GetProgramsDtoSerializer implements PrimitiveSerializer<$GetProgramsDto
   }
 
   @override
-  $GetProgramsDto deserialize(
+  GetProgramsDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $GetProgramsDtoBuilder();
+    final result = GetProgramsDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -654,4 +627,3 @@ class _$$GetProgramsDtoSerializer implements PrimitiveSerializer<$GetProgramsDto
     return result.build();
   }
 }
-

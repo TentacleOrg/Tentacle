@@ -6,20 +6,7 @@ part of 'startup_configuration_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class StartupConfigurationDtoBuilder {
-  void replace(StartupConfigurationDto other);
-  void update(void Function(StartupConfigurationDtoBuilder) updates);
-  String? get uICulture;
-  set uICulture(String? uICulture);
-
-  String? get metadataCountryCode;
-  set metadataCountryCode(String? metadataCountryCode);
-
-  String? get preferredMetadataLanguage;
-  set preferredMetadataLanguage(String? preferredMetadataLanguage);
-}
-
-class _$$StartupConfigurationDto extends $StartupConfigurationDto {
+class _$StartupConfigurationDto extends StartupConfigurationDto {
   @override
   final String? uICulture;
   @override
@@ -27,29 +14,29 @@ class _$$StartupConfigurationDto extends $StartupConfigurationDto {
   @override
   final String? preferredMetadataLanguage;
 
-  factory _$$StartupConfigurationDto(
-          [void Function($StartupConfigurationDtoBuilder)? updates]) =>
-      (new $StartupConfigurationDtoBuilder()..update(updates))._build();
+  factory _$StartupConfigurationDto(
+          [void Function(StartupConfigurationDtoBuilder)? updates]) =>
+      (new StartupConfigurationDtoBuilder()..update(updates))._build();
 
-  _$$StartupConfigurationDto._(
+  _$StartupConfigurationDto._(
       {this.uICulture,
       this.metadataCountryCode,
       this.preferredMetadataLanguage})
       : super._();
 
   @override
-  $StartupConfigurationDto rebuild(
-          void Function($StartupConfigurationDtoBuilder) updates) =>
+  StartupConfigurationDto rebuild(
+          void Function(StartupConfigurationDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $StartupConfigurationDtoBuilder toBuilder() =>
-      new $StartupConfigurationDtoBuilder()..replace(this);
+  StartupConfigurationDtoBuilder toBuilder() =>
+      new StartupConfigurationDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $StartupConfigurationDto &&
+    return other is StartupConfigurationDto &&
         uICulture == other.uICulture &&
         metadataCountryCode == other.metadataCountryCode &&
         preferredMetadataLanguage == other.preferredMetadataLanguage;
@@ -67,7 +54,7 @@ class _$$StartupConfigurationDto extends $StartupConfigurationDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$StartupConfigurationDto')
+    return (newBuiltValueToStringHelper(r'StartupConfigurationDto')
           ..add('uICulture', uICulture)
           ..add('metadataCountryCode', metadataCountryCode)
           ..add('preferredMetadataLanguage', preferredMetadataLanguage))
@@ -75,31 +62,30 @@ class _$$StartupConfigurationDto extends $StartupConfigurationDto {
   }
 }
 
-class $StartupConfigurationDtoBuilder
+class StartupConfigurationDtoBuilder
     implements
-        Builder<$StartupConfigurationDto, $StartupConfigurationDtoBuilder>,
-        StartupConfigurationDtoBuilder {
-  _$$StartupConfigurationDto? _$v;
+        Builder<StartupConfigurationDto, StartupConfigurationDtoBuilder> {
+  _$StartupConfigurationDto? _$v;
 
   String? _uICulture;
   String? get uICulture => _$this._uICulture;
-  set uICulture(covariant String? uICulture) => _$this._uICulture = uICulture;
+  set uICulture(String? uICulture) => _$this._uICulture = uICulture;
 
   String? _metadataCountryCode;
   String? get metadataCountryCode => _$this._metadataCountryCode;
-  set metadataCountryCode(covariant String? metadataCountryCode) =>
+  set metadataCountryCode(String? metadataCountryCode) =>
       _$this._metadataCountryCode = metadataCountryCode;
 
   String? _preferredMetadataLanguage;
   String? get preferredMetadataLanguage => _$this._preferredMetadataLanguage;
-  set preferredMetadataLanguage(covariant String? preferredMetadataLanguage) =>
+  set preferredMetadataLanguage(String? preferredMetadataLanguage) =>
       _$this._preferredMetadataLanguage = preferredMetadataLanguage;
 
-  $StartupConfigurationDtoBuilder() {
-    $StartupConfigurationDto._defaults(this);
+  StartupConfigurationDtoBuilder() {
+    StartupConfigurationDto._defaults(this);
   }
 
-  $StartupConfigurationDtoBuilder get _$this {
+  StartupConfigurationDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _uICulture = $v.uICulture;
@@ -111,22 +97,22 @@ class $StartupConfigurationDtoBuilder
   }
 
   @override
-  void replace(covariant $StartupConfigurationDto other) {
+  void replace(StartupConfigurationDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$StartupConfigurationDto;
+    _$v = other as _$StartupConfigurationDto;
   }
 
   @override
-  void update(void Function($StartupConfigurationDtoBuilder)? updates) {
+  void update(void Function(StartupConfigurationDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $StartupConfigurationDto build() => _build();
+  StartupConfigurationDto build() => _build();
 
-  _$$StartupConfigurationDto _build() {
+  _$StartupConfigurationDto _build() {
     final _$result = _$v ??
-        new _$$StartupConfigurationDto._(
+        new _$StartupConfigurationDto._(
             uICulture: uICulture,
             metadataCountryCode: metadataCountryCode,
             preferredMetadataLanguage: preferredMetadataLanguage);

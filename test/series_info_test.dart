@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SeriesInfo
 void main() {
-  //final instance = SeriesInfoBuilder();
+  final instance = SeriesInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(SeriesInfo, () {
@@ -68,6 +68,5 @@ void main() {
     test('to test the property `isAutomated`', () async {
       // TODO
     });
-
   });
 }

@@ -6,25 +6,9 @@ part of 'trailer_info_remote_search_query.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class TrailerInfoRemoteSearchQueryBuilder {
-  void replace(TrailerInfoRemoteSearchQuery other);
-  void update(void Function(TrailerInfoRemoteSearchQueryBuilder) updates);
-  TrailerInfoRemoteSearchQuerySearchInfoBuilder get searchInfo;
-  set searchInfo(TrailerInfoRemoteSearchQuerySearchInfoBuilder? searchInfo);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get searchProviderName;
-  set searchProviderName(String? searchProviderName);
-
-  bool? get includeDisabledProviders;
-  set includeDisabledProviders(bool? includeDisabledProviders);
-}
-
-class _$$TrailerInfoRemoteSearchQuery extends $TrailerInfoRemoteSearchQuery {
+class _$TrailerInfoRemoteSearchQuery extends TrailerInfoRemoteSearchQuery {
   @override
-  final TrailerInfoRemoteSearchQuerySearchInfo? searchInfo;
+  final TrailerInfo? searchInfo;
   @override
   final String? itemId;
   @override
@@ -32,11 +16,11 @@ class _$$TrailerInfoRemoteSearchQuery extends $TrailerInfoRemoteSearchQuery {
   @override
   final bool? includeDisabledProviders;
 
-  factory _$$TrailerInfoRemoteSearchQuery(
-          [void Function($TrailerInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new $TrailerInfoRemoteSearchQueryBuilder()..update(updates))._build();
+  factory _$TrailerInfoRemoteSearchQuery(
+          [void Function(TrailerInfoRemoteSearchQueryBuilder)? updates]) =>
+      (new TrailerInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
-  _$$TrailerInfoRemoteSearchQuery._(
+  _$TrailerInfoRemoteSearchQuery._(
       {this.searchInfo,
       this.itemId,
       this.searchProviderName,
@@ -44,18 +28,18 @@ class _$$TrailerInfoRemoteSearchQuery extends $TrailerInfoRemoteSearchQuery {
       : super._();
 
   @override
-  $TrailerInfoRemoteSearchQuery rebuild(
-          void Function($TrailerInfoRemoteSearchQueryBuilder) updates) =>
+  TrailerInfoRemoteSearchQuery rebuild(
+          void Function(TrailerInfoRemoteSearchQueryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $TrailerInfoRemoteSearchQueryBuilder toBuilder() =>
-      new $TrailerInfoRemoteSearchQueryBuilder()..replace(this);
+  TrailerInfoRemoteSearchQueryBuilder toBuilder() =>
+      new TrailerInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $TrailerInfoRemoteSearchQuery &&
+    return other is TrailerInfoRemoteSearchQuery &&
         searchInfo == other.searchInfo &&
         itemId == other.itemId &&
         searchProviderName == other.searchProviderName &&
@@ -75,7 +59,7 @@ class _$$TrailerInfoRemoteSearchQuery extends $TrailerInfoRemoteSearchQuery {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$TrailerInfoRemoteSearchQuery')
+    return (newBuiltValueToStringHelper(r'TrailerInfoRemoteSearchQuery')
           ..add('searchInfo', searchInfo)
           ..add('itemId', itemId)
           ..add('searchProviderName', searchProviderName)
@@ -84,41 +68,37 @@ class _$$TrailerInfoRemoteSearchQuery extends $TrailerInfoRemoteSearchQuery {
   }
 }
 
-class $TrailerInfoRemoteSearchQueryBuilder
+class TrailerInfoRemoteSearchQueryBuilder
     implements
-        Builder<$TrailerInfoRemoteSearchQuery,
-            $TrailerInfoRemoteSearchQueryBuilder>,
-        TrailerInfoRemoteSearchQueryBuilder {
-  _$$TrailerInfoRemoteSearchQuery? _$v;
+        Builder<TrailerInfoRemoteSearchQuery,
+            TrailerInfoRemoteSearchQueryBuilder> {
+  _$TrailerInfoRemoteSearchQuery? _$v;
 
-  TrailerInfoRemoteSearchQuerySearchInfoBuilder? _searchInfo;
-  TrailerInfoRemoteSearchQuerySearchInfoBuilder get searchInfo =>
-      _$this._searchInfo ??=
-          new TrailerInfoRemoteSearchQuerySearchInfoBuilder();
-  set searchInfo(
-          covariant TrailerInfoRemoteSearchQuerySearchInfoBuilder?
-              searchInfo) =>
+  TrailerInfoBuilder? _searchInfo;
+  TrailerInfoBuilder get searchInfo =>
+      _$this._searchInfo ??= new TrailerInfoBuilder();
+  set searchInfo(TrailerInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   String? _searchProviderName;
   String? get searchProviderName => _$this._searchProviderName;
-  set searchProviderName(covariant String? searchProviderName) =>
+  set searchProviderName(String? searchProviderName) =>
       _$this._searchProviderName = searchProviderName;
 
   bool? _includeDisabledProviders;
   bool? get includeDisabledProviders => _$this._includeDisabledProviders;
-  set includeDisabledProviders(covariant bool? includeDisabledProviders) =>
+  set includeDisabledProviders(bool? includeDisabledProviders) =>
       _$this._includeDisabledProviders = includeDisabledProviders;
 
-  $TrailerInfoRemoteSearchQueryBuilder() {
-    $TrailerInfoRemoteSearchQuery._defaults(this);
+  TrailerInfoRemoteSearchQueryBuilder() {
+    TrailerInfoRemoteSearchQuery._defaults(this);
   }
 
-  $TrailerInfoRemoteSearchQueryBuilder get _$this {
+  TrailerInfoRemoteSearchQueryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _searchInfo = $v.searchInfo?.toBuilder();
@@ -131,24 +111,24 @@ class $TrailerInfoRemoteSearchQueryBuilder
   }
 
   @override
-  void replace(covariant $TrailerInfoRemoteSearchQuery other) {
+  void replace(TrailerInfoRemoteSearchQuery other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$TrailerInfoRemoteSearchQuery;
+    _$v = other as _$TrailerInfoRemoteSearchQuery;
   }
 
   @override
-  void update(void Function($TrailerInfoRemoteSearchQueryBuilder)? updates) {
+  void update(void Function(TrailerInfoRemoteSearchQueryBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $TrailerInfoRemoteSearchQuery build() => _build();
+  TrailerInfoRemoteSearchQuery build() => _build();
 
-  _$$TrailerInfoRemoteSearchQuery _build() {
-    _$$TrailerInfoRemoteSearchQuery _$result;
+  _$TrailerInfoRemoteSearchQuery _build() {
+    _$TrailerInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$$TrailerInfoRemoteSearchQuery._(
+          new _$TrailerInfoRemoteSearchQuery._(
               searchInfo: _searchInfo?.build(),
               itemId: itemId,
               searchProviderName: searchProviderName,
@@ -160,7 +140,7 @@ class $TrailerInfoRemoteSearchQueryBuilder
         _searchInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$TrailerInfoRemoteSearchQuery', _$failedField, e.toString());
+            r'TrailerInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;
     }

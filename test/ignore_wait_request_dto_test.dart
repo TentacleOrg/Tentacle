@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for IgnoreWaitRequestDto
 void main() {
-  //final instance = IgnoreWaitRequestDtoBuilder();
+  final instance = IgnoreWaitRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(IgnoreWaitRequestDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `ignoreWait`', () async {
       // TODO
     });
-
   });
 }

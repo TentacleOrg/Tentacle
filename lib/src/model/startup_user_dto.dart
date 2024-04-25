@@ -13,8 +13,9 @@ part 'startup_user_dto.g.dart';
 /// Properties:
 /// * [name] - Gets or sets the username.
 /// * [password] - Gets or sets the user's password.
-@BuiltValue(instantiable: false)
-abstract class StartupUserDto  {
+@BuiltValue()
+abstract class StartupUserDto
+    implements Built<StartupUserDto, StartupUserDtoBuilder> {
   /// Gets or sets the username.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -23,13 +24,23 @@ abstract class StartupUserDto  {
   @BuiltValueField(wireName: r'Password')
   String? get password;
 
+  StartupUserDto._();
+
+  factory StartupUserDto([void updates(StartupUserDtoBuilder b)]) =
+      _$StartupUserDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StartupUserDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<StartupUserDto> get serializer => _$StartupUserDtoSerializer();
+  static Serializer<StartupUserDto> get serializer =>
+      _$StartupUserDtoSerializer();
 }
 
-class _$StartupUserDtoSerializer implements PrimitiveSerializer<StartupUserDto> {
+class _$StartupUserDtoSerializer
+    implements PrimitiveSerializer<StartupUserDto> {
   @override
-  final Iterable<Type> types = const [StartupUserDto];
+  final Iterable<Type> types = const [StartupUserDto, _$StartupUserDto];
 
   @override
   final String wireName = r'StartupUserDto';
@@ -61,47 +72,9 @@ class _$StartupUserDtoSerializer implements PrimitiveSerializer<StartupUserDto> 
     StartupUserDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  StartupUserDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($StartupUserDto)) as $StartupUserDto;
-  }
-}
-
-/// a concrete implementation of [StartupUserDto], since [StartupUserDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $StartupUserDto implements StartupUserDto, Built<$StartupUserDto, $StartupUserDtoBuilder> {
-  $StartupUserDto._();
-
-  factory $StartupUserDto([void Function($StartupUserDtoBuilder)? updates]) = _$$StartupUserDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($StartupUserDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$StartupUserDto> get serializer => _$$StartupUserDtoSerializer();
-}
-
-class _$$StartupUserDtoSerializer implements PrimitiveSerializer<$StartupUserDto> {
-  @override
-  final Iterable<Type> types = const [$StartupUserDto, _$$StartupUserDto];
-
-  @override
-  final String wireName = r'$StartupUserDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $StartupUserDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(StartupUserDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -141,12 +114,12 @@ class _$$StartupUserDtoSerializer implements PrimitiveSerializer<$StartupUserDto
   }
 
   @override
-  $StartupUserDto deserialize(
+  StartupUserDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $StartupUserDtoBuilder();
+    final result = StartupUserDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -160,4 +133,3 @@ class _$$StartupUserDtoSerializer implements PrimitiveSerializer<$StartupUserDto
     return result.build();
   }
 }
-

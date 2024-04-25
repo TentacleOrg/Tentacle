@@ -6,23 +6,7 @@ part of 'update_user_password.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class UpdateUserPasswordBuilder {
-  void replace(UpdateUserPassword other);
-  void update(void Function(UpdateUserPasswordBuilder) updates);
-  String? get currentPassword;
-  set currentPassword(String? currentPassword);
-
-  String? get currentPw;
-  set currentPw(String? currentPw);
-
-  String? get newPw;
-  set newPw(String? newPw);
-
-  bool? get resetPassword;
-  set resetPassword(bool? resetPassword);
-}
-
-class _$$UpdateUserPassword extends $UpdateUserPassword {
+class _$UpdateUserPassword extends UpdateUserPassword {
   @override
   final String? currentPassword;
   @override
@@ -32,27 +16,27 @@ class _$$UpdateUserPassword extends $UpdateUserPassword {
   @override
   final bool? resetPassword;
 
-  factory _$$UpdateUserPassword(
-          [void Function($UpdateUserPasswordBuilder)? updates]) =>
-      (new $UpdateUserPasswordBuilder()..update(updates))._build();
+  factory _$UpdateUserPassword(
+          [void Function(UpdateUserPasswordBuilder)? updates]) =>
+      (new UpdateUserPasswordBuilder()..update(updates))._build();
 
-  _$$UpdateUserPassword._(
+  _$UpdateUserPassword._(
       {this.currentPassword, this.currentPw, this.newPw, this.resetPassword})
       : super._();
 
   @override
-  $UpdateUserPassword rebuild(
-          void Function($UpdateUserPasswordBuilder) updates) =>
+  UpdateUserPassword rebuild(
+          void Function(UpdateUserPasswordBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $UpdateUserPasswordBuilder toBuilder() =>
-      new $UpdateUserPasswordBuilder()..replace(this);
+  UpdateUserPasswordBuilder toBuilder() =>
+      new UpdateUserPasswordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $UpdateUserPassword &&
+    return other is UpdateUserPassword &&
         currentPassword == other.currentPassword &&
         currentPw == other.currentPw &&
         newPw == other.newPw &&
@@ -72,7 +56,7 @@ class _$$UpdateUserPassword extends $UpdateUserPassword {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$UpdateUserPassword')
+    return (newBuiltValueToStringHelper(r'UpdateUserPassword')
           ..add('currentPassword', currentPassword)
           ..add('currentPw', currentPw)
           ..add('newPw', newPw)
@@ -81,35 +65,33 @@ class _$$UpdateUserPassword extends $UpdateUserPassword {
   }
 }
 
-class $UpdateUserPasswordBuilder
-    implements
-        Builder<$UpdateUserPassword, $UpdateUserPasswordBuilder>,
-        UpdateUserPasswordBuilder {
-  _$$UpdateUserPassword? _$v;
+class UpdateUserPasswordBuilder
+    implements Builder<UpdateUserPassword, UpdateUserPasswordBuilder> {
+  _$UpdateUserPassword? _$v;
 
   String? _currentPassword;
   String? get currentPassword => _$this._currentPassword;
-  set currentPassword(covariant String? currentPassword) =>
+  set currentPassword(String? currentPassword) =>
       _$this._currentPassword = currentPassword;
 
   String? _currentPw;
   String? get currentPw => _$this._currentPw;
-  set currentPw(covariant String? currentPw) => _$this._currentPw = currentPw;
+  set currentPw(String? currentPw) => _$this._currentPw = currentPw;
 
   String? _newPw;
   String? get newPw => _$this._newPw;
-  set newPw(covariant String? newPw) => _$this._newPw = newPw;
+  set newPw(String? newPw) => _$this._newPw = newPw;
 
   bool? _resetPassword;
   bool? get resetPassword => _$this._resetPassword;
-  set resetPassword(covariant bool? resetPassword) =>
+  set resetPassword(bool? resetPassword) =>
       _$this._resetPassword = resetPassword;
 
-  $UpdateUserPasswordBuilder() {
-    $UpdateUserPassword._defaults(this);
+  UpdateUserPasswordBuilder() {
+    UpdateUserPassword._defaults(this);
   }
 
-  $UpdateUserPasswordBuilder get _$this {
+  UpdateUserPasswordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _currentPassword = $v.currentPassword;
@@ -122,22 +104,22 @@ class $UpdateUserPasswordBuilder
   }
 
   @override
-  void replace(covariant $UpdateUserPassword other) {
+  void replace(UpdateUserPassword other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$UpdateUserPassword;
+    _$v = other as _$UpdateUserPassword;
   }
 
   @override
-  void update(void Function($UpdateUserPasswordBuilder)? updates) {
+  void update(void Function(UpdateUserPasswordBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $UpdateUserPassword build() => _build();
+  UpdateUserPassword build() => _build();
 
-  _$$UpdateUserPassword _build() {
+  _$UpdateUserPassword _build() {
     final _$result = _$v ??
-        new _$$UpdateUserPassword._(
+        new _$UpdateUserPassword._(
             currentPassword: currentPassword,
             currentPw: currentPw,
             newPw: newPw,

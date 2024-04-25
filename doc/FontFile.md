@@ -1,8 +1,8 @@
-# openapi.model.FontFile
+# tentacle.model.FontFile
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

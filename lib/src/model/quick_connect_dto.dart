@@ -12,19 +12,30 @@ part 'quick_connect_dto.g.dart';
 ///
 /// Properties:
 /// * [secret] - Gets or sets the quick connect secret.
-@BuiltValue(instantiable: false)
-abstract class QuickConnectDto  {
+@BuiltValue()
+abstract class QuickConnectDto
+    implements Built<QuickConnectDto, QuickConnectDtoBuilder> {
   /// Gets or sets the quick connect secret.
   @BuiltValueField(wireName: r'Secret')
   String get secret;
 
+  QuickConnectDto._();
+
+  factory QuickConnectDto([void updates(QuickConnectDtoBuilder b)]) =
+      _$QuickConnectDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(QuickConnectDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<QuickConnectDto> get serializer => _$QuickConnectDtoSerializer();
+  static Serializer<QuickConnectDto> get serializer =>
+      _$QuickConnectDtoSerializer();
 }
 
-class _$QuickConnectDtoSerializer implements PrimitiveSerializer<QuickConnectDto> {
+class _$QuickConnectDtoSerializer
+    implements PrimitiveSerializer<QuickConnectDto> {
   @override
-  final Iterable<Type> types = const [QuickConnectDto];
+  final Iterable<Type> types = const [QuickConnectDto, _$QuickConnectDto];
 
   @override
   final String wireName = r'QuickConnectDto';
@@ -47,47 +58,9 @@ class _$QuickConnectDtoSerializer implements PrimitiveSerializer<QuickConnectDto
     QuickConnectDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  QuickConnectDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($QuickConnectDto)) as $QuickConnectDto;
-  }
-}
-
-/// a concrete implementation of [QuickConnectDto], since [QuickConnectDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $QuickConnectDto implements QuickConnectDto, Built<$QuickConnectDto, $QuickConnectDtoBuilder> {
-  $QuickConnectDto._();
-
-  factory $QuickConnectDto([void Function($QuickConnectDtoBuilder)? updates]) = _$$QuickConnectDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($QuickConnectDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$QuickConnectDto> get serializer => _$$QuickConnectDtoSerializer();
-}
-
-class _$$QuickConnectDtoSerializer implements PrimitiveSerializer<$QuickConnectDto> {
-  @override
-  final Iterable<Type> types = const [$QuickConnectDto, _$$QuickConnectDto];
-
-  @override
-  final String wireName = r'$QuickConnectDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $QuickConnectDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(QuickConnectDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,12 +91,12 @@ class _$$QuickConnectDtoSerializer implements PrimitiveSerializer<$QuickConnectD
   }
 
   @override
-  $QuickConnectDto deserialize(
+  QuickConnectDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $QuickConnectDtoBuilder();
+    final result = QuickConnectDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -137,4 +110,3 @@ class _$$QuickConnectDtoSerializer implements PrimitiveSerializer<$QuickConnectD
     return result.build();
   }
 }
-

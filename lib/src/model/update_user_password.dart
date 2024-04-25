@@ -15,8 +15,9 @@ part 'update_user_password.g.dart';
 /// * [currentPw] - Gets or sets the current plain text password.
 /// * [newPw] - Gets or sets the new plain text password.
 /// * [resetPassword] - Gets or sets a value indicating whether to reset the password.
-@BuiltValue(instantiable: false)
-abstract class UpdateUserPassword  {
+@BuiltValue()
+abstract class UpdateUserPassword
+    implements Built<UpdateUserPassword, UpdateUserPasswordBuilder> {
   /// Gets or sets the current sha1-hashed password.
   @BuiltValueField(wireName: r'CurrentPassword')
   String? get currentPassword;
@@ -33,13 +34,23 @@ abstract class UpdateUserPassword  {
   @BuiltValueField(wireName: r'ResetPassword')
   bool? get resetPassword;
 
+  UpdateUserPassword._();
+
+  factory UpdateUserPassword([void updates(UpdateUserPasswordBuilder b)]) =
+      _$UpdateUserPassword;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpdateUserPasswordBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<UpdateUserPassword> get serializer => _$UpdateUserPasswordSerializer();
+  static Serializer<UpdateUserPassword> get serializer =>
+      _$UpdateUserPasswordSerializer();
 }
 
-class _$UpdateUserPasswordSerializer implements PrimitiveSerializer<UpdateUserPassword> {
+class _$UpdateUserPasswordSerializer
+    implements PrimitiveSerializer<UpdateUserPassword> {
   @override
-  final Iterable<Type> types = const [UpdateUserPassword];
+  final Iterable<Type> types = const [UpdateUserPassword, _$UpdateUserPassword];
 
   @override
   final String wireName = r'UpdateUserPassword';
@@ -85,47 +96,9 @@ class _$UpdateUserPasswordSerializer implements PrimitiveSerializer<UpdateUserPa
     UpdateUserPassword object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  UpdateUserPassword deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($UpdateUserPassword)) as $UpdateUserPassword;
-  }
-}
-
-/// a concrete implementation of [UpdateUserPassword], since [UpdateUserPassword] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $UpdateUserPassword implements UpdateUserPassword, Built<$UpdateUserPassword, $UpdateUserPasswordBuilder> {
-  $UpdateUserPassword._();
-
-  factory $UpdateUserPassword([void Function($UpdateUserPasswordBuilder)? updates]) = _$$UpdateUserPassword;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UpdateUserPasswordBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$UpdateUserPassword> get serializer => _$$UpdateUserPasswordSerializer();
-}
-
-class _$$UpdateUserPasswordSerializer implements PrimitiveSerializer<$UpdateUserPassword> {
-  @override
-  final Iterable<Type> types = const [$UpdateUserPassword, _$$UpdateUserPassword];
-
-  @override
-  final String wireName = r'$UpdateUserPassword';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $UpdateUserPassword object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(UpdateUserPassword))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -180,12 +153,12 @@ class _$$UpdateUserPasswordSerializer implements PrimitiveSerializer<$UpdateUser
   }
 
   @override
-  $UpdateUserPassword deserialize(
+  UpdateUserPassword deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $UpdateUserPasswordBuilder();
+    final result = UpdateUserPasswordBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -199,4 +172,3 @@ class _$$UpdateUserPasswordSerializer implements PrimitiveSerializer<$UpdateUser
     return result.build();
   }
 }
-

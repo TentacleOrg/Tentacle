@@ -16,8 +16,9 @@ part 'create_playlist_dto.g.dart';
 /// * [ids] - Gets or sets item ids to add to the playlist.
 /// * [userId] - Gets or sets the user id.
 /// * [mediaType] - Gets or sets the media type.
-@BuiltValue(instantiable: false)
-abstract class CreatePlaylistDto  {
+@BuiltValue()
+abstract class CreatePlaylistDto
+    implements Built<CreatePlaylistDto, CreatePlaylistDtoBuilder> {
   /// Gets or sets the name of the new playlist.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -34,13 +35,23 @@ abstract class CreatePlaylistDto  {
   @BuiltValueField(wireName: r'MediaType')
   String? get mediaType;
 
+  CreatePlaylistDto._();
+
+  factory CreatePlaylistDto([void updates(CreatePlaylistDtoBuilder b)]) =
+      _$CreatePlaylistDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CreatePlaylistDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreatePlaylistDto> get serializer => _$CreatePlaylistDtoSerializer();
+  static Serializer<CreatePlaylistDto> get serializer =>
+      _$CreatePlaylistDtoSerializer();
 }
 
-class _$CreatePlaylistDtoSerializer implements PrimitiveSerializer<CreatePlaylistDto> {
+class _$CreatePlaylistDtoSerializer
+    implements PrimitiveSerializer<CreatePlaylistDto> {
   @override
-  final Iterable<Type> types = const [CreatePlaylistDto];
+  final Iterable<Type> types = const [CreatePlaylistDto, _$CreatePlaylistDto];
 
   @override
   final String wireName = r'CreatePlaylistDto';
@@ -86,47 +97,9 @@ class _$CreatePlaylistDtoSerializer implements PrimitiveSerializer<CreatePlaylis
     CreatePlaylistDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  CreatePlaylistDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($CreatePlaylistDto)) as $CreatePlaylistDto;
-  }
-}
-
-/// a concrete implementation of [CreatePlaylistDto], since [CreatePlaylistDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $CreatePlaylistDto implements CreatePlaylistDto, Built<$CreatePlaylistDto, $CreatePlaylistDtoBuilder> {
-  $CreatePlaylistDto._();
-
-  factory $CreatePlaylistDto([void Function($CreatePlaylistDtoBuilder)? updates]) = _$$CreatePlaylistDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CreatePlaylistDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$CreatePlaylistDto> get serializer => _$$CreatePlaylistDtoSerializer();
-}
-
-class _$$CreatePlaylistDtoSerializer implements PrimitiveSerializer<$CreatePlaylistDto> {
-  @override
-  final Iterable<Type> types = const [$CreatePlaylistDto, _$$CreatePlaylistDto];
-
-  @override
-  final String wireName = r'$CreatePlaylistDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $CreatePlaylistDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(CreatePlaylistDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -181,12 +154,12 @@ class _$$CreatePlaylistDtoSerializer implements PrimitiveSerializer<$CreatePlayl
   }
 
   @override
-  $CreatePlaylistDto deserialize(
+  CreatePlaylistDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $CreatePlaylistDtoBuilder();
+    final result = CreatePlaylistDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -200,4 +173,3 @@ class _$$CreatePlaylistDtoSerializer implements PrimitiveSerializer<$CreatePlayl
     return result.build();
   }
 }
-

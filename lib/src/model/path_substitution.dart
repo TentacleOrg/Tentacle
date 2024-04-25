@@ -14,7 +14,8 @@ part 'path_substitution.g.dart';
 /// * [from] - Gets or sets the value to substitute.
 /// * [to] - Gets or sets the value to substitution with.
 @BuiltValue()
-abstract class PathSubstitution implements Built<PathSubstitution, PathSubstitutionBuilder> {
+abstract class PathSubstitution
+    implements Built<PathSubstitution, PathSubstitutionBuilder> {
   /// Gets or sets the value to substitute.
   @BuiltValueField(wireName: r'From')
   String? get from;
@@ -25,16 +26,19 @@ abstract class PathSubstitution implements Built<PathSubstitution, PathSubstitut
 
   PathSubstitution._();
 
-  factory PathSubstitution([void updates(PathSubstitutionBuilder b)]) = _$PathSubstitution;
+  factory PathSubstitution([void updates(PathSubstitutionBuilder b)]) =
+      _$PathSubstitution;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PathSubstitutionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PathSubstitution> get serializer => _$PathSubstitutionSerializer();
+  static Serializer<PathSubstitution> get serializer =>
+      _$PathSubstitutionSerializer();
 }
 
-class _$PathSubstitutionSerializer implements PrimitiveSerializer<PathSubstitution> {
+class _$PathSubstitutionSerializer
+    implements PrimitiveSerializer<PathSubstitution> {
   @override
   final Iterable<Type> types = const [PathSubstitution, _$PathSubstitution];
 
@@ -68,7 +72,9 @@ class _$PathSubstitutionSerializer implements PrimitiveSerializer<PathSubstituti
     PathSubstitution object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -125,4 +131,3 @@ class _$PathSubstitutionSerializer implements PrimitiveSerializer<PathSubstituti
     return result.build();
   }
 }
-

@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for SyncPlayApi
 void main() {
   final instance = Tentacle().getSyncPlayApi();
@@ -9,14 +8,14 @@ void main() {
   group(SyncPlayApi, () {
     // Notify SyncPlay group that member is buffering.
     //
-    //Future syncPlayBuffering(SyncPlayBufferingRequest syncPlayBufferingRequest) async
+    //Future syncPlayBuffering(BufferRequestDto bufferRequestDto) async
     test('test syncPlayBuffering', () async {
       // TODO
     });
 
     // Create a new SyncPlay group.
     //
-    //Future syncPlayCreateGroup(SyncPlayCreateGroupRequest syncPlayCreateGroupRequest) async
+    //Future syncPlayCreateGroup(NewGroupRequestDto newGroupRequestDto) async
     test('test syncPlayCreateGroup', () async {
       // TODO
     });
@@ -30,7 +29,7 @@ void main() {
 
     // Join an existing SyncPlay group.
     //
-    //Future syncPlayJoinGroup(SyncPlayJoinGroupRequest syncPlayJoinGroupRequest) async
+    //Future syncPlayJoinGroup(JoinGroupRequestDto joinGroupRequestDto) async
     test('test syncPlayJoinGroup', () async {
       // TODO
     });
@@ -44,14 +43,14 @@ void main() {
 
     // Request to move an item in the playlist in SyncPlay group.
     //
-    //Future syncPlayMovePlaylistItem(SyncPlayMovePlaylistItemRequest syncPlayMovePlaylistItemRequest) async
+    //Future syncPlayMovePlaylistItem(MovePlaylistItemRequestDto movePlaylistItemRequestDto) async
     test('test syncPlayMovePlaylistItem', () async {
       // TODO
     });
 
     // Request next item in SyncPlay group.
     //
-    //Future syncPlayNextItem(SyncPlayNextItemRequest syncPlayNextItemRequest) async
+    //Future syncPlayNextItem(NextItemRequestDto nextItemRequestDto) async
     test('test syncPlayNextItem', () async {
       // TODO
     });
@@ -65,77 +64,77 @@ void main() {
 
     // Update session ping.
     //
-    //Future syncPlayPing(SyncPlayPingRequest syncPlayPingRequest) async
+    //Future syncPlayPing(PingRequestDto pingRequestDto) async
     test('test syncPlayPing', () async {
       // TODO
     });
 
     // Request previous item in SyncPlay group.
     //
-    //Future syncPlayPreviousItem(SyncPlayPreviousItemRequest syncPlayPreviousItemRequest) async
+    //Future syncPlayPreviousItem(PreviousItemRequestDto previousItemRequestDto) async
     test('test syncPlayPreviousItem', () async {
       // TODO
     });
 
     // Request to queue items to the playlist of a SyncPlay group.
     //
-    //Future syncPlayQueue(SyncPlayQueueRequest syncPlayQueueRequest) async
+    //Future syncPlayQueue(QueueRequestDto queueRequestDto) async
     test('test syncPlayQueue', () async {
       // TODO
     });
 
     // Notify SyncPlay group that member is ready for playback.
     //
-    //Future syncPlayReady(SyncPlayReadyRequest syncPlayReadyRequest) async
+    //Future syncPlayReady(ReadyRequestDto readyRequestDto) async
     test('test syncPlayReady', () async {
       // TODO
     });
 
     // Request to remove items from the playlist in SyncPlay group.
     //
-    //Future syncPlayRemoveFromPlaylist(SyncPlayRemoveFromPlaylistRequest syncPlayRemoveFromPlaylistRequest) async
+    //Future syncPlayRemoveFromPlaylist(RemoveFromPlaylistRequestDto removeFromPlaylistRequestDto) async
     test('test syncPlayRemoveFromPlaylist', () async {
       // TODO
     });
 
     // Request seek in SyncPlay group.
     //
-    //Future syncPlaySeek(SyncPlaySeekRequest syncPlaySeekRequest) async
+    //Future syncPlaySeek(SeekRequestDto seekRequestDto) async
     test('test syncPlaySeek', () async {
       // TODO
     });
 
     // Request SyncPlay group to ignore member during group-wait.
     //
-    //Future syncPlaySetIgnoreWait(SyncPlaySetIgnoreWaitRequest syncPlaySetIgnoreWaitRequest) async
+    //Future syncPlaySetIgnoreWait(IgnoreWaitRequestDto ignoreWaitRequestDto) async
     test('test syncPlaySetIgnoreWait', () async {
       // TODO
     });
 
     // Request to set new playlist in SyncPlay group.
     //
-    //Future syncPlaySetNewQueue(SyncPlaySetNewQueueRequest syncPlaySetNewQueueRequest) async
+    //Future syncPlaySetNewQueue(PlayRequestDto playRequestDto) async
     test('test syncPlaySetNewQueue', () async {
       // TODO
     });
 
     // Request to change playlist item in SyncPlay group.
     //
-    //Future syncPlaySetPlaylistItem(SyncPlaySetPlaylistItemRequest syncPlaySetPlaylistItemRequest) async
+    //Future syncPlaySetPlaylistItem(SetPlaylistItemRequestDto setPlaylistItemRequestDto) async
     test('test syncPlaySetPlaylistItem', () async {
       // TODO
     });
 
     // Request to set repeat mode in SyncPlay group.
     //
-    //Future syncPlaySetRepeatMode(SyncPlaySetRepeatModeRequest syncPlaySetRepeatModeRequest) async
+    //Future syncPlaySetRepeatMode(SetRepeatModeRequestDto setRepeatModeRequestDto) async
     test('test syncPlaySetRepeatMode', () async {
       // TODO
     });
 
     // Request to set shuffle mode in SyncPlay group.
     //
-    //Future syncPlaySetShuffleMode(SyncPlaySetShuffleModeRequest syncPlaySetShuffleModeRequest) async
+    //Future syncPlaySetShuffleMode(SetShuffleModeRequestDto setShuffleModeRequestDto) async
     test('test syncPlaySetShuffleMode', () async {
       // TODO
     });
@@ -153,6 +152,5 @@ void main() {
     test('test syncPlayUnpause', () async {
       // TODO
     });
-
   });
 }

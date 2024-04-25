@@ -10,15 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'image_saving_convention.g.dart';
 
 class ImageSavingConvention extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Legacy')
   static const ImageSavingConvention legacy = _$legacy;
   @BuiltValueEnumConst(wireName: r'Compatible')
   static const ImageSavingConvention compatible = _$compatible;
 
-  static Serializer<ImageSavingConvention> get serializer => _$imageSavingConventionSerializer;
+  static Serializer<ImageSavingConvention> get serializer =>
+      _$imageSavingConventionSerializer;
 
-  const ImageSavingConvention._(String name): super(name);
+  const ImageSavingConvention._(String name) : super(name);
 
   static BuiltSet<ImageSavingConvention> get values => _$values;
   static ImageSavingConvention valueOf(String name) => _$valueOf(name);
@@ -30,5 +30,5 @@ class ImageSavingConvention extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class ImageSavingConventionMixin = Object with _$ImageSavingConventionMixin;
-
+abstract class ImageSavingConventionMixin = Object
+    with _$ImageSavingConventionMixin;

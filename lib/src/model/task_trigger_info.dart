@@ -18,7 +18,8 @@ part 'task_trigger_info.g.dart';
 /// * [dayOfWeek] - Gets or sets the day of week.
 /// * [maxRuntimeTicks] - Gets or sets the maximum runtime ticks.
 @BuiltValue()
-abstract class TaskTriggerInfo implements Built<TaskTriggerInfo, TaskTriggerInfoBuilder> {
+abstract class TaskTriggerInfo
+    implements Built<TaskTriggerInfo, TaskTriggerInfoBuilder> {
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   String? get type;
@@ -34,6 +35,7 @@ abstract class TaskTriggerInfo implements Built<TaskTriggerInfo, TaskTriggerInfo
   /// Gets or sets the day of week.
   @BuiltValueField(wireName: r'DayOfWeek')
   DayOfWeek? get dayOfWeek;
+  // enum dayOfWeekEnum {  Sunday,  Monday,  Tuesday,  Wednesday,  Thursday,  Friday,  Saturday,  };
 
   /// Gets or sets the maximum runtime ticks.
   @BuiltValueField(wireName: r'MaxRuntimeTicks')
@@ -41,16 +43,19 @@ abstract class TaskTriggerInfo implements Built<TaskTriggerInfo, TaskTriggerInfo
 
   TaskTriggerInfo._();
 
-  factory TaskTriggerInfo([void updates(TaskTriggerInfoBuilder b)]) = _$TaskTriggerInfo;
+  factory TaskTriggerInfo([void updates(TaskTriggerInfoBuilder b)]) =
+      _$TaskTriggerInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TaskTriggerInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TaskTriggerInfo> get serializer => _$TaskTriggerInfoSerializer();
+  static Serializer<TaskTriggerInfo> get serializer =>
+      _$TaskTriggerInfoSerializer();
 }
 
-class _$TaskTriggerInfoSerializer implements PrimitiveSerializer<TaskTriggerInfo> {
+class _$TaskTriggerInfoSerializer
+    implements PrimitiveSerializer<TaskTriggerInfo> {
   @override
   final Iterable<Type> types = const [TaskTriggerInfo, _$TaskTriggerInfo];
 
@@ -105,7 +110,9 @@ class _$TaskTriggerInfoSerializer implements PrimitiveSerializer<TaskTriggerInfo
     TaskTriggerInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -188,4 +195,3 @@ class _$TaskTriggerInfoSerializer implements PrimitiveSerializer<TaskTriggerInfo
     return result.build();
   }
 }
-

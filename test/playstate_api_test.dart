@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for PlaystateApi
 void main() {
   final instance = Tentacle().getPlaystateApi();
@@ -51,24 +50,23 @@ void main() {
 
     // Reports playback progress within a session.
     //
-    //Future reportPlaybackProgress({ ReportPlaybackProgressRequest reportPlaybackProgressRequest }) async
+    //Future reportPlaybackProgress({ PlaybackProgressInfo playbackProgressInfo }) async
     test('test reportPlaybackProgress', () async {
       // TODO
     });
 
     // Reports playback has started within a session.
     //
-    //Future reportPlaybackStart({ ReportPlaybackStartRequest reportPlaybackStartRequest }) async
+    //Future reportPlaybackStart({ PlaybackStartInfo playbackStartInfo }) async
     test('test reportPlaybackStart', () async {
       // TODO
     });
 
     // Reports playback has stopped within a session.
     //
-    //Future reportPlaybackStopped({ ReportPlaybackStoppedRequest reportPlaybackStoppedRequest }) async
+    //Future reportPlaybackStopped({ PlaybackStopInfo playbackStopInfo }) async
     test('test reportPlaybackStopped', () async {
       // TODO
     });
-
   });
 }

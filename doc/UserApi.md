@@ -1,8 +1,8 @@
-# openapi.api.UserApi
+# tentacle.api.UserApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -34,9 +34,9 @@ Authenticates a user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final String pw = pw_example; // String | The password as plain text.
 final String password = password_example; // String | The password sha1-hash.
@@ -44,7 +44,7 @@ final String password = password_example; // String | The password sha1-hash.
 try {
     final response = api.authenticateUser(userId, pw, password);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->authenticateUser: $e\n');
 }
 ```
@@ -73,21 +73,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authenticateUserByName**
-> AuthenticationResult authenticateUserByName(authenticateUserByNameRequest)
+> AuthenticationResult authenticateUserByName(authenticateUserByName)
 
 Authenticates a user by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getUserApi();
-final AuthenticateUserByNameRequest authenticateUserByNameRequest = ; // AuthenticateUserByNameRequest | The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request.
+final api = Tentacle().getUserApi();
+final AuthenticateUserByName authenticateUserByName = ; // AuthenticateUserByName | The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request.
 
 try {
-    final response = api.authenticateUserByName(authenticateUserByNameRequest);
+    final response = api.authenticateUserByName(authenticateUserByName);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->authenticateUserByName: $e\n');
 }
 ```
@@ -96,7 +96,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authenticateUserByNameRequest** | [**AuthenticateUserByNameRequest**](AuthenticateUserByNameRequest.md)| The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request. | 
+ **authenticateUserByName** | [**AuthenticateUserByName**](AuthenticateUserByName.md)| The M:Jellyfin.Api.Controllers.UserController.AuthenticateUserByName(Jellyfin.Api.Models.UserDtos.AuthenticateUserByName) request. | 
 
 ### Return type
 
@@ -114,21 +114,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authenticateWithQuickConnect**
-> AuthenticationResult authenticateWithQuickConnect(authenticateWithQuickConnectRequest)
+> AuthenticationResult authenticateWithQuickConnect(quickConnectDto)
 
 Authenticates a user with quick connect.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getUserApi();
-final AuthenticateWithQuickConnectRequest authenticateWithQuickConnectRequest = ; // AuthenticateWithQuickConnectRequest | The Jellyfin.Api.Models.UserDtos.QuickConnectDto request.
+final api = Tentacle().getUserApi();
+final QuickConnectDto quickConnectDto = ; // QuickConnectDto | The Jellyfin.Api.Models.UserDtos.QuickConnectDto request.
 
 try {
-    final response = api.authenticateWithQuickConnect(authenticateWithQuickConnectRequest);
+    final response = api.authenticateWithQuickConnect(quickConnectDto);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->authenticateWithQuickConnect: $e\n');
 }
 ```
@@ -137,7 +137,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authenticateWithQuickConnectRequest** | [**AuthenticateWithQuickConnectRequest**](AuthenticateWithQuickConnectRequest.md)| The Jellyfin.Api.Models.UserDtos.QuickConnectDto request. | 
+ **quickConnectDto** | [**QuickConnectDto**](QuickConnectDto.md)| The Jellyfin.Api.Models.UserDtos.QuickConnectDto request. | 
 
 ### Return type
 
@@ -155,25 +155,25 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createUserByName**
-> UserDto createUserByName(createUserByNameRequest)
+> UserDto createUserByName(createUserByName)
 
 Creates a user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
-final CreateUserByNameRequest createUserByNameRequest = ; // CreateUserByNameRequest | The create user by name request body.
+final api = Tentacle().getUserApi();
+final CreateUserByName createUserByName = ; // CreateUserByName | The create user by name request body.
 
 try {
-    final response = api.createUserByName(createUserByNameRequest);
+    final response = api.createUserByName(createUserByName);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->createUserByName: $e\n');
 }
 ```
@@ -182,7 +182,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createUserByNameRequest** | [**CreateUserByNameRequest**](CreateUserByNameRequest.md)| The create user by name request body. | 
+ **createUserByName** | [**CreateUserByName**](CreateUserByName.md)| The create user by name request body. | 
 
 ### Return type
 
@@ -206,18 +206,18 @@ Deletes a user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 
 try {
     api.deleteUser(userId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->deleteUser: $e\n');
 }
 ```
@@ -244,21 +244,21 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **forgotPassword**
-> ForgotPasswordResult forgotPassword(forgotPasswordRequest)
+> ForgotPasswordResult forgotPassword(forgotPasswordDto)
 
 Initiates the forgot password process for a local user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getUserApi();
-final ForgotPasswordRequest forgotPasswordRequest = ; // ForgotPasswordRequest | The forgot password request containing the entered username.
+final api = Tentacle().getUserApi();
+final ForgotPasswordDto forgotPasswordDto = ; // ForgotPasswordDto | The forgot password request containing the entered username.
 
 try {
-    final response = api.forgotPassword(forgotPasswordRequest);
+    final response = api.forgotPassword(forgotPasswordDto);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->forgotPassword: $e\n');
 }
 ```
@@ -267,7 +267,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **forgotPasswordRequest** | [**ForgotPasswordRequest**](ForgotPasswordRequest.md)| The forgot password request containing the entered username. | 
+ **forgotPasswordDto** | [**ForgotPasswordDto**](ForgotPasswordDto.md)| The forgot password request containing the entered username. | 
 
 ### Return type
 
@@ -285,21 +285,21 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **forgotPasswordPin**
-> PinRedeemResult forgotPasswordPin(forgotPasswordPinRequest)
+> PinRedeemResult forgotPasswordPin(forgotPasswordPinDto)
 
 Redeems a forgot password pin.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getUserApi();
-final ForgotPasswordPinRequest forgotPasswordPinRequest = ; // ForgotPasswordPinRequest | The forgot password pin request containing the entered pin.
+final api = Tentacle().getUserApi();
+final ForgotPasswordPinDto forgotPasswordPinDto = ; // ForgotPasswordPinDto | The forgot password pin request containing the entered pin.
 
 try {
-    final response = api.forgotPasswordPin(forgotPasswordPinRequest);
+    final response = api.forgotPasswordPin(forgotPasswordPinDto);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->forgotPasswordPin: $e\n');
 }
 ```
@@ -308,7 +308,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **forgotPasswordPinRequest** | [**ForgotPasswordPinRequest**](ForgotPasswordPinRequest.md)| The forgot password pin request containing the entered pin. | 
+ **forgotPasswordPinDto** | [**ForgotPasswordPinDto**](ForgotPasswordPinDto.md)| The forgot password pin request containing the entered pin. | 
 
 ### Return type
 
@@ -332,18 +332,18 @@ Gets the user based on auth token.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 
 try {
     final response = api.getCurrentUser();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->getCurrentUser: $e\n');
 }
 ```
@@ -373,14 +373,14 @@ Gets a list of publicly visible users for display on a login screen.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 
 try {
     final response = api.getPublicUsers();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->getPublicUsers: $e\n');
 }
 ```
@@ -410,19 +410,19 @@ Gets a user by Id.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 
 try {
     final response = api.getUserById(userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->getUserById: $e\n');
 }
 ```
@@ -455,20 +455,20 @@ Gets a list of users.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final bool isHidden = true; // bool | Optional filter by IsHidden=true or false.
 final bool isDisabled = true; // bool | Optional filter by IsDisabled=true or false.
 
 try {
     final response = api.getUsers(isHidden, isDisabled);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserApi->getUsers: $e\n');
 }
 ```
@@ -496,25 +496,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUser**
-> updateUser(userId, updateUserRequest)
+> updateUser(userId, userDto)
 
 Updates a user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final UpdateUserRequest updateUserRequest = ; // UpdateUserRequest | The updated user model.
+final UserDto userDto = ; // UserDto | The updated user model.
 
 try {
-    api.updateUser(userId, updateUserRequest);
-} catch on DioError (e) {
+    api.updateUser(userId, userDto);
+} catch on DioException (e) {
     print('Exception when calling UserApi->updateUser: $e\n');
 }
 ```
@@ -524,7 +524,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The user id. | 
- **updateUserRequest** | [**UpdateUserRequest**](UpdateUserRequest.md)| The updated user model. | 
+ **userDto** | [**UserDto**](UserDto.md)| The updated user model. | 
 
 ### Return type
 
@@ -542,25 +542,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUserConfiguration**
-> updateUserConfiguration(userId, updateUserConfigurationRequest)
+> updateUserConfiguration(userId, userConfiguration)
 
 Updates a user configuration.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final UpdateUserConfigurationRequest updateUserConfigurationRequest = ; // UpdateUserConfigurationRequest | The new user configuration.
+final UserConfiguration userConfiguration = ; // UserConfiguration | The new user configuration.
 
 try {
-    api.updateUserConfiguration(userId, updateUserConfigurationRequest);
-} catch on DioError (e) {
+    api.updateUserConfiguration(userId, userConfiguration);
+} catch on DioException (e) {
     print('Exception when calling UserApi->updateUserConfiguration: $e\n');
 }
 ```
@@ -570,7 +570,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The user id. | 
- **updateUserConfigurationRequest** | [**UpdateUserConfigurationRequest**](UpdateUserConfigurationRequest.md)| The new user configuration. | 
+ **userConfiguration** | [**UserConfiguration**](UserConfiguration.md)| The new user configuration. | 
 
 ### Return type
 
@@ -588,25 +588,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUserEasyPassword**
-> updateUserEasyPassword(userId, updateUserEasyPasswordRequest)
+> updateUserEasyPassword(userId, updateUserEasyPassword)
 
 Updates a user's easy password.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final UpdateUserEasyPasswordRequest updateUserEasyPasswordRequest = ; // UpdateUserEasyPasswordRequest | The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request.
+final UpdateUserEasyPassword updateUserEasyPassword = ; // UpdateUserEasyPassword | The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request.
 
 try {
-    api.updateUserEasyPassword(userId, updateUserEasyPasswordRequest);
-} catch on DioError (e) {
+    api.updateUserEasyPassword(userId, updateUserEasyPassword);
+} catch on DioException (e) {
     print('Exception when calling UserApi->updateUserEasyPassword: $e\n');
 }
 ```
@@ -616,7 +616,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The user id. | 
- **updateUserEasyPasswordRequest** | [**UpdateUserEasyPasswordRequest**](UpdateUserEasyPasswordRequest.md)| The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request. | 
+ **updateUserEasyPassword** | [**UpdateUserEasyPassword**](UpdateUserEasyPassword.md)| The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request. | 
 
 ### Return type
 
@@ -634,25 +634,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUserPassword**
-> updateUserPassword(userId, updateUserPasswordRequest)
+> updateUserPassword(userId, updateUserPassword)
 
 Updates a user's password.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final UpdateUserPasswordRequest updateUserPasswordRequest = ; // UpdateUserPasswordRequest | The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.
+final UpdateUserPassword updateUserPassword = ; // UpdateUserPassword | The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.
 
 try {
-    api.updateUserPassword(userId, updateUserPasswordRequest);
-} catch on DioError (e) {
+    api.updateUserPassword(userId, updateUserPassword);
+} catch on DioException (e) {
     print('Exception when calling UserApi->updateUserPassword: $e\n');
 }
 ```
@@ -662,7 +662,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The user id. | 
- **updateUserPasswordRequest** | [**UpdateUserPasswordRequest**](UpdateUserPasswordRequest.md)| The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request. | 
+ **updateUserPassword** | [**UpdateUserPassword**](UpdateUserPassword.md)| The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request. | 
 
 ### Return type
 
@@ -680,25 +680,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUserPolicy**
-> updateUserPolicy(userId, updateUserPolicyRequest)
+> updateUserPolicy(userId, userPolicy)
 
 Updates a user policy.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserApi();
+final api = Tentacle().getUserApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final UpdateUserPolicyRequest updateUserPolicyRequest = ; // UpdateUserPolicyRequest | The new user policy.
+final UserPolicy userPolicy = ; // UserPolicy | The new user policy.
 
 try {
-    api.updateUserPolicy(userId, updateUserPolicyRequest);
-} catch on DioError (e) {
+    api.updateUserPolicy(userId, userPolicy);
+} catch on DioException (e) {
     print('Exception when calling UserApi->updateUserPolicy: $e\n');
 }
 ```
@@ -708,7 +708,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The user id. | 
- **updateUserPolicyRequest** | [**UpdateUserPolicyRequest**](UpdateUserPolicyRequest.md)| The new user policy. | 
+ **userPolicy** | [**UserPolicy**](UserPolicy.md)| The new user policy. | 
 
 ### Return type
 

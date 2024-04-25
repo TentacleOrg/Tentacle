@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/subtitle_playback_mode.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/user_configuration.dart';
+import 'package:tentacle/src/model/subtitle_playback_mode.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,34 +17,43 @@ part 'user_dto_configuration.g.dart';
 /// * [audioLanguagePreference] - Gets or sets the audio language preference.
 /// * [playDefaultAudioTrack] - Gets or sets a value indicating whether [play default audio track].
 /// * [subtitleLanguagePreference] - Gets or sets the subtitle language preference.
-/// * [displayMissingEpisodes] 
-/// * [groupedFolders] 
+/// * [displayMissingEpisodes]
+/// * [groupedFolders]
 /// * [subtitleMode] - An enum representing a subtitle playback mode.
-/// * [displayCollectionsView] 
-/// * [enableLocalPassword] 
-/// * [orderedViews] 
-/// * [latestItemsExcludes] 
-/// * [myMediaExcludes] 
-/// * [hidePlayedInLatest] 
-/// * [rememberAudioSelections] 
-/// * [rememberSubtitleSelections] 
-/// * [enableNextEpisodeAutoPlay] 
+/// * [displayCollectionsView]
+/// * [enableLocalPassword]
+/// * [orderedViews]
+/// * [latestItemsExcludes]
+/// * [myMediaExcludes]
+/// * [hidePlayedInLatest]
+/// * [rememberAudioSelections]
+/// * [rememberSubtitleSelections]
+/// * [enableNextEpisodeAutoPlay]
 @BuiltValue()
-abstract class UserDtoConfiguration implements UserConfiguration, Built<UserDtoConfiguration, UserDtoConfigurationBuilder> {
+abstract class UserDtoConfiguration
+    implements
+        UserConfiguration,
+        Built<UserDtoConfiguration, UserDtoConfigurationBuilder> {
   UserDtoConfiguration._();
 
-  factory UserDtoConfiguration([void updates(UserDtoConfigurationBuilder b)]) = _$UserDtoConfiguration;
+  factory UserDtoConfiguration([void updates(UserDtoConfigurationBuilder b)]) =
+      _$UserDtoConfiguration;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserDtoConfigurationBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserDtoConfiguration> get serializer => _$UserDtoConfigurationSerializer();
+  static Serializer<UserDtoConfiguration> get serializer =>
+      _$UserDtoConfigurationSerializer();
 }
 
-class _$UserDtoConfigurationSerializer implements PrimitiveSerializer<UserDtoConfiguration> {
+class _$UserDtoConfigurationSerializer
+    implements PrimitiveSerializer<UserDtoConfiguration> {
   @override
-  final Iterable<Type> types = const [UserDtoConfiguration, _$UserDtoConfiguration];
+  final Iterable<Type> types = const [
+    UserDtoConfiguration,
+    _$UserDtoConfiguration
+  ];
 
   @override
   final String wireName = r'UserDtoConfiguration';
@@ -167,7 +176,9 @@ class _$UserDtoConfigurationSerializer implements PrimitiveSerializer<UserDtoCon
     UserDtoConfiguration object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -317,4 +328,3 @@ class _$UserDtoConfigurationSerializer implements PrimitiveSerializer<UserDtoCon
     return result.build();
   }
 }
-

@@ -6,44 +6,7 @@ part of 'tuner_host_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class TunerHostInfoBuilder {
-  void replace(TunerHostInfo other);
-  void update(void Function(TunerHostInfoBuilder) updates);
-  String? get id;
-  set id(String? id);
-
-  String? get url;
-  set url(String? url);
-
-  String? get type;
-  set type(String? type);
-
-  String? get deviceId;
-  set deviceId(String? deviceId);
-
-  String? get friendlyName;
-  set friendlyName(String? friendlyName);
-
-  bool? get importFavoritesOnly;
-  set importFavoritesOnly(bool? importFavoritesOnly);
-
-  bool? get allowHWTranscoding;
-  set allowHWTranscoding(bool? allowHWTranscoding);
-
-  bool? get enableStreamLooping;
-  set enableStreamLooping(bool? enableStreamLooping);
-
-  String? get source_;
-  set source_(String? source_);
-
-  int? get tunerCount;
-  set tunerCount(int? tunerCount);
-
-  String? get userAgent;
-  set userAgent(String? userAgent);
-}
-
-class _$$TunerHostInfo extends $TunerHostInfo {
+class _$TunerHostInfo extends TunerHostInfo {
   @override
   final String? id;
   @override
@@ -67,10 +30,10 @@ class _$$TunerHostInfo extends $TunerHostInfo {
   @override
   final String? userAgent;
 
-  factory _$$TunerHostInfo([void Function($TunerHostInfoBuilder)? updates]) =>
-      (new $TunerHostInfoBuilder()..update(updates))._build();
+  factory _$TunerHostInfo([void Function(TunerHostInfoBuilder)? updates]) =>
+      (new TunerHostInfoBuilder()..update(updates))._build();
 
-  _$$TunerHostInfo._(
+  _$TunerHostInfo._(
       {this.id,
       this.url,
       this.type,
@@ -85,17 +48,16 @@ class _$$TunerHostInfo extends $TunerHostInfo {
       : super._();
 
   @override
-  $TunerHostInfo rebuild(void Function($TunerHostInfoBuilder) updates) =>
+  TunerHostInfo rebuild(void Function(TunerHostInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $TunerHostInfoBuilder toBuilder() =>
-      new $TunerHostInfoBuilder()..replace(this);
+  TunerHostInfoBuilder toBuilder() => new TunerHostInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $TunerHostInfo &&
+    return other is TunerHostInfo &&
         id == other.id &&
         url == other.url &&
         type == other.type &&
@@ -129,7 +91,7 @@ class _$$TunerHostInfo extends $TunerHostInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$TunerHostInfo')
+    return (newBuiltValueToStringHelper(r'TunerHostInfo')
           ..add('id', id)
           ..add('url', url)
           ..add('type', type)
@@ -145,65 +107,62 @@ class _$$TunerHostInfo extends $TunerHostInfo {
   }
 }
 
-class $TunerHostInfoBuilder
-    implements
-        Builder<$TunerHostInfo, $TunerHostInfoBuilder>,
-        TunerHostInfoBuilder {
-  _$$TunerHostInfo? _$v;
+class TunerHostInfoBuilder
+    implements Builder<TunerHostInfo, TunerHostInfoBuilder> {
+  _$TunerHostInfo? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   String? _url;
   String? get url => _$this._url;
-  set url(covariant String? url) => _$this._url = url;
+  set url(String? url) => _$this._url = url;
 
   String? _type;
   String? get type => _$this._type;
-  set type(covariant String? type) => _$this._type = type;
+  set type(String? type) => _$this._type = type;
 
   String? _deviceId;
   String? get deviceId => _$this._deviceId;
-  set deviceId(covariant String? deviceId) => _$this._deviceId = deviceId;
+  set deviceId(String? deviceId) => _$this._deviceId = deviceId;
 
   String? _friendlyName;
   String? get friendlyName => _$this._friendlyName;
-  set friendlyName(covariant String? friendlyName) =>
-      _$this._friendlyName = friendlyName;
+  set friendlyName(String? friendlyName) => _$this._friendlyName = friendlyName;
 
   bool? _importFavoritesOnly;
   bool? get importFavoritesOnly => _$this._importFavoritesOnly;
-  set importFavoritesOnly(covariant bool? importFavoritesOnly) =>
+  set importFavoritesOnly(bool? importFavoritesOnly) =>
       _$this._importFavoritesOnly = importFavoritesOnly;
 
   bool? _allowHWTranscoding;
   bool? get allowHWTranscoding => _$this._allowHWTranscoding;
-  set allowHWTranscoding(covariant bool? allowHWTranscoding) =>
+  set allowHWTranscoding(bool? allowHWTranscoding) =>
       _$this._allowHWTranscoding = allowHWTranscoding;
 
   bool? _enableStreamLooping;
   bool? get enableStreamLooping => _$this._enableStreamLooping;
-  set enableStreamLooping(covariant bool? enableStreamLooping) =>
+  set enableStreamLooping(bool? enableStreamLooping) =>
       _$this._enableStreamLooping = enableStreamLooping;
 
   String? _source_;
   String? get source_ => _$this._source_;
-  set source_(covariant String? source_) => _$this._source_ = source_;
+  set source_(String? source_) => _$this._source_ = source_;
 
   int? _tunerCount;
   int? get tunerCount => _$this._tunerCount;
-  set tunerCount(covariant int? tunerCount) => _$this._tunerCount = tunerCount;
+  set tunerCount(int? tunerCount) => _$this._tunerCount = tunerCount;
 
   String? _userAgent;
   String? get userAgent => _$this._userAgent;
-  set userAgent(covariant String? userAgent) => _$this._userAgent = userAgent;
+  set userAgent(String? userAgent) => _$this._userAgent = userAgent;
 
-  $TunerHostInfoBuilder() {
-    $TunerHostInfo._defaults(this);
+  TunerHostInfoBuilder() {
+    TunerHostInfo._defaults(this);
   }
 
-  $TunerHostInfoBuilder get _$this {
+  TunerHostInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -223,22 +182,22 @@ class $TunerHostInfoBuilder
   }
 
   @override
-  void replace(covariant $TunerHostInfo other) {
+  void replace(TunerHostInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$TunerHostInfo;
+    _$v = other as _$TunerHostInfo;
   }
 
   @override
-  void update(void Function($TunerHostInfoBuilder)? updates) {
+  void update(void Function(TunerHostInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $TunerHostInfo build() => _build();
+  TunerHostInfo build() => _build();
 
-  _$$TunerHostInfo _build() {
+  _$TunerHostInfo _build() {
     final _$result = _$v ??
-        new _$$TunerHostInfo._(
+        new _$TunerHostInfo._(
             id: id,
             url: url,
             type: type,

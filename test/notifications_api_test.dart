@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for NotificationsApi
 void main() {
   final instance = Tentacle().getNotificationsApi();
@@ -9,7 +8,7 @@ void main() {
   group(NotificationsApi, () {
     // Sends a notification to all admins.
     //
-    //Future createAdminNotification(CreateAdminNotificationRequest createAdminNotificationRequest) async
+    //Future createAdminNotification(AdminNotificationDto adminNotificationDto) async
     test('test createAdminNotification', () async {
       // TODO
     });
@@ -55,6 +54,5 @@ void main() {
     test('test setUnread', () async {
       // TODO
     });
-
   });
 }

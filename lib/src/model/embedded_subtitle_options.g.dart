@@ -48,7 +48,7 @@ class _$EmbeddedSubtitleOptionsMeta {
   BuiltSet<EmbeddedSubtitleOptions> get values => _$values;
 }
 
-abstract class _$EmbeddedSubtitleOptionsMixin {
+mixin _$EmbeddedSubtitleOptionsMixin {
   // ignore: non_constant_identifier_names
   _$EmbeddedSubtitleOptionsMeta get EmbeddedSubtitleOptions =>
       const _$EmbeddedSubtitleOptionsMeta();

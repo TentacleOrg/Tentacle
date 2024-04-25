@@ -92,7 +92,9 @@ class _$LogFileSerializer implements PrimitiveSerializer<LogFile> {
     LogFile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -164,4 +166,3 @@ class _$LogFileSerializer implements PrimitiveSerializer<LogFile> {
     return result.build();
   }
 }
-

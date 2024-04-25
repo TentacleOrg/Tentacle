@@ -12,19 +12,21 @@ part 'subtitle_profile.g.dart';
 /// SubtitleProfile
 ///
 /// Properties:
-/// * [format] 
+/// * [format]
 /// * [method] - Delivery method to use during playback of a specific subtitle format.
-/// * [didlMode] 
-/// * [language] 
-/// * [container] 
+/// * [didlMode]
+/// * [language]
+/// * [container]
 @BuiltValue()
-abstract class SubtitleProfile implements Built<SubtitleProfile, SubtitleProfileBuilder> {
+abstract class SubtitleProfile
+    implements Built<SubtitleProfile, SubtitleProfileBuilder> {
   @BuiltValueField(wireName: r'Format')
   String? get format;
 
   /// Delivery method to use during playback of a specific subtitle format.
   @BuiltValueField(wireName: r'Method')
   SubtitleDeliveryMethod? get method;
+  // enum methodEnum {  Encode,  Embed,  External,  Hls,  Drop,  };
 
   @BuiltValueField(wireName: r'DidlMode')
   String? get didlMode;
@@ -37,16 +39,19 @@ abstract class SubtitleProfile implements Built<SubtitleProfile, SubtitleProfile
 
   SubtitleProfile._();
 
-  factory SubtitleProfile([void updates(SubtitleProfileBuilder b)]) = _$SubtitleProfile;
+  factory SubtitleProfile([void updates(SubtitleProfileBuilder b)]) =
+      _$SubtitleProfile;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SubtitleProfileBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SubtitleProfile> get serializer => _$SubtitleProfileSerializer();
+  static Serializer<SubtitleProfile> get serializer =>
+      _$SubtitleProfileSerializer();
 }
 
-class _$SubtitleProfileSerializer implements PrimitiveSerializer<SubtitleProfile> {
+class _$SubtitleProfileSerializer
+    implements PrimitiveSerializer<SubtitleProfile> {
   @override
   final Iterable<Type> types = const [SubtitleProfile, _$SubtitleProfile];
 
@@ -101,7 +106,9 @@ class _$SubtitleProfileSerializer implements PrimitiveSerializer<SubtitleProfile
     SubtitleProfile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -183,4 +190,3 @@ class _$SubtitleProfileSerializer implements PrimitiveSerializer<SubtitleProfile
     return result.build();
   }
 }
-

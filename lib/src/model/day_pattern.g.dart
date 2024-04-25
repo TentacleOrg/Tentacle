@@ -39,7 +39,7 @@ class _$DayPatternMeta {
   BuiltSet<DayPattern> get values => _$values;
 }
 
-abstract class _$DayPatternMixin {
+mixin _$DayPatternMixin {
   // ignore: non_constant_identifier_names
   _$DayPatternMeta get DayPattern => const _$DayPatternMeta();
 }

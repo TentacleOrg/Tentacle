@@ -12,15 +12,16 @@ part 'config_image_types.g.dart';
 /// ConfigImageTypes
 ///
 /// Properties:
-/// * [backdropSizes] 
-/// * [baseUrl] 
-/// * [logoSizes] 
-/// * [posterSizes] 
-/// * [profileSizes] 
-/// * [secureBaseUrl] 
-/// * [stillSizes] 
+/// * [backdropSizes]
+/// * [baseUrl]
+/// * [logoSizes]
+/// * [posterSizes]
+/// * [profileSizes]
+/// * [secureBaseUrl]
+/// * [stillSizes]
 @BuiltValue()
-abstract class ConfigImageTypes implements Built<ConfigImageTypes, ConfigImageTypesBuilder> {
+abstract class ConfigImageTypes
+    implements Built<ConfigImageTypes, ConfigImageTypesBuilder> {
   @BuiltValueField(wireName: r'BackdropSizes')
   BuiltList<String>? get backdropSizes;
 
@@ -44,16 +45,19 @@ abstract class ConfigImageTypes implements Built<ConfigImageTypes, ConfigImageTy
 
   ConfigImageTypes._();
 
-  factory ConfigImageTypes([void updates(ConfigImageTypesBuilder b)]) = _$ConfigImageTypes;
+  factory ConfigImageTypes([void updates(ConfigImageTypesBuilder b)]) =
+      _$ConfigImageTypes;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ConfigImageTypesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ConfigImageTypes> get serializer => _$ConfigImageTypesSerializer();
+  static Serializer<ConfigImageTypes> get serializer =>
+      _$ConfigImageTypesSerializer();
 }
 
-class _$ConfigImageTypesSerializer implements PrimitiveSerializer<ConfigImageTypes> {
+class _$ConfigImageTypesSerializer
+    implements PrimitiveSerializer<ConfigImageTypes> {
   @override
   final Iterable<Type> types = const [ConfigImageTypes, _$ConfigImageTypes];
 
@@ -122,7 +126,9 @@ class _$ConfigImageTypesSerializer implements PrimitiveSerializer<ConfigImageTyp
     ConfigImageTypes object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -140,7 +146,8 @@ class _$ConfigImageTypesSerializer implements PrimitiveSerializer<ConfigImageTyp
         case r'BackdropSizes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.backdropSizes.replace(valueDes);
@@ -156,7 +163,8 @@ class _$ConfigImageTypesSerializer implements PrimitiveSerializer<ConfigImageTyp
         case r'LogoSizes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.logoSizes.replace(valueDes);
@@ -164,7 +172,8 @@ class _$ConfigImageTypesSerializer implements PrimitiveSerializer<ConfigImageTyp
         case r'PosterSizes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.posterSizes.replace(valueDes);
@@ -172,7 +181,8 @@ class _$ConfigImageTypesSerializer implements PrimitiveSerializer<ConfigImageTyp
         case r'ProfileSizes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.profileSizes.replace(valueDes);
@@ -188,7 +198,8 @@ class _$ConfigImageTypesSerializer implements PrimitiveSerializer<ConfigImageTyp
         case r'StillSizes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.stillSizes.replace(valueDes);
@@ -221,4 +232,3 @@ class _$ConfigImageTypesSerializer implements PrimitiveSerializer<ConfigImageTyp
     return result.build();
   }
 }
-

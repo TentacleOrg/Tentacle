@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/day_pattern.dart';
-import 'package:tentacle/src/model/keep_until.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/keep_until.dart';
+import 'package:tentacle/src/model/day_pattern.dart';
 import 'package:tentacle/src/model/day_of_week.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -16,13 +16,13 @@ part 'series_timer_info_dto.g.dart';
 ///
 /// Properties:
 /// * [id] - Gets or sets the Id of the recording.
-/// * [type] 
+/// * [type]
 /// * [serverId] - Gets or sets the server identifier.
 /// * [externalId] - Gets or sets the external identifier.
 /// * [channelId] - Gets or sets the channel id of the recording.
 /// * [externalChannelId] - Gets or sets the external channel identifier.
 /// * [channelName] - Gets or sets the channel name of the recording.
-/// * [channelPrimaryImageTag] 
+/// * [channelPrimaryImageTag]
 /// * [programId] - Gets or sets the program identifier.
 /// * [externalProgramId] - Gets or sets the external program identifier.
 /// * [name] - Gets or sets the name of the recording.
@@ -37,11 +37,11 @@ part 'series_timer_info_dto.g.dart';
 /// * [parentBackdropItemId] - Gets or sets the Id of the Parent that has a backdrop if the item does not have one.
 /// * [parentBackdropImageTags] - Gets or sets the parent backdrop image tags.
 /// * [isPostPaddingRequired] - Gets or sets a value indicating whether this instance is post padding required.
-/// * [keepUntil] 
+/// * [keepUntil]
 /// * [recordAnyTime] - Gets or sets a value indicating whether [record any time].
-/// * [skipEpisodesInLibrary] 
+/// * [skipEpisodesInLibrary]
 /// * [recordAnyChannel] - Gets or sets a value indicating whether [record any channel].
-/// * [keepUpTo] 
+/// * [keepUpTo]
 /// * [recordNewOnly] - Gets or sets a value indicating whether [record new only].
 /// * [days] - Gets or sets the days.
 /// * [dayPattern] - Gets or sets the day pattern.
@@ -50,8 +50,9 @@ part 'series_timer_info_dto.g.dart';
 /// * [parentThumbImageTag] - Gets or sets the parent thumb image tag.
 /// * [parentPrimaryImageItemId] - Gets or sets the parent primary image item identifier.
 /// * [parentPrimaryImageTag] - Gets or sets the parent primary image tag.
-@BuiltValue(instantiable: false)
-abstract class SeriesTimerInfoDto  {
+@BuiltValue()
+abstract class SeriesTimerInfoDto
+    implements Built<SeriesTimerInfoDto, SeriesTimerInfoDtoBuilder> {
   /// Gets or sets the Id of the recording.
   @BuiltValueField(wireName: r'Id')
   String? get id;
@@ -140,6 +141,7 @@ abstract class SeriesTimerInfoDto  {
 
   @BuiltValueField(wireName: r'KeepUntil')
   KeepUntil? get keepUntil;
+  // enum keepUntilEnum {  UntilDeleted,  UntilSpaceNeeded,  UntilWatched,  UntilDate,  };
 
   /// Gets or sets a value indicating whether [record any time].
   @BuiltValueField(wireName: r'RecordAnyTime')
@@ -166,6 +168,7 @@ abstract class SeriesTimerInfoDto  {
   /// Gets or sets the day pattern.
   @BuiltValueField(wireName: r'DayPattern')
   DayPattern? get dayPattern;
+  // enum dayPatternEnum {  Daily,  Weekdays,  Weekends,  };
 
   /// Gets or sets the image tags.
   @BuiltValueField(wireName: r'ImageTags')
@@ -187,13 +190,23 @@ abstract class SeriesTimerInfoDto  {
   @BuiltValueField(wireName: r'ParentPrimaryImageTag')
   String? get parentPrimaryImageTag;
 
+  SeriesTimerInfoDto._();
+
+  factory SeriesTimerInfoDto([void updates(SeriesTimerInfoDtoBuilder b)]) =
+      _$SeriesTimerInfoDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SeriesTimerInfoDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<SeriesTimerInfoDto> get serializer => _$SeriesTimerInfoDtoSerializer();
+  static Serializer<SeriesTimerInfoDto> get serializer =>
+      _$SeriesTimerInfoDtoSerializer();
 }
 
-class _$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<SeriesTimerInfoDto> {
+class _$SeriesTimerInfoDtoSerializer
+    implements PrimitiveSerializer<SeriesTimerInfoDto> {
   @override
-  final Iterable<Type> types = const [SeriesTimerInfoDto];
+  final Iterable<Type> types = const [SeriesTimerInfoDto, _$SeriesTimerInfoDto];
 
   @override
   final String wireName = r'SeriesTimerInfoDto';
@@ -403,7 +416,8 @@ class _$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<SeriesTimerI
       yield r'Days';
       yield serializers.serialize(
         object.days,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
       );
     }
     if (object.dayPattern != null) {
@@ -417,7 +431,8 @@ class _$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<SeriesTimerI
       yield r'ImageTags';
       yield serializers.serialize(
         object.imageTags,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.parentThumbItemId != null) {
@@ -456,47 +471,9 @@ class _$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<SeriesTimerI
     SeriesTimerInfoDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  SeriesTimerInfoDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SeriesTimerInfoDto)) as $SeriesTimerInfoDto;
-  }
-}
-
-/// a concrete implementation of [SeriesTimerInfoDto], since [SeriesTimerInfoDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SeriesTimerInfoDto implements SeriesTimerInfoDto, Built<$SeriesTimerInfoDto, $SeriesTimerInfoDtoBuilder> {
-  $SeriesTimerInfoDto._();
-
-  factory $SeriesTimerInfoDto([void Function($SeriesTimerInfoDtoBuilder)? updates]) = _$$SeriesTimerInfoDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SeriesTimerInfoDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SeriesTimerInfoDto> get serializer => _$$SeriesTimerInfoDtoSerializer();
-}
-
-class _$$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<$SeriesTimerInfoDto> {
-  @override
-  final Iterable<Type> types = const [$SeriesTimerInfoDto, _$$SeriesTimerInfoDto];
-
-  @override
-  final String wireName = r'$SeriesTimerInfoDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SeriesTimerInfoDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SeriesTimerInfoDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -667,7 +644,8 @@ class _$$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<$SeriesTime
         case r'ParentBackdropImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.parentBackdropImageTags.replace(valueDes);
@@ -724,7 +702,8 @@ class _$$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<$SeriesTime
         case r'Days':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
           ) as BuiltList<DayOfWeek>?;
           if (valueDes == null) continue;
           result.days.replace(valueDes);
@@ -740,7 +719,8 @@ class _$$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<$SeriesTime
         case r'ImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>?;
           if (valueDes == null) continue;
           result.imageTags.replace(valueDes);
@@ -786,12 +766,12 @@ class _$$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<$SeriesTime
   }
 
   @override
-  $SeriesTimerInfoDto deserialize(
+  SeriesTimerInfoDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SeriesTimerInfoDtoBuilder();
+    final result = SeriesTimerInfoDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -805,4 +785,3 @@ class _$$SeriesTimerInfoDtoSerializer implements PrimitiveSerializer<$SeriesTime
     return result.build();
   }
 }
-

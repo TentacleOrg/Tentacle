@@ -1,8 +1,8 @@
-# openapi.api.TimeSyncApi
+# tentacle.api.TimeSyncApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -19,14 +19,14 @@ Gets the current UTC time.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getTimeSyncApi();
+final api = Tentacle().getTimeSyncApi();
 
 try {
     final response = api.getUtcTime();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling TimeSyncApi->getUtcTime: $e\n');
 }
 ```

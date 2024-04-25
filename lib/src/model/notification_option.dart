@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/send_to_user_type.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/send_to_user_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,14 +13,15 @@ part 'notification_option.g.dart';
 /// NotificationOption
 ///
 /// Properties:
-/// * [type] 
+/// * [type]
 /// * [disabledMonitorUsers] - Gets or sets user Ids to not monitor (it's opt out).
 /// * [sendToUsers] - Gets or sets user Ids to send to (if SendToUserMode == Custom).
 /// * [enabled] - Gets or sets a value indicating whether this MediaBrowser.Model.Notifications.NotificationOption is enabled.
 /// * [disabledServices] - Gets or sets the disabled services.
 /// * [sendToUserMode] - Gets or sets the send to user mode.
 @BuiltValue()
-abstract class NotificationOption implements Built<NotificationOption, NotificationOptionBuilder> {
+abstract class NotificationOption
+    implements Built<NotificationOption, NotificationOptionBuilder> {
   @BuiltValueField(wireName: r'Type')
   String? get type;
 
@@ -43,19 +44,23 @@ abstract class NotificationOption implements Built<NotificationOption, Notificat
   /// Gets or sets the send to user mode.
   @BuiltValueField(wireName: r'SendToUserMode')
   SendToUserType? get sendToUserMode;
+  // enum sendToUserModeEnum {  All,  Admins,  Custom,  };
 
   NotificationOption._();
 
-  factory NotificationOption([void updates(NotificationOptionBuilder b)]) = _$NotificationOption;
+  factory NotificationOption([void updates(NotificationOptionBuilder b)]) =
+      _$NotificationOption;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NotificationOptionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationOption> get serializer => _$NotificationOptionSerializer();
+  static Serializer<NotificationOption> get serializer =>
+      _$NotificationOptionSerializer();
 }
 
-class _$NotificationOptionSerializer implements PrimitiveSerializer<NotificationOption> {
+class _$NotificationOptionSerializer
+    implements PrimitiveSerializer<NotificationOption> {
   @override
   final Iterable<Type> types = const [NotificationOption, _$NotificationOption];
 
@@ -117,7 +122,9 @@ class _$NotificationOptionSerializer implements PrimitiveSerializer<Notification
     NotificationOption object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -203,4 +210,3 @@ class _$NotificationOptionSerializer implements PrimitiveSerializer<Notification
     return result.build();
   }
 }
-

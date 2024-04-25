@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SessionMessageType
 void main() {
-
-  group(SessionMessageType, () {
-  });
+  group(SessionMessageType, () {});
 }

@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for DlnaServerApi
 void main() {
   final instance = Tentacle().getDlnaServerApi();
@@ -118,6 +117,5 @@ void main() {
     test('test processMediaReceiverRegistrarControlRequest', () async {
       // TODO
     });
-
   });
 }

@@ -12,24 +12,33 @@ part 'media_path_dto_path_info.g.dart';
 /// Gets or sets the path info.
 ///
 /// Properties:
-/// * [path] 
-/// * [networkPath] 
+/// * [path]
+/// * [networkPath]
 @BuiltValue()
-abstract class MediaPathDtoPathInfo implements MediaPathInfo, Built<MediaPathDtoPathInfo, MediaPathDtoPathInfoBuilder> {
+abstract class MediaPathDtoPathInfo
+    implements
+        MediaPathInfo,
+        Built<MediaPathDtoPathInfo, MediaPathDtoPathInfoBuilder> {
   MediaPathDtoPathInfo._();
 
-  factory MediaPathDtoPathInfo([void updates(MediaPathDtoPathInfoBuilder b)]) = _$MediaPathDtoPathInfo;
+  factory MediaPathDtoPathInfo([void updates(MediaPathDtoPathInfoBuilder b)]) =
+      _$MediaPathDtoPathInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MediaPathDtoPathInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MediaPathDtoPathInfo> get serializer => _$MediaPathDtoPathInfoSerializer();
+  static Serializer<MediaPathDtoPathInfo> get serializer =>
+      _$MediaPathDtoPathInfoSerializer();
 }
 
-class _$MediaPathDtoPathInfoSerializer implements PrimitiveSerializer<MediaPathDtoPathInfo> {
+class _$MediaPathDtoPathInfoSerializer
+    implements PrimitiveSerializer<MediaPathDtoPathInfo> {
   @override
-  final Iterable<Type> types = const [MediaPathDtoPathInfo, _$MediaPathDtoPathInfo];
+  final Iterable<Type> types = const [
+    MediaPathDtoPathInfo,
+    _$MediaPathDtoPathInfo
+  ];
 
   @override
   final String wireName = r'MediaPathDtoPathInfo';
@@ -61,7 +70,9 @@ class _$MediaPathDtoPathInfoSerializer implements PrimitiveSerializer<MediaPathD
     MediaPathDtoPathInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -119,4 +130,3 @@ class _$MediaPathDtoPathInfoSerializer implements PrimitiveSerializer<MediaPathD
     return result.build();
   }
 }
-

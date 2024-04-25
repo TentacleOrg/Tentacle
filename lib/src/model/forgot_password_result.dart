@@ -16,10 +16,12 @@ part 'forgot_password_result.g.dart';
 /// * [pinFile] - Gets or sets the pin file.
 /// * [pinExpirationDate] - Gets or sets the pin expiration date.
 @BuiltValue()
-abstract class ForgotPasswordResult implements Built<ForgotPasswordResult, ForgotPasswordResultBuilder> {
+abstract class ForgotPasswordResult
+    implements Built<ForgotPasswordResult, ForgotPasswordResultBuilder> {
   /// Gets or sets the action.
   @BuiltValueField(wireName: r'Action')
   ForgotPasswordAction? get action;
+  // enum actionEnum {  ContactAdmin,  PinCode,  InNetworkRequired,  };
 
   /// Gets or sets the pin file.
   @BuiltValueField(wireName: r'PinFile')
@@ -31,18 +33,24 @@ abstract class ForgotPasswordResult implements Built<ForgotPasswordResult, Forgo
 
   ForgotPasswordResult._();
 
-  factory ForgotPasswordResult([void updates(ForgotPasswordResultBuilder b)]) = _$ForgotPasswordResult;
+  factory ForgotPasswordResult([void updates(ForgotPasswordResultBuilder b)]) =
+      _$ForgotPasswordResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ForgotPasswordResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ForgotPasswordResult> get serializer => _$ForgotPasswordResultSerializer();
+  static Serializer<ForgotPasswordResult> get serializer =>
+      _$ForgotPasswordResultSerializer();
 }
 
-class _$ForgotPasswordResultSerializer implements PrimitiveSerializer<ForgotPasswordResult> {
+class _$ForgotPasswordResultSerializer
+    implements PrimitiveSerializer<ForgotPasswordResult> {
   @override
-  final Iterable<Type> types = const [ForgotPasswordResult, _$ForgotPasswordResult];
+  final Iterable<Type> types = const [
+    ForgotPasswordResult,
+    _$ForgotPasswordResult
+  ];
 
   @override
   final String wireName = r'ForgotPasswordResult';
@@ -81,7 +89,9 @@ class _$ForgotPasswordResultSerializer implements PrimitiveSerializer<ForgotPass
     ForgotPasswordResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -147,4 +157,3 @@ class _$ForgotPasswordResultSerializer implements PrimitiveSerializer<ForgotPass
     return result.build();
   }
 }
-

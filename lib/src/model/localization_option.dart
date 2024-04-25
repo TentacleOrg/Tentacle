@@ -11,10 +11,11 @@ part 'localization_option.g.dart';
 /// LocalizationOption
 ///
 /// Properties:
-/// * [name] 
-/// * [value] 
+/// * [name]
+/// * [value]
 @BuiltValue()
-abstract class LocalizationOption implements Built<LocalizationOption, LocalizationOptionBuilder> {
+abstract class LocalizationOption
+    implements Built<LocalizationOption, LocalizationOptionBuilder> {
   @BuiltValueField(wireName: r'Name')
   String? get name;
 
@@ -23,16 +24,19 @@ abstract class LocalizationOption implements Built<LocalizationOption, Localizat
 
   LocalizationOption._();
 
-  factory LocalizationOption([void updates(LocalizationOptionBuilder b)]) = _$LocalizationOption;
+  factory LocalizationOption([void updates(LocalizationOptionBuilder b)]) =
+      _$LocalizationOption;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LocalizationOptionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LocalizationOption> get serializer => _$LocalizationOptionSerializer();
+  static Serializer<LocalizationOption> get serializer =>
+      _$LocalizationOptionSerializer();
 }
 
-class _$LocalizationOptionSerializer implements PrimitiveSerializer<LocalizationOption> {
+class _$LocalizationOptionSerializer
+    implements PrimitiveSerializer<LocalizationOption> {
   @override
   final Iterable<Type> types = const [LocalizationOption, _$LocalizationOption];
 
@@ -66,7 +70,9 @@ class _$LocalizationOptionSerializer implements PrimitiveSerializer<Localization
     LocalizationOption object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -125,4 +131,3 @@ class _$LocalizationOptionSerializer implements PrimitiveSerializer<Localization
     return result.build();
   }
 }
-

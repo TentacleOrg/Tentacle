@@ -6,7 +6,7 @@ part of 'media_path_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class MediaPathInfoBuilder {
+abstract mixin class MediaPathInfoBuilder {
   void replace(MediaPathInfo other);
   void update(void Function(MediaPathInfoBuilder) updates);
   String? get path;

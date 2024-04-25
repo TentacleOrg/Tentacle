@@ -12,7 +12,6 @@ import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
 
 class UniversalAudioApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,7 +19,7 @@ class UniversalAudioApi {
   const UniversalAudioApi(this._dio, this._serializers);
 
   /// Gets an audio stream.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -49,8 +48,8 @@ class UniversalAudioApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getUniversalAudioStream({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getUniversalAudioStream({
     required String itemId,
     BuiltList<String>? container,
     String? mediaSourceId,
@@ -76,7 +75,10 @@ class UniversalAudioApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Audio/{itemId}/universal'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Audio/{itemId}/universal'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -98,23 +100,61 @@ class UniversalAudioApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (container != null) r'container': encodeCollectionQueryParameter<String>(_serializers, container, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (mediaSourceId != null) r'mediaSourceId': encodeQueryParameter(_serializers, mediaSourceId, const FullType(String)),
-      if (deviceId != null) r'deviceId': encodeQueryParameter(_serializers, deviceId, const FullType(String)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (audioCodec != null) r'audioCodec': encodeQueryParameter(_serializers, audioCodec, const FullType(String)),
-      if (maxAudioChannels != null) r'maxAudioChannels': encodeQueryParameter(_serializers, maxAudioChannels, const FullType(int)),
-      if (transcodingAudioChannels != null) r'transcodingAudioChannels': encodeQueryParameter(_serializers, transcodingAudioChannels, const FullType(int)),
-      if (maxStreamingBitrate != null) r'maxStreamingBitrate': encodeQueryParameter(_serializers, maxStreamingBitrate, const FullType(int)),
-      if (audioBitRate != null) r'audioBitRate': encodeQueryParameter(_serializers, audioBitRate, const FullType(int)),
-      if (startTimeTicks != null) r'startTimeTicks': encodeQueryParameter(_serializers, startTimeTicks, const FullType(int)),
-      if (transcodingContainer != null) r'transcodingContainer': encodeQueryParameter(_serializers, transcodingContainer, const FullType(String)),
-      if (transcodingProtocol != null) r'transcodingProtocol': encodeQueryParameter(_serializers, transcodingProtocol, const FullType(String)),
-      if (maxAudioSampleRate != null) r'maxAudioSampleRate': encodeQueryParameter(_serializers, maxAudioSampleRate, const FullType(int)),
-      if (maxAudioBitDepth != null) r'maxAudioBitDepth': encodeQueryParameter(_serializers, maxAudioBitDepth, const FullType(int)),
-      if (enableRemoteMedia != null) r'enableRemoteMedia': encodeQueryParameter(_serializers, enableRemoteMedia, const FullType(bool)),
-      if (breakOnNonKeyFrames != null) r'breakOnNonKeyFrames': encodeQueryParameter(_serializers, breakOnNonKeyFrames, const FullType(bool)),
-      if (enableRedirection != null) r'enableRedirection': encodeQueryParameter(_serializers, enableRedirection, const FullType(bool)),
+      if (container != null)
+        r'container': encodeCollectionQueryParameter<String>(
+          _serializers,
+          container,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (mediaSourceId != null)
+        r'mediaSourceId': encodeQueryParameter(
+            _serializers, mediaSourceId, const FullType(String)),
+      if (deviceId != null)
+        r'deviceId': encodeQueryParameter(
+            _serializers, deviceId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (audioCodec != null)
+        r'audioCodec': encodeQueryParameter(
+            _serializers, audioCodec, const FullType(String)),
+      if (maxAudioChannels != null)
+        r'maxAudioChannels': encodeQueryParameter(
+            _serializers, maxAudioChannels, const FullType(int)),
+      if (transcodingAudioChannels != null)
+        r'transcodingAudioChannels': encodeQueryParameter(
+            _serializers, transcodingAudioChannels, const FullType(int)),
+      if (maxStreamingBitrate != null)
+        r'maxStreamingBitrate': encodeQueryParameter(
+            _serializers, maxStreamingBitrate, const FullType(int)),
+      if (audioBitRate != null)
+        r'audioBitRate': encodeQueryParameter(
+            _serializers, audioBitRate, const FullType(int)),
+      if (startTimeTicks != null)
+        r'startTimeTicks': encodeQueryParameter(
+            _serializers, startTimeTicks, const FullType(int)),
+      if (transcodingContainer != null)
+        r'transcodingContainer': encodeQueryParameter(
+            _serializers, transcodingContainer, const FullType(String)),
+      if (transcodingProtocol != null)
+        r'transcodingProtocol': encodeQueryParameter(
+            _serializers, transcodingProtocol, const FullType(String)),
+      if (maxAudioSampleRate != null)
+        r'maxAudioSampleRate': encodeQueryParameter(
+            _serializers, maxAudioSampleRate, const FullType(int)),
+      if (maxAudioBitDepth != null)
+        r'maxAudioBitDepth': encodeQueryParameter(
+            _serializers, maxAudioBitDepth, const FullType(int)),
+      if (enableRemoteMedia != null)
+        r'enableRemoteMedia': encodeQueryParameter(
+            _serializers, enableRemoteMedia, const FullType(bool)),
+      if (breakOnNonKeyFrames != null)
+        r'breakOnNonKeyFrames': encodeQueryParameter(
+            _serializers, breakOnNonKeyFrames, const FullType(bool)),
+      if (enableRedirection != null)
+        r'enableRedirection': encodeQueryParameter(
+            _serializers, enableRedirection, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -126,18 +166,19 @@ class UniversalAudioApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -153,7 +194,7 @@ class UniversalAudioApi {
   }
 
   /// Gets an audio stream.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -182,8 +223,8 @@ class UniversalAudioApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headUniversalAudioStream({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headUniversalAudioStream({
     required String itemId,
     BuiltList<String>? container,
     String? mediaSourceId,
@@ -209,7 +250,10 @@ class UniversalAudioApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Audio/{itemId}/universal'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Audio/{itemId}/universal'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -231,23 +275,61 @@ class UniversalAudioApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (container != null) r'container': encodeCollectionQueryParameter<String>(_serializers, container, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (mediaSourceId != null) r'mediaSourceId': encodeQueryParameter(_serializers, mediaSourceId, const FullType(String)),
-      if (deviceId != null) r'deviceId': encodeQueryParameter(_serializers, deviceId, const FullType(String)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (audioCodec != null) r'audioCodec': encodeQueryParameter(_serializers, audioCodec, const FullType(String)),
-      if (maxAudioChannels != null) r'maxAudioChannels': encodeQueryParameter(_serializers, maxAudioChannels, const FullType(int)),
-      if (transcodingAudioChannels != null) r'transcodingAudioChannels': encodeQueryParameter(_serializers, transcodingAudioChannels, const FullType(int)),
-      if (maxStreamingBitrate != null) r'maxStreamingBitrate': encodeQueryParameter(_serializers, maxStreamingBitrate, const FullType(int)),
-      if (audioBitRate != null) r'audioBitRate': encodeQueryParameter(_serializers, audioBitRate, const FullType(int)),
-      if (startTimeTicks != null) r'startTimeTicks': encodeQueryParameter(_serializers, startTimeTicks, const FullType(int)),
-      if (transcodingContainer != null) r'transcodingContainer': encodeQueryParameter(_serializers, transcodingContainer, const FullType(String)),
-      if (transcodingProtocol != null) r'transcodingProtocol': encodeQueryParameter(_serializers, transcodingProtocol, const FullType(String)),
-      if (maxAudioSampleRate != null) r'maxAudioSampleRate': encodeQueryParameter(_serializers, maxAudioSampleRate, const FullType(int)),
-      if (maxAudioBitDepth != null) r'maxAudioBitDepth': encodeQueryParameter(_serializers, maxAudioBitDepth, const FullType(int)),
-      if (enableRemoteMedia != null) r'enableRemoteMedia': encodeQueryParameter(_serializers, enableRemoteMedia, const FullType(bool)),
-      if (breakOnNonKeyFrames != null) r'breakOnNonKeyFrames': encodeQueryParameter(_serializers, breakOnNonKeyFrames, const FullType(bool)),
-      if (enableRedirection != null) r'enableRedirection': encodeQueryParameter(_serializers, enableRedirection, const FullType(bool)),
+      if (container != null)
+        r'container': encodeCollectionQueryParameter<String>(
+          _serializers,
+          container,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (mediaSourceId != null)
+        r'mediaSourceId': encodeQueryParameter(
+            _serializers, mediaSourceId, const FullType(String)),
+      if (deviceId != null)
+        r'deviceId': encodeQueryParameter(
+            _serializers, deviceId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (audioCodec != null)
+        r'audioCodec': encodeQueryParameter(
+            _serializers, audioCodec, const FullType(String)),
+      if (maxAudioChannels != null)
+        r'maxAudioChannels': encodeQueryParameter(
+            _serializers, maxAudioChannels, const FullType(int)),
+      if (transcodingAudioChannels != null)
+        r'transcodingAudioChannels': encodeQueryParameter(
+            _serializers, transcodingAudioChannels, const FullType(int)),
+      if (maxStreamingBitrate != null)
+        r'maxStreamingBitrate': encodeQueryParameter(
+            _serializers, maxStreamingBitrate, const FullType(int)),
+      if (audioBitRate != null)
+        r'audioBitRate': encodeQueryParameter(
+            _serializers, audioBitRate, const FullType(int)),
+      if (startTimeTicks != null)
+        r'startTimeTicks': encodeQueryParameter(
+            _serializers, startTimeTicks, const FullType(int)),
+      if (transcodingContainer != null)
+        r'transcodingContainer': encodeQueryParameter(
+            _serializers, transcodingContainer, const FullType(String)),
+      if (transcodingProtocol != null)
+        r'transcodingProtocol': encodeQueryParameter(
+            _serializers, transcodingProtocol, const FullType(String)),
+      if (maxAudioSampleRate != null)
+        r'maxAudioSampleRate': encodeQueryParameter(
+            _serializers, maxAudioSampleRate, const FullType(int)),
+      if (maxAudioBitDepth != null)
+        r'maxAudioBitDepth': encodeQueryParameter(
+            _serializers, maxAudioBitDepth, const FullType(int)),
+      if (enableRemoteMedia != null)
+        r'enableRemoteMedia': encodeQueryParameter(
+            _serializers, enableRemoteMedia, const FullType(bool)),
+      if (breakOnNonKeyFrames != null)
+        r'breakOnNonKeyFrames': encodeQueryParameter(
+            _serializers, breakOnNonKeyFrames, const FullType(bool)),
+      if (enableRedirection != null)
+        r'enableRedirection': encodeQueryParameter(
+            _serializers, enableRedirection, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -259,18 +341,19 @@ class UniversalAudioApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -284,5 +367,4 @@ class UniversalAudioApi {
       extra: _response.extra,
     );
   }
-
 }

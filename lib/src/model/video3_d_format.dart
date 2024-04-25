@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'video3_d_format.g.dart';
 
 class Video3DFormat extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'HalfSideBySide')
   static const Video3DFormat halfSideBySide = _$halfSideBySide;
   @BuiltValueEnumConst(wireName: r'FullSideBySide')
@@ -24,7 +23,7 @@ class Video3DFormat extends EnumClass {
 
   static Serializer<Video3DFormat> get serializer => _$video3DFormatSerializer;
 
-  const Video3DFormat._(String name): super(name);
+  const Video3DFormat._(String name) : super(name);
 
   static BuiltSet<Video3DFormat> get values => _$values;
   static Video3DFormat valueOf(String name) => _$valueOf(name);
@@ -37,4 +36,3 @@ class Video3DFormat extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class Video3DFormatMixin = Object with _$Video3DFormatMixin;
-

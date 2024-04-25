@@ -1,8 +1,8 @@
-# openapi.model.MediaStream
+# tentacle.model.MediaStream
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

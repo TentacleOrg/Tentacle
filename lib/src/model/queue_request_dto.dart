@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/group_queue_mode.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/group_queue_mode.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,24 +14,36 @@ part 'queue_request_dto.g.dart';
 ///
 /// Properties:
 /// * [itemIds] - Gets or sets the items to enqueue.
-/// * [mode] - Gets or sets the mode in which to add the new items.
-@BuiltValue(instantiable: false)
-abstract class QueueRequestDto  {
+/// * [mode] - Enum GroupQueueMode.
+@BuiltValue()
+abstract class QueueRequestDto
+    implements Built<QueueRequestDto, QueueRequestDtoBuilder> {
   /// Gets or sets the items to enqueue.
   @BuiltValueField(wireName: r'ItemIds')
   BuiltList<String>? get itemIds;
 
-  /// Gets or sets the mode in which to add the new items.
+  /// Enum GroupQueueMode.
   @BuiltValueField(wireName: r'Mode')
   GroupQueueMode? get mode;
+  // enum modeEnum {  Queue,  QueueNext,  };
+
+  QueueRequestDto._();
+
+  factory QueueRequestDto([void updates(QueueRequestDtoBuilder b)]) =
+      _$QueueRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(QueueRequestDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<QueueRequestDto> get serializer => _$QueueRequestDtoSerializer();
+  static Serializer<QueueRequestDto> get serializer =>
+      _$QueueRequestDtoSerializer();
 }
 
-class _$QueueRequestDtoSerializer implements PrimitiveSerializer<QueueRequestDto> {
+class _$QueueRequestDtoSerializer
+    implements PrimitiveSerializer<QueueRequestDto> {
   @override
-  final Iterable<Type> types = const [QueueRequestDto];
+  final Iterable<Type> types = const [QueueRequestDto, _$QueueRequestDto];
 
   @override
   final String wireName = r'QueueRequestDto';
@@ -63,47 +75,9 @@ class _$QueueRequestDtoSerializer implements PrimitiveSerializer<QueueRequestDto
     QueueRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  QueueRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($QueueRequestDto)) as $QueueRequestDto;
-  }
-}
-
-/// a concrete implementation of [QueueRequestDto], since [QueueRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $QueueRequestDto implements QueueRequestDto, Built<$QueueRequestDto, $QueueRequestDtoBuilder> {
-  $QueueRequestDto._();
-
-  factory $QueueRequestDto([void Function($QueueRequestDtoBuilder)? updates]) = _$$QueueRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($QueueRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$QueueRequestDto> get serializer => _$$QueueRequestDtoSerializer();
-}
-
-class _$$QueueRequestDtoSerializer implements PrimitiveSerializer<$QueueRequestDto> {
-  @override
-  final Iterable<Type> types = const [$QueueRequestDto, _$$QueueRequestDto];
-
-  @override
-  final String wireName = r'$QueueRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $QueueRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(QueueRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -141,12 +115,12 @@ class _$$QueueRequestDtoSerializer implements PrimitiveSerializer<$QueueRequestD
   }
 
   @override
-  $QueueRequestDto deserialize(
+  QueueRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $QueueRequestDtoBuilder();
+    final result = QueueRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -160,4 +134,3 @@ class _$$QueueRequestDtoSerializer implements PrimitiveSerializer<$QueueRequestD
     return result.build();
   }
 }
-

@@ -343,7 +343,7 @@ class _$ItemFieldsMeta {
   BuiltSet<ItemFields> get values => _$values;
 }
 
-abstract class _$ItemFieldsMixin {
+mixin _$ItemFieldsMixin {
   // ignore: non_constant_identifier_names
   _$ItemFieldsMeta get ItemFields => const _$ItemFieldsMeta();
 }

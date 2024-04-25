@@ -1,8 +1,8 @@
-# openapi.api.ConfigurationApi
+# tentacle.api.ConfigurationApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -24,18 +24,18 @@ Gets application configuration.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getConfigurationApi();
+final api = Tentacle().getConfigurationApi();
 
 try {
     final response = api.getConfiguration();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ConfigurationApi->getConfiguration: $e\n');
 }
 ```
@@ -65,18 +65,18 @@ Gets a default MetadataOptions object.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getConfigurationApi();
+final api = Tentacle().getConfigurationApi();
 
 try {
     final response = api.getDefaultMetadataOptions();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ConfigurationApi->getDefaultMetadataOptions: $e\n');
 }
 ```
@@ -106,19 +106,19 @@ Gets a named configuration.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getConfigurationApi();
+final api = Tentacle().getConfigurationApi();
 final String key = key_example; // String | Configuration key.
 
 try {
     final response = api.getNamedConfiguration(key);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ConfigurationApi->getNamedConfiguration: $e\n');
 }
 ```
@@ -145,24 +145,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateConfiguration**
-> updateConfiguration(updateConfigurationRequest)
+> updateConfiguration(serverConfiguration)
 
 Updates application configuration.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getConfigurationApi();
-final UpdateConfigurationRequest updateConfigurationRequest = ; // UpdateConfigurationRequest | Configuration.
+final api = Tentacle().getConfigurationApi();
+final ServerConfiguration serverConfiguration = ; // ServerConfiguration | Configuration.
 
 try {
-    api.updateConfiguration(updateConfigurationRequest);
-} catch on DioError (e) {
+    api.updateConfiguration(serverConfiguration);
+} catch on DioException (e) {
     print('Exception when calling ConfigurationApi->updateConfiguration: $e\n');
 }
 ```
@@ -171,7 +171,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateConfigurationRequest** | [**UpdateConfigurationRequest**](UpdateConfigurationRequest.md)| Configuration. | 
+ **serverConfiguration** | [**ServerConfiguration**](ServerConfiguration.md)| Configuration. | 
 
 ### Return type
 
@@ -189,24 +189,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateMediaEncoderPath**
-> updateMediaEncoderPath(updateMediaEncoderPathRequest)
+> updateMediaEncoderPath(mediaEncoderPathDto)
 
 Updates the path to the media encoder.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getConfigurationApi();
-final UpdateMediaEncoderPathRequest updateMediaEncoderPathRequest = ; // UpdateMediaEncoderPathRequest | Media encoder path form body.
+final api = Tentacle().getConfigurationApi();
+final MediaEncoderPathDto mediaEncoderPathDto = ; // MediaEncoderPathDto | Media encoder path form body.
 
 try {
-    api.updateMediaEncoderPath(updateMediaEncoderPathRequest);
-} catch on DioError (e) {
+    api.updateMediaEncoderPath(mediaEncoderPathDto);
+} catch on DioException (e) {
     print('Exception when calling ConfigurationApi->updateMediaEncoderPath: $e\n');
 }
 ```
@@ -215,7 +215,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateMediaEncoderPathRequest** | [**UpdateMediaEncoderPathRequest**](UpdateMediaEncoderPathRequest.md)| Media encoder path form body. | 
+ **mediaEncoderPathDto** | [**MediaEncoderPathDto**](MediaEncoderPathDto.md)| Media encoder path form body. | 
 
 ### Return type
 
@@ -239,19 +239,19 @@ Updates named configuration.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getConfigurationApi();
+final api = Tentacle().getConfigurationApi();
 final String key = key_example; // String | Configuration key.
 final JsonObject body = ; // JsonObject | Configuration.
 
 try {
     api.updateNamedConfiguration(key, body);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ConfigurationApi->updateNamedConfiguration: $e\n');
 }
 ```

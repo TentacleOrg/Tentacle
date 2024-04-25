@@ -8,7 +8,7 @@ part of 'live_stream_response.dart';
 
 class _$LiveStreamResponse extends LiveStreamResponse {
   @override
-  final LiveStreamResponseMediaSource? mediaSource;
+  final MediaSourceInfo? mediaSource;
 
   factory _$LiveStreamResponse(
           [void Function(LiveStreamResponseBuilder)? updates]) =>
@@ -51,10 +51,10 @@ class LiveStreamResponseBuilder
     implements Builder<LiveStreamResponse, LiveStreamResponseBuilder> {
   _$LiveStreamResponse? _$v;
 
-  LiveStreamResponseMediaSourceBuilder? _mediaSource;
-  LiveStreamResponseMediaSourceBuilder get mediaSource =>
-      _$this._mediaSource ??= new LiveStreamResponseMediaSourceBuilder();
-  set mediaSource(LiveStreamResponseMediaSourceBuilder? mediaSource) =>
+  MediaSourceInfoBuilder? _mediaSource;
+  MediaSourceInfoBuilder get mediaSource =>
+      _$this._mediaSource ??= new MediaSourceInfoBuilder();
+  set mediaSource(MediaSourceInfoBuilder? mediaSource) =>
       _$this._mediaSource = mediaSource;
 
   LiveStreamResponseBuilder() {

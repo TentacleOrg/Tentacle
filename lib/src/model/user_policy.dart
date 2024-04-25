@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/unrated_item.dart';
-import 'package:tentacle/src/model/access_schedule.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/unrated_item.dart';
 import 'package:tentacle/src/model/sync_play_user_access_type.dart';
+import 'package:tentacle/src/model/access_schedule.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -19,43 +19,43 @@ part 'user_policy.g.dart';
 /// * [isHidden] - Gets or sets a value indicating whether this instance is hidden.
 /// * [isDisabled] - Gets or sets a value indicating whether this instance is disabled.
 /// * [maxParentalRating] - Gets or sets the max parental rating.
-/// * [blockedTags] 
-/// * [enableUserPreferenceAccess] 
-/// * [accessSchedules] 
-/// * [blockUnratedItems] 
-/// * [enableRemoteControlOfOtherUsers] 
-/// * [enableSharedDeviceControl] 
-/// * [enableRemoteAccess] 
-/// * [enableLiveTvManagement] 
-/// * [enableLiveTvAccess] 
-/// * [enableMediaPlayback] 
-/// * [enableAudioPlaybackTranscoding] 
-/// * [enableVideoPlaybackTranscoding] 
-/// * [enablePlaybackRemuxing] 
-/// * [forceRemoteSourceTranscoding] 
-/// * [enableContentDeletion] 
-/// * [enableContentDeletionFromFolders] 
-/// * [enableContentDownloading] 
+/// * [blockedTags]
+/// * [enableUserPreferenceAccess]
+/// * [accessSchedules]
+/// * [blockUnratedItems]
+/// * [enableRemoteControlOfOtherUsers]
+/// * [enableSharedDeviceControl]
+/// * [enableRemoteAccess]
+/// * [enableLiveTvManagement]
+/// * [enableLiveTvAccess]
+/// * [enableMediaPlayback]
+/// * [enableAudioPlaybackTranscoding]
+/// * [enableVideoPlaybackTranscoding]
+/// * [enablePlaybackRemuxing]
+/// * [forceRemoteSourceTranscoding]
+/// * [enableContentDeletion]
+/// * [enableContentDeletionFromFolders]
+/// * [enableContentDownloading]
 /// * [enableSyncTranscoding] - Gets or sets a value indicating whether [enable synchronize].
-/// * [enableMediaConversion] 
-/// * [enabledDevices] 
-/// * [enableAllDevices] 
-/// * [enabledChannels] 
-/// * [enableAllChannels] 
-/// * [enabledFolders] 
-/// * [enableAllFolders] 
-/// * [invalidLoginAttemptCount] 
-/// * [loginAttemptsBeforeLockout] 
-/// * [maxActiveSessions] 
-/// * [enablePublicSharing] 
-/// * [blockedMediaFolders] 
-/// * [blockedChannels] 
-/// * [remoteClientBitrateLimit] 
-/// * [authenticationProviderId] 
-/// * [passwordResetProviderId] 
-/// * [syncPlayAccess] - Enum SyncPlayUserAccessType.
+/// * [enableMediaConversion]
+/// * [enabledDevices]
+/// * [enableAllDevices]
+/// * [enabledChannels]
+/// * [enableAllChannels]
+/// * [enabledFolders]
+/// * [enableAllFolders]
+/// * [invalidLoginAttemptCount]
+/// * [loginAttemptsBeforeLockout]
+/// * [maxActiveSessions]
+/// * [enablePublicSharing]
+/// * [blockedMediaFolders]
+/// * [blockedChannels]
+/// * [remoteClientBitrateLimit]
+/// * [authenticationProviderId]
+/// * [passwordResetProviderId]
+/// * [syncPlayAccess] - Gets or sets a value indicating what SyncPlay features the user can access.
 @BuiltValue(instantiable: false)
-abstract class UserPolicy  {
+abstract class UserPolicy {
   /// Gets or sets a value indicating whether this instance is administrator.
   @BuiltValueField(wireName: r'IsAdministrator')
   bool? get isAdministrator;
@@ -175,9 +175,10 @@ abstract class UserPolicy  {
   @BuiltValueField(wireName: r'PasswordResetProviderId')
   String? get passwordResetProviderId;
 
-  /// Enum SyncPlayUserAccessType.
+  /// Gets or sets a value indicating what SyncPlay features the user can access.
   @BuiltValueField(wireName: r'SyncPlayAccess')
   SyncPlayUserAccessType? get syncPlayAccess;
+  // enum syncPlayAccessEnum {  CreateAndJoinGroups,  JoinGroups,  None,  };
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserPolicy> get serializer => _$UserPolicySerializer();
@@ -241,14 +242,16 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
       yield r'AccessSchedules';
       yield serializers.serialize(
         object.accessSchedules,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(AccessSchedule)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(AccessSchedule)]),
       );
     }
     if (object.blockUnratedItems != null) {
       yield r'BlockUnratedItems';
       yield serializers.serialize(
         object.blockUnratedItems,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(UnratedItem)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(UnratedItem)]),
       );
     }
     if (object.enableRemoteControlOfOtherUsers != null) {
@@ -476,7 +479,9 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
     UserPolicy object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -485,16 +490,19 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($UserPolicy)) as $UserPolicy;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($UserPolicy)) as $UserPolicy;
   }
 }
 
 /// a concrete implementation of [UserPolicy], since [UserPolicy] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $UserPolicy implements UserPolicy, Built<$UserPolicy, $UserPolicyBuilder> {
+abstract class $UserPolicy
+    implements UserPolicy, Built<$UserPolicy, $UserPolicyBuilder> {
   $UserPolicy._();
 
-  factory $UserPolicy([void Function($UserPolicyBuilder)? updates]) = _$$UserPolicy;
+  factory $UserPolicy([void Function($UserPolicyBuilder)? updates]) =
+      _$$UserPolicy;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserPolicyBuilder b) => b;
@@ -563,7 +571,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'BlockedTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.blockedTags.replace(valueDes);
@@ -578,7 +587,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'AccessSchedules':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(AccessSchedule)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(AccessSchedule)]),
           ) as BuiltList<AccessSchedule>?;
           if (valueDes == null) continue;
           result.accessSchedules.replace(valueDes);
@@ -586,7 +596,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'BlockUnratedItems':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(UnratedItem)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(UnratedItem)]),
           ) as BuiltList<UnratedItem>?;
           if (valueDes == null) continue;
           result.blockUnratedItems.replace(valueDes);
@@ -671,7 +682,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'EnableContentDeletionFromFolders':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.enableContentDeletionFromFolders.replace(valueDes);
@@ -700,7 +712,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'EnabledDevices':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.enabledDevices.replace(valueDes);
@@ -715,7 +728,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'EnabledChannels':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.enabledChannels.replace(valueDes);
@@ -730,7 +744,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'EnabledFolders':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.enabledFolders.replace(valueDes);
@@ -773,7 +788,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'BlockedMediaFolders':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.blockedMediaFolders.replace(valueDes);
@@ -781,7 +797,8 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'BlockedChannels':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.blockedChannels.replace(valueDes);
@@ -844,4 +861,3 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
     return result.build();
   }
 }
-

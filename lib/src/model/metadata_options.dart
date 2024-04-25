@@ -12,15 +12,16 @@ part 'metadata_options.g.dart';
 /// Class MetadataOptions.
 ///
 /// Properties:
-/// * [itemType] 
-/// * [disabledMetadataSavers] 
-/// * [localMetadataReaderOrder] 
-/// * [disabledMetadataFetchers] 
-/// * [metadataFetcherOrder] 
-/// * [disabledImageFetchers] 
-/// * [imageFetcherOrder] 
+/// * [itemType]
+/// * [disabledMetadataSavers]
+/// * [localMetadataReaderOrder]
+/// * [disabledMetadataFetchers]
+/// * [metadataFetcherOrder]
+/// * [disabledImageFetchers]
+/// * [imageFetcherOrder]
 @BuiltValue()
-abstract class MetadataOptions implements Built<MetadataOptions, MetadataOptionsBuilder> {
+abstract class MetadataOptions
+    implements Built<MetadataOptions, MetadataOptionsBuilder> {
   @BuiltValueField(wireName: r'ItemType')
   String? get itemType;
 
@@ -44,16 +45,19 @@ abstract class MetadataOptions implements Built<MetadataOptions, MetadataOptions
 
   MetadataOptions._();
 
-  factory MetadataOptions([void updates(MetadataOptionsBuilder b)]) = _$MetadataOptions;
+  factory MetadataOptions([void updates(MetadataOptionsBuilder b)]) =
+      _$MetadataOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataOptions> get serializer => _$MetadataOptionsSerializer();
+  static Serializer<MetadataOptions> get serializer =>
+      _$MetadataOptionsSerializer();
 }
 
-class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions> {
+class _$MetadataOptionsSerializer
+    implements PrimitiveSerializer<MetadataOptions> {
   @override
   final Iterable<Type> types = const [MetadataOptions, _$MetadataOptions];
 
@@ -122,7 +126,9 @@ class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions
     MetadataOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -148,7 +154,8 @@ class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions
         case r'DisabledMetadataSavers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.disabledMetadataSavers.replace(valueDes);
@@ -156,7 +163,8 @@ class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions
         case r'LocalMetadataReaderOrder':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.localMetadataReaderOrder.replace(valueDes);
@@ -164,7 +172,8 @@ class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions
         case r'DisabledMetadataFetchers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.disabledMetadataFetchers.replace(valueDes);
@@ -172,7 +181,8 @@ class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions
         case r'MetadataFetcherOrder':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.metadataFetcherOrder.replace(valueDes);
@@ -180,7 +190,8 @@ class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions
         case r'DisabledImageFetchers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.disabledImageFetchers.replace(valueDes);
@@ -188,7 +199,8 @@ class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions
         case r'ImageFetcherOrder':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.imageFetcherOrder.replace(valueDes);
@@ -221,4 +233,3 @@ class _$MetadataOptionsSerializer implements PrimitiveSerializer<MetadataOptions
     return result.build();
   }
 }
-

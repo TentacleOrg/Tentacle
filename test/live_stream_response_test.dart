@@ -7,10 +7,9 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(LiveStreamResponse, () {
-    // LiveStreamResponseMediaSource mediaSource
+    // MediaSourceInfo mediaSource
     test('to test the property `mediaSource`', () async {
       // TODO
     });
-
   });
 }

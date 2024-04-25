@@ -1,8 +1,8 @@
-# openapi.model.UserDtoPolicy
+# tentacle.model.UserDtoPolicy
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 **remoteClientBitrateLimit** | **int** |  | [optional] 
 **authenticationProviderId** | **String** |  | [optional] 
 **passwordResetProviderId** | **String** |  | [optional] 
-**syncPlayAccess** | [**SyncPlayUserAccessType**](SyncPlayUserAccessType.md) | Enum SyncPlayUserAccessType. | [optional] 
+**syncPlayAccess** | [**SyncPlayUserAccessType**](SyncPlayUserAccessType.md) | Gets or sets a value indicating what SyncPlay features the user can access. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

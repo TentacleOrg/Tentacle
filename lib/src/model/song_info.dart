@@ -19,13 +19,13 @@ part 'song_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-/// * [albumArtists] 
-/// * [album] 
-/// * [artists] 
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+/// * [albumArtists]
+/// * [album]
+/// * [artists]
 @BuiltValue()
 abstract class SongInfo implements Built<SongInfo, SongInfoBuilder> {
   /// Gets or sets the name.
@@ -139,7 +139,8 @@ class _$SongInfoSerializer implements PrimitiveSerializer<SongInfo> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -206,7 +207,9 @@ class _$SongInfoSerializer implements PrimitiveSerializer<SongInfo> {
     SongInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -264,7 +267,8 @@ class _$SongInfoSerializer implements PrimitiveSerializer<SongInfo> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -311,7 +315,8 @@ class _$SongInfoSerializer implements PrimitiveSerializer<SongInfo> {
         case r'AlbumArtists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.albumArtists.replace(valueDes);
@@ -327,7 +332,8 @@ class _$SongInfoSerializer implements PrimitiveSerializer<SongInfo> {
         case r'Artists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.artists.replace(valueDes);
@@ -360,4 +366,3 @@ class _$SongInfoSerializer implements PrimitiveSerializer<SongInfo> {
     return result.build();
   }
 }
-

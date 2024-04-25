@@ -6,40 +6,29 @@ part of 'queue_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class QueueRequestDtoBuilder {
-  void replace(QueueRequestDto other);
-  void update(void Function(QueueRequestDtoBuilder) updates);
-  ListBuilder<String> get itemIds;
-  set itemIds(ListBuilder<String>? itemIds);
-
-  GroupQueueMode? get mode;
-  set mode(GroupQueueMode? mode);
-}
-
-class _$$QueueRequestDto extends $QueueRequestDto {
+class _$QueueRequestDto extends QueueRequestDto {
   @override
   final BuiltList<String>? itemIds;
   @override
   final GroupQueueMode? mode;
 
-  factory _$$QueueRequestDto(
-          [void Function($QueueRequestDtoBuilder)? updates]) =>
-      (new $QueueRequestDtoBuilder()..update(updates))._build();
+  factory _$QueueRequestDto([void Function(QueueRequestDtoBuilder)? updates]) =>
+      (new QueueRequestDtoBuilder()..update(updates))._build();
 
-  _$$QueueRequestDto._({this.itemIds, this.mode}) : super._();
+  _$QueueRequestDto._({this.itemIds, this.mode}) : super._();
 
   @override
-  $QueueRequestDto rebuild(void Function($QueueRequestDtoBuilder) updates) =>
+  QueueRequestDto rebuild(void Function(QueueRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $QueueRequestDtoBuilder toBuilder() =>
-      new $QueueRequestDtoBuilder()..replace(this);
+  QueueRequestDtoBuilder toBuilder() =>
+      new QueueRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $QueueRequestDto &&
+    return other is QueueRequestDto &&
         itemIds == other.itemIds &&
         mode == other.mode;
   }
@@ -55,34 +44,31 @@ class _$$QueueRequestDto extends $QueueRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$QueueRequestDto')
+    return (newBuiltValueToStringHelper(r'QueueRequestDto')
           ..add('itemIds', itemIds)
           ..add('mode', mode))
         .toString();
   }
 }
 
-class $QueueRequestDtoBuilder
-    implements
-        Builder<$QueueRequestDto, $QueueRequestDtoBuilder>,
-        QueueRequestDtoBuilder {
-  _$$QueueRequestDto? _$v;
+class QueueRequestDtoBuilder
+    implements Builder<QueueRequestDto, QueueRequestDtoBuilder> {
+  _$QueueRequestDto? _$v;
 
   ListBuilder<String>? _itemIds;
   ListBuilder<String> get itemIds =>
       _$this._itemIds ??= new ListBuilder<String>();
-  set itemIds(covariant ListBuilder<String>? itemIds) =>
-      _$this._itemIds = itemIds;
+  set itemIds(ListBuilder<String>? itemIds) => _$this._itemIds = itemIds;
 
   GroupQueueMode? _mode;
   GroupQueueMode? get mode => _$this._mode;
-  set mode(covariant GroupQueueMode? mode) => _$this._mode = mode;
+  set mode(GroupQueueMode? mode) => _$this._mode = mode;
 
-  $QueueRequestDtoBuilder() {
-    $QueueRequestDto._defaults(this);
+  QueueRequestDtoBuilder() {
+    QueueRequestDto._defaults(this);
   }
 
-  $QueueRequestDtoBuilder get _$this {
+  QueueRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _itemIds = $v.itemIds?.toBuilder();
@@ -93,24 +79,24 @@ class $QueueRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $QueueRequestDto other) {
+  void replace(QueueRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$QueueRequestDto;
+    _$v = other as _$QueueRequestDto;
   }
 
   @override
-  void update(void Function($QueueRequestDtoBuilder)? updates) {
+  void update(void Function(QueueRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $QueueRequestDto build() => _build();
+  QueueRequestDto build() => _build();
 
-  _$$QueueRequestDto _build() {
-    _$$QueueRequestDto _$result;
+  _$QueueRequestDto _build() {
+    _$QueueRequestDto _$result;
     try {
       _$result = _$v ??
-          new _$$QueueRequestDto._(itemIds: _itemIds?.build(), mode: mode);
+          new _$QueueRequestDto._(itemIds: _itemIds?.build(), mode: mode);
     } catch (_) {
       late String _$failedField;
       try {
@@ -118,7 +104,7 @@ class $QueueRequestDtoBuilder
         _itemIds?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$QueueRequestDto', _$failedField, e.toString());
+            r'QueueRequestDto', _$failedField, e.toString());
       }
       rethrow;
     }

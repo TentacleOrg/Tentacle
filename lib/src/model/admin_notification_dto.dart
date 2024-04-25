@@ -16,8 +16,9 @@ part 'admin_notification_dto.g.dart';
 /// * [description] - Gets or sets the notification description.
 /// * [notificationLevel] - Gets or sets the notification level.
 /// * [url] - Gets or sets the notification url.
-@BuiltValue(instantiable: false)
-abstract class AdminNotificationDto  {
+@BuiltValue()
+abstract class AdminNotificationDto
+    implements Built<AdminNotificationDto, AdminNotificationDtoBuilder> {
   /// Gets or sets the notification name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -29,18 +30,32 @@ abstract class AdminNotificationDto  {
   /// Gets or sets the notification level.
   @BuiltValueField(wireName: r'NotificationLevel')
   NotificationLevel? get notificationLevel;
+  // enum notificationLevelEnum {  Normal,  Warning,  Error,  };
 
   /// Gets or sets the notification url.
   @BuiltValueField(wireName: r'Url')
   String? get url;
 
+  AdminNotificationDto._();
+
+  factory AdminNotificationDto([void updates(AdminNotificationDtoBuilder b)]) =
+      _$AdminNotificationDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AdminNotificationDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<AdminNotificationDto> get serializer => _$AdminNotificationDtoSerializer();
+  static Serializer<AdminNotificationDto> get serializer =>
+      _$AdminNotificationDtoSerializer();
 }
 
-class _$AdminNotificationDtoSerializer implements PrimitiveSerializer<AdminNotificationDto> {
+class _$AdminNotificationDtoSerializer
+    implements PrimitiveSerializer<AdminNotificationDto> {
   @override
-  final Iterable<Type> types = const [AdminNotificationDto];
+  final Iterable<Type> types = const [
+    AdminNotificationDto,
+    _$AdminNotificationDto
+  ];
 
   @override
   final String wireName = r'AdminNotificationDto';
@@ -86,47 +101,9 @@ class _$AdminNotificationDtoSerializer implements PrimitiveSerializer<AdminNotif
     AdminNotificationDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  AdminNotificationDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AdminNotificationDto)) as $AdminNotificationDto;
-  }
-}
-
-/// a concrete implementation of [AdminNotificationDto], since [AdminNotificationDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $AdminNotificationDto implements AdminNotificationDto, Built<$AdminNotificationDto, $AdminNotificationDtoBuilder> {
-  $AdminNotificationDto._();
-
-  factory $AdminNotificationDto([void Function($AdminNotificationDtoBuilder)? updates]) = _$$AdminNotificationDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AdminNotificationDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$AdminNotificationDto> get serializer => _$$AdminNotificationDtoSerializer();
-}
-
-class _$$AdminNotificationDtoSerializer implements PrimitiveSerializer<$AdminNotificationDto> {
-  @override
-  final Iterable<Type> types = const [$AdminNotificationDto, _$$AdminNotificationDto];
-
-  @override
-  final String wireName = r'$AdminNotificationDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $AdminNotificationDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(AdminNotificationDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -182,12 +159,12 @@ class _$$AdminNotificationDtoSerializer implements PrimitiveSerializer<$AdminNot
   }
 
   @override
-  $AdminNotificationDto deserialize(
+  AdminNotificationDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $AdminNotificationDtoBuilder();
+    final result = AdminNotificationDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -201,4 +178,3 @@ class _$$AdminNotificationDtoSerializer implements PrimitiveSerializer<$AdminNot
     return result.build();
   }
 }
-

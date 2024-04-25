@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'profile_condition_type.g.dart';
 
 class ProfileConditionType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Equals')
   static const ProfileConditionType equals = _$equals;
   @BuiltValueEnumConst(wireName: r'NotEquals')
@@ -22,9 +21,10 @@ class ProfileConditionType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'EqualsAny')
   static const ProfileConditionType equalsAny = _$equalsAny;
 
-  static Serializer<ProfileConditionType> get serializer => _$profileConditionTypeSerializer;
+  static Serializer<ProfileConditionType> get serializer =>
+      _$profileConditionTypeSerializer;
 
-  const ProfileConditionType._(String name): super(name);
+  const ProfileConditionType._(String name) : super(name);
 
   static BuiltSet<ProfileConditionType> get values => _$values;
   static ProfileConditionType valueOf(String name) => _$valueOf(name);
@@ -36,5 +36,5 @@ class ProfileConditionType extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class ProfileConditionTypeMixin = Object with _$ProfileConditionTypeMixin;
-
+abstract class ProfileConditionTypeMixin = Object
+    with _$ProfileConditionTypeMixin;

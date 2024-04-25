@@ -13,7 +13,7 @@ part 'search_hint.g.dart';
 ///
 /// Properties:
 /// * [itemId] - Gets or sets the item id.
-/// * [id] 
+/// * [id]
 /// * [name] - Gets or sets the name.
 /// * [matchedTerm] - Gets or sets the matched term.
 /// * [indexNumber] - Gets or sets the index number.
@@ -25,15 +25,15 @@ part 'search_hint.g.dart';
 /// * [backdropImageTag] - Gets or sets the backdrop image tag.
 /// * [backdropImageItemId] - Gets or sets the backdrop image item identifier.
 /// * [type] - Gets or sets the type.
-/// * [isFolder] 
+/// * [isFolder]
 /// * [runTimeTicks] - Gets or sets the run time ticks.
 /// * [mediaType] - Gets or sets the type of the media.
-/// * [startDate] 
-/// * [endDate] 
+/// * [startDate]
+/// * [endDate]
 /// * [series] - Gets or sets the series.
-/// * [status] 
+/// * [status]
 /// * [album] - Gets or sets the album.
-/// * [albumId] 
+/// * [albumId]
 /// * [albumArtist] - Gets or sets the album artist.
 /// * [artists] - Gets or sets the artists.
 /// * [songCount] - Gets or sets the song count.
@@ -387,7 +387,9 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
     SearchHint object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -586,7 +588,8 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
         case r'Artists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.artists.replace(valueDes);
@@ -658,4 +661,3 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
     return result.build();
   }
 }
-

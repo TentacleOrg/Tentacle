@@ -23,7 +23,7 @@ part 'user_item_data_dto.g.dart';
 /// * [key] - Gets or sets the key.
 /// * [itemId] - Gets or sets the item identifier.
 @BuiltValue(instantiable: false)
-abstract class UserItemDataDto  {
+abstract class UserItemDataDto {
   /// Gets or sets the rating.
   @BuiltValueField(wireName: r'Rating')
   double? get rating;
@@ -69,10 +69,12 @@ abstract class UserItemDataDto  {
   String? get itemId;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserItemDataDto> get serializer => _$UserItemDataDtoSerializer();
+  static Serializer<UserItemDataDto> get serializer =>
+      _$UserItemDataDtoSerializer();
 }
 
-class _$UserItemDataDtoSerializer implements PrimitiveSerializer<UserItemDataDto> {
+class _$UserItemDataDtoSerializer
+    implements PrimitiveSerializer<UserItemDataDto> {
   @override
   final Iterable<Type> types = const [UserItemDataDto];
 
@@ -169,7 +171,9 @@ class _$UserItemDataDtoSerializer implements PrimitiveSerializer<UserItemDataDto
     UserItemDataDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -178,25 +182,32 @@ class _$UserItemDataDtoSerializer implements PrimitiveSerializer<UserItemDataDto
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($UserItemDataDto)) as $UserItemDataDto;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($UserItemDataDto)) as $UserItemDataDto;
   }
 }
 
 /// a concrete implementation of [UserItemDataDto], since [UserItemDataDto] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $UserItemDataDto implements UserItemDataDto, Built<$UserItemDataDto, $UserItemDataDtoBuilder> {
+abstract class $UserItemDataDto
+    implements
+        UserItemDataDto,
+        Built<$UserItemDataDto, $UserItemDataDtoBuilder> {
   $UserItemDataDto._();
 
-  factory $UserItemDataDto([void Function($UserItemDataDtoBuilder)? updates]) = _$$UserItemDataDto;
+  factory $UserItemDataDto([void Function($UserItemDataDtoBuilder)? updates]) =
+      _$$UserItemDataDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserItemDataDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$UserItemDataDto> get serializer => _$$UserItemDataDtoSerializer();
+  static Serializer<$UserItemDataDto> get serializer =>
+      _$$UserItemDataDtoSerializer();
 }
 
-class _$$UserItemDataDtoSerializer implements PrimitiveSerializer<$UserItemDataDto> {
+class _$$UserItemDataDtoSerializer
+    implements PrimitiveSerializer<$UserItemDataDto> {
   @override
   final Iterable<Type> types = const [$UserItemDataDto, _$$UserItemDataDto];
 
@@ -209,7 +220,8 @@ class _$$UserItemDataDtoSerializer implements PrimitiveSerializer<$UserItemDataD
     $UserItemDataDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(UserItemDataDto))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(UserItemDataDto))!;
   }
 
   void _deserializeProperties(
@@ -336,4 +348,3 @@ class _$$UserItemDataDtoSerializer implements PrimitiveSerializer<$UserItemDataD
     return result.build();
   }
 }
-

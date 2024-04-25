@@ -6,53 +6,7 @@ part of 'display_preferences_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class DisplayPreferencesDtoBuilder {
-  void replace(DisplayPreferencesDto other);
-  void update(void Function(DisplayPreferencesDtoBuilder) updates);
-  String? get id;
-  set id(String? id);
-
-  String? get viewType;
-  set viewType(String? viewType);
-
-  String? get sortBy;
-  set sortBy(String? sortBy);
-
-  String? get indexBy;
-  set indexBy(String? indexBy);
-
-  bool? get rememberIndexing;
-  set rememberIndexing(bool? rememberIndexing);
-
-  int? get primaryImageHeight;
-  set primaryImageHeight(int? primaryImageHeight);
-
-  int? get primaryImageWidth;
-  set primaryImageWidth(int? primaryImageWidth);
-
-  MapBuilder<String, String?> get customPrefs;
-  set customPrefs(MapBuilder<String, String?>? customPrefs);
-
-  ScrollDirection? get scrollDirection;
-  set scrollDirection(ScrollDirection? scrollDirection);
-
-  bool? get showBackdrop;
-  set showBackdrop(bool? showBackdrop);
-
-  bool? get rememberSorting;
-  set rememberSorting(bool? rememberSorting);
-
-  SortOrder? get sortOrder;
-  set sortOrder(SortOrder? sortOrder);
-
-  bool? get showSidebar;
-  set showSidebar(bool? showSidebar);
-
-  String? get client;
-  set client(String? client);
-}
-
-class _$$DisplayPreferencesDto extends $DisplayPreferencesDto {
+class _$DisplayPreferencesDto extends DisplayPreferencesDto {
   @override
   final String? id;
   @override
@@ -82,11 +36,11 @@ class _$$DisplayPreferencesDto extends $DisplayPreferencesDto {
   @override
   final String? client;
 
-  factory _$$DisplayPreferencesDto(
-          [void Function($DisplayPreferencesDtoBuilder)? updates]) =>
-      (new $DisplayPreferencesDtoBuilder()..update(updates))._build();
+  factory _$DisplayPreferencesDto(
+          [void Function(DisplayPreferencesDtoBuilder)? updates]) =>
+      (new DisplayPreferencesDtoBuilder()..update(updates))._build();
 
-  _$$DisplayPreferencesDto._(
+  _$DisplayPreferencesDto._(
       {this.id,
       this.viewType,
       this.sortBy,
@@ -104,18 +58,18 @@ class _$$DisplayPreferencesDto extends $DisplayPreferencesDto {
       : super._();
 
   @override
-  $DisplayPreferencesDto rebuild(
-          void Function($DisplayPreferencesDtoBuilder) updates) =>
+  DisplayPreferencesDto rebuild(
+          void Function(DisplayPreferencesDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $DisplayPreferencesDtoBuilder toBuilder() =>
-      new $DisplayPreferencesDtoBuilder()..replace(this);
+  DisplayPreferencesDtoBuilder toBuilder() =>
+      new DisplayPreferencesDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $DisplayPreferencesDto &&
+    return other is DisplayPreferencesDto &&
         id == other.id &&
         viewType == other.viewType &&
         sortBy == other.sortBy &&
@@ -155,7 +109,7 @@ class _$$DisplayPreferencesDto extends $DisplayPreferencesDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$DisplayPreferencesDto')
+    return (newBuiltValueToStringHelper(r'DisplayPreferencesDto')
           ..add('id', id)
           ..add('viewType', viewType)
           ..add('sortBy', sortBy)
@@ -174,83 +128,78 @@ class _$$DisplayPreferencesDto extends $DisplayPreferencesDto {
   }
 }
 
-class $DisplayPreferencesDtoBuilder
-    implements
-        Builder<$DisplayPreferencesDto, $DisplayPreferencesDtoBuilder>,
-        DisplayPreferencesDtoBuilder {
-  _$$DisplayPreferencesDto? _$v;
+class DisplayPreferencesDtoBuilder
+    implements Builder<DisplayPreferencesDto, DisplayPreferencesDtoBuilder> {
+  _$DisplayPreferencesDto? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   String? _viewType;
   String? get viewType => _$this._viewType;
-  set viewType(covariant String? viewType) => _$this._viewType = viewType;
+  set viewType(String? viewType) => _$this._viewType = viewType;
 
   String? _sortBy;
   String? get sortBy => _$this._sortBy;
-  set sortBy(covariant String? sortBy) => _$this._sortBy = sortBy;
+  set sortBy(String? sortBy) => _$this._sortBy = sortBy;
 
   String? _indexBy;
   String? get indexBy => _$this._indexBy;
-  set indexBy(covariant String? indexBy) => _$this._indexBy = indexBy;
+  set indexBy(String? indexBy) => _$this._indexBy = indexBy;
 
   bool? _rememberIndexing;
   bool? get rememberIndexing => _$this._rememberIndexing;
-  set rememberIndexing(covariant bool? rememberIndexing) =>
+  set rememberIndexing(bool? rememberIndexing) =>
       _$this._rememberIndexing = rememberIndexing;
 
   int? _primaryImageHeight;
   int? get primaryImageHeight => _$this._primaryImageHeight;
-  set primaryImageHeight(covariant int? primaryImageHeight) =>
+  set primaryImageHeight(int? primaryImageHeight) =>
       _$this._primaryImageHeight = primaryImageHeight;
 
   int? _primaryImageWidth;
   int? get primaryImageWidth => _$this._primaryImageWidth;
-  set primaryImageWidth(covariant int? primaryImageWidth) =>
+  set primaryImageWidth(int? primaryImageWidth) =>
       _$this._primaryImageWidth = primaryImageWidth;
 
   MapBuilder<String, String?>? _customPrefs;
   MapBuilder<String, String?> get customPrefs =>
       _$this._customPrefs ??= new MapBuilder<String, String?>();
-  set customPrefs(covariant MapBuilder<String, String?>? customPrefs) =>
+  set customPrefs(MapBuilder<String, String?>? customPrefs) =>
       _$this._customPrefs = customPrefs;
 
   ScrollDirection? _scrollDirection;
   ScrollDirection? get scrollDirection => _$this._scrollDirection;
-  set scrollDirection(covariant ScrollDirection? scrollDirection) =>
+  set scrollDirection(ScrollDirection? scrollDirection) =>
       _$this._scrollDirection = scrollDirection;
 
   bool? _showBackdrop;
   bool? get showBackdrop => _$this._showBackdrop;
-  set showBackdrop(covariant bool? showBackdrop) =>
-      _$this._showBackdrop = showBackdrop;
+  set showBackdrop(bool? showBackdrop) => _$this._showBackdrop = showBackdrop;
 
   bool? _rememberSorting;
   bool? get rememberSorting => _$this._rememberSorting;
-  set rememberSorting(covariant bool? rememberSorting) =>
+  set rememberSorting(bool? rememberSorting) =>
       _$this._rememberSorting = rememberSorting;
 
   SortOrder? _sortOrder;
   SortOrder? get sortOrder => _$this._sortOrder;
-  set sortOrder(covariant SortOrder? sortOrder) =>
-      _$this._sortOrder = sortOrder;
+  set sortOrder(SortOrder? sortOrder) => _$this._sortOrder = sortOrder;
 
   bool? _showSidebar;
   bool? get showSidebar => _$this._showSidebar;
-  set showSidebar(covariant bool? showSidebar) =>
-      _$this._showSidebar = showSidebar;
+  set showSidebar(bool? showSidebar) => _$this._showSidebar = showSidebar;
 
   String? _client;
   String? get client => _$this._client;
-  set client(covariant String? client) => _$this._client = client;
+  set client(String? client) => _$this._client = client;
 
-  $DisplayPreferencesDtoBuilder() {
-    $DisplayPreferencesDto._defaults(this);
+  DisplayPreferencesDtoBuilder() {
+    DisplayPreferencesDto._defaults(this);
   }
 
-  $DisplayPreferencesDtoBuilder get _$this {
+  DisplayPreferencesDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -273,24 +222,24 @@ class $DisplayPreferencesDtoBuilder
   }
 
   @override
-  void replace(covariant $DisplayPreferencesDto other) {
+  void replace(DisplayPreferencesDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$DisplayPreferencesDto;
+    _$v = other as _$DisplayPreferencesDto;
   }
 
   @override
-  void update(void Function($DisplayPreferencesDtoBuilder)? updates) {
+  void update(void Function(DisplayPreferencesDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $DisplayPreferencesDto build() => _build();
+  DisplayPreferencesDto build() => _build();
 
-  _$$DisplayPreferencesDto _build() {
-    _$$DisplayPreferencesDto _$result;
+  _$DisplayPreferencesDto _build() {
+    _$DisplayPreferencesDto _$result;
     try {
       _$result = _$v ??
-          new _$$DisplayPreferencesDto._(
+          new _$DisplayPreferencesDto._(
               id: id,
               viewType: viewType,
               sortBy: sortBy,
@@ -312,7 +261,7 @@ class $DisplayPreferencesDtoBuilder
         _customPrefs?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$DisplayPreferencesDto', _$failedField, e.toString());
+            r'DisplayPreferencesDto', _$failedField, e.toString());
       }
       rethrow;
     }

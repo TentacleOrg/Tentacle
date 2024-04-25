@@ -6,7 +6,7 @@ part of 'package_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class PackageInfoBuilder {
+abstract mixin class PackageInfoBuilder {
   void replace(PackageInfo other);
   void update(void Function(PackageInfoBuilder) updates);
   String? get name;

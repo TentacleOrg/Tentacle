@@ -35,7 +35,7 @@ class ItemRefreshApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> refreshItem({
     required String itemId,
     MetadataRefreshMode? metadataRefreshMode = MetadataRefreshMode.none,
@@ -49,8 +49,10 @@ class ItemRefreshApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Refresh'
-        .replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/Refresh'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{

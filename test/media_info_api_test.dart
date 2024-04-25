@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for MediaInfoApi
 void main() {
   final instance = Tentacle().getMediaInfoApi();
@@ -32,17 +31,16 @@ void main() {
     //
     // For backwards compatibility parameters can be sent via Query or Body, with Query having higher precedence.  Query parameters are obsolete.
     //
-    //Future<PlaybackInfoResponse> getPostedPlaybackInfo(String itemId, { String userId, int maxStreamingBitrate, int startTimeTicks, int audioStreamIndex, int subtitleStreamIndex, int maxAudioChannels, String mediaSourceId, String liveStreamId, bool autoOpenLiveStream, bool enableDirectPlay, bool enableDirectStream, bool enableTranscoding, bool allowVideoStreamCopy, bool allowAudioStreamCopy, GetPostedPlaybackInfoRequest getPostedPlaybackInfoRequest }) async
+    //Future<PlaybackInfoResponse> getPostedPlaybackInfo(String itemId, { String userId, int maxStreamingBitrate, int startTimeTicks, int audioStreamIndex, int subtitleStreamIndex, int maxAudioChannels, String mediaSourceId, String liveStreamId, bool autoOpenLiveStream, bool enableDirectPlay, bool enableDirectStream, bool enableTranscoding, bool allowVideoStreamCopy, bool allowAudioStreamCopy, PlaybackInfoDto playbackInfoDto }) async
     test('test getPostedPlaybackInfo', () async {
       // TODO
     });
 
     // Opens a media source.
     //
-    //Future<LiveStreamResponse> openLiveStream({ String openToken, String userId, String playSessionId, int maxStreamingBitrate, int startTimeTicks, int audioStreamIndex, int subtitleStreamIndex, int maxAudioChannels, String itemId, bool enableDirectPlay, bool enableDirectStream, OpenLiveStreamRequest openLiveStreamRequest }) async
+    //Future<LiveStreamResponse> openLiveStream({ String openToken, String userId, String playSessionId, int maxStreamingBitrate, int startTimeTicks, int audioStreamIndex, int subtitleStreamIndex, int maxAudioChannels, String itemId, bool enableDirectPlay, bool enableDirectStream, OpenLiveStreamDto openLiveStreamDto }) async
     test('test openLiveStream', () async {
       // TODO
     });
-
   });
 }

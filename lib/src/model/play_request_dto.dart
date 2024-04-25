@@ -15,8 +15,9 @@ part 'play_request_dto.g.dart';
 /// * [playingQueue] - Gets or sets the playing queue.
 /// * [playingItemPosition] - Gets or sets the position of the playing item in the queue.
 /// * [startPositionTicks] - Gets or sets the start position ticks.
-@BuiltValue(instantiable: false)
-abstract class PlayRequestDto  {
+@BuiltValue()
+abstract class PlayRequestDto
+    implements Built<PlayRequestDto, PlayRequestDtoBuilder> {
   /// Gets or sets the playing queue.
   @BuiltValueField(wireName: r'PlayingQueue')
   BuiltList<String>? get playingQueue;
@@ -29,13 +30,23 @@ abstract class PlayRequestDto  {
   @BuiltValueField(wireName: r'StartPositionTicks')
   int? get startPositionTicks;
 
+  PlayRequestDto._();
+
+  factory PlayRequestDto([void updates(PlayRequestDtoBuilder b)]) =
+      _$PlayRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PlayRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PlayRequestDto> get serializer => _$PlayRequestDtoSerializer();
+  static Serializer<PlayRequestDto> get serializer =>
+      _$PlayRequestDtoSerializer();
 }
 
-class _$PlayRequestDtoSerializer implements PrimitiveSerializer<PlayRequestDto> {
+class _$PlayRequestDtoSerializer
+    implements PrimitiveSerializer<PlayRequestDto> {
   @override
-  final Iterable<Type> types = const [PlayRequestDto];
+  final Iterable<Type> types = const [PlayRequestDto, _$PlayRequestDto];
 
   @override
   final String wireName = r'PlayRequestDto';
@@ -74,47 +85,9 @@ class _$PlayRequestDtoSerializer implements PrimitiveSerializer<PlayRequestDto> 
     PlayRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PlayRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PlayRequestDto)) as $PlayRequestDto;
-  }
-}
-
-/// a concrete implementation of [PlayRequestDto], since [PlayRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PlayRequestDto implements PlayRequestDto, Built<$PlayRequestDto, $PlayRequestDtoBuilder> {
-  $PlayRequestDto._();
-
-  factory $PlayRequestDto([void Function($PlayRequestDtoBuilder)? updates]) = _$$PlayRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PlayRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PlayRequestDto> get serializer => _$$PlayRequestDtoSerializer();
-}
-
-class _$$PlayRequestDtoSerializer implements PrimitiveSerializer<$PlayRequestDto> {
-  @override
-  final Iterable<Type> types = const [$PlayRequestDto, _$$PlayRequestDto];
-
-  @override
-  final String wireName = r'$PlayRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PlayRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PlayRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -159,12 +132,12 @@ class _$$PlayRequestDtoSerializer implements PrimitiveSerializer<$PlayRequestDto
   }
 
   @override
-  $PlayRequestDto deserialize(
+  PlayRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PlayRequestDtoBuilder();
+    final result = PlayRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -178,4 +151,3 @@ class _$$PlayRequestDtoSerializer implements PrimitiveSerializer<$PlayRequestDto
     return result.build();
   }
 }
-

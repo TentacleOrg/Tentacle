@@ -12,19 +12,30 @@ part 'next_item_request_dto.g.dart';
 ///
 /// Properties:
 /// * [playlistItemId] - Gets or sets the playing item identifier.
-@BuiltValue(instantiable: false)
-abstract class NextItemRequestDto  {
+@BuiltValue()
+abstract class NextItemRequestDto
+    implements Built<NextItemRequestDto, NextItemRequestDtoBuilder> {
   /// Gets or sets the playing item identifier.
   @BuiltValueField(wireName: r'PlaylistItemId')
   String? get playlistItemId;
 
+  NextItemRequestDto._();
+
+  factory NextItemRequestDto([void updates(NextItemRequestDtoBuilder b)]) =
+      _$NextItemRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NextItemRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<NextItemRequestDto> get serializer => _$NextItemRequestDtoSerializer();
+  static Serializer<NextItemRequestDto> get serializer =>
+      _$NextItemRequestDtoSerializer();
 }
 
-class _$NextItemRequestDtoSerializer implements PrimitiveSerializer<NextItemRequestDto> {
+class _$NextItemRequestDtoSerializer
+    implements PrimitiveSerializer<NextItemRequestDto> {
   @override
-  final Iterable<Type> types = const [NextItemRequestDto];
+  final Iterable<Type> types = const [NextItemRequestDto, _$NextItemRequestDto];
 
   @override
   final String wireName = r'NextItemRequestDto';
@@ -49,47 +60,9 @@ class _$NextItemRequestDtoSerializer implements PrimitiveSerializer<NextItemRequ
     NextItemRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  NextItemRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($NextItemRequestDto)) as $NextItemRequestDto;
-  }
-}
-
-/// a concrete implementation of [NextItemRequestDto], since [NextItemRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $NextItemRequestDto implements NextItemRequestDto, Built<$NextItemRequestDto, $NextItemRequestDtoBuilder> {
-  $NextItemRequestDto._();
-
-  factory $NextItemRequestDto([void Function($NextItemRequestDtoBuilder)? updates]) = _$$NextItemRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($NextItemRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$NextItemRequestDto> get serializer => _$$NextItemRequestDtoSerializer();
-}
-
-class _$$NextItemRequestDtoSerializer implements PrimitiveSerializer<$NextItemRequestDto> {
-  @override
-  final Iterable<Type> types = const [$NextItemRequestDto, _$$NextItemRequestDto];
-
-  @override
-  final String wireName = r'$NextItemRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $NextItemRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(NextItemRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,12 +93,12 @@ class _$$NextItemRequestDtoSerializer implements PrimitiveSerializer<$NextItemRe
   }
 
   @override
-  $NextItemRequestDto deserialize(
+  NextItemRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $NextItemRequestDtoBuilder();
+    final result = NextItemRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -139,4 +112,3 @@ class _$$NextItemRequestDtoSerializer implements PrimitiveSerializer<$NextItemRe
     return result.build();
   }
 }
-

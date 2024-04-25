@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for PluginsApi
 void main() {
   final instance = Tentacle().getPluginsApi();
@@ -71,6 +70,5 @@ void main() {
     test('test updatePluginConfiguration', () async {
       // TODO
     });
-
   });
 }

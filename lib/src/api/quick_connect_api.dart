@@ -12,7 +12,6 @@ import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/quick_connect_result.dart';
 
 class QuickConnectApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,7 +19,7 @@ class QuickConnectApi {
   const QuickConnectApi(this._dio, this._serializers);
 
   /// Authorizes a pending quick connect request.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [code] - Quick connect code to authorize.
@@ -32,8 +31,8 @@ class QuickConnectApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [bool] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<bool>> authorize({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<bool>> authorize({
     required String code,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -75,18 +74,19 @@ class QuickConnectApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    bool _responseData;
+    bool? _responseData;
 
     try {
-      _responseData = _response.data as bool;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as bool;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<bool>(
@@ -102,7 +102,7 @@ class QuickConnectApi {
   }
 
   /// Attempts to retrieve authentication information.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [secret] - Secret previously returned from the Initiate endpoint.
@@ -114,8 +114,8 @@ class QuickConnectApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [QuickConnectResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<QuickConnectResult>> connect({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<QuickConnectResult>> connect({
     required String secret,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -138,7 +138,8 @@ class QuickConnectApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'secret': encodeQueryParameter(_serializers, secret, const FullType(String)),
+      r'secret':
+          encodeQueryParameter(_serializers, secret, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -150,22 +151,24 @@ class QuickConnectApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    QuickConnectResult _responseData;
+    QuickConnectResult? _responseData;
 
     try {
-      const _responseType = FullType(QuickConnectResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as QuickConnectResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(QuickConnectResult),
+            ) as QuickConnectResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<QuickConnectResult>(
@@ -181,7 +184,7 @@ class QuickConnectApi {
   }
 
   /// Gets the current quick connect state.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -192,8 +195,8 @@ class QuickConnectApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [bool] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<bool>> getEnabled({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<bool>> getEnabled({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -222,18 +225,19 @@ class QuickConnectApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    bool _responseData;
+    bool? _responseData;
 
     try {
-      _responseData = _response.data as bool;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as bool;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<bool>(
@@ -249,7 +253,7 @@ class QuickConnectApi {
   }
 
   /// Initiate a new quick connect request.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -260,8 +264,8 @@ class QuickConnectApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [QuickConnectResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<QuickConnectResult>> initiate({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<QuickConnectResult>> initiate({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -290,22 +294,24 @@ class QuickConnectApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    QuickConnectResult _responseData;
+    QuickConnectResult? _responseData;
 
     try {
-      const _responseType = FullType(QuickConnectResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as QuickConnectResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(QuickConnectResult),
+            ) as QuickConnectResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<QuickConnectResult>(
@@ -319,5 +325,4 @@ class QuickConnectApi {
       extra: _response.extra,
     );
   }
-
 }

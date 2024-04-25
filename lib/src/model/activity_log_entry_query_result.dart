@@ -17,7 +17,9 @@ part 'activity_log_entry_query_result.g.dart';
 /// * [totalRecordCount] - Gets or sets the total number of records available.
 /// * [startIndex] - Gets or sets the index of the first record in Items.
 @BuiltValue()
-abstract class ActivityLogEntryQueryResult implements Built<ActivityLogEntryQueryResult, ActivityLogEntryQueryResultBuilder> {
+abstract class ActivityLogEntryQueryResult
+    implements
+        Built<ActivityLogEntryQueryResult, ActivityLogEntryQueryResultBuilder> {
   /// Gets or sets the items.
   @BuiltValueField(wireName: r'Items')
   BuiltList<ActivityLogEntry>? get items;
@@ -32,18 +34,25 @@ abstract class ActivityLogEntryQueryResult implements Built<ActivityLogEntryQuer
 
   ActivityLogEntryQueryResult._();
 
-  factory ActivityLogEntryQueryResult([void updates(ActivityLogEntryQueryResultBuilder b)]) = _$ActivityLogEntryQueryResult;
+  factory ActivityLogEntryQueryResult(
+          [void updates(ActivityLogEntryQueryResultBuilder b)]) =
+      _$ActivityLogEntryQueryResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ActivityLogEntryQueryResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ActivityLogEntryQueryResult> get serializer => _$ActivityLogEntryQueryResultSerializer();
+  static Serializer<ActivityLogEntryQueryResult> get serializer =>
+      _$ActivityLogEntryQueryResultSerializer();
 }
 
-class _$ActivityLogEntryQueryResultSerializer implements PrimitiveSerializer<ActivityLogEntryQueryResult> {
+class _$ActivityLogEntryQueryResultSerializer
+    implements PrimitiveSerializer<ActivityLogEntryQueryResult> {
   @override
-  final Iterable<Type> types = const [ActivityLogEntryQueryResult, _$ActivityLogEntryQueryResult];
+  final Iterable<Type> types = const [
+    ActivityLogEntryQueryResult,
+    _$ActivityLogEntryQueryResult
+  ];
 
   @override
   final String wireName = r'ActivityLogEntryQueryResult';
@@ -57,7 +66,8 @@ class _$ActivityLogEntryQueryResultSerializer implements PrimitiveSerializer<Act
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ActivityLogEntry)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ActivityLogEntry)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -82,7 +92,9 @@ class _$ActivityLogEntryQueryResultSerializer implements PrimitiveSerializer<Act
     ActivityLogEntryQueryResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -100,7 +112,8 @@ class _$ActivityLogEntryQueryResultSerializer implements PrimitiveSerializer<Act
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ActivityLogEntry)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(ActivityLogEntry)]),
           ) as BuiltList<ActivityLogEntry>?;
           if (valueDes == null) continue;
           result.items.replace(valueDes);
@@ -147,4 +160,3 @@ class _$ActivityLogEntryQueryResultSerializer implements PrimitiveSerializer<Act
     return result.build();
   }
 }
-

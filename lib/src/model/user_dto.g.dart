@@ -6,7 +6,7 @@ part of 'user_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class UserDtoBuilder {
+abstract mixin class UserDtoBuilder {
   void replace(UserDto other);
   void update(void Function(UserDtoBuilder) updates);
   String? get name;

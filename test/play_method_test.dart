@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlayMethod
 void main() {
-
-  group(PlayMethod, () {
-  });
+  group(PlayMethod, () {});
 }

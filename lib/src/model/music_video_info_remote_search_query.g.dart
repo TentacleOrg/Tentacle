@@ -6,26 +6,10 @@ part of 'music_video_info_remote_search_query.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class MusicVideoInfoRemoteSearchQueryBuilder {
-  void replace(MusicVideoInfoRemoteSearchQuery other);
-  void update(void Function(MusicVideoInfoRemoteSearchQueryBuilder) updates);
-  MusicVideoInfoRemoteSearchQuerySearchInfoBuilder get searchInfo;
-  set searchInfo(MusicVideoInfoRemoteSearchQuerySearchInfoBuilder? searchInfo);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get searchProviderName;
-  set searchProviderName(String? searchProviderName);
-
-  bool? get includeDisabledProviders;
-  set includeDisabledProviders(bool? includeDisabledProviders);
-}
-
-class _$$MusicVideoInfoRemoteSearchQuery
-    extends $MusicVideoInfoRemoteSearchQuery {
+class _$MusicVideoInfoRemoteSearchQuery
+    extends MusicVideoInfoRemoteSearchQuery {
   @override
-  final MusicVideoInfoRemoteSearchQuerySearchInfo? searchInfo;
+  final MusicVideoInfo? searchInfo;
   @override
   final String? itemId;
   @override
@@ -33,11 +17,11 @@ class _$$MusicVideoInfoRemoteSearchQuery
   @override
   final bool? includeDisabledProviders;
 
-  factory _$$MusicVideoInfoRemoteSearchQuery(
-          [void Function($MusicVideoInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new $MusicVideoInfoRemoteSearchQueryBuilder()..update(updates))._build();
+  factory _$MusicVideoInfoRemoteSearchQuery(
+          [void Function(MusicVideoInfoRemoteSearchQueryBuilder)? updates]) =>
+      (new MusicVideoInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
-  _$$MusicVideoInfoRemoteSearchQuery._(
+  _$MusicVideoInfoRemoteSearchQuery._(
       {this.searchInfo,
       this.itemId,
       this.searchProviderName,
@@ -45,18 +29,18 @@ class _$$MusicVideoInfoRemoteSearchQuery
       : super._();
 
   @override
-  $MusicVideoInfoRemoteSearchQuery rebuild(
-          void Function($MusicVideoInfoRemoteSearchQueryBuilder) updates) =>
+  MusicVideoInfoRemoteSearchQuery rebuild(
+          void Function(MusicVideoInfoRemoteSearchQueryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $MusicVideoInfoRemoteSearchQueryBuilder toBuilder() =>
-      new $MusicVideoInfoRemoteSearchQueryBuilder()..replace(this);
+  MusicVideoInfoRemoteSearchQueryBuilder toBuilder() =>
+      new MusicVideoInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $MusicVideoInfoRemoteSearchQuery &&
+    return other is MusicVideoInfoRemoteSearchQuery &&
         searchInfo == other.searchInfo &&
         itemId == other.itemId &&
         searchProviderName == other.searchProviderName &&
@@ -76,7 +60,7 @@ class _$$MusicVideoInfoRemoteSearchQuery
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$MusicVideoInfoRemoteSearchQuery')
+    return (newBuiltValueToStringHelper(r'MusicVideoInfoRemoteSearchQuery')
           ..add('searchInfo', searchInfo)
           ..add('itemId', itemId)
           ..add('searchProviderName', searchProviderName)
@@ -85,41 +69,37 @@ class _$$MusicVideoInfoRemoteSearchQuery
   }
 }
 
-class $MusicVideoInfoRemoteSearchQueryBuilder
+class MusicVideoInfoRemoteSearchQueryBuilder
     implements
-        Builder<$MusicVideoInfoRemoteSearchQuery,
-            $MusicVideoInfoRemoteSearchQueryBuilder>,
-        MusicVideoInfoRemoteSearchQueryBuilder {
-  _$$MusicVideoInfoRemoteSearchQuery? _$v;
+        Builder<MusicVideoInfoRemoteSearchQuery,
+            MusicVideoInfoRemoteSearchQueryBuilder> {
+  _$MusicVideoInfoRemoteSearchQuery? _$v;
 
-  MusicVideoInfoRemoteSearchQuerySearchInfoBuilder? _searchInfo;
-  MusicVideoInfoRemoteSearchQuerySearchInfoBuilder get searchInfo =>
-      _$this._searchInfo ??=
-          new MusicVideoInfoRemoteSearchQuerySearchInfoBuilder();
-  set searchInfo(
-          covariant MusicVideoInfoRemoteSearchQuerySearchInfoBuilder?
-              searchInfo) =>
+  MusicVideoInfoBuilder? _searchInfo;
+  MusicVideoInfoBuilder get searchInfo =>
+      _$this._searchInfo ??= new MusicVideoInfoBuilder();
+  set searchInfo(MusicVideoInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   String? _searchProviderName;
   String? get searchProviderName => _$this._searchProviderName;
-  set searchProviderName(covariant String? searchProviderName) =>
+  set searchProviderName(String? searchProviderName) =>
       _$this._searchProviderName = searchProviderName;
 
   bool? _includeDisabledProviders;
   bool? get includeDisabledProviders => _$this._includeDisabledProviders;
-  set includeDisabledProviders(covariant bool? includeDisabledProviders) =>
+  set includeDisabledProviders(bool? includeDisabledProviders) =>
       _$this._includeDisabledProviders = includeDisabledProviders;
 
-  $MusicVideoInfoRemoteSearchQueryBuilder() {
-    $MusicVideoInfoRemoteSearchQuery._defaults(this);
+  MusicVideoInfoRemoteSearchQueryBuilder() {
+    MusicVideoInfoRemoteSearchQuery._defaults(this);
   }
 
-  $MusicVideoInfoRemoteSearchQueryBuilder get _$this {
+  MusicVideoInfoRemoteSearchQueryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _searchInfo = $v.searchInfo?.toBuilder();
@@ -132,24 +112,24 @@ class $MusicVideoInfoRemoteSearchQueryBuilder
   }
 
   @override
-  void replace(covariant $MusicVideoInfoRemoteSearchQuery other) {
+  void replace(MusicVideoInfoRemoteSearchQuery other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$MusicVideoInfoRemoteSearchQuery;
+    _$v = other as _$MusicVideoInfoRemoteSearchQuery;
   }
 
   @override
-  void update(void Function($MusicVideoInfoRemoteSearchQueryBuilder)? updates) {
+  void update(void Function(MusicVideoInfoRemoteSearchQueryBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $MusicVideoInfoRemoteSearchQuery build() => _build();
+  MusicVideoInfoRemoteSearchQuery build() => _build();
 
-  _$$MusicVideoInfoRemoteSearchQuery _build() {
-    _$$MusicVideoInfoRemoteSearchQuery _$result;
+  _$MusicVideoInfoRemoteSearchQuery _build() {
+    _$MusicVideoInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$$MusicVideoInfoRemoteSearchQuery._(
+          new _$MusicVideoInfoRemoteSearchQuery._(
               searchInfo: _searchInfo?.build(),
               itemId: itemId,
               searchProviderName: searchProviderName,
@@ -161,7 +141,7 @@ class $MusicVideoInfoRemoteSearchQueryBuilder
         _searchInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$MusicVideoInfoRemoteSearchQuery', _$failedField, e.toString());
+            r'MusicVideoInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;
     }

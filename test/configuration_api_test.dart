@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for ConfigurationApi
 void main() {
   final instance = Tentacle().getConfigurationApi();
@@ -30,14 +29,14 @@ void main() {
 
     // Updates application configuration.
     //
-    //Future updateConfiguration(UpdateConfigurationRequest updateConfigurationRequest) async
+    //Future updateConfiguration(ServerConfiguration serverConfiguration) async
     test('test updateConfiguration', () async {
       // TODO
     });
 
     // Updates the path to the media encoder.
     //
-    //Future updateMediaEncoderPath(UpdateMediaEncoderPathRequest updateMediaEncoderPathRequest) async
+    //Future updateMediaEncoderPath(MediaEncoderPathDto mediaEncoderPathDto) async
     test('test updateMediaEncoderPath', () async {
       // TODO
     });
@@ -48,6 +47,5 @@ void main() {
     test('test updateNamedConfiguration', () async {
       // TODO
     });
-
   });
 }

@@ -16,7 +16,8 @@ part 'notification_result_dto.g.dart';
 /// * [notifications] - Gets or sets the current page of notifications.
 /// * [totalRecordCount] - Gets or sets the total number of notifications.
 @BuiltValue()
-abstract class NotificationResultDto implements Built<NotificationResultDto, NotificationResultDtoBuilder> {
+abstract class NotificationResultDto
+    implements Built<NotificationResultDto, NotificationResultDtoBuilder> {
   /// Gets or sets the current page of notifications.
   @BuiltValueField(wireName: r'Notifications')
   BuiltList<NotificationDto>? get notifications;
@@ -27,18 +28,24 @@ abstract class NotificationResultDto implements Built<NotificationResultDto, Not
 
   NotificationResultDto._();
 
-  factory NotificationResultDto([void updates(NotificationResultDtoBuilder b)]) = _$NotificationResultDto;
+  factory NotificationResultDto(
+      [void updates(NotificationResultDtoBuilder b)]) = _$NotificationResultDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NotificationResultDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationResultDto> get serializer => _$NotificationResultDtoSerializer();
+  static Serializer<NotificationResultDto> get serializer =>
+      _$NotificationResultDtoSerializer();
 }
 
-class _$NotificationResultDtoSerializer implements PrimitiveSerializer<NotificationResultDto> {
+class _$NotificationResultDtoSerializer
+    implements PrimitiveSerializer<NotificationResultDto> {
   @override
-  final Iterable<Type> types = const [NotificationResultDto, _$NotificationResultDto];
+  final Iterable<Type> types = const [
+    NotificationResultDto,
+    _$NotificationResultDto
+  ];
 
   @override
   final String wireName = r'NotificationResultDto';
@@ -70,7 +77,9 @@ class _$NotificationResultDtoSerializer implements PrimitiveSerializer<Notificat
     NotificationResultDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -88,7 +97,8 @@ class _$NotificationResultDtoSerializer implements PrimitiveSerializer<Notificat
         case r'Notifications':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(NotificationDto)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(NotificationDto)]),
           ) as BuiltList<NotificationDto>;
           result.notifications.replace(valueDes);
           break;
@@ -127,4 +137,3 @@ class _$NotificationResultDtoSerializer implements PrimitiveSerializer<Notificat
     return result.build();
   }
 }
-

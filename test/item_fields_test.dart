@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ItemFields
 void main() {
-
-  group(ItemFields, () {
-  });
+  group(ItemFields, () {});
 }

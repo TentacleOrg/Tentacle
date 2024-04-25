@@ -20,7 +20,6 @@ import 'package:tentacle/src/model/sort_order.dart';
 import 'package:tentacle/src/model/video_type.dart';
 
 class ItemsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -28,7 +27,7 @@ class ItemsApi {
   const ItemsApi(this._dio, this._serializers);
 
   /// Gets items based on a query.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - The user id supplied as query parameter.
@@ -124,8 +123,8 @@ class ItemsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getItems({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getItems({
     String? userId,
     String? maxOfficialRating,
     bool? hasThemeSong,
@@ -239,91 +238,382 @@ class ItemsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (maxOfficialRating != null) r'maxOfficialRating': encodeQueryParameter(_serializers, maxOfficialRating, const FullType(String)),
-      if (hasThemeSong != null) r'hasThemeSong': encodeQueryParameter(_serializers, hasThemeSong, const FullType(bool)),
-      if (hasThemeVideo != null) r'hasThemeVideo': encodeQueryParameter(_serializers, hasThemeVideo, const FullType(bool)),
-      if (hasSubtitles != null) r'hasSubtitles': encodeQueryParameter(_serializers, hasSubtitles, const FullType(bool)),
-      if (hasSpecialFeature != null) r'hasSpecialFeature': encodeQueryParameter(_serializers, hasSpecialFeature, const FullType(bool)),
-      if (hasTrailer != null) r'hasTrailer': encodeQueryParameter(_serializers, hasTrailer, const FullType(bool)),
-      if (adjacentTo != null) r'adjacentTo': encodeQueryParameter(_serializers, adjacentTo, const FullType(String)),
-      if (parentIndexNumber != null) r'parentIndexNumber': encodeQueryParameter(_serializers, parentIndexNumber, const FullType(int)),
-      if (hasParentalRating != null) r'hasParentalRating': encodeQueryParameter(_serializers, hasParentalRating, const FullType(bool)),
-      if (isHd != null) r'isHd': encodeQueryParameter(_serializers, isHd, const FullType(bool)),
-      if (is4K != null) r'is4K': encodeQueryParameter(_serializers, is4K, const FullType(bool)),
-      if (locationTypes != null) r'locationTypes': encodeCollectionQueryParameter<LocationType>(_serializers, locationTypes, const FullType(BuiltList, [FullType(LocationType)]), format: ListFormat.multi,),
-      if (excludeLocationTypes != null) r'excludeLocationTypes': encodeCollectionQueryParameter<LocationType>(_serializers, excludeLocationTypes, const FullType(BuiltList, [FullType(LocationType)]), format: ListFormat.multi,),
-      if (isMissing != null) r'isMissing': encodeQueryParameter(_serializers, isMissing, const FullType(bool)),
-      if (isUnaired != null) r'isUnaired': encodeQueryParameter(_serializers, isUnaired, const FullType(bool)),
-      if (minCommunityRating != null) r'minCommunityRating': encodeQueryParameter(_serializers, minCommunityRating, const FullType(double)),
-      if (minCriticRating != null) r'minCriticRating': encodeQueryParameter(_serializers, minCriticRating, const FullType(double)),
-      if (minPremiereDate != null) r'minPremiereDate': encodeQueryParameter(_serializers, minPremiereDate, const FullType(DateTime)),
-      if (minDateLastSaved != null) r'minDateLastSaved': encodeQueryParameter(_serializers, minDateLastSaved, const FullType(DateTime)),
-      if (minDateLastSavedForUser != null) r'minDateLastSavedForUser': encodeQueryParameter(_serializers, minDateLastSavedForUser, const FullType(DateTime)),
-      if (maxPremiereDate != null) r'maxPremiereDate': encodeQueryParameter(_serializers, maxPremiereDate, const FullType(DateTime)),
-      if (hasOverview != null) r'hasOverview': encodeQueryParameter(_serializers, hasOverview, const FullType(bool)),
-      if (hasImdbId != null) r'hasImdbId': encodeQueryParameter(_serializers, hasImdbId, const FullType(bool)),
-      if (hasTmdbId != null) r'hasTmdbId': encodeQueryParameter(_serializers, hasTmdbId, const FullType(bool)),
-      if (hasTvdbId != null) r'hasTvdbId': encodeQueryParameter(_serializers, hasTvdbId, const FullType(bool)),
-      if (isMovie != null) r'isMovie': encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
-      if (isSeries != null) r'isSeries': encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
-      if (isNews != null) r'isNews': encodeQueryParameter(_serializers, isNews, const FullType(bool)),
-      if (isKids != null) r'isKids': encodeQueryParameter(_serializers, isKids, const FullType(bool)),
-      if (isSports != null) r'isSports': encodeQueryParameter(_serializers, isSports, const FullType(bool)),
-      if (excludeItemIds != null) r'excludeItemIds': encodeCollectionQueryParameter<String>(_serializers, excludeItemIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (recursive != null) r'recursive': encodeQueryParameter(_serializers, recursive, const FullType(bool)),
-      if (searchTerm != null) r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      if (sortOrder != null) r'sortOrder': encodeCollectionQueryParameter<SortOrder>(_serializers, sortOrder, const FullType(BuiltList, [FullType(SortOrder)]), format: ListFormat.multi,),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (excludeItemTypes != null) r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, excludeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (includeItemTypes != null) r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, includeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (filters != null) r'filters': encodeCollectionQueryParameter<ItemFilter>(_serializers, filters, const FullType(BuiltList, [FullType(ItemFilter)]), format: ListFormat.multi,),
-      if (isFavorite != null) r'isFavorite': encodeQueryParameter(_serializers, isFavorite, const FullType(bool)),
-      if (mediaTypes != null) r'mediaTypes': encodeCollectionQueryParameter<String>(_serializers, mediaTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (imageTypes != null) r'imageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, imageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (sortBy != null) r'sortBy': encodeCollectionQueryParameter<String>(_serializers, sortBy, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (isPlayed != null) r'isPlayed': encodeQueryParameter(_serializers, isPlayed, const FullType(bool)),
-      if (genres != null) r'genres': encodeCollectionQueryParameter<String>(_serializers, genres, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (officialRatings != null) r'officialRatings': encodeCollectionQueryParameter<String>(_serializers, officialRatings, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (tags != null) r'tags': encodeCollectionQueryParameter<String>(_serializers, tags, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (years != null) r'years': encodeCollectionQueryParameter<int>(_serializers, years, const FullType(BuiltList, [FullType(int)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (person != null) r'person': encodeQueryParameter(_serializers, person, const FullType(String)),
-      if (personIds != null) r'personIds': encodeCollectionQueryParameter<String>(_serializers, personIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (personTypes != null) r'personTypes': encodeCollectionQueryParameter<String>(_serializers, personTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (studios != null) r'studios': encodeCollectionQueryParameter<String>(_serializers, studios, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (artists != null) r'artists': encodeCollectionQueryParameter<String>(_serializers, artists, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (excludeArtistIds != null) r'excludeArtistIds': encodeCollectionQueryParameter<String>(_serializers, excludeArtistIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (artistIds != null) r'artistIds': encodeCollectionQueryParameter<String>(_serializers, artistIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (albumArtistIds != null) r'albumArtistIds': encodeCollectionQueryParameter<String>(_serializers, albumArtistIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (contributingArtistIds != null) r'contributingArtistIds': encodeCollectionQueryParameter<String>(_serializers, contributingArtistIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (albums != null) r'albums': encodeCollectionQueryParameter<String>(_serializers, albums, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (albumIds != null) r'albumIds': encodeCollectionQueryParameter<String>(_serializers, albumIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (ids != null) r'ids': encodeCollectionQueryParameter<String>(_serializers, ids, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (videoTypes != null) r'videoTypes': encodeCollectionQueryParameter<VideoType>(_serializers, videoTypes, const FullType(BuiltList, [FullType(VideoType)]), format: ListFormat.multi,),
-      if (minOfficialRating != null) r'minOfficialRating': encodeQueryParameter(_serializers, minOfficialRating, const FullType(String)),
-      if (isLocked != null) r'isLocked': encodeQueryParameter(_serializers, isLocked, const FullType(bool)),
-      if (isPlaceHolder != null) r'isPlaceHolder': encodeQueryParameter(_serializers, isPlaceHolder, const FullType(bool)),
-      if (hasOfficialRating != null) r'hasOfficialRating': encodeQueryParameter(_serializers, hasOfficialRating, const FullType(bool)),
-      if (collapseBoxSetItems != null) r'collapseBoxSetItems': encodeQueryParameter(_serializers, collapseBoxSetItems, const FullType(bool)),
-      if (minWidth != null) r'minWidth': encodeQueryParameter(_serializers, minWidth, const FullType(int)),
-      if (minHeight != null) r'minHeight': encodeQueryParameter(_serializers, minHeight, const FullType(int)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (is3D != null) r'is3D': encodeQueryParameter(_serializers, is3D, const FullType(bool)),
-      if (seriesStatus != null) r'seriesStatus': encodeCollectionQueryParameter<SeriesStatus>(_serializers, seriesStatus, const FullType(BuiltList, [FullType(SeriesStatus)]), format: ListFormat.multi,),
-      if (nameStartsWithOrGreater != null) r'nameStartsWithOrGreater': encodeQueryParameter(_serializers, nameStartsWithOrGreater, const FullType(String)),
-      if (nameStartsWith != null) r'nameStartsWith': encodeQueryParameter(_serializers, nameStartsWith, const FullType(String)),
-      if (nameLessThan != null) r'nameLessThan': encodeQueryParameter(_serializers, nameLessThan, const FullType(String)),
-      if (studioIds != null) r'studioIds': encodeCollectionQueryParameter<String>(_serializers, studioIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (genreIds != null) r'genreIds': encodeCollectionQueryParameter<String>(_serializers, genreIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (maxOfficialRating != null)
+        r'maxOfficialRating': encodeQueryParameter(
+            _serializers, maxOfficialRating, const FullType(String)),
+      if (hasThemeSong != null)
+        r'hasThemeSong': encodeQueryParameter(
+            _serializers, hasThemeSong, const FullType(bool)),
+      if (hasThemeVideo != null)
+        r'hasThemeVideo': encodeQueryParameter(
+            _serializers, hasThemeVideo, const FullType(bool)),
+      if (hasSubtitles != null)
+        r'hasSubtitles': encodeQueryParameter(
+            _serializers, hasSubtitles, const FullType(bool)),
+      if (hasSpecialFeature != null)
+        r'hasSpecialFeature': encodeQueryParameter(
+            _serializers, hasSpecialFeature, const FullType(bool)),
+      if (hasTrailer != null)
+        r'hasTrailer': encodeQueryParameter(
+            _serializers, hasTrailer, const FullType(bool)),
+      if (adjacentTo != null)
+        r'adjacentTo': encodeQueryParameter(
+            _serializers, adjacentTo, const FullType(String)),
+      if (parentIndexNumber != null)
+        r'parentIndexNumber': encodeQueryParameter(
+            _serializers, parentIndexNumber, const FullType(int)),
+      if (hasParentalRating != null)
+        r'hasParentalRating': encodeQueryParameter(
+            _serializers, hasParentalRating, const FullType(bool)),
+      if (isHd != null)
+        r'isHd': encodeQueryParameter(_serializers, isHd, const FullType(bool)),
+      if (is4K != null)
+        r'is4K': encodeQueryParameter(_serializers, is4K, const FullType(bool)),
+      if (locationTypes != null)
+        r'locationTypes': encodeCollectionQueryParameter<LocationType>(
+          _serializers,
+          locationTypes,
+          const FullType(BuiltList, [FullType(LocationType)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeLocationTypes != null)
+        r'excludeLocationTypes': encodeCollectionQueryParameter<LocationType>(
+          _serializers,
+          excludeLocationTypes,
+          const FullType(BuiltList, [FullType(LocationType)]),
+          format: ListFormat.multi,
+        ),
+      if (isMissing != null)
+        r'isMissing':
+            encodeQueryParameter(_serializers, isMissing, const FullType(bool)),
+      if (isUnaired != null)
+        r'isUnaired':
+            encodeQueryParameter(_serializers, isUnaired, const FullType(bool)),
+      if (minCommunityRating != null)
+        r'minCommunityRating': encodeQueryParameter(
+            _serializers, minCommunityRating, const FullType(double)),
+      if (minCriticRating != null)
+        r'minCriticRating': encodeQueryParameter(
+            _serializers, minCriticRating, const FullType(double)),
+      if (minPremiereDate != null)
+        r'minPremiereDate': encodeQueryParameter(
+            _serializers, minPremiereDate, const FullType(DateTime)),
+      if (minDateLastSaved != null)
+        r'minDateLastSaved': encodeQueryParameter(
+            _serializers, minDateLastSaved, const FullType(DateTime)),
+      if (minDateLastSavedForUser != null)
+        r'minDateLastSavedForUser': encodeQueryParameter(
+            _serializers, minDateLastSavedForUser, const FullType(DateTime)),
+      if (maxPremiereDate != null)
+        r'maxPremiereDate': encodeQueryParameter(
+            _serializers, maxPremiereDate, const FullType(DateTime)),
+      if (hasOverview != null)
+        r'hasOverview': encodeQueryParameter(
+            _serializers, hasOverview, const FullType(bool)),
+      if (hasImdbId != null)
+        r'hasImdbId':
+            encodeQueryParameter(_serializers, hasImdbId, const FullType(bool)),
+      if (hasTmdbId != null)
+        r'hasTmdbId':
+            encodeQueryParameter(_serializers, hasTmdbId, const FullType(bool)),
+      if (hasTvdbId != null)
+        r'hasTvdbId':
+            encodeQueryParameter(_serializers, hasTvdbId, const FullType(bool)),
+      if (isMovie != null)
+        r'isMovie':
+            encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
+      if (isSeries != null)
+        r'isSeries':
+            encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
+      if (isNews != null)
+        r'isNews':
+            encodeQueryParameter(_serializers, isNews, const FullType(bool)),
+      if (isKids != null)
+        r'isKids':
+            encodeQueryParameter(_serializers, isKids, const FullType(bool)),
+      if (isSports != null)
+        r'isSports':
+            encodeQueryParameter(_serializers, isSports, const FullType(bool)),
+      if (excludeItemIds != null)
+        r'excludeItemIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          excludeItemIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (recursive != null)
+        r'recursive':
+            encodeQueryParameter(_serializers, recursive, const FullType(bool)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeCollectionQueryParameter<SortOrder>(
+          _serializers,
+          sortOrder,
+          const FullType(BuiltList, [FullType(SortOrder)]),
+          format: ListFormat.multi,
+        ),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeItemTypes != null)
+        r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          excludeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (includeItemTypes != null)
+        r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          includeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (filters != null)
+        r'filters': encodeCollectionQueryParameter<ItemFilter>(
+          _serializers,
+          filters,
+          const FullType(BuiltList, [FullType(ItemFilter)]),
+          format: ListFormat.multi,
+        ),
+      if (isFavorite != null)
+        r'isFavorite': encodeQueryParameter(
+            _serializers, isFavorite, const FullType(bool)),
+      if (mediaTypes != null)
+        r'mediaTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          mediaTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (imageTypes != null)
+        r'imageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          imageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (sortBy != null)
+        r'sortBy': encodeCollectionQueryParameter<String>(
+          _serializers,
+          sortBy,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (isPlayed != null)
+        r'isPlayed':
+            encodeQueryParameter(_serializers, isPlayed, const FullType(bool)),
+      if (genres != null)
+        r'genres': encodeCollectionQueryParameter<String>(
+          _serializers,
+          genres,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (officialRatings != null)
+        r'officialRatings': encodeCollectionQueryParameter<String>(
+          _serializers,
+          officialRatings,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (tags != null)
+        r'tags': encodeCollectionQueryParameter<String>(
+          _serializers,
+          tags,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (years != null)
+        r'years': encodeCollectionQueryParameter<int>(
+          _serializers,
+          years,
+          const FullType(BuiltList, [FullType(int)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (person != null)
+        r'person':
+            encodeQueryParameter(_serializers, person, const FullType(String)),
+      if (personIds != null)
+        r'personIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          personIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (personTypes != null)
+        r'personTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          personTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (studios != null)
+        r'studios': encodeCollectionQueryParameter<String>(
+          _serializers,
+          studios,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (artists != null)
+        r'artists': encodeCollectionQueryParameter<String>(
+          _serializers,
+          artists,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeArtistIds != null)
+        r'excludeArtistIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          excludeArtistIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (artistIds != null)
+        r'artistIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          artistIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (albumArtistIds != null)
+        r'albumArtistIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          albumArtistIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (contributingArtistIds != null)
+        r'contributingArtistIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          contributingArtistIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (albums != null)
+        r'albums': encodeCollectionQueryParameter<String>(
+          _serializers,
+          albums,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (albumIds != null)
+        r'albumIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          albumIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (ids != null)
+        r'ids': encodeCollectionQueryParameter<String>(
+          _serializers,
+          ids,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (videoTypes != null)
+        r'videoTypes': encodeCollectionQueryParameter<VideoType>(
+          _serializers,
+          videoTypes,
+          const FullType(BuiltList, [FullType(VideoType)]),
+          format: ListFormat.multi,
+        ),
+      if (minOfficialRating != null)
+        r'minOfficialRating': encodeQueryParameter(
+            _serializers, minOfficialRating, const FullType(String)),
+      if (isLocked != null)
+        r'isLocked':
+            encodeQueryParameter(_serializers, isLocked, const FullType(bool)),
+      if (isPlaceHolder != null)
+        r'isPlaceHolder': encodeQueryParameter(
+            _serializers, isPlaceHolder, const FullType(bool)),
+      if (hasOfficialRating != null)
+        r'hasOfficialRating': encodeQueryParameter(
+            _serializers, hasOfficialRating, const FullType(bool)),
+      if (collapseBoxSetItems != null)
+        r'collapseBoxSetItems': encodeQueryParameter(
+            _serializers, collapseBoxSetItems, const FullType(bool)),
+      if (minWidth != null)
+        r'minWidth':
+            encodeQueryParameter(_serializers, minWidth, const FullType(int)),
+      if (minHeight != null)
+        r'minHeight':
+            encodeQueryParameter(_serializers, minHeight, const FullType(int)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (is3D != null)
+        r'is3D': encodeQueryParameter(_serializers, is3D, const FullType(bool)),
+      if (seriesStatus != null)
+        r'seriesStatus': encodeCollectionQueryParameter<SeriesStatus>(
+          _serializers,
+          seriesStatus,
+          const FullType(BuiltList, [FullType(SeriesStatus)]),
+          format: ListFormat.multi,
+        ),
+      if (nameStartsWithOrGreater != null)
+        r'nameStartsWithOrGreater': encodeQueryParameter(
+            _serializers, nameStartsWithOrGreater, const FullType(String)),
+      if (nameStartsWith != null)
+        r'nameStartsWith': encodeQueryParameter(
+            _serializers, nameStartsWith, const FullType(String)),
+      if (nameLessThan != null)
+        r'nameLessThan': encodeQueryParameter(
+            _serializers, nameLessThan, const FullType(String)),
+      if (studioIds != null)
+        r'studioIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          studioIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (genreIds != null)
+        r'genreIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          genreIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -335,22 +625,24 @@ class ItemsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -366,7 +658,7 @@ class ItemsApi {
   }
 
   /// Gets items based on a query.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - The user id supplied as query parameter.
@@ -462,8 +754,8 @@ class ItemsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getItemsByUserId({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getItemsByUserId({
     required String userId,
     String? maxOfficialRating,
     bool? hasThemeSong,
@@ -556,7 +848,10 @@ class ItemsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/Items'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -577,90 +872,379 @@ class ItemsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (maxOfficialRating != null) r'maxOfficialRating': encodeQueryParameter(_serializers, maxOfficialRating, const FullType(String)),
-      if (hasThemeSong != null) r'hasThemeSong': encodeQueryParameter(_serializers, hasThemeSong, const FullType(bool)),
-      if (hasThemeVideo != null) r'hasThemeVideo': encodeQueryParameter(_serializers, hasThemeVideo, const FullType(bool)),
-      if (hasSubtitles != null) r'hasSubtitles': encodeQueryParameter(_serializers, hasSubtitles, const FullType(bool)),
-      if (hasSpecialFeature != null) r'hasSpecialFeature': encodeQueryParameter(_serializers, hasSpecialFeature, const FullType(bool)),
-      if (hasTrailer != null) r'hasTrailer': encodeQueryParameter(_serializers, hasTrailer, const FullType(bool)),
-      if (adjacentTo != null) r'adjacentTo': encodeQueryParameter(_serializers, adjacentTo, const FullType(String)),
-      if (parentIndexNumber != null) r'parentIndexNumber': encodeQueryParameter(_serializers, parentIndexNumber, const FullType(int)),
-      if (hasParentalRating != null) r'hasParentalRating': encodeQueryParameter(_serializers, hasParentalRating, const FullType(bool)),
-      if (isHd != null) r'isHd': encodeQueryParameter(_serializers, isHd, const FullType(bool)),
-      if (is4K != null) r'is4K': encodeQueryParameter(_serializers, is4K, const FullType(bool)),
-      if (locationTypes != null) r'locationTypes': encodeCollectionQueryParameter<LocationType>(_serializers, locationTypes, const FullType(BuiltList, [FullType(LocationType)]), format: ListFormat.multi,),
-      if (excludeLocationTypes != null) r'excludeLocationTypes': encodeCollectionQueryParameter<LocationType>(_serializers, excludeLocationTypes, const FullType(BuiltList, [FullType(LocationType)]), format: ListFormat.multi,),
-      if (isMissing != null) r'isMissing': encodeQueryParameter(_serializers, isMissing, const FullType(bool)),
-      if (isUnaired != null) r'isUnaired': encodeQueryParameter(_serializers, isUnaired, const FullType(bool)),
-      if (minCommunityRating != null) r'minCommunityRating': encodeQueryParameter(_serializers, minCommunityRating, const FullType(double)),
-      if (minCriticRating != null) r'minCriticRating': encodeQueryParameter(_serializers, minCriticRating, const FullType(double)),
-      if (minPremiereDate != null) r'minPremiereDate': encodeQueryParameter(_serializers, minPremiereDate, const FullType(DateTime)),
-      if (minDateLastSaved != null) r'minDateLastSaved': encodeQueryParameter(_serializers, minDateLastSaved, const FullType(DateTime)),
-      if (minDateLastSavedForUser != null) r'minDateLastSavedForUser': encodeQueryParameter(_serializers, minDateLastSavedForUser, const FullType(DateTime)),
-      if (maxPremiereDate != null) r'maxPremiereDate': encodeQueryParameter(_serializers, maxPremiereDate, const FullType(DateTime)),
-      if (hasOverview != null) r'hasOverview': encodeQueryParameter(_serializers, hasOverview, const FullType(bool)),
-      if (hasImdbId != null) r'hasImdbId': encodeQueryParameter(_serializers, hasImdbId, const FullType(bool)),
-      if (hasTmdbId != null) r'hasTmdbId': encodeQueryParameter(_serializers, hasTmdbId, const FullType(bool)),
-      if (hasTvdbId != null) r'hasTvdbId': encodeQueryParameter(_serializers, hasTvdbId, const FullType(bool)),
-      if (isMovie != null) r'isMovie': encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
-      if (isSeries != null) r'isSeries': encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
-      if (isNews != null) r'isNews': encodeQueryParameter(_serializers, isNews, const FullType(bool)),
-      if (isKids != null) r'isKids': encodeQueryParameter(_serializers, isKids, const FullType(bool)),
-      if (isSports != null) r'isSports': encodeQueryParameter(_serializers, isSports, const FullType(bool)),
-      if (excludeItemIds != null) r'excludeItemIds': encodeCollectionQueryParameter<String>(_serializers, excludeItemIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (recursive != null) r'recursive': encodeQueryParameter(_serializers, recursive, const FullType(bool)),
-      if (searchTerm != null) r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      if (sortOrder != null) r'sortOrder': encodeCollectionQueryParameter<SortOrder>(_serializers, sortOrder, const FullType(BuiltList, [FullType(SortOrder)]), format: ListFormat.multi,),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (excludeItemTypes != null) r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, excludeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (includeItemTypes != null) r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, includeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (filters != null) r'filters': encodeCollectionQueryParameter<ItemFilter>(_serializers, filters, const FullType(BuiltList, [FullType(ItemFilter)]), format: ListFormat.multi,),
-      if (isFavorite != null) r'isFavorite': encodeQueryParameter(_serializers, isFavorite, const FullType(bool)),
-      if (mediaTypes != null) r'mediaTypes': encodeCollectionQueryParameter<String>(_serializers, mediaTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (imageTypes != null) r'imageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, imageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (sortBy != null) r'sortBy': encodeCollectionQueryParameter<String>(_serializers, sortBy, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (isPlayed != null) r'isPlayed': encodeQueryParameter(_serializers, isPlayed, const FullType(bool)),
-      if (genres != null) r'genres': encodeCollectionQueryParameter<String>(_serializers, genres, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (officialRatings != null) r'officialRatings': encodeCollectionQueryParameter<String>(_serializers, officialRatings, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (tags != null) r'tags': encodeCollectionQueryParameter<String>(_serializers, tags, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (years != null) r'years': encodeCollectionQueryParameter<int>(_serializers, years, const FullType(BuiltList, [FullType(int)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (person != null) r'person': encodeQueryParameter(_serializers, person, const FullType(String)),
-      if (personIds != null) r'personIds': encodeCollectionQueryParameter<String>(_serializers, personIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (personTypes != null) r'personTypes': encodeCollectionQueryParameter<String>(_serializers, personTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (studios != null) r'studios': encodeCollectionQueryParameter<String>(_serializers, studios, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (artists != null) r'artists': encodeCollectionQueryParameter<String>(_serializers, artists, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (excludeArtistIds != null) r'excludeArtistIds': encodeCollectionQueryParameter<String>(_serializers, excludeArtistIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (artistIds != null) r'artistIds': encodeCollectionQueryParameter<String>(_serializers, artistIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (albumArtistIds != null) r'albumArtistIds': encodeCollectionQueryParameter<String>(_serializers, albumArtistIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (contributingArtistIds != null) r'contributingArtistIds': encodeCollectionQueryParameter<String>(_serializers, contributingArtistIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (albums != null) r'albums': encodeCollectionQueryParameter<String>(_serializers, albums, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (albumIds != null) r'albumIds': encodeCollectionQueryParameter<String>(_serializers, albumIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (ids != null) r'ids': encodeCollectionQueryParameter<String>(_serializers, ids, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (videoTypes != null) r'videoTypes': encodeCollectionQueryParameter<VideoType>(_serializers, videoTypes, const FullType(BuiltList, [FullType(VideoType)]), format: ListFormat.multi,),
-      if (minOfficialRating != null) r'minOfficialRating': encodeQueryParameter(_serializers, minOfficialRating, const FullType(String)),
-      if (isLocked != null) r'isLocked': encodeQueryParameter(_serializers, isLocked, const FullType(bool)),
-      if (isPlaceHolder != null) r'isPlaceHolder': encodeQueryParameter(_serializers, isPlaceHolder, const FullType(bool)),
-      if (hasOfficialRating != null) r'hasOfficialRating': encodeQueryParameter(_serializers, hasOfficialRating, const FullType(bool)),
-      if (collapseBoxSetItems != null) r'collapseBoxSetItems': encodeQueryParameter(_serializers, collapseBoxSetItems, const FullType(bool)),
-      if (minWidth != null) r'minWidth': encodeQueryParameter(_serializers, minWidth, const FullType(int)),
-      if (minHeight != null) r'minHeight': encodeQueryParameter(_serializers, minHeight, const FullType(int)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (is3D != null) r'is3D': encodeQueryParameter(_serializers, is3D, const FullType(bool)),
-      if (seriesStatus != null) r'seriesStatus': encodeCollectionQueryParameter<SeriesStatus>(_serializers, seriesStatus, const FullType(BuiltList, [FullType(SeriesStatus)]), format: ListFormat.multi,),
-      if (nameStartsWithOrGreater != null) r'nameStartsWithOrGreater': encodeQueryParameter(_serializers, nameStartsWithOrGreater, const FullType(String)),
-      if (nameStartsWith != null) r'nameStartsWith': encodeQueryParameter(_serializers, nameStartsWith, const FullType(String)),
-      if (nameLessThan != null) r'nameLessThan': encodeQueryParameter(_serializers, nameLessThan, const FullType(String)),
-      if (studioIds != null) r'studioIds': encodeCollectionQueryParameter<String>(_serializers, studioIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (genreIds != null) r'genreIds': encodeCollectionQueryParameter<String>(_serializers, genreIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
+      if (maxOfficialRating != null)
+        r'maxOfficialRating': encodeQueryParameter(
+            _serializers, maxOfficialRating, const FullType(String)),
+      if (hasThemeSong != null)
+        r'hasThemeSong': encodeQueryParameter(
+            _serializers, hasThemeSong, const FullType(bool)),
+      if (hasThemeVideo != null)
+        r'hasThemeVideo': encodeQueryParameter(
+            _serializers, hasThemeVideo, const FullType(bool)),
+      if (hasSubtitles != null)
+        r'hasSubtitles': encodeQueryParameter(
+            _serializers, hasSubtitles, const FullType(bool)),
+      if (hasSpecialFeature != null)
+        r'hasSpecialFeature': encodeQueryParameter(
+            _serializers, hasSpecialFeature, const FullType(bool)),
+      if (hasTrailer != null)
+        r'hasTrailer': encodeQueryParameter(
+            _serializers, hasTrailer, const FullType(bool)),
+      if (adjacentTo != null)
+        r'adjacentTo': encodeQueryParameter(
+            _serializers, adjacentTo, const FullType(String)),
+      if (parentIndexNumber != null)
+        r'parentIndexNumber': encodeQueryParameter(
+            _serializers, parentIndexNumber, const FullType(int)),
+      if (hasParentalRating != null)
+        r'hasParentalRating': encodeQueryParameter(
+            _serializers, hasParentalRating, const FullType(bool)),
+      if (isHd != null)
+        r'isHd': encodeQueryParameter(_serializers, isHd, const FullType(bool)),
+      if (is4K != null)
+        r'is4K': encodeQueryParameter(_serializers, is4K, const FullType(bool)),
+      if (locationTypes != null)
+        r'locationTypes': encodeCollectionQueryParameter<LocationType>(
+          _serializers,
+          locationTypes,
+          const FullType(BuiltList, [FullType(LocationType)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeLocationTypes != null)
+        r'excludeLocationTypes': encodeCollectionQueryParameter<LocationType>(
+          _serializers,
+          excludeLocationTypes,
+          const FullType(BuiltList, [FullType(LocationType)]),
+          format: ListFormat.multi,
+        ),
+      if (isMissing != null)
+        r'isMissing':
+            encodeQueryParameter(_serializers, isMissing, const FullType(bool)),
+      if (isUnaired != null)
+        r'isUnaired':
+            encodeQueryParameter(_serializers, isUnaired, const FullType(bool)),
+      if (minCommunityRating != null)
+        r'minCommunityRating': encodeQueryParameter(
+            _serializers, minCommunityRating, const FullType(double)),
+      if (minCriticRating != null)
+        r'minCriticRating': encodeQueryParameter(
+            _serializers, minCriticRating, const FullType(double)),
+      if (minPremiereDate != null)
+        r'minPremiereDate': encodeQueryParameter(
+            _serializers, minPremiereDate, const FullType(DateTime)),
+      if (minDateLastSaved != null)
+        r'minDateLastSaved': encodeQueryParameter(
+            _serializers, minDateLastSaved, const FullType(DateTime)),
+      if (minDateLastSavedForUser != null)
+        r'minDateLastSavedForUser': encodeQueryParameter(
+            _serializers, minDateLastSavedForUser, const FullType(DateTime)),
+      if (maxPremiereDate != null)
+        r'maxPremiereDate': encodeQueryParameter(
+            _serializers, maxPremiereDate, const FullType(DateTime)),
+      if (hasOverview != null)
+        r'hasOverview': encodeQueryParameter(
+            _serializers, hasOverview, const FullType(bool)),
+      if (hasImdbId != null)
+        r'hasImdbId':
+            encodeQueryParameter(_serializers, hasImdbId, const FullType(bool)),
+      if (hasTmdbId != null)
+        r'hasTmdbId':
+            encodeQueryParameter(_serializers, hasTmdbId, const FullType(bool)),
+      if (hasTvdbId != null)
+        r'hasTvdbId':
+            encodeQueryParameter(_serializers, hasTvdbId, const FullType(bool)),
+      if (isMovie != null)
+        r'isMovie':
+            encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
+      if (isSeries != null)
+        r'isSeries':
+            encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
+      if (isNews != null)
+        r'isNews':
+            encodeQueryParameter(_serializers, isNews, const FullType(bool)),
+      if (isKids != null)
+        r'isKids':
+            encodeQueryParameter(_serializers, isKids, const FullType(bool)),
+      if (isSports != null)
+        r'isSports':
+            encodeQueryParameter(_serializers, isSports, const FullType(bool)),
+      if (excludeItemIds != null)
+        r'excludeItemIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          excludeItemIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (recursive != null)
+        r'recursive':
+            encodeQueryParameter(_serializers, recursive, const FullType(bool)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeCollectionQueryParameter<SortOrder>(
+          _serializers,
+          sortOrder,
+          const FullType(BuiltList, [FullType(SortOrder)]),
+          format: ListFormat.multi,
+        ),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeItemTypes != null)
+        r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          excludeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (includeItemTypes != null)
+        r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          includeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (filters != null)
+        r'filters': encodeCollectionQueryParameter<ItemFilter>(
+          _serializers,
+          filters,
+          const FullType(BuiltList, [FullType(ItemFilter)]),
+          format: ListFormat.multi,
+        ),
+      if (isFavorite != null)
+        r'isFavorite': encodeQueryParameter(
+            _serializers, isFavorite, const FullType(bool)),
+      if (mediaTypes != null)
+        r'mediaTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          mediaTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (imageTypes != null)
+        r'imageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          imageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (sortBy != null)
+        r'sortBy': encodeCollectionQueryParameter<String>(
+          _serializers,
+          sortBy,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (isPlayed != null)
+        r'isPlayed':
+            encodeQueryParameter(_serializers, isPlayed, const FullType(bool)),
+      if (genres != null)
+        r'genres': encodeCollectionQueryParameter<String>(
+          _serializers,
+          genres,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (officialRatings != null)
+        r'officialRatings': encodeCollectionQueryParameter<String>(
+          _serializers,
+          officialRatings,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (tags != null)
+        r'tags': encodeCollectionQueryParameter<String>(
+          _serializers,
+          tags,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (years != null)
+        r'years': encodeCollectionQueryParameter<int>(
+          _serializers,
+          years,
+          const FullType(BuiltList, [FullType(int)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (person != null)
+        r'person':
+            encodeQueryParameter(_serializers, person, const FullType(String)),
+      if (personIds != null)
+        r'personIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          personIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (personTypes != null)
+        r'personTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          personTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (studios != null)
+        r'studios': encodeCollectionQueryParameter<String>(
+          _serializers,
+          studios,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (artists != null)
+        r'artists': encodeCollectionQueryParameter<String>(
+          _serializers,
+          artists,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeArtistIds != null)
+        r'excludeArtistIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          excludeArtistIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (artistIds != null)
+        r'artistIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          artistIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (albumArtistIds != null)
+        r'albumArtistIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          albumArtistIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (contributingArtistIds != null)
+        r'contributingArtistIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          contributingArtistIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (albums != null)
+        r'albums': encodeCollectionQueryParameter<String>(
+          _serializers,
+          albums,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (albumIds != null)
+        r'albumIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          albumIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (ids != null)
+        r'ids': encodeCollectionQueryParameter<String>(
+          _serializers,
+          ids,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (videoTypes != null)
+        r'videoTypes': encodeCollectionQueryParameter<VideoType>(
+          _serializers,
+          videoTypes,
+          const FullType(BuiltList, [FullType(VideoType)]),
+          format: ListFormat.multi,
+        ),
+      if (minOfficialRating != null)
+        r'minOfficialRating': encodeQueryParameter(
+            _serializers, minOfficialRating, const FullType(String)),
+      if (isLocked != null)
+        r'isLocked':
+            encodeQueryParameter(_serializers, isLocked, const FullType(bool)),
+      if (isPlaceHolder != null)
+        r'isPlaceHolder': encodeQueryParameter(
+            _serializers, isPlaceHolder, const FullType(bool)),
+      if (hasOfficialRating != null)
+        r'hasOfficialRating': encodeQueryParameter(
+            _serializers, hasOfficialRating, const FullType(bool)),
+      if (collapseBoxSetItems != null)
+        r'collapseBoxSetItems': encodeQueryParameter(
+            _serializers, collapseBoxSetItems, const FullType(bool)),
+      if (minWidth != null)
+        r'minWidth':
+            encodeQueryParameter(_serializers, minWidth, const FullType(int)),
+      if (minHeight != null)
+        r'minHeight':
+            encodeQueryParameter(_serializers, minHeight, const FullType(int)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (is3D != null)
+        r'is3D': encodeQueryParameter(_serializers, is3D, const FullType(bool)),
+      if (seriesStatus != null)
+        r'seriesStatus': encodeCollectionQueryParameter<SeriesStatus>(
+          _serializers,
+          seriesStatus,
+          const FullType(BuiltList, [FullType(SeriesStatus)]),
+          format: ListFormat.multi,
+        ),
+      if (nameStartsWithOrGreater != null)
+        r'nameStartsWithOrGreater': encodeQueryParameter(
+            _serializers, nameStartsWithOrGreater, const FullType(String)),
+      if (nameStartsWith != null)
+        r'nameStartsWith': encodeQueryParameter(
+            _serializers, nameStartsWith, const FullType(String)),
+      if (nameLessThan != null)
+        r'nameLessThan': encodeQueryParameter(
+            _serializers, nameLessThan, const FullType(String)),
+      if (studioIds != null)
+        r'studioIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          studioIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (genreIds != null)
+        r'genreIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          genreIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -672,22 +1256,24 @@ class ItemsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -703,7 +1289,7 @@ class ItemsApi {
   }
 
   /// Gets items based on a query.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - The user id.
@@ -729,8 +1315,8 @@ class ItemsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getResumeItems({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getResumeItems({
     required String userId,
     int? startIndex,
     int? limit,
@@ -753,7 +1339,10 @@ class ItemsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/Resume'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/Items/Resume'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -774,20 +1363,68 @@ class ItemsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (searchTerm != null) r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (mediaTypes != null) r'mediaTypes': encodeCollectionQueryParameter<String>(_serializers, mediaTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (excludeItemTypes != null) r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, excludeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (includeItemTypes != null) r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, includeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (excludeActiveSessions != null) r'excludeActiveSessions': encodeQueryParameter(_serializers, excludeActiveSessions, const FullType(bool)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (mediaTypes != null)
+        r'mediaTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          mediaTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeItemTypes != null)
+        r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          excludeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (includeItemTypes != null)
+        r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          includeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (excludeActiveSessions != null)
+        r'excludeActiveSessions': encodeQueryParameter(
+            _serializers, excludeActiveSessions, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -799,22 +1436,24 @@ class ItemsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -828,5 +1467,4 @@ class ItemsApi {
       extra: _response.extra,
     );
   }
-
 }

@@ -1,8 +1,8 @@
-# openapi.model.TranscodingProfile
+# tentacle.model.TranscodingProfile
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **protocol** | **String** |  | [optional] 
 **estimateContentLength** | **bool** |  | [optional] [default to false]
 **enableMpegtsM2TsMode** | **bool** |  | [optional] [default to false]
-**transcodeSeekInfo** | [**TranscodeSeekInfo**](TranscodeSeekInfo.md) |  | [optional] [default to Auto]
+**transcodeSeekInfo** | [**TranscodeSeekInfo**](TranscodeSeekInfo.md) |  | [optional] [default to TranscodeSeekInfo.auto]
 **copyTimestamps** | **bool** |  | [optional] [default to false]
-**context** | [**EncodingContext**](EncodingContext.md) |  | [optional] [default to Streaming]
+**context** | [**EncodingContext**](EncodingContext.md) |  | [optional] [default to EncodingContext.streaming]
 **enableSubtitlesInManifest** | **bool** |  | [optional] [default to false]
 **maxAudioChannels** | **String** |  | [optional] 
 **minSegments** | **int** |  | [optional] [default to 0]

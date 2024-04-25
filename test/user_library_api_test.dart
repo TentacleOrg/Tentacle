@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for UserLibraryApi
 void main() {
   final instance = Tentacle().getUserLibraryApi();
@@ -76,6 +75,5 @@ void main() {
     test('test updateUserItemRating', () async {
       // TODO
     });
-
   });
 }

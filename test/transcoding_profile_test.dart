@@ -42,7 +42,7 @@ void main() {
       // TODO
     });
 
-    // TranscodeSeekInfo transcodeSeekInfo (default value: Auto)
+    // TranscodeSeekInfo transcodeSeekInfo (default value: TranscodeSeekInfo.auto)
     test('to test the property `transcodeSeekInfo`', () async {
       // TODO
     });
@@ -52,7 +52,7 @@ void main() {
       // TODO
     });
 
-    // EncodingContext context (default value: Streaming)
+    // EncodingContext context (default value: EncodingContext.streaming)
     test('to test the property `context`', () async {
       // TODO
     });
@@ -86,6 +86,5 @@ void main() {
     test('to test the property `conditions`', () async {
       // TODO
     });
-
   });
 }

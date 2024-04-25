@@ -11,26 +11,35 @@ part 'collection_creation_result.g.dart';
 /// CollectionCreationResult
 ///
 /// Properties:
-/// * [id] 
+/// * [id]
 @BuiltValue()
-abstract class CollectionCreationResult implements Built<CollectionCreationResult, CollectionCreationResultBuilder> {
+abstract class CollectionCreationResult
+    implements
+        Built<CollectionCreationResult, CollectionCreationResultBuilder> {
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
   CollectionCreationResult._();
 
-  factory CollectionCreationResult([void updates(CollectionCreationResultBuilder b)]) = _$CollectionCreationResult;
+  factory CollectionCreationResult(
+          [void updates(CollectionCreationResultBuilder b)]) =
+      _$CollectionCreationResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(CollectionCreationResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CollectionCreationResult> get serializer => _$CollectionCreationResultSerializer();
+  static Serializer<CollectionCreationResult> get serializer =>
+      _$CollectionCreationResultSerializer();
 }
 
-class _$CollectionCreationResultSerializer implements PrimitiveSerializer<CollectionCreationResult> {
+class _$CollectionCreationResultSerializer
+    implements PrimitiveSerializer<CollectionCreationResult> {
   @override
-  final Iterable<Type> types = const [CollectionCreationResult, _$CollectionCreationResult];
+  final Iterable<Type> types = const [
+    CollectionCreationResult,
+    _$CollectionCreationResult
+  ];
 
   @override
   final String wireName = r'CollectionCreationResult';
@@ -55,7 +64,9 @@ class _$CollectionCreationResultSerializer implements PrimitiveSerializer<Collec
     CollectionCreationResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -105,4 +116,3 @@ class _$CollectionCreationResultSerializer implements PrimitiveSerializer<Collec
     return result.build();
   }
 }
-

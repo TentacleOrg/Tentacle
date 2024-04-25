@@ -14,9 +14,10 @@ part 'media_path_dto.g.dart';
 /// Properties:
 /// * [name] - Gets or sets the name of the library.
 /// * [path] - Gets or sets the path to add.
-/// * [pathInfo] 
-@BuiltValue(instantiable: false)
-abstract class MediaPathDto  {
+/// * [pathInfo]
+@BuiltValue()
+abstract class MediaPathDto
+    implements Built<MediaPathDto, MediaPathDtoBuilder> {
   /// Gets or sets the name of the library.
   @BuiltValueField(wireName: r'Name')
   String get name;
@@ -28,13 +29,20 @@ abstract class MediaPathDto  {
   @BuiltValueField(wireName: r'PathInfo')
   MediaPathDtoPathInfo? get pathInfo;
 
+  MediaPathDto._();
+
+  factory MediaPathDto([void updates(MediaPathDtoBuilder b)]) = _$MediaPathDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MediaPathDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<MediaPathDto> get serializer => _$MediaPathDtoSerializer();
 }
 
 class _$MediaPathDtoSerializer implements PrimitiveSerializer<MediaPathDto> {
   @override
-  final Iterable<Type> types = const [MediaPathDto];
+  final Iterable<Type> types = const [MediaPathDto, _$MediaPathDto];
 
   @override
   final String wireName = r'MediaPathDto';
@@ -71,47 +79,9 @@ class _$MediaPathDtoSerializer implements PrimitiveSerializer<MediaPathDto> {
     MediaPathDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MediaPathDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MediaPathDto)) as $MediaPathDto;
-  }
-}
-
-/// a concrete implementation of [MediaPathDto], since [MediaPathDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MediaPathDto implements MediaPathDto, Built<$MediaPathDto, $MediaPathDtoBuilder> {
-  $MediaPathDto._();
-
-  factory $MediaPathDto([void Function($MediaPathDtoBuilder)? updates]) = _$$MediaPathDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MediaPathDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MediaPathDto> get serializer => _$$MediaPathDtoSerializer();
-}
-
-class _$$MediaPathDtoSerializer implements PrimitiveSerializer<$MediaPathDto> {
-  @override
-  final Iterable<Type> types = const [$MediaPathDto, _$$MediaPathDto];
-
-  @override
-  final String wireName = r'$MediaPathDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MediaPathDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MediaPathDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -158,12 +128,12 @@ class _$$MediaPathDtoSerializer implements PrimitiveSerializer<$MediaPathDto> {
   }
 
   @override
-  $MediaPathDto deserialize(
+  MediaPathDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MediaPathDtoBuilder();
+    final result = MediaPathDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -177,4 +147,3 @@ class _$$MediaPathDtoSerializer implements PrimitiveSerializer<$MediaPathDto> {
     return result.build();
   }
 }
-

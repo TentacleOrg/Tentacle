@@ -1,8 +1,8 @@
-# openapi.api.ItemLookupApi
+# tentacle.api.ItemLookupApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -23,26 +23,26 @@ Method | HTTP request | Description
 
 
 # **applySearchCriteria**
-> applySearchCriteria(itemId, applySearchCriteriaRequest, replaceAllImages)
+> applySearchCriteria(itemId, remoteSearchResult, replaceAllImages)
 
 Applies search criteria to an item and refreshes metadata.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
+final api = Tentacle().getItemLookupApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ApplySearchCriteriaRequest applySearchCriteriaRequest = ; // ApplySearchCriteriaRequest | The remote search result.
+final RemoteSearchResult remoteSearchResult = ; // RemoteSearchResult | The remote search result.
 final bool replaceAllImages = true; // bool | Optional. Whether or not to replace all images. Default: True.
 
 try {
-    api.applySearchCriteria(itemId, applySearchCriteriaRequest, replaceAllImages);
-} catch on DioError (e) {
+    api.applySearchCriteria(itemId, remoteSearchResult, replaceAllImages);
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->applySearchCriteria: $e\n');
 }
 ```
@@ -52,7 +52,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **applySearchCriteriaRequest** | [**ApplySearchCriteriaRequest**](ApplySearchCriteriaRequest.md)| The remote search result. | 
+ **remoteSearchResult** | [**RemoteSearchResult**](RemoteSearchResult.md)| The remote search result. | 
  **replaceAllImages** | **bool**| Optional. Whether or not to replace all images. Default: True. | [optional] [default to true]
 
 ### Return type
@@ -71,25 +71,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getBookRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getBookRemoteSearchResults(getBookRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getBookRemoteSearchResults(bookInfoRemoteSearchQuery)
 
 Get book remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetBookRemoteSearchResultsRequest getBookRemoteSearchResultsRequest = ; // GetBookRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final BookInfoRemoteSearchQuery bookInfoRemoteSearchQuery = ; // BookInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getBookRemoteSearchResults(getBookRemoteSearchResultsRequest);
+    final response = api.getBookRemoteSearchResults(bookInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getBookRemoteSearchResults: $e\n');
 }
 ```
@@ -98,7 +98,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getBookRemoteSearchResultsRequest** | [**GetBookRemoteSearchResultsRequest**](GetBookRemoteSearchResultsRequest.md)| Remote search query. | 
+ **bookInfoRemoteSearchQuery** | [**BookInfoRemoteSearchQuery**](BookInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 
@@ -116,25 +116,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getBoxSetRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getBoxSetRemoteSearchResults(getBoxSetRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getBoxSetRemoteSearchResults(boxSetInfoRemoteSearchQuery)
 
 Get box set remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetBoxSetRemoteSearchResultsRequest getBoxSetRemoteSearchResultsRequest = ; // GetBoxSetRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final BoxSetInfoRemoteSearchQuery boxSetInfoRemoteSearchQuery = ; // BoxSetInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getBoxSetRemoteSearchResults(getBoxSetRemoteSearchResultsRequest);
+    final response = api.getBoxSetRemoteSearchResults(boxSetInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getBoxSetRemoteSearchResults: $e\n');
 }
 ```
@@ -143,7 +143,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getBoxSetRemoteSearchResultsRequest** | [**GetBoxSetRemoteSearchResultsRequest**](GetBoxSetRemoteSearchResultsRequest.md)| Remote search query. | 
+ **boxSetInfoRemoteSearchQuery** | [**BoxSetInfoRemoteSearchQuery**](BoxSetInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 
@@ -167,19 +167,19 @@ Get the item's external id info.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
+final api = Tentacle().getItemLookupApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.getExternalIdInfos(itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getExternalIdInfos: $e\n');
 }
 ```
@@ -206,25 +206,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMovieRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getMovieRemoteSearchResults(getMovieRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getMovieRemoteSearchResults(movieInfoRemoteSearchQuery)
 
 Get movie remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetMovieRemoteSearchResultsRequest getMovieRemoteSearchResultsRequest = ; // GetMovieRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final MovieInfoRemoteSearchQuery movieInfoRemoteSearchQuery = ; // MovieInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getMovieRemoteSearchResults(getMovieRemoteSearchResultsRequest);
+    final response = api.getMovieRemoteSearchResults(movieInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getMovieRemoteSearchResults: $e\n');
 }
 ```
@@ -233,7 +233,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getMovieRemoteSearchResultsRequest** | [**GetMovieRemoteSearchResultsRequest**](GetMovieRemoteSearchResultsRequest.md)| Remote search query. | 
+ **movieInfoRemoteSearchQuery** | [**MovieInfoRemoteSearchQuery**](MovieInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 
@@ -251,25 +251,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMusicAlbumRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getMusicAlbumRemoteSearchResults(getMusicAlbumRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getMusicAlbumRemoteSearchResults(albumInfoRemoteSearchQuery)
 
 Get music album remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetMusicAlbumRemoteSearchResultsRequest getMusicAlbumRemoteSearchResultsRequest = ; // GetMusicAlbumRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final AlbumInfoRemoteSearchQuery albumInfoRemoteSearchQuery = ; // AlbumInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getMusicAlbumRemoteSearchResults(getMusicAlbumRemoteSearchResultsRequest);
+    final response = api.getMusicAlbumRemoteSearchResults(albumInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getMusicAlbumRemoteSearchResults: $e\n');
 }
 ```
@@ -278,7 +278,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getMusicAlbumRemoteSearchResultsRequest** | [**GetMusicAlbumRemoteSearchResultsRequest**](GetMusicAlbumRemoteSearchResultsRequest.md)| Remote search query. | 
+ **albumInfoRemoteSearchQuery** | [**AlbumInfoRemoteSearchQuery**](AlbumInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 
@@ -296,25 +296,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMusicArtistRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getMusicArtistRemoteSearchResults(getMusicArtistRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getMusicArtistRemoteSearchResults(artistInfoRemoteSearchQuery)
 
 Get music artist remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetMusicArtistRemoteSearchResultsRequest getMusicArtistRemoteSearchResultsRequest = ; // GetMusicArtistRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final ArtistInfoRemoteSearchQuery artistInfoRemoteSearchQuery = ; // ArtistInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getMusicArtistRemoteSearchResults(getMusicArtistRemoteSearchResultsRequest);
+    final response = api.getMusicArtistRemoteSearchResults(artistInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getMusicArtistRemoteSearchResults: $e\n');
 }
 ```
@@ -323,7 +323,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getMusicArtistRemoteSearchResultsRequest** | [**GetMusicArtistRemoteSearchResultsRequest**](GetMusicArtistRemoteSearchResultsRequest.md)| Remote search query. | 
+ **artistInfoRemoteSearchQuery** | [**ArtistInfoRemoteSearchQuery**](ArtistInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 
@@ -341,25 +341,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMusicVideoRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getMusicVideoRemoteSearchResults(getMusicVideoRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getMusicVideoRemoteSearchResults(musicVideoInfoRemoteSearchQuery)
 
 Get music video remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetMusicVideoRemoteSearchResultsRequest getMusicVideoRemoteSearchResultsRequest = ; // GetMusicVideoRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final MusicVideoInfoRemoteSearchQuery musicVideoInfoRemoteSearchQuery = ; // MusicVideoInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getMusicVideoRemoteSearchResults(getMusicVideoRemoteSearchResultsRequest);
+    final response = api.getMusicVideoRemoteSearchResults(musicVideoInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getMusicVideoRemoteSearchResults: $e\n');
 }
 ```
@@ -368,7 +368,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getMusicVideoRemoteSearchResultsRequest** | [**GetMusicVideoRemoteSearchResultsRequest**](GetMusicVideoRemoteSearchResultsRequest.md)| Remote search query. | 
+ **musicVideoInfoRemoteSearchQuery** | [**MusicVideoInfoRemoteSearchQuery**](MusicVideoInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 
@@ -386,25 +386,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPersonRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getPersonRemoteSearchResults(getPersonRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getPersonRemoteSearchResults(personLookupInfoRemoteSearchQuery)
 
 Get person remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetPersonRemoteSearchResultsRequest getPersonRemoteSearchResultsRequest = ; // GetPersonRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final PersonLookupInfoRemoteSearchQuery personLookupInfoRemoteSearchQuery = ; // PersonLookupInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getPersonRemoteSearchResults(getPersonRemoteSearchResultsRequest);
+    final response = api.getPersonRemoteSearchResults(personLookupInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getPersonRemoteSearchResults: $e\n');
 }
 ```
@@ -413,7 +413,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getPersonRemoteSearchResultsRequest** | [**GetPersonRemoteSearchResultsRequest**](GetPersonRemoteSearchResultsRequest.md)| Remote search query. | 
+ **personLookupInfoRemoteSearchQuery** | [**PersonLookupInfoRemoteSearchQuery**](PersonLookupInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 
@@ -431,25 +431,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSeriesRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getSeriesRemoteSearchResults(getSeriesRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getSeriesRemoteSearchResults(seriesInfoRemoteSearchQuery)
 
 Get series remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetSeriesRemoteSearchResultsRequest getSeriesRemoteSearchResultsRequest = ; // GetSeriesRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final SeriesInfoRemoteSearchQuery seriesInfoRemoteSearchQuery = ; // SeriesInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getSeriesRemoteSearchResults(getSeriesRemoteSearchResultsRequest);
+    final response = api.getSeriesRemoteSearchResults(seriesInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getSeriesRemoteSearchResults: $e\n');
 }
 ```
@@ -458,7 +458,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getSeriesRemoteSearchResultsRequest** | [**GetSeriesRemoteSearchResultsRequest**](GetSeriesRemoteSearchResultsRequest.md)| Remote search query. | 
+ **seriesInfoRemoteSearchQuery** | [**SeriesInfoRemoteSearchQuery**](SeriesInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 
@@ -476,25 +476,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTrailerRemoteSearchResults**
-> BuiltList<RemoteSearchResult> getTrailerRemoteSearchResults(getTrailerRemoteSearchResultsRequest)
+> BuiltList<RemoteSearchResult> getTrailerRemoteSearchResults(trailerInfoRemoteSearchQuery)
 
 Get trailer remote search.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemLookupApi();
-final GetTrailerRemoteSearchResultsRequest getTrailerRemoteSearchResultsRequest = ; // GetTrailerRemoteSearchResultsRequest | Remote search query.
+final api = Tentacle().getItemLookupApi();
+final TrailerInfoRemoteSearchQuery trailerInfoRemoteSearchQuery = ; // TrailerInfoRemoteSearchQuery | Remote search query.
 
 try {
-    final response = api.getTrailerRemoteSearchResults(getTrailerRemoteSearchResultsRequest);
+    final response = api.getTrailerRemoteSearchResults(trailerInfoRemoteSearchQuery);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemLookupApi->getTrailerRemoteSearchResults: $e\n');
 }
 ```
@@ -503,7 +503,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getTrailerRemoteSearchResultsRequest** | [**GetTrailerRemoteSearchResultsRequest**](GetTrailerRemoteSearchResultsRequest.md)| Remote search query. | 
+ **trailerInfoRemoteSearchQuery** | [**TrailerInfoRemoteSearchQuery**](TrailerInfoRemoteSearchQuery.md)| Remote search query. | 
 
 ### Return type
 

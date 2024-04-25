@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for ScheduledTasksApi
 void main() {
   final instance = Tentacle().getScheduledTasksApi();
@@ -41,6 +40,5 @@ void main() {
     test('test updateTask', () async {
       // TODO
     });
-
   });
 }

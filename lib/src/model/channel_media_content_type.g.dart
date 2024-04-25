@@ -70,7 +70,7 @@ class _$ChannelMediaContentTypeMeta {
   BuiltSet<ChannelMediaContentType> get values => _$values;
 }
 
-abstract class _$ChannelMediaContentTypeMixin {
+mixin _$ChannelMediaContentTypeMixin {
   // ignore: non_constant_identifier_names
   _$ChannelMediaContentTypeMeta get ChannelMediaContentType =>
       const _$ChannelMediaContentTypeMeta();

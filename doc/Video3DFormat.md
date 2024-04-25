@@ -1,8 +1,8 @@
-# openapi.model.Video3DFormat
+# tentacle.model.Video3DFormat
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

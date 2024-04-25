@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:tentacle/src/model/config_image_types.dart';
 
 class TmdbApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -18,7 +17,7 @@ class TmdbApi {
   const TmdbApi(this._dio, this._serializers);
 
   /// Gets the TMDb image configuration options.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -29,8 +28,8 @@ class TmdbApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ConfigImageTypes] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<ConfigImageTypes>> tmdbClientConfiguration({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<ConfigImageTypes>> tmdbClientConfiguration({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -66,22 +65,24 @@ class TmdbApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ConfigImageTypes _responseData;
+    ConfigImageTypes? _responseData;
 
     try {
-      const _responseType = FullType(ConfigImageTypes);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as ConfigImageTypes;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ConfigImageTypes),
+            ) as ConfigImageTypes;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ConfigImageTypes>(
@@ -95,5 +96,4 @@ class TmdbApi {
       extra: _response.extra,
     );
   }
-
 }

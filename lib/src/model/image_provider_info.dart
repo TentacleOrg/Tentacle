@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/image_type.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/image_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,7 +16,8 @@ part 'image_provider_info.g.dart';
 /// * [name] - Gets the name.
 /// * [supportedImages] - Gets the supported image types.
 @BuiltValue()
-abstract class ImageProviderInfo implements Built<ImageProviderInfo, ImageProviderInfoBuilder> {
+abstract class ImageProviderInfo
+    implements Built<ImageProviderInfo, ImageProviderInfoBuilder> {
   /// Gets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -27,16 +28,19 @@ abstract class ImageProviderInfo implements Built<ImageProviderInfo, ImageProvid
 
   ImageProviderInfo._();
 
-  factory ImageProviderInfo([void updates(ImageProviderInfoBuilder b)]) = _$ImageProviderInfo;
+  factory ImageProviderInfo([void updates(ImageProviderInfoBuilder b)]) =
+      _$ImageProviderInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ImageProviderInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ImageProviderInfo> get serializer => _$ImageProviderInfoSerializer();
+  static Serializer<ImageProviderInfo> get serializer =>
+      _$ImageProviderInfoSerializer();
 }
 
-class _$ImageProviderInfoSerializer implements PrimitiveSerializer<ImageProviderInfo> {
+class _$ImageProviderInfoSerializer
+    implements PrimitiveSerializer<ImageProviderInfo> {
   @override
   final Iterable<Type> types = const [ImageProviderInfo, _$ImageProviderInfo];
 
@@ -70,7 +74,9 @@ class _$ImageProviderInfoSerializer implements PrimitiveSerializer<ImageProvider
     ImageProviderInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +133,3 @@ class _$ImageProviderInfoSerializer implements PrimitiveSerializer<ImageProvider
     return result.build();
   }
 }
-

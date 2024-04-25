@@ -16,7 +16,7 @@ part 'culture_dto.g.dart';
 /// * [displayName] - Gets the display name.
 /// * [twoLetterISOLanguageName] - Gets the name of the two letter ISO language.
 /// * [threeLetterISOLanguageName] - Gets the name of the three letter ISO language.
-/// * [threeLetterISOLanguageNames] 
+/// * [threeLetterISOLanguageNames]
 @BuiltValue()
 abstract class CultureDto implements Built<CultureDto, CultureDtoBuilder> {
   /// Gets the name.
@@ -104,7 +104,9 @@ class _$CultureDtoSerializer implements PrimitiveSerializer<CultureDto> {
     CultureDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -183,4 +185,3 @@ class _$CultureDtoSerializer implements PrimitiveSerializer<CultureDto> {
     return result.build();
   }
 }
-

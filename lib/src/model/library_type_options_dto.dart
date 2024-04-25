@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/image_type.dart';
-import 'package:tentacle/src/model/image_option.dart';
-import 'package:tentacle/src/model/library_option_info_dto.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/library_option_info_dto.dart';
+import 'package:tentacle/src/model/image_option.dart';
+import 'package:tentacle/src/model/image_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -21,7 +21,8 @@ part 'library_type_options_dto.g.dart';
 /// * [supportedImageTypes] - Gets or sets the supported image types.
 /// * [defaultImageOptions] - Gets or sets the default image options.
 @BuiltValue()
-abstract class LibraryTypeOptionsDto implements Built<LibraryTypeOptionsDto, LibraryTypeOptionsDtoBuilder> {
+abstract class LibraryTypeOptionsDto
+    implements Built<LibraryTypeOptionsDto, LibraryTypeOptionsDtoBuilder> {
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   String? get type;
@@ -44,18 +45,24 @@ abstract class LibraryTypeOptionsDto implements Built<LibraryTypeOptionsDto, Lib
 
   LibraryTypeOptionsDto._();
 
-  factory LibraryTypeOptionsDto([void updates(LibraryTypeOptionsDtoBuilder b)]) = _$LibraryTypeOptionsDto;
+  factory LibraryTypeOptionsDto(
+      [void updates(LibraryTypeOptionsDtoBuilder b)]) = _$LibraryTypeOptionsDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LibraryTypeOptionsDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LibraryTypeOptionsDto> get serializer => _$LibraryTypeOptionsDtoSerializer();
+  static Serializer<LibraryTypeOptionsDto> get serializer =>
+      _$LibraryTypeOptionsDtoSerializer();
 }
 
-class _$LibraryTypeOptionsDtoSerializer implements PrimitiveSerializer<LibraryTypeOptionsDto> {
+class _$LibraryTypeOptionsDtoSerializer
+    implements PrimitiveSerializer<LibraryTypeOptionsDto> {
   @override
-  final Iterable<Type> types = const [LibraryTypeOptionsDto, _$LibraryTypeOptionsDto];
+  final Iterable<Type> types = const [
+    LibraryTypeOptionsDto,
+    _$LibraryTypeOptionsDto
+  ];
 
   @override
   final String wireName = r'LibraryTypeOptionsDto';
@@ -76,14 +83,16 @@ class _$LibraryTypeOptionsDtoSerializer implements PrimitiveSerializer<LibraryTy
       yield r'MetadataFetchers';
       yield serializers.serialize(
         object.metadataFetchers,
-        specifiedType: const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
       );
     }
     if (object.imageFetchers != null) {
       yield r'ImageFetchers';
       yield serializers.serialize(
         object.imageFetchers,
-        specifiedType: const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
       );
     }
     if (object.supportedImageTypes != null) {
@@ -108,7 +117,9 @@ class _$LibraryTypeOptionsDtoSerializer implements PrimitiveSerializer<LibraryTy
     LibraryTypeOptionsDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -134,14 +145,16 @@ class _$LibraryTypeOptionsDtoSerializer implements PrimitiveSerializer<LibraryTy
         case r'MetadataFetchers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
           ) as BuiltList<LibraryOptionInfoDto>;
           result.metadataFetchers.replace(valueDes);
           break;
         case r'ImageFetchers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
           ) as BuiltList<LibraryOptionInfoDto>;
           result.imageFetchers.replace(valueDes);
           break;
@@ -187,4 +200,3 @@ class _$LibraryTypeOptionsDtoSerializer implements PrimitiveSerializer<LibraryTy
     return result.build();
   }
 }
-

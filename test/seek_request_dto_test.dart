@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SeekRequestDto
 void main() {
-  //final instance = SeekRequestDtoBuilder();
+  final instance = SeekRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(SeekRequestDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `positionTicks`', () async {
       // TODO
     });
-
   });
 }

@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ProgramAudio
 void main() {
-
-  group(ProgramAudio, () {
-  });
+  group(ProgramAudio, () {});
 }

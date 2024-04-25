@@ -1,8 +1,8 @@
-# openapi.model.ClientCapabilitiesDto
+# tentacle.model.ClientCapabilitiesDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **messageCallbackUrl** | **String** | Gets or sets the message callback url. | [optional] 
 **supportsPersistentIdentifier** | **bool** | Gets or sets a value indicating whether session supports a persistent identifier. | [optional] 
 **supportsSync** | **bool** | Gets or sets a value indicating whether session supports sync. | [optional] 
-**deviceProfile** | [**ClientCapabilitiesDtoDeviceProfile**](ClientCapabilitiesDtoDeviceProfile.md) |  | [optional] 
+**deviceProfile** | [**ClientCapabilitiesDeviceProfile**](ClientCapabilitiesDeviceProfile.md) |  | [optional] 
 **appStoreUrl** | **String** | Gets or sets the app store url. | [optional] 
 **iconUrl** | **String** | Gets or sets the icon url. | [optional] 
 

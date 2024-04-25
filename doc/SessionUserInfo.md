@@ -1,8 +1,8 @@
-# openapi.model.SessionUserInfo
+# tentacle.model.SessionUserInfo
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

@@ -1,8 +1,8 @@
-# openapi.model.TypeOptions
+# tentacle.model.TypeOptions
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

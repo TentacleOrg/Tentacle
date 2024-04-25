@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/sort_order.dart';
 import 'package:tentacle/src/model/scroll_direction.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/sort_order.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -22,14 +22,15 @@ part 'display_preferences_dto.g.dart';
 /// * [primaryImageHeight] - Gets or sets the height of the primary image.
 /// * [primaryImageWidth] - Gets or sets the width of the primary image.
 /// * [customPrefs] - Gets or sets the custom prefs.
-/// * [scrollDirection] - An enum representing the axis that should be scrolled.
+/// * [scrollDirection] - Gets or sets the scroll direction.
 /// * [showBackdrop] - Gets or sets a value indicating whether to show backdrops on this item.
 /// * [rememberSorting] - Gets or sets a value indicating whether [remember sorting].
-/// * [sortOrder] - An enum representing the sorting order.
+/// * [sortOrder] - Gets or sets the sort order.
 /// * [showSidebar] - Gets or sets a value indicating whether [show sidebar].
 /// * [client] - Gets or sets the client.
-@BuiltValue(instantiable: false)
-abstract class DisplayPreferencesDto  {
+@BuiltValue()
+abstract class DisplayPreferencesDto
+    implements Built<DisplayPreferencesDto, DisplayPreferencesDtoBuilder> {
   /// Gets or sets the user id.
   @BuiltValueField(wireName: r'Id')
   String? get id;
@@ -62,9 +63,10 @@ abstract class DisplayPreferencesDto  {
   @BuiltValueField(wireName: r'CustomPrefs')
   BuiltMap<String, String?>? get customPrefs;
 
-  /// An enum representing the axis that should be scrolled.
+  /// Gets or sets the scroll direction.
   @BuiltValueField(wireName: r'ScrollDirection')
   ScrollDirection? get scrollDirection;
+  // enum scrollDirectionEnum {  Horizontal,  Vertical,  };
 
   /// Gets or sets a value indicating whether to show backdrops on this item.
   @BuiltValueField(wireName: r'ShowBackdrop')
@@ -74,9 +76,10 @@ abstract class DisplayPreferencesDto  {
   @BuiltValueField(wireName: r'RememberSorting')
   bool? get rememberSorting;
 
-  /// An enum representing the sorting order.
+  /// Gets or sets the sort order.
   @BuiltValueField(wireName: r'SortOrder')
   SortOrder? get sortOrder;
+  // enum sortOrderEnum {  Ascending,  Descending,  };
 
   /// Gets or sets a value indicating whether [show sidebar].
   @BuiltValueField(wireName: r'ShowSidebar')
@@ -86,13 +89,26 @@ abstract class DisplayPreferencesDto  {
   @BuiltValueField(wireName: r'Client')
   String? get client;
 
+  DisplayPreferencesDto._();
+
+  factory DisplayPreferencesDto(
+      [void updates(DisplayPreferencesDtoBuilder b)]) = _$DisplayPreferencesDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DisplayPreferencesDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<DisplayPreferencesDto> get serializer => _$DisplayPreferencesDtoSerializer();
+  static Serializer<DisplayPreferencesDto> get serializer =>
+      _$DisplayPreferencesDtoSerializer();
 }
 
-class _$DisplayPreferencesDtoSerializer implements PrimitiveSerializer<DisplayPreferencesDto> {
+class _$DisplayPreferencesDtoSerializer
+    implements PrimitiveSerializer<DisplayPreferencesDto> {
   @override
-  final Iterable<Type> types = const [DisplayPreferencesDto];
+  final Iterable<Type> types = const [
+    DisplayPreferencesDto,
+    _$DisplayPreferencesDto
+  ];
 
   @override
   final String wireName = r'DisplayPreferencesDto';
@@ -155,7 +171,8 @@ class _$DisplayPreferencesDtoSerializer implements PrimitiveSerializer<DisplayPr
       yield r'CustomPrefs';
       yield serializers.serialize(
         object.customPrefs,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.scrollDirection != null) {
@@ -208,47 +225,9 @@ class _$DisplayPreferencesDtoSerializer implements PrimitiveSerializer<DisplayPr
     DisplayPreferencesDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  DisplayPreferencesDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($DisplayPreferencesDto)) as $DisplayPreferencesDto;
-  }
-}
-
-/// a concrete implementation of [DisplayPreferencesDto], since [DisplayPreferencesDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $DisplayPreferencesDto implements DisplayPreferencesDto, Built<$DisplayPreferencesDto, $DisplayPreferencesDtoBuilder> {
-  $DisplayPreferencesDto._();
-
-  factory $DisplayPreferencesDto([void Function($DisplayPreferencesDtoBuilder)? updates]) = _$$DisplayPreferencesDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($DisplayPreferencesDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$DisplayPreferencesDto> get serializer => _$$DisplayPreferencesDtoSerializer();
-}
-
-class _$$DisplayPreferencesDtoSerializer implements PrimitiveSerializer<$DisplayPreferencesDto> {
-  @override
-  final Iterable<Type> types = const [$DisplayPreferencesDto, _$$DisplayPreferencesDto];
-
-  @override
-  final String wireName = r'$DisplayPreferencesDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $DisplayPreferencesDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(DisplayPreferencesDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -319,7 +298,8 @@ class _$$DisplayPreferencesDtoSerializer implements PrimitiveSerializer<$Display
         case r'CustomPrefs':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>;
           result.customPrefs.replace(valueDes);
           break;
@@ -375,12 +355,12 @@ class _$$DisplayPreferencesDtoSerializer implements PrimitiveSerializer<$Display
   }
 
   @override
-  $DisplayPreferencesDto deserialize(
+  DisplayPreferencesDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $DisplayPreferencesDtoBuilder();
+    final result = DisplayPreferencesDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -394,4 +374,3 @@ class _$$DisplayPreferencesDtoSerializer implements PrimitiveSerializer<$Display
     return result.build();
   }
 }
-

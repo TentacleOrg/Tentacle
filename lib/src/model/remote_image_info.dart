@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/rating_type.dart';
+import 'package:tentacle/src/model/image_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -24,7 +24,8 @@ part 'remote_image_info.g.dart';
 /// * [type] - Gets or sets the type.
 /// * [ratingType] - Gets or sets the type of the rating.
 @BuiltValue()
-abstract class RemoteImageInfo implements Built<RemoteImageInfo, RemoteImageInfoBuilder> {
+abstract class RemoteImageInfo
+    implements Built<RemoteImageInfo, RemoteImageInfoBuilder> {
   /// Gets or sets the name of the provider.
   @BuiltValueField(wireName: r'ProviderName')
   String? get providerName;
@@ -60,23 +61,28 @@ abstract class RemoteImageInfo implements Built<RemoteImageInfo, RemoteImageInfo
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   ImageType? get type;
+  // enum typeEnum {  Primary,  Art,  Backdrop,  Banner,  Logo,  Thumb,  Disc,  Box,  Screenshot,  Menu,  Chapter,  BoxRear,  Profile,  };
 
   /// Gets or sets the type of the rating.
   @BuiltValueField(wireName: r'RatingType')
   RatingType? get ratingType;
+  // enum ratingTypeEnum {  Score,  Likes,  };
 
   RemoteImageInfo._();
 
-  factory RemoteImageInfo([void updates(RemoteImageInfoBuilder b)]) = _$RemoteImageInfo;
+  factory RemoteImageInfo([void updates(RemoteImageInfoBuilder b)]) =
+      _$RemoteImageInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RemoteImageInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<RemoteImageInfo> get serializer => _$RemoteImageInfoSerializer();
+  static Serializer<RemoteImageInfo> get serializer =>
+      _$RemoteImageInfoSerializer();
 }
 
-class _$RemoteImageInfoSerializer implements PrimitiveSerializer<RemoteImageInfo> {
+class _$RemoteImageInfoSerializer
+    implements PrimitiveSerializer<RemoteImageInfo> {
   @override
   final Iterable<Type> types = const [RemoteImageInfo, _$RemoteImageInfo];
 
@@ -166,7 +172,9 @@ class _$RemoteImageInfoSerializer implements PrimitiveSerializer<RemoteImageInfo
     RemoteImageInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -287,4 +295,3 @@ class _$RemoteImageInfoSerializer implements PrimitiveSerializer<RemoteImageInfo
     return result.build();
   }
 }
-

@@ -14,7 +14,8 @@ part 'name_value_pair.g.dart';
 /// * [name] - Gets or sets the name.
 /// * [value] - Gets or sets the value.
 @BuiltValue()
-abstract class NameValuePair implements Built<NameValuePair, NameValuePairBuilder> {
+abstract class NameValuePair
+    implements Built<NameValuePair, NameValuePairBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -25,13 +26,15 @@ abstract class NameValuePair implements Built<NameValuePair, NameValuePairBuilde
 
   NameValuePair._();
 
-  factory NameValuePair([void updates(NameValuePairBuilder b)]) = _$NameValuePair;
+  factory NameValuePair([void updates(NameValuePairBuilder b)]) =
+      _$NameValuePair;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NameValuePairBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NameValuePair> get serializer => _$NameValuePairSerializer();
+  static Serializer<NameValuePair> get serializer =>
+      _$NameValuePairSerializer();
 }
 
 class _$NameValuePairSerializer implements PrimitiveSerializer<NameValuePair> {
@@ -68,7 +71,9 @@ class _$NameValuePairSerializer implements PrimitiveSerializer<NameValuePair> {
     NameValuePair object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +132,3 @@ class _$NameValuePairSerializer implements PrimitiveSerializer<NameValuePair> {
     return result.build();
   }
 }
-

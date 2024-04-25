@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SetChannelMappingDto
 void main() {
-  //final instance = SetChannelMappingDtoBuilder();
+  final instance = SetChannelMappingDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(SetChannelMappingDto, () {
@@ -24,6 +24,5 @@ void main() {
     test('to test the property `providerChannelId`', () async {
       // TODO
     });
-
   });
 }

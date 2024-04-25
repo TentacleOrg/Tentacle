@@ -182,7 +182,7 @@ class _$TranscodeReasonMeta {
   BuiltSet<TranscodeReason> get values => _$values;
 }
 
-abstract class _$TranscodeReasonMixin {
+mixin _$TranscodeReasonMixin {
   // ignore: non_constant_identifier_names
   _$TranscodeReasonMeta get TranscodeReason => const _$TranscodeReasonMeta();
 }

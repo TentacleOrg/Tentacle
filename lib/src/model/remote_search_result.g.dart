@@ -6,47 +6,7 @@ part of 'remote_search_result.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class RemoteSearchResultBuilder {
-  void replace(RemoteSearchResult other);
-  void update(void Function(RemoteSearchResultBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  MapBuilder<String, String?> get providerIds;
-  set providerIds(MapBuilder<String, String?>? providerIds);
-
-  int? get productionYear;
-  set productionYear(int? productionYear);
-
-  int? get indexNumber;
-  set indexNumber(int? indexNumber);
-
-  int? get indexNumberEnd;
-  set indexNumberEnd(int? indexNumberEnd);
-
-  int? get parentIndexNumber;
-  set parentIndexNumber(int? parentIndexNumber);
-
-  DateTime? get premiereDate;
-  set premiereDate(DateTime? premiereDate);
-
-  String? get imageUrl;
-  set imageUrl(String? imageUrl);
-
-  String? get searchProviderName;
-  set searchProviderName(String? searchProviderName);
-
-  String? get overview;
-  set overview(String? overview);
-
-  RemoteSearchResultAlbumArtistBuilder get albumArtist;
-  set albumArtist(RemoteSearchResultAlbumArtistBuilder? albumArtist);
-
-  ListBuilder<RemoteSearchResult> get artists;
-  set artists(ListBuilder<RemoteSearchResult>? artists);
-}
-
-class _$$RemoteSearchResult extends $RemoteSearchResult {
+class _$RemoteSearchResult extends RemoteSearchResult {
   @override
   final String? name;
   @override
@@ -68,15 +28,15 @@ class _$$RemoteSearchResult extends $RemoteSearchResult {
   @override
   final String? overview;
   @override
-  final RemoteSearchResultAlbumArtist? albumArtist;
+  final RemoteSearchResult? albumArtist;
   @override
   final BuiltList<RemoteSearchResult>? artists;
 
-  factory _$$RemoteSearchResult(
-          [void Function($RemoteSearchResultBuilder)? updates]) =>
-      (new $RemoteSearchResultBuilder()..update(updates))._build();
+  factory _$RemoteSearchResult(
+          [void Function(RemoteSearchResultBuilder)? updates]) =>
+      (new RemoteSearchResultBuilder()..update(updates))._build();
 
-  _$$RemoteSearchResult._(
+  _$RemoteSearchResult._(
       {this.name,
       this.providerIds,
       this.productionYear,
@@ -92,18 +52,18 @@ class _$$RemoteSearchResult extends $RemoteSearchResult {
       : super._();
 
   @override
-  $RemoteSearchResult rebuild(
-          void Function($RemoteSearchResultBuilder) updates) =>
+  RemoteSearchResult rebuild(
+          void Function(RemoteSearchResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $RemoteSearchResultBuilder toBuilder() =>
-      new $RemoteSearchResultBuilder()..replace(this);
+  RemoteSearchResultBuilder toBuilder() =>
+      new RemoteSearchResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $RemoteSearchResult &&
+    return other is RemoteSearchResult &&
         name == other.name &&
         providerIds == other.providerIds &&
         productionYear == other.productionYear &&
@@ -139,7 +99,7 @@ class _$$RemoteSearchResult extends $RemoteSearchResult {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$RemoteSearchResult')
+    return (newBuiltValueToStringHelper(r'RemoteSearchResult')
           ..add('name', name)
           ..add('providerIds', providerIds)
           ..add('productionYear', productionYear)
@@ -156,78 +116,74 @@ class _$$RemoteSearchResult extends $RemoteSearchResult {
   }
 }
 
-class $RemoteSearchResultBuilder
-    implements
-        Builder<$RemoteSearchResult, $RemoteSearchResultBuilder>,
-        RemoteSearchResultBuilder {
-  _$$RemoteSearchResult? _$v;
+class RemoteSearchResultBuilder
+    implements Builder<RemoteSearchResult, RemoteSearchResultBuilder> {
+  _$RemoteSearchResult? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
       _$this._providerIds ??= new MapBuilder<String, String?>();
-  set providerIds(covariant MapBuilder<String, String?>? providerIds) =>
+  set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
   int? _productionYear;
   int? get productionYear => _$this._productionYear;
-  set productionYear(covariant int? productionYear) =>
+  set productionYear(int? productionYear) =>
       _$this._productionYear = productionYear;
 
   int? _indexNumber;
   int? get indexNumber => _$this._indexNumber;
-  set indexNumber(covariant int? indexNumber) =>
-      _$this._indexNumber = indexNumber;
+  set indexNumber(int? indexNumber) => _$this._indexNumber = indexNumber;
 
   int? _indexNumberEnd;
   int? get indexNumberEnd => _$this._indexNumberEnd;
-  set indexNumberEnd(covariant int? indexNumberEnd) =>
+  set indexNumberEnd(int? indexNumberEnd) =>
       _$this._indexNumberEnd = indexNumberEnd;
 
   int? _parentIndexNumber;
   int? get parentIndexNumber => _$this._parentIndexNumber;
-  set parentIndexNumber(covariant int? parentIndexNumber) =>
+  set parentIndexNumber(int? parentIndexNumber) =>
       _$this._parentIndexNumber = parentIndexNumber;
 
   DateTime? _premiereDate;
   DateTime? get premiereDate => _$this._premiereDate;
-  set premiereDate(covariant DateTime? premiereDate) =>
+  set premiereDate(DateTime? premiereDate) =>
       _$this._premiereDate = premiereDate;
 
   String? _imageUrl;
   String? get imageUrl => _$this._imageUrl;
-  set imageUrl(covariant String? imageUrl) => _$this._imageUrl = imageUrl;
+  set imageUrl(String? imageUrl) => _$this._imageUrl = imageUrl;
 
   String? _searchProviderName;
   String? get searchProviderName => _$this._searchProviderName;
-  set searchProviderName(covariant String? searchProviderName) =>
+  set searchProviderName(String? searchProviderName) =>
       _$this._searchProviderName = searchProviderName;
 
   String? _overview;
   String? get overview => _$this._overview;
-  set overview(covariant String? overview) => _$this._overview = overview;
+  set overview(String? overview) => _$this._overview = overview;
 
-  RemoteSearchResultAlbumArtistBuilder? _albumArtist;
-  RemoteSearchResultAlbumArtistBuilder get albumArtist =>
-      _$this._albumArtist ??= new RemoteSearchResultAlbumArtistBuilder();
-  set albumArtist(
-          covariant RemoteSearchResultAlbumArtistBuilder? albumArtist) =>
+  RemoteSearchResultBuilder? _albumArtist;
+  RemoteSearchResultBuilder get albumArtist =>
+      _$this._albumArtist ??= new RemoteSearchResultBuilder();
+  set albumArtist(RemoteSearchResultBuilder? albumArtist) =>
       _$this._albumArtist = albumArtist;
 
   ListBuilder<RemoteSearchResult>? _artists;
   ListBuilder<RemoteSearchResult> get artists =>
       _$this._artists ??= new ListBuilder<RemoteSearchResult>();
-  set artists(covariant ListBuilder<RemoteSearchResult>? artists) =>
+  set artists(ListBuilder<RemoteSearchResult>? artists) =>
       _$this._artists = artists;
 
-  $RemoteSearchResultBuilder() {
-    $RemoteSearchResult._defaults(this);
+  RemoteSearchResultBuilder() {
+    RemoteSearchResult._defaults(this);
   }
 
-  $RemoteSearchResultBuilder get _$this {
+  RemoteSearchResultBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -248,24 +204,24 @@ class $RemoteSearchResultBuilder
   }
 
   @override
-  void replace(covariant $RemoteSearchResult other) {
+  void replace(RemoteSearchResult other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$RemoteSearchResult;
+    _$v = other as _$RemoteSearchResult;
   }
 
   @override
-  void update(void Function($RemoteSearchResultBuilder)? updates) {
+  void update(void Function(RemoteSearchResultBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $RemoteSearchResult build() => _build();
+  RemoteSearchResult build() => _build();
 
-  _$$RemoteSearchResult _build() {
-    _$$RemoteSearchResult _$result;
+  _$RemoteSearchResult _build() {
+    _$RemoteSearchResult _$result;
     try {
       _$result = _$v ??
-          new _$$RemoteSearchResult._(
+          new _$RemoteSearchResult._(
               name: name,
               providerIds: _providerIds?.build(),
               productionYear: productionYear,
@@ -290,7 +246,7 @@ class $RemoteSearchResultBuilder
         _artists?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$RemoteSearchResult', _$failedField, e.toString());
+            r'RemoteSearchResult', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -13,17 +13,20 @@ part 'profile_condition.g.dart';
 /// ProfileCondition
 ///
 /// Properties:
-/// * [condition] 
-/// * [property] 
-/// * [value] 
-/// * [isRequired] 
+/// * [condition]
+/// * [property]
+/// * [value]
+/// * [isRequired]
 @BuiltValue()
-abstract class ProfileCondition implements Built<ProfileCondition, ProfileConditionBuilder> {
+abstract class ProfileCondition
+    implements Built<ProfileCondition, ProfileConditionBuilder> {
   @BuiltValueField(wireName: r'Condition')
   ProfileConditionType? get condition;
+  // enum conditionEnum {  Equals,  NotEquals,  LessThanEqual,  GreaterThanEqual,  EqualsAny,  };
 
   @BuiltValueField(wireName: r'Property')
   ProfileConditionValue? get property;
+  // enum propertyEnum {  AudioChannels,  AudioBitrate,  AudioProfile,  Width,  Height,  Has64BitOffsets,  PacketLength,  VideoBitDepth,  VideoBitrate,  VideoFramerate,  VideoLevel,  VideoProfile,  VideoTimestamp,  IsAnamorphic,  RefFrames,  NumAudioStreams,  NumVideoStreams,  IsSecondaryAudio,  VideoCodecTag,  IsAvc,  IsInterlaced,  AudioSampleRate,  AudioBitDepth,  VideoRangeType,  };
 
   @BuiltValueField(wireName: r'Value')
   String? get value;
@@ -33,16 +36,19 @@ abstract class ProfileCondition implements Built<ProfileCondition, ProfileCondit
 
   ProfileCondition._();
 
-  factory ProfileCondition([void updates(ProfileConditionBuilder b)]) = _$ProfileCondition;
+  factory ProfileCondition([void updates(ProfileConditionBuilder b)]) =
+      _$ProfileCondition;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ProfileConditionBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProfileCondition> get serializer => _$ProfileConditionSerializer();
+  static Serializer<ProfileCondition> get serializer =>
+      _$ProfileConditionSerializer();
 }
 
-class _$ProfileConditionSerializer implements PrimitiveSerializer<ProfileCondition> {
+class _$ProfileConditionSerializer
+    implements PrimitiveSerializer<ProfileCondition> {
   @override
   final Iterable<Type> types = const [ProfileCondition, _$ProfileCondition];
 
@@ -90,7 +96,9 @@ class _$ProfileConditionSerializer implements PrimitiveSerializer<ProfileConditi
     ProfileCondition object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -162,4 +170,3 @@ class _$ProfileConditionSerializer implements PrimitiveSerializer<ProfileConditi
     return result.build();
   }
 }
-

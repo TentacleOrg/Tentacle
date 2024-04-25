@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for RemoteSearchResult
 void main() {
-  //final instance = RemoteSearchResultBuilder();
+  final instance = RemoteSearchResultBuilder();
   // TODO add properties to the builder and call build()
 
   group(RemoteSearchResult, () {
@@ -60,7 +60,7 @@ void main() {
       // TODO
     });
 
-    // RemoteSearchResultAlbumArtist albumArtist
+    // RemoteSearchResult albumArtist
     test('to test the property `albumArtist`', () async {
       // TODO
     });
@@ -69,6 +69,5 @@ void main() {
     test('to test the property `artists`', () async {
       // TODO
     });
-
   });
 }

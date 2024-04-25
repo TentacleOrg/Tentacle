@@ -6,36 +6,29 @@ part of 'ignore_wait_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class IgnoreWaitRequestDtoBuilder {
-  void replace(IgnoreWaitRequestDto other);
-  void update(void Function(IgnoreWaitRequestDtoBuilder) updates);
-  bool? get ignoreWait;
-  set ignoreWait(bool? ignoreWait);
-}
-
-class _$$IgnoreWaitRequestDto extends $IgnoreWaitRequestDto {
+class _$IgnoreWaitRequestDto extends IgnoreWaitRequestDto {
   @override
   final bool? ignoreWait;
 
-  factory _$$IgnoreWaitRequestDto(
-          [void Function($IgnoreWaitRequestDtoBuilder)? updates]) =>
-      (new $IgnoreWaitRequestDtoBuilder()..update(updates))._build();
+  factory _$IgnoreWaitRequestDto(
+          [void Function(IgnoreWaitRequestDtoBuilder)? updates]) =>
+      (new IgnoreWaitRequestDtoBuilder()..update(updates))._build();
 
-  _$$IgnoreWaitRequestDto._({this.ignoreWait}) : super._();
+  _$IgnoreWaitRequestDto._({this.ignoreWait}) : super._();
 
   @override
-  $IgnoreWaitRequestDto rebuild(
-          void Function($IgnoreWaitRequestDtoBuilder) updates) =>
+  IgnoreWaitRequestDto rebuild(
+          void Function(IgnoreWaitRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $IgnoreWaitRequestDtoBuilder toBuilder() =>
-      new $IgnoreWaitRequestDtoBuilder()..replace(this);
+  IgnoreWaitRequestDtoBuilder toBuilder() =>
+      new IgnoreWaitRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $IgnoreWaitRequestDto && ignoreWait == other.ignoreWait;
+    return other is IgnoreWaitRequestDto && ignoreWait == other.ignoreWait;
   }
 
   @override
@@ -48,27 +41,25 @@ class _$$IgnoreWaitRequestDto extends $IgnoreWaitRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$IgnoreWaitRequestDto')
+    return (newBuiltValueToStringHelper(r'IgnoreWaitRequestDto')
           ..add('ignoreWait', ignoreWait))
         .toString();
   }
 }
 
-class $IgnoreWaitRequestDtoBuilder
-    implements
-        Builder<$IgnoreWaitRequestDto, $IgnoreWaitRequestDtoBuilder>,
-        IgnoreWaitRequestDtoBuilder {
-  _$$IgnoreWaitRequestDto? _$v;
+class IgnoreWaitRequestDtoBuilder
+    implements Builder<IgnoreWaitRequestDto, IgnoreWaitRequestDtoBuilder> {
+  _$IgnoreWaitRequestDto? _$v;
 
   bool? _ignoreWait;
   bool? get ignoreWait => _$this._ignoreWait;
-  set ignoreWait(covariant bool? ignoreWait) => _$this._ignoreWait = ignoreWait;
+  set ignoreWait(bool? ignoreWait) => _$this._ignoreWait = ignoreWait;
 
-  $IgnoreWaitRequestDtoBuilder() {
-    $IgnoreWaitRequestDto._defaults(this);
+  IgnoreWaitRequestDtoBuilder() {
+    IgnoreWaitRequestDto._defaults(this);
   }
 
-  $IgnoreWaitRequestDtoBuilder get _$this {
+  IgnoreWaitRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ignoreWait = $v.ignoreWait;
@@ -78,22 +69,22 @@ class $IgnoreWaitRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $IgnoreWaitRequestDto other) {
+  void replace(IgnoreWaitRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$IgnoreWaitRequestDto;
+    _$v = other as _$IgnoreWaitRequestDto;
   }
 
   @override
-  void update(void Function($IgnoreWaitRequestDtoBuilder)? updates) {
+  void update(void Function(IgnoreWaitRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $IgnoreWaitRequestDto build() => _build();
+  IgnoreWaitRequestDto build() => _build();
 
-  _$$IgnoreWaitRequestDto _build() {
+  _$IgnoreWaitRequestDto _build() {
     final _$result =
-        _$v ?? new _$$IgnoreWaitRequestDto._(ignoreWait: ignoreWait);
+        _$v ?? new _$IgnoreWaitRequestDto._(ignoreWait: ignoreWait);
     replace(_$result);
     return _$result;
   }

@@ -1,8 +1,8 @@
-# openapi.api.TmdbApi
+# tentacle.api.TmdbApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -19,18 +19,18 @@ Gets the TMDb image configuration options.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getTmdbApi();
+final api = Tentacle().getTmdbApi();
 
 try {
     final response = api.tmdbClientConfiguration();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling TmdbApi->tmdbClientConfiguration: $e\n');
 }
 ```

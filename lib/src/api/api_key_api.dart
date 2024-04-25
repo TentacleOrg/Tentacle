@@ -11,7 +11,6 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/authentication_info_query_result.dart';
 
 class ApiKeyApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -19,7 +18,7 @@ class ApiKeyApi {
   const ApiKeyApi(this._dio, this._serializers);
 
   /// Create a new api key.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [app] - Name of the app using the authentication key.
@@ -31,8 +30,8 @@ class ApiKeyApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> createKey({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> createKey({
     required String app,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -78,7 +77,7 @@ class ApiKeyApi {
   }
 
   /// Get all keys.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -89,8 +88,8 @@ class ApiKeyApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [AuthenticationInfoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<AuthenticationInfoQueryResult>> getKeys({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<AuthenticationInfoQueryResult>> getKeys({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -126,22 +125,24 @@ class ApiKeyApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    AuthenticationInfoQueryResult _responseData;
+    AuthenticationInfoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(AuthenticationInfoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as AuthenticationInfoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(AuthenticationInfoQueryResult),
+            ) as AuthenticationInfoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<AuthenticationInfoQueryResult>(
@@ -157,7 +158,7 @@ class ApiKeyApi {
   }
 
   /// Remove an api key.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [key] - The access token to delete.
@@ -169,8 +170,8 @@ class ApiKeyApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> revokeKey({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> revokeKey({
     required String key,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -179,7 +180,10 @@ class ApiKeyApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Auth/Keys/{key}'.replaceAll('{' r'key' '}', key.toString());
+    final _path = r'/Auth/Keys/{key}'.replaceAll(
+        '{' r'key' '}',
+        encodeQueryParameter(_serializers, key, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -209,5 +213,4 @@ class ApiKeyApi {
 
     return _response;
   }
-
 }

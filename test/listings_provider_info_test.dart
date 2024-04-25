@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ListingsProviderInfo
 void main() {
-  //final instance = ListingsProviderInfoBuilder();
+  final instance = ListingsProviderInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(ListingsProviderInfo, () {
@@ -96,6 +96,5 @@ void main() {
     test('to test the property `userAgent`', () async {
       // TODO
     });
-
   });
 }

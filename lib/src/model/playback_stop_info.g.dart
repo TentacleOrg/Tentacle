@@ -6,44 +6,7 @@ part of 'playback_stop_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class PlaybackStopInfoBuilder {
-  void replace(PlaybackStopInfo other);
-  void update(void Function(PlaybackStopInfoBuilder) updates);
-  PlaybackProgressInfoItemBuilder get item;
-  set item(PlaybackProgressInfoItemBuilder? item);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get sessionId;
-  set sessionId(String? sessionId);
-
-  String? get mediaSourceId;
-  set mediaSourceId(String? mediaSourceId);
-
-  int? get positionTicks;
-  set positionTicks(int? positionTicks);
-
-  String? get liveStreamId;
-  set liveStreamId(String? liveStreamId);
-
-  String? get playSessionId;
-  set playSessionId(String? playSessionId);
-
-  bool? get failed;
-  set failed(bool? failed);
-
-  String? get nextMediaType;
-  set nextMediaType(String? nextMediaType);
-
-  String? get playlistItemId;
-  set playlistItemId(String? playlistItemId);
-
-  ListBuilder<QueueItem> get nowPlayingQueue;
-  set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue);
-}
-
-class _$$PlaybackStopInfo extends $PlaybackStopInfo {
+class _$PlaybackStopInfo extends PlaybackStopInfo {
   @override
   final PlaybackProgressInfoItem? item;
   @override
@@ -67,11 +30,11 @@ class _$$PlaybackStopInfo extends $PlaybackStopInfo {
   @override
   final BuiltList<QueueItem>? nowPlayingQueue;
 
-  factory _$$PlaybackStopInfo(
-          [void Function($PlaybackStopInfoBuilder)? updates]) =>
-      (new $PlaybackStopInfoBuilder()..update(updates))._build();
+  factory _$PlaybackStopInfo(
+          [void Function(PlaybackStopInfoBuilder)? updates]) =>
+      (new PlaybackStopInfoBuilder()..update(updates))._build();
 
-  _$$PlaybackStopInfo._(
+  _$PlaybackStopInfo._(
       {this.item,
       this.itemId,
       this.sessionId,
@@ -86,17 +49,17 @@ class _$$PlaybackStopInfo extends $PlaybackStopInfo {
       : super._();
 
   @override
-  $PlaybackStopInfo rebuild(void Function($PlaybackStopInfoBuilder) updates) =>
+  PlaybackStopInfo rebuild(void Function(PlaybackStopInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $PlaybackStopInfoBuilder toBuilder() =>
-      new $PlaybackStopInfoBuilder()..replace(this);
+  PlaybackStopInfoBuilder toBuilder() =>
+      new PlaybackStopInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $PlaybackStopInfo &&
+    return other is PlaybackStopInfo &&
         item == other.item &&
         itemId == other.itemId &&
         sessionId == other.sessionId &&
@@ -130,7 +93,7 @@ class _$$PlaybackStopInfo extends $PlaybackStopInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$PlaybackStopInfo')
+    return (newBuiltValueToStringHelper(r'PlaybackStopInfo')
           ..add('item', item)
           ..add('itemId', itemId)
           ..add('sessionId', sessionId)
@@ -146,71 +109,67 @@ class _$$PlaybackStopInfo extends $PlaybackStopInfo {
   }
 }
 
-class $PlaybackStopInfoBuilder
-    implements
-        Builder<$PlaybackStopInfo, $PlaybackStopInfoBuilder>,
-        PlaybackStopInfoBuilder {
-  _$$PlaybackStopInfo? _$v;
+class PlaybackStopInfoBuilder
+    implements Builder<PlaybackStopInfo, PlaybackStopInfoBuilder> {
+  _$PlaybackStopInfo? _$v;
 
   PlaybackProgressInfoItemBuilder? _item;
   PlaybackProgressInfoItemBuilder get item =>
       _$this._item ??= new PlaybackProgressInfoItemBuilder();
-  set item(covariant PlaybackProgressInfoItemBuilder? item) =>
-      _$this._item = item;
+  set item(PlaybackProgressInfoItemBuilder? item) => _$this._item = item;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   String? _sessionId;
   String? get sessionId => _$this._sessionId;
-  set sessionId(covariant String? sessionId) => _$this._sessionId = sessionId;
+  set sessionId(String? sessionId) => _$this._sessionId = sessionId;
 
   String? _mediaSourceId;
   String? get mediaSourceId => _$this._mediaSourceId;
-  set mediaSourceId(covariant String? mediaSourceId) =>
+  set mediaSourceId(String? mediaSourceId) =>
       _$this._mediaSourceId = mediaSourceId;
 
   int? _positionTicks;
   int? get positionTicks => _$this._positionTicks;
-  set positionTicks(covariant int? positionTicks) =>
+  set positionTicks(int? positionTicks) =>
       _$this._positionTicks = positionTicks;
 
   String? _liveStreamId;
   String? get liveStreamId => _$this._liveStreamId;
-  set liveStreamId(covariant String? liveStreamId) =>
-      _$this._liveStreamId = liveStreamId;
+  set liveStreamId(String? liveStreamId) => _$this._liveStreamId = liveStreamId;
 
   String? _playSessionId;
   String? get playSessionId => _$this._playSessionId;
-  set playSessionId(covariant String? playSessionId) =>
+  set playSessionId(String? playSessionId) =>
       _$this._playSessionId = playSessionId;
 
   bool? _failed;
   bool? get failed => _$this._failed;
-  set failed(covariant bool? failed) => _$this._failed = failed;
+  set failed(bool? failed) => _$this._failed = failed;
 
   String? _nextMediaType;
   String? get nextMediaType => _$this._nextMediaType;
-  set nextMediaType(covariant String? nextMediaType) =>
+  set nextMediaType(String? nextMediaType) =>
       _$this._nextMediaType = nextMediaType;
 
   String? _playlistItemId;
   String? get playlistItemId => _$this._playlistItemId;
-  set playlistItemId(covariant String? playlistItemId) =>
+  set playlistItemId(String? playlistItemId) =>
       _$this._playlistItemId = playlistItemId;
 
   ListBuilder<QueueItem>? _nowPlayingQueue;
   ListBuilder<QueueItem> get nowPlayingQueue =>
       _$this._nowPlayingQueue ??= new ListBuilder<QueueItem>();
-  set nowPlayingQueue(covariant ListBuilder<QueueItem>? nowPlayingQueue) =>
+  set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue) =>
       _$this._nowPlayingQueue = nowPlayingQueue;
 
-  $PlaybackStopInfoBuilder() {
-    $PlaybackStopInfo._defaults(this);
+  PlaybackStopInfoBuilder() {
+    PlaybackStopInfo._defaults(this);
   }
 
-  $PlaybackStopInfoBuilder get _$this {
+  PlaybackStopInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _item = $v.item?.toBuilder();
@@ -230,24 +189,24 @@ class $PlaybackStopInfoBuilder
   }
 
   @override
-  void replace(covariant $PlaybackStopInfo other) {
+  void replace(PlaybackStopInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$PlaybackStopInfo;
+    _$v = other as _$PlaybackStopInfo;
   }
 
   @override
-  void update(void Function($PlaybackStopInfoBuilder)? updates) {
+  void update(void Function(PlaybackStopInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $PlaybackStopInfo build() => _build();
+  PlaybackStopInfo build() => _build();
 
-  _$$PlaybackStopInfo _build() {
-    _$$PlaybackStopInfo _$result;
+  _$PlaybackStopInfo _build() {
+    _$PlaybackStopInfo _$result;
     try {
       _$result = _$v ??
-          new _$$PlaybackStopInfo._(
+          new _$PlaybackStopInfo._(
               item: _item?.build(),
               itemId: itemId,
               sessionId: sessionId,
@@ -269,7 +228,7 @@ class $PlaybackStopInfoBuilder
         _nowPlayingQueue?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$PlaybackStopInfo', _$failedField, e.toString());
+            r'PlaybackStopInfo', _$failedField, e.toString());
       }
       rethrow;
     }

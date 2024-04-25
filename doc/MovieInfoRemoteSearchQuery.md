@@ -1,14 +1,14 @@
-# openapi.model.MovieInfoRemoteSearchQuery
+# tentacle.model.MovieInfoRemoteSearchQuery
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**searchInfo** | [**MovieInfoRemoteSearchQuerySearchInfo**](MovieInfoRemoteSearchQuerySearchInfo.md) |  | [optional] 
+**searchInfo** | [**MovieInfo**](MovieInfo.md) |  | [optional] 
 **itemId** | **String** |  | [optional] 
 **searchProviderName** | **String** | Gets or sets the provider name to search within if set. | [optional] 
 **includeDisabledProviders** | **bool** | Gets or sets a value indicating whether disabled providers should be included. | [optional] 

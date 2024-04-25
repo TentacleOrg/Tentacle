@@ -1,8 +1,8 @@
-# openapi.model.ProgramAudio
+# tentacle.model.ProgramAudio
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

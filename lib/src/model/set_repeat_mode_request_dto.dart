@@ -12,20 +12,36 @@ part 'set_repeat_mode_request_dto.g.dart';
 /// Class SetRepeatModeRequestDto.
 ///
 /// Properties:
-/// * [mode] - Gets or sets the repeat mode.
-@BuiltValue(instantiable: false)
-abstract class SetRepeatModeRequestDto  {
-  /// Gets or sets the repeat mode.
+/// * [mode] - Enum GroupRepeatMode.
+@BuiltValue()
+abstract class SetRepeatModeRequestDto
+    implements Built<SetRepeatModeRequestDto, SetRepeatModeRequestDtoBuilder> {
+  /// Enum GroupRepeatMode.
   @BuiltValueField(wireName: r'Mode')
   GroupRepeatMode? get mode;
+  // enum modeEnum {  RepeatOne,  RepeatAll,  RepeatNone,  };
+
+  SetRepeatModeRequestDto._();
+
+  factory SetRepeatModeRequestDto(
+          [void updates(SetRepeatModeRequestDtoBuilder b)]) =
+      _$SetRepeatModeRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SetRepeatModeRequestDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SetRepeatModeRequestDto> get serializer => _$SetRepeatModeRequestDtoSerializer();
+  static Serializer<SetRepeatModeRequestDto> get serializer =>
+      _$SetRepeatModeRequestDtoSerializer();
 }
 
-class _$SetRepeatModeRequestDtoSerializer implements PrimitiveSerializer<SetRepeatModeRequestDto> {
+class _$SetRepeatModeRequestDtoSerializer
+    implements PrimitiveSerializer<SetRepeatModeRequestDto> {
   @override
-  final Iterable<Type> types = const [SetRepeatModeRequestDto];
+  final Iterable<Type> types = const [
+    SetRepeatModeRequestDto,
+    _$SetRepeatModeRequestDto
+  ];
 
   @override
   final String wireName = r'SetRepeatModeRequestDto';
@@ -50,47 +66,9 @@ class _$SetRepeatModeRequestDtoSerializer implements PrimitiveSerializer<SetRepe
     SetRepeatModeRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  SetRepeatModeRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SetRepeatModeRequestDto)) as $SetRepeatModeRequestDto;
-  }
-}
-
-/// a concrete implementation of [SetRepeatModeRequestDto], since [SetRepeatModeRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SetRepeatModeRequestDto implements SetRepeatModeRequestDto, Built<$SetRepeatModeRequestDto, $SetRepeatModeRequestDtoBuilder> {
-  $SetRepeatModeRequestDto._();
-
-  factory $SetRepeatModeRequestDto([void Function($SetRepeatModeRequestDtoBuilder)? updates]) = _$$SetRepeatModeRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SetRepeatModeRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SetRepeatModeRequestDto> get serializer => _$$SetRepeatModeRequestDtoSerializer();
-}
-
-class _$$SetRepeatModeRequestDtoSerializer implements PrimitiveSerializer<$SetRepeatModeRequestDto> {
-  @override
-  final Iterable<Type> types = const [$SetRepeatModeRequestDto, _$$SetRepeatModeRequestDto];
-
-  @override
-  final String wireName = r'$SetRepeatModeRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SetRepeatModeRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SetRepeatModeRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,12 +99,12 @@ class _$$SetRepeatModeRequestDtoSerializer implements PrimitiveSerializer<$SetRe
   }
 
   @override
-  $SetRepeatModeRequestDto deserialize(
+  SetRepeatModeRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SetRepeatModeRequestDtoBuilder();
+    final result = SetRepeatModeRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -140,4 +118,3 @@ class _$$SetRepeatModeRequestDtoSerializer implements PrimitiveSerializer<$SetRe
     return result.build();
   }
 }
-

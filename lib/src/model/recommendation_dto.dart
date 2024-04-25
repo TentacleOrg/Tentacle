@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/recommendation_type.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/recommendation_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,17 +14,19 @@ part 'recommendation_dto.g.dart';
 /// RecommendationDto
 ///
 /// Properties:
-/// * [items] 
-/// * [recommendationType] 
-/// * [baselineItemName] 
-/// * [categoryId] 
+/// * [items]
+/// * [recommendationType]
+/// * [baselineItemName]
+/// * [categoryId]
 @BuiltValue()
-abstract class RecommendationDto implements Built<RecommendationDto, RecommendationDtoBuilder> {
+abstract class RecommendationDto
+    implements Built<RecommendationDto, RecommendationDtoBuilder> {
   @BuiltValueField(wireName: r'Items')
   BuiltList<BaseItemDto>? get items;
 
   @BuiltValueField(wireName: r'RecommendationType')
   RecommendationType? get recommendationType;
+  // enum recommendationTypeEnum {  SimilarToRecentlyPlayed,  SimilarToLikedItem,  HasDirectorFromRecentlyPlayed,  HasActorFromRecentlyPlayed,  HasLikedDirector,  HasLikedActor,  };
 
   @BuiltValueField(wireName: r'BaselineItemName')
   String? get baselineItemName;
@@ -34,16 +36,19 @@ abstract class RecommendationDto implements Built<RecommendationDto, Recommendat
 
   RecommendationDto._();
 
-  factory RecommendationDto([void updates(RecommendationDtoBuilder b)]) = _$RecommendationDto;
+  factory RecommendationDto([void updates(RecommendationDtoBuilder b)]) =
+      _$RecommendationDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RecommendationDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<RecommendationDto> get serializer => _$RecommendationDtoSerializer();
+  static Serializer<RecommendationDto> get serializer =>
+      _$RecommendationDtoSerializer();
 }
 
-class _$RecommendationDtoSerializer implements PrimitiveSerializer<RecommendationDto> {
+class _$RecommendationDtoSerializer
+    implements PrimitiveSerializer<RecommendationDto> {
   @override
   final Iterable<Type> types = const [RecommendationDto, _$RecommendationDto];
 
@@ -59,7 +64,8 @@ class _$RecommendationDtoSerializer implements PrimitiveSerializer<Recommendatio
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
       );
     }
     if (object.recommendationType != null) {
@@ -91,7 +97,9 @@ class _$RecommendationDtoSerializer implements PrimitiveSerializer<Recommendatio
     RecommendationDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -109,7 +117,8 @@ class _$RecommendationDtoSerializer implements PrimitiveSerializer<Recommendatio
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
           ) as BuiltList<BaseItemDto>?;
           if (valueDes == null) continue;
           result.items.replace(valueDes);
@@ -164,4 +173,3 @@ class _$RecommendationDtoSerializer implements PrimitiveSerializer<Recommendatio
     return result.build();
   }
 }
-

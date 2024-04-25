@@ -14,7 +14,6 @@ import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
 
 class InstantMixApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +21,7 @@ class InstantMixApi {
   const InstantMixApi(this._dio, this._serializers);
 
   /// Creates an instant playlist based on a given album.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - The item id.
@@ -41,8 +40,8 @@ class InstantMixApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromAlbum({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromAlbum({
     required String id,
     String? userId,
     int? limit,
@@ -58,7 +57,10 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Albums/{id}/InstantMix'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/Albums/{id}/InstantMix'.replaceAll(
+        '{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -79,13 +81,35 @@ class InstantMixApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -97,22 +121,24 @@ class InstantMixApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -128,7 +154,7 @@ class InstantMixApi {
   }
 
   /// Creates an instant playlist based on a given artist.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - The item id.
@@ -147,8 +173,8 @@ class InstantMixApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromArtists({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromArtists({
     required String id,
     String? userId,
     int? limit,
@@ -164,7 +190,10 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Artists/{id}/InstantMix'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/Artists/{id}/InstantMix'.replaceAll(
+        '{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -185,13 +214,35 @@ class InstantMixApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -203,22 +254,24 @@ class InstantMixApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -234,7 +287,7 @@ class InstantMixApi {
   }
 
   /// Creates an instant playlist based on a given artist.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - The item id.
@@ -253,9 +306,9 @@ class InstantMixApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   @Deprecated('This operation has been deprecated')
-  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromArtists2({ 
+  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromArtists2({
     required String id,
     String? userId,
     int? limit,
@@ -293,13 +346,35 @@ class InstantMixApi {
 
     final _queryParameters = <String, dynamic>{
       r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -311,22 +386,24 @@ class InstantMixApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -342,7 +419,7 @@ class InstantMixApi {
   }
 
   /// Creates an instant playlist based on a given item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - The item id.
@@ -361,8 +438,8 @@ class InstantMixApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromItem({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromItem({
     required String id,
     String? userId,
     int? limit,
@@ -378,7 +455,10 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{id}/InstantMix'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/Items/{id}/InstantMix'.replaceAll(
+        '{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -399,13 +479,35 @@ class InstantMixApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -417,22 +519,24 @@ class InstantMixApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -448,7 +552,7 @@ class InstantMixApi {
   }
 
   /// Creates an instant playlist based on a given genre.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - The item id.
@@ -467,8 +571,8 @@ class InstantMixApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromMusicGenreById({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromMusicGenreById({
     required String id,
     String? userId,
     int? limit,
@@ -506,13 +610,35 @@ class InstantMixApi {
 
     final _queryParameters = <String, dynamic>{
       r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -524,22 +650,24 @@ class InstantMixApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -555,7 +683,7 @@ class InstantMixApi {
   }
 
   /// Creates an instant playlist based on a given genre.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The genre name.
@@ -574,8 +702,8 @@ class InstantMixApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromMusicGenreByName({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromMusicGenreByName({
     required String name,
     String? userId,
     int? limit,
@@ -591,7 +719,10 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/MusicGenres/{name}/InstantMix'.replaceAll('{' r'name' '}', name.toString());
+    final _path = r'/MusicGenres/{name}/InstantMix'.replaceAll(
+        '{' r'name' '}',
+        encodeQueryParameter(_serializers, name, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -612,13 +743,35 @@ class InstantMixApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -630,22 +783,24 @@ class InstantMixApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -661,7 +816,7 @@ class InstantMixApi {
   }
 
   /// Creates an instant playlist based on a given playlist.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - The item id.
@@ -680,8 +835,8 @@ class InstantMixApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromPlaylist({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromPlaylist({
     required String id,
     String? userId,
     int? limit,
@@ -697,7 +852,10 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Playlists/{id}/InstantMix'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/Playlists/{id}/InstantMix'.replaceAll(
+        '{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -718,13 +876,35 @@ class InstantMixApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -736,22 +916,24 @@ class InstantMixApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -767,7 +949,7 @@ class InstantMixApi {
   }
 
   /// Creates an instant playlist based on a given song.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - The item id.
@@ -786,8 +968,8 @@ class InstantMixApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromSong({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getInstantMixFromSong({
     required String id,
     String? userId,
     int? limit,
@@ -803,7 +985,10 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Songs/{id}/InstantMix'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/Songs/{id}/InstantMix'.replaceAll(
+        '{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -824,13 +1009,35 @@ class InstantMixApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -842,22 +1049,24 @@ class InstantMixApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -871,5 +1080,4 @@ class InstantMixApi {
       extra: _response.extra,
     );
   }
-
 }

@@ -11,8 +11,8 @@ part 'media_url.g.dart';
 /// MediaUrl
 ///
 /// Properties:
-/// * [url] 
-/// * [name] 
+/// * [url]
+/// * [name]
 @BuiltValue()
 abstract class MediaUrl implements Built<MediaUrl, MediaUrlBuilder> {
   @BuiltValueField(wireName: r'Url')
@@ -66,7 +66,9 @@ class _$MediaUrlSerializer implements PrimitiveSerializer<MediaUrl> {
     MediaUrl object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -125,4 +127,3 @@ class _$MediaUrlSerializer implements PrimitiveSerializer<MediaUrl> {
     return result.build();
   }
 }
-

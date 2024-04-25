@@ -21,7 +21,7 @@ part 'task_result.g.dart';
 /// * [errorMessage] - Gets or sets the error message.
 /// * [longErrorMessage] - Gets or sets the long error message.
 @BuiltValue(instantiable: false)
-abstract class TaskResult  {
+abstract class TaskResult {
   /// Gets or sets the start time UTC.
   @BuiltValueField(wireName: r'StartTimeUtc')
   DateTime? get startTimeUtc;
@@ -33,6 +33,7 @@ abstract class TaskResult  {
   /// Gets or sets the status.
   @BuiltValueField(wireName: r'Status')
   TaskCompletionStatus? get status;
+  // enum statusEnum {  Completed,  Failed,  Cancelled,  Aborted,  };
 
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
@@ -134,7 +135,9 @@ class _$TaskResultSerializer implements PrimitiveSerializer<TaskResult> {
     TaskResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -143,16 +146,19 @@ class _$TaskResultSerializer implements PrimitiveSerializer<TaskResult> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($TaskResult)) as $TaskResult;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($TaskResult)) as $TaskResult;
   }
 }
 
 /// a concrete implementation of [TaskResult], since [TaskResult] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $TaskResult implements TaskResult, Built<$TaskResult, $TaskResultBuilder> {
+abstract class $TaskResult
+    implements TaskResult, Built<$TaskResult, $TaskResultBuilder> {
   $TaskResult._();
 
-  factory $TaskResult([void Function($TaskResultBuilder)? updates]) = _$$TaskResult;
+  factory $TaskResult([void Function($TaskResultBuilder)? updates]) =
+      _$$TaskResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($TaskResultBuilder b) => b;
@@ -278,4 +284,3 @@ class _$$TaskResultSerializer implements PrimitiveSerializer<$TaskResult> {
     return result.build();
   }
 }
-

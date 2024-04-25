@@ -24,21 +24,31 @@ part 'device_profile_identification.g.dart';
 /// * [manufacturerUrl] - Gets or sets the manufacturer URL.
 /// * [headers] - Gets or sets the headers.
 @BuiltValue()
-abstract class DeviceProfileIdentification implements DeviceIdentification, Built<DeviceProfileIdentification, DeviceProfileIdentificationBuilder> {
+abstract class DeviceProfileIdentification
+    implements
+        DeviceIdentification,
+        Built<DeviceProfileIdentification, DeviceProfileIdentificationBuilder> {
   DeviceProfileIdentification._();
 
-  factory DeviceProfileIdentification([void updates(DeviceProfileIdentificationBuilder b)]) = _$DeviceProfileIdentification;
+  factory DeviceProfileIdentification(
+          [void updates(DeviceProfileIdentificationBuilder b)]) =
+      _$DeviceProfileIdentification;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DeviceProfileIdentificationBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeviceProfileIdentification> get serializer => _$DeviceProfileIdentificationSerializer();
+  static Serializer<DeviceProfileIdentification> get serializer =>
+      _$DeviceProfileIdentificationSerializer();
 }
 
-class _$DeviceProfileIdentificationSerializer implements PrimitiveSerializer<DeviceProfileIdentification> {
+class _$DeviceProfileIdentificationSerializer
+    implements PrimitiveSerializer<DeviceProfileIdentification> {
   @override
-  final Iterable<Type> types = const [DeviceProfileIdentification, _$DeviceProfileIdentification];
+  final Iterable<Type> types = const [
+    DeviceProfileIdentification,
+    _$DeviceProfileIdentification
+  ];
 
   @override
   final String wireName = r'DeviceProfileIdentification';
@@ -119,7 +129,9 @@ class _$DeviceProfileIdentificationSerializer implements PrimitiveSerializer<Dev
     DeviceProfileIdentification object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -151,7 +163,8 @@ class _$DeviceProfileIdentificationSerializer implements PrimitiveSerializer<Dev
         case r'Headers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(HttpHeaderInfo)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(HttpHeaderInfo)]),
           ) as BuiltList<HttpHeaderInfo>;
           result.headers.replace(valueDes);
           break;
@@ -225,4 +238,3 @@ class _$DeviceProfileIdentificationSerializer implements PrimitiveSerializer<Dev
     return result.build();
   }
 }
-

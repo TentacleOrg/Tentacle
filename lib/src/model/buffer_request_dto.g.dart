@@ -6,23 +6,7 @@ part of 'buffer_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class BufferRequestDtoBuilder {
-  void replace(BufferRequestDto other);
-  void update(void Function(BufferRequestDtoBuilder) updates);
-  DateTime? get when;
-  set when(DateTime? when);
-
-  int? get positionTicks;
-  set positionTicks(int? positionTicks);
-
-  bool? get isPlaying;
-  set isPlaying(bool? isPlaying);
-
-  String? get playlistItemId;
-  set playlistItemId(String? playlistItemId);
-}
-
-class _$$BufferRequestDto extends $BufferRequestDto {
+class _$BufferRequestDto extends BufferRequestDto {
   @override
   final DateTime? when;
   @override
@@ -32,26 +16,26 @@ class _$$BufferRequestDto extends $BufferRequestDto {
   @override
   final String? playlistItemId;
 
-  factory _$$BufferRequestDto(
-          [void Function($BufferRequestDtoBuilder)? updates]) =>
-      (new $BufferRequestDtoBuilder()..update(updates))._build();
+  factory _$BufferRequestDto(
+          [void Function(BufferRequestDtoBuilder)? updates]) =>
+      (new BufferRequestDtoBuilder()..update(updates))._build();
 
-  _$$BufferRequestDto._(
+  _$BufferRequestDto._(
       {this.when, this.positionTicks, this.isPlaying, this.playlistItemId})
       : super._();
 
   @override
-  $BufferRequestDto rebuild(void Function($BufferRequestDtoBuilder) updates) =>
+  BufferRequestDto rebuild(void Function(BufferRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $BufferRequestDtoBuilder toBuilder() =>
-      new $BufferRequestDtoBuilder()..replace(this);
+  BufferRequestDtoBuilder toBuilder() =>
+      new BufferRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $BufferRequestDto &&
+    return other is BufferRequestDto &&
         when == other.when &&
         positionTicks == other.positionTicks &&
         isPlaying == other.isPlaying &&
@@ -71,7 +55,7 @@ class _$$BufferRequestDto extends $BufferRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$BufferRequestDto')
+    return (newBuiltValueToStringHelper(r'BufferRequestDto')
           ..add('when', when)
           ..add('positionTicks', positionTicks)
           ..add('isPlaying', isPlaying)
@@ -80,35 +64,33 @@ class _$$BufferRequestDto extends $BufferRequestDto {
   }
 }
 
-class $BufferRequestDtoBuilder
-    implements
-        Builder<$BufferRequestDto, $BufferRequestDtoBuilder>,
-        BufferRequestDtoBuilder {
-  _$$BufferRequestDto? _$v;
+class BufferRequestDtoBuilder
+    implements Builder<BufferRequestDto, BufferRequestDtoBuilder> {
+  _$BufferRequestDto? _$v;
 
   DateTime? _when;
   DateTime? get when => _$this._when;
-  set when(covariant DateTime? when) => _$this._when = when;
+  set when(DateTime? when) => _$this._when = when;
 
   int? _positionTicks;
   int? get positionTicks => _$this._positionTicks;
-  set positionTicks(covariant int? positionTicks) =>
+  set positionTicks(int? positionTicks) =>
       _$this._positionTicks = positionTicks;
 
   bool? _isPlaying;
   bool? get isPlaying => _$this._isPlaying;
-  set isPlaying(covariant bool? isPlaying) => _$this._isPlaying = isPlaying;
+  set isPlaying(bool? isPlaying) => _$this._isPlaying = isPlaying;
 
   String? _playlistItemId;
   String? get playlistItemId => _$this._playlistItemId;
-  set playlistItemId(covariant String? playlistItemId) =>
+  set playlistItemId(String? playlistItemId) =>
       _$this._playlistItemId = playlistItemId;
 
-  $BufferRequestDtoBuilder() {
-    $BufferRequestDto._defaults(this);
+  BufferRequestDtoBuilder() {
+    BufferRequestDto._defaults(this);
   }
 
-  $BufferRequestDtoBuilder get _$this {
+  BufferRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _when = $v.when;
@@ -121,22 +103,22 @@ class $BufferRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $BufferRequestDto other) {
+  void replace(BufferRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$BufferRequestDto;
+    _$v = other as _$BufferRequestDto;
   }
 
   @override
-  void update(void Function($BufferRequestDtoBuilder)? updates) {
+  void update(void Function(BufferRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $BufferRequestDto build() => _build();
+  BufferRequestDto build() => _build();
 
-  _$$BufferRequestDto _build() {
+  _$BufferRequestDto _build() {
     final _$result = _$v ??
-        new _$$BufferRequestDto._(
+        new _$BufferRequestDto._(
             when: when,
             positionTicks: positionTicks,
             isPlaying: isPlaying,

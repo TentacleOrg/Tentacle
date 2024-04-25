@@ -6,8 +6,7 @@ part of 'channel_item_sort_field.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const ChannelItemSortField _$name =
-    const ChannelItemSortField._('communityName');
+const ChannelItemSortField _$name = const ChannelItemSortField._('itemName');
 const ChannelItemSortField _$communityRating =
     const ChannelItemSortField._('communityRating');
 const ChannelItemSortField _$premiereDate =
@@ -22,7 +21,7 @@ const ChannelItemSortField _$communityPlayCount =
 
 ChannelItemSortField _$valueOf(String name) {
   switch (name) {
-    case 'communityName':
+    case 'itemName':
       return _$name;
     case 'communityRating':
       return _$communityRating;
@@ -54,7 +53,7 @@ final BuiltSet<ChannelItemSortField> _$values =
 
 class _$ChannelItemSortFieldMeta {
   const _$ChannelItemSortFieldMeta();
-  ChannelItemSortField get communityName => _$name;
+  ChannelItemSortField get itemName => _$name;
   ChannelItemSortField get communityRating => _$communityRating;
   ChannelItemSortField get premiereDate => _$premiereDate;
   ChannelItemSortField get dateCreated => _$dateCreated;
@@ -65,7 +64,7 @@ class _$ChannelItemSortFieldMeta {
   BuiltSet<ChannelItemSortField> get values => _$values;
 }
 
-abstract class _$ChannelItemSortFieldMixin {
+mixin _$ChannelItemSortFieldMixin {
   // ignore: non_constant_identifier_names
   _$ChannelItemSortFieldMeta get ChannelItemSortField =>
       const _$ChannelItemSortFieldMeta();
@@ -77,7 +76,7 @@ Serializer<ChannelItemSortField> _$channelItemSortFieldSerializer =
 class _$ChannelItemSortFieldSerializer
     implements PrimitiveSerializer<ChannelItemSortField> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'communityName': 'Name',
+    'itemName': 'Name',
     'communityRating': 'CommunityRating',
     'premiereDate': 'PremiereDate',
     'dateCreated': 'DateCreated',
@@ -86,7 +85,7 @@ class _$ChannelItemSortFieldSerializer
     'communityPlayCount': 'CommunityPlayCount',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Name': 'communityName',
+    'Name': 'itemName',
     'CommunityRating': 'communityRating',
     'PremiereDate': 'premiereDate',
     'DateCreated': 'dateCreated',

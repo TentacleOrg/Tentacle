@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for GroupShuffleMode
 void main() {
-
-  group(GroupShuffleMode, () {
-  });
+  group(GroupShuffleMode, () {});
 }

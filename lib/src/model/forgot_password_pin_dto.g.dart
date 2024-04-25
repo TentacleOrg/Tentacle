@@ -6,38 +6,31 @@ part of 'forgot_password_pin_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ForgotPasswordPinDtoBuilder {
-  void replace(ForgotPasswordPinDto other);
-  void update(void Function(ForgotPasswordPinDtoBuilder) updates);
-  String? get pin;
-  set pin(String? pin);
-}
-
-class _$$ForgotPasswordPinDto extends $ForgotPasswordPinDto {
+class _$ForgotPasswordPinDto extends ForgotPasswordPinDto {
   @override
   final String pin;
 
-  factory _$$ForgotPasswordPinDto(
-          [void Function($ForgotPasswordPinDtoBuilder)? updates]) =>
-      (new $ForgotPasswordPinDtoBuilder()..update(updates))._build();
+  factory _$ForgotPasswordPinDto(
+          [void Function(ForgotPasswordPinDtoBuilder)? updates]) =>
+      (new ForgotPasswordPinDtoBuilder()..update(updates))._build();
 
-  _$$ForgotPasswordPinDto._({required this.pin}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(pin, r'$ForgotPasswordPinDto', 'pin');
+  _$ForgotPasswordPinDto._({required this.pin}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(pin, r'ForgotPasswordPinDto', 'pin');
   }
 
   @override
-  $ForgotPasswordPinDto rebuild(
-          void Function($ForgotPasswordPinDtoBuilder) updates) =>
+  ForgotPasswordPinDto rebuild(
+          void Function(ForgotPasswordPinDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $ForgotPasswordPinDtoBuilder toBuilder() =>
-      new $ForgotPasswordPinDtoBuilder()..replace(this);
+  ForgotPasswordPinDtoBuilder toBuilder() =>
+      new ForgotPasswordPinDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $ForgotPasswordPinDto && pin == other.pin;
+    return other is ForgotPasswordPinDto && pin == other.pin;
   }
 
   @override
@@ -50,27 +43,25 @@ class _$$ForgotPasswordPinDto extends $ForgotPasswordPinDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$ForgotPasswordPinDto')
+    return (newBuiltValueToStringHelper(r'ForgotPasswordPinDto')
           ..add('pin', pin))
         .toString();
   }
 }
 
-class $ForgotPasswordPinDtoBuilder
-    implements
-        Builder<$ForgotPasswordPinDto, $ForgotPasswordPinDtoBuilder>,
-        ForgotPasswordPinDtoBuilder {
-  _$$ForgotPasswordPinDto? _$v;
+class ForgotPasswordPinDtoBuilder
+    implements Builder<ForgotPasswordPinDto, ForgotPasswordPinDtoBuilder> {
+  _$ForgotPasswordPinDto? _$v;
 
   String? _pin;
   String? get pin => _$this._pin;
-  set pin(covariant String? pin) => _$this._pin = pin;
+  set pin(String? pin) => _$this._pin = pin;
 
-  $ForgotPasswordPinDtoBuilder() {
-    $ForgotPasswordPinDto._defaults(this);
+  ForgotPasswordPinDtoBuilder() {
+    ForgotPasswordPinDto._defaults(this);
   }
 
-  $ForgotPasswordPinDtoBuilder get _$this {
+  ForgotPasswordPinDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _pin = $v.pin;
@@ -80,24 +71,24 @@ class $ForgotPasswordPinDtoBuilder
   }
 
   @override
-  void replace(covariant $ForgotPasswordPinDto other) {
+  void replace(ForgotPasswordPinDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$ForgotPasswordPinDto;
+    _$v = other as _$ForgotPasswordPinDto;
   }
 
   @override
-  void update(void Function($ForgotPasswordPinDtoBuilder)? updates) {
+  void update(void Function(ForgotPasswordPinDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $ForgotPasswordPinDto build() => _build();
+  ForgotPasswordPinDto build() => _build();
 
-  _$$ForgotPasswordPinDto _build() {
+  _$ForgotPasswordPinDto _build() {
     final _$result = _$v ??
-        new _$$ForgotPasswordPinDto._(
+        new _$ForgotPasswordPinDto._(
             pin: BuiltValueNullFieldError.checkNotNull(
-                pin, r'$ForgotPasswordPinDto', 'pin'));
+                pin, r'ForgotPasswordPinDto', 'pin'));
     replace(_$result);
     return _$result;
   }

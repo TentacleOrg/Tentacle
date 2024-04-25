@@ -14,7 +14,6 @@ import 'package:tentacle/src/model/task_info.dart';
 import 'package:tentacle/src/model/task_trigger_info.dart';
 
 class ScheduledTasksApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +21,7 @@ class ScheduledTasksApi {
   const ScheduledTasksApi(this._dio, this._serializers);
 
   /// Get task by id.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [taskId] - Task Id.
@@ -34,8 +33,8 @@ class ScheduledTasksApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TaskInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<TaskInfo>> getTask({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TaskInfo>> getTask({
     required String taskId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -44,7 +43,10 @@ class ScheduledTasksApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/ScheduledTasks/{taskId}'.replaceAll('{' r'taskId' '}', taskId.toString());
+    final _path = r'/ScheduledTasks/{taskId}'.replaceAll(
+        '{' r'taskId' '}',
+        encodeQueryParameter(_serializers, taskId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -72,22 +74,24 @@ class ScheduledTasksApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TaskInfo _responseData;
+    TaskInfo? _responseData;
 
     try {
-      const _responseType = FullType(TaskInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as TaskInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TaskInfo),
+            ) as TaskInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<TaskInfo>(
@@ -103,7 +107,7 @@ class ScheduledTasksApi {
   }
 
   /// Get tasks.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [isHidden] - Optional filter tasks that are hidden, or not.
@@ -116,8 +120,8 @@ class ScheduledTasksApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<TaskInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<TaskInfo>>> getTasks({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<TaskInfo>>> getTasks({
     bool? isHidden,
     bool? isEnabled,
     CancelToken? cancelToken,
@@ -148,8 +152,12 @@ class ScheduledTasksApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (isHidden != null) r'isHidden': encodeQueryParameter(_serializers, isHidden, const FullType(bool)),
-      if (isEnabled != null) r'isEnabled': encodeQueryParameter(_serializers, isEnabled, const FullType(bool)),
+      if (isHidden != null)
+        r'isHidden':
+            encodeQueryParameter(_serializers, isHidden, const FullType(bool)),
+      if (isEnabled != null)
+        r'isEnabled':
+            encodeQueryParameter(_serializers, isEnabled, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -161,22 +169,24 @@ class ScheduledTasksApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<TaskInfo> _responseData;
+    BuiltList<TaskInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(TaskInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<TaskInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(TaskInfo)]),
+            ) as BuiltList<TaskInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<TaskInfo>>(
@@ -192,7 +202,7 @@ class ScheduledTasksApi {
   }
 
   /// Start specified task.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [taskId] - Task Id.
@@ -204,8 +214,8 @@ class ScheduledTasksApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> startTask({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> startTask({
     required String taskId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -214,7 +224,10 @@ class ScheduledTasksApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/ScheduledTasks/Running/{taskId}'.replaceAll('{' r'taskId' '}', taskId.toString());
+    final _path = r'/ScheduledTasks/Running/{taskId}'.replaceAll(
+        '{' r'taskId' '}',
+        encodeQueryParameter(_serializers, taskId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -246,7 +259,7 @@ class ScheduledTasksApi {
   }
 
   /// Stop specified task.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [taskId] - Task Id.
@@ -258,8 +271,8 @@ class ScheduledTasksApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> stopTask({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> stopTask({
     required String taskId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -268,7 +281,10 @@ class ScheduledTasksApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/ScheduledTasks/Running/{taskId}'.replaceAll('{' r'taskId' '}', taskId.toString());
+    final _path = r'/ScheduledTasks/Running/{taskId}'.replaceAll(
+        '{' r'taskId' '}',
+        encodeQueryParameter(_serializers, taskId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -300,7 +316,7 @@ class ScheduledTasksApi {
   }
 
   /// Update specified task triggers.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [taskId] - Task Id.
@@ -313,8 +329,8 @@ class ScheduledTasksApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateTask({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateTask({
     required String taskId,
     required BuiltList<TaskTriggerInfo> taskTriggerInfo,
     CancelToken? cancelToken,
@@ -324,7 +340,10 @@ class ScheduledTasksApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/ScheduledTasks/{taskId}/Triggers'.replaceAll('{' r'taskId' '}', taskId.toString());
+    final _path = r'/ScheduledTasks/{taskId}/Triggers'.replaceAll(
+        '{' r'taskId' '}',
+        encodeQueryParameter(_serializers, taskId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -350,16 +369,16 @@ class ScheduledTasksApi {
     try {
       const _type = FullType(BuiltList, [FullType(TaskTriggerInfo)]);
       _bodyData = _serializers.serialize(taskTriggerInfo, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -373,5 +392,4 @@ class ScheduledTasksApi {
 
     return _response;
   }
-
 }

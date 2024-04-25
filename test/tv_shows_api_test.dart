@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for TvShowsApi
 void main() {
   final instance = Tentacle().getTvShowsApi();
@@ -34,6 +33,5 @@ void main() {
     test('test getUpcomingEpisodes', () async {
       // TODO
     });
-
   });
 }

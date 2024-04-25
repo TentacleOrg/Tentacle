@@ -1,8 +1,8 @@
-# openapi.api.ApiKeyApi
+# tentacle.api.ApiKeyApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -21,18 +21,18 @@ Create a new api key.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getApiKeyApi();
+final api = Tentacle().getApiKeyApi();
 final String app = app_example; // String | Name of the app using the authentication key.
 
 try {
     api.createKey(app);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ApiKeyApi->createKey: $e\n');
 }
 ```
@@ -65,18 +65,18 @@ Get all keys.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getApiKeyApi();
+final api = Tentacle().getApiKeyApi();
 
 try {
     final response = api.getKeys();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ApiKeyApi->getKeys: $e\n');
 }
 ```
@@ -106,18 +106,18 @@ Remove an api key.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getApiKeyApi();
+final api = Tentacle().getApiKeyApi();
 final String key = key_example; // String | The access token to delete.
 
 try {
     api.revokeKey(key);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ApiKeyApi->revokeKey: $e\n');
 }
 ```

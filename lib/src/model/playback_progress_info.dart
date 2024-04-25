@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/play_method.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/queue_item.dart';
-import 'package:tentacle/src/model/playback_progress_info_item.dart';
 import 'package:tentacle/src/model/repeat_mode.dart';
-import 'package:tentacle/src/model/play_method.dart';
+import 'package:tentacle/src/model/playback_progress_info_item.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,7 +17,7 @@ part 'playback_progress_info.g.dart';
 ///
 /// Properties:
 /// * [canSeek] - Gets or sets a value indicating whether this instance can seek.
-/// * [item] 
+/// * [item]
 /// * [itemId] - Gets or sets the item identifier.
 /// * [sessionId] - Gets or sets the session id.
 /// * [mediaSourceId] - Gets or sets the media version identifier.
@@ -26,18 +26,19 @@ part 'playback_progress_info.g.dart';
 /// * [isPaused] - Gets or sets a value indicating whether this instance is paused.
 /// * [isMuted] - Gets or sets a value indicating whether this instance is muted.
 /// * [positionTicks] - Gets or sets the position ticks.
-/// * [playbackStartTimeTicks] 
+/// * [playbackStartTimeTicks]
 /// * [volumeLevel] - Gets or sets the volume level.
-/// * [brightness] 
-/// * [aspectRatio] 
+/// * [brightness]
+/// * [aspectRatio]
 /// * [playMethod] - Gets or sets the play method.
 /// * [liveStreamId] - Gets or sets the live stream identifier.
 /// * [playSessionId] - Gets or sets the play session identifier.
 /// * [repeatMode] - Gets or sets the repeat mode.
-/// * [nowPlayingQueue] 
-/// * [playlistItemId] 
-@BuiltValue(instantiable: false)
-abstract class PlaybackProgressInfo  {
+/// * [nowPlayingQueue]
+/// * [playlistItemId]
+@BuiltValue()
+abstract class PlaybackProgressInfo
+    implements Built<PlaybackProgressInfo, PlaybackProgressInfoBuilder> {
   /// Gets or sets a value indicating whether this instance can seek.
   @BuiltValueField(wireName: r'CanSeek')
   bool? get canSeek;
@@ -93,6 +94,7 @@ abstract class PlaybackProgressInfo  {
   /// Gets or sets the play method.
   @BuiltValueField(wireName: r'PlayMethod')
   PlayMethod? get playMethod;
+  // enum playMethodEnum {  Transcode,  DirectStream,  DirectPlay,  };
 
   /// Gets or sets the live stream identifier.
   @BuiltValueField(wireName: r'LiveStreamId')
@@ -105,6 +107,7 @@ abstract class PlaybackProgressInfo  {
   /// Gets or sets the repeat mode.
   @BuiltValueField(wireName: r'RepeatMode')
   RepeatMode? get repeatMode;
+  // enum repeatModeEnum {  RepeatNone,  RepeatAll,  RepeatOne,  };
 
   @BuiltValueField(wireName: r'NowPlayingQueue')
   BuiltList<QueueItem>? get nowPlayingQueue;
@@ -112,13 +115,26 @@ abstract class PlaybackProgressInfo  {
   @BuiltValueField(wireName: r'PlaylistItemId')
   String? get playlistItemId;
 
+  PlaybackProgressInfo._();
+
+  factory PlaybackProgressInfo([void updates(PlaybackProgressInfoBuilder b)]) =
+      _$PlaybackProgressInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PlaybackProgressInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PlaybackProgressInfo> get serializer => _$PlaybackProgressInfoSerializer();
+  static Serializer<PlaybackProgressInfo> get serializer =>
+      _$PlaybackProgressInfoSerializer();
 }
 
-class _$PlaybackProgressInfoSerializer implements PrimitiveSerializer<PlaybackProgressInfo> {
+class _$PlaybackProgressInfoSerializer
+    implements PrimitiveSerializer<PlaybackProgressInfo> {
   @override
-  final Iterable<Type> types = const [PlaybackProgressInfo];
+  final Iterable<Type> types = const [
+    PlaybackProgressInfo,
+    _$PlaybackProgressInfo
+  ];
 
   @override
   final String wireName = r'PlaybackProgressInfo';
@@ -258,7 +274,8 @@ class _$PlaybackProgressInfoSerializer implements PrimitiveSerializer<PlaybackPr
       yield r'NowPlayingQueue';
       yield serializers.serialize(
         object.nowPlayingQueue,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(QueueItem)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(QueueItem)]),
       );
     }
     if (object.playlistItemId != null) {
@@ -276,47 +293,9 @@ class _$PlaybackProgressInfoSerializer implements PrimitiveSerializer<PlaybackPr
     PlaybackProgressInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PlaybackProgressInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PlaybackProgressInfo)) as $PlaybackProgressInfo;
-  }
-}
-
-/// a concrete implementation of [PlaybackProgressInfo], since [PlaybackProgressInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PlaybackProgressInfo implements PlaybackProgressInfo, Built<$PlaybackProgressInfo, $PlaybackProgressInfoBuilder> {
-  $PlaybackProgressInfo._();
-
-  factory $PlaybackProgressInfo([void Function($PlaybackProgressInfoBuilder)? updates]) = _$$PlaybackProgressInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PlaybackProgressInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PlaybackProgressInfo> get serializer => _$$PlaybackProgressInfoSerializer();
-}
-
-class _$$PlaybackProgressInfoSerializer implements PrimitiveSerializer<$PlaybackProgressInfo> {
-  @override
-  final Iterable<Type> types = const [$PlaybackProgressInfo, _$$PlaybackProgressInfo];
-
-  @override
-  final String wireName = r'$PlaybackProgressInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PlaybackProgressInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PlaybackProgressInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -472,7 +451,8 @@ class _$$PlaybackProgressInfoSerializer implements PrimitiveSerializer<$Playback
         case r'NowPlayingQueue':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(QueueItem)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(QueueItem)]),
           ) as BuiltList<QueueItem>?;
           if (valueDes == null) continue;
           result.nowPlayingQueue.replace(valueDes);
@@ -494,12 +474,12 @@ class _$$PlaybackProgressInfoSerializer implements PrimitiveSerializer<$Playback
   }
 
   @override
-  $PlaybackProgressInfo deserialize(
+  PlaybackProgressInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PlaybackProgressInfoBuilder();
+    final result = PlaybackProgressInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -513,4 +493,3 @@ class _$$PlaybackProgressInfoSerializer implements PrimitiveSerializer<$Playback
     return result.build();
   }
 }
-

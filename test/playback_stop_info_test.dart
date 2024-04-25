@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlaybackStopInfo
 void main() {
-  //final instance = PlaybackStopInfoBuilder();
+  final instance = PlaybackStopInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PlaybackStopInfo, () {
@@ -68,6 +68,5 @@ void main() {
     test('to test the property `nowPlayingQueue`', () async {
       // TODO
     });
-
   });
 }

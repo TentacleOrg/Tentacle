@@ -10,20 +10,21 @@ import 'package:built_value/serializer.dart';
 part 'task_state.g.dart';
 
 class TaskState extends EnumClass {
-
   /// Enum TaskState.
   @BuiltValueEnumConst(wireName: r'Idle')
   static const TaskState idle = _$idle;
+
   /// Enum TaskState.
   @BuiltValueEnumConst(wireName: r'Cancelling')
   static const TaskState cancelling = _$cancelling;
+
   /// Enum TaskState.
   @BuiltValueEnumConst(wireName: r'Running')
   static const TaskState running = _$running;
 
   static Serializer<TaskState> get serializer => _$taskStateSerializer;
 
-  const TaskState._(String name): super(name);
+  const TaskState._(String name) : super(name);
 
   static BuiltSet<TaskState> get values => _$values;
   static TaskState valueOf(String name) => _$valueOf(name);
@@ -36,4 +37,3 @@ class TaskState extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class TaskStateMixin = Object with _$TaskStateMixin;
-

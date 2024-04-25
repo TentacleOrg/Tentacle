@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'media_source_type.g.dart';
 
 class MediaSourceType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Default')
   static const MediaSourceType default_ = _$default_;
   @BuiltValueEnumConst(wireName: r'Grouping')
@@ -18,9 +17,10 @@ class MediaSourceType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Placeholder')
   static const MediaSourceType placeholder = _$placeholder;
 
-  static Serializer<MediaSourceType> get serializer => _$mediaSourceTypeSerializer;
+  static Serializer<MediaSourceType> get serializer =>
+      _$mediaSourceTypeSerializer;
 
-  const MediaSourceType._(String name): super(name);
+  const MediaSourceType._(String name) : super(name);
 
   static BuiltSet<MediaSourceType> get values => _$values;
   static MediaSourceType valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class MediaSourceType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class MediaSourceTypeMixin = Object with _$MediaSourceTypeMixin;
-

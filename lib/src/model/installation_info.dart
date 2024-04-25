@@ -18,9 +18,10 @@ part 'installation_info.g.dart';
 /// * [changelog] - Gets or sets the changelog for this version.
 /// * [sourceUrl] - Gets or sets the source URL.
 /// * [checksum] - Gets or sets a checksum for the binary.
-/// * [packageInfo] 
+/// * [packageInfo]
 @BuiltValue()
-abstract class InstallationInfo implements Built<InstallationInfo, InstallationInfoBuilder> {
+abstract class InstallationInfo
+    implements Built<InstallationInfo, InstallationInfoBuilder> {
   /// Gets or sets the Id.
   @BuiltValueField(wireName: r'Guid')
   String? get guid;
@@ -50,16 +51,19 @@ abstract class InstallationInfo implements Built<InstallationInfo, InstallationI
 
   InstallationInfo._();
 
-  factory InstallationInfo([void updates(InstallationInfoBuilder b)]) = _$InstallationInfo;
+  factory InstallationInfo([void updates(InstallationInfoBuilder b)]) =
+      _$InstallationInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(InstallationInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<InstallationInfo> get serializer => _$InstallationInfoSerializer();
+  static Serializer<InstallationInfo> get serializer =>
+      _$InstallationInfoSerializer();
 }
 
-class _$InstallationInfoSerializer implements PrimitiveSerializer<InstallationInfo> {
+class _$InstallationInfoSerializer
+    implements PrimitiveSerializer<InstallationInfo> {
   @override
   final Iterable<Type> types = const [InstallationInfo, _$InstallationInfo];
 
@@ -128,7 +132,9 @@ class _$InstallationInfoSerializer implements PrimitiveSerializer<InstallationIn
     InstallationInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -226,4 +232,3 @@ class _$InstallationInfoSerializer implements PrimitiveSerializer<InstallationIn
     return result.build();
   }
 }
-

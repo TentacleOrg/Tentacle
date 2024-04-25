@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/channel_media_type.dart';
 import 'package:tentacle/src/model/channel_media_content_type.dart';
+import 'package:tentacle/src/model/channel_media_type.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/channel_item_sort_field.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -28,7 +28,8 @@ part 'channel_features.g.dart';
 /// * [canFilter] - Gets or sets a value indicating whether this instance can filter.
 /// * [supportsContentDownloading] - Gets or sets a value indicating whether [supports content downloading].
 @BuiltValue()
-abstract class ChannelFeatures implements Built<ChannelFeatures, ChannelFeaturesBuilder> {
+abstract class ChannelFeatures
+    implements Built<ChannelFeatures, ChannelFeaturesBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -79,16 +80,19 @@ abstract class ChannelFeatures implements Built<ChannelFeatures, ChannelFeatures
 
   ChannelFeatures._();
 
-  factory ChannelFeatures([void updates(ChannelFeaturesBuilder b)]) = _$ChannelFeatures;
+  factory ChannelFeatures([void updates(ChannelFeaturesBuilder b)]) =
+      _$ChannelFeatures;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ChannelFeaturesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ChannelFeatures> get serializer => _$ChannelFeaturesSerializer();
+  static Serializer<ChannelFeatures> get serializer =>
+      _$ChannelFeaturesSerializer();
 }
 
-class _$ChannelFeaturesSerializer implements PrimitiveSerializer<ChannelFeatures> {
+class _$ChannelFeaturesSerializer
+    implements PrimitiveSerializer<ChannelFeatures> {
   @override
   final Iterable<Type> types = const [ChannelFeatures, _$ChannelFeatures];
 
@@ -132,7 +136,8 @@ class _$ChannelFeaturesSerializer implements PrimitiveSerializer<ChannelFeatures
       yield r'ContentTypes';
       yield serializers.serialize(
         object.contentTypes,
-        specifiedType: const FullType(BuiltList, [FullType(ChannelMediaContentType)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(ChannelMediaContentType)]),
       );
     }
     if (object.maxPageSize != null) {
@@ -153,7 +158,8 @@ class _$ChannelFeaturesSerializer implements PrimitiveSerializer<ChannelFeatures
       yield r'DefaultSortFields';
       yield serializers.serialize(
         object.defaultSortFields,
-        specifiedType: const FullType(BuiltList, [FullType(ChannelItemSortField)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(ChannelItemSortField)]),
       );
     }
     if (object.supportsSortOrderToggle != null) {
@@ -192,7 +198,9 @@ class _$ChannelFeaturesSerializer implements PrimitiveSerializer<ChannelFeatures
     ChannelFeatures object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -231,14 +239,16 @@ class _$ChannelFeaturesSerializer implements PrimitiveSerializer<ChannelFeatures
         case r'MediaTypes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ChannelMediaType)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ChannelMediaType)]),
           ) as BuiltList<ChannelMediaType>;
           result.mediaTypes.replace(valueDes);
           break;
         case r'ContentTypes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ChannelMediaContentType)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ChannelMediaContentType)]),
           ) as BuiltList<ChannelMediaContentType>;
           result.contentTypes.replace(valueDes);
           break;
@@ -261,7 +271,8 @@ class _$ChannelFeaturesSerializer implements PrimitiveSerializer<ChannelFeatures
         case r'DefaultSortFields':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ChannelItemSortField)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ChannelItemSortField)]),
           ) as BuiltList<ChannelItemSortField>;
           result.defaultSortFields.replace(valueDes);
           break;
@@ -321,4 +332,3 @@ class _$ChannelFeaturesSerializer implements PrimitiveSerializer<ChannelFeatures
     return result.build();
   }
 }
-

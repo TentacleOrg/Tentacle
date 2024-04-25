@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/name_value_pair.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/name_id_pair.dart';
+import 'package:tentacle/src/model/name_value_pair.dart';
 import 'package:tentacle/src/model/tuner_channel_mapping.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -20,7 +20,9 @@ part 'channel_mapping_options_dto.g.dart';
 /// * [mappings] - Gets or sets list of mappings.
 /// * [providerName] - Gets or sets provider name.
 @BuiltValue()
-abstract class ChannelMappingOptionsDto implements Built<ChannelMappingOptionsDto, ChannelMappingOptionsDtoBuilder> {
+abstract class ChannelMappingOptionsDto
+    implements
+        Built<ChannelMappingOptionsDto, ChannelMappingOptionsDtoBuilder> {
   /// Gets or sets list of tuner channels.
   @BuiltValueField(wireName: r'TunerChannels')
   BuiltList<TunerChannelMapping>? get tunerChannels;
@@ -39,18 +41,25 @@ abstract class ChannelMappingOptionsDto implements Built<ChannelMappingOptionsDt
 
   ChannelMappingOptionsDto._();
 
-  factory ChannelMappingOptionsDto([void updates(ChannelMappingOptionsDtoBuilder b)]) = _$ChannelMappingOptionsDto;
+  factory ChannelMappingOptionsDto(
+          [void updates(ChannelMappingOptionsDtoBuilder b)]) =
+      _$ChannelMappingOptionsDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ChannelMappingOptionsDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ChannelMappingOptionsDto> get serializer => _$ChannelMappingOptionsDtoSerializer();
+  static Serializer<ChannelMappingOptionsDto> get serializer =>
+      _$ChannelMappingOptionsDtoSerializer();
 }
 
-class _$ChannelMappingOptionsDtoSerializer implements PrimitiveSerializer<ChannelMappingOptionsDto> {
+class _$ChannelMappingOptionsDtoSerializer
+    implements PrimitiveSerializer<ChannelMappingOptionsDto> {
   @override
-  final Iterable<Type> types = const [ChannelMappingOptionsDto, _$ChannelMappingOptionsDto];
+  final Iterable<Type> types = const [
+    ChannelMappingOptionsDto,
+    _$ChannelMappingOptionsDto
+  ];
 
   @override
   final String wireName = r'ChannelMappingOptionsDto';
@@ -64,7 +73,8 @@ class _$ChannelMappingOptionsDtoSerializer implements PrimitiveSerializer<Channe
       yield r'TunerChannels';
       yield serializers.serialize(
         object.tunerChannels,
-        specifiedType: const FullType(BuiltList, [FullType(TunerChannelMapping)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(TunerChannelMapping)]),
       );
     }
     if (object.providerChannels != null) {
@@ -96,7 +106,9 @@ class _$ChannelMappingOptionsDtoSerializer implements PrimitiveSerializer<Channe
     ChannelMappingOptionsDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -114,7 +126,8 @@ class _$ChannelMappingOptionsDtoSerializer implements PrimitiveSerializer<Channe
         case r'TunerChannels':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TunerChannelMapping)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(TunerChannelMapping)]),
           ) as BuiltList<TunerChannelMapping>;
           result.tunerChannels.replace(valueDes);
           break;
@@ -168,4 +181,3 @@ class _$ChannelMappingOptionsDtoSerializer implements PrimitiveSerializer<Channe
     return result.build();
   }
 }
-

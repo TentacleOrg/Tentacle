@@ -61,6 +61,5 @@ void main() {
     test('to test the property `isHashMatch`', () async {
       // TODO
     });
-
   });
 }

@@ -60,7 +60,7 @@ class _$RecordingStatusMeta {
   BuiltSet<RecordingStatus> get values => _$values;
 }
 
-abstract class _$RecordingStatusMixin {
+mixin _$RecordingStatusMixin {
   // ignore: non_constant_identifier_names
   _$RecordingStatusMeta get RecordingStatus => const _$RecordingStatusMeta();
 }

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TimerInfoDto
 void main() {
-  //final instance = TimerInfoDtoBuilder();
+  final instance = TimerInfoDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(TimerInfoDto, () {
@@ -170,6 +170,5 @@ void main() {
     test('to test the property `programInfo`', () async {
       // TODO
     });
-
   });
 }

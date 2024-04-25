@@ -1,8 +1,8 @@
-# openapi.model.EncodingOptions
+# tentacle.model.EncodingOptions
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
@@ -23,9 +23,9 @@ Name | Type | Description | Notes
 **enableTonemapping** | **bool** |  | [optional] 
 **enableVppTonemapping** | **bool** |  | [optional] 
 **tonemappingAlgorithm** | **String** |  | [optional] 
+**tonemappingMode** | **String** |  | [optional] 
 **tonemappingRange** | **String** |  | [optional] 
 **tonemappingDesat** | **double** |  | [optional] 
-**tonemappingThreshold** | **double** |  | [optional] 
 **tonemappingPeak** | **double** |  | [optional] 
 **tonemappingParam** | **double** |  | [optional] 
 **vppTonemappingBrightness** | **double** |  | [optional] 

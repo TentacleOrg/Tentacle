@@ -6,156 +6,7 @@ part of 'server_configuration.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ServerConfigurationBuilder {
-  void replace(ServerConfiguration other);
-  void update(void Function(ServerConfigurationBuilder) updates);
-  int? get logFileRetentionDays;
-  set logFileRetentionDays(int? logFileRetentionDays);
-
-  bool? get isStartupWizardCompleted;
-  set isStartupWizardCompleted(bool? isStartupWizardCompleted);
-
-  String? get cachePath;
-  set cachePath(String? cachePath);
-
-  String? get previousVersion;
-  set previousVersion(String? previousVersion);
-
-  String? get previousVersionStr;
-  set previousVersionStr(String? previousVersionStr);
-
-  bool? get enableMetrics;
-  set enableMetrics(bool? enableMetrics);
-
-  bool? get enableNormalizedItemByNameIds;
-  set enableNormalizedItemByNameIds(bool? enableNormalizedItemByNameIds);
-
-  bool? get isPortAuthorized;
-  set isPortAuthorized(bool? isPortAuthorized);
-
-  bool? get quickConnectAvailable;
-  set quickConnectAvailable(bool? quickConnectAvailable);
-
-  bool? get enableCaseSensitiveItemIds;
-  set enableCaseSensitiveItemIds(bool? enableCaseSensitiveItemIds);
-
-  bool? get disableLiveTvChannelUserDataName;
-  set disableLiveTvChannelUserDataName(bool? disableLiveTvChannelUserDataName);
-
-  String? get metadataPath;
-  set metadataPath(String? metadataPath);
-
-  String? get metadataNetworkPath;
-  set metadataNetworkPath(String? metadataNetworkPath);
-
-  String? get preferredMetadataLanguage;
-  set preferredMetadataLanguage(String? preferredMetadataLanguage);
-
-  String? get metadataCountryCode;
-  set metadataCountryCode(String? metadataCountryCode);
-
-  ListBuilder<String> get sortReplaceCharacters;
-  set sortReplaceCharacters(ListBuilder<String>? sortReplaceCharacters);
-
-  ListBuilder<String> get sortRemoveCharacters;
-  set sortRemoveCharacters(ListBuilder<String>? sortRemoveCharacters);
-
-  ListBuilder<String> get sortRemoveWords;
-  set sortRemoveWords(ListBuilder<String>? sortRemoveWords);
-
-  int? get minResumePct;
-  set minResumePct(int? minResumePct);
-
-  int? get maxResumePct;
-  set maxResumePct(int? maxResumePct);
-
-  int? get minResumeDurationSeconds;
-  set minResumeDurationSeconds(int? minResumeDurationSeconds);
-
-  int? get minAudiobookResume;
-  set minAudiobookResume(int? minAudiobookResume);
-
-  int? get maxAudiobookResume;
-  set maxAudiobookResume(int? maxAudiobookResume);
-
-  int? get libraryMonitorDelay;
-  set libraryMonitorDelay(int? libraryMonitorDelay);
-
-  ImageSavingConvention? get imageSavingConvention;
-  set imageSavingConvention(ImageSavingConvention? imageSavingConvention);
-
-  ListBuilder<MetadataOptions> get metadataOptions;
-  set metadataOptions(ListBuilder<MetadataOptions>? metadataOptions);
-
-  bool? get skipDeserializationForBasicTypes;
-  set skipDeserializationForBasicTypes(bool? skipDeserializationForBasicTypes);
-
-  String? get serverName;
-  set serverName(String? serverName);
-
-  String? get uICulture;
-  set uICulture(String? uICulture);
-
-  bool? get saveMetadataHidden;
-  set saveMetadataHidden(bool? saveMetadataHidden);
-
-  ListBuilder<NameValuePair> get contentTypes;
-  set contentTypes(ListBuilder<NameValuePair>? contentTypes);
-
-  int? get remoteClientBitrateLimit;
-  set remoteClientBitrateLimit(int? remoteClientBitrateLimit);
-
-  bool? get enableFolderView;
-  set enableFolderView(bool? enableFolderView);
-
-  bool? get enableGroupingIntoCollections;
-  set enableGroupingIntoCollections(bool? enableGroupingIntoCollections);
-
-  bool? get displaySpecialsWithinSeasons;
-  set displaySpecialsWithinSeasons(bool? displaySpecialsWithinSeasons);
-
-  ListBuilder<String> get codecsUsed;
-  set codecsUsed(ListBuilder<String>? codecsUsed);
-
-  ListBuilder<RepositoryInfo> get pluginRepositories;
-  set pluginRepositories(ListBuilder<RepositoryInfo>? pluginRepositories);
-
-  bool? get enableExternalContentInSuggestions;
-  set enableExternalContentInSuggestions(
-      bool? enableExternalContentInSuggestions);
-
-  int? get imageExtractionTimeoutMs;
-  set imageExtractionTimeoutMs(int? imageExtractionTimeoutMs);
-
-  ListBuilder<PathSubstitution> get pathSubstitutions;
-  set pathSubstitutions(ListBuilder<PathSubstitution>? pathSubstitutions);
-
-  bool? get enableSlowResponseWarning;
-  set enableSlowResponseWarning(bool? enableSlowResponseWarning);
-
-  int? get slowResponseThresholdMs;
-  set slowResponseThresholdMs(int? slowResponseThresholdMs);
-
-  ListBuilder<String> get corsHosts;
-  set corsHosts(ListBuilder<String>? corsHosts);
-
-  int? get activityLogRetentionDays;
-  set activityLogRetentionDays(int? activityLogRetentionDays);
-
-  int? get libraryScanFanoutConcurrency;
-  set libraryScanFanoutConcurrency(int? libraryScanFanoutConcurrency);
-
-  int? get libraryMetadataRefreshConcurrency;
-  set libraryMetadataRefreshConcurrency(int? libraryMetadataRefreshConcurrency);
-
-  bool? get removeOldPlugins;
-  set removeOldPlugins(bool? removeOldPlugins);
-
-  bool? get allowClientLogUpload;
-  set allowClientLogUpload(bool? allowClientLogUpload);
-}
-
-class _$$ServerConfiguration extends $ServerConfiguration {
+class _$ServerConfiguration extends ServerConfiguration {
   @override
   final int? logFileRetentionDays;
   @override
@@ -253,11 +104,11 @@ class _$$ServerConfiguration extends $ServerConfiguration {
   @override
   final bool? allowClientLogUpload;
 
-  factory _$$ServerConfiguration(
-          [void Function($ServerConfigurationBuilder)? updates]) =>
-      (new $ServerConfigurationBuilder()..update(updates))._build();
+  factory _$ServerConfiguration(
+          [void Function(ServerConfigurationBuilder)? updates]) =>
+      (new ServerConfigurationBuilder()..update(updates))._build();
 
-  _$$ServerConfiguration._(
+  _$ServerConfiguration._(
       {this.logFileRetentionDays,
       this.isStartupWizardCompleted,
       this.cachePath,
@@ -309,18 +160,18 @@ class _$$ServerConfiguration extends $ServerConfiguration {
       : super._();
 
   @override
-  $ServerConfiguration rebuild(
-          void Function($ServerConfigurationBuilder) updates) =>
+  ServerConfiguration rebuild(
+          void Function(ServerConfigurationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $ServerConfigurationBuilder toBuilder() =>
-      new $ServerConfigurationBuilder()..replace(this);
+  ServerConfigurationBuilder toBuilder() =>
+      new ServerConfigurationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $ServerConfiguration &&
+    return other is ServerConfiguration &&
         logFileRetentionDays == other.logFileRetentionDays &&
         isStartupWizardCompleted == other.isStartupWizardCompleted &&
         cachePath == other.cachePath &&
@@ -432,7 +283,7 @@ class _$$ServerConfiguration extends $ServerConfiguration {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$ServerConfiguration')
+    return (newBuiltValueToStringHelper(r'ServerConfiguration')
           ..add('logFileRetentionDays', logFileRetentionDays)
           ..add('isStartupWizardCompleted', isStartupWizardCompleted)
           ..add('cachePath', cachePath)
@@ -489,290 +340,274 @@ class _$$ServerConfiguration extends $ServerConfiguration {
   }
 }
 
-class $ServerConfigurationBuilder
-    implements
-        Builder<$ServerConfiguration, $ServerConfigurationBuilder>,
-        ServerConfigurationBuilder {
-  _$$ServerConfiguration? _$v;
+class ServerConfigurationBuilder
+    implements Builder<ServerConfiguration, ServerConfigurationBuilder> {
+  _$ServerConfiguration? _$v;
 
   int? _logFileRetentionDays;
   int? get logFileRetentionDays => _$this._logFileRetentionDays;
-  set logFileRetentionDays(covariant int? logFileRetentionDays) =>
+  set logFileRetentionDays(int? logFileRetentionDays) =>
       _$this._logFileRetentionDays = logFileRetentionDays;
 
   bool? _isStartupWizardCompleted;
   bool? get isStartupWizardCompleted => _$this._isStartupWizardCompleted;
-  set isStartupWizardCompleted(covariant bool? isStartupWizardCompleted) =>
+  set isStartupWizardCompleted(bool? isStartupWizardCompleted) =>
       _$this._isStartupWizardCompleted = isStartupWizardCompleted;
 
   String? _cachePath;
   String? get cachePath => _$this._cachePath;
-  set cachePath(covariant String? cachePath) => _$this._cachePath = cachePath;
+  set cachePath(String? cachePath) => _$this._cachePath = cachePath;
 
   String? _previousVersion;
   String? get previousVersion => _$this._previousVersion;
-  set previousVersion(covariant String? previousVersion) =>
+  set previousVersion(String? previousVersion) =>
       _$this._previousVersion = previousVersion;
 
   String? _previousVersionStr;
   String? get previousVersionStr => _$this._previousVersionStr;
-  set previousVersionStr(covariant String? previousVersionStr) =>
+  set previousVersionStr(String? previousVersionStr) =>
       _$this._previousVersionStr = previousVersionStr;
 
   bool? _enableMetrics;
   bool? get enableMetrics => _$this._enableMetrics;
-  set enableMetrics(covariant bool? enableMetrics) =>
+  set enableMetrics(bool? enableMetrics) =>
       _$this._enableMetrics = enableMetrics;
 
   bool? _enableNormalizedItemByNameIds;
   bool? get enableNormalizedItemByNameIds =>
       _$this._enableNormalizedItemByNameIds;
-  set enableNormalizedItemByNameIds(
-          covariant bool? enableNormalizedItemByNameIds) =>
+  set enableNormalizedItemByNameIds(bool? enableNormalizedItemByNameIds) =>
       _$this._enableNormalizedItemByNameIds = enableNormalizedItemByNameIds;
 
   bool? _isPortAuthorized;
   bool? get isPortAuthorized => _$this._isPortAuthorized;
-  set isPortAuthorized(covariant bool? isPortAuthorized) =>
+  set isPortAuthorized(bool? isPortAuthorized) =>
       _$this._isPortAuthorized = isPortAuthorized;
 
   bool? _quickConnectAvailable;
   bool? get quickConnectAvailable => _$this._quickConnectAvailable;
-  set quickConnectAvailable(covariant bool? quickConnectAvailable) =>
+  set quickConnectAvailable(bool? quickConnectAvailable) =>
       _$this._quickConnectAvailable = quickConnectAvailable;
 
   bool? _enableCaseSensitiveItemIds;
   bool? get enableCaseSensitiveItemIds => _$this._enableCaseSensitiveItemIds;
-  set enableCaseSensitiveItemIds(covariant bool? enableCaseSensitiveItemIds) =>
+  set enableCaseSensitiveItemIds(bool? enableCaseSensitiveItemIds) =>
       _$this._enableCaseSensitiveItemIds = enableCaseSensitiveItemIds;
 
   bool? _disableLiveTvChannelUserDataName;
   bool? get disableLiveTvChannelUserDataName =>
       _$this._disableLiveTvChannelUserDataName;
   set disableLiveTvChannelUserDataName(
-          covariant bool? disableLiveTvChannelUserDataName) =>
+          bool? disableLiveTvChannelUserDataName) =>
       _$this._disableLiveTvChannelUserDataName =
           disableLiveTvChannelUserDataName;
 
   String? _metadataPath;
   String? get metadataPath => _$this._metadataPath;
-  set metadataPath(covariant String? metadataPath) =>
-      _$this._metadataPath = metadataPath;
+  set metadataPath(String? metadataPath) => _$this._metadataPath = metadataPath;
 
   String? _metadataNetworkPath;
   String? get metadataNetworkPath => _$this._metadataNetworkPath;
-  set metadataNetworkPath(covariant String? metadataNetworkPath) =>
+  set metadataNetworkPath(String? metadataNetworkPath) =>
       _$this._metadataNetworkPath = metadataNetworkPath;
 
   String? _preferredMetadataLanguage;
   String? get preferredMetadataLanguage => _$this._preferredMetadataLanguage;
-  set preferredMetadataLanguage(covariant String? preferredMetadataLanguage) =>
+  set preferredMetadataLanguage(String? preferredMetadataLanguage) =>
       _$this._preferredMetadataLanguage = preferredMetadataLanguage;
 
   String? _metadataCountryCode;
   String? get metadataCountryCode => _$this._metadataCountryCode;
-  set metadataCountryCode(covariant String? metadataCountryCode) =>
+  set metadataCountryCode(String? metadataCountryCode) =>
       _$this._metadataCountryCode = metadataCountryCode;
 
   ListBuilder<String>? _sortReplaceCharacters;
   ListBuilder<String> get sortReplaceCharacters =>
       _$this._sortReplaceCharacters ??= new ListBuilder<String>();
-  set sortReplaceCharacters(
-          covariant ListBuilder<String>? sortReplaceCharacters) =>
+  set sortReplaceCharacters(ListBuilder<String>? sortReplaceCharacters) =>
       _$this._sortReplaceCharacters = sortReplaceCharacters;
 
   ListBuilder<String>? _sortRemoveCharacters;
   ListBuilder<String> get sortRemoveCharacters =>
       _$this._sortRemoveCharacters ??= new ListBuilder<String>();
-  set sortRemoveCharacters(
-          covariant ListBuilder<String>? sortRemoveCharacters) =>
+  set sortRemoveCharacters(ListBuilder<String>? sortRemoveCharacters) =>
       _$this._sortRemoveCharacters = sortRemoveCharacters;
 
   ListBuilder<String>? _sortRemoveWords;
   ListBuilder<String> get sortRemoveWords =>
       _$this._sortRemoveWords ??= new ListBuilder<String>();
-  set sortRemoveWords(covariant ListBuilder<String>? sortRemoveWords) =>
+  set sortRemoveWords(ListBuilder<String>? sortRemoveWords) =>
       _$this._sortRemoveWords = sortRemoveWords;
 
   int? _minResumePct;
   int? get minResumePct => _$this._minResumePct;
-  set minResumePct(covariant int? minResumePct) =>
-      _$this._minResumePct = minResumePct;
+  set minResumePct(int? minResumePct) => _$this._minResumePct = minResumePct;
 
   int? _maxResumePct;
   int? get maxResumePct => _$this._maxResumePct;
-  set maxResumePct(covariant int? maxResumePct) =>
-      _$this._maxResumePct = maxResumePct;
+  set maxResumePct(int? maxResumePct) => _$this._maxResumePct = maxResumePct;
 
   int? _minResumeDurationSeconds;
   int? get minResumeDurationSeconds => _$this._minResumeDurationSeconds;
-  set minResumeDurationSeconds(covariant int? minResumeDurationSeconds) =>
+  set minResumeDurationSeconds(int? minResumeDurationSeconds) =>
       _$this._minResumeDurationSeconds = minResumeDurationSeconds;
 
   int? _minAudiobookResume;
   int? get minAudiobookResume => _$this._minAudiobookResume;
-  set minAudiobookResume(covariant int? minAudiobookResume) =>
+  set minAudiobookResume(int? minAudiobookResume) =>
       _$this._minAudiobookResume = minAudiobookResume;
 
   int? _maxAudiobookResume;
   int? get maxAudiobookResume => _$this._maxAudiobookResume;
-  set maxAudiobookResume(covariant int? maxAudiobookResume) =>
+  set maxAudiobookResume(int? maxAudiobookResume) =>
       _$this._maxAudiobookResume = maxAudiobookResume;
 
   int? _libraryMonitorDelay;
   int? get libraryMonitorDelay => _$this._libraryMonitorDelay;
-  set libraryMonitorDelay(covariant int? libraryMonitorDelay) =>
+  set libraryMonitorDelay(int? libraryMonitorDelay) =>
       _$this._libraryMonitorDelay = libraryMonitorDelay;
 
   ImageSavingConvention? _imageSavingConvention;
   ImageSavingConvention? get imageSavingConvention =>
       _$this._imageSavingConvention;
-  set imageSavingConvention(
-          covariant ImageSavingConvention? imageSavingConvention) =>
+  set imageSavingConvention(ImageSavingConvention? imageSavingConvention) =>
       _$this._imageSavingConvention = imageSavingConvention;
 
   ListBuilder<MetadataOptions>? _metadataOptions;
   ListBuilder<MetadataOptions> get metadataOptions =>
       _$this._metadataOptions ??= new ListBuilder<MetadataOptions>();
-  set metadataOptions(
-          covariant ListBuilder<MetadataOptions>? metadataOptions) =>
+  set metadataOptions(ListBuilder<MetadataOptions>? metadataOptions) =>
       _$this._metadataOptions = metadataOptions;
 
   bool? _skipDeserializationForBasicTypes;
   bool? get skipDeserializationForBasicTypes =>
       _$this._skipDeserializationForBasicTypes;
   set skipDeserializationForBasicTypes(
-          covariant bool? skipDeserializationForBasicTypes) =>
+          bool? skipDeserializationForBasicTypes) =>
       _$this._skipDeserializationForBasicTypes =
           skipDeserializationForBasicTypes;
 
   String? _serverName;
   String? get serverName => _$this._serverName;
-  set serverName(covariant String? serverName) =>
-      _$this._serverName = serverName;
+  set serverName(String? serverName) => _$this._serverName = serverName;
 
   String? _uICulture;
   String? get uICulture => _$this._uICulture;
-  set uICulture(covariant String? uICulture) => _$this._uICulture = uICulture;
+  set uICulture(String? uICulture) => _$this._uICulture = uICulture;
 
   bool? _saveMetadataHidden;
   bool? get saveMetadataHidden => _$this._saveMetadataHidden;
-  set saveMetadataHidden(covariant bool? saveMetadataHidden) =>
+  set saveMetadataHidden(bool? saveMetadataHidden) =>
       _$this._saveMetadataHidden = saveMetadataHidden;
 
   ListBuilder<NameValuePair>? _contentTypes;
   ListBuilder<NameValuePair> get contentTypes =>
       _$this._contentTypes ??= new ListBuilder<NameValuePair>();
-  set contentTypes(covariant ListBuilder<NameValuePair>? contentTypes) =>
+  set contentTypes(ListBuilder<NameValuePair>? contentTypes) =>
       _$this._contentTypes = contentTypes;
 
   int? _remoteClientBitrateLimit;
   int? get remoteClientBitrateLimit => _$this._remoteClientBitrateLimit;
-  set remoteClientBitrateLimit(covariant int? remoteClientBitrateLimit) =>
+  set remoteClientBitrateLimit(int? remoteClientBitrateLimit) =>
       _$this._remoteClientBitrateLimit = remoteClientBitrateLimit;
 
   bool? _enableFolderView;
   bool? get enableFolderView => _$this._enableFolderView;
-  set enableFolderView(covariant bool? enableFolderView) =>
+  set enableFolderView(bool? enableFolderView) =>
       _$this._enableFolderView = enableFolderView;
 
   bool? _enableGroupingIntoCollections;
   bool? get enableGroupingIntoCollections =>
       _$this._enableGroupingIntoCollections;
-  set enableGroupingIntoCollections(
-          covariant bool? enableGroupingIntoCollections) =>
+  set enableGroupingIntoCollections(bool? enableGroupingIntoCollections) =>
       _$this._enableGroupingIntoCollections = enableGroupingIntoCollections;
 
   bool? _displaySpecialsWithinSeasons;
   bool? get displaySpecialsWithinSeasons =>
       _$this._displaySpecialsWithinSeasons;
-  set displaySpecialsWithinSeasons(
-          covariant bool? displaySpecialsWithinSeasons) =>
+  set displaySpecialsWithinSeasons(bool? displaySpecialsWithinSeasons) =>
       _$this._displaySpecialsWithinSeasons = displaySpecialsWithinSeasons;
 
   ListBuilder<String>? _codecsUsed;
   ListBuilder<String> get codecsUsed =>
       _$this._codecsUsed ??= new ListBuilder<String>();
-  set codecsUsed(covariant ListBuilder<String>? codecsUsed) =>
+  set codecsUsed(ListBuilder<String>? codecsUsed) =>
       _$this._codecsUsed = codecsUsed;
 
   ListBuilder<RepositoryInfo>? _pluginRepositories;
   ListBuilder<RepositoryInfo> get pluginRepositories =>
       _$this._pluginRepositories ??= new ListBuilder<RepositoryInfo>();
-  set pluginRepositories(
-          covariant ListBuilder<RepositoryInfo>? pluginRepositories) =>
+  set pluginRepositories(ListBuilder<RepositoryInfo>? pluginRepositories) =>
       _$this._pluginRepositories = pluginRepositories;
 
   bool? _enableExternalContentInSuggestions;
   bool? get enableExternalContentInSuggestions =>
       _$this._enableExternalContentInSuggestions;
   set enableExternalContentInSuggestions(
-          covariant bool? enableExternalContentInSuggestions) =>
+          bool? enableExternalContentInSuggestions) =>
       _$this._enableExternalContentInSuggestions =
           enableExternalContentInSuggestions;
 
   int? _imageExtractionTimeoutMs;
   int? get imageExtractionTimeoutMs => _$this._imageExtractionTimeoutMs;
-  set imageExtractionTimeoutMs(covariant int? imageExtractionTimeoutMs) =>
+  set imageExtractionTimeoutMs(int? imageExtractionTimeoutMs) =>
       _$this._imageExtractionTimeoutMs = imageExtractionTimeoutMs;
 
   ListBuilder<PathSubstitution>? _pathSubstitutions;
   ListBuilder<PathSubstitution> get pathSubstitutions =>
       _$this._pathSubstitutions ??= new ListBuilder<PathSubstitution>();
-  set pathSubstitutions(
-          covariant ListBuilder<PathSubstitution>? pathSubstitutions) =>
+  set pathSubstitutions(ListBuilder<PathSubstitution>? pathSubstitutions) =>
       _$this._pathSubstitutions = pathSubstitutions;
 
   bool? _enableSlowResponseWarning;
   bool? get enableSlowResponseWarning => _$this._enableSlowResponseWarning;
-  set enableSlowResponseWarning(covariant bool? enableSlowResponseWarning) =>
+  set enableSlowResponseWarning(bool? enableSlowResponseWarning) =>
       _$this._enableSlowResponseWarning = enableSlowResponseWarning;
 
   int? _slowResponseThresholdMs;
   int? get slowResponseThresholdMs => _$this._slowResponseThresholdMs;
-  set slowResponseThresholdMs(covariant int? slowResponseThresholdMs) =>
+  set slowResponseThresholdMs(int? slowResponseThresholdMs) =>
       _$this._slowResponseThresholdMs = slowResponseThresholdMs;
 
   ListBuilder<String>? _corsHosts;
   ListBuilder<String> get corsHosts =>
       _$this._corsHosts ??= new ListBuilder<String>();
-  set corsHosts(covariant ListBuilder<String>? corsHosts) =>
+  set corsHosts(ListBuilder<String>? corsHosts) =>
       _$this._corsHosts = corsHosts;
 
   int? _activityLogRetentionDays;
   int? get activityLogRetentionDays => _$this._activityLogRetentionDays;
-  set activityLogRetentionDays(covariant int? activityLogRetentionDays) =>
+  set activityLogRetentionDays(int? activityLogRetentionDays) =>
       _$this._activityLogRetentionDays = activityLogRetentionDays;
 
   int? _libraryScanFanoutConcurrency;
   int? get libraryScanFanoutConcurrency => _$this._libraryScanFanoutConcurrency;
-  set libraryScanFanoutConcurrency(
-          covariant int? libraryScanFanoutConcurrency) =>
+  set libraryScanFanoutConcurrency(int? libraryScanFanoutConcurrency) =>
       _$this._libraryScanFanoutConcurrency = libraryScanFanoutConcurrency;
 
   int? _libraryMetadataRefreshConcurrency;
   int? get libraryMetadataRefreshConcurrency =>
       _$this._libraryMetadataRefreshConcurrency;
   set libraryMetadataRefreshConcurrency(
-          covariant int? libraryMetadataRefreshConcurrency) =>
+          int? libraryMetadataRefreshConcurrency) =>
       _$this._libraryMetadataRefreshConcurrency =
           libraryMetadataRefreshConcurrency;
 
   bool? _removeOldPlugins;
   bool? get removeOldPlugins => _$this._removeOldPlugins;
-  set removeOldPlugins(covariant bool? removeOldPlugins) =>
+  set removeOldPlugins(bool? removeOldPlugins) =>
       _$this._removeOldPlugins = removeOldPlugins;
 
   bool? _allowClientLogUpload;
   bool? get allowClientLogUpload => _$this._allowClientLogUpload;
-  set allowClientLogUpload(covariant bool? allowClientLogUpload) =>
+  set allowClientLogUpload(bool? allowClientLogUpload) =>
       _$this._allowClientLogUpload = allowClientLogUpload;
 
-  $ServerConfigurationBuilder() {
-    $ServerConfiguration._defaults(this);
+  ServerConfigurationBuilder() {
+    ServerConfiguration._defaults(this);
   }
 
-  $ServerConfigurationBuilder get _$this {
+  ServerConfigurationBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _logFileRetentionDays = $v.logFileRetentionDays;
@@ -830,24 +665,24 @@ class $ServerConfigurationBuilder
   }
 
   @override
-  void replace(covariant $ServerConfiguration other) {
+  void replace(ServerConfiguration other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$ServerConfiguration;
+    _$v = other as _$ServerConfiguration;
   }
 
   @override
-  void update(void Function($ServerConfigurationBuilder)? updates) {
+  void update(void Function(ServerConfigurationBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $ServerConfiguration build() => _build();
+  ServerConfiguration build() => _build();
 
-  _$$ServerConfiguration _build() {
-    _$$ServerConfiguration _$result;
+  _$ServerConfiguration _build() {
+    _$ServerConfiguration _$result;
     try {
       _$result = _$v ??
-          new _$$ServerConfiguration._(
+          new _$ServerConfiguration._(
               logFileRetentionDays: logFileRetentionDays,
               isStartupWizardCompleted: isStartupWizardCompleted,
               cachePath: cachePath,
@@ -928,7 +763,7 @@ class $ServerConfigurationBuilder
         _corsHosts?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$ServerConfiguration', _$failedField, e.toString());
+            r'ServerConfiguration', _$failedField, e.toString());
       }
       rethrow;
     }

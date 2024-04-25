@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlayCommand
 void main() {
-
-  group(PlayCommand, () {
-  });
+  group(PlayCommand, () {});
 }

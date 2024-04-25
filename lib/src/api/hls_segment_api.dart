@@ -12,7 +12,6 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 
 class HlsSegmentApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,7 +19,7 @@ class HlsSegmentApi {
   const HlsSegmentApi(this._dio, this._serializers);
 
   /// Gets the specified audio segment for an audio item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -33,8 +32,8 @@ class HlsSegmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getHlsAudioSegmentLegacyAac({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getHlsAudioSegmentLegacyAac({
     required String itemId,
     required String segmentId,
     CancelToken? cancelToken,
@@ -44,7 +43,16 @@ class HlsSegmentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Audio/{itemId}/hls/{segmentId}/stream.aac'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'segmentId' '}', segmentId.toString());
+    final _path = r'/Audio/{itemId}/hls/{segmentId}/stream.aac'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'segmentId' '}',
+            encodeQueryParameter(
+                    _serializers, segmentId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -66,18 +74,19 @@ class HlsSegmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -93,7 +102,7 @@ class HlsSegmentApi {
   }
 
   /// Gets the specified audio segment for an audio item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -106,8 +115,8 @@ class HlsSegmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getHlsAudioSegmentLegacyMp3({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getHlsAudioSegmentLegacyMp3({
     required String itemId,
     required String segmentId,
     CancelToken? cancelToken,
@@ -117,7 +126,16 @@ class HlsSegmentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Audio/{itemId}/hls/{segmentId}/stream.mp3'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'segmentId' '}', segmentId.toString());
+    final _path = r'/Audio/{itemId}/hls/{segmentId}/stream.mp3'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'segmentId' '}',
+            encodeQueryParameter(
+                    _serializers, segmentId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -139,18 +157,19 @@ class HlsSegmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -166,7 +185,7 @@ class HlsSegmentApi {
   }
 
   /// Gets a hls video playlist.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The video id.
@@ -179,8 +198,8 @@ class HlsSegmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getHlsPlaylistLegacy({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getHlsPlaylistLegacy({
     required String itemId,
     required String playlistId,
     CancelToken? cancelToken,
@@ -190,7 +209,16 @@ class HlsSegmentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Videos/{itemId}/hls/{playlistId}/stream.m3u8'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'playlistId' '}', playlistId.toString());
+    final _path = r'/Videos/{itemId}/hls/{playlistId}/stream.m3u8'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'playlistId' '}',
+            encodeQueryParameter(
+                    _serializers, playlistId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -219,18 +247,19 @@ class HlsSegmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -246,7 +275,7 @@ class HlsSegmentApi {
   }
 
   /// Gets a hls video segment.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -261,8 +290,8 @@ class HlsSegmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getHlsVideoSegmentLegacy({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getHlsVideoSegmentLegacy({
     required String itemId,
     required String playlistId,
     required String segmentId,
@@ -274,7 +303,28 @@ class HlsSegmentApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Videos/{itemId}/hls/{playlistId}/{segmentId}.{segmentContainer}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'playlistId' '}', playlistId.toString()).replaceAll('{' r'segmentId' '}', segmentId.toString()).replaceAll('{' r'segmentContainer' '}', segmentContainer.toString());
+    final _path =
+        r'/Videos/{itemId}/hls/{playlistId}/{segmentId}.{segmentContainer}'
+            .replaceAll(
+                '{' r'itemId' '}',
+                encodeQueryParameter(
+                        _serializers, itemId, const FullType(String))
+                    .toString())
+            .replaceAll(
+                '{' r'playlistId' '}',
+                encodeQueryParameter(
+                        _serializers, playlistId, const FullType(String))
+                    .toString())
+            .replaceAll(
+                '{' r'segmentId' '}',
+                encodeQueryParameter(
+                        _serializers, segmentId, const FullType(String))
+                    .toString())
+            .replaceAll(
+                '{' r'segmentContainer' '}',
+                encodeQueryParameter(
+                        _serializers, segmentContainer, const FullType(String))
+                    .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -296,18 +346,19 @@ class HlsSegmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -323,7 +374,7 @@ class HlsSegmentApi {
   }
 
   /// Stops an active encoding.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
@@ -336,8 +387,8 @@ class HlsSegmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> stopEncodingProcess({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> stopEncodingProcess({
     required String deviceId,
     required String playSessionId,
     CancelToken? cancelToken,
@@ -368,8 +419,10 @@ class HlsSegmentApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'deviceId': encodeQueryParameter(_serializers, deviceId, const FullType(String)),
-      r'playSessionId': encodeQueryParameter(_serializers, playSessionId, const FullType(String)),
+      r'deviceId':
+          encodeQueryParameter(_serializers, deviceId, const FullType(String)),
+      r'playSessionId': encodeQueryParameter(
+          _serializers, playSessionId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -383,5 +436,4 @@ class HlsSegmentApi {
 
     return _response;
   }
-
 }

@@ -1,8 +1,8 @@
-# openapi.api.DlnaServerApi
+# tentacle.api.DlnaServerApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -34,19 +34,19 @@ Gets Dlna media receiver registrar xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getConnectionManager(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getConnectionManager: $e\n');
 }
 ```
@@ -79,19 +79,19 @@ Gets Dlna media receiver registrar xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getConnectionManager2(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getConnectionManager2: $e\n');
 }
 ```
@@ -124,19 +124,19 @@ Gets Dlna media receiver registrar xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getConnectionManager3(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getConnectionManager3: $e\n');
 }
 ```
@@ -169,19 +169,19 @@ Gets Dlna content directory xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getContentDirectory(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getContentDirectory: $e\n');
 }
 ```
@@ -214,19 +214,19 @@ Gets Dlna content directory xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getContentDirectory2(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getContentDirectory2: $e\n');
 }
 ```
@@ -259,19 +259,19 @@ Gets Dlna content directory xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getContentDirectory3(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getContentDirectory3: $e\n');
 }
 ```
@@ -304,19 +304,19 @@ Get Description Xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getDescriptionXml(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getDescriptionXml: $e\n');
 }
 ```
@@ -349,19 +349,19 @@ Get Description Xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getDescriptionXml2(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getDescriptionXml2: $e\n');
 }
 ```
@@ -394,19 +394,19 @@ Gets a server icon.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String fileName = fileName_example; // String | The icon filename.
 
 try {
     final response = api.getIcon(fileName);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getIcon: $e\n');
 }
 ```
@@ -439,20 +439,20 @@ Gets a server icon.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 final String fileName = fileName_example; // String | The icon filename.
 
 try {
     final response = api.getIconId(serverId, fileName);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getIconId: $e\n');
 }
 ```
@@ -486,19 +486,19 @@ Gets Dlna media receiver registrar xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getMediaReceiverRegistrar(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getMediaReceiverRegistrar: $e\n');
 }
 ```
@@ -531,19 +531,19 @@ Gets Dlna media receiver registrar xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getMediaReceiverRegistrar2(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getMediaReceiverRegistrar2: $e\n');
 }
 ```
@@ -576,19 +576,19 @@ Gets Dlna media receiver registrar xml.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.getMediaReceiverRegistrar3(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->getMediaReceiverRegistrar3: $e\n');
 }
 ```
@@ -621,19 +621,19 @@ Process a connection manager control request.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.processConnectionManagerControlRequest(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->processConnectionManagerControlRequest: $e\n');
 }
 ```
@@ -666,19 +666,19 @@ Process a content directory control request.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.processContentDirectoryControlRequest(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->processContentDirectoryControlRequest: $e\n');
 }
 ```
@@ -711,19 +711,19 @@ Process a media receiver registrar control request.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaServerApi();
+final api = Tentacle().getDlnaServerApi();
 final String serverId = serverId_example; // String | Server UUID.
 
 try {
     final response = api.processMediaReceiverRegistrarControlRequest(serverId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaServerApi->processMediaReceiverRegistrarControlRequest: $e\n');
 }
 ```

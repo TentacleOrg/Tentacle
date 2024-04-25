@@ -6,137 +6,7 @@ part of 'media_source_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class MediaSourceInfoBuilder {
-  void replace(MediaSourceInfo other);
-  void update(void Function(MediaSourceInfoBuilder) updates);
-  MediaProtocol? get protocol;
-  set protocol(MediaProtocol? protocol);
-
-  String? get id;
-  set id(String? id);
-
-  String? get path;
-  set path(String? path);
-
-  String? get encoderPath;
-  set encoderPath(String? encoderPath);
-
-  MediaProtocol? get encoderProtocol;
-  set encoderProtocol(MediaProtocol? encoderProtocol);
-
-  MediaSourceType? get type;
-  set type(MediaSourceType? type);
-
-  String? get container;
-  set container(String? container);
-
-  int? get size;
-  set size(int? size);
-
-  String? get name;
-  set name(String? name);
-
-  bool? get isRemote;
-  set isRemote(bool? isRemote);
-
-  String? get eTag;
-  set eTag(String? eTag);
-
-  int? get runTimeTicks;
-  set runTimeTicks(int? runTimeTicks);
-
-  bool? get readAtNativeFramerate;
-  set readAtNativeFramerate(bool? readAtNativeFramerate);
-
-  bool? get ignoreDts;
-  set ignoreDts(bool? ignoreDts);
-
-  bool? get ignoreIndex;
-  set ignoreIndex(bool? ignoreIndex);
-
-  bool? get genPtsInput;
-  set genPtsInput(bool? genPtsInput);
-
-  bool? get supportsTranscoding;
-  set supportsTranscoding(bool? supportsTranscoding);
-
-  bool? get supportsDirectStream;
-  set supportsDirectStream(bool? supportsDirectStream);
-
-  bool? get supportsDirectPlay;
-  set supportsDirectPlay(bool? supportsDirectPlay);
-
-  bool? get isInfiniteStream;
-  set isInfiniteStream(bool? isInfiniteStream);
-
-  bool? get requiresOpening;
-  set requiresOpening(bool? requiresOpening);
-
-  String? get openToken;
-  set openToken(String? openToken);
-
-  bool? get requiresClosing;
-  set requiresClosing(bool? requiresClosing);
-
-  String? get liveStreamId;
-  set liveStreamId(String? liveStreamId);
-
-  int? get bufferMs;
-  set bufferMs(int? bufferMs);
-
-  bool? get requiresLooping;
-  set requiresLooping(bool? requiresLooping);
-
-  bool? get supportsProbing;
-  set supportsProbing(bool? supportsProbing);
-
-  VideoType? get videoType;
-  set videoType(VideoType? videoType);
-
-  IsoType? get isoType;
-  set isoType(IsoType? isoType);
-
-  Video3DFormat? get video3DFormat;
-  set video3DFormat(Video3DFormat? video3DFormat);
-
-  ListBuilder<MediaStream> get mediaStreams;
-  set mediaStreams(ListBuilder<MediaStream>? mediaStreams);
-
-  ListBuilder<MediaAttachment> get mediaAttachments;
-  set mediaAttachments(ListBuilder<MediaAttachment>? mediaAttachments);
-
-  ListBuilder<String> get formats;
-  set formats(ListBuilder<String>? formats);
-
-  int? get bitrate;
-  set bitrate(int? bitrate);
-
-  TransportStreamTimestamp? get timestamp;
-  set timestamp(TransportStreamTimestamp? timestamp);
-
-  MapBuilder<String, String?> get requiredHttpHeaders;
-  set requiredHttpHeaders(MapBuilder<String, String?>? requiredHttpHeaders);
-
-  String? get transcodingUrl;
-  set transcodingUrl(String? transcodingUrl);
-
-  String? get transcodingSubProtocol;
-  set transcodingSubProtocol(String? transcodingSubProtocol);
-
-  String? get transcodingContainer;
-  set transcodingContainer(String? transcodingContainer);
-
-  int? get analyzeDurationMs;
-  set analyzeDurationMs(int? analyzeDurationMs);
-
-  int? get defaultAudioStreamIndex;
-  set defaultAudioStreamIndex(int? defaultAudioStreamIndex);
-
-  int? get defaultSubtitleStreamIndex;
-  set defaultSubtitleStreamIndex(int? defaultSubtitleStreamIndex);
-}
-
-class _$$MediaSourceInfo extends $MediaSourceInfo {
+class _$MediaSourceInfo extends MediaSourceInfo {
   @override
   final MediaProtocol? protocol;
   @override
@@ -222,11 +92,10 @@ class _$$MediaSourceInfo extends $MediaSourceInfo {
   @override
   final int? defaultSubtitleStreamIndex;
 
-  factory _$$MediaSourceInfo(
-          [void Function($MediaSourceInfoBuilder)? updates]) =>
-      (new $MediaSourceInfoBuilder()..update(updates))._build();
+  factory _$MediaSourceInfo([void Function(MediaSourceInfoBuilder)? updates]) =>
+      (new MediaSourceInfoBuilder()..update(updates))._build();
 
-  _$$MediaSourceInfo._(
+  _$MediaSourceInfo._(
       {this.protocol,
       this.id,
       this.path,
@@ -272,17 +141,17 @@ class _$$MediaSourceInfo extends $MediaSourceInfo {
       : super._();
 
   @override
-  $MediaSourceInfo rebuild(void Function($MediaSourceInfoBuilder) updates) =>
+  MediaSourceInfo rebuild(void Function(MediaSourceInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $MediaSourceInfoBuilder toBuilder() =>
-      new $MediaSourceInfoBuilder()..replace(this);
+  MediaSourceInfoBuilder toBuilder() =>
+      new MediaSourceInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $MediaSourceInfo &&
+    return other is MediaSourceInfo &&
         protocol == other.protocol &&
         id == other.id &&
         path == other.path &&
@@ -378,7 +247,7 @@ class _$$MediaSourceInfo extends $MediaSourceInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$MediaSourceInfo')
+    return (newBuiltValueToStringHelper(r'MediaSourceInfo')
           ..add('protocol', protocol)
           ..add('id', id)
           ..add('path', path)
@@ -425,220 +294,208 @@ class _$$MediaSourceInfo extends $MediaSourceInfo {
   }
 }
 
-class $MediaSourceInfoBuilder
-    implements
-        Builder<$MediaSourceInfo, $MediaSourceInfoBuilder>,
-        MediaSourceInfoBuilder {
-  _$$MediaSourceInfo? _$v;
+class MediaSourceInfoBuilder
+    implements Builder<MediaSourceInfo, MediaSourceInfoBuilder> {
+  _$MediaSourceInfo? _$v;
 
   MediaProtocol? _protocol;
   MediaProtocol? get protocol => _$this._protocol;
-  set protocol(covariant MediaProtocol? protocol) =>
-      _$this._protocol = protocol;
+  set protocol(MediaProtocol? protocol) => _$this._protocol = protocol;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   String? _path;
   String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
+  set path(String? path) => _$this._path = path;
 
   String? _encoderPath;
   String? get encoderPath => _$this._encoderPath;
-  set encoderPath(covariant String? encoderPath) =>
-      _$this._encoderPath = encoderPath;
+  set encoderPath(String? encoderPath) => _$this._encoderPath = encoderPath;
 
   MediaProtocol? _encoderProtocol;
   MediaProtocol? get encoderProtocol => _$this._encoderProtocol;
-  set encoderProtocol(covariant MediaProtocol? encoderProtocol) =>
+  set encoderProtocol(MediaProtocol? encoderProtocol) =>
       _$this._encoderProtocol = encoderProtocol;
 
   MediaSourceType? _type;
   MediaSourceType? get type => _$this._type;
-  set type(covariant MediaSourceType? type) => _$this._type = type;
+  set type(MediaSourceType? type) => _$this._type = type;
 
   String? _container;
   String? get container => _$this._container;
-  set container(covariant String? container) => _$this._container = container;
+  set container(String? container) => _$this._container = container;
 
   int? _size;
   int? get size => _$this._size;
-  set size(covariant int? size) => _$this._size = size;
+  set size(int? size) => _$this._size = size;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   bool? _isRemote;
   bool? get isRemote => _$this._isRemote;
-  set isRemote(covariant bool? isRemote) => _$this._isRemote = isRemote;
+  set isRemote(bool? isRemote) => _$this._isRemote = isRemote;
 
   String? _eTag;
   String? get eTag => _$this._eTag;
-  set eTag(covariant String? eTag) => _$this._eTag = eTag;
+  set eTag(String? eTag) => _$this._eTag = eTag;
 
   int? _runTimeTicks;
   int? get runTimeTicks => _$this._runTimeTicks;
-  set runTimeTicks(covariant int? runTimeTicks) =>
-      _$this._runTimeTicks = runTimeTicks;
+  set runTimeTicks(int? runTimeTicks) => _$this._runTimeTicks = runTimeTicks;
 
   bool? _readAtNativeFramerate;
   bool? get readAtNativeFramerate => _$this._readAtNativeFramerate;
-  set readAtNativeFramerate(covariant bool? readAtNativeFramerate) =>
+  set readAtNativeFramerate(bool? readAtNativeFramerate) =>
       _$this._readAtNativeFramerate = readAtNativeFramerate;
 
   bool? _ignoreDts;
   bool? get ignoreDts => _$this._ignoreDts;
-  set ignoreDts(covariant bool? ignoreDts) => _$this._ignoreDts = ignoreDts;
+  set ignoreDts(bool? ignoreDts) => _$this._ignoreDts = ignoreDts;
 
   bool? _ignoreIndex;
   bool? get ignoreIndex => _$this._ignoreIndex;
-  set ignoreIndex(covariant bool? ignoreIndex) =>
-      _$this._ignoreIndex = ignoreIndex;
+  set ignoreIndex(bool? ignoreIndex) => _$this._ignoreIndex = ignoreIndex;
 
   bool? _genPtsInput;
   bool? get genPtsInput => _$this._genPtsInput;
-  set genPtsInput(covariant bool? genPtsInput) =>
-      _$this._genPtsInput = genPtsInput;
+  set genPtsInput(bool? genPtsInput) => _$this._genPtsInput = genPtsInput;
 
   bool? _supportsTranscoding;
   bool? get supportsTranscoding => _$this._supportsTranscoding;
-  set supportsTranscoding(covariant bool? supportsTranscoding) =>
+  set supportsTranscoding(bool? supportsTranscoding) =>
       _$this._supportsTranscoding = supportsTranscoding;
 
   bool? _supportsDirectStream;
   bool? get supportsDirectStream => _$this._supportsDirectStream;
-  set supportsDirectStream(covariant bool? supportsDirectStream) =>
+  set supportsDirectStream(bool? supportsDirectStream) =>
       _$this._supportsDirectStream = supportsDirectStream;
 
   bool? _supportsDirectPlay;
   bool? get supportsDirectPlay => _$this._supportsDirectPlay;
-  set supportsDirectPlay(covariant bool? supportsDirectPlay) =>
+  set supportsDirectPlay(bool? supportsDirectPlay) =>
       _$this._supportsDirectPlay = supportsDirectPlay;
 
   bool? _isInfiniteStream;
   bool? get isInfiniteStream => _$this._isInfiniteStream;
-  set isInfiniteStream(covariant bool? isInfiniteStream) =>
+  set isInfiniteStream(bool? isInfiniteStream) =>
       _$this._isInfiniteStream = isInfiniteStream;
 
   bool? _requiresOpening;
   bool? get requiresOpening => _$this._requiresOpening;
-  set requiresOpening(covariant bool? requiresOpening) =>
+  set requiresOpening(bool? requiresOpening) =>
       _$this._requiresOpening = requiresOpening;
 
   String? _openToken;
   String? get openToken => _$this._openToken;
-  set openToken(covariant String? openToken) => _$this._openToken = openToken;
+  set openToken(String? openToken) => _$this._openToken = openToken;
 
   bool? _requiresClosing;
   bool? get requiresClosing => _$this._requiresClosing;
-  set requiresClosing(covariant bool? requiresClosing) =>
+  set requiresClosing(bool? requiresClosing) =>
       _$this._requiresClosing = requiresClosing;
 
   String? _liveStreamId;
   String? get liveStreamId => _$this._liveStreamId;
-  set liveStreamId(covariant String? liveStreamId) =>
-      _$this._liveStreamId = liveStreamId;
+  set liveStreamId(String? liveStreamId) => _$this._liveStreamId = liveStreamId;
 
   int? _bufferMs;
   int? get bufferMs => _$this._bufferMs;
-  set bufferMs(covariant int? bufferMs) => _$this._bufferMs = bufferMs;
+  set bufferMs(int? bufferMs) => _$this._bufferMs = bufferMs;
 
   bool? _requiresLooping;
   bool? get requiresLooping => _$this._requiresLooping;
-  set requiresLooping(covariant bool? requiresLooping) =>
+  set requiresLooping(bool? requiresLooping) =>
       _$this._requiresLooping = requiresLooping;
 
   bool? _supportsProbing;
   bool? get supportsProbing => _$this._supportsProbing;
-  set supportsProbing(covariant bool? supportsProbing) =>
+  set supportsProbing(bool? supportsProbing) =>
       _$this._supportsProbing = supportsProbing;
 
   VideoType? _videoType;
   VideoType? get videoType => _$this._videoType;
-  set videoType(covariant VideoType? videoType) =>
-      _$this._videoType = videoType;
+  set videoType(VideoType? videoType) => _$this._videoType = videoType;
 
   IsoType? _isoType;
   IsoType? get isoType => _$this._isoType;
-  set isoType(covariant IsoType? isoType) => _$this._isoType = isoType;
+  set isoType(IsoType? isoType) => _$this._isoType = isoType;
 
   Video3DFormat? _video3DFormat;
   Video3DFormat? get video3DFormat => _$this._video3DFormat;
-  set video3DFormat(covariant Video3DFormat? video3DFormat) =>
+  set video3DFormat(Video3DFormat? video3DFormat) =>
       _$this._video3DFormat = video3DFormat;
 
   ListBuilder<MediaStream>? _mediaStreams;
   ListBuilder<MediaStream> get mediaStreams =>
       _$this._mediaStreams ??= new ListBuilder<MediaStream>();
-  set mediaStreams(covariant ListBuilder<MediaStream>? mediaStreams) =>
+  set mediaStreams(ListBuilder<MediaStream>? mediaStreams) =>
       _$this._mediaStreams = mediaStreams;
 
   ListBuilder<MediaAttachment>? _mediaAttachments;
   ListBuilder<MediaAttachment> get mediaAttachments =>
       _$this._mediaAttachments ??= new ListBuilder<MediaAttachment>();
-  set mediaAttachments(
-          covariant ListBuilder<MediaAttachment>? mediaAttachments) =>
+  set mediaAttachments(ListBuilder<MediaAttachment>? mediaAttachments) =>
       _$this._mediaAttachments = mediaAttachments;
 
   ListBuilder<String>? _formats;
   ListBuilder<String> get formats =>
       _$this._formats ??= new ListBuilder<String>();
-  set formats(covariant ListBuilder<String>? formats) =>
-      _$this._formats = formats;
+  set formats(ListBuilder<String>? formats) => _$this._formats = formats;
 
   int? _bitrate;
   int? get bitrate => _$this._bitrate;
-  set bitrate(covariant int? bitrate) => _$this._bitrate = bitrate;
+  set bitrate(int? bitrate) => _$this._bitrate = bitrate;
 
   TransportStreamTimestamp? _timestamp;
   TransportStreamTimestamp? get timestamp => _$this._timestamp;
-  set timestamp(covariant TransportStreamTimestamp? timestamp) =>
+  set timestamp(TransportStreamTimestamp? timestamp) =>
       _$this._timestamp = timestamp;
 
   MapBuilder<String, String?>? _requiredHttpHeaders;
   MapBuilder<String, String?> get requiredHttpHeaders =>
       _$this._requiredHttpHeaders ??= new MapBuilder<String, String?>();
-  set requiredHttpHeaders(
-          covariant MapBuilder<String, String?>? requiredHttpHeaders) =>
+  set requiredHttpHeaders(MapBuilder<String, String?>? requiredHttpHeaders) =>
       _$this._requiredHttpHeaders = requiredHttpHeaders;
 
   String? _transcodingUrl;
   String? get transcodingUrl => _$this._transcodingUrl;
-  set transcodingUrl(covariant String? transcodingUrl) =>
+  set transcodingUrl(String? transcodingUrl) =>
       _$this._transcodingUrl = transcodingUrl;
 
   String? _transcodingSubProtocol;
   String? get transcodingSubProtocol => _$this._transcodingSubProtocol;
-  set transcodingSubProtocol(covariant String? transcodingSubProtocol) =>
+  set transcodingSubProtocol(String? transcodingSubProtocol) =>
       _$this._transcodingSubProtocol = transcodingSubProtocol;
 
   String? _transcodingContainer;
   String? get transcodingContainer => _$this._transcodingContainer;
-  set transcodingContainer(covariant String? transcodingContainer) =>
+  set transcodingContainer(String? transcodingContainer) =>
       _$this._transcodingContainer = transcodingContainer;
 
   int? _analyzeDurationMs;
   int? get analyzeDurationMs => _$this._analyzeDurationMs;
-  set analyzeDurationMs(covariant int? analyzeDurationMs) =>
+  set analyzeDurationMs(int? analyzeDurationMs) =>
       _$this._analyzeDurationMs = analyzeDurationMs;
 
   int? _defaultAudioStreamIndex;
   int? get defaultAudioStreamIndex => _$this._defaultAudioStreamIndex;
-  set defaultAudioStreamIndex(covariant int? defaultAudioStreamIndex) =>
+  set defaultAudioStreamIndex(int? defaultAudioStreamIndex) =>
       _$this._defaultAudioStreamIndex = defaultAudioStreamIndex;
 
   int? _defaultSubtitleStreamIndex;
   int? get defaultSubtitleStreamIndex => _$this._defaultSubtitleStreamIndex;
-  set defaultSubtitleStreamIndex(covariant int? defaultSubtitleStreamIndex) =>
+  set defaultSubtitleStreamIndex(int? defaultSubtitleStreamIndex) =>
       _$this._defaultSubtitleStreamIndex = defaultSubtitleStreamIndex;
 
-  $MediaSourceInfoBuilder() {
-    $MediaSourceInfo._defaults(this);
+  MediaSourceInfoBuilder() {
+    MediaSourceInfo._defaults(this);
   }
 
-  $MediaSourceInfoBuilder get _$this {
+  MediaSourceInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _protocol = $v.protocol;
@@ -689,24 +546,24 @@ class $MediaSourceInfoBuilder
   }
 
   @override
-  void replace(covariant $MediaSourceInfo other) {
+  void replace(MediaSourceInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$MediaSourceInfo;
+    _$v = other as _$MediaSourceInfo;
   }
 
   @override
-  void update(void Function($MediaSourceInfoBuilder)? updates) {
+  void update(void Function(MediaSourceInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $MediaSourceInfo build() => _build();
+  MediaSourceInfo build() => _build();
 
-  _$$MediaSourceInfo _build() {
-    _$$MediaSourceInfo _$result;
+  _$MediaSourceInfo _build() {
+    _$MediaSourceInfo _$result;
     try {
       _$result = _$v ??
-          new _$$MediaSourceInfo._(
+          new _$MediaSourceInfo._(
               protocol: protocol,
               id: id,
               path: path,
@@ -763,7 +620,7 @@ class $MediaSourceInfoBuilder
         _requiredHttpHeaders?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$MediaSourceInfo', _$failedField, e.toString());
+            r'MediaSourceInfo', _$failedField, e.toString());
       }
       rethrow;
     }

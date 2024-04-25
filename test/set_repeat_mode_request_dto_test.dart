@@ -3,15 +3,14 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SetRepeatModeRequestDto
 void main() {
-  //final instance = SetRepeatModeRequestDtoBuilder();
+  final instance = SetRepeatModeRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(SetRepeatModeRequestDto, () {
-    // Gets or sets the repeat mode.
+    // Enum GroupRepeatMode.
     // GroupRepeatMode mode
     test('to test the property `mode`', () async {
       // TODO
     });
-
   });
 }

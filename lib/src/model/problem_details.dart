@@ -13,13 +13,14 @@ part 'problem_details.g.dart';
 /// ProblemDetails
 ///
 /// Properties:
-/// * [type] 
-/// * [title] 
-/// * [status] 
-/// * [detail] 
-/// * [instance] 
+/// * [type]
+/// * [title]
+/// * [status]
+/// * [detail]
+/// * [instance]
 @BuiltValue()
-abstract class ProblemDetails implements Built<ProblemDetails, ProblemDetailsBuilder> {
+abstract class ProblemDetails
+    implements Built<ProblemDetails, ProblemDetailsBuilder> {
   @BuiltValueField(wireName: r'type')
   String? get type;
 
@@ -37,16 +38,19 @@ abstract class ProblemDetails implements Built<ProblemDetails, ProblemDetailsBui
 
   ProblemDetails._();
 
-  factory ProblemDetails([void updates(ProblemDetailsBuilder b)]) = _$ProblemDetails;
+  factory ProblemDetails([void updates(ProblemDetailsBuilder b)]) =
+      _$ProblemDetails;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ProblemDetailsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ProblemDetails> get serializer => _$ProblemDetailsSerializer();
+  static Serializer<ProblemDetails> get serializer =>
+      _$ProblemDetailsSerializer();
 }
 
-class _$ProblemDetailsSerializer implements PrimitiveSerializer<ProblemDetails> {
+class _$ProblemDetailsSerializer
+    implements PrimitiveSerializer<ProblemDetails> {
   @override
   final Iterable<Type> types = const [ProblemDetails, _$ProblemDetails];
 
@@ -101,7 +105,9 @@ class _$ProblemDetailsSerializer implements PrimitiveSerializer<ProblemDetails> 
     ProblemDetails object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -184,4 +190,3 @@ class _$ProblemDetailsSerializer implements PrimitiveSerializer<ProblemDetails> 
     return result.build();
   }
 }
-

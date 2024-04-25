@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/series_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/series_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,16 @@ part 'series_info_remote_search_query.g.dart';
 /// SeriesInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo] 
-/// * [itemId] 
+/// * [searchInfo]
+/// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
-@BuiltValue(instantiable: false)
-abstract class SeriesInfoRemoteSearchQuery  {
+@BuiltValue()
+abstract class SeriesInfoRemoteSearchQuery
+    implements
+        Built<SeriesInfoRemoteSearchQuery, SeriesInfoRemoteSearchQueryBuilder> {
   @BuiltValueField(wireName: r'SearchInfo')
-  SeriesInfoRemoteSearchQuerySearchInfo? get searchInfo;
+  SeriesInfo? get searchInfo;
 
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
@@ -32,13 +34,27 @@ abstract class SeriesInfoRemoteSearchQuery  {
   @BuiltValueField(wireName: r'IncludeDisabledProviders')
   bool? get includeDisabledProviders;
 
+  SeriesInfoRemoteSearchQuery._();
+
+  factory SeriesInfoRemoteSearchQuery(
+          [void updates(SeriesInfoRemoteSearchQueryBuilder b)]) =
+      _$SeriesInfoRemoteSearchQuery;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SeriesInfoRemoteSearchQueryBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<SeriesInfoRemoteSearchQuery> get serializer => _$SeriesInfoRemoteSearchQuerySerializer();
+  static Serializer<SeriesInfoRemoteSearchQuery> get serializer =>
+      _$SeriesInfoRemoteSearchQuerySerializer();
 }
 
-class _$SeriesInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<SeriesInfoRemoteSearchQuery> {
+class _$SeriesInfoRemoteSearchQuerySerializer
+    implements PrimitiveSerializer<SeriesInfoRemoteSearchQuery> {
   @override
-  final Iterable<Type> types = const [SeriesInfoRemoteSearchQuery];
+  final Iterable<Type> types = const [
+    SeriesInfoRemoteSearchQuery,
+    _$SeriesInfoRemoteSearchQuery
+  ];
 
   @override
   final String wireName = r'SeriesInfoRemoteSearchQuery';
@@ -52,7 +68,7 @@ class _$SeriesInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Ser
       yield r'SearchInfo';
       yield serializers.serialize(
         object.searchInfo,
-        specifiedType: const FullType.nullable(SeriesInfoRemoteSearchQuerySearchInfo),
+        specifiedType: const FullType.nullable(SeriesInfo),
       );
     }
     if (object.itemId != null) {
@@ -84,47 +100,9 @@ class _$SeriesInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Ser
     SeriesInfoRemoteSearchQuery object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  SeriesInfoRemoteSearchQuery deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SeriesInfoRemoteSearchQuery)) as $SeriesInfoRemoteSearchQuery;
-  }
-}
-
-/// a concrete implementation of [SeriesInfoRemoteSearchQuery], since [SeriesInfoRemoteSearchQuery] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SeriesInfoRemoteSearchQuery implements SeriesInfoRemoteSearchQuery, Built<$SeriesInfoRemoteSearchQuery, $SeriesInfoRemoteSearchQueryBuilder> {
-  $SeriesInfoRemoteSearchQuery._();
-
-  factory $SeriesInfoRemoteSearchQuery([void Function($SeriesInfoRemoteSearchQueryBuilder)? updates]) = _$$SeriesInfoRemoteSearchQuery;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SeriesInfoRemoteSearchQueryBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SeriesInfoRemoteSearchQuery> get serializer => _$$SeriesInfoRemoteSearchQuerySerializer();
-}
-
-class _$$SeriesInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$SeriesInfoRemoteSearchQuery> {
-  @override
-  final Iterable<Type> types = const [$SeriesInfoRemoteSearchQuery, _$$SeriesInfoRemoteSearchQuery];
-
-  @override
-  final String wireName = r'$SeriesInfoRemoteSearchQuery';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SeriesInfoRemoteSearchQuery object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SeriesInfoRemoteSearchQuery))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -142,8 +120,8 @@ class _$$SeriesInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$S
         case r'SearchInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SeriesInfoRemoteSearchQuerySearchInfo),
-          ) as SeriesInfoRemoteSearchQuerySearchInfo?;
+            specifiedType: const FullType.nullable(SeriesInfo),
+          ) as SeriesInfo?;
           if (valueDes == null) continue;
           result.searchInfo.replace(valueDes);
           break;
@@ -178,12 +156,12 @@ class _$$SeriesInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$S
   }
 
   @override
-  $SeriesInfoRemoteSearchQuery deserialize(
+  SeriesInfoRemoteSearchQuery deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SeriesInfoRemoteSearchQueryBuilder();
+    final result = SeriesInfoRemoteSearchQueryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -197,4 +175,3 @@ class _$$SeriesInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$S
     return result.build();
   }
 }
-

@@ -1,8 +1,8 @@
-# openapi.model.ChannelItemSortField
+# tentacle.model.ChannelItemSortField
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

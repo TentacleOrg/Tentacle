@@ -9,13 +9,12 @@ import 'package:dio/dio.dart';
 
 import 'dart:typed_data';
 import 'package:built_value/json_object.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/media_encoder_path_dto.dart';
 import 'package:tentacle/src/model/metadata_options.dart';
 import 'package:tentacle/src/model/server_configuration.dart';
-import 'package:tentacle/src/model/update_configuration_request.dart';
-import 'package:tentacle/src/model/update_media_encoder_path_request.dart';
 
 class ConfigurationApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -23,7 +22,7 @@ class ConfigurationApi {
   const ConfigurationApi(this._dio, this._serializers);
 
   /// Gets application configuration.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -34,8 +33,8 @@ class ConfigurationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ServerConfiguration] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<ServerConfiguration>> getConfiguration({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<ServerConfiguration>> getConfiguration({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -71,22 +70,24 @@ class ConfigurationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ServerConfiguration _responseData;
+    ServerConfiguration? _responseData;
 
     try {
-      const _responseType = FullType(ServerConfiguration);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as ServerConfiguration;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ServerConfiguration),
+            ) as ServerConfiguration;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ServerConfiguration>(
@@ -102,7 +103,7 @@ class ConfigurationApi {
   }
 
   /// Gets a default MetadataOptions object.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -113,8 +114,8 @@ class ConfigurationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MetadataOptions] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<MetadataOptions>> getDefaultMetadataOptions({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<MetadataOptions>> getDefaultMetadataOptions({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -150,22 +151,24 @@ class ConfigurationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MetadataOptions _responseData;
+    MetadataOptions? _responseData;
 
     try {
-      const _responseType = FullType(MetadataOptions);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as MetadataOptions;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(MetadataOptions),
+            ) as MetadataOptions;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<MetadataOptions>(
@@ -181,7 +184,7 @@ class ConfigurationApi {
   }
 
   /// Gets a named configuration.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [key] - Configuration key.
@@ -193,8 +196,8 @@ class ConfigurationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getNamedConfiguration({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getNamedConfiguration({
     required String key,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -203,7 +206,10 @@ class ConfigurationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/System/Configuration/{key}'.replaceAll('{' r'key' '}', key.toString());
+    final _path = r'/System/Configuration/{key}'.replaceAll(
+        '{' r'key' '}',
+        encodeQueryParameter(_serializers, key, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -232,18 +238,19 @@ class ConfigurationApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -259,10 +266,10 @@ class ConfigurationApi {
   }
 
   /// Updates application configuration.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [updateConfigurationRequest] - Configuration.
+  /// * [serverConfiguration] - Configuration.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -271,9 +278,9 @@ class ConfigurationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateConfiguration({ 
-    required UpdateConfigurationRequest updateConfigurationRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateConfiguration({
+    required ServerConfiguration serverConfiguration,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -305,18 +312,19 @@ class ConfigurationApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateConfigurationRequest);
-      _bodyData = _serializers.serialize(updateConfigurationRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(ServerConfiguration);
+      _bodyData =
+          _serializers.serialize(serverConfiguration, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -332,10 +340,10 @@ class ConfigurationApi {
   }
 
   /// Updates the path to the media encoder.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [updateMediaEncoderPathRequest] - Media encoder path form body.
+  /// * [mediaEncoderPathDto] - Media encoder path form body.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -344,9 +352,10 @@ class ConfigurationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateMediaEncoderPath({ 
-    required UpdateMediaEncoderPathRequest updateMediaEncoderPathRequest,
+  /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
+  Future<Response<void>> updateMediaEncoderPath({
+    required MediaEncoderPathDto mediaEncoderPathDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -378,18 +387,19 @@ class ConfigurationApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateMediaEncoderPathRequest);
-      _bodyData = _serializers.serialize(updateMediaEncoderPathRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(MediaEncoderPathDto);
+      _bodyData =
+          _serializers.serialize(mediaEncoderPathDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -405,7 +415,7 @@ class ConfigurationApi {
   }
 
   /// Updates named configuration.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [key] - Configuration key.
@@ -418,8 +428,8 @@ class ConfigurationApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateNamedConfiguration({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateNamedConfiguration({
     required String key,
     JsonObject? body,
     CancelToken? cancelToken,
@@ -429,7 +439,10 @@ class ConfigurationApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/System/Configuration/{key}'.replaceAll('{' r'key' '}', key.toString());
+    final _path = r'/System/Configuration/{key}'.replaceAll(
+        '{' r'key' '}',
+        encodeQueryParameter(_serializers, key, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -454,16 +467,16 @@ class ConfigurationApi {
 
     try {
       _bodyData = body;
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -477,5 +490,4 @@ class ConfigurationApi {
 
     return _response;
   }
-
 }

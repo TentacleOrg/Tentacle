@@ -6,20 +6,7 @@ part of 'device_options_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class DeviceOptionsDtoBuilder {
-  void replace(DeviceOptionsDto other);
-  void update(void Function(DeviceOptionsDtoBuilder) updates);
-  int? get id;
-  set id(int? id);
-
-  String? get deviceId;
-  set deviceId(String? deviceId);
-
-  String? get customName;
-  set customName(String? customName);
-}
-
-class _$$DeviceOptionsDto extends $DeviceOptionsDto {
+class _$DeviceOptionsDto extends DeviceOptionsDto {
   @override
   final int? id;
   @override
@@ -27,24 +14,24 @@ class _$$DeviceOptionsDto extends $DeviceOptionsDto {
   @override
   final String? customName;
 
-  factory _$$DeviceOptionsDto(
-          [void Function($DeviceOptionsDtoBuilder)? updates]) =>
-      (new $DeviceOptionsDtoBuilder()..update(updates))._build();
+  factory _$DeviceOptionsDto(
+          [void Function(DeviceOptionsDtoBuilder)? updates]) =>
+      (new DeviceOptionsDtoBuilder()..update(updates))._build();
 
-  _$$DeviceOptionsDto._({this.id, this.deviceId, this.customName}) : super._();
+  _$DeviceOptionsDto._({this.id, this.deviceId, this.customName}) : super._();
 
   @override
-  $DeviceOptionsDto rebuild(void Function($DeviceOptionsDtoBuilder) updates) =>
+  DeviceOptionsDto rebuild(void Function(DeviceOptionsDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $DeviceOptionsDtoBuilder toBuilder() =>
-      new $DeviceOptionsDtoBuilder()..replace(this);
+  DeviceOptionsDtoBuilder toBuilder() =>
+      new DeviceOptionsDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $DeviceOptionsDto &&
+    return other is DeviceOptionsDto &&
         id == other.id &&
         deviceId == other.deviceId &&
         customName == other.customName;
@@ -62,7 +49,7 @@ class _$$DeviceOptionsDto extends $DeviceOptionsDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$DeviceOptionsDto')
+    return (newBuiltValueToStringHelper(r'DeviceOptionsDto')
           ..add('id', id)
           ..add('deviceId', deviceId)
           ..add('customName', customName))
@@ -70,30 +57,27 @@ class _$$DeviceOptionsDto extends $DeviceOptionsDto {
   }
 }
 
-class $DeviceOptionsDtoBuilder
-    implements
-        Builder<$DeviceOptionsDto, $DeviceOptionsDtoBuilder>,
-        DeviceOptionsDtoBuilder {
-  _$$DeviceOptionsDto? _$v;
+class DeviceOptionsDtoBuilder
+    implements Builder<DeviceOptionsDto, DeviceOptionsDtoBuilder> {
+  _$DeviceOptionsDto? _$v;
 
   int? _id;
   int? get id => _$this._id;
-  set id(covariant int? id) => _$this._id = id;
+  set id(int? id) => _$this._id = id;
 
   String? _deviceId;
   String? get deviceId => _$this._deviceId;
-  set deviceId(covariant String? deviceId) => _$this._deviceId = deviceId;
+  set deviceId(String? deviceId) => _$this._deviceId = deviceId;
 
   String? _customName;
   String? get customName => _$this._customName;
-  set customName(covariant String? customName) =>
-      _$this._customName = customName;
+  set customName(String? customName) => _$this._customName = customName;
 
-  $DeviceOptionsDtoBuilder() {
-    $DeviceOptionsDto._defaults(this);
+  DeviceOptionsDtoBuilder() {
+    DeviceOptionsDto._defaults(this);
   }
 
-  $DeviceOptionsDtoBuilder get _$this {
+  DeviceOptionsDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -105,22 +89,22 @@ class $DeviceOptionsDtoBuilder
   }
 
   @override
-  void replace(covariant $DeviceOptionsDto other) {
+  void replace(DeviceOptionsDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$DeviceOptionsDto;
+    _$v = other as _$DeviceOptionsDto;
   }
 
   @override
-  void update(void Function($DeviceOptionsDtoBuilder)? updates) {
+  void update(void Function(DeviceOptionsDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $DeviceOptionsDto build() => _build();
+  DeviceOptionsDto build() => _build();
 
-  _$$DeviceOptionsDto _build() {
+  _$DeviceOptionsDto _build() {
     final _$result = _$v ??
-        new _$$DeviceOptionsDto._(
+        new _$DeviceOptionsDto._(
             id: id, deviceId: deviceId, customName: customName);
     replace(_$result);
     return _$result;

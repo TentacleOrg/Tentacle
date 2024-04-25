@@ -152,7 +152,9 @@ class _$VersionInfoSerializer implements PrimitiveSerializer<VersionInfo> {
     VersionInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -263,4 +265,3 @@ class _$VersionInfoSerializer implements PrimitiveSerializer<VersionInfo> {
     return result.build();
   }
 }
-

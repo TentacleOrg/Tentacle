@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'profile_condition_value.g.dart';
 
 class ProfileConditionValue extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'AudioChannels')
   static const ProfileConditionValue audioChannels = _$audioChannels;
   @BuiltValueEnumConst(wireName: r'AudioBitrate')
@@ -60,9 +59,10 @@ class ProfileConditionValue extends EnumClass {
   @BuiltValueEnumConst(wireName: r'VideoRangeType')
   static const ProfileConditionValue videoRangeType = _$videoRangeType;
 
-  static Serializer<ProfileConditionValue> get serializer => _$profileConditionValueSerializer;
+  static Serializer<ProfileConditionValue> get serializer =>
+      _$profileConditionValueSerializer;
 
-  const ProfileConditionValue._(String name): super(name);
+  const ProfileConditionValue._(String name) : super(name);
 
   static BuiltSet<ProfileConditionValue> get values => _$values;
   static ProfileConditionValue valueOf(String name) => _$valueOf(name);
@@ -74,5 +74,5 @@ class ProfileConditionValue extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class ProfileConditionValueMixin = Object with _$ProfileConditionValueMixin;
-
+abstract class ProfileConditionValueMixin = Object
+    with _$ProfileConditionValueMixin;

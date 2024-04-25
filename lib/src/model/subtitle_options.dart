@@ -12,17 +12,18 @@ part 'subtitle_options.g.dart';
 /// SubtitleOptions
 ///
 /// Properties:
-/// * [skipIfEmbeddedSubtitlesPresent] 
-/// * [skipIfAudioTrackMatches] 
-/// * [downloadLanguages] 
-/// * [downloadMovieSubtitles] 
-/// * [downloadEpisodeSubtitles] 
-/// * [openSubtitlesUsername] 
-/// * [openSubtitlesPasswordHash] 
-/// * [isOpenSubtitleVipAccount] 
-/// * [requirePerfectMatch] 
+/// * [skipIfEmbeddedSubtitlesPresent]
+/// * [skipIfAudioTrackMatches]
+/// * [downloadLanguages]
+/// * [downloadMovieSubtitles]
+/// * [downloadEpisodeSubtitles]
+/// * [openSubtitlesUsername]
+/// * [openSubtitlesPasswordHash]
+/// * [isOpenSubtitleVipAccount]
+/// * [requirePerfectMatch]
 @BuiltValue()
-abstract class SubtitleOptions implements Built<SubtitleOptions, SubtitleOptionsBuilder> {
+abstract class SubtitleOptions
+    implements Built<SubtitleOptions, SubtitleOptionsBuilder> {
   @BuiltValueField(wireName: r'SkipIfEmbeddedSubtitlesPresent')
   bool? get skipIfEmbeddedSubtitlesPresent;
 
@@ -52,16 +53,19 @@ abstract class SubtitleOptions implements Built<SubtitleOptions, SubtitleOptions
 
   SubtitleOptions._();
 
-  factory SubtitleOptions([void updates(SubtitleOptionsBuilder b)]) = _$SubtitleOptions;
+  factory SubtitleOptions([void updates(SubtitleOptionsBuilder b)]) =
+      _$SubtitleOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SubtitleOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SubtitleOptions> get serializer => _$SubtitleOptionsSerializer();
+  static Serializer<SubtitleOptions> get serializer =>
+      _$SubtitleOptionsSerializer();
 }
 
-class _$SubtitleOptionsSerializer implements PrimitiveSerializer<SubtitleOptions> {
+class _$SubtitleOptionsSerializer
+    implements PrimitiveSerializer<SubtitleOptions> {
   @override
   final Iterable<Type> types = const [SubtitleOptions, _$SubtitleOptions];
 
@@ -144,7 +148,9 @@ class _$SubtitleOptionsSerializer implements PrimitiveSerializer<SubtitleOptions
     SubtitleOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -176,7 +182,8 @@ class _$SubtitleOptionsSerializer implements PrimitiveSerializer<SubtitleOptions
         case r'DownloadLanguages':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.downloadLanguages.replace(valueDes);
@@ -253,4 +260,3 @@ class _$SubtitleOptionsSerializer implements PrimitiveSerializer<SubtitleOptions
     return result.build();
   }
 }
-

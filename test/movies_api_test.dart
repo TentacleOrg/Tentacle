@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for MoviesApi
 void main() {
   final instance = Tentacle().getMoviesApi();
@@ -13,6 +12,5 @@ void main() {
     test('test getMovieRecommendations', () async {
       // TODO
     });
-
   });
 }

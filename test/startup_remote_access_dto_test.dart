@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for StartupRemoteAccessDto
 void main() {
-  //final instance = StartupRemoteAccessDtoBuilder();
+  final instance = StartupRemoteAccessDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(StartupRemoteAccessDto, () {
@@ -18,6 +18,5 @@ void main() {
     test('to test the property `enableAutomaticPortMapping`', () async {
       // TODO
     });
-
   });
 }

@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for GroupQueueMode
 void main() {
-
-  group(GroupQueueMode, () {
-  });
+  group(GroupQueueMode, () {});
 }

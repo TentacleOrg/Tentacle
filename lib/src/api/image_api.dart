@@ -16,7 +16,6 @@ import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 
 class ImageApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -24,7 +23,7 @@ class ImageApi {
   const ImageApi(this._dio, this._serializers);
 
   /// Delete a custom splashscreen.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -35,8 +34,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteCustomSplashscreen({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteCustomSplashscreen({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -76,7 +75,7 @@ class ImageApi {
   }
 
   /// Delete an item&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -90,8 +89,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteItemImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteItemImage({
     required String itemId,
     required ImageType imageType,
     int? imageIndex,
@@ -102,7 +101,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -123,7 +131,9 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -139,7 +149,7 @@ class ImageApi {
   }
 
   /// Delete an item&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -153,8 +163,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteItemImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteItemImageByIndex({
     required String itemId,
     required ImageType imageType,
     required int imageIndex,
@@ -165,7 +175,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -197,7 +220,7 @@ class ImageApi {
   }
 
   /// Delete the user&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User Id.
@@ -211,8 +234,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteUserImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteUserImage({
     required String userId,
     required ImageType imageType,
     int? index,
@@ -223,7 +246,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Images/{imageType}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Users/{userId}/Images/{imageType}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -244,7 +276,9 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (index != null) r'index': encodeQueryParameter(_serializers, index, const FullType(int)),
+      if (index != null)
+        r'index':
+            encodeQueryParameter(_serializers, index, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -260,7 +294,7 @@ class ImageApi {
   }
 
   /// Delete the user&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User Id.
@@ -274,8 +308,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteUserImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteUserImageByIndex({
     required String userId,
     required ImageType imageType,
     required int index,
@@ -286,7 +320,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Images/{imageType}/{index}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'index' '}', index.toString());
+    final _path = r'/Users/{userId}/Images/{imageType}/{index}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'index' '}',
+            encodeQueryParameter(_serializers, index, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -318,7 +365,7 @@ class ImageApi {
   }
 
   /// Get artist image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Artist name.
@@ -348,8 +395,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getArtistImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getArtistImage({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -364,7 +411,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -376,7 +423,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Artists/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Artists/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -391,22 +451,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -418,18 +508,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -445,7 +536,7 @@ class ImageApi {
   }
 
   /// Get genre image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Genre name.
@@ -475,8 +566,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getGenreImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getGenreImage({
     required String name,
     required ImageType imageType,
     String? tag,
@@ -490,7 +581,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -503,7 +594,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Genres/{name}/Images/{imageType}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Genres/{name}/Images/{imageType}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -518,23 +618,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -546,18 +678,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -573,7 +706,7 @@ class ImageApi {
   }
 
   /// Get genre image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Genre name.
@@ -603,8 +736,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getGenreImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getGenreImageByIndex({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -619,7 +752,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -631,7 +764,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Genres/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Genres/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -646,22 +792,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -673,18 +849,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -700,7 +877,7 @@ class ImageApi {
   }
 
   /// Gets the item&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -730,8 +907,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getItemImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getItemImage({
     required String itemId,
     required ImageType imageType,
     int? maxWidth,
@@ -742,7 +919,7 @@ class ImageApi {
     int? fillWidth,
     int? fillHeight,
     String? tag,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     ImageFormat? format,
     bool? addPlayedIndicator,
     double? percentPlayed,
@@ -758,7 +935,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -773,23 +959,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -801,18 +1019,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -828,7 +1047,7 @@ class ImageApi {
   }
 
   /// Gets the item&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -858,8 +1077,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getItemImage2({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getItemImage2({
     required String itemId,
     required ImageType imageType,
     required int maxWidth,
@@ -874,7 +1093,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -886,7 +1105,46 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'maxWidth' '}', maxWidth.toString()).replaceAll('{' r'maxHeight' '}', maxHeight.toString()).replaceAll('{' r'tag' '}', tag.toString()).replaceAll('{' r'format' '}', format.toString()).replaceAll('{' r'percentPlayed' '}', percentPlayed.toString()).replaceAll('{' r'unplayedCount' '}', unplayedCount.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'maxWidth' '}',
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int))
+                .toString())
+        .replaceAll(
+            '{' r'maxHeight' '}',
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int))
+                .toString())
+        .replaceAll(
+            '{' r'tag' '}',
+            encodeQueryParameter(_serializers, tag, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'format' '}',
+            encodeQueryParameter(
+                    _serializers, format, const FullType(ImageFormat))
+                .toString())
+        .replaceAll(
+            '{' r'percentPlayed' '}',
+            encodeQueryParameter(
+                    _serializers, percentPlayed, const FullType(double))
+                .toString())
+        .replaceAll(
+            '{' r'unplayedCount' '}',
+            encodeQueryParameter(_serializers, unplayedCount, const FullType(int))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -901,16 +1159,35 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -922,18 +1199,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -949,7 +1227,7 @@ class ImageApi {
   }
 
   /// Gets the item&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -979,8 +1257,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getItemImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getItemImageByIndex({
     required String itemId,
     required ImageType imageType,
     required int imageIndex,
@@ -992,7 +1270,7 @@ class ImageApi {
     int? fillWidth,
     int? fillHeight,
     String? tag,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     ImageFormat? format,
     bool? addPlayedIndicator,
     double? percentPlayed,
@@ -1007,7 +1285,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1022,22 +1313,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1049,18 +1370,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1076,7 +1398,7 @@ class ImageApi {
   }
 
   /// Get item image infos.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -1088,8 +1410,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<ImageInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<ImageInfo>>> getItemImageInfos({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<ImageInfo>>> getItemImageInfos({
     required String itemId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1098,7 +1420,10 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/Images'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -1126,22 +1451,24 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<ImageInfo> _responseData;
+    BuiltList<ImageInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(ImageInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<ImageInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(ImageInfo)]),
+            ) as BuiltList<ImageInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<ImageInfo>>(
@@ -1157,7 +1484,7 @@ class ImageApi {
   }
 
   /// Get music genre image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Music genre name.
@@ -1187,8 +1514,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getMusicGenreImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getMusicGenreImage({
     required String name,
     required ImageType imageType,
     String? tag,
@@ -1202,7 +1529,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -1215,7 +1542,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/MusicGenres/{name}/Images/{imageType}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/MusicGenres/{name}/Images/{imageType}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1230,23 +1566,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1258,18 +1626,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1285,7 +1654,7 @@ class ImageApi {
   }
 
   /// Get music genre image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Music genre name.
@@ -1315,8 +1684,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getMusicGenreImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getMusicGenreImageByIndex({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -1331,7 +1700,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -1343,7 +1712,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/MusicGenres/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/MusicGenres/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1358,22 +1740,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1385,18 +1797,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1412,7 +1825,7 @@ class ImageApi {
   }
 
   /// Get person image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Person name.
@@ -1442,8 +1855,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getPersonImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getPersonImage({
     required String name,
     required ImageType imageType,
     String? tag,
@@ -1457,7 +1870,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -1470,7 +1883,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Persons/{name}/Images/{imageType}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Persons/{name}/Images/{imageType}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1485,23 +1907,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1513,18 +1967,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1540,7 +1995,7 @@ class ImageApi {
   }
 
   /// Get person image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Person name.
@@ -1570,8 +2025,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getPersonImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getPersonImageByIndex({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -1586,7 +2041,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -1598,7 +2053,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Persons/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Persons/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1613,22 +2081,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1640,18 +2138,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1667,7 +2166,7 @@ class ImageApi {
   }
 
   /// Generates or gets the splashscreen.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [tag] - Supply the cache tag from the item object to receive strong caching headers.
@@ -1690,8 +2189,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getSplashscreen({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getSplashscreen({
     String? tag,
     ImageFormat? format,
     int? maxWidth,
@@ -1726,18 +2225,40 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1749,18 +2270,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1776,7 +2298,7 @@ class ImageApi {
   }
 
   /// Get studio image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Studio name.
@@ -1806,8 +2328,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getStudioImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getStudioImage({
     required String name,
     required ImageType imageType,
     String? tag,
@@ -1821,7 +2343,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -1834,7 +2356,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Studios/{name}/Images/{imageType}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Studios/{name}/Images/{imageType}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1849,23 +2380,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1877,18 +2440,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1904,7 +2468,7 @@ class ImageApi {
   }
 
   /// Get studio image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Studio name.
@@ -1934,8 +2498,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getStudioImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getStudioImageByIndex({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -1950,7 +2514,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -1962,7 +2526,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Studios/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Studios/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1977,22 +2554,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2004,18 +2611,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2031,7 +2639,7 @@ class ImageApi {
   }
 
   /// Get user profile image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -2061,8 +2669,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getUserImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getUserImage({
     required String userId,
     required ImageType imageType,
     String? tag,
@@ -2076,7 +2684,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -2089,7 +2697,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Images/{imageType}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Users/{userId}/Images/{imageType}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -2104,23 +2721,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2132,18 +2781,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2159,7 +2809,7 @@ class ImageApi {
   }
 
   /// Get user profile image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -2189,8 +2839,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getUserImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getUserImageByIndex({
     required String userId,
     required ImageType imageType,
     required int imageIndex,
@@ -2205,7 +2855,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -2217,7 +2867,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Users/{userId}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -2232,22 +2895,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2259,18 +2952,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2286,7 +2980,7 @@ class ImageApi {
   }
 
   /// Get artist image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Artist name.
@@ -2316,8 +3010,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headArtistImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headArtistImage({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -2332,7 +3026,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -2344,7 +3038,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Artists/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Artists/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -2359,22 +3066,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2386,18 +3123,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2413,7 +3151,7 @@ class ImageApi {
   }
 
   /// Get genre image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Genre name.
@@ -2443,8 +3181,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headGenreImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headGenreImage({
     required String name,
     required ImageType imageType,
     String? tag,
@@ -2458,7 +3196,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -2471,7 +3209,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Genres/{name}/Images/{imageType}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Genres/{name}/Images/{imageType}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -2486,23 +3233,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2514,18 +3293,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2541,7 +3321,7 @@ class ImageApi {
   }
 
   /// Get genre image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Genre name.
@@ -2571,8 +3351,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headGenreImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headGenreImageByIndex({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -2587,7 +3367,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -2599,7 +3379,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Genres/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Genres/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -2614,22 +3407,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2641,18 +3464,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2668,7 +3492,7 @@ class ImageApi {
   }
 
   /// Gets the item&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -2698,8 +3522,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headItemImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headItemImage({
     required String itemId,
     required ImageType imageType,
     int? maxWidth,
@@ -2710,7 +3534,7 @@ class ImageApi {
     int? fillWidth,
     int? fillHeight,
     String? tag,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     ImageFormat? format,
     bool? addPlayedIndicator,
     double? percentPlayed,
@@ -2726,7 +3550,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -2741,23 +3574,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2769,18 +3634,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2796,7 +3662,7 @@ class ImageApi {
   }
 
   /// Gets the item&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -2826,8 +3692,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headItemImage2({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headItemImage2({
     required String itemId,
     required ImageType imageType,
     required int maxWidth,
@@ -2842,7 +3708,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -2854,7 +3720,46 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'maxWidth' '}', maxWidth.toString()).replaceAll('{' r'maxHeight' '}', maxHeight.toString()).replaceAll('{' r'tag' '}', tag.toString()).replaceAll('{' r'format' '}', format.toString()).replaceAll('{' r'percentPlayed' '}', percentPlayed.toString()).replaceAll('{' r'unplayedCount' '}', unplayedCount.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}/{tag}/{format}/{maxWidth}/{maxHeight}/{percentPlayed}/{unplayedCount}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'maxWidth' '}',
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int))
+                .toString())
+        .replaceAll(
+            '{' r'maxHeight' '}',
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int))
+                .toString())
+        .replaceAll(
+            '{' r'tag' '}',
+            encodeQueryParameter(_serializers, tag, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'format' '}',
+            encodeQueryParameter(
+                    _serializers, format, const FullType(ImageFormat))
+                .toString())
+        .replaceAll(
+            '{' r'percentPlayed' '}',
+            encodeQueryParameter(
+                    _serializers, percentPlayed, const FullType(double))
+                .toString())
+        .replaceAll(
+            '{' r'unplayedCount' '}',
+            encodeQueryParameter(_serializers, unplayedCount, const FullType(int))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -2869,16 +3774,35 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2890,18 +3814,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2917,7 +3842,7 @@ class ImageApi {
   }
 
   /// Gets the item&#39;s image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -2947,8 +3872,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headItemImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headItemImageByIndex({
     required String itemId,
     required ImageType imageType,
     required int imageIndex,
@@ -2960,7 +3885,7 @@ class ImageApi {
     int? fillWidth,
     int? fillHeight,
     String? tag,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     ImageFormat? format,
     bool? addPlayedIndicator,
     double? percentPlayed,
@@ -2975,7 +3900,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -2990,22 +3928,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3017,18 +3985,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -3044,7 +4013,7 @@ class ImageApi {
   }
 
   /// Get music genre image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Music genre name.
@@ -3074,8 +4043,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headMusicGenreImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headMusicGenreImage({
     required String name,
     required ImageType imageType,
     String? tag,
@@ -3089,7 +4058,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -3102,7 +4071,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/MusicGenres/{name}/Images/{imageType}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/MusicGenres/{name}/Images/{imageType}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -3117,23 +4095,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3145,18 +4155,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -3172,7 +4183,7 @@ class ImageApi {
   }
 
   /// Get music genre image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Music genre name.
@@ -3202,8 +4213,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headMusicGenreImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headMusicGenreImageByIndex({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -3218,7 +4229,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -3230,7 +4241,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/MusicGenres/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/MusicGenres/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -3245,22 +4269,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3272,18 +4326,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -3299,7 +4354,7 @@ class ImageApi {
   }
 
   /// Get person image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Person name.
@@ -3329,8 +4384,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headPersonImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headPersonImage({
     required String name,
     required ImageType imageType,
     String? tag,
@@ -3344,7 +4399,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -3357,7 +4412,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Persons/{name}/Images/{imageType}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Persons/{name}/Images/{imageType}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -3372,23 +4436,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3400,18 +4496,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -3427,7 +4524,7 @@ class ImageApi {
   }
 
   /// Get person image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Person name.
@@ -3457,8 +4554,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headPersonImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headPersonImageByIndex({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -3473,7 +4570,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -3485,7 +4582,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Persons/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Persons/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -3500,22 +4610,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3527,18 +4667,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -3554,7 +4695,7 @@ class ImageApi {
   }
 
   /// Get studio image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Studio name.
@@ -3584,8 +4725,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headStudioImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headStudioImage({
     required String name,
     required ImageType imageType,
     String? tag,
@@ -3599,7 +4740,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -3612,7 +4753,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Studios/{name}/Images/{imageType}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Studios/{name}/Images/{imageType}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -3627,23 +4777,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3655,18 +4837,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -3682,7 +4865,7 @@ class ImageApi {
   }
 
   /// Get studio image by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Studio name.
@@ -3712,8 +4895,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headStudioImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headStudioImageByIndex({
     required String name,
     required ImageType imageType,
     required int imageIndex,
@@ -3728,7 +4911,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -3740,7 +4923,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Studios/{name}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'name' '}', name.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Studios/{name}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'name' '}',
+            encodeQueryParameter(_serializers, name, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -3755,22 +4951,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3782,18 +5008,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -3809,7 +5036,7 @@ class ImageApi {
   }
 
   /// Get user profile image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -3839,8 +5066,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headUserImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headUserImage({
     required String userId,
     required ImageType imageType,
     String? tag,
@@ -3854,7 +5081,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -3867,7 +5094,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Images/{imageType}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Users/{userId}/Images/{imageType}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -3882,23 +5118,55 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null) r'imageIndex': encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
+      if (imageIndex != null)
+        r'imageIndex':
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3910,18 +5178,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -3937,7 +5206,7 @@ class ImageApi {
   }
 
   /// Get user profile image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -3967,8 +5236,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headUserImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headUserImageByIndex({
     required String userId,
     required ImageType imageType,
     required int imageIndex,
@@ -3983,7 +5252,7 @@ class ImageApi {
     int? quality,
     int? fillWidth,
     int? fillHeight,
-    bool? cropWhitespace,
+    @Deprecated('cropWhitespace is deprecated') bool? cropWhitespace,
     bool? addPlayedIndicator,
     int? blur,
     String? backgroundColor,
@@ -3995,7 +5264,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Users/{userId}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -4010,22 +5292,52 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null) r'maxWidth': encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null) r'maxHeight': encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null) r'percentPlayed': encodeQueryParameter(_serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null) r'unplayedCount': encodeQueryParameter(_serializers, unplayedCount, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null) r'quality': encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null) r'fillWidth': encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null) r'fillHeight': encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (cropWhitespace != null) r'cropWhitespace': encodeQueryParameter(_serializers, cropWhitespace, const FullType(bool)),
-      if (addPlayedIndicator != null) r'addPlayedIndicator': encodeQueryParameter(_serializers, addPlayedIndicator, const FullType(bool)),
-      if (blur != null) r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null) r'backgroundColor': encodeQueryParameter(_serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null) r'foregroundLayer': encodeQueryParameter(_serializers, foregroundLayer, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (format != null)
+        r'format': encodeQueryParameter(
+            _serializers, format, const FullType(ImageFormat)),
+      if (maxWidth != null)
+        r'maxWidth':
+            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
+      if (maxHeight != null)
+        r'maxHeight':
+            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
+      if (percentPlayed != null)
+        r'percentPlayed': encodeQueryParameter(
+            _serializers, percentPlayed, const FullType(double)),
+      if (unplayedCount != null)
+        r'unplayedCount': encodeQueryParameter(
+            _serializers, unplayedCount, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (quality != null)
+        r'quality':
+            encodeQueryParameter(_serializers, quality, const FullType(int)),
+      if (fillWidth != null)
+        r'fillWidth':
+            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
+      if (fillHeight != null)
+        r'fillHeight':
+            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
+      if (cropWhitespace != null)
+        r'cropWhitespace': encodeQueryParameter(
+            _serializers, cropWhitespace, const FullType(bool)),
+      if (addPlayedIndicator != null)
+        r'addPlayedIndicator': encodeQueryParameter(
+            _serializers, addPlayedIndicator, const FullType(bool)),
+      if (blur != null)
+        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
+      if (backgroundColor != null)
+        r'backgroundColor': encodeQueryParameter(
+            _serializers, backgroundColor, const FullType(String)),
+      if (foregroundLayer != null)
+        r'foregroundLayer': encodeQueryParameter(
+            _serializers, foregroundLayer, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -4037,18 +5349,19 @@ class ImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -4064,13 +5377,13 @@ class ImageApi {
   }
 
   /// Sets the user image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User Id.
   /// * [imageType] - (Unused) Image type.
   /// * [index] - (Unused) Image index.
-  /// * [body] 
+  /// * [body]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -4079,8 +5392,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> postUserImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> postUserImage({
     required String userId,
     required ImageType imageType,
     int? index,
@@ -4092,7 +5405,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Images/{imageType}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Users/{userId}/Images/{imageType}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -4114,24 +5436,26 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (index != null) r'index': encodeQueryParameter(_serializers, index, const FullType(int)),
+      if (index != null)
+        r'index':
+            encodeQueryParameter(_serializers, index, const FullType(int)),
     };
 
     dynamic _bodyData;
 
     try {
       _bodyData = body?.finalize();
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -4148,13 +5472,13 @@ class ImageApi {
   }
 
   /// Sets the user image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User Id.
   /// * [imageType] - (Unused) Image type.
   /// * [index] - (Unused) Image index.
-  /// * [body] 
+  /// * [body]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -4163,8 +5487,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> postUserImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> postUserImageByIndex({
     required String userId,
     required ImageType imageType,
     required int index,
@@ -4176,7 +5500,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Images/{imageType}/{index}'.replaceAll('{' r'userId' '}', userId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'index' '}', index.toString());
+    final _path = r'/Users/{userId}/Images/{imageType}/{index}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'index' '}',
+            encodeQueryParameter(_serializers, index, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -4201,16 +5538,16 @@ class ImageApi {
 
     try {
       _bodyData = body?.finalize();
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -4226,12 +5563,12 @@ class ImageApi {
   }
 
   /// Set item image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
   /// * [imageType] - Image type.
-  /// * [body] 
+  /// * [body]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -4240,8 +5577,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> setItemImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> setItemImage({
     required String itemId,
     required ImageType imageType,
     MultipartFile? body,
@@ -4252,7 +5589,16 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -4277,16 +5623,16 @@ class ImageApi {
 
     try {
       _bodyData = body?.finalize();
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -4302,13 +5648,13 @@ class ImageApi {
   }
 
   /// Set item image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
   /// * [imageType] - Image type.
   /// * [imageIndex] - (Unused) Image index.
-  /// * [body] 
+  /// * [body]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -4317,8 +5663,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> setItemImageByIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> setItemImageByIndex({
     required String itemId,
     required ImageType imageType,
     required int imageIndex,
@@ -4330,7 +5676,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -4355,16 +5714,16 @@ class ImageApi {
 
     try {
       _bodyData = body?.finalize();
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -4380,7 +5739,7 @@ class ImageApi {
   }
 
   /// Updates the index for an item image.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -4395,8 +5754,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateItemImageIndex({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateItemImageIndex({
     required String itemId,
     required ImageType imageType,
     required int imageIndex,
@@ -4408,7 +5767,20 @@ class ImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}/Index'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'imageType' '}', imageType.toString()).replaceAll('{' r'imageIndex' '}', imageIndex.toString());
+    final _path = r'/Items/{itemId}/Images/{imageType}/{imageIndex}/Index'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'imageType' '}',
+            encodeQueryParameter(
+                    _serializers, imageType, const FullType(ImageType))
+                .toString())
+        .replaceAll(
+            '{' r'imageIndex' '}',
+            encodeQueryParameter(_serializers, imageIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -4429,7 +5801,8 @@ class ImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'newIndex': encodeQueryParameter(_serializers, newIndex, const FullType(int)),
+      r'newIndex':
+          encodeQueryParameter(_serializers, newIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -4445,10 +5818,10 @@ class ImageApi {
   }
 
   /// Uploads a custom splashscreen.  The body is expected to the image contents base64 encoded.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [body] 
+  /// * [body]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -4457,8 +5830,8 @@ class ImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> uploadCustomSplashscreen({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> uploadCustomSplashscreen({
     MultipartFile? body,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -4492,16 +5865,16 @@ class ImageApi {
 
     try {
       _bodyData = body?.finalize();
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -4515,5 +5888,4 @@ class ImageApi {
 
     return _response;
   }
-
 }

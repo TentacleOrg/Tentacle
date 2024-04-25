@@ -1,8 +1,8 @@
-# openapi.api.RemoteImageApi
+# tentacle.api.RemoteImageApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -21,20 +21,20 @@ Downloads a remote image for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getRemoteImageApi();
+final api = Tentacle().getRemoteImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
 final ImageType type = ; // ImageType | The image type.
 final String imageUrl = imageUrl_example; // String | The image url.
 
 try {
     api.downloadRemoteImage(itemId, type, imageUrl);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling RemoteImageApi->downloadRemoteImage: $e\n');
 }
 ```
@@ -69,19 +69,19 @@ Gets available remote image providers for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getRemoteImageApi();
+final api = Tentacle().getRemoteImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
 
 try {
     final response = api.getRemoteImageProviders(itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling RemoteImageApi->getRemoteImageProviders: $e\n');
 }
 ```
@@ -114,13 +114,13 @@ Gets available remote images for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getRemoteImageApi();
+final api = Tentacle().getRemoteImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
 final ImageType type = ; // ImageType | The image type.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
@@ -131,7 +131,7 @@ final bool includeAllLanguages = true; // bool | Optional. Include all languages
 try {
     final response = api.getRemoteImages(itemId, type, startIndex, limit, providerName, includeAllLanguages);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling RemoteImageApi->getRemoteImages: $e\n');
 }
 ```

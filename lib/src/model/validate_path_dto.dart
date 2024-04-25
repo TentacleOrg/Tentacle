@@ -14,8 +14,9 @@ part 'validate_path_dto.g.dart';
 /// * [validateWritable] - Gets or sets a value indicating whether validate if path is writable.
 /// * [path] - Gets or sets the path.
 /// * [isFile] - Gets or sets is path file.
-@BuiltValue(instantiable: false)
-abstract class ValidatePathDto  {
+@BuiltValue()
+abstract class ValidatePathDto
+    implements Built<ValidatePathDto, ValidatePathDtoBuilder> {
   /// Gets or sets a value indicating whether validate if path is writable.
   @BuiltValueField(wireName: r'ValidateWritable')
   bool? get validateWritable;
@@ -28,13 +29,23 @@ abstract class ValidatePathDto  {
   @BuiltValueField(wireName: r'IsFile')
   bool? get isFile;
 
+  ValidatePathDto._();
+
+  factory ValidatePathDto([void updates(ValidatePathDtoBuilder b)]) =
+      _$ValidatePathDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ValidatePathDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<ValidatePathDto> get serializer => _$ValidatePathDtoSerializer();
+  static Serializer<ValidatePathDto> get serializer =>
+      _$ValidatePathDtoSerializer();
 }
 
-class _$ValidatePathDtoSerializer implements PrimitiveSerializer<ValidatePathDto> {
+class _$ValidatePathDtoSerializer
+    implements PrimitiveSerializer<ValidatePathDto> {
   @override
-  final Iterable<Type> types = const [ValidatePathDto];
+  final Iterable<Type> types = const [ValidatePathDto, _$ValidatePathDto];
 
   @override
   final String wireName = r'ValidatePathDto';
@@ -73,47 +84,9 @@ class _$ValidatePathDtoSerializer implements PrimitiveSerializer<ValidatePathDto
     ValidatePathDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  ValidatePathDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ValidatePathDto)) as $ValidatePathDto;
-  }
-}
-
-/// a concrete implementation of [ValidatePathDto], since [ValidatePathDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ValidatePathDto implements ValidatePathDto, Built<$ValidatePathDto, $ValidatePathDtoBuilder> {
-  $ValidatePathDto._();
-
-  factory $ValidatePathDto([void Function($ValidatePathDtoBuilder)? updates]) = _$$ValidatePathDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ValidatePathDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ValidatePathDto> get serializer => _$$ValidatePathDtoSerializer();
-}
-
-class _$$ValidatePathDtoSerializer implements PrimitiveSerializer<$ValidatePathDto> {
-  @override
-  final Iterable<Type> types = const [$ValidatePathDto, _$$ValidatePathDto];
-
-  @override
-  final String wireName = r'$ValidatePathDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ValidatePathDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(ValidatePathDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -160,12 +133,12 @@ class _$$ValidatePathDtoSerializer implements PrimitiveSerializer<$ValidatePathD
   }
 
   @override
-  $ValidatePathDto deserialize(
+  ValidatePathDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ValidatePathDtoBuilder();
+    final result = ValidatePathDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -179,4 +152,3 @@ class _$$ValidatePathDtoSerializer implements PrimitiveSerializer<$ValidatePathD
     return result.build();
   }
 }
-

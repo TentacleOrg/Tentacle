@@ -68,7 +68,9 @@ class _$ExternalUrlSerializer implements PrimitiveSerializer<ExternalUrl> {
     ExternalUrl object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +129,3 @@ class _$ExternalUrlSerializer implements PrimitiveSerializer<ExternalUrl> {
     return result.build();
   }
 }
-

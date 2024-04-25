@@ -12,11 +12,12 @@ part 'control_response.g.dart';
 /// ControlResponse
 ///
 /// Properties:
-/// * [headers] 
-/// * [xml] 
-/// * [isSuccessful] 
+/// * [headers]
+/// * [xml]
+/// * [isSuccessful]
 @BuiltValue()
-abstract class ControlResponse implements Built<ControlResponse, ControlResponseBuilder> {
+abstract class ControlResponse
+    implements Built<ControlResponse, ControlResponseBuilder> {
   @BuiltValueField(wireName: r'Headers')
   BuiltMap<String, String>? get headers;
 
@@ -28,16 +29,19 @@ abstract class ControlResponse implements Built<ControlResponse, ControlResponse
 
   ControlResponse._();
 
-  factory ControlResponse([void updates(ControlResponseBuilder b)]) = _$ControlResponse;
+  factory ControlResponse([void updates(ControlResponseBuilder b)]) =
+      _$ControlResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ControlResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ControlResponse> get serializer => _$ControlResponseSerializer();
+  static Serializer<ControlResponse> get serializer =>
+      _$ControlResponseSerializer();
 }
 
-class _$ControlResponseSerializer implements PrimitiveSerializer<ControlResponse> {
+class _$ControlResponseSerializer
+    implements PrimitiveSerializer<ControlResponse> {
   @override
   final Iterable<Type> types = const [ControlResponse, _$ControlResponse];
 
@@ -53,7 +57,8 @@ class _$ControlResponseSerializer implements PrimitiveSerializer<ControlResponse
       yield r'Headers';
       yield serializers.serialize(
         object.headers,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.xml != null) {
@@ -78,7 +83,9 @@ class _$ControlResponseSerializer implements PrimitiveSerializer<ControlResponse
     ControlResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -96,7 +103,8 @@ class _$ControlResponseSerializer implements PrimitiveSerializer<ControlResponse
         case r'Headers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.headers.replace(valueDes);
           break;
@@ -142,4 +150,3 @@ class _$ControlResponseSerializer implements PrimitiveSerializer<ControlResponse
     return result.build();
   }
 }
-

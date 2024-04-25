@@ -1,8 +1,8 @@
-# openapi.model.VirtualFolderInfo
+# tentacle.model.VirtualFolderInfo
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **name** | **String** | Gets or sets the name. | [optional] 
 **locations** | **BuiltList&lt;String&gt;** | Gets or sets the locations. | [optional] 
 **collectionType** | [**CollectionTypeOptions**](CollectionTypeOptions.md) | Gets or sets the type of the collection. | [optional] 
-**libraryOptions** | [**VirtualFolderInfoLibraryOptions**](VirtualFolderInfoLibraryOptions.md) |  | [optional] 
+**libraryOptions** | [**LibraryOptions**](LibraryOptions.md) |  | [optional] 
 **itemId** | **String** | Gets or sets the item identifier. | [optional] 
 **primaryImageItemId** | **String** | Gets or sets the primary image item identifier. | [optional] 
 **refreshProgress** | **double** |  | [optional] 

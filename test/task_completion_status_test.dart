@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TaskCompletionStatus
 void main() {
-
-  group(TaskCompletionStatus, () {
-  });
+  group(TaskCompletionStatus, () {});
 }

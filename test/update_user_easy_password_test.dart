@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UpdateUserEasyPassword
 void main() {
-  //final instance = UpdateUserEasyPasswordBuilder();
+  final instance = UpdateUserEasyPasswordBuilder();
   // TODO add properties to the builder and call build()
 
   group(UpdateUserEasyPassword, () {
@@ -24,6 +24,5 @@ void main() {
     test('to test the property `resetPassword`', () async {
       // TODO
     });
-
   });
 }

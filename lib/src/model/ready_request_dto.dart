@@ -15,8 +15,9 @@ part 'ready_request_dto.g.dart';
 /// * [positionTicks] - Gets or sets the position ticks.
 /// * [isPlaying] - Gets or sets a value indicating whether the client playback is unpaused.
 /// * [playlistItemId] - Gets or sets the playlist item identifier of the playing item.
-@BuiltValue(instantiable: false)
-abstract class ReadyRequestDto  {
+@BuiltValue()
+abstract class ReadyRequestDto
+    implements Built<ReadyRequestDto, ReadyRequestDtoBuilder> {
   /// Gets or sets when the request has been made by the client.
   @BuiltValueField(wireName: r'When')
   DateTime? get when;
@@ -33,13 +34,23 @@ abstract class ReadyRequestDto  {
   @BuiltValueField(wireName: r'PlaylistItemId')
   String? get playlistItemId;
 
+  ReadyRequestDto._();
+
+  factory ReadyRequestDto([void updates(ReadyRequestDtoBuilder b)]) =
+      _$ReadyRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ReadyRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<ReadyRequestDto> get serializer => _$ReadyRequestDtoSerializer();
+  static Serializer<ReadyRequestDto> get serializer =>
+      _$ReadyRequestDtoSerializer();
 }
 
-class _$ReadyRequestDtoSerializer implements PrimitiveSerializer<ReadyRequestDto> {
+class _$ReadyRequestDtoSerializer
+    implements PrimitiveSerializer<ReadyRequestDto> {
   @override
-  final Iterable<Type> types = const [ReadyRequestDto];
+  final Iterable<Type> types = const [ReadyRequestDto, _$ReadyRequestDto];
 
   @override
   final String wireName = r'ReadyRequestDto';
@@ -85,47 +96,9 @@ class _$ReadyRequestDtoSerializer implements PrimitiveSerializer<ReadyRequestDto
     ReadyRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  ReadyRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ReadyRequestDto)) as $ReadyRequestDto;
-  }
-}
-
-/// a concrete implementation of [ReadyRequestDto], since [ReadyRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ReadyRequestDto implements ReadyRequestDto, Built<$ReadyRequestDto, $ReadyRequestDtoBuilder> {
-  $ReadyRequestDto._();
-
-  factory $ReadyRequestDto([void Function($ReadyRequestDtoBuilder)? updates]) = _$$ReadyRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ReadyRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ReadyRequestDto> get serializer => _$$ReadyRequestDtoSerializer();
-}
-
-class _$$ReadyRequestDtoSerializer implements PrimitiveSerializer<$ReadyRequestDto> {
-  @override
-  final Iterable<Type> types = const [$ReadyRequestDto, _$$ReadyRequestDto];
-
-  @override
-  final String wireName = r'$ReadyRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ReadyRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(ReadyRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -177,12 +150,12 @@ class _$$ReadyRequestDtoSerializer implements PrimitiveSerializer<$ReadyRequestD
   }
 
   @override
-  $ReadyRequestDto deserialize(
+  ReadyRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ReadyRequestDtoBuilder();
+    final result = ReadyRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -196,4 +169,3 @@ class _$$ReadyRequestDtoSerializer implements PrimitiveSerializer<$ReadyRequestD
     return result.build();
   }
 }
-

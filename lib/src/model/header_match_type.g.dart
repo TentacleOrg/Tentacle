@@ -39,7 +39,7 @@ class _$HeaderMatchTypeMeta {
   BuiltSet<HeaderMatchType> get values => _$values;
 }
 
-abstract class _$HeaderMatchTypeMixin {
+mixin _$HeaderMatchTypeMixin {
   // ignore: non_constant_identifier_names
   _$HeaderMatchTypeMeta get HeaderMatchType => const _$HeaderMatchTypeMeta();
 }

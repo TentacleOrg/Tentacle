@@ -3,29 +3,29 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/base_item_dto_image_blur_hashes.dart';
+import 'package:tentacle/src/model/name_guid_pair.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:tentacle/src/model/media_url.dart';
+import 'package:tentacle/src/model/media_stream.dart';
+import 'package:tentacle/src/model/video3_d_format.dart';
+import 'package:tentacle/src/model/program_audio.dart';
+import 'package:tentacle/src/model/play_access.dart';
+import 'package:tentacle/src/model/base_item_dto_user_data.dart';
+import 'package:tentacle/src/model/base_item_dto_current_program.dart';
+import 'package:tentacle/src/model/base_item_person.dart';
 import 'package:tentacle/src/model/iso_type.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/chapter_info.dart';
+import 'package:tentacle/src/model/media_source_info.dart';
+import 'package:tentacle/src/model/image_orientation.dart';
+import 'package:tentacle/src/model/video_type.dart';
 import 'package:tentacle/src/model/channel_type.dart';
 import 'package:tentacle/src/model/external_url.dart';
-import 'package:tentacle/src/model/base_item_person.dart';
-import 'package:tentacle/src/model/metadata_field.dart';
-import 'package:tentacle/src/model/media_url.dart';
-import 'package:tentacle/src/model/program_audio.dart';
-import 'package:tentacle/src/model/day_of_week.dart';
-import 'package:tentacle/src/model/base_item_dto.dart';
-import 'package:tentacle/src/model/media_source_info.dart';
-import 'package:tentacle/src/model/video3_d_format.dart';
-import 'package:tentacle/src/model/play_access.dart';
-import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/location_type.dart';
-import 'package:tentacle/src/model/base_item_dto_image_blur_hashes.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/media_stream.dart';
-import 'package:tentacle/src/model/name_guid_pair.dart';
-import 'package:tentacle/src/model/video_type.dart';
-import 'package:tentacle/src/model/chapter_info.dart';
-import 'package:tentacle/src/model/image_orientation.dart';
-import 'package:tentacle/src/model/base_item_dto_current_program.dart';
-import 'package:tentacle/src/model/base_item_dto_user_data.dart';
+import 'package:tentacle/src/model/metadata_field.dart';
+import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/day_of_week.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -35,39 +35,39 @@ part 'timer_info_dto_program_info.g.dart';
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.
-/// * [originalTitle] 
+/// * [originalTitle]
 /// * [serverId] - Gets or sets the server identifier.
 /// * [id] - Gets or sets the id.
 /// * [etag] - Gets or sets the etag.
 /// * [sourceType] - Gets or sets the type of the source.
 /// * [playlistItemId] - Gets or sets the playlist item identifier.
 /// * [dateCreated] - Gets or sets the date created.
-/// * [dateLastMediaAdded] 
-/// * [extraType] 
-/// * [airsBeforeSeasonNumber] 
-/// * [airsAfterSeasonNumber] 
-/// * [airsBeforeEpisodeNumber] 
-/// * [canDelete] 
-/// * [canDownload] 
-/// * [hasSubtitles] 
-/// * [preferredMetadataLanguage] 
-/// * [preferredMetadataCountryCode] 
+/// * [dateLastMediaAdded]
+/// * [extraType]
+/// * [airsBeforeSeasonNumber]
+/// * [airsAfterSeasonNumber]
+/// * [airsBeforeEpisodeNumber]
+/// * [canDelete]
+/// * [canDownload]
+/// * [hasSubtitles]
+/// * [preferredMetadataLanguage]
+/// * [preferredMetadataCountryCode]
 /// * [supportsSync] - Gets or sets a value indicating whether [supports synchronize].
-/// * [container] 
+/// * [container]
 /// * [sortName] - Gets or sets the name of the sort.
-/// * [forcedSortName] 
+/// * [forcedSortName]
 /// * [video3DFormat] - Gets or sets the video3 D format.
 /// * [premiereDate] - Gets or sets the premiere date.
 /// * [externalUrls] - Gets or sets the external urls.
 /// * [mediaSources] - Gets or sets the media versions.
 /// * [criticRating] - Gets or sets the critic rating.
-/// * [productionLocations] 
+/// * [productionLocations]
 /// * [path] - Gets or sets the path.
-/// * [enableMediaSourceDisplay] 
+/// * [enableMediaSourceDisplay]
 /// * [officialRating] - Gets or sets the official rating.
 /// * [customRating] - Gets or sets the custom rating.
 /// * [channelId] - Gets or sets the channel identifier.
-/// * [channelName] 
+/// * [channelName]
 /// * [overview] - Gets or sets the overview.
 /// * [taglines] - Gets or sets the taglines.
 /// * [genres] - Gets or sets the genres.
@@ -79,7 +79,7 @@ part 'timer_info_dto_program_info.g.dart';
 /// * [productionYear] - Gets or sets the production year.
 /// * [isPlaceHolder] - Gets or sets a value indicating whether this instance is place holder.
 /// * [number] - Gets or sets the number.
-/// * [channelNumber] 
+/// * [channelNumber]
 /// * [indexNumber] - Gets or sets the index number.
 /// * [indexNumberEnd] - Gets or sets the index number end.
 /// * [parentIndexNumber] - Gets or sets the parent index number.
@@ -88,15 +88,15 @@ part 'timer_info_dto_program_info.g.dart';
 /// * [isHD] - Gets or sets a value indicating whether this instance is HD.
 /// * [isFolder] - Gets or sets a value indicating whether this instance is folder.
 /// * [parentId] - Gets or sets the parent id.
-/// * [type] - The base item kind.
+/// * [type] - Gets or sets the type.
 /// * [people] - Gets or sets the people.
 /// * [studios] - Gets or sets the studios.
-/// * [genreItems] 
+/// * [genreItems]
 /// * [parentLogoItemId] - Gets or sets wether the item has a logo, this will hold the Id of the Parent that has one.
 /// * [parentBackdropItemId] - Gets or sets wether the item has any backdrops, this will hold the Id of the Parent that has one.
 /// * [parentBackdropImageTags] - Gets or sets the parent backdrop image tags.
 /// * [localTrailerCount] - Gets or sets the local trailer count.
-/// * [userData] 
+/// * [userData]
 /// * [recursiveItemCount] - Gets or sets the recursive item count.
 /// * [childCount] - Gets or sets the child count.
 /// * [seriesName] - Gets or sets the name of the series.
@@ -123,7 +123,7 @@ part 'timer_info_dto_program_info.g.dart';
 /// * [mediaStreams] - Gets or sets the media streams.
 /// * [videoType] - Gets or sets the type of the video.
 /// * [partCount] - Gets or sets the part count.
-/// * [mediaSourceCount] 
+/// * [mediaSourceCount]
 /// * [imageTags] - Gets or sets the image tags.
 /// * [backdropImageTags] - Gets or sets the backdrop image tags.
 /// * [screenshotImageTags] - Gets or sets the screenshot image tags.
@@ -131,7 +131,7 @@ part 'timer_info_dto_program_info.g.dart';
 /// * [parentArtItemId] - Gets or sets wether the item has fan art, this will hold the Id of the Parent that has one.
 /// * [parentArtImageTag] - Gets or sets the parent art image tag.
 /// * [seriesThumbImageTag] - Gets or sets the series thumb image tag.
-/// * [imageBlurHashes] 
+/// * [imageBlurHashes]
 /// * [seriesStudio] - Gets or sets the series studio.
 /// * [parentThumbItemId] - Gets or sets the parent thumb item id.
 /// * [parentThumbImageTag] - Gets or sets the parent thumb image tag.
@@ -146,27 +146,27 @@ part 'timer_info_dto_program_info.g.dart';
 /// * [trailerCount] - Gets or sets the trailer count.
 /// * [movieCount] - Gets or sets the movie count.
 /// * [seriesCount] - Gets or sets the series count.
-/// * [programCount] 
+/// * [programCount]
 /// * [episodeCount] - Gets or sets the episode count.
 /// * [songCount] - Gets or sets the song count.
 /// * [albumCount] - Gets or sets the album count.
-/// * [artistCount] 
+/// * [artistCount]
 /// * [musicVideoCount] - Gets or sets the music video count.
 /// * [lockData] - Gets or sets a value indicating whether [enable internet providers].
-/// * [width] 
-/// * [height] 
-/// * [cameraMake] 
-/// * [cameraModel] 
-/// * [software] 
-/// * [exposureTime] 
-/// * [focalLength] 
-/// * [imageOrientation] 
-/// * [aperture] 
-/// * [shutterSpeed] 
-/// * [latitude] 
-/// * [longitude] 
-/// * [altitude] 
-/// * [isoSpeedRating] 
+/// * [width]
+/// * [height]
+/// * [cameraMake]
+/// * [cameraModel]
+/// * [software]
+/// * [exposureTime]
+/// * [focalLength]
+/// * [imageOrientation]
+/// * [aperture]
+/// * [shutterSpeed]
+/// * [latitude]
+/// * [longitude]
+/// * [altitude]
+/// * [isoSpeedRating]
 /// * [seriesTimerId] - Gets or sets the series timer identifier.
 /// * [programId] - Gets or sets the program identifier.
 /// * [channelPrimaryImageTag] - Gets or sets the channel primary image tag.
@@ -184,23 +184,33 @@ part 'timer_info_dto_program_info.g.dart';
 /// * [isKids] - Gets or sets a value indicating whether this instance is kids.
 /// * [isPremiere] - Gets or sets a value indicating whether this instance is premiere.
 /// * [timerId] - Gets or sets the timer identifier.
-/// * [currentProgram] 
+/// * [currentProgram]
 @BuiltValue()
-abstract class TimerInfoDtoProgramInfo implements BaseItemDto, Built<TimerInfoDtoProgramInfo, TimerInfoDtoProgramInfoBuilder> {
+abstract class TimerInfoDtoProgramInfo
+    implements
+        BaseItemDto,
+        Built<TimerInfoDtoProgramInfo, TimerInfoDtoProgramInfoBuilder> {
   TimerInfoDtoProgramInfo._();
 
-  factory TimerInfoDtoProgramInfo([void updates(TimerInfoDtoProgramInfoBuilder b)]) = _$TimerInfoDtoProgramInfo;
+  factory TimerInfoDtoProgramInfo(
+          [void updates(TimerInfoDtoProgramInfoBuilder b)]) =
+      _$TimerInfoDtoProgramInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimerInfoDtoProgramInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimerInfoDtoProgramInfo> get serializer => _$TimerInfoDtoProgramInfoSerializer();
+  static Serializer<TimerInfoDtoProgramInfo> get serializer =>
+      _$TimerInfoDtoProgramInfoSerializer();
 }
 
-class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerInfoDtoProgramInfo> {
+class _$TimerInfoDtoProgramInfoSerializer
+    implements PrimitiveSerializer<TimerInfoDtoProgramInfo> {
   @override
-  final Iterable<Type> types = const [TimerInfoDtoProgramInfo, _$TimerInfoDtoProgramInfo];
+  final Iterable<Type> types = const [
+    TimerInfoDtoProgramInfo,
+    _$TimerInfoDtoProgramInfo
+  ];
 
   @override
   final String wireName = r'TimerInfoDtoProgramInfo';
@@ -326,7 +336,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'AirDays';
       yield serializers.serialize(
         object.airDays,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
       );
     }
     if (object.isKids != null) {
@@ -347,7 +358,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.canDelete != null) {
@@ -445,7 +457,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'ExternalUrls';
       yield serializers.serialize(
         object.externalUrls,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ExternalUrl)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ExternalUrl)]),
       );
     }
     if (object.preferredMetadataLanguage != null) {
@@ -473,7 +486,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'LockedFields';
       yield serializers.serialize(
         object.lockedFields,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(MetadataField)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MetadataField)]),
       );
     }
     if (object.shutterSpeed != null) {
@@ -543,7 +557,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'AlbumArtists';
       yield serializers.serialize(
         object.albumArtists,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.startDate != null) {
@@ -585,7 +600,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'Chapters';
       yield serializers.serialize(
         object.chapters,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ChapterInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ChapterInfo)]),
       );
     }
     if (object.video3DFormat != null) {
@@ -711,7 +727,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'People';
       yield serializers.serialize(
         object.people,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemPerson)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(BaseItemPerson)]),
       );
     }
     if (object.parentId != null) {
@@ -879,14 +896,16 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'MediaStreams';
       yield serializers.serialize(
         object.mediaStreams,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(MediaStream)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaStream)]),
       );
     }
     if (object.mediaSources != null) {
       yield r'MediaSources';
       yield serializers.serialize(
         object.mediaSources,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(MediaSourceInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaSourceInfo)]),
       );
     }
     if (object.musicVideoCount != null) {
@@ -907,7 +926,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'GenreItems';
       yield serializers.serialize(
         object.genreItems,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.isHD != null) {
@@ -963,7 +983,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'Studios';
       yield serializers.serialize(
         object.studios,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.mediaType != null) {
@@ -1040,7 +1061,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'ImageTags';
       yield serializers.serialize(
         object.imageTags,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.programCount != null) {
@@ -1208,7 +1230,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
       yield r'ArtistItems';
       yield serializers.serialize(
         object.artistItems,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.timerId != null) {
@@ -1275,7 +1298,9 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
     TimerInfoDtoProgramInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -1420,7 +1445,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'AirDays':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
           ) as BuiltList<DayOfWeek>?;
           if (valueDes == null) continue;
           result.airDays.replace(valueDes);
@@ -1444,7 +1470,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -1539,7 +1566,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'ParentBackdropImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.parentBackdropImageTags.replace(valueDes);
@@ -1555,7 +1583,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'ExternalUrls':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ExternalUrl)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ExternalUrl)]),
           ) as BuiltList<ExternalUrl>?;
           if (valueDes == null) continue;
           result.externalUrls.replace(valueDes);
@@ -1579,7 +1608,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'Tags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.tags.replace(valueDes);
@@ -1587,7 +1617,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'LockedFields':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MetadataField)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MetadataField)]),
           ) as BuiltList<MetadataField>?;
           if (valueDes == null) continue;
           result.lockedFields.replace(valueDes);
@@ -1667,7 +1698,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'AlbumArtists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.albumArtists.replace(valueDes);
@@ -1715,7 +1747,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'Chapters':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ChapterInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ChapterInfo)]),
           ) as BuiltList<ChapterInfo>?;
           if (valueDes == null) continue;
           result.chapters.replace(valueDes);
@@ -1771,7 +1804,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'Artists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.artists.replace(valueDes);
@@ -1859,7 +1893,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'People':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemPerson)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(BaseItemPerson)]),
           ) as BuiltList<BaseItemPerson>?;
           if (valueDes == null) continue;
           result.people.replace(valueDes);
@@ -1907,7 +1942,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'RemoteTrailers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaUrl)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaUrl)]),
           ) as BuiltList<MediaUrl>?;
           if (valueDes == null) continue;
           result.remoteTrailers.replace(valueDes);
@@ -2027,7 +2063,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'Taglines':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.taglines.replace(valueDes);
@@ -2051,7 +2088,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'MediaStreams':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaStream)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaStream)]),
           ) as BuiltList<MediaStream>?;
           if (valueDes == null) continue;
           result.mediaStreams.replace(valueDes);
@@ -2059,7 +2097,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'MediaSources':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaSourceInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaSourceInfo)]),
           ) as BuiltList<MediaSourceInfo>?;
           if (valueDes == null) continue;
           result.mediaSources.replace(valueDes);
@@ -2083,7 +2122,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'GenreItems':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.genreItems.replace(valueDes);
@@ -2115,7 +2155,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'ProductionLocations':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.productionLocations.replace(valueDes);
@@ -2147,7 +2188,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'Studios':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.studios.replace(valueDes);
@@ -2235,7 +2277,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'ImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>?;
           if (valueDes == null) continue;
           result.imageTags.replace(valueDes);
@@ -2339,7 +2382,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'Genres':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.genres.replace(valueDes);
@@ -2347,7 +2391,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'BackdropImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.backdropImageTags.replace(valueDes);
@@ -2371,7 +2416,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'ScreenshotImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.screenshotImageTags.replace(valueDes);
@@ -2427,7 +2473,8 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
         case r'ArtistItems':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.artistItems.replace(valueDes);
@@ -2524,4 +2571,3 @@ class _$TimerInfoDtoProgramInfoSerializer implements PrimitiveSerializer<TimerIn
     return result.build();
   }
 }
-

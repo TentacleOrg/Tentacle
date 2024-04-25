@@ -13,19 +13,19 @@ part 'base_item.g.dart';
 /// Class BaseItem.
 ///
 /// Properties:
-/// * [size] 
-/// * [container] 
-/// * [isHD] 
-/// * [isShortcut] 
-/// * [shortcutPath] 
-/// * [width] 
-/// * [height] 
-/// * [extraIds] 
-/// * [dateLastSaved] 
+/// * [size]
+/// * [container]
+/// * [isHD]
+/// * [isShortcut]
+/// * [shortcutPath]
+/// * [width]
+/// * [height]
+/// * [extraIds]
+/// * [dateLastSaved]
 /// * [remoteTrailers] - Gets or sets the remote trailers.
-/// * [supportsExternalTransfer] 
+/// * [supportsExternalTransfer]
 @BuiltValue(instantiable: false)
-abstract class BaseItem  {
+abstract class BaseItem {
   @BuiltValueField(wireName: r'Size')
   int? get size;
 
@@ -161,7 +161,9 @@ class _$BaseItemSerializer implements PrimitiveSerializer<BaseItem> {
     BaseItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -170,13 +172,15 @@ class _$BaseItemSerializer implements PrimitiveSerializer<BaseItem> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($BaseItem)) as $BaseItem;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($BaseItem)) as $BaseItem;
   }
 }
 
 /// a concrete implementation of [BaseItem], since [BaseItem] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $BaseItem implements BaseItem, Built<$BaseItem, $BaseItemBuilder> {
+abstract class $BaseItem
+    implements BaseItem, Built<$BaseItem, $BaseItemBuilder> {
   $BaseItem._();
 
   factory $BaseItem([void Function($BaseItemBuilder)? updates]) = _$$BaseItem;
@@ -271,7 +275,8 @@ class _$$BaseItemSerializer implements PrimitiveSerializer<$BaseItem> {
         case r'ExtraIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.extraIds.replace(valueDes);
@@ -286,7 +291,8 @@ class _$$BaseItemSerializer implements PrimitiveSerializer<$BaseItem> {
         case r'RemoteTrailers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaUrl)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaUrl)]),
           ) as BuiltList<MediaUrl>?;
           if (valueDes == null) continue;
           result.remoteTrailers.replace(valueDes);
@@ -326,4 +332,3 @@ class _$$BaseItemSerializer implements PrimitiveSerializer<$BaseItem> {
     return result.build();
   }
 }
-

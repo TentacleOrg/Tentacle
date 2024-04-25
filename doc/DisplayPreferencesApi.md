@@ -1,8 +1,8 @@
-# openapi.api.DisplayPreferencesApi
+# tentacle.api.DisplayPreferencesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,13 +20,13 @@ Get Display Preferences.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDisplayPreferencesApi();
+final api = Tentacle().getDisplayPreferencesApi();
 final String displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String client = client_example; // String | Client.
@@ -34,7 +34,7 @@ final String client = client_example; // String | Client.
 try {
     final response = api.getDisplayPreferences(displayPreferencesId, userId, client);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DisplayPreferencesApi->getDisplayPreferences: $e\n');
 }
 ```
@@ -63,27 +63,27 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateDisplayPreferences**
-> updateDisplayPreferences(displayPreferencesId, userId, client, updateDisplayPreferencesRequest)
+> updateDisplayPreferences(displayPreferencesId, userId, client, displayPreferencesDto)
 
 Update Display Preferences.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDisplayPreferencesApi();
+final api = Tentacle().getDisplayPreferencesApi();
 final String displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
 final String client = client_example; // String | Client.
-final UpdateDisplayPreferencesRequest updateDisplayPreferencesRequest = ; // UpdateDisplayPreferencesRequest | New Display Preferences object.
+final DisplayPreferencesDto displayPreferencesDto = ; // DisplayPreferencesDto | New Display Preferences object.
 
 try {
-    api.updateDisplayPreferences(displayPreferencesId, userId, client, updateDisplayPreferencesRequest);
-} catch on DioError (e) {
+    api.updateDisplayPreferences(displayPreferencesId, userId, client, displayPreferencesDto);
+} catch on DioException (e) {
     print('Exception when calling DisplayPreferencesApi->updateDisplayPreferences: $e\n');
 }
 ```
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
  **displayPreferencesId** | **String**| Display preferences id. | 
  **userId** | **String**| User Id. | 
  **client** | **String**| Client. | 
- **updateDisplayPreferencesRequest** | [**UpdateDisplayPreferencesRequest**](UpdateDisplayPreferencesRequest.md)| New Display Preferences object. | 
+ **displayPreferencesDto** | [**DisplayPreferencesDto**](DisplayPreferencesDto.md)| New Display Preferences object. | 
 
 ### Return type
 

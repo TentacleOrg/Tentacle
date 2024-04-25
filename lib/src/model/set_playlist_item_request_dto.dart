@@ -12,19 +12,35 @@ part 'set_playlist_item_request_dto.g.dart';
 ///
 /// Properties:
 /// * [playlistItemId] - Gets or sets the playlist identifier of the playing item.
-@BuiltValue(instantiable: false)
-abstract class SetPlaylistItemRequestDto  {
+@BuiltValue()
+abstract class SetPlaylistItemRequestDto
+    implements
+        Built<SetPlaylistItemRequestDto, SetPlaylistItemRequestDtoBuilder> {
   /// Gets or sets the playlist identifier of the playing item.
   @BuiltValueField(wireName: r'PlaylistItemId')
   String? get playlistItemId;
 
+  SetPlaylistItemRequestDto._();
+
+  factory SetPlaylistItemRequestDto(
+          [void updates(SetPlaylistItemRequestDtoBuilder b)]) =
+      _$SetPlaylistItemRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SetPlaylistItemRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<SetPlaylistItemRequestDto> get serializer => _$SetPlaylistItemRequestDtoSerializer();
+  static Serializer<SetPlaylistItemRequestDto> get serializer =>
+      _$SetPlaylistItemRequestDtoSerializer();
 }
 
-class _$SetPlaylistItemRequestDtoSerializer implements PrimitiveSerializer<SetPlaylistItemRequestDto> {
+class _$SetPlaylistItemRequestDtoSerializer
+    implements PrimitiveSerializer<SetPlaylistItemRequestDto> {
   @override
-  final Iterable<Type> types = const [SetPlaylistItemRequestDto];
+  final Iterable<Type> types = const [
+    SetPlaylistItemRequestDto,
+    _$SetPlaylistItemRequestDto
+  ];
 
   @override
   final String wireName = r'SetPlaylistItemRequestDto';
@@ -49,47 +65,9 @@ class _$SetPlaylistItemRequestDtoSerializer implements PrimitiveSerializer<SetPl
     SetPlaylistItemRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  SetPlaylistItemRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SetPlaylistItemRequestDto)) as $SetPlaylistItemRequestDto;
-  }
-}
-
-/// a concrete implementation of [SetPlaylistItemRequestDto], since [SetPlaylistItemRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SetPlaylistItemRequestDto implements SetPlaylistItemRequestDto, Built<$SetPlaylistItemRequestDto, $SetPlaylistItemRequestDtoBuilder> {
-  $SetPlaylistItemRequestDto._();
-
-  factory $SetPlaylistItemRequestDto([void Function($SetPlaylistItemRequestDtoBuilder)? updates]) = _$$SetPlaylistItemRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SetPlaylistItemRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SetPlaylistItemRequestDto> get serializer => _$$SetPlaylistItemRequestDtoSerializer();
-}
-
-class _$$SetPlaylistItemRequestDtoSerializer implements PrimitiveSerializer<$SetPlaylistItemRequestDto> {
-  @override
-  final Iterable<Type> types = const [$SetPlaylistItemRequestDto, _$$SetPlaylistItemRequestDto];
-
-  @override
-  final String wireName = r'$SetPlaylistItemRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SetPlaylistItemRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SetPlaylistItemRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,12 +98,12 @@ class _$$SetPlaylistItemRequestDtoSerializer implements PrimitiveSerializer<$Set
   }
 
   @override
-  $SetPlaylistItemRequestDto deserialize(
+  SetPlaylistItemRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SetPlaylistItemRequestDtoBuilder();
+    final result = SetPlaylistItemRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -139,4 +117,3 @@ class _$$SetPlaylistItemRequestDtoSerializer implements PrimitiveSerializer<$Set
     return result.build();
   }
 }
-

@@ -1,8 +1,8 @@
-# openapi.api.SystemApi
+# tentacle.api.SystemApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -28,18 +28,18 @@ Gets information about the request endpoint.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     final response = api.getEndpointInfo();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->getEndpointInfo: $e\n');
 }
 ```
@@ -69,19 +69,19 @@ Gets a log file.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 final String name = name_example; // String | The name of the log file to get.
 
 try {
     final response = api.getLogFile(name);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->getLogFile: $e\n');
 }
 ```
@@ -114,14 +114,14 @@ Pings the system.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     final response = api.getPingSystem();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->getPingSystem: $e\n');
 }
 ```
@@ -151,14 +151,14 @@ Gets public information about the server.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     final response = api.getPublicSystemInfo();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->getPublicSystemInfo: $e\n');
 }
 ```
@@ -188,18 +188,18 @@ Gets a list of available server log files.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     final response = api.getServerLogs();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->getServerLogs: $e\n');
 }
 ```
@@ -229,18 +229,18 @@ Gets information about the server.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     final response = api.getSystemInfo();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->getSystemInfo: $e\n');
 }
 ```
@@ -270,18 +270,18 @@ Gets wake on lan information.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     final response = api.getWakeOnLanInfo();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->getWakeOnLanInfo: $e\n');
 }
 ```
@@ -311,14 +311,14 @@ Pings the system.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     final response = api.postPingSystem();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->postPingSystem: $e\n');
 }
 ```
@@ -348,17 +348,17 @@ Restarts the application.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     api.restartApplication();
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->restartApplication: $e\n');
 }
 ```
@@ -388,17 +388,17 @@ Shuts down the application.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSystemApi();
+final api = Tentacle().getSystemApi();
 
 try {
     api.shutdownApplication();
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SystemApi->shutdownApplication: $e\n');
 }
 ```

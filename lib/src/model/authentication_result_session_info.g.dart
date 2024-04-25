@@ -9,11 +9,11 @@ part of 'authentication_result_session_info.dart';
 class _$AuthenticationResultSessionInfo
     extends AuthenticationResultSessionInfo {
   @override
-  final SessionInfoPlayState? playState;
+  final PlayerStateInfo? playState;
   @override
   final BuiltList<SessionUserInfo>? additionalUsers;
   @override
-  final SessionInfoCapabilities? capabilities;
+  final ClientCapabilities? capabilities;
   @override
   final String? remoteEndPoint;
   @override
@@ -45,7 +45,7 @@ class _$AuthenticationResultSessionInfo
   @override
   final String? applicationVersion;
   @override
-  final SessionInfoTranscodingInfo? transcodingInfo;
+  final TranscodingInfo? transcodingInfo;
   @override
   final bool? isActive;
   @override
@@ -226,10 +226,10 @@ class AuthenticationResultSessionInfoBuilder
         SessionInfoBuilder {
   _$AuthenticationResultSessionInfo? _$v;
 
-  SessionInfoPlayStateBuilder? _playState;
-  SessionInfoPlayStateBuilder get playState =>
-      _$this._playState ??= new SessionInfoPlayStateBuilder();
-  set playState(covariant SessionInfoPlayStateBuilder? playState) =>
+  PlayerStateInfoBuilder? _playState;
+  PlayerStateInfoBuilder get playState =>
+      _$this._playState ??= new PlayerStateInfoBuilder();
+  set playState(covariant PlayerStateInfoBuilder? playState) =>
       _$this._playState = playState;
 
   ListBuilder<SessionUserInfo>? _additionalUsers;
@@ -239,10 +239,9 @@ class AuthenticationResultSessionInfoBuilder
           covariant ListBuilder<SessionUserInfo>? additionalUsers) =>
       _$this._additionalUsers = additionalUsers;
 
-  SessionInfoCapabilitiesBuilder? _capabilities;
-  SessionInfoCapabilitiesBuilder get capabilities =>
-      _$this._capabilities ??= new SessionInfoCapabilitiesBuilder();
-  set capabilities(covariant SessionInfoCapabilitiesBuilder? capabilities) =>
+  ClientCapabilities? _capabilities;
+  ClientCapabilities? get capabilities => _$this._capabilities;
+  set capabilities(covariant ClientCapabilities? capabilities) =>
       _$this._capabilities = capabilities;
 
   String? _remoteEndPoint;
@@ -322,11 +321,10 @@ class AuthenticationResultSessionInfoBuilder
   set applicationVersion(covariant String? applicationVersion) =>
       _$this._applicationVersion = applicationVersion;
 
-  SessionInfoTranscodingInfoBuilder? _transcodingInfo;
-  SessionInfoTranscodingInfoBuilder get transcodingInfo =>
-      _$this._transcodingInfo ??= new SessionInfoTranscodingInfoBuilder();
-  set transcodingInfo(
-          covariant SessionInfoTranscodingInfoBuilder? transcodingInfo) =>
+  TranscodingInfoBuilder? _transcodingInfo;
+  TranscodingInfoBuilder get transcodingInfo =>
+      _$this._transcodingInfo ??= new TranscodingInfoBuilder();
+  set transcodingInfo(covariant TranscodingInfoBuilder? transcodingInfo) =>
       _$this._transcodingInfo = transcodingInfo;
 
   bool? _isActive;
@@ -391,7 +389,7 @@ class AuthenticationResultSessionInfoBuilder
     if ($v != null) {
       _playState = $v.playState?.toBuilder();
       _additionalUsers = $v.additionalUsers?.toBuilder();
-      _capabilities = $v.capabilities?.toBuilder();
+      _capabilities = $v.capabilities;
       _remoteEndPoint = $v.remoteEndPoint;
       _playableMediaTypes = $v.playableMediaTypes?.toBuilder();
       _id = $v.id;
@@ -444,7 +442,7 @@ class AuthenticationResultSessionInfoBuilder
           new _$AuthenticationResultSessionInfo._(
               playState: _playState?.build(),
               additionalUsers: _additionalUsers?.build(),
-              capabilities: _capabilities?.build(),
+              capabilities: capabilities,
               remoteEndPoint: remoteEndPoint,
               playableMediaTypes: _playableMediaTypes?.build(),
               id: id,
@@ -478,8 +476,6 @@ class AuthenticationResultSessionInfoBuilder
         _playState?.build();
         _$failedField = 'additionalUsers';
         _additionalUsers?.build();
-        _$failedField = 'capabilities';
-        _capabilities?.build();
 
         _$failedField = 'playableMediaTypes';
         _playableMediaTypes?.build();

@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for EnvironmentApi
 void main() {
   final instance = Tentacle().getEnvironmentApi();
@@ -44,10 +43,9 @@ void main() {
 
     // Validates path.
     //
-    //Future validatePath(ValidatePathRequest validatePathRequest) async
+    //Future validatePath(ValidatePathDto validatePathDto) async
     test('test validatePath', () async {
       // TODO
     });
-
   });
 }

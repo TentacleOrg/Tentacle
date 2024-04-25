@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PluginStatus
 void main() {
-
-  group(PluginStatus, () {
-  });
+  group(PluginStatus, () {});
 }

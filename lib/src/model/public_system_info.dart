@@ -19,7 +19,8 @@ part 'public_system_info.g.dart';
 /// * [id] - Gets or sets the id.
 /// * [startupWizardCompleted] - Gets or sets a value indicating whether the startup wizard is completed.
 @BuiltValue()
-abstract class PublicSystemInfo implements Built<PublicSystemInfo, PublicSystemInfoBuilder> {
+abstract class PublicSystemInfo
+    implements Built<PublicSystemInfo, PublicSystemInfoBuilder> {
   /// Gets or sets the local address.
   @BuiltValueField(wireName: r'LocalAddress')
   String? get localAddress;
@@ -50,16 +51,19 @@ abstract class PublicSystemInfo implements Built<PublicSystemInfo, PublicSystemI
 
   PublicSystemInfo._();
 
-  factory PublicSystemInfo([void updates(PublicSystemInfoBuilder b)]) = _$PublicSystemInfo;
+  factory PublicSystemInfo([void updates(PublicSystemInfoBuilder b)]) =
+      _$PublicSystemInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PublicSystemInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PublicSystemInfo> get serializer => _$PublicSystemInfoSerializer();
+  static Serializer<PublicSystemInfo> get serializer =>
+      _$PublicSystemInfoSerializer();
 }
 
-class _$PublicSystemInfoSerializer implements PrimitiveSerializer<PublicSystemInfo> {
+class _$PublicSystemInfoSerializer
+    implements PrimitiveSerializer<PublicSystemInfo> {
   @override
   final Iterable<Type> types = const [PublicSystemInfo, _$PublicSystemInfo];
 
@@ -128,7 +132,9 @@ class _$PublicSystemInfoSerializer implements PrimitiveSerializer<PublicSystemIn
     PublicSystemInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -227,4 +233,3 @@ class _$PublicSystemInfoSerializer implements PrimitiveSerializer<PublicSystemIn
     return result.build();
   }
 }
-

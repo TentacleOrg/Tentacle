@@ -14,7 +14,8 @@ part 'xml_attribute.g.dart';
 /// * [name] - Gets or sets the name of the attribute.
 /// * [value] - Gets or sets the value of the attribute.
 @BuiltValue()
-abstract class XmlAttribute implements Built<XmlAttribute, XmlAttributeBuilder> {
+abstract class XmlAttribute
+    implements Built<XmlAttribute, XmlAttributeBuilder> {
   /// Gets or sets the name of the attribute.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -68,7 +69,9 @@ class _$XmlAttributeSerializer implements PrimitiveSerializer<XmlAttribute> {
     XmlAttribute object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +130,3 @@ class _$XmlAttributeSerializer implements PrimitiveSerializer<XmlAttribute> {
     return result.build();
   }
 }
-

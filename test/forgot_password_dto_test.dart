@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ForgotPasswordDto
 void main() {
-  //final instance = ForgotPasswordDtoBuilder();
+  final instance = ForgotPasswordDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(ForgotPasswordDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `enteredUsername`', () async {
       // TODO
     });
-
   });
 }

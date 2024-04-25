@@ -16,7 +16,8 @@ part 'device_profile_info.g.dart';
 /// * [name] - Gets or sets the name.
 /// * [type] - Gets or sets the type.
 @BuiltValue()
-abstract class DeviceProfileInfo implements Built<DeviceProfileInfo, DeviceProfileInfoBuilder> {
+abstract class DeviceProfileInfo
+    implements Built<DeviceProfileInfo, DeviceProfileInfoBuilder> {
   /// Gets or sets the identifier.
   @BuiltValueField(wireName: r'Id')
   String? get id;
@@ -28,19 +29,23 @@ abstract class DeviceProfileInfo implements Built<DeviceProfileInfo, DeviceProfi
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   DeviceProfileType? get type;
+  // enum typeEnum {  System,  User,  };
 
   DeviceProfileInfo._();
 
-  factory DeviceProfileInfo([void updates(DeviceProfileInfoBuilder b)]) = _$DeviceProfileInfo;
+  factory DeviceProfileInfo([void updates(DeviceProfileInfoBuilder b)]) =
+      _$DeviceProfileInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DeviceProfileInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeviceProfileInfo> get serializer => _$DeviceProfileInfoSerializer();
+  static Serializer<DeviceProfileInfo> get serializer =>
+      _$DeviceProfileInfoSerializer();
 }
 
-class _$DeviceProfileInfoSerializer implements PrimitiveSerializer<DeviceProfileInfo> {
+class _$DeviceProfileInfoSerializer
+    implements PrimitiveSerializer<DeviceProfileInfo> {
   @override
   final Iterable<Type> types = const [DeviceProfileInfo, _$DeviceProfileInfo];
 
@@ -81,7 +86,9 @@ class _$DeviceProfileInfoSerializer implements PrimitiveSerializer<DeviceProfile
     DeviceProfileInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -147,4 +154,3 @@ class _$DeviceProfileInfoSerializer implements PrimitiveSerializer<DeviceProfile
     return result.build();
   }
 }
-

@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for SessionApi
 void main() {
   final instance = Tentacle().getSessionApi();
@@ -58,7 +57,7 @@ void main() {
 
     // Updates capabilities for a device.
     //
-    //Future postFullCapabilities(PostFullCapabilitiesRequest postFullCapabilitiesRequest, { String id }) async
+    //Future postFullCapabilities(ClientCapabilitiesDto clientCapabilitiesDto, { String id }) async
     test('test postFullCapabilities', () async {
       // TODO
     });
@@ -86,7 +85,7 @@ void main() {
 
     // Issues a full general command to a client.
     //
-    //Future sendFullGeneralCommand(String sessionId, SendFullGeneralCommandRequest sendFullGeneralCommandRequest) async
+    //Future sendFullGeneralCommand(String sessionId, GeneralCommand generalCommand) async
     test('test sendFullGeneralCommand', () async {
       // TODO
     });
@@ -100,7 +99,7 @@ void main() {
 
     // Issues a command to a client to display a message to the user.
     //
-    //Future sendMessageCommand(String sessionId, SendMessageCommandRequest sendMessageCommandRequest) async
+    //Future sendMessageCommand(String sessionId, MessageCommand messageCommand) async
     test('test sendMessageCommand', () async {
       // TODO
     });
@@ -118,6 +117,5 @@ void main() {
     test('test sendSystemCommand', () async {
       // TODO
     });
-
   });
 }

@@ -1,8 +1,8 @@
-# openapi.model.TranscodeSeekInfo
+# tentacle.model.TranscodeSeekInfo
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

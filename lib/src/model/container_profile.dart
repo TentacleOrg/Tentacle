@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/dlna_profile_type.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/profile_condition.dart';
-import 'package:tentacle/src/model/dlna_profile_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,13 +14,15 @@ part 'container_profile.g.dart';
 /// ContainerProfile
 ///
 /// Properties:
-/// * [type] 
-/// * [conditions] 
-/// * [container] 
+/// * [type]
+/// * [conditions]
+/// * [container]
 @BuiltValue()
-abstract class ContainerProfile implements Built<ContainerProfile, ContainerProfileBuilder> {
+abstract class ContainerProfile
+    implements Built<ContainerProfile, ContainerProfileBuilder> {
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
+  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  };
 
   @BuiltValueField(wireName: r'Conditions')
   BuiltList<ProfileCondition>? get conditions;
@@ -30,16 +32,19 @@ abstract class ContainerProfile implements Built<ContainerProfile, ContainerProf
 
   ContainerProfile._();
 
-  factory ContainerProfile([void updates(ContainerProfileBuilder b)]) = _$ContainerProfile;
+  factory ContainerProfile([void updates(ContainerProfileBuilder b)]) =
+      _$ContainerProfile;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ContainerProfileBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ContainerProfile> get serializer => _$ContainerProfileSerializer();
+  static Serializer<ContainerProfile> get serializer =>
+      _$ContainerProfileSerializer();
 }
 
-class _$ContainerProfileSerializer implements PrimitiveSerializer<ContainerProfile> {
+class _$ContainerProfileSerializer
+    implements PrimitiveSerializer<ContainerProfile> {
   @override
   final Iterable<Type> types = const [ContainerProfile, _$ContainerProfile];
 
@@ -62,7 +67,8 @@ class _$ContainerProfileSerializer implements PrimitiveSerializer<ContainerProfi
       yield r'Conditions';
       yield serializers.serialize(
         object.conditions,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
       );
     }
     if (object.container != null) {
@@ -80,7 +86,9 @@ class _$ContainerProfileSerializer implements PrimitiveSerializer<ContainerProfi
     ContainerProfile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -105,7 +113,8 @@ class _$ContainerProfileSerializer implements PrimitiveSerializer<ContainerProfi
         case r'Conditions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(ProfileCondition)]),
           ) as BuiltList<ProfileCondition>?;
           if (valueDes == null) continue;
           result.conditions.replace(valueDes);
@@ -145,4 +154,3 @@ class _$ContainerProfileSerializer implements PrimitiveSerializer<ContainerProfi
     return result.build();
   }
 }
-

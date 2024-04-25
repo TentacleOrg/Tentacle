@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/installation_info.dart';
 import 'package:tentacle/src/model/architecture.dart';
+import 'package:tentacle/src/model/installation_info.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/f_fmpeg_location.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -25,12 +25,12 @@ part 'system_info.g.dart';
 /// * [operatingSystemDisplayName] - Gets or sets the display name of the operating system.
 /// * [packageName] - Gets or sets the package name.
 /// * [hasPendingRestart] - Gets or sets a value indicating whether this instance has pending restart.
-/// * [isShuttingDown] 
+/// * [isShuttingDown]
 /// * [supportsLibraryMonitor] - Gets or sets a value indicating whether [supports library monitor].
 /// * [webSocketPortNumber] - Gets or sets the web socket port number.
 /// * [completedInstallations] - Gets or sets the completed installations.
 /// * [canSelfRestart] - Gets or sets a value indicating whether this instance can self restart.
-/// * [canLaunchWebBrowser] 
+/// * [canLaunchWebBrowser]
 /// * [programDataPath] - Gets or sets the program data path.
 /// * [webPath] - Gets or sets the web UI resources path.
 /// * [itemsByNamePath] - Gets or sets the items by name path.
@@ -40,7 +40,7 @@ part 'system_info.g.dart';
 /// * [transcodingTempPath] - Gets or sets the transcode path.
 /// * [hasUpdateAvailable] - Gets or sets a value indicating whether this instance has update available.
 /// * [encoderLocation] - Enum describing the location of the FFmpeg tool.
-/// * [systemArchitecture] 
+/// * [systemArchitecture]
 @BuiltValue()
 abstract class SystemInfo implements Built<SystemInfo, SystemInfoBuilder> {
   /// Gets or sets the local address.
@@ -134,15 +134,19 @@ abstract class SystemInfo implements Built<SystemInfo, SystemInfoBuilder> {
   String? get transcodingTempPath;
 
   /// Gets or sets a value indicating whether this instance has update available.
+  @Deprecated('hasUpdateAvailable has been deprecated')
   @BuiltValueField(wireName: r'HasUpdateAvailable')
   bool? get hasUpdateAvailable;
 
   /// Enum describing the location of the FFmpeg tool.
+  @Deprecated('encoderLocation has been deprecated')
   @BuiltValueField(wireName: r'EncoderLocation')
   FFmpegLocation? get encoderLocation;
+  // enum encoderLocationEnum {  NotFound,  SetByArgument,  Custom,  System,  };
 
   @BuiltValueField(wireName: r'SystemArchitecture')
   Architecture? get systemArchitecture;
+  // enum systemArchitectureEnum {  X86,  X64,  Arm,  Arm64,  Wasm,  S390x,  };
 
   SystemInfo._();
 
@@ -262,7 +266,8 @@ class _$SystemInfoSerializer implements PrimitiveSerializer<SystemInfo> {
       yield r'CompletedInstallations';
       yield serializers.serialize(
         object.completedInstallations,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(InstallationInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(InstallationInfo)]),
       );
     }
     if (object.canSelfRestart != null) {
@@ -357,7 +362,9 @@ class _$SystemInfoSerializer implements PrimitiveSerializer<SystemInfo> {
     SystemInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -475,7 +482,8 @@ class _$SystemInfoSerializer implements PrimitiveSerializer<SystemInfo> {
         case r'CompletedInstallations':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(InstallationInfo)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(InstallationInfo)]),
           ) as BuiltList<InstallationInfo>?;
           if (valueDes == null) continue;
           result.completedInstallations.replace(valueDes);
@@ -599,4 +607,3 @@ class _$SystemInfoSerializer implements PrimitiveSerializer<SystemInfo> {
     return result.build();
   }
 }
-

@@ -12,7 +12,6 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/collection_creation_result.dart';
 
 class CollectionApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,7 +19,7 @@ class CollectionApi {
   const CollectionApi(this._dio, this._serializers);
 
   /// Adds items to a collection.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [collectionId] - The collection id.
@@ -33,8 +32,8 @@ class CollectionApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> addToCollection({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> addToCollection({
     required String collectionId,
     required BuiltList<String> ids,
     CancelToken? cancelToken,
@@ -44,7 +43,10 @@ class CollectionApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Collections/{collectionId}/Items'.replaceAll('{' r'collectionId' '}', collectionId.toString());
+    final _path = r'/Collections/{collectionId}/Items'.replaceAll(
+        '{' r'collectionId' '}',
+        encodeQueryParameter(_serializers, collectionId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -65,7 +67,12 @@ class CollectionApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'ids': encodeCollectionQueryParameter<String>(_serializers, ids, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
+      r'ids': encodeCollectionQueryParameter<String>(
+        _serializers,
+        ids,
+        const FullType(BuiltList, [FullType(String)]),
+        format: ListFormat.multi,
+      ),
     };
 
     final _response = await _dio.request<Object>(
@@ -81,7 +88,7 @@ class CollectionApi {
   }
 
   /// Creates a new collection.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the collection.
@@ -96,8 +103,8 @@ class CollectionApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [CollectionCreationResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<CollectionCreationResult>> createCollection({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<CollectionCreationResult>> createCollection({
     String? name,
     BuiltList<String>? ids,
     String? parentId,
@@ -130,10 +137,22 @@ class CollectionApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (name != null) r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
-      if (ids != null) r'ids': encodeCollectionQueryParameter<String>(_serializers, ids, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (isLocked != null) r'isLocked': encodeQueryParameter(_serializers, isLocked, const FullType(bool)),
+      if (name != null)
+        r'name':
+            encodeQueryParameter(_serializers, name, const FullType(String)),
+      if (ids != null)
+        r'ids': encodeCollectionQueryParameter<String>(
+          _serializers,
+          ids,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (isLocked != null)
+        r'isLocked':
+            encodeQueryParameter(_serializers, isLocked, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -145,22 +164,24 @@ class CollectionApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    CollectionCreationResult _responseData;
+    CollectionCreationResult? _responseData;
 
     try {
-      const _responseType = FullType(CollectionCreationResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as CollectionCreationResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(CollectionCreationResult),
+            ) as CollectionCreationResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<CollectionCreationResult>(
@@ -176,7 +197,7 @@ class CollectionApi {
   }
 
   /// Removes items from a collection.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [collectionId] - The collection id.
@@ -189,8 +210,8 @@ class CollectionApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> removeFromCollection({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> removeFromCollection({
     required String collectionId,
     required BuiltList<String> ids,
     CancelToken? cancelToken,
@@ -200,7 +221,10 @@ class CollectionApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Collections/{collectionId}/Items'.replaceAll('{' r'collectionId' '}', collectionId.toString());
+    final _path = r'/Collections/{collectionId}/Items'.replaceAll(
+        '{' r'collectionId' '}',
+        encodeQueryParameter(_serializers, collectionId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -221,7 +245,12 @@ class CollectionApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'ids': encodeCollectionQueryParameter<String>(_serializers, ids, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
+      r'ids': encodeCollectionQueryParameter<String>(
+        _serializers,
+        ids,
+        const FullType(BuiltList, [FullType(String)]),
+        format: ListFormat.multi,
+      ),
     };
 
     final _response = await _dio.request<Object>(
@@ -235,5 +264,4 @@ class CollectionApi {
 
     return _response;
   }
-
 }

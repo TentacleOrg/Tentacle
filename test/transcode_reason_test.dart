@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TranscodeReason
 void main() {
-
-  group(TranscodeReason, () {
-  });
+  group(TranscodeReason, () {});
 }

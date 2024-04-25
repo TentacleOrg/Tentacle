@@ -4,15 +4,15 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/codec_profile.dart';
-import 'package:tentacle/src/model/transcoding_profile.dart';
-import 'package:tentacle/src/model/xml_attribute.dart';
-import 'package:tentacle/src/model/subtitle_profile.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/xml_attribute.dart';
+import 'package:tentacle/src/model/container_profile.dart';
+import 'package:tentacle/src/model/direct_play_profile.dart';
 import 'package:tentacle/src/model/device_profile.dart';
 import 'package:tentacle/src/model/response_profile.dart';
-import 'package:tentacle/src/model/container_profile.dart';
+import 'package:tentacle/src/model/transcoding_profile.dart';
+import 'package:tentacle/src/model/subtitle_profile.dart';
 import 'package:tentacle/src/model/device_profile_identification.dart';
-import 'package:tentacle/src/model/direct_play_profile.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -23,7 +23,7 @@ part 'client_capabilities_device_profile.g.dart';
 /// Properties:
 /// * [name] - Gets or sets the name of this device profile.
 /// * [id] - Gets or sets the Id.
-/// * [identification] 
+/// * [identification]
 /// * [friendlyName] - Gets or sets the friendly name of the device profile, which can be shown to users.
 /// * [manufacturer] - Gets or sets the manufacturer of the device which this profile represents.
 /// * [manufacturerUrl] - Gets or sets an url for the manufacturer of the device which this profile represents.
@@ -61,29 +61,40 @@ part 'client_capabilities_device_profile.g.dart';
 /// * [responseProfiles] - Gets or sets the ResponseProfiles.
 /// * [subtitleProfiles] - Gets or sets the subtitle profiles.
 @BuiltValue()
-abstract class ClientCapabilitiesDeviceProfile implements DeviceProfile, Built<ClientCapabilitiesDeviceProfile, ClientCapabilitiesDeviceProfileBuilder> {
+abstract class ClientCapabilitiesDeviceProfile
+    implements
+        DeviceProfile,
+        Built<ClientCapabilitiesDeviceProfile,
+            ClientCapabilitiesDeviceProfileBuilder> {
   ClientCapabilitiesDeviceProfile._();
 
-  factory ClientCapabilitiesDeviceProfile([void updates(ClientCapabilitiesDeviceProfileBuilder b)]) = _$ClientCapabilitiesDeviceProfile;
+  factory ClientCapabilitiesDeviceProfile(
+          [void updates(ClientCapabilitiesDeviceProfileBuilder b)]) =
+      _$ClientCapabilitiesDeviceProfile;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ClientCapabilitiesDeviceProfileBuilder b) => b
-      ..enableSingleSubtitleLimit = false
-      ..ignoreTranscodeByteRangeRequests = false
-      ..enableSingleAlbumArtLimit = false
-      ..enableAlbumArtInDidl = false
-      ..enableMSMediaReceiverRegistrar = false
-      ..requiresPlainVideoItems = false
-      ..requiresPlainFolders = false
-      ..timelineOffsetSeconds = 0;
+    ..enableSingleSubtitleLimit = false
+    ..ignoreTranscodeByteRangeRequests = false
+    ..enableSingleAlbumArtLimit = false
+    ..enableAlbumArtInDidl = false
+    ..enableMSMediaReceiverRegistrar = false
+    ..requiresPlainVideoItems = false
+    ..requiresPlainFolders = false
+    ..timelineOffsetSeconds = 0;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ClientCapabilitiesDeviceProfile> get serializer => _$ClientCapabilitiesDeviceProfileSerializer();
+  static Serializer<ClientCapabilitiesDeviceProfile> get serializer =>
+      _$ClientCapabilitiesDeviceProfileSerializer();
 }
 
-class _$ClientCapabilitiesDeviceProfileSerializer implements PrimitiveSerializer<ClientCapabilitiesDeviceProfile> {
+class _$ClientCapabilitiesDeviceProfileSerializer
+    implements PrimitiveSerializer<ClientCapabilitiesDeviceProfile> {
   @override
-  final Iterable<Type> types = const [ClientCapabilitiesDeviceProfile, _$ClientCapabilitiesDeviceProfile];
+  final Iterable<Type> types = const [
+    ClientCapabilitiesDeviceProfile,
+    _$ClientCapabilitiesDeviceProfile
+  ];
 
   @override
   final String wireName = r'ClientCapabilitiesDeviceProfile';
@@ -209,7 +220,8 @@ class _$ClientCapabilitiesDeviceProfileSerializer implements PrimitiveSerializer
       yield r'TranscodingProfiles';
       yield serializers.serialize(
         object.transcodingProfiles,
-        specifiedType: const FullType(BuiltList, [FullType(TranscodingProfile)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(TranscodingProfile)]),
       );
     }
     if (object.friendlyName != null) {
@@ -374,7 +386,9 @@ class _$ClientCapabilitiesDeviceProfileSerializer implements PrimitiveSerializer
     ClientCapabilitiesDeviceProfile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -399,14 +413,16 @@ class _$ClientCapabilitiesDeviceProfileSerializer implements PrimitiveSerializer
         case r'ContainerProfiles':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ContainerProfile)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ContainerProfile)]),
           ) as BuiltList<ContainerProfile>;
           result.containerProfiles.replace(valueDes);
           break;
         case r'SubtitleProfiles':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(SubtitleProfile)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(SubtitleProfile)]),
           ) as BuiltList<SubtitleProfile>;
           result.subtitleProfiles.replace(valueDes);
           break;
@@ -505,14 +521,16 @@ class _$ClientCapabilitiesDeviceProfileSerializer implements PrimitiveSerializer
         case r'DirectPlayProfiles':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(DirectPlayProfile)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(DirectPlayProfile)]),
           ) as BuiltList<DirectPlayProfile>;
           result.directPlayProfiles.replace(valueDes);
           break;
         case r'TranscodingProfiles':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TranscodingProfile)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(TranscodingProfile)]),
           ) as BuiltList<TranscodingProfile>;
           result.transcodingProfiles.replace(valueDes);
           break;
@@ -573,7 +591,8 @@ class _$ClientCapabilitiesDeviceProfileSerializer implements PrimitiveSerializer
         case r'ResponseProfiles':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ResponseProfile)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ResponseProfile)]),
           ) as BuiltList<ResponseProfile>;
           result.responseProfiles.replace(valueDes);
           break;
@@ -713,4 +732,3 @@ class _$ClientCapabilitiesDeviceProfileSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

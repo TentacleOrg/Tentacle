@@ -9,16 +9,15 @@ import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/add_media_path_request.dart';
-import 'package:tentacle/src/model/add_virtual_folder_request.dart';
+import 'package:tentacle/src/model/add_virtual_folder_dto.dart';
 import 'package:tentacle/src/model/collection_type_options.dart';
+import 'package:tentacle/src/model/media_path_dto.dart';
 import 'package:tentacle/src/model/problem_details.dart';
-import 'package:tentacle/src/model/update_library_options_request.dart';
-import 'package:tentacle/src/model/update_media_path_request.dart';
+import 'package:tentacle/src/model/update_library_options_dto.dart';
+import 'package:tentacle/src/model/update_media_path_request_dto.dart';
 import 'package:tentacle/src/model/virtual_folder_info.dart';
 
 class LibraryStructureApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -26,10 +25,10 @@ class LibraryStructureApi {
   const LibraryStructureApi(this._dio, this._serializers);
 
   /// Add a media path to a library.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [addMediaPathRequest] - The media path dto.
+  /// * [mediaPathDto] - The media path dto.
   /// * [refreshLibrary] - Whether to refresh the library.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -39,9 +38,9 @@ class LibraryStructureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> addMediaPath({ 
-    required AddMediaPathRequest addMediaPathRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> addMediaPath({
+    required MediaPathDto mediaPathDto,
     bool? refreshLibrary = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -72,25 +71,27 @@ class LibraryStructureApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (refreshLibrary != null) r'refreshLibrary': encodeQueryParameter(_serializers, refreshLibrary, const FullType(bool)),
+      if (refreshLibrary != null)
+        r'refreshLibrary': encodeQueryParameter(
+            _serializers, refreshLibrary, const FullType(bool)),
     };
 
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AddMediaPathRequest);
-      _bodyData = _serializers.serialize(addMediaPathRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(MediaPathDto);
+      _bodyData = _serializers.serialize(mediaPathDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -107,14 +108,14 @@ class LibraryStructureApi {
   }
 
   /// Adds a virtual folder.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the virtual folder.
   /// * [collectionType] - The type of the collection.
   /// * [paths] - The paths of the virtual folder.
   /// * [refreshLibrary] - Whether to refresh the library.
-  /// * [addVirtualFolderRequest] - The library options.
+  /// * [addVirtualFolderDto] - The library options.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -123,13 +124,13 @@ class LibraryStructureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> addVirtualFolder({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> addVirtualFolder({
     String? name,
     CollectionTypeOptions? collectionType,
     BuiltList<String>? paths,
     bool? refreshLibrary = false,
-    AddVirtualFolderRequest? addVirtualFolderRequest,
+    AddVirtualFolderDto? addVirtualFolderDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -159,28 +160,42 @@ class LibraryStructureApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (name != null) r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
-      if (collectionType != null) r'collectionType': encodeQueryParameter(_serializers, collectionType, const FullType(CollectionTypeOptions)),
-      if (paths != null) r'paths': encodeCollectionQueryParameter<String>(_serializers, paths, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (refreshLibrary != null) r'refreshLibrary': encodeQueryParameter(_serializers, refreshLibrary, const FullType(bool)),
+      if (name != null)
+        r'name':
+            encodeQueryParameter(_serializers, name, const FullType(String)),
+      if (collectionType != null)
+        r'collectionType': encodeQueryParameter(_serializers, collectionType,
+            const FullType(CollectionTypeOptions)),
+      if (paths != null)
+        r'paths': encodeCollectionQueryParameter<String>(
+          _serializers,
+          paths,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (refreshLibrary != null)
+        r'refreshLibrary': encodeQueryParameter(
+            _serializers, refreshLibrary, const FullType(bool)),
     };
 
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AddVirtualFolderRequest);
-      _bodyData = addVirtualFolderRequest == null ? null : _serializers.serialize(addVirtualFolderRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(AddVirtualFolderDto);
+      _bodyData = addVirtualFolderDto == null
+          ? null
+          : _serializers.serialize(addVirtualFolderDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -197,7 +212,7 @@ class LibraryStructureApi {
   }
 
   /// Gets all virtual folders.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -208,8 +223,8 @@ class LibraryStructureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<VirtualFolderInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<VirtualFolderInfo>>> getVirtualFolders({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<VirtualFolderInfo>>> getVirtualFolders({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -245,22 +260,25 @@ class LibraryStructureApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<VirtualFolderInfo> _responseData;
+    BuiltList<VirtualFolderInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(VirtualFolderInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<VirtualFolderInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(VirtualFolderInfo)]),
+            ) as BuiltList<VirtualFolderInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<VirtualFolderInfo>>(
@@ -276,7 +294,7 @@ class LibraryStructureApi {
   }
 
   /// Remove a media path.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the library.
@@ -290,8 +308,8 @@ class LibraryStructureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> removeMediaPath({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> removeMediaPath({
     String? name,
     String? path,
     bool? refreshLibrary = false,
@@ -323,9 +341,15 @@ class LibraryStructureApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (name != null) r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
-      if (path != null) r'path': encodeQueryParameter(_serializers, path, const FullType(String)),
-      if (refreshLibrary != null) r'refreshLibrary': encodeQueryParameter(_serializers, refreshLibrary, const FullType(bool)),
+      if (name != null)
+        r'name':
+            encodeQueryParameter(_serializers, name, const FullType(String)),
+      if (path != null)
+        r'path':
+            encodeQueryParameter(_serializers, path, const FullType(String)),
+      if (refreshLibrary != null)
+        r'refreshLibrary': encodeQueryParameter(
+            _serializers, refreshLibrary, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -341,7 +365,7 @@ class LibraryStructureApi {
   }
 
   /// Removes a virtual folder.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the folder.
@@ -354,8 +378,8 @@ class LibraryStructureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> removeVirtualFolder({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> removeVirtualFolder({
     String? name,
     bool? refreshLibrary = false,
     CancelToken? cancelToken,
@@ -386,8 +410,12 @@ class LibraryStructureApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (name != null) r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
-      if (refreshLibrary != null) r'refreshLibrary': encodeQueryParameter(_serializers, refreshLibrary, const FullType(bool)),
+      if (name != null)
+        r'name':
+            encodeQueryParameter(_serializers, name, const FullType(String)),
+      if (refreshLibrary != null)
+        r'refreshLibrary': encodeQueryParameter(
+            _serializers, refreshLibrary, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -403,7 +431,7 @@ class LibraryStructureApi {
   }
 
   /// Renames a virtual folder.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the virtual folder.
@@ -417,8 +445,8 @@ class LibraryStructureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> renameVirtualFolder({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> renameVirtualFolder({
     String? name,
     String? newName,
     bool? refreshLibrary = false,
@@ -450,9 +478,15 @@ class LibraryStructureApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (name != null) r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
-      if (newName != null) r'newName': encodeQueryParameter(_serializers, newName, const FullType(String)),
-      if (refreshLibrary != null) r'refreshLibrary': encodeQueryParameter(_serializers, refreshLibrary, const FullType(bool)),
+      if (name != null)
+        r'name':
+            encodeQueryParameter(_serializers, name, const FullType(String)),
+      if (newName != null)
+        r'newName':
+            encodeQueryParameter(_serializers, newName, const FullType(String)),
+      if (refreshLibrary != null)
+        r'refreshLibrary': encodeQueryParameter(
+            _serializers, refreshLibrary, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -468,10 +502,10 @@ class LibraryStructureApi {
   }
 
   /// Update library options.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [updateLibraryOptionsRequest] - The library name and options.
+  /// * [updateLibraryOptionsDto] - The library name and options.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -480,9 +514,9 @@ class LibraryStructureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateLibraryOptions({ 
-    UpdateLibraryOptionsRequest? updateLibraryOptionsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateLibraryOptions({
+    UpdateLibraryOptionsDto? updateLibraryOptionsDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -514,18 +548,21 @@ class LibraryStructureApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateLibraryOptionsRequest);
-      _bodyData = updateLibraryOptionsRequest == null ? null : _serializers.serialize(updateLibraryOptionsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(UpdateLibraryOptionsDto);
+      _bodyData = updateLibraryOptionsDto == null
+          ? null
+          : _serializers.serialize(updateLibraryOptionsDto,
+              specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -541,10 +578,10 @@ class LibraryStructureApi {
   }
 
   /// Updates a media path.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [updateMediaPathRequest] - The name of the library and path infos.
+  /// * [updateMediaPathRequestDto] - The name of the library and path infos.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -553,9 +590,9 @@ class LibraryStructureApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateMediaPath({ 
-    required UpdateMediaPathRequest updateMediaPathRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateMediaPath({
+    required UpdateMediaPathRequestDto updateMediaPathRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -587,18 +624,19 @@ class LibraryStructureApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateMediaPathRequest);
-      _bodyData = _serializers.serialize(updateMediaPathRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(UpdateMediaPathRequestDto);
+      _bodyData = _serializers.serialize(updateMediaPathRequestDto,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -612,5 +650,4 @@ class LibraryStructureApi {
 
     return _response;
   }
-
 }

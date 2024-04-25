@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/task_info_last_execution_result.dart';
+import 'package:tentacle/src/model/task_state.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/task_trigger_info.dart';
-import 'package:tentacle/src/model/task_state.dart';
+import 'package:tentacle/src/model/task_info_last_execution_result.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -19,7 +19,7 @@ part 'task_info.g.dart';
 /// * [state] - Gets or sets the state of the task.
 /// * [currentProgressPercentage] - Gets or sets the progress.
 /// * [id] - Gets or sets the id.
-/// * [lastExecutionResult] 
+/// * [lastExecutionResult]
 /// * [triggers] - Gets or sets the triggers.
 /// * [description] - Gets or sets the description.
 /// * [category] - Gets or sets the category.
@@ -34,6 +34,7 @@ abstract class TaskInfo implements Built<TaskInfo, TaskInfoBuilder> {
   /// Gets or sets the state of the task.
   @BuiltValueField(wireName: r'State')
   TaskState? get state;
+  // enum stateEnum {  Idle,  Cancelling,  Running,  };
 
   /// Gets or sets the progress.
   @BuiltValueField(wireName: r'CurrentProgressPercentage')
@@ -128,7 +129,8 @@ class _$TaskInfoSerializer implements PrimitiveSerializer<TaskInfo> {
       yield r'Triggers';
       yield serializers.serialize(
         object.triggers,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(TaskTriggerInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(TaskTriggerInfo)]),
       );
     }
     if (object.description != null) {
@@ -167,7 +169,9 @@ class _$TaskInfoSerializer implements PrimitiveSerializer<TaskInfo> {
     TaskInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -224,7 +228,8 @@ class _$TaskInfoSerializer implements PrimitiveSerializer<TaskInfo> {
         case r'Triggers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(TaskTriggerInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(TaskTriggerInfo)]),
           ) as BuiltList<TaskTriggerInfo>?;
           if (valueDes == null) continue;
           result.triggers.replace(valueDes);
@@ -288,4 +293,3 @@ class _$TaskInfoSerializer implements PrimitiveSerializer<TaskInfo> {
     return result.build();
   }
 }
-

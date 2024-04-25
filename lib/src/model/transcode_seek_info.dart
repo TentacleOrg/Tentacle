@@ -10,15 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'transcode_seek_info.g.dart';
 
 class TranscodeSeekInfo extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Auto')
   static const TranscodeSeekInfo auto = _$auto;
   @BuiltValueEnumConst(wireName: r'Bytes')
   static const TranscodeSeekInfo bytes = _$bytes;
 
-  static Serializer<TranscodeSeekInfo> get serializer => _$transcodeSeekInfoSerializer;
+  static Serializer<TranscodeSeekInfo> get serializer =>
+      _$transcodeSeekInfoSerializer;
 
-  const TranscodeSeekInfo._(String name): super(name);
+  const TranscodeSeekInfo._(String name) : super(name);
 
   static BuiltSet<TranscodeSeekInfo> get values => _$values;
   static TranscodeSeekInfo valueOf(String name) => _$valueOf(name);
@@ -31,4 +31,3 @@ class TranscodeSeekInfo extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class TranscodeSeekInfoMixin = Object with _$TranscodeSeekInfoMixin;
-

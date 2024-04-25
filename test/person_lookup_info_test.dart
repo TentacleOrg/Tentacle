@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PersonLookupInfo
 void main() {
-  //final instance = PersonLookupInfoBuilder();
+  final instance = PersonLookupInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PersonLookupInfo, () {
@@ -68,6 +68,5 @@ void main() {
     test('to test the property `isAutomated`', () async {
       // TODO
     });
-
   });
 }

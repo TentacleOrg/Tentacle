@@ -6,49 +6,39 @@ part of 'startup_remote_access_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class StartupRemoteAccessDtoBuilder {
-  void replace(StartupRemoteAccessDto other);
-  void update(void Function(StartupRemoteAccessDtoBuilder) updates);
-  bool? get enableRemoteAccess;
-  set enableRemoteAccess(bool? enableRemoteAccess);
-
-  bool? get enableAutomaticPortMapping;
-  set enableAutomaticPortMapping(bool? enableAutomaticPortMapping);
-}
-
-class _$$StartupRemoteAccessDto extends $StartupRemoteAccessDto {
+class _$StartupRemoteAccessDto extends StartupRemoteAccessDto {
   @override
   final bool enableRemoteAccess;
   @override
   final bool enableAutomaticPortMapping;
 
-  factory _$$StartupRemoteAccessDto(
-          [void Function($StartupRemoteAccessDtoBuilder)? updates]) =>
-      (new $StartupRemoteAccessDtoBuilder()..update(updates))._build();
+  factory _$StartupRemoteAccessDto(
+          [void Function(StartupRemoteAccessDtoBuilder)? updates]) =>
+      (new StartupRemoteAccessDtoBuilder()..update(updates))._build();
 
-  _$$StartupRemoteAccessDto._(
+  _$StartupRemoteAccessDto._(
       {required this.enableRemoteAccess,
       required this.enableAutomaticPortMapping})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enableRemoteAccess, r'$StartupRemoteAccessDto', 'enableRemoteAccess');
+        enableRemoteAccess, r'StartupRemoteAccessDto', 'enableRemoteAccess');
     BuiltValueNullFieldError.checkNotNull(enableAutomaticPortMapping,
-        r'$StartupRemoteAccessDto', 'enableAutomaticPortMapping');
+        r'StartupRemoteAccessDto', 'enableAutomaticPortMapping');
   }
 
   @override
-  $StartupRemoteAccessDto rebuild(
-          void Function($StartupRemoteAccessDtoBuilder) updates) =>
+  StartupRemoteAccessDto rebuild(
+          void Function(StartupRemoteAccessDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $StartupRemoteAccessDtoBuilder toBuilder() =>
-      new $StartupRemoteAccessDtoBuilder()..replace(this);
+  StartupRemoteAccessDtoBuilder toBuilder() =>
+      new StartupRemoteAccessDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $StartupRemoteAccessDto &&
+    return other is StartupRemoteAccessDto &&
         enableRemoteAccess == other.enableRemoteAccess &&
         enableAutomaticPortMapping == other.enableAutomaticPortMapping;
   }
@@ -64,34 +54,32 @@ class _$$StartupRemoteAccessDto extends $StartupRemoteAccessDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$StartupRemoteAccessDto')
+    return (newBuiltValueToStringHelper(r'StartupRemoteAccessDto')
           ..add('enableRemoteAccess', enableRemoteAccess)
           ..add('enableAutomaticPortMapping', enableAutomaticPortMapping))
         .toString();
   }
 }
 
-class $StartupRemoteAccessDtoBuilder
-    implements
-        Builder<$StartupRemoteAccessDto, $StartupRemoteAccessDtoBuilder>,
-        StartupRemoteAccessDtoBuilder {
-  _$$StartupRemoteAccessDto? _$v;
+class StartupRemoteAccessDtoBuilder
+    implements Builder<StartupRemoteAccessDto, StartupRemoteAccessDtoBuilder> {
+  _$StartupRemoteAccessDto? _$v;
 
   bool? _enableRemoteAccess;
   bool? get enableRemoteAccess => _$this._enableRemoteAccess;
-  set enableRemoteAccess(covariant bool? enableRemoteAccess) =>
+  set enableRemoteAccess(bool? enableRemoteAccess) =>
       _$this._enableRemoteAccess = enableRemoteAccess;
 
   bool? _enableAutomaticPortMapping;
   bool? get enableAutomaticPortMapping => _$this._enableAutomaticPortMapping;
-  set enableAutomaticPortMapping(covariant bool? enableAutomaticPortMapping) =>
+  set enableAutomaticPortMapping(bool? enableAutomaticPortMapping) =>
       _$this._enableAutomaticPortMapping = enableAutomaticPortMapping;
 
-  $StartupRemoteAccessDtoBuilder() {
-    $StartupRemoteAccessDto._defaults(this);
+  StartupRemoteAccessDtoBuilder() {
+    StartupRemoteAccessDto._defaults(this);
   }
 
-  $StartupRemoteAccessDtoBuilder get _$this {
+  StartupRemoteAccessDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enableRemoteAccess = $v.enableRemoteAccess;
@@ -102,29 +90,29 @@ class $StartupRemoteAccessDtoBuilder
   }
 
   @override
-  void replace(covariant $StartupRemoteAccessDto other) {
+  void replace(StartupRemoteAccessDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$StartupRemoteAccessDto;
+    _$v = other as _$StartupRemoteAccessDto;
   }
 
   @override
-  void update(void Function($StartupRemoteAccessDtoBuilder)? updates) {
+  void update(void Function(StartupRemoteAccessDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $StartupRemoteAccessDto build() => _build();
+  StartupRemoteAccessDto build() => _build();
 
-  _$$StartupRemoteAccessDto _build() {
+  _$StartupRemoteAccessDto _build() {
     final _$result = _$v ??
-        new _$$StartupRemoteAccessDto._(
+        new _$StartupRemoteAccessDto._(
             enableRemoteAccess: BuiltValueNullFieldError.checkNotNull(
                 enableRemoteAccess,
-                r'$StartupRemoteAccessDto',
+                r'StartupRemoteAccessDto',
                 'enableRemoteAccess'),
             enableAutomaticPortMapping: BuiltValueNullFieldError.checkNotNull(
                 enableAutomaticPortMapping,
-                r'$StartupRemoteAccessDto',
+                r'StartupRemoteAccessDto',
                 'enableAutomaticPortMapping'));
     replace(_$result);
     return _$result;

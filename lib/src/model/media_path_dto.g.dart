@@ -6,20 +6,7 @@ part of 'media_path_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class MediaPathDtoBuilder {
-  void replace(MediaPathDto other);
-  void update(void Function(MediaPathDtoBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  String? get path;
-  set path(String? path);
-
-  MediaPathDtoPathInfoBuilder get pathInfo;
-  set pathInfo(MediaPathDtoPathInfoBuilder? pathInfo);
-}
-
-class _$$MediaPathDto extends $MediaPathDto {
+class _$MediaPathDto extends MediaPathDto {
   @override
   final String name;
   @override
@@ -27,25 +14,24 @@ class _$$MediaPathDto extends $MediaPathDto {
   @override
   final MediaPathDtoPathInfo? pathInfo;
 
-  factory _$$MediaPathDto([void Function($MediaPathDtoBuilder)? updates]) =>
-      (new $MediaPathDtoBuilder()..update(updates))._build();
+  factory _$MediaPathDto([void Function(MediaPathDtoBuilder)? updates]) =>
+      (new MediaPathDtoBuilder()..update(updates))._build();
 
-  _$$MediaPathDto._({required this.name, this.path, this.pathInfo})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'$MediaPathDto', 'name');
+  _$MediaPathDto._({required this.name, this.path, this.pathInfo}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'MediaPathDto', 'name');
   }
 
   @override
-  $MediaPathDto rebuild(void Function($MediaPathDtoBuilder) updates) =>
+  MediaPathDto rebuild(void Function(MediaPathDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $MediaPathDtoBuilder toBuilder() => new $MediaPathDtoBuilder()..replace(this);
+  MediaPathDtoBuilder toBuilder() => new MediaPathDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $MediaPathDto &&
+    return other is MediaPathDto &&
         name == other.name &&
         path == other.path &&
         pathInfo == other.pathInfo;
@@ -63,7 +49,7 @@ class _$$MediaPathDto extends $MediaPathDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$MediaPathDto')
+    return (newBuiltValueToStringHelper(r'MediaPathDto')
           ..add('name', name)
           ..add('path', path)
           ..add('pathInfo', pathInfo))
@@ -71,31 +57,29 @@ class _$$MediaPathDto extends $MediaPathDto {
   }
 }
 
-class $MediaPathDtoBuilder
-    implements
-        Builder<$MediaPathDto, $MediaPathDtoBuilder>,
-        MediaPathDtoBuilder {
-  _$$MediaPathDto? _$v;
+class MediaPathDtoBuilder
+    implements Builder<MediaPathDto, MediaPathDtoBuilder> {
+  _$MediaPathDto? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _path;
   String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
+  set path(String? path) => _$this._path = path;
 
   MediaPathDtoPathInfoBuilder? _pathInfo;
   MediaPathDtoPathInfoBuilder get pathInfo =>
       _$this._pathInfo ??= new MediaPathDtoPathInfoBuilder();
-  set pathInfo(covariant MediaPathDtoPathInfoBuilder? pathInfo) =>
+  set pathInfo(MediaPathDtoPathInfoBuilder? pathInfo) =>
       _$this._pathInfo = pathInfo;
 
-  $MediaPathDtoBuilder() {
-    $MediaPathDto._defaults(this);
+  MediaPathDtoBuilder() {
+    MediaPathDto._defaults(this);
   }
 
-  $MediaPathDtoBuilder get _$this {
+  MediaPathDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -107,26 +91,26 @@ class $MediaPathDtoBuilder
   }
 
   @override
-  void replace(covariant $MediaPathDto other) {
+  void replace(MediaPathDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$MediaPathDto;
+    _$v = other as _$MediaPathDto;
   }
 
   @override
-  void update(void Function($MediaPathDtoBuilder)? updates) {
+  void update(void Function(MediaPathDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $MediaPathDto build() => _build();
+  MediaPathDto build() => _build();
 
-  _$$MediaPathDto _build() {
-    _$$MediaPathDto _$result;
+  _$MediaPathDto _build() {
+    _$MediaPathDto _$result;
     try {
       _$result = _$v ??
-          new _$$MediaPathDto._(
+          new _$MediaPathDto._(
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'$MediaPathDto', 'name'),
+                  name, r'MediaPathDto', 'name'),
               path: path,
               pathInfo: _pathInfo?.build());
     } catch (_) {
@@ -136,7 +120,7 @@ class $MediaPathDtoBuilder
         _pathInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$MediaPathDto', _$failedField, e.toString());
+            r'MediaPathDto', _$failedField, e.toString());
       }
       rethrow;
     }

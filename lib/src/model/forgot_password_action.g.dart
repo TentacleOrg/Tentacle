@@ -41,7 +41,7 @@ class _$ForgotPasswordActionMeta {
   BuiltSet<ForgotPasswordAction> get values => _$values;
 }
 
-abstract class _$ForgotPasswordActionMixin {
+mixin _$ForgotPasswordActionMixin {
   // ignore: non_constant_identifier_names
   _$ForgotPasswordActionMeta get ForgotPasswordAction =>
       const _$ForgotPasswordActionMeta();

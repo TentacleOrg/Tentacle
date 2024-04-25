@@ -6,7 +6,7 @@ part of 'device_identification.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class DeviceIdentificationBuilder {
+abstract mixin class DeviceIdentificationBuilder {
   void replace(DeviceIdentification other);
   void update(void Function(DeviceIdentificationBuilder) updates);
   String? get friendlyName;

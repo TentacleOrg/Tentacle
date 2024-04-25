@@ -24,6 +24,5 @@ void main() {
     test('to test the property `minWidth`', () async {
       // TODO
     });
-
   });
 }

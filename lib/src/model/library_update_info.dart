@@ -17,10 +17,11 @@ part 'library_update_info.g.dart';
 /// * [itemsAdded] - Gets or sets the items added.
 /// * [itemsRemoved] - Gets or sets the items removed.
 /// * [itemsUpdated] - Gets or sets the items updated.
-/// * [collectionFolders] 
-/// * [isEmpty] 
+/// * [collectionFolders]
+/// * [isEmpty]
 @BuiltValue()
-abstract class LibraryUpdateInfo implements Built<LibraryUpdateInfo, LibraryUpdateInfoBuilder> {
+abstract class LibraryUpdateInfo
+    implements Built<LibraryUpdateInfo, LibraryUpdateInfoBuilder> {
   /// Gets or sets the folders added to.
   @BuiltValueField(wireName: r'FoldersAddedTo')
   BuiltList<String>? get foldersAddedTo;
@@ -49,16 +50,19 @@ abstract class LibraryUpdateInfo implements Built<LibraryUpdateInfo, LibraryUpda
 
   LibraryUpdateInfo._();
 
-  factory LibraryUpdateInfo([void updates(LibraryUpdateInfoBuilder b)]) = _$LibraryUpdateInfo;
+  factory LibraryUpdateInfo([void updates(LibraryUpdateInfoBuilder b)]) =
+      _$LibraryUpdateInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LibraryUpdateInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LibraryUpdateInfo> get serializer => _$LibraryUpdateInfoSerializer();
+  static Serializer<LibraryUpdateInfo> get serializer =>
+      _$LibraryUpdateInfoSerializer();
 }
 
-class _$LibraryUpdateInfoSerializer implements PrimitiveSerializer<LibraryUpdateInfo> {
+class _$LibraryUpdateInfoSerializer
+    implements PrimitiveSerializer<LibraryUpdateInfo> {
   @override
   final Iterable<Type> types = const [LibraryUpdateInfo, _$LibraryUpdateInfo];
 
@@ -127,7 +131,9 @@ class _$LibraryUpdateInfoSerializer implements PrimitiveSerializer<LibraryUpdate
     LibraryUpdateInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -219,4 +225,3 @@ class _$LibraryUpdateInfoSerializer implements PrimitiveSerializer<LibraryUpdate
     return result.build();
   }
 }
-

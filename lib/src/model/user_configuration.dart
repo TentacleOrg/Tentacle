@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/subtitle_playback_mode.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/subtitle_playback_mode.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,20 +16,20 @@ part 'user_configuration.g.dart';
 /// * [audioLanguagePreference] - Gets or sets the audio language preference.
 /// * [playDefaultAudioTrack] - Gets or sets a value indicating whether [play default audio track].
 /// * [subtitleLanguagePreference] - Gets or sets the subtitle language preference.
-/// * [displayMissingEpisodes] 
-/// * [groupedFolders] 
+/// * [displayMissingEpisodes]
+/// * [groupedFolders]
 /// * [subtitleMode] - An enum representing a subtitle playback mode.
-/// * [displayCollectionsView] 
-/// * [enableLocalPassword] 
-/// * [orderedViews] 
-/// * [latestItemsExcludes] 
-/// * [myMediaExcludes] 
-/// * [hidePlayedInLatest] 
-/// * [rememberAudioSelections] 
-/// * [rememberSubtitleSelections] 
-/// * [enableNextEpisodeAutoPlay] 
+/// * [displayCollectionsView]
+/// * [enableLocalPassword]
+/// * [orderedViews]
+/// * [latestItemsExcludes]
+/// * [myMediaExcludes]
+/// * [hidePlayedInLatest]
+/// * [rememberAudioSelections]
+/// * [rememberSubtitleSelections]
+/// * [enableNextEpisodeAutoPlay]
 @BuiltValue(instantiable: false)
-abstract class UserConfiguration  {
+abstract class UserConfiguration {
   /// Gets or sets the audio language preference.
   @BuiltValueField(wireName: r'AudioLanguagePreference')
   String? get audioLanguagePreference;
@@ -51,6 +51,7 @@ abstract class UserConfiguration  {
   /// An enum representing a subtitle playback mode.
   @BuiltValueField(wireName: r'SubtitleMode')
   SubtitlePlaybackMode? get subtitleMode;
+  // enum subtitleModeEnum {  Default,  Always,  OnlyForced,  None,  Smart,  };
 
   @BuiltValueField(wireName: r'DisplayCollectionsView')
   bool? get displayCollectionsView;
@@ -80,10 +81,12 @@ abstract class UserConfiguration  {
   bool? get enableNextEpisodeAutoPlay;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UserConfiguration> get serializer => _$UserConfigurationSerializer();
+  static Serializer<UserConfiguration> get serializer =>
+      _$UserConfigurationSerializer();
 }
 
-class _$UserConfigurationSerializer implements PrimitiveSerializer<UserConfiguration> {
+class _$UserConfigurationSerializer
+    implements PrimitiveSerializer<UserConfiguration> {
   @override
   final Iterable<Type> types = const [UserConfiguration];
 
@@ -208,7 +211,9 @@ class _$UserConfigurationSerializer implements PrimitiveSerializer<UserConfigura
     UserConfiguration object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -217,25 +222,33 @@ class _$UserConfigurationSerializer implements PrimitiveSerializer<UserConfigura
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($UserConfiguration)) as $UserConfiguration;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($UserConfiguration)) as $UserConfiguration;
   }
 }
 
 /// a concrete implementation of [UserConfiguration], since [UserConfiguration] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $UserConfiguration implements UserConfiguration, Built<$UserConfiguration, $UserConfigurationBuilder> {
+abstract class $UserConfiguration
+    implements
+        UserConfiguration,
+        Built<$UserConfiguration, $UserConfigurationBuilder> {
   $UserConfiguration._();
 
-  factory $UserConfiguration([void Function($UserConfigurationBuilder)? updates]) = _$$UserConfiguration;
+  factory $UserConfiguration(
+          [void Function($UserConfigurationBuilder)? updates]) =
+      _$$UserConfiguration;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($UserConfigurationBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$UserConfiguration> get serializer => _$$UserConfigurationSerializer();
+  static Serializer<$UserConfiguration> get serializer =>
+      _$$UserConfigurationSerializer();
 }
 
-class _$$UserConfigurationSerializer implements PrimitiveSerializer<$UserConfiguration> {
+class _$$UserConfigurationSerializer
+    implements PrimitiveSerializer<$UserConfiguration> {
   @override
   final Iterable<Type> types = const [$UserConfiguration, _$$UserConfiguration];
 
@@ -248,7 +261,8 @@ class _$$UserConfigurationSerializer implements PrimitiveSerializer<$UserConfigu
     $UserConfiguration object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(UserConfiguration))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(UserConfiguration))!;
   }
 
   void _deserializeProperties(
@@ -398,4 +412,3 @@ class _$$UserConfigurationSerializer implements PrimitiveSerializer<$UserConfigu
     return result.build();
   }
 }
-

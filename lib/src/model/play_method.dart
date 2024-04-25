@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'play_method.g.dart';
 
 class PlayMethod extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Transcode')
   static const PlayMethod transcode = _$transcode;
   @BuiltValueEnumConst(wireName: r'DirectStream')
@@ -20,7 +19,7 @@ class PlayMethod extends EnumClass {
 
   static Serializer<PlayMethod> get serializer => _$playMethodSerializer;
 
-  const PlayMethod._(String name): super(name);
+  const PlayMethod._(String name) : super(name);
 
   static BuiltSet<PlayMethod> get values => _$values;
   static PlayMethod valueOf(String name) => _$valueOf(name);
@@ -33,4 +32,3 @@ class PlayMethod extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class PlayMethodMixin = Object with _$PlayMethodMixin;
-

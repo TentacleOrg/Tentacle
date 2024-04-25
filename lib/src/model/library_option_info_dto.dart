@@ -14,7 +14,8 @@ part 'library_option_info_dto.g.dart';
 /// * [name] - Gets or sets name.
 /// * [defaultEnabled] - Gets or sets a value indicating whether default enabled.
 @BuiltValue()
-abstract class LibraryOptionInfoDto implements Built<LibraryOptionInfoDto, LibraryOptionInfoDtoBuilder> {
+abstract class LibraryOptionInfoDto
+    implements Built<LibraryOptionInfoDto, LibraryOptionInfoDtoBuilder> {
   /// Gets or sets name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -25,18 +26,24 @@ abstract class LibraryOptionInfoDto implements Built<LibraryOptionInfoDto, Libra
 
   LibraryOptionInfoDto._();
 
-  factory LibraryOptionInfoDto([void updates(LibraryOptionInfoDtoBuilder b)]) = _$LibraryOptionInfoDto;
+  factory LibraryOptionInfoDto([void updates(LibraryOptionInfoDtoBuilder b)]) =
+      _$LibraryOptionInfoDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LibraryOptionInfoDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LibraryOptionInfoDto> get serializer => _$LibraryOptionInfoDtoSerializer();
+  static Serializer<LibraryOptionInfoDto> get serializer =>
+      _$LibraryOptionInfoDtoSerializer();
 }
 
-class _$LibraryOptionInfoDtoSerializer implements PrimitiveSerializer<LibraryOptionInfoDto> {
+class _$LibraryOptionInfoDtoSerializer
+    implements PrimitiveSerializer<LibraryOptionInfoDto> {
   @override
-  final Iterable<Type> types = const [LibraryOptionInfoDto, _$LibraryOptionInfoDto];
+  final Iterable<Type> types = const [
+    LibraryOptionInfoDto,
+    _$LibraryOptionInfoDto
+  ];
 
   @override
   final String wireName = r'LibraryOptionInfoDto';
@@ -68,7 +75,9 @@ class _$LibraryOptionInfoDtoSerializer implements PrimitiveSerializer<LibraryOpt
     LibraryOptionInfoDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -126,4 +135,3 @@ class _$LibraryOptionInfoDtoSerializer implements PrimitiveSerializer<LibraryOpt
     return result.build();
   }
 }
-

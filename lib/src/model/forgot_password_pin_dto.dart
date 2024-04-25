@@ -12,19 +12,33 @@ part 'forgot_password_pin_dto.g.dart';
 ///
 /// Properties:
 /// * [pin] - Gets or sets the entered pin to have the password reset.
-@BuiltValue(instantiable: false)
-abstract class ForgotPasswordPinDto  {
+@BuiltValue()
+abstract class ForgotPasswordPinDto
+    implements Built<ForgotPasswordPinDto, ForgotPasswordPinDtoBuilder> {
   /// Gets or sets the entered pin to have the password reset.
   @BuiltValueField(wireName: r'Pin')
   String get pin;
 
+  ForgotPasswordPinDto._();
+
+  factory ForgotPasswordPinDto([void updates(ForgotPasswordPinDtoBuilder b)]) =
+      _$ForgotPasswordPinDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ForgotPasswordPinDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<ForgotPasswordPinDto> get serializer => _$ForgotPasswordPinDtoSerializer();
+  static Serializer<ForgotPasswordPinDto> get serializer =>
+      _$ForgotPasswordPinDtoSerializer();
 }
 
-class _$ForgotPasswordPinDtoSerializer implements PrimitiveSerializer<ForgotPasswordPinDto> {
+class _$ForgotPasswordPinDtoSerializer
+    implements PrimitiveSerializer<ForgotPasswordPinDto> {
   @override
-  final Iterable<Type> types = const [ForgotPasswordPinDto];
+  final Iterable<Type> types = const [
+    ForgotPasswordPinDto,
+    _$ForgotPasswordPinDto
+  ];
 
   @override
   final String wireName = r'ForgotPasswordPinDto';
@@ -47,47 +61,9 @@ class _$ForgotPasswordPinDtoSerializer implements PrimitiveSerializer<ForgotPass
     ForgotPasswordPinDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  ForgotPasswordPinDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ForgotPasswordPinDto)) as $ForgotPasswordPinDto;
-  }
-}
-
-/// a concrete implementation of [ForgotPasswordPinDto], since [ForgotPasswordPinDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ForgotPasswordPinDto implements ForgotPasswordPinDto, Built<$ForgotPasswordPinDto, $ForgotPasswordPinDtoBuilder> {
-  $ForgotPasswordPinDto._();
-
-  factory $ForgotPasswordPinDto([void Function($ForgotPasswordPinDtoBuilder)? updates]) = _$$ForgotPasswordPinDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ForgotPasswordPinDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ForgotPasswordPinDto> get serializer => _$$ForgotPasswordPinDtoSerializer();
-}
-
-class _$$ForgotPasswordPinDtoSerializer implements PrimitiveSerializer<$ForgotPasswordPinDto> {
-  @override
-  final Iterable<Type> types = const [$ForgotPasswordPinDto, _$$ForgotPasswordPinDto];
-
-  @override
-  final String wireName = r'$ForgotPasswordPinDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ForgotPasswordPinDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(ForgotPasswordPinDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -118,12 +94,12 @@ class _$$ForgotPasswordPinDtoSerializer implements PrimitiveSerializer<$ForgotPa
   }
 
   @override
-  $ForgotPasswordPinDto deserialize(
+  ForgotPasswordPinDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ForgotPasswordPinDtoBuilder();
+    final result = ForgotPasswordPinDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -137,4 +113,3 @@ class _$$ForgotPasswordPinDtoSerializer implements PrimitiveSerializer<$ForgotPa
     return result.build();
   }
 }
-

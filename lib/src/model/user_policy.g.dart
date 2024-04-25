@@ -6,7 +6,7 @@ part of 'user_policy.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class UserPolicyBuilder {
+abstract mixin class UserPolicyBuilder {
   void replace(UserPolicy other);
   void update(void Function(UserPolicyBuilder) updates);
   bool? get isAdministrator;

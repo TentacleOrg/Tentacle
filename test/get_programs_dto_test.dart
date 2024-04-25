@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for GetProgramsDto
 void main() {
-  //final instance = GetProgramsDtoBuilder();
+  final instance = GetProgramsDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(GetProgramsDto, () {
@@ -168,6 +168,5 @@ void main() {
     test('to test the property `fields`', () async {
       // TODO
     });
-
   });
 }

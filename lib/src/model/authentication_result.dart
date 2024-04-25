@@ -13,12 +13,13 @@ part 'authentication_result.g.dart';
 /// AuthenticationResult
 ///
 /// Properties:
-/// * [user] 
-/// * [sessionInfo] 
-/// * [accessToken] 
-/// * [serverId] 
+/// * [user]
+/// * [sessionInfo]
+/// * [accessToken]
+/// * [serverId]
 @BuiltValue()
-abstract class AuthenticationResult implements Built<AuthenticationResult, AuthenticationResultBuilder> {
+abstract class AuthenticationResult
+    implements Built<AuthenticationResult, AuthenticationResultBuilder> {
   @BuiltValueField(wireName: r'User')
   AuthenticationResultUser? get user;
 
@@ -33,18 +34,24 @@ abstract class AuthenticationResult implements Built<AuthenticationResult, Authe
 
   AuthenticationResult._();
 
-  factory AuthenticationResult([void updates(AuthenticationResultBuilder b)]) = _$AuthenticationResult;
+  factory AuthenticationResult([void updates(AuthenticationResultBuilder b)]) =
+      _$AuthenticationResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AuthenticationResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AuthenticationResult> get serializer => _$AuthenticationResultSerializer();
+  static Serializer<AuthenticationResult> get serializer =>
+      _$AuthenticationResultSerializer();
 }
 
-class _$AuthenticationResultSerializer implements PrimitiveSerializer<AuthenticationResult> {
+class _$AuthenticationResultSerializer
+    implements PrimitiveSerializer<AuthenticationResult> {
   @override
-  final Iterable<Type> types = const [AuthenticationResult, _$AuthenticationResult];
+  final Iterable<Type> types = const [
+    AuthenticationResult,
+    _$AuthenticationResult
+  ];
 
   @override
   final String wireName = r'AuthenticationResult';
@@ -90,7 +97,9 @@ class _$AuthenticationResultSerializer implements PrimitiveSerializer<Authentica
     AuthenticationResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -116,7 +125,8 @@ class _$AuthenticationResultSerializer implements PrimitiveSerializer<Authentica
         case r'SessionInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AuthenticationResultSessionInfo),
+            specifiedType:
+                const FullType.nullable(AuthenticationResultSessionInfo),
           ) as AuthenticationResultSessionInfo?;
           if (valueDes == null) continue;
           result.sessionInfo.replace(valueDes);
@@ -165,4 +175,3 @@ class _$AuthenticationResultSerializer implements PrimitiveSerializer<Authentica
     return result.build();
   }
 }
-

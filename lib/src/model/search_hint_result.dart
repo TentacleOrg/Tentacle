@@ -16,7 +16,8 @@ part 'search_hint_result.g.dart';
 /// * [searchHints] - Gets the search hints.
 /// * [totalRecordCount] - Gets the total record count.
 @BuiltValue()
-abstract class SearchHintResult implements Built<SearchHintResult, SearchHintResultBuilder> {
+abstract class SearchHintResult
+    implements Built<SearchHintResult, SearchHintResultBuilder> {
   /// Gets the search hints.
   @BuiltValueField(wireName: r'SearchHints')
   BuiltList<SearchHint>? get searchHints;
@@ -27,16 +28,19 @@ abstract class SearchHintResult implements Built<SearchHintResult, SearchHintRes
 
   SearchHintResult._();
 
-  factory SearchHintResult([void updates(SearchHintResultBuilder b)]) = _$SearchHintResult;
+  factory SearchHintResult([void updates(SearchHintResultBuilder b)]) =
+      _$SearchHintResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SearchHintResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SearchHintResult> get serializer => _$SearchHintResultSerializer();
+  static Serializer<SearchHintResult> get serializer =>
+      _$SearchHintResultSerializer();
 }
 
-class _$SearchHintResultSerializer implements PrimitiveSerializer<SearchHintResult> {
+class _$SearchHintResultSerializer
+    implements PrimitiveSerializer<SearchHintResult> {
   @override
   final Iterable<Type> types = const [SearchHintResult, _$SearchHintResult];
 
@@ -70,7 +74,9 @@ class _$SearchHintResultSerializer implements PrimitiveSerializer<SearchHintResu
     SearchHintResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +133,3 @@ class _$SearchHintResultSerializer implements PrimitiveSerializer<SearchHintResu
     return result.build();
   }
 }
-

@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for StartupApi
 void main() {
   final instance = Tentacle().getStartupApi();
@@ -37,24 +36,23 @@ void main() {
 
     // Sets remote access and UPnP.
     //
-    //Future setRemoteAccess(SetRemoteAccessRequest setRemoteAccessRequest) async
+    //Future setRemoteAccess(StartupRemoteAccessDto startupRemoteAccessDto) async
     test('test setRemoteAccess', () async {
       // TODO
     });
 
     // Sets the initial startup wizard configuration.
     //
-    //Future updateInitialConfiguration(UpdateInitialConfigurationRequest updateInitialConfigurationRequest) async
+    //Future updateInitialConfiguration(StartupConfigurationDto startupConfigurationDto) async
     test('test updateInitialConfiguration', () async {
       // TODO
     });
 
     // Sets the user name and password.
     //
-    //Future updateStartupUser({ UpdateStartupUserRequest updateStartupUserRequest }) async
+    //Future updateStartupUser({ StartupUserDto startupUserDto }) async
     test('test updateStartupUser', () async {
       // TODO
     });
-
   });
 }

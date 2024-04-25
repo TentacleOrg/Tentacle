@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for ChannelsApi
 void main() {
   final instance = Tentacle().getChannelsApi();
@@ -41,6 +40,5 @@ void main() {
     test('test getLatestChannelItems', () async {
       // TODO
     });
-
   });
 }

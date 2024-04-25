@@ -159,6 +159,5 @@ void main() {
     test('to test the property `systemArchitecture`', () async {
       // TODO
     });
-
   });
 }

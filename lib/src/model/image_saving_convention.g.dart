@@ -35,7 +35,7 @@ class _$ImageSavingConventionMeta {
   BuiltSet<ImageSavingConvention> get values => _$values;
 }
 
-abstract class _$ImageSavingConventionMixin {
+mixin _$ImageSavingConventionMixin {
   // ignore: non_constant_identifier_names
   _$ImageSavingConventionMeta get ImageSavingConvention =>
       const _$ImageSavingConventionMeta();

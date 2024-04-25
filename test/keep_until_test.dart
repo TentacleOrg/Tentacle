@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for KeepUntil
 void main() {
-
-  group(KeepUntil, () {
-  });
+  group(KeepUntil, () {});
 }

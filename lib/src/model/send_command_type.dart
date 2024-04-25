@@ -10,23 +10,26 @@ import 'package:built_value/serializer.dart';
 part 'send_command_type.g.dart';
 
 class SendCommandType extends EnumClass {
-
   /// Enum SendCommandType.
   @BuiltValueEnumConst(wireName: r'Unpause')
   static const SendCommandType unpause = _$unpause;
+
   /// Enum SendCommandType.
   @BuiltValueEnumConst(wireName: r'Pause')
   static const SendCommandType pause = _$pause;
+
   /// Enum SendCommandType.
   @BuiltValueEnumConst(wireName: r'Stop')
   static const SendCommandType stop = _$stop;
+
   /// Enum SendCommandType.
   @BuiltValueEnumConst(wireName: r'Seek')
   static const SendCommandType seek = _$seek;
 
-  static Serializer<SendCommandType> get serializer => _$sendCommandTypeSerializer;
+  static Serializer<SendCommandType> get serializer =>
+      _$sendCommandTypeSerializer;
 
-  const SendCommandType._(String name): super(name);
+  const SendCommandType._(String name) : super(name);
 
   static BuiltSet<SendCommandType> get values => _$values;
   static SendCommandType valueOf(String name) => _$valueOf(name);
@@ -39,4 +42,3 @@ class SendCommandType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class SendCommandTypeMixin = Object with _$SendCommandTypeMixin;
-

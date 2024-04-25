@@ -69,7 +69,7 @@ class _$ItemFilterMeta {
   BuiltSet<ItemFilter> get values => _$values;
 }
 
-abstract class _$ItemFilterMixin {
+mixin _$ItemFilterMixin {
   // ignore: non_constant_identifier_names
   _$ItemFilterMeta get ItemFilter => const _$ItemFilterMeta();
 }

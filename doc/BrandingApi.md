@@ -1,8 +1,8 @@
-# openapi.api.BrandingApi
+# tentacle.api.BrandingApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -21,14 +21,14 @@ Gets branding css.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getBrandingApi();
+final api = Tentacle().getBrandingApi();
 
 try {
     final response = api.getBrandingCss();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling BrandingApi->getBrandingCss: $e\n');
 }
 ```
@@ -58,14 +58,14 @@ Gets branding css.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getBrandingApi();
+final api = Tentacle().getBrandingApi();
 
 try {
     final response = api.getBrandingCss2();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling BrandingApi->getBrandingCss2: $e\n');
 }
 ```
@@ -95,14 +95,14 @@ Gets branding configuration.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getBrandingApi();
+final api = Tentacle().getBrandingApi();
 
 try {
     final response = api.getBrandingOptions();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling BrandingApi->getBrandingOptions: $e\n');
 }
 ```

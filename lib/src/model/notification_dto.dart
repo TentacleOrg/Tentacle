@@ -21,7 +21,8 @@ part 'notification_dto.g.dart';
 /// * [url] - Gets or sets the notification's URL. Defaults to an empty string.
 /// * [level] - Gets or sets the notification level.
 @BuiltValue()
-abstract class NotificationDto implements Built<NotificationDto, NotificationDtoBuilder> {
+abstract class NotificationDto
+    implements Built<NotificationDto, NotificationDtoBuilder> {
   /// Gets or sets the notification ID. Defaults to an empty string.
   @BuiltValueField(wireName: r'Id')
   String? get id;
@@ -53,19 +54,23 @@ abstract class NotificationDto implements Built<NotificationDto, NotificationDto
   /// Gets or sets the notification level.
   @BuiltValueField(wireName: r'Level')
   NotificationLevel? get level;
+  // enum levelEnum {  Normal,  Warning,  Error,  };
 
   NotificationDto._();
 
-  factory NotificationDto([void updates(NotificationDtoBuilder b)]) = _$NotificationDto;
+  factory NotificationDto([void updates(NotificationDtoBuilder b)]) =
+      _$NotificationDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NotificationDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationDto> get serializer => _$NotificationDtoSerializer();
+  static Serializer<NotificationDto> get serializer =>
+      _$NotificationDtoSerializer();
 }
 
-class _$NotificationDtoSerializer implements PrimitiveSerializer<NotificationDto> {
+class _$NotificationDtoSerializer
+    implements PrimitiveSerializer<NotificationDto> {
   @override
   final Iterable<Type> types = const [NotificationDto, _$NotificationDto];
 
@@ -141,7 +146,9 @@ class _$NotificationDtoSerializer implements PrimitiveSerializer<NotificationDto
     NotificationDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -240,4 +247,3 @@ class _$NotificationDtoSerializer implements PrimitiveSerializer<NotificationDto
     return result.build();
   }
 }
-

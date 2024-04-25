@@ -12,20 +12,37 @@ part 'set_shuffle_mode_request_dto.g.dart';
 /// Class SetShuffleModeRequestDto.
 ///
 /// Properties:
-/// * [mode] - Gets or sets the shuffle mode.
-@BuiltValue(instantiable: false)
-abstract class SetShuffleModeRequestDto  {
-  /// Gets or sets the shuffle mode.
+/// * [mode] - Enum GroupShuffleMode.
+@BuiltValue()
+abstract class SetShuffleModeRequestDto
+    implements
+        Built<SetShuffleModeRequestDto, SetShuffleModeRequestDtoBuilder> {
+  /// Enum GroupShuffleMode.
   @BuiltValueField(wireName: r'Mode')
   GroupShuffleMode? get mode;
+  // enum modeEnum {  Sorted,  Shuffle,  };
+
+  SetShuffleModeRequestDto._();
+
+  factory SetShuffleModeRequestDto(
+          [void updates(SetShuffleModeRequestDtoBuilder b)]) =
+      _$SetShuffleModeRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SetShuffleModeRequestDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SetShuffleModeRequestDto> get serializer => _$SetShuffleModeRequestDtoSerializer();
+  static Serializer<SetShuffleModeRequestDto> get serializer =>
+      _$SetShuffleModeRequestDtoSerializer();
 }
 
-class _$SetShuffleModeRequestDtoSerializer implements PrimitiveSerializer<SetShuffleModeRequestDto> {
+class _$SetShuffleModeRequestDtoSerializer
+    implements PrimitiveSerializer<SetShuffleModeRequestDto> {
   @override
-  final Iterable<Type> types = const [SetShuffleModeRequestDto];
+  final Iterable<Type> types = const [
+    SetShuffleModeRequestDto,
+    _$SetShuffleModeRequestDto
+  ];
 
   @override
   final String wireName = r'SetShuffleModeRequestDto';
@@ -50,47 +67,9 @@ class _$SetShuffleModeRequestDtoSerializer implements PrimitiveSerializer<SetShu
     SetShuffleModeRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  SetShuffleModeRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SetShuffleModeRequestDto)) as $SetShuffleModeRequestDto;
-  }
-}
-
-/// a concrete implementation of [SetShuffleModeRequestDto], since [SetShuffleModeRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SetShuffleModeRequestDto implements SetShuffleModeRequestDto, Built<$SetShuffleModeRequestDto, $SetShuffleModeRequestDtoBuilder> {
-  $SetShuffleModeRequestDto._();
-
-  factory $SetShuffleModeRequestDto([void Function($SetShuffleModeRequestDtoBuilder)? updates]) = _$$SetShuffleModeRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SetShuffleModeRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SetShuffleModeRequestDto> get serializer => _$$SetShuffleModeRequestDtoSerializer();
-}
-
-class _$$SetShuffleModeRequestDtoSerializer implements PrimitiveSerializer<$SetShuffleModeRequestDto> {
-  @override
-  final Iterable<Type> types = const [$SetShuffleModeRequestDto, _$$SetShuffleModeRequestDto];
-
-  @override
-  final String wireName = r'$SetShuffleModeRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SetShuffleModeRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SetShuffleModeRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -121,12 +100,12 @@ class _$$SetShuffleModeRequestDtoSerializer implements PrimitiveSerializer<$SetS
   }
 
   @override
-  $SetShuffleModeRequestDto deserialize(
+  SetShuffleModeRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SetShuffleModeRequestDtoBuilder();
+    final result = SetShuffleModeRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -140,4 +119,3 @@ class _$$SetShuffleModeRequestDtoSerializer implements PrimitiveSerializer<$SetS
     return result.build();
   }
 }
-

@@ -6,20 +6,7 @@ part of 'set_channel_mapping_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class SetChannelMappingDtoBuilder {
-  void replace(SetChannelMappingDto other);
-  void update(void Function(SetChannelMappingDtoBuilder) updates);
-  String? get providerId;
-  set providerId(String? providerId);
-
-  String? get tunerChannelId;
-  set tunerChannelId(String? tunerChannelId);
-
-  String? get providerChannelId;
-  set providerChannelId(String? providerChannelId);
-}
-
-class _$$SetChannelMappingDto extends $SetChannelMappingDto {
+class _$SetChannelMappingDto extends SetChannelMappingDto {
   @override
   final String providerId;
   @override
@@ -27,36 +14,36 @@ class _$$SetChannelMappingDto extends $SetChannelMappingDto {
   @override
   final String providerChannelId;
 
-  factory _$$SetChannelMappingDto(
-          [void Function($SetChannelMappingDtoBuilder)? updates]) =>
-      (new $SetChannelMappingDtoBuilder()..update(updates))._build();
+  factory _$SetChannelMappingDto(
+          [void Function(SetChannelMappingDtoBuilder)? updates]) =>
+      (new SetChannelMappingDtoBuilder()..update(updates))._build();
 
-  _$$SetChannelMappingDto._(
+  _$SetChannelMappingDto._(
       {required this.providerId,
       required this.tunerChannelId,
       required this.providerChannelId})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        providerId, r'$SetChannelMappingDto', 'providerId');
+        providerId, r'SetChannelMappingDto', 'providerId');
     BuiltValueNullFieldError.checkNotNull(
-        tunerChannelId, r'$SetChannelMappingDto', 'tunerChannelId');
+        tunerChannelId, r'SetChannelMappingDto', 'tunerChannelId');
     BuiltValueNullFieldError.checkNotNull(
-        providerChannelId, r'$SetChannelMappingDto', 'providerChannelId');
+        providerChannelId, r'SetChannelMappingDto', 'providerChannelId');
   }
 
   @override
-  $SetChannelMappingDto rebuild(
-          void Function($SetChannelMappingDtoBuilder) updates) =>
+  SetChannelMappingDto rebuild(
+          void Function(SetChannelMappingDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $SetChannelMappingDtoBuilder toBuilder() =>
-      new $SetChannelMappingDtoBuilder()..replace(this);
+  SetChannelMappingDtoBuilder toBuilder() =>
+      new SetChannelMappingDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $SetChannelMappingDto &&
+    return other is SetChannelMappingDto &&
         providerId == other.providerId &&
         tunerChannelId == other.tunerChannelId &&
         providerChannelId == other.providerChannelId;
@@ -74,7 +61,7 @@ class _$$SetChannelMappingDto extends $SetChannelMappingDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$SetChannelMappingDto')
+    return (newBuiltValueToStringHelper(r'SetChannelMappingDto')
           ..add('providerId', providerId)
           ..add('tunerChannelId', tunerChannelId)
           ..add('providerChannelId', providerChannelId))
@@ -82,32 +69,29 @@ class _$$SetChannelMappingDto extends $SetChannelMappingDto {
   }
 }
 
-class $SetChannelMappingDtoBuilder
-    implements
-        Builder<$SetChannelMappingDto, $SetChannelMappingDtoBuilder>,
-        SetChannelMappingDtoBuilder {
-  _$$SetChannelMappingDto? _$v;
+class SetChannelMappingDtoBuilder
+    implements Builder<SetChannelMappingDto, SetChannelMappingDtoBuilder> {
+  _$SetChannelMappingDto? _$v;
 
   String? _providerId;
   String? get providerId => _$this._providerId;
-  set providerId(covariant String? providerId) =>
-      _$this._providerId = providerId;
+  set providerId(String? providerId) => _$this._providerId = providerId;
 
   String? _tunerChannelId;
   String? get tunerChannelId => _$this._tunerChannelId;
-  set tunerChannelId(covariant String? tunerChannelId) =>
+  set tunerChannelId(String? tunerChannelId) =>
       _$this._tunerChannelId = tunerChannelId;
 
   String? _providerChannelId;
   String? get providerChannelId => _$this._providerChannelId;
-  set providerChannelId(covariant String? providerChannelId) =>
+  set providerChannelId(String? providerChannelId) =>
       _$this._providerChannelId = providerChannelId;
 
-  $SetChannelMappingDtoBuilder() {
-    $SetChannelMappingDto._defaults(this);
+  SetChannelMappingDtoBuilder() {
+    SetChannelMappingDto._defaults(this);
   }
 
-  $SetChannelMappingDtoBuilder get _$this {
+  SetChannelMappingDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _providerId = $v.providerId;
@@ -119,29 +103,29 @@ class $SetChannelMappingDtoBuilder
   }
 
   @override
-  void replace(covariant $SetChannelMappingDto other) {
+  void replace(SetChannelMappingDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$SetChannelMappingDto;
+    _$v = other as _$SetChannelMappingDto;
   }
 
   @override
-  void update(void Function($SetChannelMappingDtoBuilder)? updates) {
+  void update(void Function(SetChannelMappingDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $SetChannelMappingDto build() => _build();
+  SetChannelMappingDto build() => _build();
 
-  _$$SetChannelMappingDto _build() {
+  _$SetChannelMappingDto _build() {
     final _$result = _$v ??
-        new _$$SetChannelMappingDto._(
+        new _$SetChannelMappingDto._(
             providerId: BuiltValueNullFieldError.checkNotNull(
-                providerId, r'$SetChannelMappingDto', 'providerId'),
+                providerId, r'SetChannelMappingDto', 'providerId'),
             tunerChannelId: BuiltValueNullFieldError.checkNotNull(
-                tunerChannelId, r'$SetChannelMappingDto', 'tunerChannelId'),
+                tunerChannelId, r'SetChannelMappingDto', 'tunerChannelId'),
             providerChannelId: BuiltValueNullFieldError.checkNotNull(
                 providerChannelId,
-                r'$SetChannelMappingDto',
+                r'SetChannelMappingDto',
                 'providerChannelId'));
     replace(_$result);
     return _$result;

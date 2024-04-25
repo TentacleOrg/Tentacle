@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/music_video_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/music_video_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,17 @@ part 'music_video_info_remote_search_query.g.dart';
 /// MusicVideoInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo] 
-/// * [itemId] 
+/// * [searchInfo]
+/// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
-@BuiltValue(instantiable: false)
-abstract class MusicVideoInfoRemoteSearchQuery  {
+@BuiltValue()
+abstract class MusicVideoInfoRemoteSearchQuery
+    implements
+        Built<MusicVideoInfoRemoteSearchQuery,
+            MusicVideoInfoRemoteSearchQueryBuilder> {
   @BuiltValueField(wireName: r'SearchInfo')
-  MusicVideoInfoRemoteSearchQuerySearchInfo? get searchInfo;
+  MusicVideoInfo? get searchInfo;
 
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
@@ -32,13 +35,27 @@ abstract class MusicVideoInfoRemoteSearchQuery  {
   @BuiltValueField(wireName: r'IncludeDisabledProviders')
   bool? get includeDisabledProviders;
 
+  MusicVideoInfoRemoteSearchQuery._();
+
+  factory MusicVideoInfoRemoteSearchQuery(
+          [void updates(MusicVideoInfoRemoteSearchQueryBuilder b)]) =
+      _$MusicVideoInfoRemoteSearchQuery;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MusicVideoInfoRemoteSearchQueryBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<MusicVideoInfoRemoteSearchQuery> get serializer => _$MusicVideoInfoRemoteSearchQuerySerializer();
+  static Serializer<MusicVideoInfoRemoteSearchQuery> get serializer =>
+      _$MusicVideoInfoRemoteSearchQuerySerializer();
 }
 
-class _$MusicVideoInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<MusicVideoInfoRemoteSearchQuery> {
+class _$MusicVideoInfoRemoteSearchQuerySerializer
+    implements PrimitiveSerializer<MusicVideoInfoRemoteSearchQuery> {
   @override
-  final Iterable<Type> types = const [MusicVideoInfoRemoteSearchQuery];
+  final Iterable<Type> types = const [
+    MusicVideoInfoRemoteSearchQuery,
+    _$MusicVideoInfoRemoteSearchQuery
+  ];
 
   @override
   final String wireName = r'MusicVideoInfoRemoteSearchQuery';
@@ -52,7 +69,7 @@ class _$MusicVideoInfoRemoteSearchQuerySerializer implements PrimitiveSerializer
       yield r'SearchInfo';
       yield serializers.serialize(
         object.searchInfo,
-        specifiedType: const FullType.nullable(MusicVideoInfoRemoteSearchQuerySearchInfo),
+        specifiedType: const FullType.nullable(MusicVideoInfo),
       );
     }
     if (object.itemId != null) {
@@ -84,47 +101,9 @@ class _$MusicVideoInfoRemoteSearchQuerySerializer implements PrimitiveSerializer
     MusicVideoInfoRemoteSearchQuery object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MusicVideoInfoRemoteSearchQuery deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MusicVideoInfoRemoteSearchQuery)) as $MusicVideoInfoRemoteSearchQuery;
-  }
-}
-
-/// a concrete implementation of [MusicVideoInfoRemoteSearchQuery], since [MusicVideoInfoRemoteSearchQuery] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MusicVideoInfoRemoteSearchQuery implements MusicVideoInfoRemoteSearchQuery, Built<$MusicVideoInfoRemoteSearchQuery, $MusicVideoInfoRemoteSearchQueryBuilder> {
-  $MusicVideoInfoRemoteSearchQuery._();
-
-  factory $MusicVideoInfoRemoteSearchQuery([void Function($MusicVideoInfoRemoteSearchQueryBuilder)? updates]) = _$$MusicVideoInfoRemoteSearchQuery;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MusicVideoInfoRemoteSearchQueryBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MusicVideoInfoRemoteSearchQuery> get serializer => _$$MusicVideoInfoRemoteSearchQuerySerializer();
-}
-
-class _$$MusicVideoInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$MusicVideoInfoRemoteSearchQuery> {
-  @override
-  final Iterable<Type> types = const [$MusicVideoInfoRemoteSearchQuery, _$$MusicVideoInfoRemoteSearchQuery];
-
-  @override
-  final String wireName = r'$MusicVideoInfoRemoteSearchQuery';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MusicVideoInfoRemoteSearchQuery object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MusicVideoInfoRemoteSearchQuery))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -142,8 +121,8 @@ class _$$MusicVideoInfoRemoteSearchQuerySerializer implements PrimitiveSerialize
         case r'SearchInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(MusicVideoInfoRemoteSearchQuerySearchInfo),
-          ) as MusicVideoInfoRemoteSearchQuerySearchInfo?;
+            specifiedType: const FullType.nullable(MusicVideoInfo),
+          ) as MusicVideoInfo?;
           if (valueDes == null) continue;
           result.searchInfo.replace(valueDes);
           break;
@@ -178,12 +157,12 @@ class _$$MusicVideoInfoRemoteSearchQuerySerializer implements PrimitiveSerialize
   }
 
   @override
-  $MusicVideoInfoRemoteSearchQuery deserialize(
+  MusicVideoInfoRemoteSearchQuery deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MusicVideoInfoRemoteSearchQueryBuilder();
+    final result = MusicVideoInfoRemoteSearchQueryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -197,4 +176,3 @@ class _$$MusicVideoInfoRemoteSearchQuerySerializer implements PrimitiveSerialize
     return result.build();
   }
 }
-

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for DeviceOptionsDto
 void main() {
-  //final instance = DeviceOptionsDtoBuilder();
+  final instance = DeviceOptionsDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(DeviceOptionsDto, () {
@@ -24,6 +24,5 @@ void main() {
     test('to test the property `customName`', () async {
       // TODO
     });
-
   });
 }

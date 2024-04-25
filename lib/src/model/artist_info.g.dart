@@ -6,47 +6,7 @@ part of 'artist_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ArtistInfoBuilder {
-  void replace(ArtistInfo other);
-  void update(void Function(ArtistInfoBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  String? get originalTitle;
-  set originalTitle(String? originalTitle);
-
-  String? get path;
-  set path(String? path);
-
-  String? get metadataLanguage;
-  set metadataLanguage(String? metadataLanguage);
-
-  String? get metadataCountryCode;
-  set metadataCountryCode(String? metadataCountryCode);
-
-  MapBuilder<String, String?> get providerIds;
-  set providerIds(MapBuilder<String, String?>? providerIds);
-
-  int? get year;
-  set year(int? year);
-
-  int? get indexNumber;
-  set indexNumber(int? indexNumber);
-
-  int? get parentIndexNumber;
-  set parentIndexNumber(int? parentIndexNumber);
-
-  DateTime? get premiereDate;
-  set premiereDate(DateTime? premiereDate);
-
-  bool? get isAutomated;
-  set isAutomated(bool? isAutomated);
-
-  ListBuilder<SongInfo> get songInfos;
-  set songInfos(ListBuilder<SongInfo>? songInfos);
-}
-
-class _$$ArtistInfo extends $ArtistInfo {
+class _$ArtistInfo extends ArtistInfo {
   @override
   final String? name;
   @override
@@ -72,10 +32,10 @@ class _$$ArtistInfo extends $ArtistInfo {
   @override
   final BuiltList<SongInfo>? songInfos;
 
-  factory _$$ArtistInfo([void Function($ArtistInfoBuilder)? updates]) =>
-      (new $ArtistInfoBuilder()..update(updates))._build();
+  factory _$ArtistInfo([void Function(ArtistInfoBuilder)? updates]) =>
+      (new ArtistInfoBuilder()..update(updates))._build();
 
-  _$$ArtistInfo._(
+  _$ArtistInfo._(
       {this.name,
       this.originalTitle,
       this.path,
@@ -91,16 +51,16 @@ class _$$ArtistInfo extends $ArtistInfo {
       : super._();
 
   @override
-  $ArtistInfo rebuild(void Function($ArtistInfoBuilder) updates) =>
+  ArtistInfo rebuild(void Function(ArtistInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $ArtistInfoBuilder toBuilder() => new $ArtistInfoBuilder()..replace(this);
+  ArtistInfoBuilder toBuilder() => new ArtistInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $ArtistInfo &&
+    return other is ArtistInfo &&
         name == other.name &&
         originalTitle == other.originalTitle &&
         path == other.path &&
@@ -136,7 +96,7 @@ class _$$ArtistInfo extends $ArtistInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$ArtistInfo')
+    return (newBuiltValueToStringHelper(r'ArtistInfo')
           ..add('name', name)
           ..add('originalTitle', originalTitle)
           ..add('path', path)
@@ -153,74 +113,71 @@ class _$$ArtistInfo extends $ArtistInfo {
   }
 }
 
-class $ArtistInfoBuilder
-    implements Builder<$ArtistInfo, $ArtistInfoBuilder>, ArtistInfoBuilder {
-  _$$ArtistInfo? _$v;
+class ArtistInfoBuilder implements Builder<ArtistInfo, ArtistInfoBuilder> {
+  _$ArtistInfo? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _originalTitle;
   String? get originalTitle => _$this._originalTitle;
-  set originalTitle(covariant String? originalTitle) =>
+  set originalTitle(String? originalTitle) =>
       _$this._originalTitle = originalTitle;
 
   String? _path;
   String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
+  set path(String? path) => _$this._path = path;
 
   String? _metadataLanguage;
   String? get metadataLanguage => _$this._metadataLanguage;
-  set metadataLanguage(covariant String? metadataLanguage) =>
+  set metadataLanguage(String? metadataLanguage) =>
       _$this._metadataLanguage = metadataLanguage;
 
   String? _metadataCountryCode;
   String? get metadataCountryCode => _$this._metadataCountryCode;
-  set metadataCountryCode(covariant String? metadataCountryCode) =>
+  set metadataCountryCode(String? metadataCountryCode) =>
       _$this._metadataCountryCode = metadataCountryCode;
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
       _$this._providerIds ??= new MapBuilder<String, String?>();
-  set providerIds(covariant MapBuilder<String, String?>? providerIds) =>
+  set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
   int? _year;
   int? get year => _$this._year;
-  set year(covariant int? year) => _$this._year = year;
+  set year(int? year) => _$this._year = year;
 
   int? _indexNumber;
   int? get indexNumber => _$this._indexNumber;
-  set indexNumber(covariant int? indexNumber) =>
-      _$this._indexNumber = indexNumber;
+  set indexNumber(int? indexNumber) => _$this._indexNumber = indexNumber;
 
   int? _parentIndexNumber;
   int? get parentIndexNumber => _$this._parentIndexNumber;
-  set parentIndexNumber(covariant int? parentIndexNumber) =>
+  set parentIndexNumber(int? parentIndexNumber) =>
       _$this._parentIndexNumber = parentIndexNumber;
 
   DateTime? _premiereDate;
   DateTime? get premiereDate => _$this._premiereDate;
-  set premiereDate(covariant DateTime? premiereDate) =>
+  set premiereDate(DateTime? premiereDate) =>
       _$this._premiereDate = premiereDate;
 
   bool? _isAutomated;
   bool? get isAutomated => _$this._isAutomated;
-  set isAutomated(covariant bool? isAutomated) =>
-      _$this._isAutomated = isAutomated;
+  set isAutomated(bool? isAutomated) => _$this._isAutomated = isAutomated;
 
   ListBuilder<SongInfo>? _songInfos;
   ListBuilder<SongInfo> get songInfos =>
       _$this._songInfos ??= new ListBuilder<SongInfo>();
-  set songInfos(covariant ListBuilder<SongInfo>? songInfos) =>
+  set songInfos(ListBuilder<SongInfo>? songInfos) =>
       _$this._songInfos = songInfos;
 
-  $ArtistInfoBuilder() {
-    $ArtistInfo._defaults(this);
+  ArtistInfoBuilder() {
+    ArtistInfo._defaults(this);
   }
 
-  $ArtistInfoBuilder get _$this {
+  ArtistInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -241,24 +198,24 @@ class $ArtistInfoBuilder
   }
 
   @override
-  void replace(covariant $ArtistInfo other) {
+  void replace(ArtistInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$ArtistInfo;
+    _$v = other as _$ArtistInfo;
   }
 
   @override
-  void update(void Function($ArtistInfoBuilder)? updates) {
+  void update(void Function(ArtistInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $ArtistInfo build() => _build();
+  ArtistInfo build() => _build();
 
-  _$$ArtistInfo _build() {
-    _$$ArtistInfo _$result;
+  _$ArtistInfo _build() {
+    _$ArtistInfo _$result;
     try {
       _$result = _$v ??
-          new _$$ArtistInfo._(
+          new _$ArtistInfo._(
               name: name,
               originalTitle: originalTitle,
               path: path,
@@ -281,7 +238,7 @@ class $ArtistInfoBuilder
         _songInfos?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$ArtistInfo', _$failedField, e.toString());
+            r'ArtistInfo', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -6,36 +6,29 @@ part of 'join_group_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class JoinGroupRequestDtoBuilder {
-  void replace(JoinGroupRequestDto other);
-  void update(void Function(JoinGroupRequestDtoBuilder) updates);
-  String? get groupId;
-  set groupId(String? groupId);
-}
-
-class _$$JoinGroupRequestDto extends $JoinGroupRequestDto {
+class _$JoinGroupRequestDto extends JoinGroupRequestDto {
   @override
   final String? groupId;
 
-  factory _$$JoinGroupRequestDto(
-          [void Function($JoinGroupRequestDtoBuilder)? updates]) =>
-      (new $JoinGroupRequestDtoBuilder()..update(updates))._build();
+  factory _$JoinGroupRequestDto(
+          [void Function(JoinGroupRequestDtoBuilder)? updates]) =>
+      (new JoinGroupRequestDtoBuilder()..update(updates))._build();
 
-  _$$JoinGroupRequestDto._({this.groupId}) : super._();
+  _$JoinGroupRequestDto._({this.groupId}) : super._();
 
   @override
-  $JoinGroupRequestDto rebuild(
-          void Function($JoinGroupRequestDtoBuilder) updates) =>
+  JoinGroupRequestDto rebuild(
+          void Function(JoinGroupRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $JoinGroupRequestDtoBuilder toBuilder() =>
-      new $JoinGroupRequestDtoBuilder()..replace(this);
+  JoinGroupRequestDtoBuilder toBuilder() =>
+      new JoinGroupRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $JoinGroupRequestDto && groupId == other.groupId;
+    return other is JoinGroupRequestDto && groupId == other.groupId;
   }
 
   @override
@@ -48,27 +41,25 @@ class _$$JoinGroupRequestDto extends $JoinGroupRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$JoinGroupRequestDto')
+    return (newBuiltValueToStringHelper(r'JoinGroupRequestDto')
           ..add('groupId', groupId))
         .toString();
   }
 }
 
-class $JoinGroupRequestDtoBuilder
-    implements
-        Builder<$JoinGroupRequestDto, $JoinGroupRequestDtoBuilder>,
-        JoinGroupRequestDtoBuilder {
-  _$$JoinGroupRequestDto? _$v;
+class JoinGroupRequestDtoBuilder
+    implements Builder<JoinGroupRequestDto, JoinGroupRequestDtoBuilder> {
+  _$JoinGroupRequestDto? _$v;
 
   String? _groupId;
   String? get groupId => _$this._groupId;
-  set groupId(covariant String? groupId) => _$this._groupId = groupId;
+  set groupId(String? groupId) => _$this._groupId = groupId;
 
-  $JoinGroupRequestDtoBuilder() {
-    $JoinGroupRequestDto._defaults(this);
+  JoinGroupRequestDtoBuilder() {
+    JoinGroupRequestDto._defaults(this);
   }
 
-  $JoinGroupRequestDtoBuilder get _$this {
+  JoinGroupRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _groupId = $v.groupId;
@@ -78,21 +69,21 @@ class $JoinGroupRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $JoinGroupRequestDto other) {
+  void replace(JoinGroupRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$JoinGroupRequestDto;
+    _$v = other as _$JoinGroupRequestDto;
   }
 
   @override
-  void update(void Function($JoinGroupRequestDtoBuilder)? updates) {
+  void update(void Function(JoinGroupRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $JoinGroupRequestDto build() => _build();
+  JoinGroupRequestDto build() => _build();
 
-  _$$JoinGroupRequestDto _build() {
-    final _$result = _$v ?? new _$$JoinGroupRequestDto._(groupId: groupId);
+  _$JoinGroupRequestDto _build() {
+    final _$result = _$v ?? new _$JoinGroupRequestDto._(groupId: groupId);
     replace(_$result);
     return _$result;
   }

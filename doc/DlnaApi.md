@@ -1,8 +1,8 @@
-# openapi.api.DlnaApi
+# tentacle.api.DlnaApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -18,24 +18,24 @@ Method | HTTP request | Description
 
 
 # **createProfile**
-> createProfile(createProfileRequest)
+> createProfile(deviceProfile)
 
 Creates a profile.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaApi();
-final CreateProfileRequest createProfileRequest = ; // CreateProfileRequest | Device profile.
+final api = Tentacle().getDlnaApi();
+final DeviceProfile deviceProfile = ; // DeviceProfile | Device profile.
 
 try {
-    api.createProfile(createProfileRequest);
-} catch on DioError (e) {
+    api.createProfile(deviceProfile);
+} catch on DioException (e) {
     print('Exception when calling DlnaApi->createProfile: $e\n');
 }
 ```
@@ -44,7 +44,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createProfileRequest** | [**CreateProfileRequest**](CreateProfileRequest.md)| Device profile. | [optional] 
+ **deviceProfile** | [**DeviceProfile**](DeviceProfile.md)| Device profile. | [optional] 
 
 ### Return type
 
@@ -68,18 +68,18 @@ Deletes a profile.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaApi();
+final api = Tentacle().getDlnaApi();
 final String profileId = profileId_example; // String | Profile id.
 
 try {
     api.deleteProfile(profileId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaApi->deleteProfile: $e\n');
 }
 ```
@@ -112,18 +112,18 @@ Gets the default profile.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaApi();
+final api = Tentacle().getDlnaApi();
 
 try {
     final response = api.getDefaultProfile();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaApi->getDefaultProfile: $e\n');
 }
 ```
@@ -153,19 +153,19 @@ Gets a single profile.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaApi();
+final api = Tentacle().getDlnaApi();
 final String profileId = profileId_example; // String | Profile Id.
 
 try {
     final response = api.getProfile(profileId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaApi->getProfile: $e\n');
 }
 ```
@@ -198,18 +198,18 @@ Get profile infos.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaApi();
+final api = Tentacle().getDlnaApi();
 
 try {
     final response = api.getProfileInfos();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DlnaApi->getProfileInfos: $e\n');
 }
 ```
@@ -233,25 +233,25 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateProfile**
-> updateProfile(profileId, createProfileRequest)
+> updateProfile(profileId, deviceProfile)
 
 Updates a profile.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDlnaApi();
+final api = Tentacle().getDlnaApi();
 final String profileId = profileId_example; // String | Profile id.
-final CreateProfileRequest createProfileRequest = ; // CreateProfileRequest | Device profile.
+final DeviceProfile deviceProfile = ; // DeviceProfile | Device profile.
 
 try {
-    api.updateProfile(profileId, createProfileRequest);
-} catch on DioError (e) {
+    api.updateProfile(profileId, deviceProfile);
+} catch on DioException (e) {
     print('Exception when calling DlnaApi->updateProfile: $e\n');
 }
 ```
@@ -261,7 +261,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **profileId** | **String**| Profile id. | 
- **createProfileRequest** | [**CreateProfileRequest**](CreateProfileRequest.md)| Device profile. | [optional] 
+ **deviceProfile** | [**DeviceProfile**](DeviceProfile.md)| Device profile. | [optional] 
 
 ### Return type
 

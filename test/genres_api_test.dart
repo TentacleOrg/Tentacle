@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for GenresApi
 void main() {
   final instance = Tentacle().getGenresApi();
@@ -20,6 +19,5 @@ void main() {
     test('test getGenres', () async {
       // TODO
     });
-
   });
 }

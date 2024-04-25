@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'notification_level.g.dart';
 
 class NotificationLevel extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Normal')
   static const NotificationLevel normal = _$normal;
   @BuiltValueEnumConst(wireName: r'Warning')
@@ -18,9 +17,10 @@ class NotificationLevel extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Error')
   static const NotificationLevel error = _$error;
 
-  static Serializer<NotificationLevel> get serializer => _$notificationLevelSerializer;
+  static Serializer<NotificationLevel> get serializer =>
+      _$notificationLevelSerializer;
 
-  const NotificationLevel._(String name): super(name);
+  const NotificationLevel._(String name) : super(name);
 
   static BuiltSet<NotificationLevel> get values => _$values;
   static NotificationLevel valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class NotificationLevel extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class NotificationLevelMixin = Object with _$NotificationLevelMixin;
-

@@ -1,8 +1,8 @@
-# openapi.api.CollectionApi
+# tentacle.api.CollectionApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -21,19 +21,19 @@ Adds items to a collection.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getCollectionApi();
+final api = Tentacle().getCollectionApi();
 final String collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
 final BuiltList<String> ids = ; // BuiltList<String> | Item ids, comma delimited.
 
 try {
     api.addToCollection(collectionId, ids);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling CollectionApi->addToCollection: $e\n');
 }
 ```
@@ -67,13 +67,13 @@ Creates a new collection.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getCollectionApi();
+final api = Tentacle().getCollectionApi();
 final String name = name_example; // String | The name of the collection.
 final BuiltList<String> ids = ; // BuiltList<String> | Item Ids to add to the collection.
 final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Create the collection within a specific folder.
@@ -82,7 +82,7 @@ final bool isLocked = true; // bool | Whether or not to lock the new collection.
 try {
     final response = api.createCollection(name, ids, parentId, isLocked);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling CollectionApi->createCollection: $e\n');
 }
 ```
@@ -118,19 +118,19 @@ Removes items from a collection.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getCollectionApi();
+final api = Tentacle().getCollectionApi();
 final String collectionId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The collection id.
 final BuiltList<String> ids = ; // BuiltList<String> | Item ids, comma delimited.
 
 try {
     api.removeFromCollection(collectionId, ids);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling CollectionApi->removeFromCollection: $e\n');
 }
 ```

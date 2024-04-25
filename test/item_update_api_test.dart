@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for ItemUpdateApi
 void main() {
   final instance = Tentacle().getItemUpdateApi();
@@ -16,7 +15,7 @@ void main() {
 
     // Updates an item.
     //
-    //Future updateItem(String itemId, UpdateItemRequest updateItemRequest) async
+    //Future updateItem(String itemId, BaseItemDto baseItemDto) async
     test('test updateItem', () async {
       // TODO
     });
@@ -27,6 +26,5 @@ void main() {
     test('test updateItemContentType', () async {
       // TODO
     });
-
   });
 }

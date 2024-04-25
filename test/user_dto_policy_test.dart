@@ -202,11 +202,10 @@ void main() {
       // TODO
     });
 
-    // Enum SyncPlayUserAccessType.
+    // Gets or sets a value indicating what SyncPlay features the user can access.
     // SyncPlayUserAccessType syncPlayAccess
     test('to test the property `syncPlayAccess`', () async {
       // TODO
     });
-
   });
 }

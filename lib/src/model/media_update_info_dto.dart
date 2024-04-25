@@ -14,19 +14,30 @@ part 'media_update_info_dto.g.dart';
 ///
 /// Properties:
 /// * [updates] - Gets or sets the list of updates.
-@BuiltValue(instantiable: false)
-abstract class MediaUpdateInfoDto  {
+@BuiltValue()
+abstract class MediaUpdateInfoDto
+    implements Built<MediaUpdateInfoDto, MediaUpdateInfoDtoBuilder> {
   /// Gets or sets the list of updates.
   @BuiltValueField(wireName: r'Updates')
   BuiltList<MediaUpdateInfoPathDto>? get updates;
 
+  MediaUpdateInfoDto._();
+
+  factory MediaUpdateInfoDto([void updates(MediaUpdateInfoDtoBuilder b)]) =
+      _$MediaUpdateInfoDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MediaUpdateInfoDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<MediaUpdateInfoDto> get serializer => _$MediaUpdateInfoDtoSerializer();
+  static Serializer<MediaUpdateInfoDto> get serializer =>
+      _$MediaUpdateInfoDtoSerializer();
 }
 
-class _$MediaUpdateInfoDtoSerializer implements PrimitiveSerializer<MediaUpdateInfoDto> {
+class _$MediaUpdateInfoDtoSerializer
+    implements PrimitiveSerializer<MediaUpdateInfoDto> {
   @override
-  final Iterable<Type> types = const [MediaUpdateInfoDto];
+  final Iterable<Type> types = const [MediaUpdateInfoDto, _$MediaUpdateInfoDto];
 
   @override
   final String wireName = r'MediaUpdateInfoDto';
@@ -40,7 +51,8 @@ class _$MediaUpdateInfoDtoSerializer implements PrimitiveSerializer<MediaUpdateI
       yield r'Updates';
       yield serializers.serialize(
         object.updates,
-        specifiedType: const FullType(BuiltList, [FullType(MediaUpdateInfoPathDto)]),
+        specifiedType:
+            const FullType(BuiltList, [FullType(MediaUpdateInfoPathDto)]),
       );
     }
   }
@@ -51,47 +63,9 @@ class _$MediaUpdateInfoDtoSerializer implements PrimitiveSerializer<MediaUpdateI
     MediaUpdateInfoDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MediaUpdateInfoDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MediaUpdateInfoDto)) as $MediaUpdateInfoDto;
-  }
-}
-
-/// a concrete implementation of [MediaUpdateInfoDto], since [MediaUpdateInfoDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MediaUpdateInfoDto implements MediaUpdateInfoDto, Built<$MediaUpdateInfoDto, $MediaUpdateInfoDtoBuilder> {
-  $MediaUpdateInfoDto._();
-
-  factory $MediaUpdateInfoDto([void Function($MediaUpdateInfoDtoBuilder)? updates]) = _$$MediaUpdateInfoDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MediaUpdateInfoDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MediaUpdateInfoDto> get serializer => _$$MediaUpdateInfoDtoSerializer();
-}
-
-class _$$MediaUpdateInfoDtoSerializer implements PrimitiveSerializer<$MediaUpdateInfoDto> {
-  @override
-  final Iterable<Type> types = const [$MediaUpdateInfoDto, _$$MediaUpdateInfoDto];
-
-  @override
-  final String wireName = r'$MediaUpdateInfoDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MediaUpdateInfoDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MediaUpdateInfoDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -109,7 +83,8 @@ class _$$MediaUpdateInfoDtoSerializer implements PrimitiveSerializer<$MediaUpdat
         case r'Updates':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(MediaUpdateInfoPathDto)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(MediaUpdateInfoPathDto)]),
           ) as BuiltList<MediaUpdateInfoPathDto>;
           result.updates.replace(valueDes);
           break;
@@ -122,12 +97,12 @@ class _$$MediaUpdateInfoDtoSerializer implements PrimitiveSerializer<$MediaUpdat
   }
 
   @override
-  $MediaUpdateInfoDto deserialize(
+  MediaUpdateInfoDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MediaUpdateInfoDtoBuilder();
+    final result = MediaUpdateInfoDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -141,4 +116,3 @@ class _$$MediaUpdateInfoDtoSerializer implements PrimitiveSerializer<$MediaUpdat
     return result.build();
   }
 }
-

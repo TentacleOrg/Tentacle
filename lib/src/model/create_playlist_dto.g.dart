@@ -6,23 +6,7 @@ part of 'create_playlist_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class CreatePlaylistDtoBuilder {
-  void replace(CreatePlaylistDto other);
-  void update(void Function(CreatePlaylistDtoBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  ListBuilder<String> get ids;
-  set ids(ListBuilder<String>? ids);
-
-  String? get userId;
-  set userId(String? userId);
-
-  String? get mediaType;
-  set mediaType(String? mediaType);
-}
-
-class _$$CreatePlaylistDto extends $CreatePlaylistDto {
+class _$CreatePlaylistDto extends CreatePlaylistDto {
   @override
   final String? name;
   @override
@@ -32,26 +16,25 @@ class _$$CreatePlaylistDto extends $CreatePlaylistDto {
   @override
   final String? mediaType;
 
-  factory _$$CreatePlaylistDto(
-          [void Function($CreatePlaylistDtoBuilder)? updates]) =>
-      (new $CreatePlaylistDtoBuilder()..update(updates))._build();
+  factory _$CreatePlaylistDto(
+          [void Function(CreatePlaylistDtoBuilder)? updates]) =>
+      (new CreatePlaylistDtoBuilder()..update(updates))._build();
 
-  _$$CreatePlaylistDto._({this.name, this.ids, this.userId, this.mediaType})
+  _$CreatePlaylistDto._({this.name, this.ids, this.userId, this.mediaType})
       : super._();
 
   @override
-  $CreatePlaylistDto rebuild(
-          void Function($CreatePlaylistDtoBuilder) updates) =>
+  CreatePlaylistDto rebuild(void Function(CreatePlaylistDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $CreatePlaylistDtoBuilder toBuilder() =>
-      new $CreatePlaylistDtoBuilder()..replace(this);
+  CreatePlaylistDtoBuilder toBuilder() =>
+      new CreatePlaylistDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $CreatePlaylistDto &&
+    return other is CreatePlaylistDto &&
         name == other.name &&
         ids == other.ids &&
         userId == other.userId &&
@@ -71,7 +54,7 @@ class _$$CreatePlaylistDto extends $CreatePlaylistDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$CreatePlaylistDto')
+    return (newBuiltValueToStringHelper(r'CreatePlaylistDto')
           ..add('name', name)
           ..add('ids', ids)
           ..add('userId', userId)
@@ -80,33 +63,31 @@ class _$$CreatePlaylistDto extends $CreatePlaylistDto {
   }
 }
 
-class $CreatePlaylistDtoBuilder
-    implements
-        Builder<$CreatePlaylistDto, $CreatePlaylistDtoBuilder>,
-        CreatePlaylistDtoBuilder {
-  _$$CreatePlaylistDto? _$v;
+class CreatePlaylistDtoBuilder
+    implements Builder<CreatePlaylistDto, CreatePlaylistDtoBuilder> {
+  _$CreatePlaylistDto? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   ListBuilder<String>? _ids;
   ListBuilder<String> get ids => _$this._ids ??= new ListBuilder<String>();
-  set ids(covariant ListBuilder<String>? ids) => _$this._ids = ids;
+  set ids(ListBuilder<String>? ids) => _$this._ids = ids;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(covariant String? userId) => _$this._userId = userId;
+  set userId(String? userId) => _$this._userId = userId;
 
   String? _mediaType;
   String? get mediaType => _$this._mediaType;
-  set mediaType(covariant String? mediaType) => _$this._mediaType = mediaType;
+  set mediaType(String? mediaType) => _$this._mediaType = mediaType;
 
-  $CreatePlaylistDtoBuilder() {
-    $CreatePlaylistDto._defaults(this);
+  CreatePlaylistDtoBuilder() {
+    CreatePlaylistDto._defaults(this);
   }
 
-  $CreatePlaylistDtoBuilder get _$this {
+  CreatePlaylistDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -119,24 +100,24 @@ class $CreatePlaylistDtoBuilder
   }
 
   @override
-  void replace(covariant $CreatePlaylistDto other) {
+  void replace(CreatePlaylistDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$CreatePlaylistDto;
+    _$v = other as _$CreatePlaylistDto;
   }
 
   @override
-  void update(void Function($CreatePlaylistDtoBuilder)? updates) {
+  void update(void Function(CreatePlaylistDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $CreatePlaylistDto build() => _build();
+  CreatePlaylistDto build() => _build();
 
-  _$$CreatePlaylistDto _build() {
-    _$$CreatePlaylistDto _$result;
+  _$CreatePlaylistDto _build() {
+    _$CreatePlaylistDto _$result;
     try {
       _$result = _$v ??
-          new _$$CreatePlaylistDto._(
+          new _$CreatePlaylistDto._(
               name: name,
               ids: _ids?.build(),
               userId: userId,
@@ -148,7 +129,7 @@ class $CreatePlaylistDtoBuilder
         _ids?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$CreatePlaylistDto', _$failedField, e.toString());
+            r'CreatePlaylistDto', _$failedField, e.toString());
       }
       rethrow;
     }

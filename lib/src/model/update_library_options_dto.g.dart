@@ -6,41 +6,31 @@ part of 'update_library_options_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class UpdateLibraryOptionsDtoBuilder {
-  void replace(UpdateLibraryOptionsDto other);
-  void update(void Function(UpdateLibraryOptionsDtoBuilder) updates);
-  String? get id;
-  set id(String? id);
-
-  AddVirtualFolderDtoLibraryOptionsBuilder get libraryOptions;
-  set libraryOptions(AddVirtualFolderDtoLibraryOptionsBuilder? libraryOptions);
-}
-
-class _$$UpdateLibraryOptionsDto extends $UpdateLibraryOptionsDto {
+class _$UpdateLibraryOptionsDto extends UpdateLibraryOptionsDto {
   @override
   final String? id;
   @override
   final AddVirtualFolderDtoLibraryOptions? libraryOptions;
 
-  factory _$$UpdateLibraryOptionsDto(
-          [void Function($UpdateLibraryOptionsDtoBuilder)? updates]) =>
-      (new $UpdateLibraryOptionsDtoBuilder()..update(updates))._build();
+  factory _$UpdateLibraryOptionsDto(
+          [void Function(UpdateLibraryOptionsDtoBuilder)? updates]) =>
+      (new UpdateLibraryOptionsDtoBuilder()..update(updates))._build();
 
-  _$$UpdateLibraryOptionsDto._({this.id, this.libraryOptions}) : super._();
+  _$UpdateLibraryOptionsDto._({this.id, this.libraryOptions}) : super._();
 
   @override
-  $UpdateLibraryOptionsDto rebuild(
-          void Function($UpdateLibraryOptionsDtoBuilder) updates) =>
+  UpdateLibraryOptionsDto rebuild(
+          void Function(UpdateLibraryOptionsDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $UpdateLibraryOptionsDtoBuilder toBuilder() =>
-      new $UpdateLibraryOptionsDtoBuilder()..replace(this);
+  UpdateLibraryOptionsDtoBuilder toBuilder() =>
+      new UpdateLibraryOptionsDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $UpdateLibraryOptionsDto &&
+    return other is UpdateLibraryOptionsDto &&
         id == other.id &&
         libraryOptions == other.libraryOptions;
   }
@@ -56,35 +46,34 @@ class _$$UpdateLibraryOptionsDto extends $UpdateLibraryOptionsDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$UpdateLibraryOptionsDto')
+    return (newBuiltValueToStringHelper(r'UpdateLibraryOptionsDto')
           ..add('id', id)
           ..add('libraryOptions', libraryOptions))
         .toString();
   }
 }
 
-class $UpdateLibraryOptionsDtoBuilder
+class UpdateLibraryOptionsDtoBuilder
     implements
-        Builder<$UpdateLibraryOptionsDto, $UpdateLibraryOptionsDtoBuilder>,
-        UpdateLibraryOptionsDtoBuilder {
-  _$$UpdateLibraryOptionsDto? _$v;
+        Builder<UpdateLibraryOptionsDto, UpdateLibraryOptionsDtoBuilder> {
+  _$UpdateLibraryOptionsDto? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   AddVirtualFolderDtoLibraryOptionsBuilder? _libraryOptions;
   AddVirtualFolderDtoLibraryOptionsBuilder get libraryOptions =>
       _$this._libraryOptions ??= new AddVirtualFolderDtoLibraryOptionsBuilder();
   set libraryOptions(
-          covariant AddVirtualFolderDtoLibraryOptionsBuilder? libraryOptions) =>
+          AddVirtualFolderDtoLibraryOptionsBuilder? libraryOptions) =>
       _$this._libraryOptions = libraryOptions;
 
-  $UpdateLibraryOptionsDtoBuilder() {
-    $UpdateLibraryOptionsDto._defaults(this);
+  UpdateLibraryOptionsDtoBuilder() {
+    UpdateLibraryOptionsDto._defaults(this);
   }
 
-  $UpdateLibraryOptionsDtoBuilder get _$this {
+  UpdateLibraryOptionsDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -95,24 +84,24 @@ class $UpdateLibraryOptionsDtoBuilder
   }
 
   @override
-  void replace(covariant $UpdateLibraryOptionsDto other) {
+  void replace(UpdateLibraryOptionsDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$UpdateLibraryOptionsDto;
+    _$v = other as _$UpdateLibraryOptionsDto;
   }
 
   @override
-  void update(void Function($UpdateLibraryOptionsDtoBuilder)? updates) {
+  void update(void Function(UpdateLibraryOptionsDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $UpdateLibraryOptionsDto build() => _build();
+  UpdateLibraryOptionsDto build() => _build();
 
-  _$$UpdateLibraryOptionsDto _build() {
-    _$$UpdateLibraryOptionsDto _$result;
+  _$UpdateLibraryOptionsDto _build() {
+    _$UpdateLibraryOptionsDto _$result;
     try {
       _$result = _$v ??
-          new _$$UpdateLibraryOptionsDto._(
+          new _$UpdateLibraryOptionsDto._(
               id: id, libraryOptions: _libraryOptions?.build());
     } catch (_) {
       late String _$failedField;
@@ -121,7 +110,7 @@ class $UpdateLibraryOptionsDtoBuilder
         _libraryOptions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$UpdateLibraryOptionsDto', _$failedField, e.toString());
+            r'UpdateLibraryOptionsDto', _$failedField, e.toString());
       }
       rethrow;
     }

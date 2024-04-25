@@ -14,7 +14,6 @@ import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/special_view_option_dto.dart';
 
 class UserViewsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +21,7 @@ class UserViewsApi {
   const UserViewsApi(this._dio, this._serializers);
 
   /// Get user view grouping options.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -34,8 +33,8 @@ class UserViewsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<SpecialViewOptionDto>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<SpecialViewOptionDto>>> getGroupingOptions({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<SpecialViewOptionDto>>> getGroupingOptions({
     required String userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -44,7 +43,10 @@ class UserViewsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/GroupingOptions'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/GroupingOptions'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -72,22 +74,25 @@ class UserViewsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<SpecialViewOptionDto> _responseData;
+    BuiltList<SpecialViewOptionDto>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(SpecialViewOptionDto)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<SpecialViewOptionDto>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(SpecialViewOptionDto)]),
+            ) as BuiltList<SpecialViewOptionDto>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<SpecialViewOptionDto>>(
@@ -103,7 +108,7 @@ class UserViewsApi {
   }
 
   /// Get user views.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - User id.
@@ -118,8 +123,8 @@ class UserViewsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getUserViews({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getUserViews({
     required String userId,
     bool? includeExternalContent,
     BuiltList<String>? presetViews,
@@ -131,7 +136,10 @@ class UserViewsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Views'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/Views'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -152,9 +160,19 @@ class UserViewsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (includeExternalContent != null) r'includeExternalContent': encodeQueryParameter(_serializers, includeExternalContent, const FullType(bool)),
-      if (presetViews != null) r'presetViews': encodeCollectionQueryParameter<String>(_serializers, presetViews, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (includeHidden != null) r'includeHidden': encodeQueryParameter(_serializers, includeHidden, const FullType(bool)),
+      if (includeExternalContent != null)
+        r'includeExternalContent': encodeQueryParameter(
+            _serializers, includeExternalContent, const FullType(bool)),
+      if (presetViews != null)
+        r'presetViews': encodeCollectionQueryParameter<String>(
+          _serializers,
+          presetViews,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (includeHidden != null)
+        r'includeHidden': encodeQueryParameter(
+            _serializers, includeHidden, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -166,22 +184,24 @@ class UserViewsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -195,5 +215,4 @@ class UserViewsApi {
       extra: _response.extra,
     );
   }
-
 }

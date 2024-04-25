@@ -15,7 +15,8 @@ part 'repository_info.g.dart';
 /// * [url] - Gets or sets the URL.
 /// * [enabled] - Gets or sets a value indicating whether the repository is enabled.
 @BuiltValue()
-abstract class RepositoryInfo implements Built<RepositoryInfo, RepositoryInfoBuilder> {
+abstract class RepositoryInfo
+    implements Built<RepositoryInfo, RepositoryInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -30,16 +31,19 @@ abstract class RepositoryInfo implements Built<RepositoryInfo, RepositoryInfoBui
 
   RepositoryInfo._();
 
-  factory RepositoryInfo([void updates(RepositoryInfoBuilder b)]) = _$RepositoryInfo;
+  factory RepositoryInfo([void updates(RepositoryInfoBuilder b)]) =
+      _$RepositoryInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RepositoryInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<RepositoryInfo> get serializer => _$RepositoryInfoSerializer();
+  static Serializer<RepositoryInfo> get serializer =>
+      _$RepositoryInfoSerializer();
 }
 
-class _$RepositoryInfoSerializer implements PrimitiveSerializer<RepositoryInfo> {
+class _$RepositoryInfoSerializer
+    implements PrimitiveSerializer<RepositoryInfo> {
   @override
   final Iterable<Type> types = const [RepositoryInfo, _$RepositoryInfo];
 
@@ -80,7 +84,9 @@ class _$RepositoryInfoSerializer implements PrimitiveSerializer<RepositoryInfo> 
     RepositoryInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -146,4 +152,3 @@ class _$RepositoryInfoSerializer implements PrimitiveSerializer<RepositoryInfo> 
     return result.build();
   }
 }
-

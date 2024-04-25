@@ -1,8 +1,8 @@
-# openapi.api.ItemUpdateApi
+# tentacle.api.ItemUpdateApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -21,19 +21,19 @@ Gets metadata editor info for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemUpdateApi();
+final api = Tentacle().getItemUpdateApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
     final response = api.getMetadataEditorInfo(itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemUpdateApi->getMetadataEditorInfo: $e\n');
 }
 ```
@@ -60,25 +60,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateItem**
-> updateItem(itemId, updateItemRequest)
+> updateItem(itemId, baseItemDto)
 
 Updates an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemUpdateApi();
+final api = Tentacle().getItemUpdateApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
-final UpdateItemRequest updateItemRequest = ; // UpdateItemRequest | The new item properties.
+final BaseItemDto baseItemDto = ; // BaseItemDto | The new item properties.
 
 try {
-    api.updateItem(itemId, updateItemRequest);
-} catch on DioError (e) {
+    api.updateItem(itemId, baseItemDto);
+} catch on DioException (e) {
     print('Exception when calling ItemUpdateApi->updateItem: $e\n');
 }
 ```
@@ -88,7 +88,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **updateItemRequest** | [**UpdateItemRequest**](UpdateItemRequest.md)| The new item properties. | 
+ **baseItemDto** | [**BaseItemDto**](BaseItemDto.md)| The new item properties. | 
 
 ### Return type
 
@@ -112,19 +112,19 @@ Updates an item's content type.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemUpdateApi();
+final api = Tentacle().getItemUpdateApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String contentType = contentType_example; // String | The content type of the item.
 
 try {
     api.updateItemContentType(itemId, contentType);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemUpdateApi->updateItemContentType: $e\n');
 }
 ```

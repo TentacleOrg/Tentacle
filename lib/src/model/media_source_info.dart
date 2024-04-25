@@ -3,15 +3,15 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/iso_type.dart';
-import 'package:tentacle/src/model/video3_d_format.dart';
 import 'package:tentacle/src/model/media_attachment.dart';
+import 'package:tentacle/src/model/iso_type.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/media_stream.dart';
+import 'package:tentacle/src/model/media_source_type.dart';
 import 'package:tentacle/src/model/transport_stream_timestamp.dart';
+import 'package:tentacle/src/model/media_stream.dart';
+import 'package:tentacle/src/model/video3_d_format.dart';
 import 'package:tentacle/src/model/video_type.dart';
 import 'package:tentacle/src/model/media_protocol.dart';
-import 'package:tentacle/src/model/media_source_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -20,52 +20,54 @@ part 'media_source_info.g.dart';
 /// MediaSourceInfo
 ///
 /// Properties:
-/// * [protocol] 
-/// * [id] 
-/// * [path] 
-/// * [encoderPath] 
-/// * [encoderProtocol] 
-/// * [type] 
-/// * [container] 
-/// * [size] 
-/// * [name] 
+/// * [protocol]
+/// * [id]
+/// * [path]
+/// * [encoderPath]
+/// * [encoderProtocol]
+/// * [type]
+/// * [container]
+/// * [size]
+/// * [name]
 /// * [isRemote] - Gets or sets a value indicating whether the media is remote.  Differentiate internet url vs local network.
-/// * [eTag] 
-/// * [runTimeTicks] 
-/// * [readAtNativeFramerate] 
-/// * [ignoreDts] 
-/// * [ignoreIndex] 
-/// * [genPtsInput] 
-/// * [supportsTranscoding] 
-/// * [supportsDirectStream] 
-/// * [supportsDirectPlay] 
-/// * [isInfiniteStream] 
-/// * [requiresOpening] 
-/// * [openToken] 
-/// * [requiresClosing] 
-/// * [liveStreamId] 
-/// * [bufferMs] 
-/// * [requiresLooping] 
-/// * [supportsProbing] 
-/// * [videoType] 
-/// * [isoType] 
-/// * [video3DFormat] 
-/// * [mediaStreams] 
-/// * [mediaAttachments] 
-/// * [formats] 
-/// * [bitrate] 
-/// * [timestamp] 
-/// * [requiredHttpHeaders] 
-/// * [transcodingUrl] 
-/// * [transcodingSubProtocol] 
-/// * [transcodingContainer] 
-/// * [analyzeDurationMs] 
-/// * [defaultAudioStreamIndex] 
-/// * [defaultSubtitleStreamIndex] 
-@BuiltValue(instantiable: false)
-abstract class MediaSourceInfo  {
+/// * [eTag]
+/// * [runTimeTicks]
+/// * [readAtNativeFramerate]
+/// * [ignoreDts]
+/// * [ignoreIndex]
+/// * [genPtsInput]
+/// * [supportsTranscoding]
+/// * [supportsDirectStream]
+/// * [supportsDirectPlay]
+/// * [isInfiniteStream]
+/// * [requiresOpening]
+/// * [openToken]
+/// * [requiresClosing]
+/// * [liveStreamId]
+/// * [bufferMs]
+/// * [requiresLooping]
+/// * [supportsProbing]
+/// * [videoType]
+/// * [isoType]
+/// * [video3DFormat]
+/// * [mediaStreams]
+/// * [mediaAttachments]
+/// * [formats]
+/// * [bitrate]
+/// * [timestamp]
+/// * [requiredHttpHeaders]
+/// * [transcodingUrl]
+/// * [transcodingSubProtocol]
+/// * [transcodingContainer]
+/// * [analyzeDurationMs]
+/// * [defaultAudioStreamIndex]
+/// * [defaultSubtitleStreamIndex]
+@BuiltValue()
+abstract class MediaSourceInfo
+    implements Built<MediaSourceInfo, MediaSourceInfoBuilder> {
   @BuiltValueField(wireName: r'Protocol')
   MediaProtocol? get protocol;
+  // enum protocolEnum {  File,  Http,  Rtmp,  Rtsp,  Udp,  Rtp,  Ftp,  };
 
   @BuiltValueField(wireName: r'Id')
   String? get id;
@@ -78,9 +80,11 @@ abstract class MediaSourceInfo  {
 
   @BuiltValueField(wireName: r'EncoderProtocol')
   MediaProtocol? get encoderProtocol;
+  // enum encoderProtocolEnum {  File,  Http,  Rtmp,  Rtsp,  Udp,  Rtp,  Ftp,  };
 
   @BuiltValueField(wireName: r'Type')
   MediaSourceType? get type;
+  // enum typeEnum {  Default,  Grouping,  Placeholder,  };
 
   @BuiltValueField(wireName: r'Container')
   String? get container;
@@ -148,12 +152,15 @@ abstract class MediaSourceInfo  {
 
   @BuiltValueField(wireName: r'VideoType')
   VideoType? get videoType;
+  // enum videoTypeEnum {  VideoFile,  Iso,  Dvd,  BluRay,  };
 
   @BuiltValueField(wireName: r'IsoType')
   IsoType? get isoType;
+  // enum isoTypeEnum {  Dvd,  BluRay,  };
 
   @BuiltValueField(wireName: r'Video3DFormat')
   Video3DFormat? get video3DFormat;
+  // enum video3DFormatEnum {  HalfSideBySide,  FullSideBySide,  FullTopAndBottom,  HalfTopAndBottom,  MVC,  };
 
   @BuiltValueField(wireName: r'MediaStreams')
   BuiltList<MediaStream>? get mediaStreams;
@@ -169,6 +176,7 @@ abstract class MediaSourceInfo  {
 
   @BuiltValueField(wireName: r'Timestamp')
   TransportStreamTimestamp? get timestamp;
+  // enum timestampEnum {  None,  Zero,  Valid,  };
 
   @BuiltValueField(wireName: r'RequiredHttpHeaders')
   BuiltMap<String, String?>? get requiredHttpHeaders;
@@ -191,13 +199,23 @@ abstract class MediaSourceInfo  {
   @BuiltValueField(wireName: r'DefaultSubtitleStreamIndex')
   int? get defaultSubtitleStreamIndex;
 
+  MediaSourceInfo._();
+
+  factory MediaSourceInfo([void updates(MediaSourceInfoBuilder b)]) =
+      _$MediaSourceInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MediaSourceInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<MediaSourceInfo> get serializer => _$MediaSourceInfoSerializer();
+  static Serializer<MediaSourceInfo> get serializer =>
+      _$MediaSourceInfoSerializer();
 }
 
-class _$MediaSourceInfoSerializer implements PrimitiveSerializer<MediaSourceInfo> {
+class _$MediaSourceInfoSerializer
+    implements PrimitiveSerializer<MediaSourceInfo> {
   @override
-  final Iterable<Type> types = const [MediaSourceInfo];
+  final Iterable<Type> types = const [MediaSourceInfo, _$MediaSourceInfo];
 
   @override
   final String wireName = r'MediaSourceInfo';
@@ -421,14 +439,16 @@ class _$MediaSourceInfoSerializer implements PrimitiveSerializer<MediaSourceInfo
       yield r'MediaStreams';
       yield serializers.serialize(
         object.mediaStreams,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(MediaStream)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaStream)]),
       );
     }
     if (object.mediaAttachments != null) {
       yield r'MediaAttachments';
       yield serializers.serialize(
         object.mediaAttachments,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(MediaAttachment)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaAttachment)]),
       );
     }
     if (object.formats != null) {
@@ -456,7 +476,8 @@ class _$MediaSourceInfoSerializer implements PrimitiveSerializer<MediaSourceInfo
       yield r'RequiredHttpHeaders';
       yield serializers.serialize(
         object.requiredHttpHeaders,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.transcodingUrl != null) {
@@ -509,47 +530,9 @@ class _$MediaSourceInfoSerializer implements PrimitiveSerializer<MediaSourceInfo
     MediaSourceInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MediaSourceInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MediaSourceInfo)) as $MediaSourceInfo;
-  }
-}
-
-/// a concrete implementation of [MediaSourceInfo], since [MediaSourceInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MediaSourceInfo implements MediaSourceInfo, Built<$MediaSourceInfo, $MediaSourceInfoBuilder> {
-  $MediaSourceInfo._();
-
-  factory $MediaSourceInfo([void Function($MediaSourceInfoBuilder)? updates]) = _$$MediaSourceInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MediaSourceInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MediaSourceInfo> get serializer => _$$MediaSourceInfoSerializer();
-}
-
-class _$$MediaSourceInfoSerializer implements PrimitiveSerializer<$MediaSourceInfo> {
-  @override
-  final Iterable<Type> types = const [$MediaSourceInfo, _$$MediaSourceInfo];
-
-  @override
-  final String wireName = r'$MediaSourceInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MediaSourceInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MediaSourceInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -792,7 +775,8 @@ class _$$MediaSourceInfoSerializer implements PrimitiveSerializer<$MediaSourceIn
         case r'MediaStreams':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaStream)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaStream)]),
           ) as BuiltList<MediaStream>?;
           if (valueDes == null) continue;
           result.mediaStreams.replace(valueDes);
@@ -800,7 +784,8 @@ class _$$MediaSourceInfoSerializer implements PrimitiveSerializer<$MediaSourceIn
         case r'MediaAttachments':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaAttachment)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaAttachment)]),
           ) as BuiltList<MediaAttachment>?;
           if (valueDes == null) continue;
           result.mediaAttachments.replace(valueDes);
@@ -808,7 +793,8 @@ class _$$MediaSourceInfoSerializer implements PrimitiveSerializer<$MediaSourceIn
         case r'Formats':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.formats.replace(valueDes);
@@ -832,7 +818,8 @@ class _$$MediaSourceInfoSerializer implements PrimitiveSerializer<$MediaSourceIn
         case r'RequiredHttpHeaders':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.requiredHttpHeaders.replace(valueDes);
@@ -894,12 +881,12 @@ class _$$MediaSourceInfoSerializer implements PrimitiveSerializer<$MediaSourceIn
   }
 
   @override
-  $MediaSourceInfo deserialize(
+  MediaSourceInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MediaSourceInfoBuilder();
+    final result = MediaSourceInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -913,4 +900,3 @@ class _$$MediaSourceInfoSerializer implements PrimitiveSerializer<$MediaSourceIn
     return result.build();
   }
 }
-

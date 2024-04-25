@@ -23,7 +23,8 @@ part 'activity_log_entry.g.dart';
 /// * [userPrimaryImageTag] - Gets or sets the user primary image tag.
 /// * [severity] - Gets or sets the log severity.
 @BuiltValue()
-abstract class ActivityLogEntry implements Built<ActivityLogEntry, ActivityLogEntryBuilder> {
+abstract class ActivityLogEntry
+    implements Built<ActivityLogEntry, ActivityLogEntryBuilder> {
   /// Gets or sets the identifier.
   @BuiltValueField(wireName: r'Id')
   int? get id;
@@ -57,25 +58,30 @@ abstract class ActivityLogEntry implements Built<ActivityLogEntry, ActivityLogEn
   String? get userId;
 
   /// Gets or sets the user primary image tag.
+  @Deprecated('userPrimaryImageTag has been deprecated')
   @BuiltValueField(wireName: r'UserPrimaryImageTag')
   String? get userPrimaryImageTag;
 
   /// Gets or sets the log severity.
   @BuiltValueField(wireName: r'Severity')
   LogLevel? get severity;
+  // enum severityEnum {  Trace,  Debug,  Information,  Warning,  Error,  Critical,  None,  };
 
   ActivityLogEntry._();
 
-  factory ActivityLogEntry([void updates(ActivityLogEntryBuilder b)]) = _$ActivityLogEntry;
+  factory ActivityLogEntry([void updates(ActivityLogEntryBuilder b)]) =
+      _$ActivityLogEntry;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ActivityLogEntryBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ActivityLogEntry> get serializer => _$ActivityLogEntrySerializer();
+  static Serializer<ActivityLogEntry> get serializer =>
+      _$ActivityLogEntrySerializer();
 }
 
-class _$ActivityLogEntrySerializer implements PrimitiveSerializer<ActivityLogEntry> {
+class _$ActivityLogEntrySerializer
+    implements PrimitiveSerializer<ActivityLogEntry> {
   @override
   final Iterable<Type> types = const [ActivityLogEntry, _$ActivityLogEntry];
 
@@ -165,7 +171,9 @@ class _$ActivityLogEntrySerializer implements PrimitiveSerializer<ActivityLogEnt
     ActivityLogEntry object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -282,4 +290,3 @@ class _$ActivityLogEntrySerializer implements PrimitiveSerializer<ActivityLogEnt
     return result.build();
   }
 }
-

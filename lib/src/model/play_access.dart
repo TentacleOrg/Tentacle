@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'play_access.g.dart';
 
 class PlayAccess extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Full')
   static const PlayAccess full = _$full;
   @BuiltValueEnumConst(wireName: r'None')
@@ -18,7 +17,7 @@ class PlayAccess extends EnumClass {
 
   static Serializer<PlayAccess> get serializer => _$playAccessSerializer;
 
-  const PlayAccess._(String name): super(name);
+  const PlayAccess._(String name) : super(name);
 
   static BuiltSet<PlayAccess> get values => _$values;
   static PlayAccess valueOf(String name) => _$valueOf(name);
@@ -31,4 +30,3 @@ class PlayAccess extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class PlayAccessMixin = Object with _$PlayAccessMixin;
-

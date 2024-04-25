@@ -3,28 +3,28 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/base_item_dto_image_blur_hashes.dart';
+import 'package:tentacle/src/model/name_guid_pair.dart';
+import 'package:tentacle/src/model/media_url.dart';
+import 'package:tentacle/src/model/media_stream.dart';
+import 'package:tentacle/src/model/video3_d_format.dart';
+import 'package:tentacle/src/model/program_audio.dart';
+import 'package:tentacle/src/model/play_access.dart';
+import 'package:tentacle/src/model/base_item_dto_user_data.dart';
+import 'package:tentacle/src/model/base_item_dto_current_program.dart';
+import 'package:tentacle/src/model/base_item_person.dart';
 import 'package:tentacle/src/model/iso_type.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/chapter_info.dart';
+import 'package:tentacle/src/model/media_source_info.dart';
+import 'package:tentacle/src/model/image_orientation.dart';
+import 'package:tentacle/src/model/video_type.dart';
 import 'package:tentacle/src/model/channel_type.dart';
 import 'package:tentacle/src/model/external_url.dart';
-import 'package:tentacle/src/model/base_item_person.dart';
-import 'package:tentacle/src/model/metadata_field.dart';
-import 'package:tentacle/src/model/media_url.dart';
-import 'package:tentacle/src/model/program_audio.dart';
-import 'package:tentacle/src/model/day_of_week.dart';
-import 'package:tentacle/src/model/media_source_info.dart';
-import 'package:tentacle/src/model/video3_d_format.dart';
-import 'package:tentacle/src/model/play_access.dart';
-import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/location_type.dart';
-import 'package:tentacle/src/model/base_item_dto_image_blur_hashes.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/media_stream.dart';
-import 'package:tentacle/src/model/name_guid_pair.dart';
-import 'package:tentacle/src/model/video_type.dart';
-import 'package:tentacle/src/model/chapter_info.dart';
-import 'package:tentacle/src/model/image_orientation.dart';
-import 'package:tentacle/src/model/base_item_dto_current_program.dart';
-import 'package:tentacle/src/model/base_item_dto_user_data.dart';
+import 'package:tentacle/src/model/metadata_field.dart';
+import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/day_of_week.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -34,39 +34,39 @@ part 'base_item_dto.g.dart';
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.
-/// * [originalTitle] 
+/// * [originalTitle]
 /// * [serverId] - Gets or sets the server identifier.
 /// * [id] - Gets or sets the id.
 /// * [etag] - Gets or sets the etag.
 /// * [sourceType] - Gets or sets the type of the source.
 /// * [playlistItemId] - Gets or sets the playlist item identifier.
 /// * [dateCreated] - Gets or sets the date created.
-/// * [dateLastMediaAdded] 
-/// * [extraType] 
-/// * [airsBeforeSeasonNumber] 
-/// * [airsAfterSeasonNumber] 
-/// * [airsBeforeEpisodeNumber] 
-/// * [canDelete] 
-/// * [canDownload] 
-/// * [hasSubtitles] 
-/// * [preferredMetadataLanguage] 
-/// * [preferredMetadataCountryCode] 
+/// * [dateLastMediaAdded]
+/// * [extraType]
+/// * [airsBeforeSeasonNumber]
+/// * [airsAfterSeasonNumber]
+/// * [airsBeforeEpisodeNumber]
+/// * [canDelete]
+/// * [canDownload]
+/// * [hasSubtitles]
+/// * [preferredMetadataLanguage]
+/// * [preferredMetadataCountryCode]
 /// * [supportsSync] - Gets or sets a value indicating whether [supports synchronize].
-/// * [container] 
+/// * [container]
 /// * [sortName] - Gets or sets the name of the sort.
-/// * [forcedSortName] 
+/// * [forcedSortName]
 /// * [video3DFormat] - Gets or sets the video3 D format.
 /// * [premiereDate] - Gets or sets the premiere date.
 /// * [externalUrls] - Gets or sets the external urls.
 /// * [mediaSources] - Gets or sets the media versions.
 /// * [criticRating] - Gets or sets the critic rating.
-/// * [productionLocations] 
+/// * [productionLocations]
 /// * [path] - Gets or sets the path.
-/// * [enableMediaSourceDisplay] 
+/// * [enableMediaSourceDisplay]
 /// * [officialRating] - Gets or sets the official rating.
 /// * [customRating] - Gets or sets the custom rating.
 /// * [channelId] - Gets or sets the channel identifier.
-/// * [channelName] 
+/// * [channelName]
 /// * [overview] - Gets or sets the overview.
 /// * [taglines] - Gets or sets the taglines.
 /// * [genres] - Gets or sets the genres.
@@ -78,7 +78,7 @@ part 'base_item_dto.g.dart';
 /// * [productionYear] - Gets or sets the production year.
 /// * [isPlaceHolder] - Gets or sets a value indicating whether this instance is place holder.
 /// * [number] - Gets or sets the number.
-/// * [channelNumber] 
+/// * [channelNumber]
 /// * [indexNumber] - Gets or sets the index number.
 /// * [indexNumberEnd] - Gets or sets the index number end.
 /// * [parentIndexNumber] - Gets or sets the parent index number.
@@ -87,15 +87,15 @@ part 'base_item_dto.g.dart';
 /// * [isHD] - Gets or sets a value indicating whether this instance is HD.
 /// * [isFolder] - Gets or sets a value indicating whether this instance is folder.
 /// * [parentId] - Gets or sets the parent id.
-/// * [type] - The base item kind.
+/// * [type] - Gets or sets the type.
 /// * [people] - Gets or sets the people.
 /// * [studios] - Gets or sets the studios.
-/// * [genreItems] 
+/// * [genreItems]
 /// * [parentLogoItemId] - Gets or sets wether the item has a logo, this will hold the Id of the Parent that has one.
 /// * [parentBackdropItemId] - Gets or sets wether the item has any backdrops, this will hold the Id of the Parent that has one.
 /// * [parentBackdropImageTags] - Gets or sets the parent backdrop image tags.
 /// * [localTrailerCount] - Gets or sets the local trailer count.
-/// * [userData] 
+/// * [userData]
 /// * [recursiveItemCount] - Gets or sets the recursive item count.
 /// * [childCount] - Gets or sets the child count.
 /// * [seriesName] - Gets or sets the name of the series.
@@ -122,7 +122,7 @@ part 'base_item_dto.g.dart';
 /// * [mediaStreams] - Gets or sets the media streams.
 /// * [videoType] - Gets or sets the type of the video.
 /// * [partCount] - Gets or sets the part count.
-/// * [mediaSourceCount] 
+/// * [mediaSourceCount]
 /// * [imageTags] - Gets or sets the image tags.
 /// * [backdropImageTags] - Gets or sets the backdrop image tags.
 /// * [screenshotImageTags] - Gets or sets the screenshot image tags.
@@ -130,7 +130,7 @@ part 'base_item_dto.g.dart';
 /// * [parentArtItemId] - Gets or sets wether the item has fan art, this will hold the Id of the Parent that has one.
 /// * [parentArtImageTag] - Gets or sets the parent art image tag.
 /// * [seriesThumbImageTag] - Gets or sets the series thumb image tag.
-/// * [imageBlurHashes] 
+/// * [imageBlurHashes]
 /// * [seriesStudio] - Gets or sets the series studio.
 /// * [parentThumbItemId] - Gets or sets the parent thumb item id.
 /// * [parentThumbImageTag] - Gets or sets the parent thumb image tag.
@@ -145,27 +145,27 @@ part 'base_item_dto.g.dart';
 /// * [trailerCount] - Gets or sets the trailer count.
 /// * [movieCount] - Gets or sets the movie count.
 /// * [seriesCount] - Gets or sets the series count.
-/// * [programCount] 
+/// * [programCount]
 /// * [episodeCount] - Gets or sets the episode count.
 /// * [songCount] - Gets or sets the song count.
 /// * [albumCount] - Gets or sets the album count.
-/// * [artistCount] 
+/// * [artistCount]
 /// * [musicVideoCount] - Gets or sets the music video count.
 /// * [lockData] - Gets or sets a value indicating whether [enable internet providers].
-/// * [width] 
-/// * [height] 
-/// * [cameraMake] 
-/// * [cameraModel] 
-/// * [software] 
-/// * [exposureTime] 
-/// * [focalLength] 
-/// * [imageOrientation] 
-/// * [aperture] 
-/// * [shutterSpeed] 
-/// * [latitude] 
-/// * [longitude] 
-/// * [altitude] 
-/// * [isoSpeedRating] 
+/// * [width]
+/// * [height]
+/// * [cameraMake]
+/// * [cameraModel]
+/// * [software]
+/// * [exposureTime]
+/// * [focalLength]
+/// * [imageOrientation]
+/// * [aperture]
+/// * [shutterSpeed]
+/// * [latitude]
+/// * [longitude]
+/// * [altitude]
+/// * [isoSpeedRating]
 /// * [seriesTimerId] - Gets or sets the series timer identifier.
 /// * [programId] - Gets or sets the program identifier.
 /// * [channelPrimaryImageTag] - Gets or sets the channel primary image tag.
@@ -183,9 +183,9 @@ part 'base_item_dto.g.dart';
 /// * [isKids] - Gets or sets a value indicating whether this instance is kids.
 /// * [isPremiere] - Gets or sets a value indicating whether this instance is premiere.
 /// * [timerId] - Gets or sets the timer identifier.
-/// * [currentProgram] 
+/// * [currentProgram]
 @BuiltValue(instantiable: false)
-abstract class BaseItemDto  {
+abstract class BaseItemDto {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -264,6 +264,7 @@ abstract class BaseItemDto  {
   /// Gets or sets the video3 D format.
   @BuiltValueField(wireName: r'Video3DFormat')
   Video3DFormat? get video3DFormat;
+  // enum video3DFormatEnum {  HalfSideBySide,  FullSideBySide,  FullTopAndBottom,  HalfTopAndBottom,  MVC,  };
 
   /// Gets or sets the premiere date.
   @BuiltValueField(wireName: r'PremiereDate')
@@ -333,6 +334,7 @@ abstract class BaseItemDto  {
   /// Gets or sets the play access.
   @BuiltValueField(wireName: r'PlayAccess')
   PlayAccess? get playAccess;
+  // enum playAccessEnum {  Full,  None,  };
 
   /// Gets or sets the aspect ratio.
   @BuiltValueField(wireName: r'AspectRatio')
@@ -385,9 +387,10 @@ abstract class BaseItemDto  {
   @BuiltValueField(wireName: r'ParentId')
   String? get parentId;
 
-  /// The base item kind.
+  /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   BaseItemKind? get type;
+  // enum typeEnum {  AggregateFolder,  Audio,  AudioBook,  BasePluginFolder,  Book,  BoxSet,  Channel,  ChannelFolderItem,  CollectionFolder,  Episode,  Folder,  Genre,  ManualPlaylistsFolder,  Movie,  LiveTvChannel,  LiveTvProgram,  MusicAlbum,  MusicArtist,  MusicGenre,  MusicVideo,  Person,  Photo,  PhotoAlbum,  Playlist,  PlaylistsFolder,  Program,  Recording,  Season,  Series,  Studio,  Trailer,  TvChannel,  TvProgram,  UserRootFolder,  UserView,  Video,  Year,  };
 
   /// Gets or sets the people.
   @BuiltValueField(wireName: r'People')
@@ -518,6 +521,7 @@ abstract class BaseItemDto  {
   /// Gets or sets the type of the video.
   @BuiltValueField(wireName: r'VideoType')
   VideoType? get videoType;
+  // enum videoTypeEnum {  VideoFile,  Iso,  Dvd,  BluRay,  };
 
   /// Gets or sets the part count.
   @BuiltValueField(wireName: r'PartCount')
@@ -584,10 +588,12 @@ abstract class BaseItemDto  {
   /// Gets or sets the type of the location.
   @BuiltValueField(wireName: r'LocationType')
   LocationType? get locationType;
+  // enum locationTypeEnum {  FileSystem,  Remote,  Virtual,  Offline,  };
 
   /// Gets or sets the type of the iso.
   @BuiltValueField(wireName: r'IsoType')
   IsoType? get isoType;
+  // enum isoTypeEnum {  Dvd,  BluRay,  };
 
   /// Gets or sets the type of the media.
   @BuiltValueField(wireName: r'MediaType')
@@ -662,6 +668,7 @@ abstract class BaseItemDto  {
 
   @BuiltValueField(wireName: r'ImageOrientation')
   ImageOrientation? get imageOrientation;
+  // enum imageOrientationEnum {  TopLeft,  TopRight,  BottomRight,  BottomLeft,  LeftTop,  RightTop,  RightBottom,  LeftBottom,  };
 
   @BuiltValueField(wireName: r'Aperture')
   double? get aperture;
@@ -712,10 +719,12 @@ abstract class BaseItemDto  {
   /// Gets or sets the type of the channel.
   @BuiltValueField(wireName: r'ChannelType')
   ChannelType? get channelType;
+  // enum channelTypeEnum {  TV,  Radio,  };
 
   /// Gets or sets the audio.
   @BuiltValueField(wireName: r'Audio')
   ProgramAudio? get audio;
+  // enum audioEnum {  Mono,  Stereo,  Dolby,  DolbyDigital,  Thx,  Atmos,  };
 
   /// Gets or sets a value indicating whether this instance is movie.
   @BuiltValueField(wireName: r'IsMovie')
@@ -940,14 +949,16 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'ExternalUrls';
       yield serializers.serialize(
         object.externalUrls,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ExternalUrl)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ExternalUrl)]),
       );
     }
     if (object.mediaSources != null) {
       yield r'MediaSources';
       yield serializers.serialize(
         object.mediaSources,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(MediaSourceInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaSourceInfo)]),
       );
     }
     if (object.criticRating != null) {
@@ -1122,7 +1133,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.isHD != null) {
@@ -1157,21 +1169,24 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'People';
       yield serializers.serialize(
         object.people,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemPerson)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(BaseItemPerson)]),
       );
     }
     if (object.studios != null) {
       yield r'Studios';
       yield serializers.serialize(
         object.studios,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.genreItems != null) {
       yield r'GenreItems';
       yield serializers.serialize(
         object.genreItems,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.parentLogoItemId != null) {
@@ -1276,7 +1291,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'AirDays';
       yield serializers.serialize(
         object.airDays,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
       );
     }
     if (object.tags != null) {
@@ -1304,7 +1320,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'ArtistItems';
       yield serializers.serialize(
         object.artistItems,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.album != null) {
@@ -1360,7 +1377,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'AlbumArtists';
       yield serializers.serialize(
         object.albumArtists,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
       );
     }
     if (object.seasonName != null) {
@@ -1374,7 +1392,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'MediaStreams';
       yield serializers.serialize(
         object.mediaStreams,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(MediaStream)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaStream)]),
       );
     }
     if (object.videoType != null) {
@@ -1402,7 +1421,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'ImageTags';
       yield serializers.serialize(
         object.imageTags,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.backdropImageTags != null) {
@@ -1493,7 +1513,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'Chapters';
       yield serializers.serialize(
         object.chapters,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ChapterInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ChapterInfo)]),
       );
     }
     if (object.locationType != null) {
@@ -1528,7 +1549,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'LockedFields';
       yield serializers.serialize(
         object.lockedFields,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(MetadataField)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MetadataField)]),
       );
     }
     if (object.trailerCount != null) {
@@ -1833,7 +1855,9 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
     BaseItemDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -1842,16 +1866,19 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($BaseItemDto)) as $BaseItemDto;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($BaseItemDto)) as $BaseItemDto;
   }
 }
 
 /// a concrete implementation of [BaseItemDto], since [BaseItemDto] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $BaseItemDto implements BaseItemDto, Built<$BaseItemDto, $BaseItemDtoBuilder> {
+abstract class $BaseItemDto
+    implements BaseItemDto, Built<$BaseItemDto, $BaseItemDtoBuilder> {
   $BaseItemDto._();
 
-  factory $BaseItemDto([void Function($BaseItemDtoBuilder)? updates]) = _$$BaseItemDto;
+  factory $BaseItemDto([void Function($BaseItemDtoBuilder)? updates]) =
+      _$$BaseItemDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($BaseItemDtoBuilder b) => b;
@@ -2082,7 +2109,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'ExternalUrls':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ExternalUrl)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ExternalUrl)]),
           ) as BuiltList<ExternalUrl>?;
           if (valueDes == null) continue;
           result.externalUrls.replace(valueDes);
@@ -2090,7 +2118,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'MediaSources':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaSourceInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaSourceInfo)]),
           ) as BuiltList<MediaSourceInfo>?;
           if (valueDes == null) continue;
           result.mediaSources.replace(valueDes);
@@ -2106,7 +2135,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'ProductionLocations':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.productionLocations.replace(valueDes);
@@ -2170,7 +2200,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'Taglines':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.taglines.replace(valueDes);
@@ -2178,7 +2209,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'Genres':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.genres.replace(valueDes);
@@ -2282,7 +2314,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'RemoteTrailers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaUrl)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaUrl)]),
           ) as BuiltList<MediaUrl>?;
           if (valueDes == null) continue;
           result.remoteTrailers.replace(valueDes);
@@ -2290,7 +2323,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -2329,7 +2363,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'People':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemPerson)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(BaseItemPerson)]),
           ) as BuiltList<BaseItemPerson>?;
           if (valueDes == null) continue;
           result.people.replace(valueDes);
@@ -2337,7 +2372,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'Studios':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.studios.replace(valueDes);
@@ -2345,7 +2381,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'GenreItems':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.genreItems.replace(valueDes);
@@ -2369,7 +2406,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'ParentBackdropImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.parentBackdropImageTags.replace(valueDes);
@@ -2465,7 +2503,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'AirDays':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(DayOfWeek)]),
           ) as BuiltList<DayOfWeek>?;
           if (valueDes == null) continue;
           result.airDays.replace(valueDes);
@@ -2473,7 +2512,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'Tags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.tags.replace(valueDes);
@@ -2489,7 +2529,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'Artists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.artists.replace(valueDes);
@@ -2497,7 +2538,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'ArtistItems':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.artistItems.replace(valueDes);
@@ -2561,7 +2603,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'AlbumArtists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameGuidPair)]),
           ) as BuiltList<NameGuidPair>?;
           if (valueDes == null) continue;
           result.albumArtists.replace(valueDes);
@@ -2577,7 +2620,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'MediaStreams':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaStream)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaStream)]),
           ) as BuiltList<MediaStream>?;
           if (valueDes == null) continue;
           result.mediaStreams.replace(valueDes);
@@ -2609,7 +2653,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'ImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>?;
           if (valueDes == null) continue;
           result.imageTags.replace(valueDes);
@@ -2617,7 +2662,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'BackdropImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.backdropImageTags.replace(valueDes);
@@ -2625,7 +2671,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'ScreenshotImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.screenshotImageTags.replace(valueDes);
@@ -2713,7 +2760,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'Chapters':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ChapterInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ChapterInfo)]),
           ) as BuiltList<ChapterInfo>?;
           if (valueDes == null) continue;
           result.chapters.replace(valueDes);
@@ -2753,7 +2801,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'LockedFields':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MetadataField)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MetadataField)]),
           ) as BuiltList<MetadataField>?;
           if (valueDes == null) continue;
           result.lockedFields.replace(valueDes);
@@ -3122,4 +3171,3 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
     return result.build();
   }
 }
-

@@ -1,8 +1,8 @@
-# openapi.api.ScheduledTasksApi
+# tentacle.api.ScheduledTasksApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -23,19 +23,19 @@ Get task by id.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
+final api = Tentacle().getScheduledTasksApi();
 final String taskId = taskId_example; // String | Task Id.
 
 try {
     final response = api.getTask(taskId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ScheduledTasksApi->getTask: $e\n');
 }
 ```
@@ -68,20 +68,20 @@ Get tasks.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
+final api = Tentacle().getScheduledTasksApi();
 final bool isHidden = true; // bool | Optional filter tasks that are hidden, or not.
 final bool isEnabled = true; // bool | Optional filter tasks that are enabled, or not.
 
 try {
     final response = api.getTasks(isHidden, isEnabled);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ScheduledTasksApi->getTasks: $e\n');
 }
 ```
@@ -115,18 +115,18 @@ Start specified task.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
+final api = Tentacle().getScheduledTasksApi();
 final String taskId = taskId_example; // String | Task Id.
 
 try {
     api.startTask(taskId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ScheduledTasksApi->startTask: $e\n');
 }
 ```
@@ -159,18 +159,18 @@ Stop specified task.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
+final api = Tentacle().getScheduledTasksApi();
 final String taskId = taskId_example; // String | Task Id.
 
 try {
     api.stopTask(taskId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ScheduledTasksApi->stopTask: $e\n');
 }
 ```
@@ -203,19 +203,19 @@ Update specified task triggers.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getScheduledTasksApi();
+final api = Tentacle().getScheduledTasksApi();
 final String taskId = taskId_example; // String | Task Id.
 final BuiltList<TaskTriggerInfo> taskTriggerInfo = ; // BuiltList<TaskTriggerInfo> | Triggers.
 
 try {
     api.updateTask(taskId, taskTriggerInfo);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ScheduledTasksApi->updateTask: $e\n');
 }
 ```

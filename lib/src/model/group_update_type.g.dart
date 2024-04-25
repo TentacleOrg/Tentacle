@@ -83,7 +83,7 @@ class _$GroupUpdateTypeMeta {
   BuiltSet<GroupUpdateType> get values => _$values;
 }
 
-abstract class _$GroupUpdateTypeMixin {
+mixin _$GroupUpdateTypeMixin {
   // ignore: non_constant_identifier_names
   _$GroupUpdateTypeMeta get GroupUpdateType => const _$GroupUpdateTypeMeta();
 }

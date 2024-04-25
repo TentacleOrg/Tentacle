@@ -11,19 +11,20 @@ part 'remote_subtitle_info.g.dart';
 /// RemoteSubtitleInfo
 ///
 /// Properties:
-/// * [threeLetterISOLanguageName] 
-/// * [id] 
-/// * [providerName] 
-/// * [name] 
-/// * [format] 
-/// * [author] 
-/// * [comment] 
-/// * [dateCreated] 
-/// * [communityRating] 
-/// * [downloadCount] 
-/// * [isHashMatch] 
+/// * [threeLetterISOLanguageName]
+/// * [id]
+/// * [providerName]
+/// * [name]
+/// * [format]
+/// * [author]
+/// * [comment]
+/// * [dateCreated]
+/// * [communityRating]
+/// * [downloadCount]
+/// * [isHashMatch]
 @BuiltValue()
-abstract class RemoteSubtitleInfo implements Built<RemoteSubtitleInfo, RemoteSubtitleInfoBuilder> {
+abstract class RemoteSubtitleInfo
+    implements Built<RemoteSubtitleInfo, RemoteSubtitleInfoBuilder> {
   @BuiltValueField(wireName: r'ThreeLetterISOLanguageName')
   String? get threeLetterISOLanguageName;
 
@@ -59,16 +60,19 @@ abstract class RemoteSubtitleInfo implements Built<RemoteSubtitleInfo, RemoteSub
 
   RemoteSubtitleInfo._();
 
-  factory RemoteSubtitleInfo([void updates(RemoteSubtitleInfoBuilder b)]) = _$RemoteSubtitleInfo;
+  factory RemoteSubtitleInfo([void updates(RemoteSubtitleInfoBuilder b)]) =
+      _$RemoteSubtitleInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RemoteSubtitleInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<RemoteSubtitleInfo> get serializer => _$RemoteSubtitleInfoSerializer();
+  static Serializer<RemoteSubtitleInfo> get serializer =>
+      _$RemoteSubtitleInfoSerializer();
 }
 
-class _$RemoteSubtitleInfoSerializer implements PrimitiveSerializer<RemoteSubtitleInfo> {
+class _$RemoteSubtitleInfoSerializer
+    implements PrimitiveSerializer<RemoteSubtitleInfo> {
   @override
   final Iterable<Type> types = const [RemoteSubtitleInfo, _$RemoteSubtitleInfo];
 
@@ -165,7 +169,9 @@ class _$RemoteSubtitleInfoSerializer implements PrimitiveSerializer<RemoteSubtit
     RemoteSubtitleInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -296,4 +302,3 @@ class _$RemoteSubtitleInfoSerializer implements PrimitiveSerializer<RemoteSubtit
     return result.build();
   }
 }
-

@@ -8,13 +8,12 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/create_profile_request.dart';
+import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/device_profile.dart';
 import 'package:tentacle/src/model/device_profile_info.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 
 class DlnaApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,10 +21,10 @@ class DlnaApi {
   const DlnaApi(this._dio, this._serializers);
 
   /// Creates a profile.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [createProfileRequest] - Device profile.
+  /// * [deviceProfile] - Device profile.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -34,9 +33,9 @@ class DlnaApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> createProfile({ 
-    CreateProfileRequest? createProfileRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> createProfile({
+    DeviceProfile? deviceProfile,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -68,18 +67,20 @@ class DlnaApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateProfileRequest);
-      _bodyData = createProfileRequest == null ? null : _serializers.serialize(createProfileRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(DeviceProfile);
+      _bodyData = deviceProfile == null
+          ? null
+          : _serializers.serialize(deviceProfile, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -95,7 +96,7 @@ class DlnaApi {
   }
 
   /// Deletes a profile.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [profileId] - Profile id.
@@ -107,8 +108,8 @@ class DlnaApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteProfile({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteProfile({
     required String profileId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -117,7 +118,10 @@ class DlnaApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Dlna/Profiles/{profileId}'.replaceAll('{' r'profileId' '}', profileId.toString());
+    final _path = r'/Dlna/Profiles/{profileId}'.replaceAll(
+        '{' r'profileId' '}',
+        encodeQueryParameter(_serializers, profileId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -149,7 +153,7 @@ class DlnaApi {
   }
 
   /// Gets the default profile.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -160,8 +164,8 @@ class DlnaApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DeviceProfile] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<DeviceProfile>> getDefaultProfile({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<DeviceProfile>> getDefaultProfile({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -197,22 +201,24 @@ class DlnaApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceProfile _responseData;
+    DeviceProfile? _responseData;
 
     try {
-      const _responseType = FullType(DeviceProfile);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as DeviceProfile;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DeviceProfile),
+            ) as DeviceProfile;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<DeviceProfile>(
@@ -228,7 +234,7 @@ class DlnaApi {
   }
 
   /// Gets a single profile.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [profileId] - Profile Id.
@@ -240,8 +246,8 @@ class DlnaApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DeviceProfile] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<DeviceProfile>> getProfile({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<DeviceProfile>> getProfile({
     required String profileId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -250,7 +256,10 @@ class DlnaApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Dlna/Profiles/{profileId}'.replaceAll('{' r'profileId' '}', profileId.toString());
+    final _path = r'/Dlna/Profiles/{profileId}'.replaceAll(
+        '{' r'profileId' '}',
+        encodeQueryParameter(_serializers, profileId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -278,22 +287,24 @@ class DlnaApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceProfile _responseData;
+    DeviceProfile? _responseData;
 
     try {
-      const _responseType = FullType(DeviceProfile);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as DeviceProfile;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DeviceProfile),
+            ) as DeviceProfile;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<DeviceProfile>(
@@ -309,7 +320,7 @@ class DlnaApi {
   }
 
   /// Get profile infos.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -320,8 +331,8 @@ class DlnaApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<DeviceProfileInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<DeviceProfileInfo>>> getProfileInfos({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<DeviceProfileInfo>>> getProfileInfos({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -357,22 +368,25 @@ class DlnaApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<DeviceProfileInfo> _responseData;
+    BuiltList<DeviceProfileInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(DeviceProfileInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<DeviceProfileInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(DeviceProfileInfo)]),
+            ) as BuiltList<DeviceProfileInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<DeviceProfileInfo>>(
@@ -388,11 +402,11 @@ class DlnaApi {
   }
 
   /// Updates a profile.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [profileId] - Profile id.
-  /// * [createProfileRequest] - Device profile.
+  /// * [deviceProfile] - Device profile.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -401,10 +415,10 @@ class DlnaApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateProfile({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateProfile({
     required String profileId,
-    CreateProfileRequest? createProfileRequest,
+    DeviceProfile? deviceProfile,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -412,7 +426,10 @@ class DlnaApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Dlna/Profiles/{profileId}'.replaceAll('{' r'profileId' '}', profileId.toString());
+    final _path = r'/Dlna/Profiles/{profileId}'.replaceAll(
+        '{' r'profileId' '}',
+        encodeQueryParameter(_serializers, profileId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -436,18 +453,20 @@ class DlnaApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateProfileRequest);
-      _bodyData = createProfileRequest == null ? null : _serializers.serialize(createProfileRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(DeviceProfile);
+      _bodyData = deviceProfile == null
+          ? null
+          : _serializers.serialize(deviceProfile, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -461,5 +480,4 @@ class DlnaApi {
 
     return _response;
   }
-
 }

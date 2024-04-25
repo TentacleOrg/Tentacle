@@ -6,36 +6,29 @@ part of 'set_shuffle_mode_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class SetShuffleModeRequestDtoBuilder {
-  void replace(SetShuffleModeRequestDto other);
-  void update(void Function(SetShuffleModeRequestDtoBuilder) updates);
-  GroupShuffleMode? get mode;
-  set mode(GroupShuffleMode? mode);
-}
-
-class _$$SetShuffleModeRequestDto extends $SetShuffleModeRequestDto {
+class _$SetShuffleModeRequestDto extends SetShuffleModeRequestDto {
   @override
   final GroupShuffleMode? mode;
 
-  factory _$$SetShuffleModeRequestDto(
-          [void Function($SetShuffleModeRequestDtoBuilder)? updates]) =>
-      (new $SetShuffleModeRequestDtoBuilder()..update(updates))._build();
+  factory _$SetShuffleModeRequestDto(
+          [void Function(SetShuffleModeRequestDtoBuilder)? updates]) =>
+      (new SetShuffleModeRequestDtoBuilder()..update(updates))._build();
 
-  _$$SetShuffleModeRequestDto._({this.mode}) : super._();
+  _$SetShuffleModeRequestDto._({this.mode}) : super._();
 
   @override
-  $SetShuffleModeRequestDto rebuild(
-          void Function($SetShuffleModeRequestDtoBuilder) updates) =>
+  SetShuffleModeRequestDto rebuild(
+          void Function(SetShuffleModeRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $SetShuffleModeRequestDtoBuilder toBuilder() =>
-      new $SetShuffleModeRequestDtoBuilder()..replace(this);
+  SetShuffleModeRequestDtoBuilder toBuilder() =>
+      new SetShuffleModeRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $SetShuffleModeRequestDto && mode == other.mode;
+    return other is SetShuffleModeRequestDto && mode == other.mode;
   }
 
   @override
@@ -48,27 +41,26 @@ class _$$SetShuffleModeRequestDto extends $SetShuffleModeRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$SetShuffleModeRequestDto')
+    return (newBuiltValueToStringHelper(r'SetShuffleModeRequestDto')
           ..add('mode', mode))
         .toString();
   }
 }
 
-class $SetShuffleModeRequestDtoBuilder
+class SetShuffleModeRequestDtoBuilder
     implements
-        Builder<$SetShuffleModeRequestDto, $SetShuffleModeRequestDtoBuilder>,
-        SetShuffleModeRequestDtoBuilder {
-  _$$SetShuffleModeRequestDto? _$v;
+        Builder<SetShuffleModeRequestDto, SetShuffleModeRequestDtoBuilder> {
+  _$SetShuffleModeRequestDto? _$v;
 
   GroupShuffleMode? _mode;
   GroupShuffleMode? get mode => _$this._mode;
-  set mode(covariant GroupShuffleMode? mode) => _$this._mode = mode;
+  set mode(GroupShuffleMode? mode) => _$this._mode = mode;
 
-  $SetShuffleModeRequestDtoBuilder() {
-    $SetShuffleModeRequestDto._defaults(this);
+  SetShuffleModeRequestDtoBuilder() {
+    SetShuffleModeRequestDto._defaults(this);
   }
 
-  $SetShuffleModeRequestDtoBuilder get _$this {
+  SetShuffleModeRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _mode = $v.mode;
@@ -78,21 +70,21 @@ class $SetShuffleModeRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $SetShuffleModeRequestDto other) {
+  void replace(SetShuffleModeRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$SetShuffleModeRequestDto;
+    _$v = other as _$SetShuffleModeRequestDto;
   }
 
   @override
-  void update(void Function($SetShuffleModeRequestDtoBuilder)? updates) {
+  void update(void Function(SetShuffleModeRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $SetShuffleModeRequestDto build() => _build();
+  SetShuffleModeRequestDto build() => _build();
 
-  _$$SetShuffleModeRequestDto _build() {
-    final _$result = _$v ?? new _$$SetShuffleModeRequestDto._(mode: mode);
+  _$SetShuffleModeRequestDto _build() {
+    final _$result = _$v ?? new _$SetShuffleModeRequestDto._(mode: mode);
     replace(_$result);
     return _$result;
   }

@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/subtitle_delivery_method.dart';
 import 'package:tentacle/src/model/media_stream_type.dart';
+import 'package:tentacle/src/model/subtitle_delivery_method.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -35,14 +35,14 @@ part 'media_stream.g.dart';
 /// * [videoRange] - Gets the video range.
 /// * [videoRangeType] - Gets the video range type.
 /// * [videoDoViTitle] - Gets the video dovi title.
-/// * [localizedUndefined] 
-/// * [localizedDefault] 
-/// * [localizedForced] 
-/// * [localizedExternal] 
-/// * [displayTitle] 
-/// * [nalLengthSize] 
+/// * [localizedUndefined]
+/// * [localizedDefault]
+/// * [localizedForced]
+/// * [localizedExternal]
+/// * [displayTitle]
+/// * [nalLengthSize]
 /// * [isInterlaced] - Gets or sets a value indicating whether this instance is interlaced.
-/// * [isAVC] 
+/// * [isAVC]
 /// * [channelLayout] - Gets or sets the channel layout.
 /// * [bitRate] - Gets or sets the bit rate.
 /// * [bitDepth] - Gets or sets the bit depth.
@@ -65,7 +65,7 @@ part 'media_stream.g.dart';
 /// * [deliveryMethod] - Gets or sets the method.
 /// * [deliveryUrl] - Gets or sets the delivery URL.
 /// * [isExternalUrl] - Gets or sets a value indicating whether this instance is external URL.
-/// * [isTextSubtitleStream] 
+/// * [isTextSubtitleStream]
 /// * [supportsExternalStream] - Gets or sets a value indicating whether [supports external stream].
 /// * [path] - Gets or sets the filename.
 /// * [pixelFormat] - Gets or sets the pixel format.
@@ -245,6 +245,7 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   MediaStreamType? get type;
+  // enum typeEnum {  Audio,  Video,  Subtitle,  EmbeddedImage,  Data,  };
 
   /// Gets or sets the aspect ratio.
   @BuiltValueField(wireName: r'AspectRatio')
@@ -265,6 +266,7 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   /// Gets or sets the method.
   @BuiltValueField(wireName: r'DeliveryMethod')
   SubtitleDeliveryMethod? get deliveryMethod;
+  // enum deliveryMethodEnum {  Encode,  Embed,  External,  Hls,  Drop,  };
 
   /// Gets or sets the delivery URL.
   @BuiltValueField(wireName: r'DeliveryUrl')
@@ -734,7 +736,9 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
     MediaStream object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -1233,4 +1237,3 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
     return result.build();
   }
 }
-

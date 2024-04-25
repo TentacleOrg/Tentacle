@@ -7,112 +7,35 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
-      ..add($AddVirtualFolderDto.serializer)
-      ..add($AdminNotificationDto.serializer)
-      ..add($AlbumInfo.serializer)
-      ..add($AlbumInfoRemoteSearchQuery.serializer)
-      ..add($ArtistInfo.serializer)
-      ..add($ArtistInfoRemoteSearchQuery.serializer)
-      ..add($AuthenticateUserByName.serializer)
       ..add($BaseItem.serializer)
       ..add($BaseItemDto.serializer)
-      ..add($BookInfo.serializer)
-      ..add($BookInfoRemoteSearchQuery.serializer)
-      ..add($BoxSetInfo.serializer)
-      ..add($BoxSetInfoRemoteSearchQuery.serializer)
-      ..add($BufferRequestDto.serializer)
       ..add($ClientCapabilities.serializer)
-      ..add($ClientCapabilitiesDto.serializer)
-      ..add($CreatePlaylistDto.serializer)
-      ..add($CreateUserByName.serializer)
       ..add($DeviceIdentification.serializer)
-      ..add($DeviceOptionsDto.serializer)
       ..add($DeviceProfile.serializer)
-      ..add($DisplayPreferencesDto.serializer)
-      ..add($ForgotPasswordDto.serializer)
-      ..add($ForgotPasswordPinDto.serializer)
-      ..add($GeneralCommand.serializer)
-      ..add($GetProgramsDto.serializer)
-      ..add($IgnoreWaitRequestDto.serializer)
-      ..add($JoinGroupRequestDto.serializer)
       ..add($LibraryOptions.serializer)
-      ..add($ListingsProviderInfo.serializer)
-      ..add($MediaEncoderPathDto.serializer)
-      ..add($MediaPathDto.serializer)
       ..add($MediaPathInfo.serializer)
-      ..add($MediaSourceInfo.serializer)
-      ..add($MediaUpdateInfoDto.serializer)
-      ..add($MessageCommand.serializer)
-      ..add($MovePlaylistItemRequestDto.serializer)
-      ..add($MovieInfo.serializer)
-      ..add($MovieInfoRemoteSearchQuery.serializer)
-      ..add($MusicVideoInfo.serializer)
-      ..add($MusicVideoInfoRemoteSearchQuery.serializer)
-      ..add($NewGroupRequestDto.serializer)
-      ..add($NextItemRequestDto.serializer)
-      ..add($OpenLiveStreamDto.serializer)
       ..add($PackageInfo.serializer)
-      ..add($PersonLookupInfo.serializer)
-      ..add($PersonLookupInfoRemoteSearchQuery.serializer)
-      ..add($PingRequestDto.serializer)
-      ..add($PlayRequestDto.serializer)
-      ..add($PlaybackInfoDto.serializer)
-      ..add($PlaybackProgressInfo.serializer)
-      ..add($PlaybackStartInfo.serializer)
-      ..add($PlaybackStopInfo.serializer)
-      ..add($PlayerStateInfo.serializer)
-      ..add($PreviousItemRequestDto.serializer)
-      ..add($QueueRequestDto.serializer)
-      ..add($QuickConnectDto.serializer)
-      ..add($ReadyRequestDto.serializer)
-      ..add($RemoteSearchResult.serializer)
-      ..add($RemoveFromPlaylistRequestDto.serializer)
-      ..add($SeekRequestDto.serializer)
-      ..add($SeriesInfo.serializer)
-      ..add($SeriesInfoRemoteSearchQuery.serializer)
-      ..add($SeriesTimerInfoDto.serializer)
-      ..add($ServerConfiguration.serializer)
       ..add($SessionInfo.serializer)
-      ..add($SetChannelMappingDto.serializer)
-      ..add($SetPlaylistItemRequestDto.serializer)
-      ..add($SetRepeatModeRequestDto.serializer)
-      ..add($SetShuffleModeRequestDto.serializer)
-      ..add($StartupConfigurationDto.serializer)
-      ..add($StartupRemoteAccessDto.serializer)
-      ..add($StartupUserDto.serializer)
       ..add($TaskResult.serializer)
       ..add($ThemeMediaResult.serializer)
-      ..add($TimerInfoDto.serializer)
-      ..add($TrailerInfo.serializer)
-      ..add($TrailerInfoRemoteSearchQuery.serializer)
-      ..add($TranscodingInfo.serializer)
-      ..add($TunerHostInfo.serializer)
-      ..add($UpdateLibraryOptionsDto.serializer)
-      ..add($UpdateMediaPathRequestDto.serializer)
-      ..add($UpdateUserEasyPassword.serializer)
-      ..add($UpdateUserPassword.serializer)
-      ..add($UploadSubtitleDto.serializer)
       ..add($UserConfiguration.serializer)
       ..add($UserDto.serializer)
       ..add($UserItemDataDto.serializer)
       ..add($UserPolicy.serializer)
-      ..add($ValidatePathDto.serializer)
       ..add(AccessSchedule.serializer)
       ..add(ActivityLogEntry.serializer)
       ..add(ActivityLogEntryQueryResult.serializer)
-      ..add(AddListingProviderRequest.serializer)
-      ..add(AddMediaPathRequest.serializer)
-      ..add(AddTunerHostRequest.serializer)
+      ..add(AddVirtualFolderDto.serializer)
       ..add(AddVirtualFolderDtoLibraryOptions.serializer)
-      ..add(AddVirtualFolderRequest.serializer)
-      ..add(AlbumInfoRemoteSearchQuerySearchInfo.serializer)
+      ..add(AdminNotificationDto.serializer)
+      ..add(AlbumInfo.serializer)
+      ..add(AlbumInfoRemoteSearchQuery.serializer)
       ..add(AllThemeMediaResult.serializer)
       ..add(AllThemeMediaResultThemeVideosResult.serializer)
-      ..add(ApplySearchCriteriaRequest.serializer)
       ..add(Architecture.serializer)
-      ..add(ArtistInfoRemoteSearchQuerySearchInfo.serializer)
-      ..add(AuthenticateUserByNameRequest.serializer)
-      ..add(AuthenticateWithQuickConnectRequest.serializer)
+      ..add(ArtistInfo.serializer)
+      ..add(ArtistInfoRemoteSearchQuery.serializer)
+      ..add(AuthenticateUserByName.serializer)
       ..add(AuthenticationInfo.serializer)
       ..add(AuthenticationInfoQueryResult.serializer)
       ..add(AuthenticationResult.serializer)
@@ -125,9 +48,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(BaseItemKind.serializer)
       ..add(BaseItemPerson.serializer)
       ..add(BaseItemPersonImageBlurHashes.serializer)
-      ..add(BookInfoRemoteSearchQuerySearchInfo.serializer)
-      ..add(BoxSetInfoRemoteSearchQuerySearchInfo.serializer)
+      ..add(BookInfo.serializer)
+      ..add(BookInfoRemoteSearchQuery.serializer)
+      ..add(BoxSetInfo.serializer)
+      ..add(BoxSetInfoRemoteSearchQuery.serializer)
       ..add(BrandingOptions.serializer)
+      ..add(BufferRequestDto.serializer)
       ..add(ChannelFeatures.serializer)
       ..add(ChannelItemSortField.serializer)
       ..add(ChannelMappingOptionsDto.serializer)
@@ -136,7 +62,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ChannelType.serializer)
       ..add(ChapterInfo.serializer)
       ..add(ClientCapabilitiesDeviceProfile.serializer)
-      ..add(ClientCapabilitiesDtoDeviceProfile.serializer)
+      ..add(ClientCapabilitiesDto.serializer)
       ..add(ClientLogDocumentResponseDto.serializer)
       ..add(CodecProfile.serializer)
       ..add(CodecType.serializer)
@@ -147,12 +73,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ContainerProfile.serializer)
       ..add(ControlResponse.serializer)
       ..add(CountryInfo.serializer)
-      ..add(CreateAdminNotificationRequest.serializer)
-      ..add(CreatePlaylistRequest.serializer)
-      ..add(CreateProfileRequest.serializer)
-      ..add(CreateSeriesTimerRequest.serializer)
-      ..add(CreateTimerRequest.serializer)
-      ..add(CreateUserByNameRequest.serializer)
+      ..add(CreatePlaylistDto.serializer)
+      ..add(CreateUserByName.serializer)
       ..add(CultureDto.serializer)
       ..add(DayOfWeek.serializer)
       ..add(DayPattern.serializer)
@@ -161,10 +83,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(DeviceInfoCapabilities.serializer)
       ..add(DeviceInfoQueryResult.serializer)
       ..add(DeviceOptions.serializer)
+      ..add(DeviceOptionsDto.serializer)
       ..add(DeviceProfileIdentification.serializer)
       ..add(DeviceProfileInfo.serializer)
       ..add(DeviceProfileType.serializer)
       ..add(DirectPlayProfile.serializer)
+      ..add(DisplayPreferencesDto.serializer)
       ..add(DlnaOptions.serializer)
       ..add(DlnaProfileType.serializer)
       ..add(DynamicDayOfWeek.serializer)
@@ -180,21 +104,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(FileSystemEntryType.serializer)
       ..add(FontFile.serializer)
       ..add(ForgotPasswordAction.serializer)
-      ..add(ForgotPasswordPinRequest.serializer)
-      ..add(ForgotPasswordRequest.serializer)
+      ..add(ForgotPasswordDto.serializer)
+      ..add(ForgotPasswordPinDto.serializer)
       ..add(ForgotPasswordResult.serializer)
+      ..add(GeneralCommand.serializer)
       ..add(GeneralCommandType.serializer)
-      ..add(GetBookRemoteSearchResultsRequest.serializer)
-      ..add(GetBoxSetRemoteSearchResultsRequest.serializer)
-      ..add(GetMovieRemoteSearchResultsRequest.serializer)
-      ..add(GetMusicAlbumRemoteSearchResultsRequest.serializer)
-      ..add(GetMusicArtistRemoteSearchResultsRequest.serializer)
-      ..add(GetMusicVideoRemoteSearchResultsRequest.serializer)
-      ..add(GetPersonRemoteSearchResultsRequest.serializer)
-      ..add(GetPostedPlaybackInfoRequest.serializer)
-      ..add(GetProgramsRequest.serializer)
-      ..add(GetSeriesRemoteSearchResultsRequest.serializer)
-      ..add(GetTrailerRemoteSearchResultsRequest.serializer)
+      ..add(GetProgramsDto.serializer)
       ..add(GroupInfoDto.serializer)
       ..add(GroupQueueMode.serializer)
       ..add(GroupRepeatMode.serializer)
@@ -206,6 +121,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(HeaderMatchType.serializer)
       ..add(HttpHeaderInfo.serializer)
       ..add(IPlugin.serializer)
+      ..add(IgnoreWaitRequestDto.serializer)
       ..add(ImageByNameInfo.serializer)
       ..add(ImageFormat.serializer)
       ..add(ImageInfo.serializer)
@@ -220,13 +136,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ItemCounts.serializer)
       ..add(ItemFields.serializer)
       ..add(ItemFilter.serializer)
+      ..add(JoinGroupRequestDto.serializer)
       ..add(KeepUntil.serializer)
       ..add(LibraryOptionInfoDto.serializer)
       ..add(LibraryOptionsResultDto.serializer)
       ..add(LibraryTypeOptionsDto.serializer)
       ..add(LibraryUpdateInfo.serializer)
+      ..add(ListingsProviderInfo.serializer)
       ..add(LiveStreamResponse.serializer)
-      ..add(LiveStreamResponseMediaSource.serializer)
       ..add(LiveTvInfo.serializer)
       ..add(LiveTvOptions.serializer)
       ..add(LiveTvServiceInfo.serializer)
@@ -236,24 +153,34 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(LogFile.serializer)
       ..add(LogLevel.serializer)
       ..add(MediaAttachment.serializer)
+      ..add(MediaEncoderPathDto.serializer)
+      ..add(MediaPathDto.serializer)
       ..add(MediaPathDtoPathInfo.serializer)
       ..add(MediaProtocol.serializer)
+      ..add(MediaSourceInfo.serializer)
       ..add(MediaSourceType.serializer)
       ..add(MediaStream.serializer)
       ..add(MediaStreamType.serializer)
+      ..add(MediaUpdateInfoDto.serializer)
       ..add(MediaUpdateInfoPathDto.serializer)
       ..add(MediaUrl.serializer)
+      ..add(MessageCommand.serializer)
       ..add(MetadataConfiguration.serializer)
       ..add(MetadataEditorInfo.serializer)
       ..add(MetadataField.serializer)
       ..add(MetadataOptions.serializer)
       ..add(MetadataRefreshMode.serializer)
-      ..add(MovieInfoRemoteSearchQuerySearchInfo.serializer)
-      ..add(MusicVideoInfoRemoteSearchQuerySearchInfo.serializer)
+      ..add(MovePlaylistItemRequestDto.serializer)
+      ..add(MovieInfo.serializer)
+      ..add(MovieInfoRemoteSearchQuery.serializer)
+      ..add(MusicVideoInfo.serializer)
+      ..add(MusicVideoInfoRemoteSearchQuery.serializer)
       ..add(NameGuidPair.serializer)
       ..add(NameIdPair.serializer)
       ..add(NameValuePair.serializer)
       ..add(NetworkConfiguration.serializer)
+      ..add(NewGroupRequestDto.serializer)
+      ..add(NextItemRequestDto.serializer)
       ..add(NotificationDto.serializer)
       ..add(NotificationLevel.serializer)
       ..add(NotificationOption.serializer)
@@ -262,25 +189,32 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(NotificationTypeInfo.serializer)
       ..add(NotificationsSummaryDto.serializer)
       ..add(ObjectGroupUpdate.serializer)
-      ..add(OpenLiveStreamRequest.serializer)
+      ..add(OpenLiveStreamDto.serializer)
       ..add(ParentalRating.serializer)
       ..add(PathSubstitution.serializer)
-      ..add(PersonLookupInfoRemoteSearchQuerySearchInfo.serializer)
+      ..add(PersonLookupInfo.serializer)
+      ..add(PersonLookupInfoRemoteSearchQuery.serializer)
       ..add(PinRedeemResult.serializer)
+      ..add(PingRequestDto.serializer)
       ..add(PlayAccess.serializer)
       ..add(PlayCommand.serializer)
       ..add(PlayMethod.serializer)
       ..add(PlayRequest.serializer)
+      ..add(PlayRequestDto.serializer)
       ..add(PlaybackErrorCode.serializer)
+      ..add(PlaybackInfoDto.serializer)
       ..add(PlaybackInfoResponse.serializer)
+      ..add(PlaybackProgressInfo.serializer)
       ..add(PlaybackProgressInfoItem.serializer)
+      ..add(PlaybackStartInfo.serializer)
+      ..add(PlaybackStopInfo.serializer)
+      ..add(PlayerStateInfo.serializer)
       ..add(PlaylistCreationResult.serializer)
       ..add(PlaystateCommand.serializer)
       ..add(PlaystateRequest.serializer)
       ..add(PluginInfo.serializer)
       ..add(PluginStatus.serializer)
-      ..add(PostFullCapabilitiesRequest.serializer)
-      ..add(PostUpdatedMediaRequest.serializer)
+      ..add(PreviousItemRequestDto.serializer)
       ..add(ProblemDetails.serializer)
       ..add(ProfileCondition.serializer)
       ..add(ProfileConditionType.serializer)
@@ -290,66 +224,55 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(QueryFilters.serializer)
       ..add(QueryFiltersLegacy.serializer)
       ..add(QueueItem.serializer)
+      ..add(QueueRequestDto.serializer)
+      ..add(QuickConnectDto.serializer)
       ..add(QuickConnectResult.serializer)
       ..add(RatingType.serializer)
+      ..add(ReadyRequestDto.serializer)
       ..add(RecommendationDto.serializer)
       ..add(RecommendationType.serializer)
       ..add(RecordingStatus.serializer)
       ..add(RemoteImageInfo.serializer)
       ..add(RemoteImageResult.serializer)
-      ..add(RemoteSearchResultAlbumArtist.serializer)
+      ..add(RemoteSearchResult.serializer)
       ..add(RemoteSubtitleInfo.serializer)
+      ..add(RemoveFromPlaylistRequestDto.serializer)
       ..add(RepeatMode.serializer)
-      ..add(ReportPlaybackProgressRequest.serializer)
-      ..add(ReportPlaybackStartRequest.serializer)
-      ..add(ReportPlaybackStoppedRequest.serializer)
       ..add(RepositoryInfo.serializer)
       ..add(ResponseProfile.serializer)
       ..add(ScrollDirection.serializer)
       ..add(SearchHint.serializer)
       ..add(SearchHintResult.serializer)
+      ..add(SeekRequestDto.serializer)
       ..add(SendCommand.serializer)
       ..add(SendCommandType.serializer)
-      ..add(SendFullGeneralCommandRequest.serializer)
-      ..add(SendMessageCommandRequest.serializer)
       ..add(SendToUserType.serializer)
-      ..add(SeriesInfoRemoteSearchQuerySearchInfo.serializer)
+      ..add(SeriesInfo.serializer)
+      ..add(SeriesInfoRemoteSearchQuery.serializer)
       ..add(SeriesStatus.serializer)
+      ..add(SeriesTimerInfoDto.serializer)
       ..add(SeriesTimerInfoDtoQueryResult.serializer)
+      ..add(ServerConfiguration.serializer)
       ..add(ServerDiscoveryInfo.serializer)
-      ..add(SessionInfoCapabilities.serializer)
       ..add(SessionInfoFullNowPlayingItem.serializer)
       ..add(SessionInfoNowPlayingItem.serializer)
       ..add(SessionInfoNowViewingItem.serializer)
-      ..add(SessionInfoPlayState.serializer)
-      ..add(SessionInfoTranscodingInfo.serializer)
       ..add(SessionMessageType.serializer)
       ..add(SessionUserInfo.serializer)
-      ..add(SetChannelMappingRequest.serializer)
-      ..add(SetRemoteAccessRequest.serializer)
+      ..add(SetChannelMappingDto.serializer)
+      ..add(SetPlaylistItemRequestDto.serializer)
+      ..add(SetRepeatModeRequestDto.serializer)
+      ..add(SetShuffleModeRequestDto.serializer)
       ..add(SongInfo.serializer)
       ..add(SortOrder.serializer)
       ..add(SpecialViewOptionDto.serializer)
+      ..add(StartupConfigurationDto.serializer)
+      ..add(StartupRemoteAccessDto.serializer)
+      ..add(StartupUserDto.serializer)
       ..add(SubtitleDeliveryMethod.serializer)
       ..add(SubtitleOptions.serializer)
       ..add(SubtitlePlaybackMode.serializer)
       ..add(SubtitleProfile.serializer)
-      ..add(SyncPlayBufferingRequest.serializer)
-      ..add(SyncPlayCreateGroupRequest.serializer)
-      ..add(SyncPlayJoinGroupRequest.serializer)
-      ..add(SyncPlayMovePlaylistItemRequest.serializer)
-      ..add(SyncPlayNextItemRequest.serializer)
-      ..add(SyncPlayPingRequest.serializer)
-      ..add(SyncPlayPreviousItemRequest.serializer)
-      ..add(SyncPlayQueueRequest.serializer)
-      ..add(SyncPlayReadyRequest.serializer)
-      ..add(SyncPlayRemoveFromPlaylistRequest.serializer)
-      ..add(SyncPlaySeekRequest.serializer)
-      ..add(SyncPlaySetIgnoreWaitRequest.serializer)
-      ..add(SyncPlaySetNewQueueRequest.serializer)
-      ..add(SyncPlaySetPlaylistItemRequest.serializer)
-      ..add(SyncPlaySetRepeatModeRequest.serializer)
-      ..add(SyncPlaySetShuffleModeRequest.serializer)
       ..add(SyncPlayUserAccessType.serializer)
       ..add(SystemInfo.serializer)
       ..add(TaskCompletionStatus.serializer)
@@ -358,41 +281,33 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TaskState.serializer)
       ..add(TaskTriggerInfo.serializer)
       ..add(TimerEventInfo.serializer)
+      ..add(TimerInfoDto.serializer)
       ..add(TimerInfoDtoProgramInfo.serializer)
       ..add(TimerInfoDtoQueryResult.serializer)
-      ..add(TrailerInfoRemoteSearchQuerySearchInfo.serializer)
+      ..add(TrailerInfo.serializer)
+      ..add(TrailerInfoRemoteSearchQuery.serializer)
       ..add(TranscodeReason.serializer)
       ..add(TranscodeSeekInfo.serializer)
+      ..add(TranscodingInfo.serializer)
       ..add(TranscodingProfile.serializer)
       ..add(TransportStreamTimestamp.serializer)
       ..add(TunerChannelMapping.serializer)
+      ..add(TunerHostInfo.serializer)
       ..add(TypeOptions.serializer)
       ..add(UnratedItem.serializer)
-      ..add(UpdateConfigurationRequest.serializer)
-      ..add(UpdateDeviceOptionsRequest.serializer)
-      ..add(UpdateDisplayPreferencesRequest.serializer)
-      ..add(UpdateInitialConfigurationRequest.serializer)
-      ..add(UpdateItemRequest.serializer)
-      ..add(UpdateLibraryOptionsRequest.serializer)
-      ..add(UpdateMediaEncoderPathRequest.serializer)
-      ..add(UpdateMediaPathRequest.serializer)
-      ..add(UpdateMediaPathRequestDtoPathInfo.serializer)
-      ..add(UpdateStartupUserRequest.serializer)
-      ..add(UpdateUserConfigurationRequest.serializer)
-      ..add(UpdateUserEasyPasswordRequest.serializer)
-      ..add(UpdateUserPasswordRequest.serializer)
-      ..add(UpdateUserPolicyRequest.serializer)
-      ..add(UpdateUserRequest.serializer)
-      ..add(UploadSubtitleRequest.serializer)
+      ..add(UpdateLibraryOptionsDto.serializer)
+      ..add(UpdateMediaPathRequestDto.serializer)
+      ..add(UpdateUserEasyPassword.serializer)
+      ..add(UpdateUserPassword.serializer)
+      ..add(UploadSubtitleDto.serializer)
       ..add(UserDtoConfiguration.serializer)
       ..add(UserDtoPolicy.serializer)
       ..add(UtcTimeResponse.serializer)
-      ..add(ValidatePathRequest.serializer)
+      ..add(ValidatePathDto.serializer)
       ..add(VersionInfo.serializer)
       ..add(Video3DFormat.serializer)
       ..add(VideoType.serializer)
       ..add(VirtualFolderInfo.serializer)
-      ..add(VirtualFolderInfoLibraryOptions.serializer)
       ..add(WakeOnLanInfo.serializer)
       ..add(XbmcMetadataOptions.serializer)
       ..add(XmlAttribute.serializer)
@@ -428,74 +343,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(DeviceInfo)]),
           () => new ListBuilder<DeviceInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(ExternalUrl)]),
-          () => new ListBuilder<ExternalUrl>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MediaSourceInfo)]),
-          () => new ListBuilder<MediaSourceInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MediaUrl)]),
-          () => new ListBuilder<MediaUrl>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(BaseItemPerson)]),
-          () => new ListBuilder<BaseItemPerson>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DayOfWeek)]),
-          () => new ListBuilder<DayOfWeek>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MediaStream)]),
-          () => new ListBuilder<MediaStream>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(ChapterInfo)]),
-          () => new ListBuilder<ChapterInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MetadataField)]),
-          () => new ListBuilder<MetadataField>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ExternalUrl)]),
           () => new ListBuilder<ExternalUrl>())
@@ -1001,33 +848,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(TypeOptions)]),
           () => new ListBuilder<TypeOptions>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MediaPathInfo)]),
-          () => new ListBuilder<MediaPathInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(TypeOptions)]),
-          () => new ListBuilder<TypeOptions>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MediaProtocol)]),
-          () => new ListBuilder<MediaProtocol>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaProtocol)]),
           () => new ListBuilder<MediaProtocol>())
       ..addBuilderFactory(
@@ -1046,23 +866,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
           () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MediaStream)]),
-          () => new ListBuilder<MediaStream>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MediaAttachment)]),
-          () => new ListBuilder<MediaAttachment>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(MediaUpdateInfoPathDto)]),
-          () => new ListBuilder<MediaUpdateInfoPathDto>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(MediaUpdateInfoPathDto)]),
@@ -1109,15 +912,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProfileCondition)]),
           () => new ListBuilder<ProfileCondition>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(QueueItem)]),
-          () => new ListBuilder<QueueItem>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(QueueItem)]),
-          () => new ListBuilder<QueueItem>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(QueueItem)]),
-          () => new ListBuilder<QueueItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(QueueItem)]),
           () => new ListBuilder<QueueItem>())
@@ -1212,48 +1006,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(AccessSchedule)]),
-          () => new ListBuilder<AccessSchedule>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(UnratedItem)]),
-          () => new ListBuilder<UnratedItem>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AccessSchedule)]),
           () => new ListBuilder<AccessSchedule>())
       ..addBuilderFactory(
@@ -1318,28 +1070,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DayOfWeek)]),
-          () => new ListBuilder<DayOfWeek>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GeneralCommandType)]),
-          () => new ListBuilder<GeneralCommandType>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GeneralCommandType)]),
-          () => new ListBuilder<GeneralCommandType>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GeneralCommandType)]),
           () => new ListBuilder<GeneralCommandType>())
       ..addBuilderFactory(
@@ -1400,27 +1130,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(SortOrder)]),
-          () => new ListBuilder<SortOrder>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(ImageType)]),
-          () => new ListBuilder<ImageType>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(ItemFields)]),
-          () => new ListBuilder<ItemFields>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
@@ -1447,45 +1156,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PathSubstitution)]),
           () => new ListBuilder<PathSubstitution>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MetadataOptions)]),
-          () => new ListBuilder<MetadataOptions>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NameValuePair)]),
-          () => new ListBuilder<NameValuePair>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(RepositoryInfo)]),
-          () => new ListBuilder<RepositoryInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(PathSubstitution)]),
-          () => new ListBuilder<PathSubstitution>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
@@ -1592,24 +1262,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NameValuePair)]),
-          () => new ListBuilder<NameValuePair>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
@@ -1648,9 +1300,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TimerInfoDto)]),
           () => new ListBuilder<TimerInfoDto>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(TranscodeReason)]),
-          () => new ListBuilder<TranscodeReason>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TranscodeReason)]),
           () => new ListBuilder<TranscodeReason>())
@@ -1723,48 +1372,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(SubtitleProfile)]),
           () => new ListBuilder<SubtitleProfile>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(XmlAttribute)]),
-          () => new ListBuilder<XmlAttribute>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DirectPlayProfile)]),
-          () => new ListBuilder<DirectPlayProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(TranscodingProfile)]),
-          () => new ListBuilder<TranscodingProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(ContainerProfile)]),
-          () => new ListBuilder<ContainerProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(CodecProfile)]),
-          () => new ListBuilder<CodecProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(ResponseProfile)]),
-          () => new ListBuilder<ResponseProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(SubtitleProfile)]),
-          () => new ListBuilder<SubtitleProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(XmlAttribute)]),
-          () => new ListBuilder<XmlAttribute>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DirectPlayProfile)]),
-          () => new ListBuilder<DirectPlayProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(TranscodingProfile)]),
-          () => new ListBuilder<TranscodingProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(ContainerProfile)]),
-          () => new ListBuilder<ContainerProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(CodecProfile)]),
-          () => new ListBuilder<CodecProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(ResponseProfile)]),
-          () => new ListBuilder<ResponseProfile>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(SubtitleProfile)]),
-          () => new ListBuilder<SubtitleProfile>())
-      ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
           () => new MapBuilder<String, String>())
@@ -1872,38 +1479,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
           () => new MapBuilder<String, String>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
@@ -1948,27 +1523,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
               const [const FullType(String), const FullType.nullable(String)]),
           () => new MapBuilder<String, String?>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(RemoteSearchResult)]),
-          () => new ListBuilder<RemoteSearchResult>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(RemoteSearchResult)]),
-          () => new ListBuilder<RemoteSearchResult>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(SongInfo)]),
-          () => new ListBuilder<SongInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SongInfo)]),
           () => new ListBuilder<SongInfo>())
       ..addBuilderFactory(
@@ -1986,29 +1540,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap,
-              const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(SongInfo)]),
-          () => new ListBuilder<SongInfo>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),

@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for LiveTvApi
 void main() {
   final instance = Tentacle().getLiveTvApi();
@@ -9,14 +8,14 @@ void main() {
   group(LiveTvApi, () {
     // Adds a listings provider.
     //
-    //Future<ListingsProviderInfo> addListingProvider({ String pw, bool validateListings, bool validateLogin, AddListingProviderRequest addListingProviderRequest }) async
+    //Future<ListingsProviderInfo> addListingProvider({ String pw, bool validateListings, bool validateLogin, ListingsProviderInfo listingsProviderInfo }) async
     test('test addListingProvider', () async {
       // TODO
     });
 
     // Adds a tuner host.
     //
-    //Future<TunerHostInfo> addTunerHost({ AddTunerHostRequest addTunerHostRequest }) async
+    //Future<TunerHostInfo> addTunerHost({ TunerHostInfo tunerHostInfo }) async
     test('test addTunerHost', () async {
       // TODO
     });
@@ -37,14 +36,14 @@ void main() {
 
     // Creates a live tv series timer.
     //
-    //Future createSeriesTimer({ CreateSeriesTimerRequest createSeriesTimerRequest }) async
+    //Future createSeriesTimer({ SeriesTimerInfoDto seriesTimerInfoDto }) async
     test('test createSeriesTimer', () async {
       // TODO
     });
 
     // Creates a live tv timer.
     //
-    //Future createTimer({ CreateTimerRequest createTimerRequest }) async
+    //Future createTimer({ TimerInfoDto timerInfoDto }) async
     test('test createTimer', () async {
       // TODO
     });
@@ -170,7 +169,7 @@ void main() {
 
     // Gets available live tv epgs.
     //
-    //Future<BaseItemDtoQueryResult> getPrograms({ GetProgramsRequest getProgramsRequest }) async
+    //Future<BaseItemDtoQueryResult> getPrograms({ GetProgramsDto getProgramsDto }) async
     test('test getPrograms', () async {
       // TODO
     });
@@ -275,24 +274,23 @@ void main() {
 
     // Set channel mappings.
     //
-    //Future<TunerChannelMapping> setChannelMapping(SetChannelMappingRequest setChannelMappingRequest) async
+    //Future<TunerChannelMapping> setChannelMapping(SetChannelMappingDto setChannelMappingDto) async
     test('test setChannelMapping', () async {
       // TODO
     });
 
     // Updates a live tv series timer.
     //
-    //Future updateSeriesTimer(String timerId, { CreateSeriesTimerRequest createSeriesTimerRequest }) async
+    //Future updateSeriesTimer(String timerId, { SeriesTimerInfoDto seriesTimerInfoDto }) async
     test('test updateSeriesTimer', () async {
       // TODO
     });
 
     // Updates a live tv timer.
     //
-    //Future updateTimer(String timerId, { CreateTimerRequest createTimerRequest }) async
+    //Future updateTimer(String timerId, { TimerInfoDto timerInfoDto }) async
     test('test updateTimer', () async {
       // TODO
     });
-
   });
 }

@@ -19,12 +19,12 @@ part 'movie_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-@BuiltValue(instantiable: false)
-abstract class MovieInfo  {
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+@BuiltValue()
+abstract class MovieInfo implements Built<MovieInfo, MovieInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -65,13 +65,20 @@ abstract class MovieInfo  {
   @BuiltValueField(wireName: r'IsAutomated')
   bool? get isAutomated;
 
+  MovieInfo._();
+
+  factory MovieInfo([void updates(MovieInfoBuilder b)]) = _$MovieInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MovieInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<MovieInfo> get serializer => _$MovieInfoSerializer();
 }
 
 class _$MovieInfoSerializer implements PrimitiveSerializer<MovieInfo> {
   @override
-  final Iterable<Type> types = const [MovieInfo];
+  final Iterable<Type> types = const [MovieInfo, _$MovieInfo];
 
   @override
   final String wireName = r'MovieInfo';
@@ -120,7 +127,8 @@ class _$MovieInfoSerializer implements PrimitiveSerializer<MovieInfo> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -166,47 +174,9 @@ class _$MovieInfoSerializer implements PrimitiveSerializer<MovieInfo> {
     MovieInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MovieInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MovieInfo)) as $MovieInfo;
-  }
-}
-
-/// a concrete implementation of [MovieInfo], since [MovieInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MovieInfo implements MovieInfo, Built<$MovieInfo, $MovieInfoBuilder> {
-  $MovieInfo._();
-
-  factory $MovieInfo([void Function($MovieInfoBuilder)? updates]) = _$$MovieInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MovieInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MovieInfo> get serializer => _$$MovieInfoSerializer();
-}
-
-class _$$MovieInfoSerializer implements PrimitiveSerializer<$MovieInfo> {
-  @override
-  final Iterable<Type> types = const [$MovieInfo, _$$MovieInfo];
-
-  @override
-  final String wireName = r'$MovieInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MovieInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MovieInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -264,7 +234,8 @@ class _$$MovieInfoSerializer implements PrimitiveSerializer<$MovieInfo> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -317,12 +288,12 @@ class _$$MovieInfoSerializer implements PrimitiveSerializer<$MovieInfo> {
   }
 
   @override
-  $MovieInfo deserialize(
+  MovieInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MovieInfoBuilder();
+    final result = MovieInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -336,4 +307,3 @@ class _$$MovieInfoSerializer implements PrimitiveSerializer<$MovieInfo> {
     return result.build();
   }
 }
-

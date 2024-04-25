@@ -8,26 +8,25 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/buffer_request_dto.dart';
 import 'package:tentacle/src/model/group_info_dto.dart';
-import 'package:tentacle/src/model/sync_play_buffering_request.dart';
-import 'package:tentacle/src/model/sync_play_create_group_request.dart';
-import 'package:tentacle/src/model/sync_play_join_group_request.dart';
-import 'package:tentacle/src/model/sync_play_move_playlist_item_request.dart';
-import 'package:tentacle/src/model/sync_play_next_item_request.dart';
-import 'package:tentacle/src/model/sync_play_ping_request.dart';
-import 'package:tentacle/src/model/sync_play_previous_item_request.dart';
-import 'package:tentacle/src/model/sync_play_queue_request.dart';
-import 'package:tentacle/src/model/sync_play_ready_request.dart';
-import 'package:tentacle/src/model/sync_play_remove_from_playlist_request.dart';
-import 'package:tentacle/src/model/sync_play_seek_request.dart';
-import 'package:tentacle/src/model/sync_play_set_ignore_wait_request.dart';
-import 'package:tentacle/src/model/sync_play_set_new_queue_request.dart';
-import 'package:tentacle/src/model/sync_play_set_playlist_item_request.dart';
-import 'package:tentacle/src/model/sync_play_set_repeat_mode_request.dart';
-import 'package:tentacle/src/model/sync_play_set_shuffle_mode_request.dart';
+import 'package:tentacle/src/model/ignore_wait_request_dto.dart';
+import 'package:tentacle/src/model/join_group_request_dto.dart';
+import 'package:tentacle/src/model/move_playlist_item_request_dto.dart';
+import 'package:tentacle/src/model/new_group_request_dto.dart';
+import 'package:tentacle/src/model/next_item_request_dto.dart';
+import 'package:tentacle/src/model/ping_request_dto.dart';
+import 'package:tentacle/src/model/play_request_dto.dart';
+import 'package:tentacle/src/model/previous_item_request_dto.dart';
+import 'package:tentacle/src/model/queue_request_dto.dart';
+import 'package:tentacle/src/model/ready_request_dto.dart';
+import 'package:tentacle/src/model/remove_from_playlist_request_dto.dart';
+import 'package:tentacle/src/model/seek_request_dto.dart';
+import 'package:tentacle/src/model/set_playlist_item_request_dto.dart';
+import 'package:tentacle/src/model/set_repeat_mode_request_dto.dart';
+import 'package:tentacle/src/model/set_shuffle_mode_request_dto.dart';
 
 class SyncPlayApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -35,10 +34,10 @@ class SyncPlayApi {
   const SyncPlayApi(this._dio, this._serializers);
 
   /// Notify SyncPlay group that member is buffering.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayBufferingRequest] - The player status.
+  /// * [bufferRequestDto] - The player status.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -47,9 +46,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayBuffering({ 
-    required SyncPlayBufferingRequest syncPlayBufferingRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayBuffering({
+    required BufferRequestDto bufferRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -81,18 +80,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayBufferingRequest);
-      _bodyData = _serializers.serialize(syncPlayBufferingRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(BufferRequestDto);
+      _bodyData =
+          _serializers.serialize(bufferRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -108,10 +108,10 @@ class SyncPlayApi {
   }
 
   /// Create a new SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayCreateGroupRequest] - The settings of the new group.
+  /// * [newGroupRequestDto] - The settings of the new group.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -120,9 +120,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayCreateGroup({ 
-    required SyncPlayCreateGroupRequest syncPlayCreateGroupRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayCreateGroup({
+    required NewGroupRequestDto newGroupRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -154,18 +154,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayCreateGroupRequest);
-      _bodyData = _serializers.serialize(syncPlayCreateGroupRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(NewGroupRequestDto);
+      _bodyData =
+          _serializers.serialize(newGroupRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -181,7 +182,7 @@ class SyncPlayApi {
   }
 
   /// Gets all SyncPlay groups.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -192,8 +193,8 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<GroupInfoDto>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<GroupInfoDto>>> syncPlayGetGroups({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<GroupInfoDto>>> syncPlayGetGroups({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -229,22 +230,25 @@ class SyncPlayApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<GroupInfoDto> _responseData;
+    BuiltList<GroupInfoDto>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(GroupInfoDto)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<GroupInfoDto>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(GroupInfoDto)]),
+            ) as BuiltList<GroupInfoDto>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<GroupInfoDto>>(
@@ -260,10 +264,10 @@ class SyncPlayApi {
   }
 
   /// Join an existing SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayJoinGroupRequest] - The group to join.
+  /// * [joinGroupRequestDto] - The group to join.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -272,9 +276,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayJoinGroup({ 
-    required SyncPlayJoinGroupRequest syncPlayJoinGroupRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayJoinGroup({
+    required JoinGroupRequestDto joinGroupRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -306,18 +310,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayJoinGroupRequest);
-      _bodyData = _serializers.serialize(syncPlayJoinGroupRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(JoinGroupRequestDto);
+      _bodyData =
+          _serializers.serialize(joinGroupRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -333,7 +338,7 @@ class SyncPlayApi {
   }
 
   /// Leave the joined SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -344,8 +349,8 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayLeaveGroup({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayLeaveGroup({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -385,10 +390,10 @@ class SyncPlayApi {
   }
 
   /// Request to move an item in the playlist in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayMovePlaylistItemRequest] - The new position for the item.
+  /// * [movePlaylistItemRequestDto] - The new position for the item.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -397,9 +402,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayMovePlaylistItem({ 
-    required SyncPlayMovePlaylistItemRequest syncPlayMovePlaylistItemRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayMovePlaylistItem({
+    required MovePlaylistItemRequestDto movePlaylistItemRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -431,18 +436,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayMovePlaylistItemRequest);
-      _bodyData = _serializers.serialize(syncPlayMovePlaylistItemRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(MovePlaylistItemRequestDto);
+      _bodyData = _serializers.serialize(movePlaylistItemRequestDto,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -458,10 +464,10 @@ class SyncPlayApi {
   }
 
   /// Request next item in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayNextItemRequest] - The current item information.
+  /// * [nextItemRequestDto] - The current item information.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -470,9 +476,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayNextItem({ 
-    required SyncPlayNextItemRequest syncPlayNextItemRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayNextItem({
+    required NextItemRequestDto nextItemRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -504,18 +510,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayNextItemRequest);
-      _bodyData = _serializers.serialize(syncPlayNextItemRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(NextItemRequestDto);
+      _bodyData =
+          _serializers.serialize(nextItemRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -531,7 +538,7 @@ class SyncPlayApi {
   }
 
   /// Request pause in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -542,8 +549,8 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayPause({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayPause({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -583,10 +590,10 @@ class SyncPlayApi {
   }
 
   /// Update session ping.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayPingRequest] - The new ping.
+  /// * [pingRequestDto] - The new ping.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -595,9 +602,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayPing({ 
-    required SyncPlayPingRequest syncPlayPingRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayPing({
+    required PingRequestDto pingRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -629,18 +636,18 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayPingRequest);
-      _bodyData = _serializers.serialize(syncPlayPingRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(PingRequestDto);
+      _bodyData = _serializers.serialize(pingRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -656,10 +663,10 @@ class SyncPlayApi {
   }
 
   /// Request previous item in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayPreviousItemRequest] - The current item information.
+  /// * [previousItemRequestDto] - The current item information.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -668,9 +675,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayPreviousItem({ 
-    required SyncPlayPreviousItemRequest syncPlayPreviousItemRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayPreviousItem({
+    required PreviousItemRequestDto previousItemRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -702,18 +709,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayPreviousItemRequest);
-      _bodyData = _serializers.serialize(syncPlayPreviousItemRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(PreviousItemRequestDto);
+      _bodyData =
+          _serializers.serialize(previousItemRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -729,10 +737,10 @@ class SyncPlayApi {
   }
 
   /// Request to queue items to the playlist of a SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayQueueRequest] - The items to add.
+  /// * [queueRequestDto] - The items to add.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -741,9 +749,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayQueue({ 
-    required SyncPlayQueueRequest syncPlayQueueRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayQueue({
+    required QueueRequestDto queueRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -775,18 +783,18 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayQueueRequest);
-      _bodyData = _serializers.serialize(syncPlayQueueRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(QueueRequestDto);
+      _bodyData = _serializers.serialize(queueRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -802,10 +810,10 @@ class SyncPlayApi {
   }
 
   /// Notify SyncPlay group that member is ready for playback.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayReadyRequest] - The player status.
+  /// * [readyRequestDto] - The player status.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -814,9 +822,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayReady({ 
-    required SyncPlayReadyRequest syncPlayReadyRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayReady({
+    required ReadyRequestDto readyRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -848,18 +856,18 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayReadyRequest);
-      _bodyData = _serializers.serialize(syncPlayReadyRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(ReadyRequestDto);
+      _bodyData = _serializers.serialize(readyRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -875,10 +883,10 @@ class SyncPlayApi {
   }
 
   /// Request to remove items from the playlist in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlayRemoveFromPlaylistRequest] - The items to remove.
+  /// * [removeFromPlaylistRequestDto] - The items to remove.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -887,9 +895,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayRemoveFromPlaylist({ 
-    required SyncPlayRemoveFromPlaylistRequest syncPlayRemoveFromPlaylistRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayRemoveFromPlaylist({
+    required RemoveFromPlaylistRequestDto removeFromPlaylistRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -921,18 +929,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlayRemoveFromPlaylistRequest);
-      _bodyData = _serializers.serialize(syncPlayRemoveFromPlaylistRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(RemoveFromPlaylistRequestDto);
+      _bodyData = _serializers.serialize(removeFromPlaylistRequestDto,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -948,10 +957,10 @@ class SyncPlayApi {
   }
 
   /// Request seek in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlaySeekRequest] - The new playback position.
+  /// * [seekRequestDto] - The new playback position.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -960,9 +969,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlaySeek({ 
-    required SyncPlaySeekRequest syncPlaySeekRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlaySeek({
+    required SeekRequestDto seekRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -994,18 +1003,18 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlaySeekRequest);
-      _bodyData = _serializers.serialize(syncPlaySeekRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(SeekRequestDto);
+      _bodyData = _serializers.serialize(seekRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -1021,10 +1030,10 @@ class SyncPlayApi {
   }
 
   /// Request SyncPlay group to ignore member during group-wait.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlaySetIgnoreWaitRequest] - The settings to set.
+  /// * [ignoreWaitRequestDto] - The settings to set.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1033,9 +1042,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlaySetIgnoreWait({ 
-    required SyncPlaySetIgnoreWaitRequest syncPlaySetIgnoreWaitRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlaySetIgnoreWait({
+    required IgnoreWaitRequestDto ignoreWaitRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1067,18 +1076,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlaySetIgnoreWaitRequest);
-      _bodyData = _serializers.serialize(syncPlaySetIgnoreWaitRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(IgnoreWaitRequestDto);
+      _bodyData =
+          _serializers.serialize(ignoreWaitRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -1094,10 +1104,10 @@ class SyncPlayApi {
   }
 
   /// Request to set new playlist in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlaySetNewQueueRequest] - The new playlist to play in the group.
+  /// * [playRequestDto] - The new playlist to play in the group.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1106,9 +1116,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlaySetNewQueue({ 
-    required SyncPlaySetNewQueueRequest syncPlaySetNewQueueRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlaySetNewQueue({
+    required PlayRequestDto playRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1140,18 +1150,18 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlaySetNewQueueRequest);
-      _bodyData = _serializers.serialize(syncPlaySetNewQueueRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(PlayRequestDto);
+      _bodyData = _serializers.serialize(playRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -1167,10 +1177,10 @@ class SyncPlayApi {
   }
 
   /// Request to change playlist item in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlaySetPlaylistItemRequest] - The new item to play.
+  /// * [setPlaylistItemRequestDto] - The new item to play.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1179,9 +1189,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlaySetPlaylistItem({ 
-    required SyncPlaySetPlaylistItemRequest syncPlaySetPlaylistItemRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlaySetPlaylistItem({
+    required SetPlaylistItemRequestDto setPlaylistItemRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1213,18 +1223,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlaySetPlaylistItemRequest);
-      _bodyData = _serializers.serialize(syncPlaySetPlaylistItemRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(SetPlaylistItemRequestDto);
+      _bodyData = _serializers.serialize(setPlaylistItemRequestDto,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -1240,10 +1251,10 @@ class SyncPlayApi {
   }
 
   /// Request to set repeat mode in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlaySetRepeatModeRequest] - The new repeat mode.
+  /// * [setRepeatModeRequestDto] - The new repeat mode.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1252,9 +1263,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlaySetRepeatMode({ 
-    required SyncPlaySetRepeatModeRequest syncPlaySetRepeatModeRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlaySetRepeatMode({
+    required SetRepeatModeRequestDto setRepeatModeRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1286,18 +1297,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlaySetRepeatModeRequest);
-      _bodyData = _serializers.serialize(syncPlaySetRepeatModeRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(SetRepeatModeRequestDto);
+      _bodyData =
+          _serializers.serialize(setRepeatModeRequestDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -1313,10 +1325,10 @@ class SyncPlayApi {
   }
 
   /// Request to set shuffle mode in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [syncPlaySetShuffleModeRequest] - The new shuffle mode.
+  /// * [setShuffleModeRequestDto] - The new shuffle mode.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1325,9 +1337,9 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlaySetShuffleMode({ 
-    required SyncPlaySetShuffleModeRequest syncPlaySetShuffleModeRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlaySetShuffleMode({
+    required SetShuffleModeRequestDto setShuffleModeRequestDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1359,18 +1371,19 @@ class SyncPlayApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SyncPlaySetShuffleModeRequest);
-      _bodyData = _serializers.serialize(syncPlaySetShuffleModeRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(SetShuffleModeRequestDto);
+      _bodyData = _serializers.serialize(setShuffleModeRequestDto,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -1386,7 +1399,7 @@ class SyncPlayApi {
   }
 
   /// Request stop in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -1397,8 +1410,8 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayStop({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayStop({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1438,7 +1451,7 @@ class SyncPlayApi {
   }
 
   /// Request unpause in SyncPlay group.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -1449,8 +1462,8 @@ class SyncPlayApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> syncPlayUnpause({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> syncPlayUnpause({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1488,5 +1501,4 @@ class SyncPlayApi {
 
     return _response;
   }
-
 }

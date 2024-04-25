@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for OpenLiveStreamDto
 void main() {
-  //final instance = OpenLiveStreamDtoBuilder();
+  final instance = OpenLiveStreamDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(OpenLiveStreamDto, () {
@@ -73,7 +73,7 @@ void main() {
       // TODO
     });
 
-    // ClientCapabilitiesDtoDeviceProfile deviceProfile
+    // ClientCapabilitiesDeviceProfile deviceProfile
     test('to test the property `deviceProfile`', () async {
       // TODO
     });
@@ -83,6 +83,5 @@ void main() {
     test('to test the property `directPlayProtocols`', () async {
       // TODO
     });
-
   });
 }

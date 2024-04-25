@@ -6,7 +6,7 @@ part of 'user_configuration.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class UserConfigurationBuilder {
+abstract mixin class UserConfigurationBuilder {
   void replace(UserConfiguration other);
   void update(void Function(UserConfigurationBuilder) updates);
   String? get audioLanguagePreference;

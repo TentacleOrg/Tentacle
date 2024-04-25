@@ -9,10 +9,8 @@ import 'package:dio/dio.dart';
 
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/display_preferences_dto.dart';
-import 'package:tentacle/src/model/update_display_preferences_request.dart';
 
 class DisplayPreferencesApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -20,7 +18,7 @@ class DisplayPreferencesApi {
   const DisplayPreferencesApi(this._dio, this._serializers);
 
   /// Get Display Preferences.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [displayPreferencesId] - Display preferences id.
@@ -34,8 +32,8 @@ class DisplayPreferencesApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DisplayPreferencesDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<DisplayPreferencesDto>> getDisplayPreferences({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<DisplayPreferencesDto>> getDisplayPreferences({
     required String displayPreferencesId,
     required String userId,
     required String client,
@@ -46,7 +44,11 @@ class DisplayPreferencesApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/DisplayPreferences/{displayPreferencesId}'.replaceAll('{' r'displayPreferencesId' '}', displayPreferencesId.toString());
+    final _path = r'/DisplayPreferences/{displayPreferencesId}'.replaceAll(
+        '{' r'displayPreferencesId' '}',
+        encodeQueryParameter(
+                _serializers, displayPreferencesId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -67,8 +69,10 @@ class DisplayPreferencesApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      r'client': encodeQueryParameter(_serializers, client, const FullType(String)),
+      r'userId':
+          encodeQueryParameter(_serializers, userId, const FullType(String)),
+      r'client':
+          encodeQueryParameter(_serializers, client, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -80,22 +84,24 @@ class DisplayPreferencesApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DisplayPreferencesDto _responseData;
+    DisplayPreferencesDto? _responseData;
 
     try {
-      const _responseType = FullType(DisplayPreferencesDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as DisplayPreferencesDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DisplayPreferencesDto),
+            ) as DisplayPreferencesDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<DisplayPreferencesDto>(
@@ -111,13 +117,13 @@ class DisplayPreferencesApi {
   }
 
   /// Update Display Preferences.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [displayPreferencesId] - Display preferences id.
   /// * [userId] - User Id.
   /// * [client] - Client.
-  /// * [updateDisplayPreferencesRequest] - New Display Preferences object.
+  /// * [displayPreferencesDto] - New Display Preferences object.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -126,12 +132,12 @@ class DisplayPreferencesApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateDisplayPreferences({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateDisplayPreferences({
     required String displayPreferencesId,
     required String userId,
     required String client,
-    required UpdateDisplayPreferencesRequest updateDisplayPreferencesRequest,
+    required DisplayPreferencesDto displayPreferencesDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -139,7 +145,11 @@ class DisplayPreferencesApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/DisplayPreferences/{displayPreferencesId}'.replaceAll('{' r'displayPreferencesId' '}', displayPreferencesId.toString());
+    final _path = r'/DisplayPreferences/{displayPreferencesId}'.replaceAll(
+        '{' r'displayPreferencesId' '}',
+        encodeQueryParameter(
+                _serializers, displayPreferencesId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -161,26 +171,29 @@ class DisplayPreferencesApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      r'client': encodeQueryParameter(_serializers, client, const FullType(String)),
+      r'userId':
+          encodeQueryParameter(_serializers, userId, const FullType(String)),
+      r'client':
+          encodeQueryParameter(_serializers, client, const FullType(String)),
     };
 
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateDisplayPreferencesRequest);
-      _bodyData = _serializers.serialize(updateDisplayPreferencesRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(DisplayPreferencesDto);
+      _bodyData =
+          _serializers.serialize(displayPreferencesDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -195,5 +208,4 @@ class DisplayPreferencesApi {
 
     return _response;
   }
-
 }

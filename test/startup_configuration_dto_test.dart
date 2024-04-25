@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for StartupConfigurationDto
 void main() {
-  //final instance = StartupConfigurationDtoBuilder();
+  final instance = StartupConfigurationDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(StartupConfigurationDto, () {
@@ -24,6 +24,5 @@ void main() {
     test('to test the property `preferredMetadataLanguage`', () async {
       // TODO
     });
-
   });
 }

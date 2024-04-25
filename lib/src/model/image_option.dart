@@ -20,6 +20,7 @@ abstract class ImageOption implements Built<ImageOption, ImageOptionBuilder> {
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   ImageType? get type;
+  // enum typeEnum {  Primary,  Art,  Backdrop,  Banner,  Logo,  Thumb,  Disc,  Box,  Screenshot,  Menu,  Chapter,  BoxRear,  Profile,  };
 
   /// Gets or sets the limit.
   @BuiltValueField(wireName: r'Limit')
@@ -81,7 +82,9 @@ class _$ImageOptionSerializer implements PrimitiveSerializer<ImageOption> {
     ImageOption object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -145,4 +148,3 @@ class _$ImageOptionSerializer implements PrimitiveSerializer<ImageOption> {
     return result.build();
   }
 }
-

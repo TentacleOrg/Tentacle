@@ -1,8 +1,8 @@
-# openapi.api.TvShowsApi
+# tentacle.api.TvShowsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -22,13 +22,13 @@ Gets episodes for a tv season.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getTvShowsApi();
+final api = Tentacle().getTvShowsApi();
 final String seriesId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The series id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
@@ -48,7 +48,7 @@ final String sortBy = sortBy_example; // String | Optional. Specify one or more 
 try {
     final response = api.getEpisodes(seriesId, userId, fields, season, seasonId, isMissing, adjacentTo, startItemId, startIndex, limit, enableImages, imageTypeLimit, enableImageTypes, enableUserData, sortBy);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling TvShowsApi->getEpisodes: $e\n');
 }
 ```
@@ -95,13 +95,13 @@ Gets a list of next up episodes.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getTvShowsApi();
+final api = Tentacle().getTvShowsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id of the user to get the next up episodes for.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -120,7 +120,7 @@ final bool enableRewatching = true; // bool | Whether to include watched episode
 try {
     final response = api.getNextUp(userId, startIndex, limit, fields, seriesId, parentId, enableImages, imageTypeLimit, enableImageTypes, enableUserData, nextUpDateCutoff, enableTotalRecordCount, disableFirstEpisode, enableRewatching);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling TvShowsApi->getNextUp: $e\n');
 }
 ```
@@ -166,13 +166,13 @@ Gets seasons for a tv series.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getTvShowsApi();
+final api = Tentacle().getTvShowsApi();
 final String seriesId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The series id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines, TrailerUrls.
@@ -187,7 +187,7 @@ final bool enableUserData = true; // bool | Optional. Include user data.
 try {
     final response = api.getSeasons(seriesId, userId, fields, isSpecialSeason, isMissing, adjacentTo, enableImages, imageTypeLimit, enableImageTypes, enableUserData);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling TvShowsApi->getSeasons: $e\n');
 }
 ```
@@ -229,13 +229,13 @@ Gets a list of upcoming episodes.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getTvShowsApi();
+final api = Tentacle().getTvShowsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id of the user to get the upcoming episodes for.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -249,7 +249,7 @@ final bool enableUserData = true; // bool | Optional. Include user data.
 try {
     final response = api.getUpcomingEpisodes(userId, startIndex, limit, fields, parentId, enableImages, imageTypeLimit, enableImageTypes, enableUserData);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling TvShowsApi->getUpcomingEpisodes: $e\n');
 }
 ```

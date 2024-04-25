@@ -12,19 +12,33 @@ part 'add_virtual_folder_dto.g.dart';
 /// Add virtual folder dto.
 ///
 /// Properties:
-/// * [libraryOptions] 
-@BuiltValue(instantiable: false)
-abstract class AddVirtualFolderDto  {
+/// * [libraryOptions]
+@BuiltValue()
+abstract class AddVirtualFolderDto
+    implements Built<AddVirtualFolderDto, AddVirtualFolderDtoBuilder> {
   @BuiltValueField(wireName: r'LibraryOptions')
   AddVirtualFolderDtoLibraryOptions? get libraryOptions;
 
+  AddVirtualFolderDto._();
+
+  factory AddVirtualFolderDto([void updates(AddVirtualFolderDtoBuilder b)]) =
+      _$AddVirtualFolderDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AddVirtualFolderDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<AddVirtualFolderDto> get serializer => _$AddVirtualFolderDtoSerializer();
+  static Serializer<AddVirtualFolderDto> get serializer =>
+      _$AddVirtualFolderDtoSerializer();
 }
 
-class _$AddVirtualFolderDtoSerializer implements PrimitiveSerializer<AddVirtualFolderDto> {
+class _$AddVirtualFolderDtoSerializer
+    implements PrimitiveSerializer<AddVirtualFolderDto> {
   @override
-  final Iterable<Type> types = const [AddVirtualFolderDto];
+  final Iterable<Type> types = const [
+    AddVirtualFolderDto,
+    _$AddVirtualFolderDto
+  ];
 
   @override
   final String wireName = r'AddVirtualFolderDto';
@@ -38,7 +52,8 @@ class _$AddVirtualFolderDtoSerializer implements PrimitiveSerializer<AddVirtualF
       yield r'LibraryOptions';
       yield serializers.serialize(
         object.libraryOptions,
-        specifiedType: const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
+        specifiedType:
+            const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
       );
     }
   }
@@ -49,47 +64,9 @@ class _$AddVirtualFolderDtoSerializer implements PrimitiveSerializer<AddVirtualF
     AddVirtualFolderDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  AddVirtualFolderDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AddVirtualFolderDto)) as $AddVirtualFolderDto;
-  }
-}
-
-/// a concrete implementation of [AddVirtualFolderDto], since [AddVirtualFolderDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $AddVirtualFolderDto implements AddVirtualFolderDto, Built<$AddVirtualFolderDto, $AddVirtualFolderDtoBuilder> {
-  $AddVirtualFolderDto._();
-
-  factory $AddVirtualFolderDto([void Function($AddVirtualFolderDtoBuilder)? updates]) = _$$AddVirtualFolderDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AddVirtualFolderDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$AddVirtualFolderDto> get serializer => _$$AddVirtualFolderDtoSerializer();
-}
-
-class _$$AddVirtualFolderDtoSerializer implements PrimitiveSerializer<$AddVirtualFolderDto> {
-  @override
-  final Iterable<Type> types = const [$AddVirtualFolderDto, _$$AddVirtualFolderDto];
-
-  @override
-  final String wireName = r'$AddVirtualFolderDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $AddVirtualFolderDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(AddVirtualFolderDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -107,7 +84,8 @@ class _$$AddVirtualFolderDtoSerializer implements PrimitiveSerializer<$AddVirtua
         case r'LibraryOptions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
+            specifiedType:
+                const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
           ) as AddVirtualFolderDtoLibraryOptions?;
           if (valueDes == null) continue;
           result.libraryOptions.replace(valueDes);
@@ -121,12 +99,12 @@ class _$$AddVirtualFolderDtoSerializer implements PrimitiveSerializer<$AddVirtua
   }
 
   @override
-  $AddVirtualFolderDto deserialize(
+  AddVirtualFolderDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $AddVirtualFolderDtoBuilder();
+    final result = AddVirtualFolderDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -140,4 +118,3 @@ class _$$AddVirtualFolderDtoSerializer implements PrimitiveSerializer<$AddVirtua
     return result.build();
   }
 }
-

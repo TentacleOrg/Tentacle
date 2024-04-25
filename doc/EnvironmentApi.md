@@ -1,8 +1,8 @@
-# openapi.api.EnvironmentApi
+# tentacle.api.EnvironmentApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -24,18 +24,18 @@ Get Default directory browser.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getEnvironmentApi();
+final api = Tentacle().getEnvironmentApi();
 
 try {
     final response = api.getDefaultDirectoryBrowser();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling EnvironmentApi->getDefaultDirectoryBrowser: $e\n');
 }
 ```
@@ -65,13 +65,13 @@ Gets the contents of a given directory in the file system.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getEnvironmentApi();
+final api = Tentacle().getEnvironmentApi();
 final String path = path_example; // String | The path.
 final bool includeFiles = true; // bool | An optional filter to include or exclude files from the results. true/false.
 final bool includeDirectories = true; // bool | An optional filter to include or exclude folders from the results. true/false.
@@ -79,7 +79,7 @@ final bool includeDirectories = true; // bool | An optional filter to include or
 try {
     final response = api.getDirectoryContents(path, includeFiles, includeDirectories);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling EnvironmentApi->getDirectoryContents: $e\n');
 }
 ```
@@ -114,18 +114,18 @@ Gets available drives from the server's file system.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getEnvironmentApi();
+final api = Tentacle().getEnvironmentApi();
 
 try {
     final response = api.getDrives();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling EnvironmentApi->getDrives: $e\n');
 }
 ```
@@ -155,18 +155,18 @@ Gets network paths.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getEnvironmentApi();
+final api = Tentacle().getEnvironmentApi();
 
 try {
     final response = api.getNetworkShares();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling EnvironmentApi->getNetworkShares: $e\n');
 }
 ```
@@ -196,19 +196,19 @@ Gets the parent path of a given path.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getEnvironmentApi();
+final api = Tentacle().getEnvironmentApi();
 final String path = path_example; // String | The path.
 
 try {
     final response = api.getParentPath(path);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling EnvironmentApi->getParentPath: $e\n');
 }
 ```
@@ -235,24 +235,24 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **validatePath**
-> validatePath(validatePathRequest)
+> validatePath(validatePathDto)
 
 Validates path.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getEnvironmentApi();
-final ValidatePathRequest validatePathRequest = ; // ValidatePathRequest | Validate request object.
+final api = Tentacle().getEnvironmentApi();
+final ValidatePathDto validatePathDto = ; // ValidatePathDto | Validate request object.
 
 try {
-    api.validatePath(validatePathRequest);
-} catch on DioError (e) {
+    api.validatePath(validatePathDto);
+} catch on DioException (e) {
     print('Exception when calling EnvironmentApi->validatePath: $e\n');
 }
 ```
@@ -261,7 +261,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **validatePathRequest** | [**ValidatePathRequest**](ValidatePathRequest.md)| Validate request object. | 
+ **validatePathDto** | [**ValidatePathDto**](ValidatePathDto.md)| Validate request object. | 
 
 ### Return type
 

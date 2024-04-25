@@ -1,8 +1,8 @@
-# openapi.model.PlaybackInfoDto
+# tentacle.model.PlaybackInfoDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **maxAudioChannels** | **int** | Gets or sets the max audio channels. | [optional] 
 **mediaSourceId** | **String** | Gets or sets the media source id. | [optional] 
 **liveStreamId** | **String** | Gets or sets the live stream id. | [optional] 
-**deviceProfile** | [**ClientCapabilitiesDtoDeviceProfile**](ClientCapabilitiesDtoDeviceProfile.md) |  | [optional] 
+**deviceProfile** | [**ClientCapabilitiesDeviceProfile**](ClientCapabilitiesDeviceProfile.md) |  | [optional] 
 **enableDirectPlay** | **bool** | Gets or sets a value indicating whether to enable direct play. | [optional] 
 **enableDirectStream** | **bool** | Gets or sets a value indicating whether to enable direct stream. | [optional] 
 **enableTranscoding** | **bool** | Gets or sets a value indicating whether to enable transcoding. | [optional] 

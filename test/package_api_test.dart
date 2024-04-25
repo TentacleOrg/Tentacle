@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for PackageApi
 void main() {
   final instance = Tentacle().getPackageApi();
@@ -48,6 +47,5 @@ void main() {
     test('test setRepositories', () async {
       // TODO
     });
-
   });
 }

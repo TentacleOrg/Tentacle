@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/playback_error_code.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/playback_error_code.dart';
 import 'package:tentacle/src/model/media_source_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -18,7 +18,8 @@ part 'playback_info_response.g.dart';
 /// * [playSessionId] - Gets or sets the play session identifier.
 /// * [errorCode] - Gets or sets the error code.
 @BuiltValue()
-abstract class PlaybackInfoResponse implements Built<PlaybackInfoResponse, PlaybackInfoResponseBuilder> {
+abstract class PlaybackInfoResponse
+    implements Built<PlaybackInfoResponse, PlaybackInfoResponseBuilder> {
   /// Gets or sets the media sources.
   @BuiltValueField(wireName: r'MediaSources')
   BuiltList<MediaSourceInfo>? get mediaSources;
@@ -30,21 +31,28 @@ abstract class PlaybackInfoResponse implements Built<PlaybackInfoResponse, Playb
   /// Gets or sets the error code.
   @BuiltValueField(wireName: r'ErrorCode')
   PlaybackErrorCode? get errorCode;
+  // enum errorCodeEnum {  NotAllowed,  NoCompatibleStream,  RateLimitExceeded,  };
 
   PlaybackInfoResponse._();
 
-  factory PlaybackInfoResponse([void updates(PlaybackInfoResponseBuilder b)]) = _$PlaybackInfoResponse;
+  factory PlaybackInfoResponse([void updates(PlaybackInfoResponseBuilder b)]) =
+      _$PlaybackInfoResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PlaybackInfoResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PlaybackInfoResponse> get serializer => _$PlaybackInfoResponseSerializer();
+  static Serializer<PlaybackInfoResponse> get serializer =>
+      _$PlaybackInfoResponseSerializer();
 }
 
-class _$PlaybackInfoResponseSerializer implements PrimitiveSerializer<PlaybackInfoResponse> {
+class _$PlaybackInfoResponseSerializer
+    implements PrimitiveSerializer<PlaybackInfoResponse> {
   @override
-  final Iterable<Type> types = const [PlaybackInfoResponse, _$PlaybackInfoResponse];
+  final Iterable<Type> types = const [
+    PlaybackInfoResponse,
+    _$PlaybackInfoResponse
+  ];
 
   @override
   final String wireName = r'PlaybackInfoResponse';
@@ -83,7 +91,9 @@ class _$PlaybackInfoResponseSerializer implements PrimitiveSerializer<PlaybackIn
     PlaybackInfoResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -101,7 +111,8 @@ class _$PlaybackInfoResponseSerializer implements PrimitiveSerializer<PlaybackIn
         case r'MediaSources':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(MediaSourceInfo)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(MediaSourceInfo)]),
           ) as BuiltList<MediaSourceInfo>;
           result.mediaSources.replace(valueDes);
           break;
@@ -149,4 +160,3 @@ class _$PlaybackInfoResponseSerializer implements PrimitiveSerializer<PlaybackIn
     return result.build();
   }
 }
-

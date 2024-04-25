@@ -11,11 +11,12 @@ part 'message_command.g.dart';
 /// MessageCommand
 ///
 /// Properties:
-/// * [header] 
-/// * [text] 
-/// * [timeoutMs] 
-@BuiltValue(instantiable: false)
-abstract class MessageCommand  {
+/// * [header]
+/// * [text]
+/// * [timeoutMs]
+@BuiltValue()
+abstract class MessageCommand
+    implements Built<MessageCommand, MessageCommandBuilder> {
   @BuiltValueField(wireName: r'Header')
   String? get header;
 
@@ -25,13 +26,23 @@ abstract class MessageCommand  {
   @BuiltValueField(wireName: r'TimeoutMs')
   int? get timeoutMs;
 
+  MessageCommand._();
+
+  factory MessageCommand([void updates(MessageCommandBuilder b)]) =
+      _$MessageCommand;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MessageCommandBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<MessageCommand> get serializer => _$MessageCommandSerializer();
+  static Serializer<MessageCommand> get serializer =>
+      _$MessageCommandSerializer();
 }
 
-class _$MessageCommandSerializer implements PrimitiveSerializer<MessageCommand> {
+class _$MessageCommandSerializer
+    implements PrimitiveSerializer<MessageCommand> {
   @override
-  final Iterable<Type> types = const [MessageCommand];
+  final Iterable<Type> types = const [MessageCommand, _$MessageCommand];
 
   @override
   final String wireName = r'MessageCommand';
@@ -68,47 +79,9 @@ class _$MessageCommandSerializer implements PrimitiveSerializer<MessageCommand> 
     MessageCommand object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MessageCommand deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MessageCommand)) as $MessageCommand;
-  }
-}
-
-/// a concrete implementation of [MessageCommand], since [MessageCommand] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MessageCommand implements MessageCommand, Built<$MessageCommand, $MessageCommandBuilder> {
-  $MessageCommand._();
-
-  factory $MessageCommand([void Function($MessageCommandBuilder)? updates]) = _$$MessageCommand;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MessageCommandBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MessageCommand> get serializer => _$$MessageCommandSerializer();
-}
-
-class _$$MessageCommandSerializer implements PrimitiveSerializer<$MessageCommand> {
-  @override
-  final Iterable<Type> types = const [$MessageCommand, _$$MessageCommand];
-
-  @override
-  final String wireName = r'$MessageCommand';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MessageCommand object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MessageCommand))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -155,12 +128,12 @@ class _$$MessageCommandSerializer implements PrimitiveSerializer<$MessageCommand
   }
 
   @override
-  $MessageCommand deserialize(
+  MessageCommand deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MessageCommandBuilder();
+    final result = MessageCommandBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -174,4 +147,3 @@ class _$$MessageCommandSerializer implements PrimitiveSerializer<$MessageCommand
     return result.build();
   }
 }
-

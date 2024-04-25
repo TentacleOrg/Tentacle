@@ -20,9 +20,10 @@ part 'live_tv_service_info.g.dart';
 /// * [version] - Gets or sets the version.
 /// * [hasUpdateAvailable] - Gets or sets a value indicating whether this instance has update available.
 /// * [isVisible] - Gets or sets a value indicating whether this instance is visible.
-/// * [tuners] 
+/// * [tuners]
 @BuiltValue()
-abstract class LiveTvServiceInfo implements Built<LiveTvServiceInfo, LiveTvServiceInfoBuilder> {
+abstract class LiveTvServiceInfo
+    implements Built<LiveTvServiceInfo, LiveTvServiceInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -34,6 +35,7 @@ abstract class LiveTvServiceInfo implements Built<LiveTvServiceInfo, LiveTvServi
   /// Gets or sets the status.
   @BuiltValueField(wireName: r'Status')
   LiveTvServiceStatus? get status;
+  // enum statusEnum {  Ok,  Unavailable,  };
 
   /// Gets or sets the status message.
   @BuiltValueField(wireName: r'StatusMessage')
@@ -56,16 +58,19 @@ abstract class LiveTvServiceInfo implements Built<LiveTvServiceInfo, LiveTvServi
 
   LiveTvServiceInfo._();
 
-  factory LiveTvServiceInfo([void updates(LiveTvServiceInfoBuilder b)]) = _$LiveTvServiceInfo;
+  factory LiveTvServiceInfo([void updates(LiveTvServiceInfoBuilder b)]) =
+      _$LiveTvServiceInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LiveTvServiceInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LiveTvServiceInfo> get serializer => _$LiveTvServiceInfoSerializer();
+  static Serializer<LiveTvServiceInfo> get serializer =>
+      _$LiveTvServiceInfoSerializer();
 }
 
-class _$LiveTvServiceInfoSerializer implements PrimitiveSerializer<LiveTvServiceInfo> {
+class _$LiveTvServiceInfoSerializer
+    implements PrimitiveSerializer<LiveTvServiceInfo> {
   @override
   final Iterable<Type> types = const [LiveTvServiceInfo, _$LiveTvServiceInfo];
 
@@ -141,7 +146,9 @@ class _$LiveTvServiceInfoSerializer implements PrimitiveSerializer<LiveTvService
     LiveTvServiceInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -212,7 +219,8 @@ class _$LiveTvServiceInfoSerializer implements PrimitiveSerializer<LiveTvService
         case r'Tuners':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.tuners.replace(valueDes);
@@ -245,4 +253,3 @@ class _$LiveTvServiceInfoSerializer implements PrimitiveSerializer<LiveTvService
     return result.build();
   }
 }
-

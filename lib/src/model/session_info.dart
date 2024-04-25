@@ -3,17 +3,17 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/session_info_full_now_playing_item.dart';
-import 'package:tentacle/src/model/session_info_capabilities.dart';
-import 'package:tentacle/src/model/session_info_now_playing_item.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/session_user_info.dart';
-import 'package:tentacle/src/model/general_command_type.dart';
-import 'package:tentacle/src/model/queue_item.dart';
-import 'package:tentacle/src/model/session_info_transcoding_info.dart';
-import 'package:tentacle/src/model/base_item_dto.dart';
-import 'package:tentacle/src/model/session_info_play_state.dart';
+import 'package:tentacle/src/model/player_state_info.dart';
 import 'package:tentacle/src/model/session_info_now_viewing_item.dart';
+import 'package:tentacle/src/model/session_user_info.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/session_info_full_now_playing_item.dart';
+import 'package:tentacle/src/model/queue_item.dart';
+import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/session_info_now_playing_item.dart';
+import 'package:tentacle/src/model/transcoding_info.dart';
+import 'package:tentacle/src/model/client_capabilities.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -22,9 +22,9 @@ part 'session_info.g.dart';
 /// Class SessionInfo.
 ///
 /// Properties:
-/// * [playState] 
-/// * [additionalUsers] 
-/// * [capabilities] 
+/// * [playState]
+/// * [additionalUsers]
+/// * [capabilities]
 /// * [remoteEndPoint] - Gets or sets the remote end point.
 /// * [playableMediaTypes] - Gets the playable media types.
 /// * [id] - Gets or sets the id.
@@ -35,32 +35,32 @@ part 'session_info.g.dart';
 /// * [lastPlaybackCheckIn] - Gets or sets the last playback check in.
 /// * [deviceName] - Gets or sets the name of the device.
 /// * [deviceType] - Gets or sets the type of the device.
-/// * [nowPlayingItem] 
-/// * [fullNowPlayingItem] 
-/// * [nowViewingItem] 
+/// * [nowPlayingItem]
+/// * [fullNowPlayingItem]
+/// * [nowViewingItem]
 /// * [deviceId] - Gets or sets the device id.
 /// * [applicationVersion] - Gets or sets the application version.
-/// * [transcodingInfo] 
+/// * [transcodingInfo]
 /// * [isActive] - Gets a value indicating whether this instance is active.
-/// * [supportsMediaControl] 
-/// * [supportsRemoteControl] 
-/// * [nowPlayingQueue] 
-/// * [nowPlayingQueueFullItems] 
-/// * [hasCustomDeviceName] 
-/// * [playlistItemId] 
-/// * [serverId] 
-/// * [userPrimaryImageTag] 
+/// * [supportsMediaControl]
+/// * [supportsRemoteControl]
+/// * [nowPlayingQueue]
+/// * [nowPlayingQueueFullItems]
+/// * [hasCustomDeviceName]
+/// * [playlistItemId]
+/// * [serverId]
+/// * [userPrimaryImageTag]
 /// * [supportedCommands] - Gets the supported commands.
 @BuiltValue(instantiable: false)
-abstract class SessionInfo  {
+abstract class SessionInfo {
   @BuiltValueField(wireName: r'PlayState')
-  SessionInfoPlayState? get playState;
+  PlayerStateInfo? get playState;
 
   @BuiltValueField(wireName: r'AdditionalUsers')
   BuiltList<SessionUserInfo>? get additionalUsers;
 
   @BuiltValueField(wireName: r'Capabilities')
-  SessionInfoCapabilities? get capabilities;
+  ClientCapabilities? get capabilities;
 
   /// Gets or sets the remote end point.
   @BuiltValueField(wireName: r'RemoteEndPoint')
@@ -120,7 +120,7 @@ abstract class SessionInfo  {
   String? get applicationVersion;
 
   @BuiltValueField(wireName: r'TranscodingInfo')
-  SessionInfoTranscodingInfo? get transcodingInfo;
+  TranscodingInfo? get transcodingInfo;
 
   /// Gets a value indicating whether this instance is active.
   @BuiltValueField(wireName: r'IsActive')
@@ -174,21 +174,22 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
       yield r'PlayState';
       yield serializers.serialize(
         object.playState,
-        specifiedType: const FullType.nullable(SessionInfoPlayState),
+        specifiedType: const FullType.nullable(PlayerStateInfo),
       );
     }
     if (object.additionalUsers != null) {
       yield r'AdditionalUsers';
       yield serializers.serialize(
         object.additionalUsers,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(SessionUserInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(SessionUserInfo)]),
       );
     }
     if (object.capabilities != null) {
       yield r'Capabilities';
       yield serializers.serialize(
         object.capabilities,
-        specifiedType: const FullType.nullable(SessionInfoCapabilities),
+        specifiedType: const FullType.nullable(ClientCapabilities),
       );
     }
     if (object.remoteEndPoint != null) {
@@ -300,7 +301,7 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
       yield r'TranscodingInfo';
       yield serializers.serialize(
         object.transcodingInfo,
-        specifiedType: const FullType.nullable(SessionInfoTranscodingInfo),
+        specifiedType: const FullType.nullable(TranscodingInfo),
       );
     }
     if (object.isActive != null) {
@@ -328,14 +329,16 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
       yield r'NowPlayingQueue';
       yield serializers.serialize(
         object.nowPlayingQueue,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(QueueItem)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(QueueItem)]),
       );
     }
     if (object.nowPlayingQueueFullItems != null) {
       yield r'NowPlayingQueueFullItems';
       yield serializers.serialize(
         object.nowPlayingQueueFullItems,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
       );
     }
     if (object.hasCustomDeviceName != null) {
@@ -370,7 +373,8 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
       yield r'SupportedCommands';
       yield serializers.serialize(
         object.supportedCommands,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
       );
     }
   }
@@ -381,7 +385,9 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
     SessionInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -390,16 +396,19 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SessionInfo)) as $SessionInfo;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($SessionInfo)) as $SessionInfo;
   }
 }
 
 /// a concrete implementation of [SessionInfo], since [SessionInfo] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $SessionInfo implements SessionInfo, Built<$SessionInfo, $SessionInfoBuilder> {
+abstract class $SessionInfo
+    implements SessionInfo, Built<$SessionInfo, $SessionInfoBuilder> {
   $SessionInfo._();
 
-  factory $SessionInfo([void Function($SessionInfoBuilder)? updates]) = _$$SessionInfo;
+  factory $SessionInfo([void Function($SessionInfoBuilder)? updates]) =
+      _$$SessionInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($SessionInfoBuilder b) => b;
@@ -439,15 +448,16 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'PlayState':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SessionInfoPlayState),
-          ) as SessionInfoPlayState?;
+            specifiedType: const FullType.nullable(PlayerStateInfo),
+          ) as PlayerStateInfo?;
           if (valueDes == null) continue;
           result.playState.replace(valueDes);
           break;
         case r'AdditionalUsers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(SessionUserInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(SessionUserInfo)]),
           ) as BuiltList<SessionUserInfo>?;
           if (valueDes == null) continue;
           result.additionalUsers.replace(valueDes);
@@ -455,10 +465,10 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'Capabilities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SessionInfoCapabilities),
-          ) as SessionInfoCapabilities?;
+            specifiedType: const FullType.nullable(ClientCapabilities),
+          ) as ClientCapabilities?;
           if (valueDes == null) continue;
-          result.capabilities.replace(valueDes);
+          result.capabilities = valueDes;
           break;
         case r'RemoteEndPoint':
           final valueDes = serializers.deserialize(
@@ -471,7 +481,8 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'PlayableMediaTypes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.playableMediaTypes.replace(valueDes);
@@ -548,7 +559,8 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'FullNowPlayingItem':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SessionInfoFullNowPlayingItem),
+            specifiedType:
+                const FullType.nullable(SessionInfoFullNowPlayingItem),
           ) as SessionInfoFullNowPlayingItem?;
           if (valueDes == null) continue;
           result.fullNowPlayingItem.replace(valueDes);
@@ -580,8 +592,8 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'TranscodingInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SessionInfoTranscodingInfo),
-          ) as SessionInfoTranscodingInfo?;
+            specifiedType: const FullType.nullable(TranscodingInfo),
+          ) as TranscodingInfo?;
           if (valueDes == null) continue;
           result.transcodingInfo.replace(valueDes);
           break;
@@ -609,7 +621,8 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'NowPlayingQueue':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(QueueItem)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(QueueItem)]),
           ) as BuiltList<QueueItem>?;
           if (valueDes == null) continue;
           result.nowPlayingQueue.replace(valueDes);
@@ -617,7 +630,8 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'NowPlayingQueueFullItems':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
           ) as BuiltList<BaseItemDto>?;
           if (valueDes == null) continue;
           result.nowPlayingQueueFullItems.replace(valueDes);
@@ -656,7 +670,8 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'SupportedCommands':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(GeneralCommandType)]),
           ) as BuiltList<GeneralCommandType>?;
           if (valueDes == null) continue;
           result.supportedCommands.replace(valueDes);
@@ -689,4 +704,3 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
     return result.build();
   }
 }
-

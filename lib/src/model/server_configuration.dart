@@ -3,12 +3,12 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/image_saving_convention.dart';
-import 'package:tentacle/src/model/name_value_pair.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/metadata_options.dart';
 import 'package:tentacle/src/model/path_substitution.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/repository_info.dart';
+import 'package:tentacle/src/model/metadata_options.dart';
+import 'package:tentacle/src/model/name_value_pair.dart';
+import 'package:tentacle/src/model/image_saving_convention.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -23,13 +23,13 @@ part 'server_configuration.g.dart';
 /// * [previousVersion] - Gets or sets the last known version that was ran using the configuration.
 /// * [previousVersionStr] - Gets or sets the stringified PreviousVersion to be stored/loaded,  because System.Version itself isn't xml-serializable.
 /// * [enableMetrics] - Gets or sets a value indicating whether to enable prometheus metrics exporting.
-/// * [enableNormalizedItemByNameIds] 
+/// * [enableNormalizedItemByNameIds]
 /// * [isPortAuthorized] - Gets or sets a value indicating whether this instance is port authorized.
 /// * [quickConnectAvailable] - Gets or sets a value indicating whether quick connect is available for use on this server.
 /// * [enableCaseSensitiveItemIds] - Gets or sets a value indicating whether [enable case sensitive item ids].
-/// * [disableLiveTvChannelUserDataName] 
+/// * [disableLiveTvChannelUserDataName]
 /// * [metadataPath] - Gets or sets the metadata path.
-/// * [metadataNetworkPath] 
+/// * [metadataNetworkPath]
 /// * [preferredMetadataLanguage] - Gets or sets the preferred metadata language.
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [sortReplaceCharacters] - Gets or sets characters to be replaced with a ' ' in strings to create a sort name.
@@ -42,21 +42,21 @@ part 'server_configuration.g.dart';
 /// * [maxAudiobookResume] - Gets or sets the remaining minutes of a book that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
 /// * [libraryMonitorDelay] - Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files.
 /// * [imageSavingConvention] - Gets or sets the image saving convention.
-/// * [metadataOptions] 
-/// * [skipDeserializationForBasicTypes] 
-/// * [serverName] 
-/// * [uICulture] 
-/// * [saveMetadataHidden] 
-/// * [contentTypes] 
-/// * [remoteClientBitrateLimit] 
-/// * [enableFolderView] 
-/// * [enableGroupingIntoCollections] 
-/// * [displaySpecialsWithinSeasons] 
-/// * [codecsUsed] 
-/// * [pluginRepositories] 
-/// * [enableExternalContentInSuggestions] 
-/// * [imageExtractionTimeoutMs] 
-/// * [pathSubstitutions] 
+/// * [metadataOptions]
+/// * [skipDeserializationForBasicTypes]
+/// * [serverName]
+/// * [uICulture]
+/// * [saveMetadataHidden]
+/// * [contentTypes]
+/// * [remoteClientBitrateLimit]
+/// * [enableFolderView]
+/// * [enableGroupingIntoCollections]
+/// * [displaySpecialsWithinSeasons]
+/// * [codecsUsed]
+/// * [pluginRepositories]
+/// * [enableExternalContentInSuggestions]
+/// * [imageExtractionTimeoutMs]
+/// * [pathSubstitutions]
 /// * [enableSlowResponseWarning] - Gets or sets a value indicating whether slow server responses should be logged as a warning.
 /// * [slowResponseThresholdMs] - Gets or sets the threshold for the slow response time warning in ms.
 /// * [corsHosts] - Gets or sets the cors hosts.
@@ -65,8 +65,9 @@ part 'server_configuration.g.dart';
 /// * [libraryMetadataRefreshConcurrency] - Gets or sets the how many metadata refreshes can run concurrently.
 /// * [removeOldPlugins] - Gets or sets a value indicating whether older plugins should automatically be deleted from the plugin folder.
 /// * [allowClientLogUpload] - Gets or sets a value indicating whether clients should be allowed to upload logs.
-@BuiltValue(instantiable: false)
-abstract class ServerConfiguration  {
+@BuiltValue()
+abstract class ServerConfiguration
+    implements Built<ServerConfiguration, ServerConfigurationBuilder> {
   /// Gets or sets the number of days we should retain log files.
   @BuiltValueField(wireName: r'LogFileRetentionDays')
   int? get logFileRetentionDays;
@@ -163,6 +164,7 @@ abstract class ServerConfiguration  {
   /// Gets or sets the image saving convention.
   @BuiltValueField(wireName: r'ImageSavingConvention')
   ImageSavingConvention? get imageSavingConvention;
+  // enum imageSavingConventionEnum {  Legacy,  Compatible,  };
 
   @BuiltValueField(wireName: r'MetadataOptions')
   BuiltList<MetadataOptions>? get metadataOptions;
@@ -241,13 +243,26 @@ abstract class ServerConfiguration  {
   @BuiltValueField(wireName: r'AllowClientLogUpload')
   bool? get allowClientLogUpload;
 
+  ServerConfiguration._();
+
+  factory ServerConfiguration([void updates(ServerConfigurationBuilder b)]) =
+      _$ServerConfiguration;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ServerConfigurationBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<ServerConfiguration> get serializer => _$ServerConfigurationSerializer();
+  static Serializer<ServerConfiguration> get serializer =>
+      _$ServerConfigurationSerializer();
 }
 
-class _$ServerConfigurationSerializer implements PrimitiveSerializer<ServerConfiguration> {
+class _$ServerConfigurationSerializer
+    implements PrimitiveSerializer<ServerConfiguration> {
   @override
-  final Iterable<Type> types = const [ServerConfiguration];
+  final Iterable<Type> types = const [
+    ServerConfiguration,
+    _$ServerConfiguration
+  ];
 
   @override
   final String wireName = r'ServerConfiguration';
@@ -601,47 +616,9 @@ class _$ServerConfigurationSerializer implements PrimitiveSerializer<ServerConfi
     ServerConfiguration object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  ServerConfiguration deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ServerConfiguration)) as $ServerConfiguration;
-  }
-}
-
-/// a concrete implementation of [ServerConfiguration], since [ServerConfiguration] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ServerConfiguration implements ServerConfiguration, Built<$ServerConfiguration, $ServerConfigurationBuilder> {
-  $ServerConfiguration._();
-
-  factory $ServerConfiguration([void Function($ServerConfigurationBuilder)? updates]) = _$$ServerConfiguration;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ServerConfigurationBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ServerConfiguration> get serializer => _$$ServerConfigurationSerializer();
-}
-
-class _$$ServerConfigurationSerializer implements PrimitiveSerializer<$ServerConfiguration> {
-  @override
-  final Iterable<Type> types = const [$ServerConfiguration, _$$ServerConfiguration];
-
-  @override
-  final String wireName = r'$ServerConfiguration';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ServerConfiguration object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(ServerConfiguration))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -837,7 +814,8 @@ class _$$ServerConfigurationSerializer implements PrimitiveSerializer<$ServerCon
         case r'MetadataOptions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(MetadataOptions)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(MetadataOptions)]),
           ) as BuiltList<MetadataOptions>;
           result.metadataOptions.replace(valueDes);
           break;
@@ -914,7 +892,8 @@ class _$$ServerConfigurationSerializer implements PrimitiveSerializer<$ServerCon
         case r'PluginRepositories':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(RepositoryInfo)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(RepositoryInfo)]),
           ) as BuiltList<RepositoryInfo>;
           result.pluginRepositories.replace(valueDes);
           break;
@@ -935,7 +914,8 @@ class _$$ServerConfigurationSerializer implements PrimitiveSerializer<$ServerCon
         case r'PathSubstitutions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(PathSubstitution)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(PathSubstitution)]),
           ) as BuiltList<PathSubstitution>;
           result.pathSubstitutions.replace(valueDes);
           break;
@@ -1005,12 +985,12 @@ class _$$ServerConfigurationSerializer implements PrimitiveSerializer<$ServerCon
   }
 
   @override
-  $ServerConfiguration deserialize(
+  ServerConfiguration deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ServerConfigurationBuilder();
+    final result = ServerConfigurationBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -1024,4 +1004,3 @@ class _$$ServerConfigurationSerializer implements PrimitiveSerializer<$ServerCon
     return result.build();
   }
 }
-

@@ -11,26 +11,34 @@ part 'playlist_creation_result.g.dart';
 /// PlaylistCreationResult
 ///
 /// Properties:
-/// * [id] 
+/// * [id]
 @BuiltValue()
-abstract class PlaylistCreationResult implements Built<PlaylistCreationResult, PlaylistCreationResultBuilder> {
+abstract class PlaylistCreationResult
+    implements Built<PlaylistCreationResult, PlaylistCreationResultBuilder> {
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
   PlaylistCreationResult._();
 
-  factory PlaylistCreationResult([void updates(PlaylistCreationResultBuilder b)]) = _$PlaylistCreationResult;
+  factory PlaylistCreationResult(
+          [void updates(PlaylistCreationResultBuilder b)]) =
+      _$PlaylistCreationResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PlaylistCreationResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PlaylistCreationResult> get serializer => _$PlaylistCreationResultSerializer();
+  static Serializer<PlaylistCreationResult> get serializer =>
+      _$PlaylistCreationResultSerializer();
 }
 
-class _$PlaylistCreationResultSerializer implements PrimitiveSerializer<PlaylistCreationResult> {
+class _$PlaylistCreationResultSerializer
+    implements PrimitiveSerializer<PlaylistCreationResult> {
   @override
-  final Iterable<Type> types = const [PlaylistCreationResult, _$PlaylistCreationResult];
+  final Iterable<Type> types = const [
+    PlaylistCreationResult,
+    _$PlaylistCreationResult
+  ];
 
   @override
   final String wireName = r'PlaylistCreationResult';
@@ -55,7 +63,9 @@ class _$PlaylistCreationResultSerializer implements PrimitiveSerializer<Playlist
     PlaylistCreationResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -105,4 +115,3 @@ class _$PlaylistCreationResultSerializer implements PrimitiveSerializer<Playlist
     return result.build();
   }
 }
-

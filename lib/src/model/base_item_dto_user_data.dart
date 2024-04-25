@@ -24,21 +24,30 @@ part 'base_item_dto_user_data.g.dart';
 /// * [key] - Gets or sets the key.
 /// * [itemId] - Gets or sets the item identifier.
 @BuiltValue()
-abstract class BaseItemDtoUserData implements UserItemDataDto, Built<BaseItemDtoUserData, BaseItemDtoUserDataBuilder> {
+abstract class BaseItemDtoUserData
+    implements
+        UserItemDataDto,
+        Built<BaseItemDtoUserData, BaseItemDtoUserDataBuilder> {
   BaseItemDtoUserData._();
 
-  factory BaseItemDtoUserData([void updates(BaseItemDtoUserDataBuilder b)]) = _$BaseItemDtoUserData;
+  factory BaseItemDtoUserData([void updates(BaseItemDtoUserDataBuilder b)]) =
+      _$BaseItemDtoUserData;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BaseItemDtoUserDataBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BaseItemDtoUserData> get serializer => _$BaseItemDtoUserDataSerializer();
+  static Serializer<BaseItemDtoUserData> get serializer =>
+      _$BaseItemDtoUserDataSerializer();
 }
 
-class _$BaseItemDtoUserDataSerializer implements PrimitiveSerializer<BaseItemDtoUserData> {
+class _$BaseItemDtoUserDataSerializer
+    implements PrimitiveSerializer<BaseItemDtoUserData> {
   @override
-  final Iterable<Type> types = const [BaseItemDtoUserData, _$BaseItemDtoUserData];
+  final Iterable<Type> types = const [
+    BaseItemDtoUserData,
+    _$BaseItemDtoUserData
+  ];
 
   @override
   final String wireName = r'BaseItemDtoUserData';
@@ -133,7 +142,9 @@ class _$BaseItemDtoUserDataSerializer implements PrimitiveSerializer<BaseItemDto
     BaseItemDtoUserData object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -260,4 +271,3 @@ class _$BaseItemDtoUserDataSerializer implements PrimitiveSerializer<BaseItemDto
     return result.build();
   }
 }
-

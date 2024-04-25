@@ -14,7 +14,6 @@ import 'package:tentacle/src/model/encoding_context.dart';
 import 'package:tentacle/src/model/subtitle_delivery_method.dart';
 
 class AudioApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +21,7 @@ class AudioApi {
   const AudioApi(this._dio, this._serializers);
 
   /// Gets an audio stream.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -82,8 +81,8 @@ class AudioApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getAudioStream({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getAudioStream({
     required String itemId,
     String? container,
     bool? static_,
@@ -140,7 +139,10 @@ class AudioApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Audio/{itemId}/stream'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Audio/{itemId}/stream'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -155,54 +157,152 @@ class AudioApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (container != null) r'container': encodeQueryParameter(_serializers, container, const FullType(String)),
-      if (static_ != null) r'static': encodeQueryParameter(_serializers, static_, const FullType(bool)),
-      if (params != null) r'params': encodeQueryParameter(_serializers, params, const FullType(String)),
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (deviceProfileId != null) r'deviceProfileId': encodeQueryParameter(_serializers, deviceProfileId, const FullType(String)),
-      if (playSessionId != null) r'playSessionId': encodeQueryParameter(_serializers, playSessionId, const FullType(String)),
-      if (segmentContainer != null) r'segmentContainer': encodeQueryParameter(_serializers, segmentContainer, const FullType(String)),
-      if (segmentLength != null) r'segmentLength': encodeQueryParameter(_serializers, segmentLength, const FullType(int)),
-      if (minSegments != null) r'minSegments': encodeQueryParameter(_serializers, minSegments, const FullType(int)),
-      if (mediaSourceId != null) r'mediaSourceId': encodeQueryParameter(_serializers, mediaSourceId, const FullType(String)),
-      if (deviceId != null) r'deviceId': encodeQueryParameter(_serializers, deviceId, const FullType(String)),
-      if (audioCodec != null) r'audioCodec': encodeQueryParameter(_serializers, audioCodec, const FullType(String)),
-      if (enableAutoStreamCopy != null) r'enableAutoStreamCopy': encodeQueryParameter(_serializers, enableAutoStreamCopy, const FullType(bool)),
-      if (allowVideoStreamCopy != null) r'allowVideoStreamCopy': encodeQueryParameter(_serializers, allowVideoStreamCopy, const FullType(bool)),
-      if (allowAudioStreamCopy != null) r'allowAudioStreamCopy': encodeQueryParameter(_serializers, allowAudioStreamCopy, const FullType(bool)),
-      if (breakOnNonKeyFrames != null) r'breakOnNonKeyFrames': encodeQueryParameter(_serializers, breakOnNonKeyFrames, const FullType(bool)),
-      if (audioSampleRate != null) r'audioSampleRate': encodeQueryParameter(_serializers, audioSampleRate, const FullType(int)),
-      if (maxAudioBitDepth != null) r'maxAudioBitDepth': encodeQueryParameter(_serializers, maxAudioBitDepth, const FullType(int)),
-      if (audioBitRate != null) r'audioBitRate': encodeQueryParameter(_serializers, audioBitRate, const FullType(int)),
-      if (audioChannels != null) r'audioChannels': encodeQueryParameter(_serializers, audioChannels, const FullType(int)),
-      if (maxAudioChannels != null) r'maxAudioChannels': encodeQueryParameter(_serializers, maxAudioChannels, const FullType(int)),
-      if (profile != null) r'profile': encodeQueryParameter(_serializers, profile, const FullType(String)),
-      if (level != null) r'level': encodeQueryParameter(_serializers, level, const FullType(String)),
-      if (framerate != null) r'framerate': encodeQueryParameter(_serializers, framerate, const FullType(double)),
-      if (maxFramerate != null) r'maxFramerate': encodeQueryParameter(_serializers, maxFramerate, const FullType(double)),
-      if (copyTimestamps != null) r'copyTimestamps': encodeQueryParameter(_serializers, copyTimestamps, const FullType(bool)),
-      if (startTimeTicks != null) r'startTimeTicks': encodeQueryParameter(_serializers, startTimeTicks, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (videoBitRate != null) r'videoBitRate': encodeQueryParameter(_serializers, videoBitRate, const FullType(int)),
-      if (subtitleStreamIndex != null) r'subtitleStreamIndex': encodeQueryParameter(_serializers, subtitleStreamIndex, const FullType(int)),
-      if (subtitleMethod != null) r'subtitleMethod': encodeQueryParameter(_serializers, subtitleMethod, const FullType(SubtitleDeliveryMethod)),
-      if (maxRefFrames != null) r'maxRefFrames': encodeQueryParameter(_serializers, maxRefFrames, const FullType(int)),
-      if (maxVideoBitDepth != null) r'maxVideoBitDepth': encodeQueryParameter(_serializers, maxVideoBitDepth, const FullType(int)),
-      if (requireAvc != null) r'requireAvc': encodeQueryParameter(_serializers, requireAvc, const FullType(bool)),
-      if (deInterlace != null) r'deInterlace': encodeQueryParameter(_serializers, deInterlace, const FullType(bool)),
-      if (requireNonAnamorphic != null) r'requireNonAnamorphic': encodeQueryParameter(_serializers, requireNonAnamorphic, const FullType(bool)),
-      if (transcodingMaxAudioChannels != null) r'transcodingMaxAudioChannels': encodeQueryParameter(_serializers, transcodingMaxAudioChannels, const FullType(int)),
-      if (cpuCoreLimit != null) r'cpuCoreLimit': encodeQueryParameter(_serializers, cpuCoreLimit, const FullType(int)),
-      if (liveStreamId != null) r'liveStreamId': encodeQueryParameter(_serializers, liveStreamId, const FullType(String)),
-      if (enableMpegtsM2TsMode != null) r'enableMpegtsM2TsMode': encodeQueryParameter(_serializers, enableMpegtsM2TsMode, const FullType(bool)),
-      if (videoCodec != null) r'videoCodec': encodeQueryParameter(_serializers, videoCodec, const FullType(String)),
-      if (subtitleCodec != null) r'subtitleCodec': encodeQueryParameter(_serializers, subtitleCodec, const FullType(String)),
-      if (transcodeReasons != null) r'transcodeReasons': encodeQueryParameter(_serializers, transcodeReasons, const FullType(String)),
-      if (audioStreamIndex != null) r'audioStreamIndex': encodeQueryParameter(_serializers, audioStreamIndex, const FullType(int)),
-      if (videoStreamIndex != null) r'videoStreamIndex': encodeQueryParameter(_serializers, videoStreamIndex, const FullType(int)),
-      if (context != null) r'context': encodeQueryParameter(_serializers, context, const FullType(EncodingContext)),
-      if (streamOptions != null) r'streamOptions': encodeQueryParameter(_serializers, streamOptions, const FullType(BuiltMap, [FullType(String), FullType(String)]), ),
+      if (container != null)
+        r'container': encodeQueryParameter(
+            _serializers, container, const FullType(String)),
+      if (static_ != null)
+        r'static':
+            encodeQueryParameter(_serializers, static_, const FullType(bool)),
+      if (params != null)
+        r'params':
+            encodeQueryParameter(_serializers, params, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (deviceProfileId != null)
+        r'deviceProfileId': encodeQueryParameter(
+            _serializers, deviceProfileId, const FullType(String)),
+      if (playSessionId != null)
+        r'playSessionId': encodeQueryParameter(
+            _serializers, playSessionId, const FullType(String)),
+      if (segmentContainer != null)
+        r'segmentContainer': encodeQueryParameter(
+            _serializers, segmentContainer, const FullType(String)),
+      if (segmentLength != null)
+        r'segmentLength': encodeQueryParameter(
+            _serializers, segmentLength, const FullType(int)),
+      if (minSegments != null)
+        r'minSegments': encodeQueryParameter(
+            _serializers, minSegments, const FullType(int)),
+      if (mediaSourceId != null)
+        r'mediaSourceId': encodeQueryParameter(
+            _serializers, mediaSourceId, const FullType(String)),
+      if (deviceId != null)
+        r'deviceId': encodeQueryParameter(
+            _serializers, deviceId, const FullType(String)),
+      if (audioCodec != null)
+        r'audioCodec': encodeQueryParameter(
+            _serializers, audioCodec, const FullType(String)),
+      if (enableAutoStreamCopy != null)
+        r'enableAutoStreamCopy': encodeQueryParameter(
+            _serializers, enableAutoStreamCopy, const FullType(bool)),
+      if (allowVideoStreamCopy != null)
+        r'allowVideoStreamCopy': encodeQueryParameter(
+            _serializers, allowVideoStreamCopy, const FullType(bool)),
+      if (allowAudioStreamCopy != null)
+        r'allowAudioStreamCopy': encodeQueryParameter(
+            _serializers, allowAudioStreamCopy, const FullType(bool)),
+      if (breakOnNonKeyFrames != null)
+        r'breakOnNonKeyFrames': encodeQueryParameter(
+            _serializers, breakOnNonKeyFrames, const FullType(bool)),
+      if (audioSampleRate != null)
+        r'audioSampleRate': encodeQueryParameter(
+            _serializers, audioSampleRate, const FullType(int)),
+      if (maxAudioBitDepth != null)
+        r'maxAudioBitDepth': encodeQueryParameter(
+            _serializers, maxAudioBitDepth, const FullType(int)),
+      if (audioBitRate != null)
+        r'audioBitRate': encodeQueryParameter(
+            _serializers, audioBitRate, const FullType(int)),
+      if (audioChannels != null)
+        r'audioChannels': encodeQueryParameter(
+            _serializers, audioChannels, const FullType(int)),
+      if (maxAudioChannels != null)
+        r'maxAudioChannels': encodeQueryParameter(
+            _serializers, maxAudioChannels, const FullType(int)),
+      if (profile != null)
+        r'profile':
+            encodeQueryParameter(_serializers, profile, const FullType(String)),
+      if (level != null)
+        r'level':
+            encodeQueryParameter(_serializers, level, const FullType(String)),
+      if (framerate != null)
+        r'framerate': encodeQueryParameter(
+            _serializers, framerate, const FullType(double)),
+      if (maxFramerate != null)
+        r'maxFramerate': encodeQueryParameter(
+            _serializers, maxFramerate, const FullType(double)),
+      if (copyTimestamps != null)
+        r'copyTimestamps': encodeQueryParameter(
+            _serializers, copyTimestamps, const FullType(bool)),
+      if (startTimeTicks != null)
+        r'startTimeTicks': encodeQueryParameter(
+            _serializers, startTimeTicks, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (videoBitRate != null)
+        r'videoBitRate': encodeQueryParameter(
+            _serializers, videoBitRate, const FullType(int)),
+      if (subtitleStreamIndex != null)
+        r'subtitleStreamIndex': encodeQueryParameter(
+            _serializers, subtitleStreamIndex, const FullType(int)),
+      if (subtitleMethod != null)
+        r'subtitleMethod': encodeQueryParameter(_serializers, subtitleMethod,
+            const FullType(SubtitleDeliveryMethod)),
+      if (maxRefFrames != null)
+        r'maxRefFrames': encodeQueryParameter(
+            _serializers, maxRefFrames, const FullType(int)),
+      if (maxVideoBitDepth != null)
+        r'maxVideoBitDepth': encodeQueryParameter(
+            _serializers, maxVideoBitDepth, const FullType(int)),
+      if (requireAvc != null)
+        r'requireAvc': encodeQueryParameter(
+            _serializers, requireAvc, const FullType(bool)),
+      if (deInterlace != null)
+        r'deInterlace': encodeQueryParameter(
+            _serializers, deInterlace, const FullType(bool)),
+      if (requireNonAnamorphic != null)
+        r'requireNonAnamorphic': encodeQueryParameter(
+            _serializers, requireNonAnamorphic, const FullType(bool)),
+      if (transcodingMaxAudioChannels != null)
+        r'transcodingMaxAudioChannels': encodeQueryParameter(
+            _serializers, transcodingMaxAudioChannels, const FullType(int)),
+      if (cpuCoreLimit != null)
+        r'cpuCoreLimit': encodeQueryParameter(
+            _serializers, cpuCoreLimit, const FullType(int)),
+      if (liveStreamId != null)
+        r'liveStreamId': encodeQueryParameter(
+            _serializers, liveStreamId, const FullType(String)),
+      if (enableMpegtsM2TsMode != null)
+        r'enableMpegtsM2TsMode': encodeQueryParameter(
+            _serializers, enableMpegtsM2TsMode, const FullType(bool)),
+      if (videoCodec != null)
+        r'videoCodec': encodeQueryParameter(
+            _serializers, videoCodec, const FullType(String)),
+      if (subtitleCodec != null)
+        r'subtitleCodec': encodeQueryParameter(
+            _serializers, subtitleCodec, const FullType(String)),
+      if (transcodeReasons != null)
+        r'transcodeReasons': encodeQueryParameter(
+            _serializers, transcodeReasons, const FullType(String)),
+      if (audioStreamIndex != null)
+        r'audioStreamIndex': encodeQueryParameter(
+            _serializers, audioStreamIndex, const FullType(int)),
+      if (videoStreamIndex != null)
+        r'videoStreamIndex': encodeQueryParameter(
+            _serializers, videoStreamIndex, const FullType(int)),
+      if (context != null)
+        r'context': encodeQueryParameter(
+            _serializers, context, const FullType(EncodingContext)),
+      if (streamOptions != null)
+        r'streamOptions': encodeQueryParameter(
+          _serializers,
+          streamOptions,
+          const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -214,18 +314,19 @@ class AudioApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -241,7 +342,7 @@ class AudioApi {
   }
 
   /// Gets an audio stream.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -301,8 +402,8 @@ class AudioApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getAudioStreamByContainer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getAudioStreamByContainer({
     required String itemId,
     required String container,
     bool? static_,
@@ -359,7 +460,16 @@ class AudioApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Audio/{itemId}/stream.{container}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'container' '}', container.toString());
+    final _path = r'/Audio/{itemId}/stream.{container}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'container' '}',
+            encodeQueryParameter(
+                    _serializers, container, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -374,53 +484,149 @@ class AudioApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (static_ != null) r'static': encodeQueryParameter(_serializers, static_, const FullType(bool)),
-      if (params != null) r'params': encodeQueryParameter(_serializers, params, const FullType(String)),
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (deviceProfileId != null) r'deviceProfileId': encodeQueryParameter(_serializers, deviceProfileId, const FullType(String)),
-      if (playSessionId != null) r'playSessionId': encodeQueryParameter(_serializers, playSessionId, const FullType(String)),
-      if (segmentContainer != null) r'segmentContainer': encodeQueryParameter(_serializers, segmentContainer, const FullType(String)),
-      if (segmentLength != null) r'segmentLength': encodeQueryParameter(_serializers, segmentLength, const FullType(int)),
-      if (minSegments != null) r'minSegments': encodeQueryParameter(_serializers, minSegments, const FullType(int)),
-      if (mediaSourceId != null) r'mediaSourceId': encodeQueryParameter(_serializers, mediaSourceId, const FullType(String)),
-      if (deviceId != null) r'deviceId': encodeQueryParameter(_serializers, deviceId, const FullType(String)),
-      if (audioCodec != null) r'audioCodec': encodeQueryParameter(_serializers, audioCodec, const FullType(String)),
-      if (enableAutoStreamCopy != null) r'enableAutoStreamCopy': encodeQueryParameter(_serializers, enableAutoStreamCopy, const FullType(bool)),
-      if (allowVideoStreamCopy != null) r'allowVideoStreamCopy': encodeQueryParameter(_serializers, allowVideoStreamCopy, const FullType(bool)),
-      if (allowAudioStreamCopy != null) r'allowAudioStreamCopy': encodeQueryParameter(_serializers, allowAudioStreamCopy, const FullType(bool)),
-      if (breakOnNonKeyFrames != null) r'breakOnNonKeyFrames': encodeQueryParameter(_serializers, breakOnNonKeyFrames, const FullType(bool)),
-      if (audioSampleRate != null) r'audioSampleRate': encodeQueryParameter(_serializers, audioSampleRate, const FullType(int)),
-      if (maxAudioBitDepth != null) r'maxAudioBitDepth': encodeQueryParameter(_serializers, maxAudioBitDepth, const FullType(int)),
-      if (audioBitRate != null) r'audioBitRate': encodeQueryParameter(_serializers, audioBitRate, const FullType(int)),
-      if (audioChannels != null) r'audioChannels': encodeQueryParameter(_serializers, audioChannels, const FullType(int)),
-      if (maxAudioChannels != null) r'maxAudioChannels': encodeQueryParameter(_serializers, maxAudioChannels, const FullType(int)),
-      if (profile != null) r'profile': encodeQueryParameter(_serializers, profile, const FullType(String)),
-      if (level != null) r'level': encodeQueryParameter(_serializers, level, const FullType(String)),
-      if (framerate != null) r'framerate': encodeQueryParameter(_serializers, framerate, const FullType(double)),
-      if (maxFramerate != null) r'maxFramerate': encodeQueryParameter(_serializers, maxFramerate, const FullType(double)),
-      if (copyTimestamps != null) r'copyTimestamps': encodeQueryParameter(_serializers, copyTimestamps, const FullType(bool)),
-      if (startTimeTicks != null) r'startTimeTicks': encodeQueryParameter(_serializers, startTimeTicks, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (videoBitRate != null) r'videoBitRate': encodeQueryParameter(_serializers, videoBitRate, const FullType(int)),
-      if (subtitleStreamIndex != null) r'subtitleStreamIndex': encodeQueryParameter(_serializers, subtitleStreamIndex, const FullType(int)),
-      if (subtitleMethod != null) r'subtitleMethod': encodeQueryParameter(_serializers, subtitleMethod, const FullType(SubtitleDeliveryMethod)),
-      if (maxRefFrames != null) r'maxRefFrames': encodeQueryParameter(_serializers, maxRefFrames, const FullType(int)),
-      if (maxVideoBitDepth != null) r'maxVideoBitDepth': encodeQueryParameter(_serializers, maxVideoBitDepth, const FullType(int)),
-      if (requireAvc != null) r'requireAvc': encodeQueryParameter(_serializers, requireAvc, const FullType(bool)),
-      if (deInterlace != null) r'deInterlace': encodeQueryParameter(_serializers, deInterlace, const FullType(bool)),
-      if (requireNonAnamorphic != null) r'requireNonAnamorphic': encodeQueryParameter(_serializers, requireNonAnamorphic, const FullType(bool)),
-      if (transcodingMaxAudioChannels != null) r'transcodingMaxAudioChannels': encodeQueryParameter(_serializers, transcodingMaxAudioChannels, const FullType(int)),
-      if (cpuCoreLimit != null) r'cpuCoreLimit': encodeQueryParameter(_serializers, cpuCoreLimit, const FullType(int)),
-      if (liveStreamId != null) r'liveStreamId': encodeQueryParameter(_serializers, liveStreamId, const FullType(String)),
-      if (enableMpegtsM2TsMode != null) r'enableMpegtsM2TsMode': encodeQueryParameter(_serializers, enableMpegtsM2TsMode, const FullType(bool)),
-      if (videoCodec != null) r'videoCodec': encodeQueryParameter(_serializers, videoCodec, const FullType(String)),
-      if (subtitleCodec != null) r'subtitleCodec': encodeQueryParameter(_serializers, subtitleCodec, const FullType(String)),
-      if (transcodeReasons != null) r'transcodeReasons': encodeQueryParameter(_serializers, transcodeReasons, const FullType(String)),
-      if (audioStreamIndex != null) r'audioStreamIndex': encodeQueryParameter(_serializers, audioStreamIndex, const FullType(int)),
-      if (videoStreamIndex != null) r'videoStreamIndex': encodeQueryParameter(_serializers, videoStreamIndex, const FullType(int)),
-      if (context != null) r'context': encodeQueryParameter(_serializers, context, const FullType(EncodingContext)),
-      if (streamOptions != null) r'streamOptions': encodeQueryParameter(_serializers, streamOptions, const FullType(BuiltMap, [FullType(String), FullType(String)]), ),
+      if (static_ != null)
+        r'static':
+            encodeQueryParameter(_serializers, static_, const FullType(bool)),
+      if (params != null)
+        r'params':
+            encodeQueryParameter(_serializers, params, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (deviceProfileId != null)
+        r'deviceProfileId': encodeQueryParameter(
+            _serializers, deviceProfileId, const FullType(String)),
+      if (playSessionId != null)
+        r'playSessionId': encodeQueryParameter(
+            _serializers, playSessionId, const FullType(String)),
+      if (segmentContainer != null)
+        r'segmentContainer': encodeQueryParameter(
+            _serializers, segmentContainer, const FullType(String)),
+      if (segmentLength != null)
+        r'segmentLength': encodeQueryParameter(
+            _serializers, segmentLength, const FullType(int)),
+      if (minSegments != null)
+        r'minSegments': encodeQueryParameter(
+            _serializers, minSegments, const FullType(int)),
+      if (mediaSourceId != null)
+        r'mediaSourceId': encodeQueryParameter(
+            _serializers, mediaSourceId, const FullType(String)),
+      if (deviceId != null)
+        r'deviceId': encodeQueryParameter(
+            _serializers, deviceId, const FullType(String)),
+      if (audioCodec != null)
+        r'audioCodec': encodeQueryParameter(
+            _serializers, audioCodec, const FullType(String)),
+      if (enableAutoStreamCopy != null)
+        r'enableAutoStreamCopy': encodeQueryParameter(
+            _serializers, enableAutoStreamCopy, const FullType(bool)),
+      if (allowVideoStreamCopy != null)
+        r'allowVideoStreamCopy': encodeQueryParameter(
+            _serializers, allowVideoStreamCopy, const FullType(bool)),
+      if (allowAudioStreamCopy != null)
+        r'allowAudioStreamCopy': encodeQueryParameter(
+            _serializers, allowAudioStreamCopy, const FullType(bool)),
+      if (breakOnNonKeyFrames != null)
+        r'breakOnNonKeyFrames': encodeQueryParameter(
+            _serializers, breakOnNonKeyFrames, const FullType(bool)),
+      if (audioSampleRate != null)
+        r'audioSampleRate': encodeQueryParameter(
+            _serializers, audioSampleRate, const FullType(int)),
+      if (maxAudioBitDepth != null)
+        r'maxAudioBitDepth': encodeQueryParameter(
+            _serializers, maxAudioBitDepth, const FullType(int)),
+      if (audioBitRate != null)
+        r'audioBitRate': encodeQueryParameter(
+            _serializers, audioBitRate, const FullType(int)),
+      if (audioChannels != null)
+        r'audioChannels': encodeQueryParameter(
+            _serializers, audioChannels, const FullType(int)),
+      if (maxAudioChannels != null)
+        r'maxAudioChannels': encodeQueryParameter(
+            _serializers, maxAudioChannels, const FullType(int)),
+      if (profile != null)
+        r'profile':
+            encodeQueryParameter(_serializers, profile, const FullType(String)),
+      if (level != null)
+        r'level':
+            encodeQueryParameter(_serializers, level, const FullType(String)),
+      if (framerate != null)
+        r'framerate': encodeQueryParameter(
+            _serializers, framerate, const FullType(double)),
+      if (maxFramerate != null)
+        r'maxFramerate': encodeQueryParameter(
+            _serializers, maxFramerate, const FullType(double)),
+      if (copyTimestamps != null)
+        r'copyTimestamps': encodeQueryParameter(
+            _serializers, copyTimestamps, const FullType(bool)),
+      if (startTimeTicks != null)
+        r'startTimeTicks': encodeQueryParameter(
+            _serializers, startTimeTicks, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (videoBitRate != null)
+        r'videoBitRate': encodeQueryParameter(
+            _serializers, videoBitRate, const FullType(int)),
+      if (subtitleStreamIndex != null)
+        r'subtitleStreamIndex': encodeQueryParameter(
+            _serializers, subtitleStreamIndex, const FullType(int)),
+      if (subtitleMethod != null)
+        r'subtitleMethod': encodeQueryParameter(_serializers, subtitleMethod,
+            const FullType(SubtitleDeliveryMethod)),
+      if (maxRefFrames != null)
+        r'maxRefFrames': encodeQueryParameter(
+            _serializers, maxRefFrames, const FullType(int)),
+      if (maxVideoBitDepth != null)
+        r'maxVideoBitDepth': encodeQueryParameter(
+            _serializers, maxVideoBitDepth, const FullType(int)),
+      if (requireAvc != null)
+        r'requireAvc': encodeQueryParameter(
+            _serializers, requireAvc, const FullType(bool)),
+      if (deInterlace != null)
+        r'deInterlace': encodeQueryParameter(
+            _serializers, deInterlace, const FullType(bool)),
+      if (requireNonAnamorphic != null)
+        r'requireNonAnamorphic': encodeQueryParameter(
+            _serializers, requireNonAnamorphic, const FullType(bool)),
+      if (transcodingMaxAudioChannels != null)
+        r'transcodingMaxAudioChannels': encodeQueryParameter(
+            _serializers, transcodingMaxAudioChannels, const FullType(int)),
+      if (cpuCoreLimit != null)
+        r'cpuCoreLimit': encodeQueryParameter(
+            _serializers, cpuCoreLimit, const FullType(int)),
+      if (liveStreamId != null)
+        r'liveStreamId': encodeQueryParameter(
+            _serializers, liveStreamId, const FullType(String)),
+      if (enableMpegtsM2TsMode != null)
+        r'enableMpegtsM2TsMode': encodeQueryParameter(
+            _serializers, enableMpegtsM2TsMode, const FullType(bool)),
+      if (videoCodec != null)
+        r'videoCodec': encodeQueryParameter(
+            _serializers, videoCodec, const FullType(String)),
+      if (subtitleCodec != null)
+        r'subtitleCodec': encodeQueryParameter(
+            _serializers, subtitleCodec, const FullType(String)),
+      if (transcodeReasons != null)
+        r'transcodeReasons': encodeQueryParameter(
+            _serializers, transcodeReasons, const FullType(String)),
+      if (audioStreamIndex != null)
+        r'audioStreamIndex': encodeQueryParameter(
+            _serializers, audioStreamIndex, const FullType(int)),
+      if (videoStreamIndex != null)
+        r'videoStreamIndex': encodeQueryParameter(
+            _serializers, videoStreamIndex, const FullType(int)),
+      if (context != null)
+        r'context': encodeQueryParameter(
+            _serializers, context, const FullType(EncodingContext)),
+      if (streamOptions != null)
+        r'streamOptions': encodeQueryParameter(
+          _serializers,
+          streamOptions,
+          const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -432,18 +638,19 @@ class AudioApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -459,7 +666,7 @@ class AudioApi {
   }
 
   /// Gets an audio stream.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -519,8 +726,8 @@ class AudioApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headAudioStream({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headAudioStream({
     required String itemId,
     String? container,
     bool? static_,
@@ -577,7 +784,10 @@ class AudioApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Audio/{itemId}/stream'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Audio/{itemId}/stream'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -592,54 +802,152 @@ class AudioApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (container != null) r'container': encodeQueryParameter(_serializers, container, const FullType(String)),
-      if (static_ != null) r'static': encodeQueryParameter(_serializers, static_, const FullType(bool)),
-      if (params != null) r'params': encodeQueryParameter(_serializers, params, const FullType(String)),
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (deviceProfileId != null) r'deviceProfileId': encodeQueryParameter(_serializers, deviceProfileId, const FullType(String)),
-      if (playSessionId != null) r'playSessionId': encodeQueryParameter(_serializers, playSessionId, const FullType(String)),
-      if (segmentContainer != null) r'segmentContainer': encodeQueryParameter(_serializers, segmentContainer, const FullType(String)),
-      if (segmentLength != null) r'segmentLength': encodeQueryParameter(_serializers, segmentLength, const FullType(int)),
-      if (minSegments != null) r'minSegments': encodeQueryParameter(_serializers, minSegments, const FullType(int)),
-      if (mediaSourceId != null) r'mediaSourceId': encodeQueryParameter(_serializers, mediaSourceId, const FullType(String)),
-      if (deviceId != null) r'deviceId': encodeQueryParameter(_serializers, deviceId, const FullType(String)),
-      if (audioCodec != null) r'audioCodec': encodeQueryParameter(_serializers, audioCodec, const FullType(String)),
-      if (enableAutoStreamCopy != null) r'enableAutoStreamCopy': encodeQueryParameter(_serializers, enableAutoStreamCopy, const FullType(bool)),
-      if (allowVideoStreamCopy != null) r'allowVideoStreamCopy': encodeQueryParameter(_serializers, allowVideoStreamCopy, const FullType(bool)),
-      if (allowAudioStreamCopy != null) r'allowAudioStreamCopy': encodeQueryParameter(_serializers, allowAudioStreamCopy, const FullType(bool)),
-      if (breakOnNonKeyFrames != null) r'breakOnNonKeyFrames': encodeQueryParameter(_serializers, breakOnNonKeyFrames, const FullType(bool)),
-      if (audioSampleRate != null) r'audioSampleRate': encodeQueryParameter(_serializers, audioSampleRate, const FullType(int)),
-      if (maxAudioBitDepth != null) r'maxAudioBitDepth': encodeQueryParameter(_serializers, maxAudioBitDepth, const FullType(int)),
-      if (audioBitRate != null) r'audioBitRate': encodeQueryParameter(_serializers, audioBitRate, const FullType(int)),
-      if (audioChannels != null) r'audioChannels': encodeQueryParameter(_serializers, audioChannels, const FullType(int)),
-      if (maxAudioChannels != null) r'maxAudioChannels': encodeQueryParameter(_serializers, maxAudioChannels, const FullType(int)),
-      if (profile != null) r'profile': encodeQueryParameter(_serializers, profile, const FullType(String)),
-      if (level != null) r'level': encodeQueryParameter(_serializers, level, const FullType(String)),
-      if (framerate != null) r'framerate': encodeQueryParameter(_serializers, framerate, const FullType(double)),
-      if (maxFramerate != null) r'maxFramerate': encodeQueryParameter(_serializers, maxFramerate, const FullType(double)),
-      if (copyTimestamps != null) r'copyTimestamps': encodeQueryParameter(_serializers, copyTimestamps, const FullType(bool)),
-      if (startTimeTicks != null) r'startTimeTicks': encodeQueryParameter(_serializers, startTimeTicks, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (videoBitRate != null) r'videoBitRate': encodeQueryParameter(_serializers, videoBitRate, const FullType(int)),
-      if (subtitleStreamIndex != null) r'subtitleStreamIndex': encodeQueryParameter(_serializers, subtitleStreamIndex, const FullType(int)),
-      if (subtitleMethod != null) r'subtitleMethod': encodeQueryParameter(_serializers, subtitleMethod, const FullType(SubtitleDeliveryMethod)),
-      if (maxRefFrames != null) r'maxRefFrames': encodeQueryParameter(_serializers, maxRefFrames, const FullType(int)),
-      if (maxVideoBitDepth != null) r'maxVideoBitDepth': encodeQueryParameter(_serializers, maxVideoBitDepth, const FullType(int)),
-      if (requireAvc != null) r'requireAvc': encodeQueryParameter(_serializers, requireAvc, const FullType(bool)),
-      if (deInterlace != null) r'deInterlace': encodeQueryParameter(_serializers, deInterlace, const FullType(bool)),
-      if (requireNonAnamorphic != null) r'requireNonAnamorphic': encodeQueryParameter(_serializers, requireNonAnamorphic, const FullType(bool)),
-      if (transcodingMaxAudioChannels != null) r'transcodingMaxAudioChannels': encodeQueryParameter(_serializers, transcodingMaxAudioChannels, const FullType(int)),
-      if (cpuCoreLimit != null) r'cpuCoreLimit': encodeQueryParameter(_serializers, cpuCoreLimit, const FullType(int)),
-      if (liveStreamId != null) r'liveStreamId': encodeQueryParameter(_serializers, liveStreamId, const FullType(String)),
-      if (enableMpegtsM2TsMode != null) r'enableMpegtsM2TsMode': encodeQueryParameter(_serializers, enableMpegtsM2TsMode, const FullType(bool)),
-      if (videoCodec != null) r'videoCodec': encodeQueryParameter(_serializers, videoCodec, const FullType(String)),
-      if (subtitleCodec != null) r'subtitleCodec': encodeQueryParameter(_serializers, subtitleCodec, const FullType(String)),
-      if (transcodeReasons != null) r'transcodeReasons': encodeQueryParameter(_serializers, transcodeReasons, const FullType(String)),
-      if (audioStreamIndex != null) r'audioStreamIndex': encodeQueryParameter(_serializers, audioStreamIndex, const FullType(int)),
-      if (videoStreamIndex != null) r'videoStreamIndex': encodeQueryParameter(_serializers, videoStreamIndex, const FullType(int)),
-      if (context != null) r'context': encodeQueryParameter(_serializers, context, const FullType(EncodingContext)),
-      if (streamOptions != null) r'streamOptions': encodeQueryParameter(_serializers, streamOptions, const FullType(BuiltMap, [FullType(String), FullType(String)]), ),
+      if (container != null)
+        r'container': encodeQueryParameter(
+            _serializers, container, const FullType(String)),
+      if (static_ != null)
+        r'static':
+            encodeQueryParameter(_serializers, static_, const FullType(bool)),
+      if (params != null)
+        r'params':
+            encodeQueryParameter(_serializers, params, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (deviceProfileId != null)
+        r'deviceProfileId': encodeQueryParameter(
+            _serializers, deviceProfileId, const FullType(String)),
+      if (playSessionId != null)
+        r'playSessionId': encodeQueryParameter(
+            _serializers, playSessionId, const FullType(String)),
+      if (segmentContainer != null)
+        r'segmentContainer': encodeQueryParameter(
+            _serializers, segmentContainer, const FullType(String)),
+      if (segmentLength != null)
+        r'segmentLength': encodeQueryParameter(
+            _serializers, segmentLength, const FullType(int)),
+      if (minSegments != null)
+        r'minSegments': encodeQueryParameter(
+            _serializers, minSegments, const FullType(int)),
+      if (mediaSourceId != null)
+        r'mediaSourceId': encodeQueryParameter(
+            _serializers, mediaSourceId, const FullType(String)),
+      if (deviceId != null)
+        r'deviceId': encodeQueryParameter(
+            _serializers, deviceId, const FullType(String)),
+      if (audioCodec != null)
+        r'audioCodec': encodeQueryParameter(
+            _serializers, audioCodec, const FullType(String)),
+      if (enableAutoStreamCopy != null)
+        r'enableAutoStreamCopy': encodeQueryParameter(
+            _serializers, enableAutoStreamCopy, const FullType(bool)),
+      if (allowVideoStreamCopy != null)
+        r'allowVideoStreamCopy': encodeQueryParameter(
+            _serializers, allowVideoStreamCopy, const FullType(bool)),
+      if (allowAudioStreamCopy != null)
+        r'allowAudioStreamCopy': encodeQueryParameter(
+            _serializers, allowAudioStreamCopy, const FullType(bool)),
+      if (breakOnNonKeyFrames != null)
+        r'breakOnNonKeyFrames': encodeQueryParameter(
+            _serializers, breakOnNonKeyFrames, const FullType(bool)),
+      if (audioSampleRate != null)
+        r'audioSampleRate': encodeQueryParameter(
+            _serializers, audioSampleRate, const FullType(int)),
+      if (maxAudioBitDepth != null)
+        r'maxAudioBitDepth': encodeQueryParameter(
+            _serializers, maxAudioBitDepth, const FullType(int)),
+      if (audioBitRate != null)
+        r'audioBitRate': encodeQueryParameter(
+            _serializers, audioBitRate, const FullType(int)),
+      if (audioChannels != null)
+        r'audioChannels': encodeQueryParameter(
+            _serializers, audioChannels, const FullType(int)),
+      if (maxAudioChannels != null)
+        r'maxAudioChannels': encodeQueryParameter(
+            _serializers, maxAudioChannels, const FullType(int)),
+      if (profile != null)
+        r'profile':
+            encodeQueryParameter(_serializers, profile, const FullType(String)),
+      if (level != null)
+        r'level':
+            encodeQueryParameter(_serializers, level, const FullType(String)),
+      if (framerate != null)
+        r'framerate': encodeQueryParameter(
+            _serializers, framerate, const FullType(double)),
+      if (maxFramerate != null)
+        r'maxFramerate': encodeQueryParameter(
+            _serializers, maxFramerate, const FullType(double)),
+      if (copyTimestamps != null)
+        r'copyTimestamps': encodeQueryParameter(
+            _serializers, copyTimestamps, const FullType(bool)),
+      if (startTimeTicks != null)
+        r'startTimeTicks': encodeQueryParameter(
+            _serializers, startTimeTicks, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (videoBitRate != null)
+        r'videoBitRate': encodeQueryParameter(
+            _serializers, videoBitRate, const FullType(int)),
+      if (subtitleStreamIndex != null)
+        r'subtitleStreamIndex': encodeQueryParameter(
+            _serializers, subtitleStreamIndex, const FullType(int)),
+      if (subtitleMethod != null)
+        r'subtitleMethod': encodeQueryParameter(_serializers, subtitleMethod,
+            const FullType(SubtitleDeliveryMethod)),
+      if (maxRefFrames != null)
+        r'maxRefFrames': encodeQueryParameter(
+            _serializers, maxRefFrames, const FullType(int)),
+      if (maxVideoBitDepth != null)
+        r'maxVideoBitDepth': encodeQueryParameter(
+            _serializers, maxVideoBitDepth, const FullType(int)),
+      if (requireAvc != null)
+        r'requireAvc': encodeQueryParameter(
+            _serializers, requireAvc, const FullType(bool)),
+      if (deInterlace != null)
+        r'deInterlace': encodeQueryParameter(
+            _serializers, deInterlace, const FullType(bool)),
+      if (requireNonAnamorphic != null)
+        r'requireNonAnamorphic': encodeQueryParameter(
+            _serializers, requireNonAnamorphic, const FullType(bool)),
+      if (transcodingMaxAudioChannels != null)
+        r'transcodingMaxAudioChannels': encodeQueryParameter(
+            _serializers, transcodingMaxAudioChannels, const FullType(int)),
+      if (cpuCoreLimit != null)
+        r'cpuCoreLimit': encodeQueryParameter(
+            _serializers, cpuCoreLimit, const FullType(int)),
+      if (liveStreamId != null)
+        r'liveStreamId': encodeQueryParameter(
+            _serializers, liveStreamId, const FullType(String)),
+      if (enableMpegtsM2TsMode != null)
+        r'enableMpegtsM2TsMode': encodeQueryParameter(
+            _serializers, enableMpegtsM2TsMode, const FullType(bool)),
+      if (videoCodec != null)
+        r'videoCodec': encodeQueryParameter(
+            _serializers, videoCodec, const FullType(String)),
+      if (subtitleCodec != null)
+        r'subtitleCodec': encodeQueryParameter(
+            _serializers, subtitleCodec, const FullType(String)),
+      if (transcodeReasons != null)
+        r'transcodeReasons': encodeQueryParameter(
+            _serializers, transcodeReasons, const FullType(String)),
+      if (audioStreamIndex != null)
+        r'audioStreamIndex': encodeQueryParameter(
+            _serializers, audioStreamIndex, const FullType(int)),
+      if (videoStreamIndex != null)
+        r'videoStreamIndex': encodeQueryParameter(
+            _serializers, videoStreamIndex, const FullType(int)),
+      if (context != null)
+        r'context': encodeQueryParameter(
+            _serializers, context, const FullType(EncodingContext)),
+      if (streamOptions != null)
+        r'streamOptions': encodeQueryParameter(
+          _serializers,
+          streamOptions,
+          const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -651,18 +959,19 @@ class AudioApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -678,7 +987,7 @@ class AudioApi {
   }
 
   /// Gets an audio stream.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -738,8 +1047,8 @@ class AudioApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> headAudioStreamByContainer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> headAudioStreamByContainer({
     required String itemId,
     required String container,
     bool? static_,
@@ -796,7 +1105,16 @@ class AudioApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Audio/{itemId}/stream.{container}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'container' '}', container.toString());
+    final _path = r'/Audio/{itemId}/stream.{container}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'container' '}',
+            encodeQueryParameter(
+                    _serializers, container, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'HEAD',
       responseType: ResponseType.bytes,
@@ -811,53 +1129,149 @@ class AudioApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (static_ != null) r'static': encodeQueryParameter(_serializers, static_, const FullType(bool)),
-      if (params != null) r'params': encodeQueryParameter(_serializers, params, const FullType(String)),
-      if (tag != null) r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
-      if (deviceProfileId != null) r'deviceProfileId': encodeQueryParameter(_serializers, deviceProfileId, const FullType(String)),
-      if (playSessionId != null) r'playSessionId': encodeQueryParameter(_serializers, playSessionId, const FullType(String)),
-      if (segmentContainer != null) r'segmentContainer': encodeQueryParameter(_serializers, segmentContainer, const FullType(String)),
-      if (segmentLength != null) r'segmentLength': encodeQueryParameter(_serializers, segmentLength, const FullType(int)),
-      if (minSegments != null) r'minSegments': encodeQueryParameter(_serializers, minSegments, const FullType(int)),
-      if (mediaSourceId != null) r'mediaSourceId': encodeQueryParameter(_serializers, mediaSourceId, const FullType(String)),
-      if (deviceId != null) r'deviceId': encodeQueryParameter(_serializers, deviceId, const FullType(String)),
-      if (audioCodec != null) r'audioCodec': encodeQueryParameter(_serializers, audioCodec, const FullType(String)),
-      if (enableAutoStreamCopy != null) r'enableAutoStreamCopy': encodeQueryParameter(_serializers, enableAutoStreamCopy, const FullType(bool)),
-      if (allowVideoStreamCopy != null) r'allowVideoStreamCopy': encodeQueryParameter(_serializers, allowVideoStreamCopy, const FullType(bool)),
-      if (allowAudioStreamCopy != null) r'allowAudioStreamCopy': encodeQueryParameter(_serializers, allowAudioStreamCopy, const FullType(bool)),
-      if (breakOnNonKeyFrames != null) r'breakOnNonKeyFrames': encodeQueryParameter(_serializers, breakOnNonKeyFrames, const FullType(bool)),
-      if (audioSampleRate != null) r'audioSampleRate': encodeQueryParameter(_serializers, audioSampleRate, const FullType(int)),
-      if (maxAudioBitDepth != null) r'maxAudioBitDepth': encodeQueryParameter(_serializers, maxAudioBitDepth, const FullType(int)),
-      if (audioBitRate != null) r'audioBitRate': encodeQueryParameter(_serializers, audioBitRate, const FullType(int)),
-      if (audioChannels != null) r'audioChannels': encodeQueryParameter(_serializers, audioChannels, const FullType(int)),
-      if (maxAudioChannels != null) r'maxAudioChannels': encodeQueryParameter(_serializers, maxAudioChannels, const FullType(int)),
-      if (profile != null) r'profile': encodeQueryParameter(_serializers, profile, const FullType(String)),
-      if (level != null) r'level': encodeQueryParameter(_serializers, level, const FullType(String)),
-      if (framerate != null) r'framerate': encodeQueryParameter(_serializers, framerate, const FullType(double)),
-      if (maxFramerate != null) r'maxFramerate': encodeQueryParameter(_serializers, maxFramerate, const FullType(double)),
-      if (copyTimestamps != null) r'copyTimestamps': encodeQueryParameter(_serializers, copyTimestamps, const FullType(bool)),
-      if (startTimeTicks != null) r'startTimeTicks': encodeQueryParameter(_serializers, startTimeTicks, const FullType(int)),
-      if (width != null) r'width': encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null) r'height': encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (videoBitRate != null) r'videoBitRate': encodeQueryParameter(_serializers, videoBitRate, const FullType(int)),
-      if (subtitleStreamIndex != null) r'subtitleStreamIndex': encodeQueryParameter(_serializers, subtitleStreamIndex, const FullType(int)),
-      if (subtitleMethod != null) r'subtitleMethod': encodeQueryParameter(_serializers, subtitleMethod, const FullType(SubtitleDeliveryMethod)),
-      if (maxRefFrames != null) r'maxRefFrames': encodeQueryParameter(_serializers, maxRefFrames, const FullType(int)),
-      if (maxVideoBitDepth != null) r'maxVideoBitDepth': encodeQueryParameter(_serializers, maxVideoBitDepth, const FullType(int)),
-      if (requireAvc != null) r'requireAvc': encodeQueryParameter(_serializers, requireAvc, const FullType(bool)),
-      if (deInterlace != null) r'deInterlace': encodeQueryParameter(_serializers, deInterlace, const FullType(bool)),
-      if (requireNonAnamorphic != null) r'requireNonAnamorphic': encodeQueryParameter(_serializers, requireNonAnamorphic, const FullType(bool)),
-      if (transcodingMaxAudioChannels != null) r'transcodingMaxAudioChannels': encodeQueryParameter(_serializers, transcodingMaxAudioChannels, const FullType(int)),
-      if (cpuCoreLimit != null) r'cpuCoreLimit': encodeQueryParameter(_serializers, cpuCoreLimit, const FullType(int)),
-      if (liveStreamId != null) r'liveStreamId': encodeQueryParameter(_serializers, liveStreamId, const FullType(String)),
-      if (enableMpegtsM2TsMode != null) r'enableMpegtsM2TsMode': encodeQueryParameter(_serializers, enableMpegtsM2TsMode, const FullType(bool)),
-      if (videoCodec != null) r'videoCodec': encodeQueryParameter(_serializers, videoCodec, const FullType(String)),
-      if (subtitleCodec != null) r'subtitleCodec': encodeQueryParameter(_serializers, subtitleCodec, const FullType(String)),
-      if (transcodeReasons != null) r'transcodeReasons': encodeQueryParameter(_serializers, transcodeReasons, const FullType(String)),
-      if (audioStreamIndex != null) r'audioStreamIndex': encodeQueryParameter(_serializers, audioStreamIndex, const FullType(int)),
-      if (videoStreamIndex != null) r'videoStreamIndex': encodeQueryParameter(_serializers, videoStreamIndex, const FullType(int)),
-      if (context != null) r'context': encodeQueryParameter(_serializers, context, const FullType(EncodingContext)),
-      if (streamOptions != null) r'streamOptions': encodeQueryParameter(_serializers, streamOptions, const FullType(BuiltMap, [FullType(String), FullType(String)]), ),
+      if (static_ != null)
+        r'static':
+            encodeQueryParameter(_serializers, static_, const FullType(bool)),
+      if (params != null)
+        r'params':
+            encodeQueryParameter(_serializers, params, const FullType(String)),
+      if (tag != null)
+        r'tag': encodeQueryParameter(_serializers, tag, const FullType(String)),
+      if (deviceProfileId != null)
+        r'deviceProfileId': encodeQueryParameter(
+            _serializers, deviceProfileId, const FullType(String)),
+      if (playSessionId != null)
+        r'playSessionId': encodeQueryParameter(
+            _serializers, playSessionId, const FullType(String)),
+      if (segmentContainer != null)
+        r'segmentContainer': encodeQueryParameter(
+            _serializers, segmentContainer, const FullType(String)),
+      if (segmentLength != null)
+        r'segmentLength': encodeQueryParameter(
+            _serializers, segmentLength, const FullType(int)),
+      if (minSegments != null)
+        r'minSegments': encodeQueryParameter(
+            _serializers, minSegments, const FullType(int)),
+      if (mediaSourceId != null)
+        r'mediaSourceId': encodeQueryParameter(
+            _serializers, mediaSourceId, const FullType(String)),
+      if (deviceId != null)
+        r'deviceId': encodeQueryParameter(
+            _serializers, deviceId, const FullType(String)),
+      if (audioCodec != null)
+        r'audioCodec': encodeQueryParameter(
+            _serializers, audioCodec, const FullType(String)),
+      if (enableAutoStreamCopy != null)
+        r'enableAutoStreamCopy': encodeQueryParameter(
+            _serializers, enableAutoStreamCopy, const FullType(bool)),
+      if (allowVideoStreamCopy != null)
+        r'allowVideoStreamCopy': encodeQueryParameter(
+            _serializers, allowVideoStreamCopy, const FullType(bool)),
+      if (allowAudioStreamCopy != null)
+        r'allowAudioStreamCopy': encodeQueryParameter(
+            _serializers, allowAudioStreamCopy, const FullType(bool)),
+      if (breakOnNonKeyFrames != null)
+        r'breakOnNonKeyFrames': encodeQueryParameter(
+            _serializers, breakOnNonKeyFrames, const FullType(bool)),
+      if (audioSampleRate != null)
+        r'audioSampleRate': encodeQueryParameter(
+            _serializers, audioSampleRate, const FullType(int)),
+      if (maxAudioBitDepth != null)
+        r'maxAudioBitDepth': encodeQueryParameter(
+            _serializers, maxAudioBitDepth, const FullType(int)),
+      if (audioBitRate != null)
+        r'audioBitRate': encodeQueryParameter(
+            _serializers, audioBitRate, const FullType(int)),
+      if (audioChannels != null)
+        r'audioChannels': encodeQueryParameter(
+            _serializers, audioChannels, const FullType(int)),
+      if (maxAudioChannels != null)
+        r'maxAudioChannels': encodeQueryParameter(
+            _serializers, maxAudioChannels, const FullType(int)),
+      if (profile != null)
+        r'profile':
+            encodeQueryParameter(_serializers, profile, const FullType(String)),
+      if (level != null)
+        r'level':
+            encodeQueryParameter(_serializers, level, const FullType(String)),
+      if (framerate != null)
+        r'framerate': encodeQueryParameter(
+            _serializers, framerate, const FullType(double)),
+      if (maxFramerate != null)
+        r'maxFramerate': encodeQueryParameter(
+            _serializers, maxFramerate, const FullType(double)),
+      if (copyTimestamps != null)
+        r'copyTimestamps': encodeQueryParameter(
+            _serializers, copyTimestamps, const FullType(bool)),
+      if (startTimeTicks != null)
+        r'startTimeTicks': encodeQueryParameter(
+            _serializers, startTimeTicks, const FullType(int)),
+      if (width != null)
+        r'width':
+            encodeQueryParameter(_serializers, width, const FullType(int)),
+      if (height != null)
+        r'height':
+            encodeQueryParameter(_serializers, height, const FullType(int)),
+      if (videoBitRate != null)
+        r'videoBitRate': encodeQueryParameter(
+            _serializers, videoBitRate, const FullType(int)),
+      if (subtitleStreamIndex != null)
+        r'subtitleStreamIndex': encodeQueryParameter(
+            _serializers, subtitleStreamIndex, const FullType(int)),
+      if (subtitleMethod != null)
+        r'subtitleMethod': encodeQueryParameter(_serializers, subtitleMethod,
+            const FullType(SubtitleDeliveryMethod)),
+      if (maxRefFrames != null)
+        r'maxRefFrames': encodeQueryParameter(
+            _serializers, maxRefFrames, const FullType(int)),
+      if (maxVideoBitDepth != null)
+        r'maxVideoBitDepth': encodeQueryParameter(
+            _serializers, maxVideoBitDepth, const FullType(int)),
+      if (requireAvc != null)
+        r'requireAvc': encodeQueryParameter(
+            _serializers, requireAvc, const FullType(bool)),
+      if (deInterlace != null)
+        r'deInterlace': encodeQueryParameter(
+            _serializers, deInterlace, const FullType(bool)),
+      if (requireNonAnamorphic != null)
+        r'requireNonAnamorphic': encodeQueryParameter(
+            _serializers, requireNonAnamorphic, const FullType(bool)),
+      if (transcodingMaxAudioChannels != null)
+        r'transcodingMaxAudioChannels': encodeQueryParameter(
+            _serializers, transcodingMaxAudioChannels, const FullType(int)),
+      if (cpuCoreLimit != null)
+        r'cpuCoreLimit': encodeQueryParameter(
+            _serializers, cpuCoreLimit, const FullType(int)),
+      if (liveStreamId != null)
+        r'liveStreamId': encodeQueryParameter(
+            _serializers, liveStreamId, const FullType(String)),
+      if (enableMpegtsM2TsMode != null)
+        r'enableMpegtsM2TsMode': encodeQueryParameter(
+            _serializers, enableMpegtsM2TsMode, const FullType(bool)),
+      if (videoCodec != null)
+        r'videoCodec': encodeQueryParameter(
+            _serializers, videoCodec, const FullType(String)),
+      if (subtitleCodec != null)
+        r'subtitleCodec': encodeQueryParameter(
+            _serializers, subtitleCodec, const FullType(String)),
+      if (transcodeReasons != null)
+        r'transcodeReasons': encodeQueryParameter(
+            _serializers, transcodeReasons, const FullType(String)),
+      if (audioStreamIndex != null)
+        r'audioStreamIndex': encodeQueryParameter(
+            _serializers, audioStreamIndex, const FullType(int)),
+      if (videoStreamIndex != null)
+        r'videoStreamIndex': encodeQueryParameter(
+            _serializers, videoStreamIndex, const FullType(int)),
+      if (context != null)
+        r'context': encodeQueryParameter(
+            _serializers, context, const FullType(EncodingContext)),
+      if (streamOptions != null)
+        r'streamOptions': encodeQueryParameter(
+          _serializers,
+          streamOptions,
+          const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -869,18 +1283,19 @@ class AudioApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -894,5 +1309,4 @@ class AudioApi {
       extra: _response.extra,
     );
   }
-
 }

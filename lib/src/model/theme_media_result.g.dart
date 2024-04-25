@@ -6,7 +6,7 @@ part of 'theme_media_result.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ThemeMediaResultBuilder {
+abstract mixin class ThemeMediaResultBuilder {
   void replace(ThemeMediaResult other);
   void update(void Function(ThemeMediaResultBuilder) updates);
   ListBuilder<BaseItemDto> get items;

@@ -6,56 +6,7 @@ part of 'playback_info_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class PlaybackInfoDtoBuilder {
-  void replace(PlaybackInfoDto other);
-  void update(void Function(PlaybackInfoDtoBuilder) updates);
-  String? get userId;
-  set userId(String? userId);
-
-  int? get maxStreamingBitrate;
-  set maxStreamingBitrate(int? maxStreamingBitrate);
-
-  int? get startTimeTicks;
-  set startTimeTicks(int? startTimeTicks);
-
-  int? get audioStreamIndex;
-  set audioStreamIndex(int? audioStreamIndex);
-
-  int? get subtitleStreamIndex;
-  set subtitleStreamIndex(int? subtitleStreamIndex);
-
-  int? get maxAudioChannels;
-  set maxAudioChannels(int? maxAudioChannels);
-
-  String? get mediaSourceId;
-  set mediaSourceId(String? mediaSourceId);
-
-  String? get liveStreamId;
-  set liveStreamId(String? liveStreamId);
-
-  ClientCapabilitiesDtoDeviceProfileBuilder get deviceProfile;
-  set deviceProfile(ClientCapabilitiesDtoDeviceProfileBuilder? deviceProfile);
-
-  bool? get enableDirectPlay;
-  set enableDirectPlay(bool? enableDirectPlay);
-
-  bool? get enableDirectStream;
-  set enableDirectStream(bool? enableDirectStream);
-
-  bool? get enableTranscoding;
-  set enableTranscoding(bool? enableTranscoding);
-
-  bool? get allowVideoStreamCopy;
-  set allowVideoStreamCopy(bool? allowVideoStreamCopy);
-
-  bool? get allowAudioStreamCopy;
-  set allowAudioStreamCopy(bool? allowAudioStreamCopy);
-
-  bool? get autoOpenLiveStream;
-  set autoOpenLiveStream(bool? autoOpenLiveStream);
-}
-
-class _$$PlaybackInfoDto extends $PlaybackInfoDto {
+class _$PlaybackInfoDto extends PlaybackInfoDto {
   @override
   final String? userId;
   @override
@@ -73,7 +24,7 @@ class _$$PlaybackInfoDto extends $PlaybackInfoDto {
   @override
   final String? liveStreamId;
   @override
-  final ClientCapabilitiesDtoDeviceProfile? deviceProfile;
+  final ClientCapabilitiesDeviceProfile? deviceProfile;
   @override
   final bool? enableDirectPlay;
   @override
@@ -87,11 +38,10 @@ class _$$PlaybackInfoDto extends $PlaybackInfoDto {
   @override
   final bool? autoOpenLiveStream;
 
-  factory _$$PlaybackInfoDto(
-          [void Function($PlaybackInfoDtoBuilder)? updates]) =>
-      (new $PlaybackInfoDtoBuilder()..update(updates))._build();
+  factory _$PlaybackInfoDto([void Function(PlaybackInfoDtoBuilder)? updates]) =>
+      (new PlaybackInfoDtoBuilder()..update(updates))._build();
 
-  _$$PlaybackInfoDto._(
+  _$PlaybackInfoDto._(
       {this.userId,
       this.maxStreamingBitrate,
       this.startTimeTicks,
@@ -110,17 +60,17 @@ class _$$PlaybackInfoDto extends $PlaybackInfoDto {
       : super._();
 
   @override
-  $PlaybackInfoDto rebuild(void Function($PlaybackInfoDtoBuilder) updates) =>
+  PlaybackInfoDto rebuild(void Function(PlaybackInfoDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $PlaybackInfoDtoBuilder toBuilder() =>
-      new $PlaybackInfoDtoBuilder()..replace(this);
+  PlaybackInfoDtoBuilder toBuilder() =>
+      new PlaybackInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $PlaybackInfoDto &&
+    return other is PlaybackInfoDto &&
         userId == other.userId &&
         maxStreamingBitrate == other.maxStreamingBitrate &&
         startTimeTicks == other.startTimeTicks &&
@@ -162,7 +112,7 @@ class _$$PlaybackInfoDto extends $PlaybackInfoDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$PlaybackInfoDto')
+    return (newBuiltValueToStringHelper(r'PlaybackInfoDto')
           ..add('userId', userId)
           ..add('maxStreamingBitrate', maxStreamingBitrate)
           ..add('startTimeTicks', startTimeTicks)
@@ -182,93 +132,89 @@ class _$$PlaybackInfoDto extends $PlaybackInfoDto {
   }
 }
 
-class $PlaybackInfoDtoBuilder
-    implements
-        Builder<$PlaybackInfoDto, $PlaybackInfoDtoBuilder>,
-        PlaybackInfoDtoBuilder {
-  _$$PlaybackInfoDto? _$v;
+class PlaybackInfoDtoBuilder
+    implements Builder<PlaybackInfoDto, PlaybackInfoDtoBuilder> {
+  _$PlaybackInfoDto? _$v;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(covariant String? userId) => _$this._userId = userId;
+  set userId(String? userId) => _$this._userId = userId;
 
   int? _maxStreamingBitrate;
   int? get maxStreamingBitrate => _$this._maxStreamingBitrate;
-  set maxStreamingBitrate(covariant int? maxStreamingBitrate) =>
+  set maxStreamingBitrate(int? maxStreamingBitrate) =>
       _$this._maxStreamingBitrate = maxStreamingBitrate;
 
   int? _startTimeTicks;
   int? get startTimeTicks => _$this._startTimeTicks;
-  set startTimeTicks(covariant int? startTimeTicks) =>
+  set startTimeTicks(int? startTimeTicks) =>
       _$this._startTimeTicks = startTimeTicks;
 
   int? _audioStreamIndex;
   int? get audioStreamIndex => _$this._audioStreamIndex;
-  set audioStreamIndex(covariant int? audioStreamIndex) =>
+  set audioStreamIndex(int? audioStreamIndex) =>
       _$this._audioStreamIndex = audioStreamIndex;
 
   int? _subtitleStreamIndex;
   int? get subtitleStreamIndex => _$this._subtitleStreamIndex;
-  set subtitleStreamIndex(covariant int? subtitleStreamIndex) =>
+  set subtitleStreamIndex(int? subtitleStreamIndex) =>
       _$this._subtitleStreamIndex = subtitleStreamIndex;
 
   int? _maxAudioChannels;
   int? get maxAudioChannels => _$this._maxAudioChannels;
-  set maxAudioChannels(covariant int? maxAudioChannels) =>
+  set maxAudioChannels(int? maxAudioChannels) =>
       _$this._maxAudioChannels = maxAudioChannels;
 
   String? _mediaSourceId;
   String? get mediaSourceId => _$this._mediaSourceId;
-  set mediaSourceId(covariant String? mediaSourceId) =>
+  set mediaSourceId(String? mediaSourceId) =>
       _$this._mediaSourceId = mediaSourceId;
 
   String? _liveStreamId;
   String? get liveStreamId => _$this._liveStreamId;
-  set liveStreamId(covariant String? liveStreamId) =>
-      _$this._liveStreamId = liveStreamId;
+  set liveStreamId(String? liveStreamId) => _$this._liveStreamId = liveStreamId;
 
-  ClientCapabilitiesDtoDeviceProfileBuilder? _deviceProfile;
-  ClientCapabilitiesDtoDeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new ClientCapabilitiesDtoDeviceProfileBuilder();
-  set deviceProfile(
-          covariant ClientCapabilitiesDtoDeviceProfileBuilder? deviceProfile) =>
+  ClientCapabilitiesDeviceProfileBuilder? _deviceProfile;
+  ClientCapabilitiesDeviceProfileBuilder get deviceProfile =>
+      _$this._deviceProfile ??= new ClientCapabilitiesDeviceProfileBuilder();
+  set deviceProfile(ClientCapabilitiesDeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
   bool? _enableDirectPlay;
   bool? get enableDirectPlay => _$this._enableDirectPlay;
-  set enableDirectPlay(covariant bool? enableDirectPlay) =>
+  set enableDirectPlay(bool? enableDirectPlay) =>
       _$this._enableDirectPlay = enableDirectPlay;
 
   bool? _enableDirectStream;
   bool? get enableDirectStream => _$this._enableDirectStream;
-  set enableDirectStream(covariant bool? enableDirectStream) =>
+  set enableDirectStream(bool? enableDirectStream) =>
       _$this._enableDirectStream = enableDirectStream;
 
   bool? _enableTranscoding;
   bool? get enableTranscoding => _$this._enableTranscoding;
-  set enableTranscoding(covariant bool? enableTranscoding) =>
+  set enableTranscoding(bool? enableTranscoding) =>
       _$this._enableTranscoding = enableTranscoding;
 
   bool? _allowVideoStreamCopy;
   bool? get allowVideoStreamCopy => _$this._allowVideoStreamCopy;
-  set allowVideoStreamCopy(covariant bool? allowVideoStreamCopy) =>
+  set allowVideoStreamCopy(bool? allowVideoStreamCopy) =>
       _$this._allowVideoStreamCopy = allowVideoStreamCopy;
 
   bool? _allowAudioStreamCopy;
   bool? get allowAudioStreamCopy => _$this._allowAudioStreamCopy;
-  set allowAudioStreamCopy(covariant bool? allowAudioStreamCopy) =>
+  set allowAudioStreamCopy(bool? allowAudioStreamCopy) =>
       _$this._allowAudioStreamCopy = allowAudioStreamCopy;
 
   bool? _autoOpenLiveStream;
   bool? get autoOpenLiveStream => _$this._autoOpenLiveStream;
-  set autoOpenLiveStream(covariant bool? autoOpenLiveStream) =>
+  set autoOpenLiveStream(bool? autoOpenLiveStream) =>
       _$this._autoOpenLiveStream = autoOpenLiveStream;
 
-  $PlaybackInfoDtoBuilder() {
-    $PlaybackInfoDto._defaults(this);
+  PlaybackInfoDtoBuilder() {
+    PlaybackInfoDto._defaults(this);
   }
 
-  $PlaybackInfoDtoBuilder get _$this {
+  PlaybackInfoDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _userId = $v.userId;
@@ -292,24 +238,24 @@ class $PlaybackInfoDtoBuilder
   }
 
   @override
-  void replace(covariant $PlaybackInfoDto other) {
+  void replace(PlaybackInfoDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$PlaybackInfoDto;
+    _$v = other as _$PlaybackInfoDto;
   }
 
   @override
-  void update(void Function($PlaybackInfoDtoBuilder)? updates) {
+  void update(void Function(PlaybackInfoDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $PlaybackInfoDto build() => _build();
+  PlaybackInfoDto build() => _build();
 
-  _$$PlaybackInfoDto _build() {
-    _$$PlaybackInfoDto _$result;
+  _$PlaybackInfoDto _build() {
+    _$PlaybackInfoDto _$result;
     try {
       _$result = _$v ??
-          new _$$PlaybackInfoDto._(
+          new _$PlaybackInfoDto._(
               userId: userId,
               maxStreamingBitrate: maxStreamingBitrate,
               startTimeTicks: startTimeTicks,
@@ -332,7 +278,7 @@ class $PlaybackInfoDtoBuilder
         _deviceProfile?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$PlaybackInfoDto', _$failedField, e.toString());
+            r'PlaybackInfoDto', _$failedField, e.toString());
       }
       rethrow;
     }

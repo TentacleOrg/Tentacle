@@ -12,11 +12,12 @@ part 'all_theme_media_result.g.dart';
 /// AllThemeMediaResult
 ///
 /// Properties:
-/// * [themeVideosResult] 
-/// * [themeSongsResult] 
-/// * [soundtrackSongsResult] 
+/// * [themeVideosResult]
+/// * [themeSongsResult]
+/// * [soundtrackSongsResult]
 @BuiltValue()
-abstract class AllThemeMediaResult implements Built<AllThemeMediaResult, AllThemeMediaResultBuilder> {
+abstract class AllThemeMediaResult
+    implements Built<AllThemeMediaResult, AllThemeMediaResultBuilder> {
   @BuiltValueField(wireName: r'ThemeVideosResult')
   AllThemeMediaResultThemeVideosResult? get themeVideosResult;
 
@@ -28,18 +29,24 @@ abstract class AllThemeMediaResult implements Built<AllThemeMediaResult, AllThem
 
   AllThemeMediaResult._();
 
-  factory AllThemeMediaResult([void updates(AllThemeMediaResultBuilder b)]) = _$AllThemeMediaResult;
+  factory AllThemeMediaResult([void updates(AllThemeMediaResultBuilder b)]) =
+      _$AllThemeMediaResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AllThemeMediaResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AllThemeMediaResult> get serializer => _$AllThemeMediaResultSerializer();
+  static Serializer<AllThemeMediaResult> get serializer =>
+      _$AllThemeMediaResultSerializer();
 }
 
-class _$AllThemeMediaResultSerializer implements PrimitiveSerializer<AllThemeMediaResult> {
+class _$AllThemeMediaResultSerializer
+    implements PrimitiveSerializer<AllThemeMediaResult> {
   @override
-  final Iterable<Type> types = const [AllThemeMediaResult, _$AllThemeMediaResult];
+  final Iterable<Type> types = const [
+    AllThemeMediaResult,
+    _$AllThemeMediaResult
+  ];
 
   @override
   final String wireName = r'AllThemeMediaResult';
@@ -53,21 +60,24 @@ class _$AllThemeMediaResultSerializer implements PrimitiveSerializer<AllThemeMed
       yield r'ThemeVideosResult';
       yield serializers.serialize(
         object.themeVideosResult,
-        specifiedType: const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+        specifiedType:
+            const FullType.nullable(AllThemeMediaResultThemeVideosResult),
       );
     }
     if (object.themeSongsResult != null) {
       yield r'ThemeSongsResult';
       yield serializers.serialize(
         object.themeSongsResult,
-        specifiedType: const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+        specifiedType:
+            const FullType.nullable(AllThemeMediaResultThemeVideosResult),
       );
     }
     if (object.soundtrackSongsResult != null) {
       yield r'SoundtrackSongsResult';
       yield serializers.serialize(
         object.soundtrackSongsResult,
-        specifiedType: const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+        specifiedType:
+            const FullType.nullable(AllThemeMediaResultThemeVideosResult),
       );
     }
   }
@@ -78,7 +88,9 @@ class _$AllThemeMediaResultSerializer implements PrimitiveSerializer<AllThemeMed
     AllThemeMediaResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -96,7 +108,8 @@ class _$AllThemeMediaResultSerializer implements PrimitiveSerializer<AllThemeMed
         case r'ThemeVideosResult':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+            specifiedType:
+                const FullType.nullable(AllThemeMediaResultThemeVideosResult),
           ) as AllThemeMediaResultThemeVideosResult?;
           if (valueDes == null) continue;
           result.themeVideosResult.replace(valueDes);
@@ -104,7 +117,8 @@ class _$AllThemeMediaResultSerializer implements PrimitiveSerializer<AllThemeMed
         case r'ThemeSongsResult':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+            specifiedType:
+                const FullType.nullable(AllThemeMediaResultThemeVideosResult),
           ) as AllThemeMediaResultThemeVideosResult?;
           if (valueDes == null) continue;
           result.themeSongsResult.replace(valueDes);
@@ -112,7 +126,8 @@ class _$AllThemeMediaResultSerializer implements PrimitiveSerializer<AllThemeMed
         case r'SoundtrackSongsResult':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+            specifiedType:
+                const FullType.nullable(AllThemeMediaResultThemeVideosResult),
           ) as AllThemeMediaResultThemeVideosResult?;
           if (valueDes == null) continue;
           result.soundtrackSongsResult.replace(valueDes);
@@ -145,4 +160,3 @@ class _$AllThemeMediaResultSerializer implements PrimitiveSerializer<AllThemeMed
     return result.build();
   }
 }
-

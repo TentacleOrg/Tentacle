@@ -1,8 +1,8 @@
-# openapi.api.SyncPlayApi
+# tentacle.api.SyncPlayApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -33,24 +33,24 @@ Method | HTTP request | Description
 
 
 # **syncPlayBuffering**
-> syncPlayBuffering(syncPlayBufferingRequest)
+> syncPlayBuffering(bufferRequestDto)
 
 Notify SyncPlay group that member is buffering.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayBufferingRequest syncPlayBufferingRequest = ; // SyncPlayBufferingRequest | The player status.
+final api = Tentacle().getSyncPlayApi();
+final BufferRequestDto bufferRequestDto = ; // BufferRequestDto | The player status.
 
 try {
-    api.syncPlayBuffering(syncPlayBufferingRequest);
-} catch on DioError (e) {
+    api.syncPlayBuffering(bufferRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayBuffering: $e\n');
 }
 ```
@@ -59,7 +59,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayBufferingRequest** | [**SyncPlayBufferingRequest**](SyncPlayBufferingRequest.md)| The player status. | 
+ **bufferRequestDto** | [**BufferRequestDto**](BufferRequestDto.md)| The player status. | 
 
 ### Return type
 
@@ -77,24 +77,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayCreateGroup**
-> syncPlayCreateGroup(syncPlayCreateGroupRequest)
+> syncPlayCreateGroup(newGroupRequestDto)
 
 Create a new SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayCreateGroupRequest syncPlayCreateGroupRequest = ; // SyncPlayCreateGroupRequest | The settings of the new group.
+final api = Tentacle().getSyncPlayApi();
+final NewGroupRequestDto newGroupRequestDto = ; // NewGroupRequestDto | The settings of the new group.
 
 try {
-    api.syncPlayCreateGroup(syncPlayCreateGroupRequest);
-} catch on DioError (e) {
+    api.syncPlayCreateGroup(newGroupRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayCreateGroup: $e\n');
 }
 ```
@@ -103,7 +103,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayCreateGroupRequest** | [**SyncPlayCreateGroupRequest**](SyncPlayCreateGroupRequest.md)| The settings of the new group. | 
+ **newGroupRequestDto** | [**NewGroupRequestDto**](NewGroupRequestDto.md)| The settings of the new group. | 
 
 ### Return type
 
@@ -127,18 +127,18 @@ Gets all SyncPlay groups.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
+final api = Tentacle().getSyncPlayApi();
 
 try {
     final response = api.syncPlayGetGroups();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayGetGroups: $e\n');
 }
 ```
@@ -162,24 +162,24 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayJoinGroup**
-> syncPlayJoinGroup(syncPlayJoinGroupRequest)
+> syncPlayJoinGroup(joinGroupRequestDto)
 
 Join an existing SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayJoinGroupRequest syncPlayJoinGroupRequest = ; // SyncPlayJoinGroupRequest | The group to join.
+final api = Tentacle().getSyncPlayApi();
+final JoinGroupRequestDto joinGroupRequestDto = ; // JoinGroupRequestDto | The group to join.
 
 try {
-    api.syncPlayJoinGroup(syncPlayJoinGroupRequest);
-} catch on DioError (e) {
+    api.syncPlayJoinGroup(joinGroupRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayJoinGroup: $e\n');
 }
 ```
@@ -188,7 +188,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayJoinGroupRequest** | [**SyncPlayJoinGroupRequest**](SyncPlayJoinGroupRequest.md)| The group to join. | 
+ **joinGroupRequestDto** | [**JoinGroupRequestDto**](JoinGroupRequestDto.md)| The group to join. | 
 
 ### Return type
 
@@ -212,17 +212,17 @@ Leave the joined SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
+final api = Tentacle().getSyncPlayApi();
 
 try {
     api.syncPlayLeaveGroup();
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayLeaveGroup: $e\n');
 }
 ```
@@ -246,24 +246,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayMovePlaylistItem**
-> syncPlayMovePlaylistItem(syncPlayMovePlaylistItemRequest)
+> syncPlayMovePlaylistItem(movePlaylistItemRequestDto)
 
 Request to move an item in the playlist in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayMovePlaylistItemRequest syncPlayMovePlaylistItemRequest = ; // SyncPlayMovePlaylistItemRequest | The new position for the item.
+final api = Tentacle().getSyncPlayApi();
+final MovePlaylistItemRequestDto movePlaylistItemRequestDto = ; // MovePlaylistItemRequestDto | The new position for the item.
 
 try {
-    api.syncPlayMovePlaylistItem(syncPlayMovePlaylistItemRequest);
-} catch on DioError (e) {
+    api.syncPlayMovePlaylistItem(movePlaylistItemRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayMovePlaylistItem: $e\n');
 }
 ```
@@ -272,7 +272,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayMovePlaylistItemRequest** | [**SyncPlayMovePlaylistItemRequest**](SyncPlayMovePlaylistItemRequest.md)| The new position for the item. | 
+ **movePlaylistItemRequestDto** | [**MovePlaylistItemRequestDto**](MovePlaylistItemRequestDto.md)| The new position for the item. | 
 
 ### Return type
 
@@ -290,24 +290,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayNextItem**
-> syncPlayNextItem(syncPlayNextItemRequest)
+> syncPlayNextItem(nextItemRequestDto)
 
 Request next item in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayNextItemRequest syncPlayNextItemRequest = ; // SyncPlayNextItemRequest | The current item information.
+final api = Tentacle().getSyncPlayApi();
+final NextItemRequestDto nextItemRequestDto = ; // NextItemRequestDto | The current item information.
 
 try {
-    api.syncPlayNextItem(syncPlayNextItemRequest);
-} catch on DioError (e) {
+    api.syncPlayNextItem(nextItemRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayNextItem: $e\n');
 }
 ```
@@ -316,7 +316,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayNextItemRequest** | [**SyncPlayNextItemRequest**](SyncPlayNextItemRequest.md)| The current item information. | 
+ **nextItemRequestDto** | [**NextItemRequestDto**](NextItemRequestDto.md)| The current item information. | 
 
 ### Return type
 
@@ -340,17 +340,17 @@ Request pause in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
+final api = Tentacle().getSyncPlayApi();
 
 try {
     api.syncPlayPause();
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayPause: $e\n');
 }
 ```
@@ -374,24 +374,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayPing**
-> syncPlayPing(syncPlayPingRequest)
+> syncPlayPing(pingRequestDto)
 
 Update session ping.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayPingRequest syncPlayPingRequest = ; // SyncPlayPingRequest | The new ping.
+final api = Tentacle().getSyncPlayApi();
+final PingRequestDto pingRequestDto = ; // PingRequestDto | The new ping.
 
 try {
-    api.syncPlayPing(syncPlayPingRequest);
-} catch on DioError (e) {
+    api.syncPlayPing(pingRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayPing: $e\n');
 }
 ```
@@ -400,7 +400,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayPingRequest** | [**SyncPlayPingRequest**](SyncPlayPingRequest.md)| The new ping. | 
+ **pingRequestDto** | [**PingRequestDto**](PingRequestDto.md)| The new ping. | 
 
 ### Return type
 
@@ -418,24 +418,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayPreviousItem**
-> syncPlayPreviousItem(syncPlayPreviousItemRequest)
+> syncPlayPreviousItem(previousItemRequestDto)
 
 Request previous item in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayPreviousItemRequest syncPlayPreviousItemRequest = ; // SyncPlayPreviousItemRequest | The current item information.
+final api = Tentacle().getSyncPlayApi();
+final PreviousItemRequestDto previousItemRequestDto = ; // PreviousItemRequestDto | The current item information.
 
 try {
-    api.syncPlayPreviousItem(syncPlayPreviousItemRequest);
-} catch on DioError (e) {
+    api.syncPlayPreviousItem(previousItemRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayPreviousItem: $e\n');
 }
 ```
@@ -444,7 +444,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayPreviousItemRequest** | [**SyncPlayPreviousItemRequest**](SyncPlayPreviousItemRequest.md)| The current item information. | 
+ **previousItemRequestDto** | [**PreviousItemRequestDto**](PreviousItemRequestDto.md)| The current item information. | 
 
 ### Return type
 
@@ -462,24 +462,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayQueue**
-> syncPlayQueue(syncPlayQueueRequest)
+> syncPlayQueue(queueRequestDto)
 
 Request to queue items to the playlist of a SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayQueueRequest syncPlayQueueRequest = ; // SyncPlayQueueRequest | The items to add.
+final api = Tentacle().getSyncPlayApi();
+final QueueRequestDto queueRequestDto = ; // QueueRequestDto | The items to add.
 
 try {
-    api.syncPlayQueue(syncPlayQueueRequest);
-} catch on DioError (e) {
+    api.syncPlayQueue(queueRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayQueue: $e\n');
 }
 ```
@@ -488,7 +488,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayQueueRequest** | [**SyncPlayQueueRequest**](SyncPlayQueueRequest.md)| The items to add. | 
+ **queueRequestDto** | [**QueueRequestDto**](QueueRequestDto.md)| The items to add. | 
 
 ### Return type
 
@@ -506,24 +506,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayReady**
-> syncPlayReady(syncPlayReadyRequest)
+> syncPlayReady(readyRequestDto)
 
 Notify SyncPlay group that member is ready for playback.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayReadyRequest syncPlayReadyRequest = ; // SyncPlayReadyRequest | The player status.
+final api = Tentacle().getSyncPlayApi();
+final ReadyRequestDto readyRequestDto = ; // ReadyRequestDto | The player status.
 
 try {
-    api.syncPlayReady(syncPlayReadyRequest);
-} catch on DioError (e) {
+    api.syncPlayReady(readyRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayReady: $e\n');
 }
 ```
@@ -532,7 +532,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayReadyRequest** | [**SyncPlayReadyRequest**](SyncPlayReadyRequest.md)| The player status. | 
+ **readyRequestDto** | [**ReadyRequestDto**](ReadyRequestDto.md)| The player status. | 
 
 ### Return type
 
@@ -550,24 +550,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlayRemoveFromPlaylist**
-> syncPlayRemoveFromPlaylist(syncPlayRemoveFromPlaylistRequest)
+> syncPlayRemoveFromPlaylist(removeFromPlaylistRequestDto)
 
 Request to remove items from the playlist in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlayRemoveFromPlaylistRequest syncPlayRemoveFromPlaylistRequest = ; // SyncPlayRemoveFromPlaylistRequest | The items to remove.
+final api = Tentacle().getSyncPlayApi();
+final RemoveFromPlaylistRequestDto removeFromPlaylistRequestDto = ; // RemoveFromPlaylistRequestDto | The items to remove.
 
 try {
-    api.syncPlayRemoveFromPlaylist(syncPlayRemoveFromPlaylistRequest);
-} catch on DioError (e) {
+    api.syncPlayRemoveFromPlaylist(removeFromPlaylistRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayRemoveFromPlaylist: $e\n');
 }
 ```
@@ -576,7 +576,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlayRemoveFromPlaylistRequest** | [**SyncPlayRemoveFromPlaylistRequest**](SyncPlayRemoveFromPlaylistRequest.md)| The items to remove. | 
+ **removeFromPlaylistRequestDto** | [**RemoveFromPlaylistRequestDto**](RemoveFromPlaylistRequestDto.md)| The items to remove. | 
 
 ### Return type
 
@@ -594,24 +594,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySeek**
-> syncPlaySeek(syncPlaySeekRequest)
+> syncPlaySeek(seekRequestDto)
 
 Request seek in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlaySeekRequest syncPlaySeekRequest = ; // SyncPlaySeekRequest | The new playback position.
+final api = Tentacle().getSyncPlayApi();
+final SeekRequestDto seekRequestDto = ; // SeekRequestDto | The new playback position.
 
 try {
-    api.syncPlaySeek(syncPlaySeekRequest);
-} catch on DioError (e) {
+    api.syncPlaySeek(seekRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlaySeek: $e\n');
 }
 ```
@@ -620,7 +620,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlaySeekRequest** | [**SyncPlaySeekRequest**](SyncPlaySeekRequest.md)| The new playback position. | 
+ **seekRequestDto** | [**SeekRequestDto**](SeekRequestDto.md)| The new playback position. | 
 
 ### Return type
 
@@ -638,24 +638,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetIgnoreWait**
-> syncPlaySetIgnoreWait(syncPlaySetIgnoreWaitRequest)
+> syncPlaySetIgnoreWait(ignoreWaitRequestDto)
 
 Request SyncPlay group to ignore member during group-wait.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlaySetIgnoreWaitRequest syncPlaySetIgnoreWaitRequest = ; // SyncPlaySetIgnoreWaitRequest | The settings to set.
+final api = Tentacle().getSyncPlayApi();
+final IgnoreWaitRequestDto ignoreWaitRequestDto = ; // IgnoreWaitRequestDto | The settings to set.
 
 try {
-    api.syncPlaySetIgnoreWait(syncPlaySetIgnoreWaitRequest);
-} catch on DioError (e) {
+    api.syncPlaySetIgnoreWait(ignoreWaitRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetIgnoreWait: $e\n');
 }
 ```
@@ -664,7 +664,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlaySetIgnoreWaitRequest** | [**SyncPlaySetIgnoreWaitRequest**](SyncPlaySetIgnoreWaitRequest.md)| The settings to set. | 
+ **ignoreWaitRequestDto** | [**IgnoreWaitRequestDto**](IgnoreWaitRequestDto.md)| The settings to set. | 
 
 ### Return type
 
@@ -682,24 +682,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetNewQueue**
-> syncPlaySetNewQueue(syncPlaySetNewQueueRequest)
+> syncPlaySetNewQueue(playRequestDto)
 
 Request to set new playlist in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlaySetNewQueueRequest syncPlaySetNewQueueRequest = ; // SyncPlaySetNewQueueRequest | The new playlist to play in the group.
+final api = Tentacle().getSyncPlayApi();
+final PlayRequestDto playRequestDto = ; // PlayRequestDto | The new playlist to play in the group.
 
 try {
-    api.syncPlaySetNewQueue(syncPlaySetNewQueueRequest);
-} catch on DioError (e) {
+    api.syncPlaySetNewQueue(playRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetNewQueue: $e\n');
 }
 ```
@@ -708,7 +708,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlaySetNewQueueRequest** | [**SyncPlaySetNewQueueRequest**](SyncPlaySetNewQueueRequest.md)| The new playlist to play in the group. | 
+ **playRequestDto** | [**PlayRequestDto**](PlayRequestDto.md)| The new playlist to play in the group. | 
 
 ### Return type
 
@@ -726,24 +726,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetPlaylistItem**
-> syncPlaySetPlaylistItem(syncPlaySetPlaylistItemRequest)
+> syncPlaySetPlaylistItem(setPlaylistItemRequestDto)
 
 Request to change playlist item in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlaySetPlaylistItemRequest syncPlaySetPlaylistItemRequest = ; // SyncPlaySetPlaylistItemRequest | The new item to play.
+final api = Tentacle().getSyncPlayApi();
+final SetPlaylistItemRequestDto setPlaylistItemRequestDto = ; // SetPlaylistItemRequestDto | The new item to play.
 
 try {
-    api.syncPlaySetPlaylistItem(syncPlaySetPlaylistItemRequest);
-} catch on DioError (e) {
+    api.syncPlaySetPlaylistItem(setPlaylistItemRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetPlaylistItem: $e\n');
 }
 ```
@@ -752,7 +752,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlaySetPlaylistItemRequest** | [**SyncPlaySetPlaylistItemRequest**](SyncPlaySetPlaylistItemRequest.md)| The new item to play. | 
+ **setPlaylistItemRequestDto** | [**SetPlaylistItemRequestDto**](SetPlaylistItemRequestDto.md)| The new item to play. | 
 
 ### Return type
 
@@ -770,24 +770,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetRepeatMode**
-> syncPlaySetRepeatMode(syncPlaySetRepeatModeRequest)
+> syncPlaySetRepeatMode(setRepeatModeRequestDto)
 
 Request to set repeat mode in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlaySetRepeatModeRequest syncPlaySetRepeatModeRequest = ; // SyncPlaySetRepeatModeRequest | The new repeat mode.
+final api = Tentacle().getSyncPlayApi();
+final SetRepeatModeRequestDto setRepeatModeRequestDto = ; // SetRepeatModeRequestDto | The new repeat mode.
 
 try {
-    api.syncPlaySetRepeatMode(syncPlaySetRepeatModeRequest);
-} catch on DioError (e) {
+    api.syncPlaySetRepeatMode(setRepeatModeRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetRepeatMode: $e\n');
 }
 ```
@@ -796,7 +796,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlaySetRepeatModeRequest** | [**SyncPlaySetRepeatModeRequest**](SyncPlaySetRepeatModeRequest.md)| The new repeat mode. | 
+ **setRepeatModeRequestDto** | [**SetRepeatModeRequestDto**](SetRepeatModeRequestDto.md)| The new repeat mode. | 
 
 ### Return type
 
@@ -814,24 +814,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **syncPlaySetShuffleMode**
-> syncPlaySetShuffleMode(syncPlaySetShuffleModeRequest)
+> syncPlaySetShuffleMode(setShuffleModeRequestDto)
 
 Request to set shuffle mode in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
-final SyncPlaySetShuffleModeRequest syncPlaySetShuffleModeRequest = ; // SyncPlaySetShuffleModeRequest | The new shuffle mode.
+final api = Tentacle().getSyncPlayApi();
+final SetShuffleModeRequestDto setShuffleModeRequestDto = ; // SetShuffleModeRequestDto | The new shuffle mode.
 
 try {
-    api.syncPlaySetShuffleMode(syncPlaySetShuffleModeRequest);
-} catch on DioError (e) {
+    api.syncPlaySetShuffleMode(setShuffleModeRequestDto);
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlaySetShuffleMode: $e\n');
 }
 ```
@@ -840,7 +840,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **syncPlaySetShuffleModeRequest** | [**SyncPlaySetShuffleModeRequest**](SyncPlaySetShuffleModeRequest.md)| The new shuffle mode. | 
+ **setShuffleModeRequestDto** | [**SetShuffleModeRequestDto**](SetShuffleModeRequestDto.md)| The new shuffle mode. | 
 
 ### Return type
 
@@ -864,17 +864,17 @@ Request stop in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
+final api = Tentacle().getSyncPlayApi();
 
 try {
     api.syncPlayStop();
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayStop: $e\n');
 }
 ```
@@ -904,17 +904,17 @@ Request unpause in SyncPlay group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSyncPlayApi();
+final api = Tentacle().getSyncPlayApi();
 
 try {
     api.syncPlayUnpause();
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SyncPlayApi->syncPlayUnpause: $e\n');
 }
 ```

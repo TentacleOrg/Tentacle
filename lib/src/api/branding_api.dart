@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:tentacle/src/model/branding_options.dart';
 
 class BrandingApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -18,7 +17,7 @@ class BrandingApi {
   const BrandingApi(this._dio, this._serializers);
 
   /// Gets branding css.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -29,8 +28,8 @@ class BrandingApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [String] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<String>> getBrandingCss({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<String>> getBrandingCss({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -59,18 +58,19 @@ class BrandingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    String _responseData;
+    String? _responseData;
 
     try {
-      _responseData = _response.data as String;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as String;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<String>(
@@ -86,7 +86,7 @@ class BrandingApi {
   }
 
   /// Gets branding css.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -97,8 +97,8 @@ class BrandingApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [String] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<String>> getBrandingCss2({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<String>> getBrandingCss2({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -127,18 +127,19 @@ class BrandingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    String _responseData;
+    String? _responseData;
 
     try {
-      _responseData = _response.data as String;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as String;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<String>(
@@ -154,7 +155,7 @@ class BrandingApi {
   }
 
   /// Gets branding configuration.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -165,8 +166,8 @@ class BrandingApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BrandingOptions] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BrandingOptions>> getBrandingOptions({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BrandingOptions>> getBrandingOptions({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -195,22 +196,24 @@ class BrandingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BrandingOptions _responseData;
+    BrandingOptions? _responseData;
 
     try {
-      const _responseType = FullType(BrandingOptions);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BrandingOptions;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BrandingOptions),
+            ) as BrandingOptions;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BrandingOptions>(
@@ -224,5 +227,4 @@ class BrandingApi {
       extra: _response.extra,
     );
   }
-
 }

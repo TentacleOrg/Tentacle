@@ -10,17 +10,17 @@ import 'package:built_value/serializer.dart';
 part 'channel_type.g.dart';
 
 class ChannelType extends EnumClass {
-
   /// Enum ChannelType.
   @BuiltValueEnumConst(wireName: r'TV')
   static const ChannelType TV = _$TV;
+
   /// Enum ChannelType.
   @BuiltValueEnumConst(wireName: r'Radio')
   static const ChannelType radio = _$radio;
 
   static Serializer<ChannelType> get serializer => _$channelTypeSerializer;
 
-  const ChannelType._(String name): super(name);
+  const ChannelType._(String name) : super(name);
 
   static BuiltSet<ChannelType> get values => _$values;
   static ChannelType valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class ChannelType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class ChannelTypeMixin = Object with _$ChannelTypeMixin;
-

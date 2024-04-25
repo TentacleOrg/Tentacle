@@ -19,12 +19,12 @@ part 'box_set_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-@BuiltValue(instantiable: false)
-abstract class BoxSetInfo  {
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+@BuiltValue()
+abstract class BoxSetInfo implements Built<BoxSetInfo, BoxSetInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -65,13 +65,20 @@ abstract class BoxSetInfo  {
   @BuiltValueField(wireName: r'IsAutomated')
   bool? get isAutomated;
 
+  BoxSetInfo._();
+
+  factory BoxSetInfo([void updates(BoxSetInfoBuilder b)]) = _$BoxSetInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BoxSetInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<BoxSetInfo> get serializer => _$BoxSetInfoSerializer();
 }
 
 class _$BoxSetInfoSerializer implements PrimitiveSerializer<BoxSetInfo> {
   @override
-  final Iterable<Type> types = const [BoxSetInfo];
+  final Iterable<Type> types = const [BoxSetInfo, _$BoxSetInfo];
 
   @override
   final String wireName = r'BoxSetInfo';
@@ -120,7 +127,8 @@ class _$BoxSetInfoSerializer implements PrimitiveSerializer<BoxSetInfo> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -166,47 +174,9 @@ class _$BoxSetInfoSerializer implements PrimitiveSerializer<BoxSetInfo> {
     BoxSetInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  BoxSetInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($BoxSetInfo)) as $BoxSetInfo;
-  }
-}
-
-/// a concrete implementation of [BoxSetInfo], since [BoxSetInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $BoxSetInfo implements BoxSetInfo, Built<$BoxSetInfo, $BoxSetInfoBuilder> {
-  $BoxSetInfo._();
-
-  factory $BoxSetInfo([void Function($BoxSetInfoBuilder)? updates]) = _$$BoxSetInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BoxSetInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$BoxSetInfo> get serializer => _$$BoxSetInfoSerializer();
-}
-
-class _$$BoxSetInfoSerializer implements PrimitiveSerializer<$BoxSetInfo> {
-  @override
-  final Iterable<Type> types = const [$BoxSetInfo, _$$BoxSetInfo];
-
-  @override
-  final String wireName = r'$BoxSetInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $BoxSetInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(BoxSetInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -264,7 +234,8 @@ class _$$BoxSetInfoSerializer implements PrimitiveSerializer<$BoxSetInfo> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -317,12 +288,12 @@ class _$$BoxSetInfoSerializer implements PrimitiveSerializer<$BoxSetInfo> {
   }
 
   @override
-  $BoxSetInfo deserialize(
+  BoxSetInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $BoxSetInfoBuilder();
+    final result = BoxSetInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -336,4 +307,3 @@ class _$$BoxSetInfoSerializer implements PrimitiveSerializer<$BoxSetInfo> {
     return result.build();
   }
 }
-

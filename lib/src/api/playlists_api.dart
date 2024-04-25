@@ -10,13 +10,12 @@ import 'package:dio/dio.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/base_item_dto_query_result.dart';
-import 'package:tentacle/src/model/create_playlist_request.dart';
+import 'package:tentacle/src/model/create_playlist_dto.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
 import 'package:tentacle/src/model/playlist_creation_result.dart';
 
 class PlaylistsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -24,7 +23,7 @@ class PlaylistsApi {
   const PlaylistsApi(this._dio, this._serializers);
 
   /// Adds items to a playlist.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [playlistId] - The playlist id.
@@ -38,8 +37,8 @@ class PlaylistsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> addToPlaylist({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> addToPlaylist({
     required String playlistId,
     BuiltList<String>? ids,
     String? userId,
@@ -50,7 +49,10 @@ class PlaylistsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Playlists/{playlistId}/Items'.replaceAll('{' r'playlistId' '}', playlistId.toString());
+    final _path = r'/Playlists/{playlistId}/Items'.replaceAll(
+        '{' r'playlistId' '}',
+        encodeQueryParameter(_serializers, playlistId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -71,8 +73,16 @@ class PlaylistsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (ids != null) r'ids': encodeCollectionQueryParameter<String>(_serializers, ids, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (ids != null)
+        r'ids': encodeCollectionQueryParameter<String>(
+          _serializers,
+          ids,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -95,7 +105,7 @@ class PlaylistsApi {
   /// * [ids] - The item ids.
   /// * [userId] - The user id.
   /// * [mediaType] - The media type.
-  /// * [createPlaylistRequest] - The create playlist payload.
+  /// * [createPlaylistDto] - The create playlist payload.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -104,13 +114,13 @@ class PlaylistsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [PlaylistCreationResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<PlaylistCreationResult>> createPlaylist({ 
-    String? name,
-    BuiltList<String>? ids,
-    String? userId,
-    String? mediaType,
-    CreatePlaylistRequest? createPlaylistRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<PlaylistCreationResult>> createPlaylist({
+    @Deprecated('name is deprecated') String? name,
+    @Deprecated('ids is deprecated') BuiltList<String>? ids,
+    @Deprecated('userId is deprecated') String? userId,
+    @Deprecated('mediaType is deprecated') String? mediaType,
+    CreatePlaylistDto? createPlaylistDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -140,28 +150,42 @@ class PlaylistsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (name != null) r'name': encodeQueryParameter(_serializers, name, const FullType(String)),
-      if (ids != null) r'ids': encodeCollectionQueryParameter<String>(_serializers, ids, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (mediaType != null) r'mediaType': encodeQueryParameter(_serializers, mediaType, const FullType(String)),
+      if (name != null)
+        r'name':
+            encodeQueryParameter(_serializers, name, const FullType(String)),
+      if (ids != null)
+        r'ids': encodeCollectionQueryParameter<String>(
+          _serializers,
+          ids,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (mediaType != null)
+        r'mediaType': encodeQueryParameter(
+            _serializers, mediaType, const FullType(String)),
     };
 
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreatePlaylistRequest);
-      _bodyData = createPlaylistRequest == null ? null : _serializers.serialize(createPlaylistRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(CreatePlaylistDto);
+      _bodyData = createPlaylistDto == null
+          ? null
+          : _serializers.serialize(createPlaylistDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -174,22 +198,24 @@ class PlaylistsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PlaylistCreationResult _responseData;
+    PlaylistCreationResult? _responseData;
 
     try {
-      const _responseType = FullType(PlaylistCreationResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as PlaylistCreationResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(PlaylistCreationResult),
+            ) as PlaylistCreationResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<PlaylistCreationResult>(
@@ -205,7 +231,7 @@ class PlaylistsApi {
   }
 
   /// Gets the original items of a playlist.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [playlistId] - The playlist id.
@@ -225,8 +251,8 @@ class PlaylistsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getPlaylistItems({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getPlaylistItems({
     required String playlistId,
     required String userId,
     int? startIndex,
@@ -243,7 +269,10 @@ class PlaylistsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Playlists/{playlistId}/Items'.replaceAll('{' r'playlistId' '}', playlistId.toString());
+    final _path = r'/Playlists/{playlistId}/Items'.replaceAll(
+        '{' r'playlistId' '}',
+        encodeQueryParameter(_serializers, playlistId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -264,14 +293,37 @@ class PlaylistsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
+      r'userId':
+          encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -283,22 +335,24 @@ class PlaylistsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -314,7 +368,7 @@ class PlaylistsApi {
   }
 
   /// Moves a playlist item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [playlistId] - The playlist id.
@@ -328,8 +382,8 @@ class PlaylistsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> moveItem({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> moveItem({
     required String playlistId,
     required String itemId,
     required int newIndex,
@@ -340,7 +394,20 @@ class PlaylistsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Playlists/{playlistId}/Items/{itemId}/Move/{newIndex}'.replaceAll('{' r'playlistId' '}', playlistId.toString()).replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'newIndex' '}', newIndex.toString());
+    final _path = r'/Playlists/{playlistId}/Items/{itemId}/Move/{newIndex}'
+        .replaceAll(
+            '{' r'playlistId' '}',
+            encodeQueryParameter(
+                    _serializers, playlistId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'newIndex' '}',
+            encodeQueryParameter(_serializers, newIndex, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -372,7 +439,7 @@ class PlaylistsApi {
   }
 
   /// Removes items from a playlist.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [playlistId] - The playlist id.
@@ -385,8 +452,8 @@ class PlaylistsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> removeFromPlaylist({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> removeFromPlaylist({
     required String playlistId,
     BuiltList<String>? entryIds,
     CancelToken? cancelToken,
@@ -396,7 +463,10 @@ class PlaylistsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Playlists/{playlistId}/Items'.replaceAll('{' r'playlistId' '}', playlistId.toString());
+    final _path = r'/Playlists/{playlistId}/Items'.replaceAll(
+        '{' r'playlistId' '}',
+        encodeQueryParameter(_serializers, playlistId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -417,7 +487,13 @@ class PlaylistsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (entryIds != null) r'entryIds': encodeCollectionQueryParameter<String>(_serializers, entryIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
+      if (entryIds != null)
+        r'entryIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          entryIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -431,5 +507,4 @@ class PlaylistsApi {
 
     return _response;
   }
-
 }

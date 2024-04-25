@@ -12,19 +12,33 @@ part 'join_group_request_dto.g.dart';
 ///
 /// Properties:
 /// * [groupId] - Gets or sets the group identifier.
-@BuiltValue(instantiable: false)
-abstract class JoinGroupRequestDto  {
+@BuiltValue()
+abstract class JoinGroupRequestDto
+    implements Built<JoinGroupRequestDto, JoinGroupRequestDtoBuilder> {
   /// Gets or sets the group identifier.
   @BuiltValueField(wireName: r'GroupId')
   String? get groupId;
 
+  JoinGroupRequestDto._();
+
+  factory JoinGroupRequestDto([void updates(JoinGroupRequestDtoBuilder b)]) =
+      _$JoinGroupRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(JoinGroupRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<JoinGroupRequestDto> get serializer => _$JoinGroupRequestDtoSerializer();
+  static Serializer<JoinGroupRequestDto> get serializer =>
+      _$JoinGroupRequestDtoSerializer();
 }
 
-class _$JoinGroupRequestDtoSerializer implements PrimitiveSerializer<JoinGroupRequestDto> {
+class _$JoinGroupRequestDtoSerializer
+    implements PrimitiveSerializer<JoinGroupRequestDto> {
   @override
-  final Iterable<Type> types = const [JoinGroupRequestDto];
+  final Iterable<Type> types = const [
+    JoinGroupRequestDto,
+    _$JoinGroupRequestDto
+  ];
 
   @override
   final String wireName = r'JoinGroupRequestDto';
@@ -49,47 +63,9 @@ class _$JoinGroupRequestDtoSerializer implements PrimitiveSerializer<JoinGroupRe
     JoinGroupRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  JoinGroupRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($JoinGroupRequestDto)) as $JoinGroupRequestDto;
-  }
-}
-
-/// a concrete implementation of [JoinGroupRequestDto], since [JoinGroupRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $JoinGroupRequestDto implements JoinGroupRequestDto, Built<$JoinGroupRequestDto, $JoinGroupRequestDtoBuilder> {
-  $JoinGroupRequestDto._();
-
-  factory $JoinGroupRequestDto([void Function($JoinGroupRequestDtoBuilder)? updates]) = _$$JoinGroupRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($JoinGroupRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$JoinGroupRequestDto> get serializer => _$$JoinGroupRequestDtoSerializer();
-}
-
-class _$$JoinGroupRequestDtoSerializer implements PrimitiveSerializer<$JoinGroupRequestDto> {
-  @override
-  final Iterable<Type> types = const [$JoinGroupRequestDto, _$$JoinGroupRequestDto];
-
-  @override
-  final String wireName = r'$JoinGroupRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $JoinGroupRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(JoinGroupRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,12 +96,12 @@ class _$$JoinGroupRequestDtoSerializer implements PrimitiveSerializer<$JoinGroup
   }
 
   @override
-  $JoinGroupRequestDto deserialize(
+  JoinGroupRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $JoinGroupRequestDtoBuilder();
+    final result = JoinGroupRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -139,4 +115,3 @@ class _$$JoinGroupRequestDtoSerializer implements PrimitiveSerializer<$JoinGroup
     return result.build();
   }
 }
-
