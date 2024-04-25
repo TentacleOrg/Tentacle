@@ -88,8 +88,19 @@ format:
 	@echo "Formatting Jellyseerr"
 	@dart format ./jellyseerr
 
+.PHONY: moveToPosition
+moveToPosition:
+	@mv jellyfin/README.md jellyfin/jellyfin-README.md
+	@mv jellyseerr/README.md ./jellyseerr-README.md
+	@rm -rf {lib,test,doc,build}
+	@mv jellyfin/* .
+	@mkdir -p lib/src/plugins/jellyseerr
+	@mv jellyseerr/* lib/src/plugins/jellyseerr/
+	@rm -rf jellyfin
+	@rm -rf jellyseerr
+
 .PHONY: all
-all: downloadApis generateApis changePubspecDartVersion fixErrors buildRunner test format
+all: downloadApis generateApis changePubspecDartVersion fixErrors buildRunner test format moveToPosition
 
 .PHONY: help
 help:
