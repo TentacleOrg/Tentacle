@@ -1,6 +1,6 @@
 name: tentacle
 version: 3.0.1
-description: A Jellyfin api for dart via dio
+description: OpenAPI API client
 homepage: homepage
 
 environment:

@@ -1,6 +1,3 @@
-JELLYFIN_API_VERSION := ""
-JELLSEERR_API_VERSION := ""
-
 UNAME_S := $(shell uname -s)
 
 ifeq ($(UNAME_S),Linux)
@@ -13,13 +10,8 @@ endif
 downloadApis:
 	@echo "Downloading latest Jellyfin OpenAPI"
 	@wget -O jellyfin-openapi-stable.json https://repo.jellyfin.org/releases/openapi/jellyfin-openapi-stable.json --quiet
-	$(eval JELLYFIN_API_VERSION := $(shell cat jellyfin-openapi-stable.json | jq -r .openapi))
-	@echo "Current Jellyfin OpenAPI version: $(JELLYFIN_API_VERSION)"
 	@echo "Download latest Jellyseerr OpenAPI"
 	@wget -O jellyseerr-openapi-stable.yml https://raw.githubusercontent.com/Kara-Zor-El/jellyseerr/develop/overseerr-api.yml --quiet
-	# @wget -O jellyseerr-openapi-stable.yml https://raw.githubusercontent.com/Fallenbagel/jellyseerr/main/overseerr-api.yml --quiet
-	$(eval JELLSEER_API_VERSION := $(shell yq eval '.openapi' jellyseerr-openapi-stable.yml))
-	@echo "Current Jellyseerr API version: $(JELLSEERR_API_VERSION)"
 
 .phony: updateApis
 generateApis:
@@ -27,24 +19,24 @@ generateApis:
 	@rm -rf jellyfin
 	@echo "Generating Jellyfin API"
 	@mkdir jellyfin
-	@mv jellyfin-openapi-stable.json jellyfin/jellyfin-openapi-${JELLYFIN_API_VERSION}.json
-	@openapi-generator generate \
-		-i jellyfin/jellyfin-openapi-${JELLYFIN_API_VERSION}.json \
-		--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubDescription="A Jellyfin api for dart via dio",pubLibarary="tentacle.api.jellyfin",pubVersion=${JELLYFIN_API_VERSION},allowUnicodeIdentifiers=false \
+	@mv jellyfin-openapi-stable.json jellyfin/jellyfin-openapi-stable.json
+	@openapi-generator-cli generate \
+		-i jellyfin/jellyfin-openapi-stable.json \
 		-g dart-dio \
-		--enable-post-process-file \
-		-o jellyfin
+		-o jellyfin \
+		--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubLibarary="tentacle.api.jellyfin",pubVersion=$(shell yq eval '.openapi' jellyfin/jellyfin-openapi-stable.json),allowUnicodeIdentifiers=false \
+		--enable-post-process-file
 		@echo "Removing old Jellyseerr API"
 		@rm -rf jellyseerr
 		@echo "Generating Jellyseerr API"
 		@mkdir jellyseerr
-		@mv jellyseerr-openapi-stable.yml jellyseerr/jellyseerr-openapi-$(JELLSEERR_API_VERSION).yml
-		@openapi-generator generate \
-			-i jellyseerr/jellyseerr-openapi-${JELLSEERR_API_VERSION}.yml \
-			--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubDescription="A Jellyseerr api for dart via dio",pubLibarary="jellyseer.api.jellyfin",pubVersion=${JELLSEERR_API_VERSION},allowUnicodeIdentifiers=false \
+		@mv jellyseerr-openapi-stable.yml jellyseerr/jellyseerr-openapi-stable.yml
+		@openapi-generator-cli generate \
+			-i jellyseerr/jellyseerr-openapi-stable.yml \
 			-g dart-dio \
-			--enable-post-process-file \
-			-o jellyseerr
+			-o jellyseerr \
+			--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubLibarary="jellyseer.api.jellyfin",pubVersion=$(shell yq eval '.openapi' jellyseerr/jellyseerr-openapi-stable.yml),allowUnicodeIdentifiers=false \
+			--enable-post-process-file
 
 .PHONY: changePubspecDartVersion
 changePubspecDartVersion:
@@ -71,7 +63,7 @@ fixErrors:
 	@sed $(SED_INPLACE) 's/const MetadataField name/const MetadataField metadataName/' jellyfin/lib/src/model/metadata_field.dart
 	@echo "Fixing jellyfin errors in lib/src/api/item_refresh_api.dart"
 	@sed $(SED_INPLACE) 's/= None/ = MetadataRefreshMode.none/' jellyfin/lib/src/api/item_refresh_api.dart
-	@echo "Fixing jellyseerr error in lib/src/model/request_post_request_seasons.dart"
+	@echo "Fixing jellyseerr error in lib/src/model/request_get_request_seasons.dart"
 	@sed $(SED_INPLACE) 's/OneOf1Enum/OneOf1/' jellyseerr/lib/src/model/request_post_request_seasons.dart
 
 .PHONY: test

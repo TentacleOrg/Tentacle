@@ -1,6 +1,6 @@
 name: tentacle
-version: 
-description: A Jellyseerr api for dart via dio
+version: 3.0.2
+description: OpenAPI API client
 homepage: homepage
 
 environment:
