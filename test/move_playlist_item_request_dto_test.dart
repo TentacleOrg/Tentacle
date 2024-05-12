@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MovePlaylistItemRequestDto
 void main() {
-  //final instance = MovePlaylistItemRequestDtoBuilder();
+  final instance = MovePlaylistItemRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(MovePlaylistItemRequestDto, () {
@@ -18,6 +18,5 @@ void main() {
     test('to test the property `newIndex`', () async {
       // TODO
     });
-
   });
 }

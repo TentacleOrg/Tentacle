@@ -16,7 +16,8 @@ part 'server_discovery_info.g.dart';
 /// * [name] - Gets the name.
 /// * [endpointAddress] - Gets the endpoint address.
 @BuiltValue()
-abstract class ServerDiscoveryInfo implements Built<ServerDiscoveryInfo, ServerDiscoveryInfoBuilder> {
+abstract class ServerDiscoveryInfo
+    implements Built<ServerDiscoveryInfo, ServerDiscoveryInfoBuilder> {
   /// Gets the address.
   @BuiltValueField(wireName: r'Address')
   String? get address;
@@ -35,18 +36,24 @@ abstract class ServerDiscoveryInfo implements Built<ServerDiscoveryInfo, ServerD
 
   ServerDiscoveryInfo._();
 
-  factory ServerDiscoveryInfo([void updates(ServerDiscoveryInfoBuilder b)]) = _$ServerDiscoveryInfo;
+  factory ServerDiscoveryInfo([void updates(ServerDiscoveryInfoBuilder b)]) =
+      _$ServerDiscoveryInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ServerDiscoveryInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ServerDiscoveryInfo> get serializer => _$ServerDiscoveryInfoSerializer();
+  static Serializer<ServerDiscoveryInfo> get serializer =>
+      _$ServerDiscoveryInfoSerializer();
 }
 
-class _$ServerDiscoveryInfoSerializer implements PrimitiveSerializer<ServerDiscoveryInfo> {
+class _$ServerDiscoveryInfoSerializer
+    implements PrimitiveSerializer<ServerDiscoveryInfo> {
   @override
-  final Iterable<Type> types = const [ServerDiscoveryInfo, _$ServerDiscoveryInfo];
+  final Iterable<Type> types = const [
+    ServerDiscoveryInfo,
+    _$ServerDiscoveryInfo
+  ];
 
   @override
   final String wireName = r'ServerDiscoveryInfo';
@@ -92,7 +99,9 @@ class _$ServerDiscoveryInfoSerializer implements PrimitiveSerializer<ServerDisco
     ServerDiscoveryInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -164,4 +173,3 @@ class _$ServerDiscoveryInfoSerializer implements PrimitiveSerializer<ServerDisco
     return result.build();
   }
 }
-

@@ -13,7 +13,6 @@ import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/search_hint_result.dart';
 
 class SearchApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -21,7 +20,7 @@ class SearchApi {
   const SearchApi(this._dio, this._serializers);
 
   /// Gets the search hint result.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [searchTerm] - The search term to filter on.
@@ -50,8 +49,8 @@ class SearchApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [SearchHintResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<SearchHintResult>> callGet({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<SearchHintResult>> callGet({
     required String searchTerm,
     int? startIndex,
     int? limit,
@@ -98,24 +97,71 @@ class SearchApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      if (includeItemTypes != null) r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, includeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (excludeItemTypes != null) r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, excludeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (mediaTypes != null) r'mediaTypes': encodeCollectionQueryParameter<String>(_serializers, mediaTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (isMovie != null) r'isMovie': encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
-      if (isSeries != null) r'isSeries': encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
-      if (isNews != null) r'isNews': encodeQueryParameter(_serializers, isNews, const FullType(bool)),
-      if (isKids != null) r'isKids': encodeQueryParameter(_serializers, isKids, const FullType(bool)),
-      if (isSports != null) r'isSports': encodeQueryParameter(_serializers, isSports, const FullType(bool)),
-      if (includePeople != null) r'includePeople': encodeQueryParameter(_serializers, includePeople, const FullType(bool)),
-      if (includeMedia != null) r'includeMedia': encodeQueryParameter(_serializers, includeMedia, const FullType(bool)),
-      if (includeGenres != null) r'includeGenres': encodeQueryParameter(_serializers, includeGenres, const FullType(bool)),
-      if (includeStudios != null) r'includeStudios': encodeQueryParameter(_serializers, includeStudios, const FullType(bool)),
-      if (includeArtists != null) r'includeArtists': encodeQueryParameter(_serializers, includeArtists, const FullType(bool)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      r'searchTerm': encodeQueryParameter(
+          _serializers, searchTerm, const FullType(String)),
+      if (includeItemTypes != null)
+        r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          includeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeItemTypes != null)
+        r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          excludeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (mediaTypes != null)
+        r'mediaTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          mediaTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (isMovie != null)
+        r'isMovie':
+            encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
+      if (isSeries != null)
+        r'isSeries':
+            encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
+      if (isNews != null)
+        r'isNews':
+            encodeQueryParameter(_serializers, isNews, const FullType(bool)),
+      if (isKids != null)
+        r'isKids':
+            encodeQueryParameter(_serializers, isKids, const FullType(bool)),
+      if (isSports != null)
+        r'isSports':
+            encodeQueryParameter(_serializers, isSports, const FullType(bool)),
+      if (includePeople != null)
+        r'includePeople': encodeQueryParameter(
+            _serializers, includePeople, const FullType(bool)),
+      if (includeMedia != null)
+        r'includeMedia': encodeQueryParameter(
+            _serializers, includeMedia, const FullType(bool)),
+      if (includeGenres != null)
+        r'includeGenres': encodeQueryParameter(
+            _serializers, includeGenres, const FullType(bool)),
+      if (includeStudios != null)
+        r'includeStudios': encodeQueryParameter(
+            _serializers, includeStudios, const FullType(bool)),
+      if (includeArtists != null)
+        r'includeArtists': encodeQueryParameter(
+            _serializers, includeArtists, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -127,22 +173,24 @@ class SearchApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SearchHintResult _responseData;
+    SearchHintResult? _responseData;
 
     try {
-      const _responseType = FullType(SearchHintResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as SearchHintResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(SearchHintResult),
+            ) as SearchHintResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<SearchHintResult>(
@@ -156,5 +204,4 @@ class SearchApi {
       extra: _response.extra,
     );
   }
-
 }

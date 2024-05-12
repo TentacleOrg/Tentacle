@@ -17,7 +17,10 @@ part 'series_timer_info_dto_query_result.g.dart';
 /// * [totalRecordCount] - Gets or sets the total number of records available.
 /// * [startIndex] - Gets or sets the index of the first record in Items.
 @BuiltValue()
-abstract class SeriesTimerInfoDtoQueryResult implements Built<SeriesTimerInfoDtoQueryResult, SeriesTimerInfoDtoQueryResultBuilder> {
+abstract class SeriesTimerInfoDtoQueryResult
+    implements
+        Built<SeriesTimerInfoDtoQueryResult,
+            SeriesTimerInfoDtoQueryResultBuilder> {
   /// Gets or sets the items.
   @BuiltValueField(wireName: r'Items')
   BuiltList<SeriesTimerInfoDto>? get items;
@@ -32,18 +35,25 @@ abstract class SeriesTimerInfoDtoQueryResult implements Built<SeriesTimerInfoDto
 
   SeriesTimerInfoDtoQueryResult._();
 
-  factory SeriesTimerInfoDtoQueryResult([void updates(SeriesTimerInfoDtoQueryResultBuilder b)]) = _$SeriesTimerInfoDtoQueryResult;
+  factory SeriesTimerInfoDtoQueryResult(
+          [void updates(SeriesTimerInfoDtoQueryResultBuilder b)]) =
+      _$SeriesTimerInfoDtoQueryResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SeriesTimerInfoDtoQueryResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SeriesTimerInfoDtoQueryResult> get serializer => _$SeriesTimerInfoDtoQueryResultSerializer();
+  static Serializer<SeriesTimerInfoDtoQueryResult> get serializer =>
+      _$SeriesTimerInfoDtoQueryResultSerializer();
 }
 
-class _$SeriesTimerInfoDtoQueryResultSerializer implements PrimitiveSerializer<SeriesTimerInfoDtoQueryResult> {
+class _$SeriesTimerInfoDtoQueryResultSerializer
+    implements PrimitiveSerializer<SeriesTimerInfoDtoQueryResult> {
   @override
-  final Iterable<Type> types = const [SeriesTimerInfoDtoQueryResult, _$SeriesTimerInfoDtoQueryResult];
+  final Iterable<Type> types = const [
+    SeriesTimerInfoDtoQueryResult,
+    _$SeriesTimerInfoDtoQueryResult
+  ];
 
   @override
   final String wireName = r'SeriesTimerInfoDtoQueryResult';
@@ -57,7 +67,8 @@ class _$SeriesTimerInfoDtoQueryResultSerializer implements PrimitiveSerializer<S
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(SeriesTimerInfoDto)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(SeriesTimerInfoDto)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -82,7 +93,9 @@ class _$SeriesTimerInfoDtoQueryResultSerializer implements PrimitiveSerializer<S
     SeriesTimerInfoDtoQueryResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -100,7 +113,8 @@ class _$SeriesTimerInfoDtoQueryResultSerializer implements PrimitiveSerializer<S
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(SeriesTimerInfoDto)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(SeriesTimerInfoDto)]),
           ) as BuiltList<SeriesTimerInfoDto>?;
           if (valueDes == null) continue;
           result.items.replace(valueDes);
@@ -147,4 +161,3 @@ class _$SeriesTimerInfoDtoQueryResultSerializer implements PrimitiveSerializer<S
     return result.build();
   }
 }
-

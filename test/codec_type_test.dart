@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for CodecType
 void main() {
-
-  group(CodecType, () {
-  });
+  group(CodecType, () {});
 }

@@ -34,7 +34,7 @@ class _$SeriesStatusMeta {
   BuiltSet<SeriesStatus> get values => _$values;
 }
 
-abstract class _$SeriesStatusMixin {
+mixin _$SeriesStatusMixin {
   // ignore: non_constant_identifier_names
   _$SeriesStatusMeta get SeriesStatus => const _$SeriesStatusMeta();
 }

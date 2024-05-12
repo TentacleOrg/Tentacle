@@ -6,36 +6,29 @@ part of 'next_item_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class NextItemRequestDtoBuilder {
-  void replace(NextItemRequestDto other);
-  void update(void Function(NextItemRequestDtoBuilder) updates);
-  String? get playlistItemId;
-  set playlistItemId(String? playlistItemId);
-}
-
-class _$$NextItemRequestDto extends $NextItemRequestDto {
+class _$NextItemRequestDto extends NextItemRequestDto {
   @override
   final String? playlistItemId;
 
-  factory _$$NextItemRequestDto(
-          [void Function($NextItemRequestDtoBuilder)? updates]) =>
-      (new $NextItemRequestDtoBuilder()..update(updates))._build();
+  factory _$NextItemRequestDto(
+          [void Function(NextItemRequestDtoBuilder)? updates]) =>
+      (new NextItemRequestDtoBuilder()..update(updates))._build();
 
-  _$$NextItemRequestDto._({this.playlistItemId}) : super._();
+  _$NextItemRequestDto._({this.playlistItemId}) : super._();
 
   @override
-  $NextItemRequestDto rebuild(
-          void Function($NextItemRequestDtoBuilder) updates) =>
+  NextItemRequestDto rebuild(
+          void Function(NextItemRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $NextItemRequestDtoBuilder toBuilder() =>
-      new $NextItemRequestDtoBuilder()..replace(this);
+  NextItemRequestDtoBuilder toBuilder() =>
+      new NextItemRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $NextItemRequestDto &&
+    return other is NextItemRequestDto &&
         playlistItemId == other.playlistItemId;
   }
 
@@ -49,28 +42,26 @@ class _$$NextItemRequestDto extends $NextItemRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$NextItemRequestDto')
+    return (newBuiltValueToStringHelper(r'NextItemRequestDto')
           ..add('playlistItemId', playlistItemId))
         .toString();
   }
 }
 
-class $NextItemRequestDtoBuilder
-    implements
-        Builder<$NextItemRequestDto, $NextItemRequestDtoBuilder>,
-        NextItemRequestDtoBuilder {
-  _$$NextItemRequestDto? _$v;
+class NextItemRequestDtoBuilder
+    implements Builder<NextItemRequestDto, NextItemRequestDtoBuilder> {
+  _$NextItemRequestDto? _$v;
 
   String? _playlistItemId;
   String? get playlistItemId => _$this._playlistItemId;
-  set playlistItemId(covariant String? playlistItemId) =>
+  set playlistItemId(String? playlistItemId) =>
       _$this._playlistItemId = playlistItemId;
 
-  $NextItemRequestDtoBuilder() {
-    $NextItemRequestDto._defaults(this);
+  NextItemRequestDtoBuilder() {
+    NextItemRequestDto._defaults(this);
   }
 
-  $NextItemRequestDtoBuilder get _$this {
+  NextItemRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _playlistItemId = $v.playlistItemId;
@@ -80,22 +71,22 @@ class $NextItemRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $NextItemRequestDto other) {
+  void replace(NextItemRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$NextItemRequestDto;
+    _$v = other as _$NextItemRequestDto;
   }
 
   @override
-  void update(void Function($NextItemRequestDtoBuilder)? updates) {
+  void update(void Function(NextItemRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $NextItemRequestDto build() => _build();
+  NextItemRequestDto build() => _build();
 
-  _$$NextItemRequestDto _build() {
+  _$NextItemRequestDto _build() {
     final _$result =
-        _$v ?? new _$$NextItemRequestDto._(playlistItemId: playlistItemId);
+        _$v ?? new _$NextItemRequestDto._(playlistItemId: playlistItemId);
     replace(_$result);
     return _$result;
   }

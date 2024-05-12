@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ImageSavingConvention
 void main() {
-
-  group(ImageSavingConvention, () {
-  });
+  group(ImageSavingConvention, () {});
 }

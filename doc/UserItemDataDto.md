@@ -1,8 +1,8 @@
-# openapi.model.UserItemDataDto
+# tentacle.model.UserItemDataDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

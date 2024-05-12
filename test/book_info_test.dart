@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for BookInfo
 void main() {
-  //final instance = BookInfoBuilder();
+  final instance = BookInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(BookInfo, () {
@@ -73,6 +73,5 @@ void main() {
     test('to test the property `seriesName`', () async {
       // TODO
     });
-
   });
 }

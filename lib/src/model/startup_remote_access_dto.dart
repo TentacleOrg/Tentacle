@@ -13,8 +13,9 @@ part 'startup_remote_access_dto.g.dart';
 /// Properties:
 /// * [enableRemoteAccess] - Gets or sets a value indicating whether enable remote access.
 /// * [enableAutomaticPortMapping] - Gets or sets a value indicating whether enable automatic port mapping.
-@BuiltValue(instantiable: false)
-abstract class StartupRemoteAccessDto  {
+@BuiltValue()
+abstract class StartupRemoteAccessDto
+    implements Built<StartupRemoteAccessDto, StartupRemoteAccessDtoBuilder> {
   /// Gets or sets a value indicating whether enable remote access.
   @BuiltValueField(wireName: r'EnableRemoteAccess')
   bool get enableRemoteAccess;
@@ -23,13 +24,27 @@ abstract class StartupRemoteAccessDto  {
   @BuiltValueField(wireName: r'EnableAutomaticPortMapping')
   bool get enableAutomaticPortMapping;
 
+  StartupRemoteAccessDto._();
+
+  factory StartupRemoteAccessDto(
+          [void updates(StartupRemoteAccessDtoBuilder b)]) =
+      _$StartupRemoteAccessDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StartupRemoteAccessDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<StartupRemoteAccessDto> get serializer => _$StartupRemoteAccessDtoSerializer();
+  static Serializer<StartupRemoteAccessDto> get serializer =>
+      _$StartupRemoteAccessDtoSerializer();
 }
 
-class _$StartupRemoteAccessDtoSerializer implements PrimitiveSerializer<StartupRemoteAccessDto> {
+class _$StartupRemoteAccessDtoSerializer
+    implements PrimitiveSerializer<StartupRemoteAccessDto> {
   @override
-  final Iterable<Type> types = const [StartupRemoteAccessDto];
+  final Iterable<Type> types = const [
+    StartupRemoteAccessDto,
+    _$StartupRemoteAccessDto
+  ];
 
   @override
   final String wireName = r'StartupRemoteAccessDto';
@@ -57,47 +72,9 @@ class _$StartupRemoteAccessDtoSerializer implements PrimitiveSerializer<StartupR
     StartupRemoteAccessDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  StartupRemoteAccessDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($StartupRemoteAccessDto)) as $StartupRemoteAccessDto;
-  }
-}
-
-/// a concrete implementation of [StartupRemoteAccessDto], since [StartupRemoteAccessDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $StartupRemoteAccessDto implements StartupRemoteAccessDto, Built<$StartupRemoteAccessDto, $StartupRemoteAccessDtoBuilder> {
-  $StartupRemoteAccessDto._();
-
-  factory $StartupRemoteAccessDto([void Function($StartupRemoteAccessDtoBuilder)? updates]) = _$$StartupRemoteAccessDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($StartupRemoteAccessDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$StartupRemoteAccessDto> get serializer => _$$StartupRemoteAccessDtoSerializer();
-}
-
-class _$$StartupRemoteAccessDtoSerializer implements PrimitiveSerializer<$StartupRemoteAccessDto> {
-  @override
-  final Iterable<Type> types = const [$StartupRemoteAccessDto, _$$StartupRemoteAccessDto];
-
-  @override
-  final String wireName = r'$StartupRemoteAccessDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $StartupRemoteAccessDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(StartupRemoteAccessDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -135,12 +112,12 @@ class _$$StartupRemoteAccessDtoSerializer implements PrimitiveSerializer<$Startu
   }
 
   @override
-  $StartupRemoteAccessDto deserialize(
+  StartupRemoteAccessDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $StartupRemoteAccessDtoBuilder();
+    final result = StartupRemoteAccessDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -154,4 +131,3 @@ class _$$StartupRemoteAccessDtoSerializer implements PrimitiveSerializer<$Startu
     return result.build();
   }
 }
-

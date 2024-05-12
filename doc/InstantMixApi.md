@@ -1,8 +1,8 @@
-# openapi.api.InstantMixApi
+# tentacle.api.InstantMixApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -26,13 +26,13 @@ Creates an instant playlist based on a given album.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
+final api = Tentacle().getInstantMixApi();
 final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -45,7 +45,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getInstantMixFromAlbum(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling InstantMixApi->getInstantMixFromAlbum: $e\n');
 }
 ```
@@ -85,13 +85,13 @@ Creates an instant playlist based on a given artist.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
+final api = Tentacle().getInstantMixApi();
 final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -104,7 +104,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getInstantMixFromArtists(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling InstantMixApi->getInstantMixFromArtists: $e\n');
 }
 ```
@@ -144,13 +144,13 @@ Creates an instant playlist based on a given artist.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
+final api = Tentacle().getInstantMixApi();
 final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -163,7 +163,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getInstantMixFromArtists2(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling InstantMixApi->getInstantMixFromArtists2: $e\n');
 }
 ```
@@ -203,13 +203,13 @@ Creates an instant playlist based on a given item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
+final api = Tentacle().getInstantMixApi();
 final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -222,7 +222,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getInstantMixFromItem(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling InstantMixApi->getInstantMixFromItem: $e\n');
 }
 ```
@@ -262,13 +262,13 @@ Creates an instant playlist based on a given genre.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
+final api = Tentacle().getInstantMixApi();
 final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -281,7 +281,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getInstantMixFromMusicGenreById(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling InstantMixApi->getInstantMixFromMusicGenreById: $e\n');
 }
 ```
@@ -321,13 +321,13 @@ Creates an instant playlist based on a given genre.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
+final api = Tentacle().getInstantMixApi();
 final String name = name_example; // String | The genre name.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -340,7 +340,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getInstantMixFromMusicGenreByName(name, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling InstantMixApi->getInstantMixFromMusicGenreByName: $e\n');
 }
 ```
@@ -380,13 +380,13 @@ Creates an instant playlist based on a given playlist.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
+final api = Tentacle().getInstantMixApi();
 final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -399,7 +399,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getInstantMixFromPlaylist(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling InstantMixApi->getInstantMixFromPlaylist: $e\n');
 }
 ```
@@ -439,13 +439,13 @@ Creates an instant playlist based on a given song.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getInstantMixApi();
+final api = Tentacle().getInstantMixApi();
 final String id = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -458,7 +458,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getInstantMixFromSong(id, userId, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling InstantMixApi->getInstantMixFromSong: $e\n');
 }
 ```

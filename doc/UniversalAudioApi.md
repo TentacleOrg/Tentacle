@@ -1,8 +1,8 @@
-# openapi.api.UniversalAudioApi
+# tentacle.api.UniversalAudioApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,13 +20,13 @@ Gets an audio stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUniversalAudioApi();
+final api = Tentacle().getUniversalAudioApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final BuiltList<String> container = ; // BuiltList<String> | Optional. The audio container.
 final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
@@ -49,7 +49,7 @@ final bool enableRedirection = true; // bool | Whether to enable redirection. De
 try {
     final response = api.getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UniversalAudioApi->getUniversalAudioStream: $e\n');
 }
 ```
@@ -99,13 +99,13 @@ Gets an audio stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUniversalAudioApi();
+final api = Tentacle().getUniversalAudioApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final BuiltList<String> container = ; // BuiltList<String> | Optional. The audio container.
 final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
@@ -128,7 +128,7 @@ final bool enableRedirection = true; // bool | Whether to enable redirection. De
 try {
     final response = api.headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UniversalAudioApi->headUniversalAudioStream: $e\n');
 }
 ```

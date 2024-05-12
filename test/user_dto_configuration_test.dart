@@ -85,6 +85,5 @@ void main() {
     test('to test the property `enableNextEpisodeAutoPlay`', () async {
       // TODO
     });
-
   });
 }

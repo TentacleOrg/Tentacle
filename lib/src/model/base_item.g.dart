@@ -6,7 +6,7 @@ part of 'base_item.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class BaseItemBuilder {
+abstract mixin class BaseItemBuilder {
   void replace(BaseItem other);
   void update(void Function(BaseItemBuilder) updates);
   int? get size;

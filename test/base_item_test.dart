@@ -62,6 +62,5 @@ void main() {
     test('to test the property `supportsExternalTransfer`', () async {
       // TODO
     });
-
   });
 }

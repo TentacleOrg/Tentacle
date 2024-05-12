@@ -12,12 +12,13 @@ part 'query_filters_legacy.g.dart';
 /// QueryFiltersLegacy
 ///
 /// Properties:
-/// * [genres] 
-/// * [tags] 
-/// * [officialRatings] 
-/// * [years] 
+/// * [genres]
+/// * [tags]
+/// * [officialRatings]
+/// * [years]
 @BuiltValue()
-abstract class QueryFiltersLegacy implements Built<QueryFiltersLegacy, QueryFiltersLegacyBuilder> {
+abstract class QueryFiltersLegacy
+    implements Built<QueryFiltersLegacy, QueryFiltersLegacyBuilder> {
   @BuiltValueField(wireName: r'Genres')
   BuiltList<String>? get genres;
 
@@ -32,16 +33,19 @@ abstract class QueryFiltersLegacy implements Built<QueryFiltersLegacy, QueryFilt
 
   QueryFiltersLegacy._();
 
-  factory QueryFiltersLegacy([void updates(QueryFiltersLegacyBuilder b)]) = _$QueryFiltersLegacy;
+  factory QueryFiltersLegacy([void updates(QueryFiltersLegacyBuilder b)]) =
+      _$QueryFiltersLegacy;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(QueryFiltersLegacyBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<QueryFiltersLegacy> get serializer => _$QueryFiltersLegacySerializer();
+  static Serializer<QueryFiltersLegacy> get serializer =>
+      _$QueryFiltersLegacySerializer();
 }
 
-class _$QueryFiltersLegacySerializer implements PrimitiveSerializer<QueryFiltersLegacy> {
+class _$QueryFiltersLegacySerializer
+    implements PrimitiveSerializer<QueryFiltersLegacy> {
   @override
   final Iterable<Type> types = const [QueryFiltersLegacy, _$QueryFiltersLegacy];
 
@@ -89,7 +93,9 @@ class _$QueryFiltersLegacySerializer implements PrimitiveSerializer<QueryFilters
     QueryFiltersLegacy object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -107,7 +113,8 @@ class _$QueryFiltersLegacySerializer implements PrimitiveSerializer<QueryFilters
         case r'Genres':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.genres.replace(valueDes);
@@ -115,7 +122,8 @@ class _$QueryFiltersLegacySerializer implements PrimitiveSerializer<QueryFilters
         case r'Tags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.tags.replace(valueDes);
@@ -123,7 +131,8 @@ class _$QueryFiltersLegacySerializer implements PrimitiveSerializer<QueryFilters
         case r'OfficialRatings':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.officialRatings.replace(valueDes);
@@ -164,4 +173,3 @@ class _$QueryFiltersLegacySerializer implements PrimitiveSerializer<QueryFilters
     return result.build();
   }
 }
-

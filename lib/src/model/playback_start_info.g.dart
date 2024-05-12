@@ -6,71 +6,7 @@ part of 'playback_start_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class PlaybackStartInfoBuilder {
-  void replace(PlaybackStartInfo other);
-  void update(void Function(PlaybackStartInfoBuilder) updates);
-  bool? get canSeek;
-  set canSeek(bool? canSeek);
-
-  PlaybackProgressInfoItemBuilder get item;
-  set item(PlaybackProgressInfoItemBuilder? item);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get sessionId;
-  set sessionId(String? sessionId);
-
-  String? get mediaSourceId;
-  set mediaSourceId(String? mediaSourceId);
-
-  int? get audioStreamIndex;
-  set audioStreamIndex(int? audioStreamIndex);
-
-  int? get subtitleStreamIndex;
-  set subtitleStreamIndex(int? subtitleStreamIndex);
-
-  bool? get isPaused;
-  set isPaused(bool? isPaused);
-
-  bool? get isMuted;
-  set isMuted(bool? isMuted);
-
-  int? get positionTicks;
-  set positionTicks(int? positionTicks);
-
-  int? get playbackStartTimeTicks;
-  set playbackStartTimeTicks(int? playbackStartTimeTicks);
-
-  int? get volumeLevel;
-  set volumeLevel(int? volumeLevel);
-
-  int? get brightness;
-  set brightness(int? brightness);
-
-  String? get aspectRatio;
-  set aspectRatio(String? aspectRatio);
-
-  PlayMethod? get playMethod;
-  set playMethod(PlayMethod? playMethod);
-
-  String? get liveStreamId;
-  set liveStreamId(String? liveStreamId);
-
-  String? get playSessionId;
-  set playSessionId(String? playSessionId);
-
-  RepeatMode? get repeatMode;
-  set repeatMode(RepeatMode? repeatMode);
-
-  ListBuilder<QueueItem> get nowPlayingQueue;
-  set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue);
-
-  String? get playlistItemId;
-  set playlistItemId(String? playlistItemId);
-}
-
-class _$$PlaybackStartInfo extends $PlaybackStartInfo {
+class _$PlaybackStartInfo extends PlaybackStartInfo {
   @override
   final bool? canSeek;
   @override
@@ -112,11 +48,11 @@ class _$$PlaybackStartInfo extends $PlaybackStartInfo {
   @override
   final String? playlistItemId;
 
-  factory _$$PlaybackStartInfo(
-          [void Function($PlaybackStartInfoBuilder)? updates]) =>
-      (new $PlaybackStartInfoBuilder()..update(updates))._build();
+  factory _$PlaybackStartInfo(
+          [void Function(PlaybackStartInfoBuilder)? updates]) =>
+      (new PlaybackStartInfoBuilder()..update(updates))._build();
 
-  _$$PlaybackStartInfo._(
+  _$PlaybackStartInfo._(
       {this.canSeek,
       this.item,
       this.itemId,
@@ -140,18 +76,17 @@ class _$$PlaybackStartInfo extends $PlaybackStartInfo {
       : super._();
 
   @override
-  $PlaybackStartInfo rebuild(
-          void Function($PlaybackStartInfoBuilder) updates) =>
+  PlaybackStartInfo rebuild(void Function(PlaybackStartInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $PlaybackStartInfoBuilder toBuilder() =>
-      new $PlaybackStartInfoBuilder()..replace(this);
+  PlaybackStartInfoBuilder toBuilder() =>
+      new PlaybackStartInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $PlaybackStartInfo &&
+    return other is PlaybackStartInfo &&
         canSeek == other.canSeek &&
         item == other.item &&
         itemId == other.itemId &&
@@ -203,7 +138,7 @@ class _$$PlaybackStartInfo extends $PlaybackStartInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$PlaybackStartInfo')
+    return (newBuiltValueToStringHelper(r'PlaybackStartInfo')
           ..add('canSeek', canSeek)
           ..add('item', item)
           ..add('itemId', itemId)
@@ -228,113 +163,105 @@ class _$$PlaybackStartInfo extends $PlaybackStartInfo {
   }
 }
 
-class $PlaybackStartInfoBuilder
-    implements
-        Builder<$PlaybackStartInfo, $PlaybackStartInfoBuilder>,
-        PlaybackStartInfoBuilder {
-  _$$PlaybackStartInfo? _$v;
+class PlaybackStartInfoBuilder
+    implements Builder<PlaybackStartInfo, PlaybackStartInfoBuilder> {
+  _$PlaybackStartInfo? _$v;
 
   bool? _canSeek;
   bool? get canSeek => _$this._canSeek;
-  set canSeek(covariant bool? canSeek) => _$this._canSeek = canSeek;
+  set canSeek(bool? canSeek) => _$this._canSeek = canSeek;
 
   PlaybackProgressInfoItemBuilder? _item;
   PlaybackProgressInfoItemBuilder get item =>
       _$this._item ??= new PlaybackProgressInfoItemBuilder();
-  set item(covariant PlaybackProgressInfoItemBuilder? item) =>
-      _$this._item = item;
+  set item(PlaybackProgressInfoItemBuilder? item) => _$this._item = item;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   String? _sessionId;
   String? get sessionId => _$this._sessionId;
-  set sessionId(covariant String? sessionId) => _$this._sessionId = sessionId;
+  set sessionId(String? sessionId) => _$this._sessionId = sessionId;
 
   String? _mediaSourceId;
   String? get mediaSourceId => _$this._mediaSourceId;
-  set mediaSourceId(covariant String? mediaSourceId) =>
+  set mediaSourceId(String? mediaSourceId) =>
       _$this._mediaSourceId = mediaSourceId;
 
   int? _audioStreamIndex;
   int? get audioStreamIndex => _$this._audioStreamIndex;
-  set audioStreamIndex(covariant int? audioStreamIndex) =>
+  set audioStreamIndex(int? audioStreamIndex) =>
       _$this._audioStreamIndex = audioStreamIndex;
 
   int? _subtitleStreamIndex;
   int? get subtitleStreamIndex => _$this._subtitleStreamIndex;
-  set subtitleStreamIndex(covariant int? subtitleStreamIndex) =>
+  set subtitleStreamIndex(int? subtitleStreamIndex) =>
       _$this._subtitleStreamIndex = subtitleStreamIndex;
 
   bool? _isPaused;
   bool? get isPaused => _$this._isPaused;
-  set isPaused(covariant bool? isPaused) => _$this._isPaused = isPaused;
+  set isPaused(bool? isPaused) => _$this._isPaused = isPaused;
 
   bool? _isMuted;
   bool? get isMuted => _$this._isMuted;
-  set isMuted(covariant bool? isMuted) => _$this._isMuted = isMuted;
+  set isMuted(bool? isMuted) => _$this._isMuted = isMuted;
 
   int? _positionTicks;
   int? get positionTicks => _$this._positionTicks;
-  set positionTicks(covariant int? positionTicks) =>
+  set positionTicks(int? positionTicks) =>
       _$this._positionTicks = positionTicks;
 
   int? _playbackStartTimeTicks;
   int? get playbackStartTimeTicks => _$this._playbackStartTimeTicks;
-  set playbackStartTimeTicks(covariant int? playbackStartTimeTicks) =>
+  set playbackStartTimeTicks(int? playbackStartTimeTicks) =>
       _$this._playbackStartTimeTicks = playbackStartTimeTicks;
 
   int? _volumeLevel;
   int? get volumeLevel => _$this._volumeLevel;
-  set volumeLevel(covariant int? volumeLevel) =>
-      _$this._volumeLevel = volumeLevel;
+  set volumeLevel(int? volumeLevel) => _$this._volumeLevel = volumeLevel;
 
   int? _brightness;
   int? get brightness => _$this._brightness;
-  set brightness(covariant int? brightness) => _$this._brightness = brightness;
+  set brightness(int? brightness) => _$this._brightness = brightness;
 
   String? _aspectRatio;
   String? get aspectRatio => _$this._aspectRatio;
-  set aspectRatio(covariant String? aspectRatio) =>
-      _$this._aspectRatio = aspectRatio;
+  set aspectRatio(String? aspectRatio) => _$this._aspectRatio = aspectRatio;
 
   PlayMethod? _playMethod;
   PlayMethod? get playMethod => _$this._playMethod;
-  set playMethod(covariant PlayMethod? playMethod) =>
-      _$this._playMethod = playMethod;
+  set playMethod(PlayMethod? playMethod) => _$this._playMethod = playMethod;
 
   String? _liveStreamId;
   String? get liveStreamId => _$this._liveStreamId;
-  set liveStreamId(covariant String? liveStreamId) =>
-      _$this._liveStreamId = liveStreamId;
+  set liveStreamId(String? liveStreamId) => _$this._liveStreamId = liveStreamId;
 
   String? _playSessionId;
   String? get playSessionId => _$this._playSessionId;
-  set playSessionId(covariant String? playSessionId) =>
+  set playSessionId(String? playSessionId) =>
       _$this._playSessionId = playSessionId;
 
   RepeatMode? _repeatMode;
   RepeatMode? get repeatMode => _$this._repeatMode;
-  set repeatMode(covariant RepeatMode? repeatMode) =>
-      _$this._repeatMode = repeatMode;
+  set repeatMode(RepeatMode? repeatMode) => _$this._repeatMode = repeatMode;
 
   ListBuilder<QueueItem>? _nowPlayingQueue;
   ListBuilder<QueueItem> get nowPlayingQueue =>
       _$this._nowPlayingQueue ??= new ListBuilder<QueueItem>();
-  set nowPlayingQueue(covariant ListBuilder<QueueItem>? nowPlayingQueue) =>
+  set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue) =>
       _$this._nowPlayingQueue = nowPlayingQueue;
 
   String? _playlistItemId;
   String? get playlistItemId => _$this._playlistItemId;
-  set playlistItemId(covariant String? playlistItemId) =>
+  set playlistItemId(String? playlistItemId) =>
       _$this._playlistItemId = playlistItemId;
 
-  $PlaybackStartInfoBuilder() {
-    $PlaybackStartInfo._defaults(this);
+  PlaybackStartInfoBuilder() {
+    PlaybackStartInfo._defaults(this);
   }
 
-  $PlaybackStartInfoBuilder get _$this {
+  PlaybackStartInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _canSeek = $v.canSeek;
@@ -363,24 +290,24 @@ class $PlaybackStartInfoBuilder
   }
 
   @override
-  void replace(covariant $PlaybackStartInfo other) {
+  void replace(PlaybackStartInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$PlaybackStartInfo;
+    _$v = other as _$PlaybackStartInfo;
   }
 
   @override
-  void update(void Function($PlaybackStartInfoBuilder)? updates) {
+  void update(void Function(PlaybackStartInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $PlaybackStartInfo build() => _build();
+  PlaybackStartInfo build() => _build();
 
-  _$$PlaybackStartInfo _build() {
-    _$$PlaybackStartInfo _$result;
+  _$PlaybackStartInfo _build() {
+    _$PlaybackStartInfo _$result;
     try {
       _$result = _$v ??
-          new _$$PlaybackStartInfo._(
+          new _$PlaybackStartInfo._(
               canSeek: canSeek,
               item: _item?.build(),
               itemId: itemId,
@@ -411,7 +338,7 @@ class $PlaybackStartInfoBuilder
         _nowPlayingQueue?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$PlaybackStartInfo', _$failedField, e.toString());
+            r'PlaybackStartInfo', _$failedField, e.toString());
       }
       rethrow;
     }

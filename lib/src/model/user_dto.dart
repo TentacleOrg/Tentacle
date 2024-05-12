@@ -24,11 +24,11 @@ part 'user_dto.g.dart';
 /// * [enableAutoLogin] - Gets or sets whether async login is enabled or not.
 /// * [lastLoginDate] - Gets or sets the last login date.
 /// * [lastActivityDate] - Gets or sets the last activity date.
-/// * [configuration] 
-/// * [policy] 
+/// * [configuration]
+/// * [policy]
 /// * [primaryImageAspectRatio] - Gets or sets the primary image aspect ratio.
 @BuiltValue(instantiable: false)
-abstract class UserDto  {
+abstract class UserDto {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -205,7 +205,9 @@ class _$UserDtoSerializer implements PrimitiveSerializer<UserDto> {
     UserDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -214,7 +216,8 @@ class _$UserDtoSerializer implements PrimitiveSerializer<UserDto> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($UserDto)) as $UserDto;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($UserDto)) as $UserDto;
   }
 }
 
@@ -396,4 +399,3 @@ class _$$UserDtoSerializer implements PrimitiveSerializer<$UserDto> {
     return result.build();
   }
 }
-

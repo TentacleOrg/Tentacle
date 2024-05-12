@@ -14,7 +14,8 @@ part 'utc_time_response.g.dart';
 /// * [requestReceptionTime] - Gets the UTC time when request has been received.
 /// * [responseTransmissionTime] - Gets the UTC time when response has been sent.
 @BuiltValue()
-abstract class UtcTimeResponse implements Built<UtcTimeResponse, UtcTimeResponseBuilder> {
+abstract class UtcTimeResponse
+    implements Built<UtcTimeResponse, UtcTimeResponseBuilder> {
   /// Gets the UTC time when request has been received.
   @BuiltValueField(wireName: r'RequestReceptionTime')
   DateTime? get requestReceptionTime;
@@ -25,16 +26,19 @@ abstract class UtcTimeResponse implements Built<UtcTimeResponse, UtcTimeResponse
 
   UtcTimeResponse._();
 
-  factory UtcTimeResponse([void updates(UtcTimeResponseBuilder b)]) = _$UtcTimeResponse;
+  factory UtcTimeResponse([void updates(UtcTimeResponseBuilder b)]) =
+      _$UtcTimeResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UtcTimeResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<UtcTimeResponse> get serializer => _$UtcTimeResponseSerializer();
+  static Serializer<UtcTimeResponse> get serializer =>
+      _$UtcTimeResponseSerializer();
 }
 
-class _$UtcTimeResponseSerializer implements PrimitiveSerializer<UtcTimeResponse> {
+class _$UtcTimeResponseSerializer
+    implements PrimitiveSerializer<UtcTimeResponse> {
   @override
   final Iterable<Type> types = const [UtcTimeResponse, _$UtcTimeResponse];
 
@@ -68,7 +72,9 @@ class _$UtcTimeResponseSerializer implements PrimitiveSerializer<UtcTimeResponse
     UtcTimeResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -125,4 +131,3 @@ class _$UtcTimeResponseSerializer implements PrimitiveSerializer<UtcTimeResponse
     return result.build();
   }
 }
-

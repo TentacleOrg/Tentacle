@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for RatingType
 void main() {
-
-  group(RatingType, () {
-  });
+  group(RatingType, () {});
 }

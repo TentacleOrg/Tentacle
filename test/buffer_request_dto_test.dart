@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for BufferRequestDto
 void main() {
-  //final instance = BufferRequestDtoBuilder();
+  final instance = BufferRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(BufferRequestDto, () {
@@ -30,6 +30,5 @@ void main() {
     test('to test the property `playlistItemId`', () async {
       // TODO
     });
-
   });
 }

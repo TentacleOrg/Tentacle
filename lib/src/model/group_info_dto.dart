@@ -19,7 +19,8 @@ part 'group_info_dto.g.dart';
 /// * [participants] - Gets the participants.
 /// * [lastUpdatedAt] - Gets the date when this DTO has been created.
 @BuiltValue()
-abstract class GroupInfoDto implements Built<GroupInfoDto, GroupInfoDtoBuilder> {
+abstract class GroupInfoDto
+    implements Built<GroupInfoDto, GroupInfoDtoBuilder> {
   /// Gets the group identifier.
   @BuiltValueField(wireName: r'GroupId')
   String? get groupId;
@@ -31,6 +32,7 @@ abstract class GroupInfoDto implements Built<GroupInfoDto, GroupInfoDtoBuilder> 
   /// Gets the group state.
   @BuiltValueField(wireName: r'State')
   GroupStateType? get state;
+  // enum stateEnum {  Idle,  Waiting,  Paused,  Playing,  };
 
   /// Gets the participants.
   @BuiltValueField(wireName: r'Participants')
@@ -106,7 +108,9 @@ class _$GroupInfoDtoSerializer implements PrimitiveSerializer<GroupInfoDto> {
     GroupInfoDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -184,4 +188,3 @@ class _$GroupInfoDtoSerializer implements PrimitiveSerializer<GroupInfoDto> {
     return result.build();
   }
 }
-

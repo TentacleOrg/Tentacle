@@ -1,8 +1,8 @@
-# openapi.api.PlaystateApi
+# tentacle.api.PlaystateApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -27,13 +27,13 @@ Marks an item as played for user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
+final api = Tentacle().getPlaystateApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final DateTime datePlayed = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The date the item was played.
@@ -41,7 +41,7 @@ final DateTime datePlayed = 2013-10-20T19:20:30+01:00; // DateTime | Optional. T
 try {
     final response = api.markPlayedItem(userId, itemId, datePlayed);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->markPlayedItem: $e\n');
 }
 ```
@@ -76,20 +76,20 @@ Marks an item as unplayed for user.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
+final api = Tentacle().getPlaystateApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.markUnplayedItem(userId, itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->markUnplayedItem: $e\n');
 }
 ```
@@ -123,13 +123,13 @@ Reports a user's playback progress.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
+final api = Tentacle().getPlaystateApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final String mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
@@ -146,7 +146,7 @@ final bool isMuted = true; // bool | Indicates if the player is muted.
 
 try {
     api.onPlaybackProgress(userId, itemId, mediaSourceId, positionTicks, audioStreamIndex, subtitleStreamIndex, volumeLevel, playMethod, liveStreamId, playSessionId, repeatMode, isPaused, isMuted);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->onPlaybackProgress: $e\n');
 }
 ```
@@ -191,13 +191,13 @@ Reports that a user has begun playing an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
+final api = Tentacle().getPlaystateApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final String mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
@@ -210,7 +210,7 @@ final bool canSeek = true; // bool | Indicates if the client can seek.
 
 try {
     api.onPlaybackStart(userId, itemId, mediaSourceId, audioStreamIndex, subtitleStreamIndex, playMethod, liveStreamId, playSessionId, canSeek);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->onPlaybackStart: $e\n');
 }
 ```
@@ -251,13 +251,13 @@ Reports that a user has stopped playing an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
+final api = Tentacle().getPlaystateApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final String mediaSourceId = mediaSourceId_example; // String | The id of the MediaSource.
@@ -268,7 +268,7 @@ final String playSessionId = playSessionId_example; // String | The play session
 
 try {
     api.onPlaybackStopped(userId, itemId, mediaSourceId, nextMediaType, positionTicks, liveStreamId, playSessionId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->onPlaybackStopped: $e\n');
 }
 ```
@@ -307,18 +307,18 @@ Pings a playback session.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
+final api = Tentacle().getPlaystateApi();
 final String playSessionId = playSessionId_example; // String | Playback session id.
 
 try {
     api.pingPlaybackSession(playSessionId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->pingPlaybackSession: $e\n');
 }
 ```
@@ -345,24 +345,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reportPlaybackProgress**
-> reportPlaybackProgress(reportPlaybackProgressRequest)
+> reportPlaybackProgress(playbackProgressInfo)
 
 Reports playback progress within a session.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
-final ReportPlaybackProgressRequest reportPlaybackProgressRequest = ; // ReportPlaybackProgressRequest | The playback progress info.
+final api = Tentacle().getPlaystateApi();
+final PlaybackProgressInfo playbackProgressInfo = ; // PlaybackProgressInfo | The playback progress info.
 
 try {
-    api.reportPlaybackProgress(reportPlaybackProgressRequest);
-} catch on DioError (e) {
+    api.reportPlaybackProgress(playbackProgressInfo);
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->reportPlaybackProgress: $e\n');
 }
 ```
@@ -371,7 +371,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportPlaybackProgressRequest** | [**ReportPlaybackProgressRequest**](ReportPlaybackProgressRequest.md)| The playback progress info. | [optional] 
+ **playbackProgressInfo** | [**PlaybackProgressInfo**](PlaybackProgressInfo.md)| The playback progress info. | [optional] 
 
 ### Return type
 
@@ -389,24 +389,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reportPlaybackStart**
-> reportPlaybackStart(reportPlaybackStartRequest)
+> reportPlaybackStart(playbackStartInfo)
 
 Reports playback has started within a session.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
-final ReportPlaybackStartRequest reportPlaybackStartRequest = ; // ReportPlaybackStartRequest | The playback start info.
+final api = Tentacle().getPlaystateApi();
+final PlaybackStartInfo playbackStartInfo = ; // PlaybackStartInfo | The playback start info.
 
 try {
-    api.reportPlaybackStart(reportPlaybackStartRequest);
-} catch on DioError (e) {
+    api.reportPlaybackStart(playbackStartInfo);
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->reportPlaybackStart: $e\n');
 }
 ```
@@ -415,7 +415,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportPlaybackStartRequest** | [**ReportPlaybackStartRequest**](ReportPlaybackStartRequest.md)| The playback start info. | [optional] 
+ **playbackStartInfo** | [**PlaybackStartInfo**](PlaybackStartInfo.md)| The playback start info. | [optional] 
 
 ### Return type
 
@@ -433,24 +433,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **reportPlaybackStopped**
-> reportPlaybackStopped(reportPlaybackStoppedRequest)
+> reportPlaybackStopped(playbackStopInfo)
 
 Reports playback has stopped within a session.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaystateApi();
-final ReportPlaybackStoppedRequest reportPlaybackStoppedRequest = ; // ReportPlaybackStoppedRequest | The playback stop info.
+final api = Tentacle().getPlaystateApi();
+final PlaybackStopInfo playbackStopInfo = ; // PlaybackStopInfo | The playback stop info.
 
 try {
-    api.reportPlaybackStopped(reportPlaybackStoppedRequest);
-} catch on DioError (e) {
+    api.reportPlaybackStopped(playbackStopInfo);
+} catch on DioException (e) {
     print('Exception when calling PlaystateApi->reportPlaybackStopped: $e\n');
 }
 ```
@@ -459,7 +459,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **reportPlaybackStoppedRequest** | [**ReportPlaybackStoppedRequest**](ReportPlaybackStoppedRequest.md)| The playback stop info. | [optional] 
+ **playbackStopInfo** | [**PlaybackStopInfo**](PlaybackStopInfo.md)| The playback stop info. | [optional] 
 
 ### Return type
 

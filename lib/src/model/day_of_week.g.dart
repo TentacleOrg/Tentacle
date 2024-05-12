@@ -58,7 +58,7 @@ class _$DayOfWeekMeta {
   BuiltSet<DayOfWeek> get values => _$values;
 }
 
-abstract class _$DayOfWeekMixin {
+mixin _$DayOfWeekMixin {
   // ignore: non_constant_identifier_names
   _$DayOfWeekMeta get DayOfWeek => const _$DayOfWeekMeta();
 }

@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SeriesStatus
 void main() {
-
-  group(SeriesStatus, () {
-  });
+  group(SeriesStatus, () {});
 }

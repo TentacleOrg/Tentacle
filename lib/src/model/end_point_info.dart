@@ -11,10 +11,11 @@ part 'end_point_info.g.dart';
 /// EndPointInfo
 ///
 /// Properties:
-/// * [isLocal] 
-/// * [isInNetwork] 
+/// * [isLocal]
+/// * [isInNetwork]
 @BuiltValue()
-abstract class EndPointInfo implements Built<EndPointInfo, EndPointInfoBuilder> {
+abstract class EndPointInfo
+    implements Built<EndPointInfo, EndPointInfoBuilder> {
   @BuiltValueField(wireName: r'IsLocal')
   bool? get isLocal;
 
@@ -66,7 +67,9 @@ class _$EndPointInfoSerializer implements PrimitiveSerializer<EndPointInfo> {
     EndPointInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -123,4 +126,3 @@ class _$EndPointInfoSerializer implements PrimitiveSerializer<EndPointInfo> {
     return result.build();
   }
 }
-

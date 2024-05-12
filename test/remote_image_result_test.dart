@@ -24,6 +24,5 @@ void main() {
     test('to test the property `providers`', () async {
       // TODO
     });
-
   });
 }

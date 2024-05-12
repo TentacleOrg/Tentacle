@@ -53,6 +53,7 @@ abstract class PluginInfo implements Built<PluginInfo, PluginInfoBuilder> {
   /// Gets or sets a value indicating the status of the plugin.
   @BuiltValueField(wireName: r'Status')
   PluginStatus? get status;
+  // enum statusEnum {  Active,  Restart,  Deleted,  Superceded,  Malfunctioned,  NotSupported,  Disabled,  };
 
   PluginInfo._();
 
@@ -141,7 +142,9 @@ class _$PluginInfoSerializer implements PrimitiveSerializer<PluginInfo> {
     PluginInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -241,4 +244,3 @@ class _$PluginInfoSerializer implements PrimitiveSerializer<PluginInfo> {
     return result.build();
   }
 }
-

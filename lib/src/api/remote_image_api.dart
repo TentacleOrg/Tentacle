@@ -15,7 +15,6 @@ import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/remote_image_result.dart';
 
 class RemoteImageApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -23,7 +22,7 @@ class RemoteImageApi {
   const RemoteImageApi(this._dio, this._serializers);
 
   /// Downloads a remote image for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item Id.
@@ -37,8 +36,8 @@ class RemoteImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> downloadRemoteImage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> downloadRemoteImage({
     required String itemId,
     required ImageType type,
     String? imageUrl,
@@ -49,7 +48,10 @@ class RemoteImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/RemoteImages/Download'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/RemoteImages/Download'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -70,8 +72,11 @@ class RemoteImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'type': encodeQueryParameter(_serializers, type, const FullType(ImageType)),
-      if (imageUrl != null) r'imageUrl': encodeQueryParameter(_serializers, imageUrl, const FullType(String)),
+      r'type':
+          encodeQueryParameter(_serializers, type, const FullType(ImageType)),
+      if (imageUrl != null)
+        r'imageUrl': encodeQueryParameter(
+            _serializers, imageUrl, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -87,7 +92,7 @@ class RemoteImageApi {
   }
 
   /// Gets available remote image providers for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item Id.
@@ -99,8 +104,8 @@ class RemoteImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<ImageProviderInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<ImageProviderInfo>>> getRemoteImageProviders({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<ImageProviderInfo>>> getRemoteImageProviders({
     required String itemId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -109,7 +114,10 @@ class RemoteImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/RemoteImages/Providers'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/RemoteImages/Providers'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -137,22 +145,25 @@ class RemoteImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<ImageProviderInfo> _responseData;
+    BuiltList<ImageProviderInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(ImageProviderInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<ImageProviderInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(ImageProviderInfo)]),
+            ) as BuiltList<ImageProviderInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<ImageProviderInfo>>(
@@ -168,7 +179,7 @@ class RemoteImageApi {
   }
 
   /// Gets available remote images for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item Id.
@@ -185,8 +196,8 @@ class RemoteImageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [RemoteImageResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<RemoteImageResult>> getRemoteImages({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<RemoteImageResult>> getRemoteImages({
     required String itemId,
     ImageType? type,
     int? startIndex,
@@ -200,7 +211,10 @@ class RemoteImageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/RemoteImages'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/RemoteImages'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -221,11 +235,21 @@ class RemoteImageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (type != null) r'type': encodeQueryParameter(_serializers, type, const FullType(ImageType)),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (providerName != null) r'providerName': encodeQueryParameter(_serializers, providerName, const FullType(String)),
-      if (includeAllLanguages != null) r'includeAllLanguages': encodeQueryParameter(_serializers, includeAllLanguages, const FullType(bool)),
+      if (type != null)
+        r'type':
+            encodeQueryParameter(_serializers, type, const FullType(ImageType)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (providerName != null)
+        r'providerName': encodeQueryParameter(
+            _serializers, providerName, const FullType(String)),
+      if (includeAllLanguages != null)
+        r'includeAllLanguages': encodeQueryParameter(
+            _serializers, includeAllLanguages, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -237,22 +261,24 @@ class RemoteImageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    RemoteImageResult _responseData;
+    RemoteImageResult? _responseData;
 
     try {
-      const _responseType = FullType(RemoteImageResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as RemoteImageResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(RemoteImageResult),
+            ) as RemoteImageResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<RemoteImageResult>(
@@ -266,5 +292,4 @@ class RemoteImageApi {
       extra: _response.extra,
     );
   }
-
 }

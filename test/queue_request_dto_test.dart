@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for QueueRequestDto
 void main() {
-  //final instance = QueueRequestDtoBuilder();
+  final instance = QueueRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(QueueRequestDto, () {
@@ -13,11 +13,10 @@ void main() {
       // TODO
     });
 
-    // Gets or sets the mode in which to add the new items.
+    // Enum GroupQueueMode.
     // GroupQueueMode mode
     test('to test the property `mode`', () async {
       // TODO
     });
-
   });
 }

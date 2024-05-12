@@ -11,7 +11,7 @@ part 'channel_item_sort_field.g.dart';
 
 class ChannelItemSortField extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Name')
-  static const ChannelItemSortField communityName = _$name;
+  static const ChannelItemSortField itemName = _$name;
   @BuiltValueEnumConst(wireName: r'CommunityRating')
   static const ChannelItemSortField communityRating = _$communityRating;
   @BuiltValueEnumConst(wireName: r'PremiereDate')

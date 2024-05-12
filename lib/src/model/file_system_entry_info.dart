@@ -16,7 +16,8 @@ part 'file_system_entry_info.g.dart';
 /// * [path] - Gets the path.
 /// * [type] - Gets the type.
 @BuiltValue()
-abstract class FileSystemEntryInfo implements Built<FileSystemEntryInfo, FileSystemEntryInfoBuilder> {
+abstract class FileSystemEntryInfo
+    implements Built<FileSystemEntryInfo, FileSystemEntryInfoBuilder> {
   /// Gets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -28,21 +29,28 @@ abstract class FileSystemEntryInfo implements Built<FileSystemEntryInfo, FileSys
   /// Gets the type.
   @BuiltValueField(wireName: r'Type')
   FileSystemEntryType? get type;
+  // enum typeEnum {  File,  Directory,  NetworkComputer,  NetworkShare,  };
 
   FileSystemEntryInfo._();
 
-  factory FileSystemEntryInfo([void updates(FileSystemEntryInfoBuilder b)]) = _$FileSystemEntryInfo;
+  factory FileSystemEntryInfo([void updates(FileSystemEntryInfoBuilder b)]) =
+      _$FileSystemEntryInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(FileSystemEntryInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<FileSystemEntryInfo> get serializer => _$FileSystemEntryInfoSerializer();
+  static Serializer<FileSystemEntryInfo> get serializer =>
+      _$FileSystemEntryInfoSerializer();
 }
 
-class _$FileSystemEntryInfoSerializer implements PrimitiveSerializer<FileSystemEntryInfo> {
+class _$FileSystemEntryInfoSerializer
+    implements PrimitiveSerializer<FileSystemEntryInfo> {
   @override
-  final Iterable<Type> types = const [FileSystemEntryInfo, _$FileSystemEntryInfo];
+  final Iterable<Type> types = const [
+    FileSystemEntryInfo,
+    _$FileSystemEntryInfo
+  ];
 
   @override
   final String wireName = r'FileSystemEntryInfo';
@@ -81,7 +89,9 @@ class _$FileSystemEntryInfoSerializer implements PrimitiveSerializer<FileSystemE
     FileSystemEntryInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -145,4 +155,3 @@ class _$FileSystemEntryInfoSerializer implements PrimitiveSerializer<FileSystemE
     return result.build();
   }
 }
-

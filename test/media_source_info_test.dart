@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MediaSourceInfo
 void main() {
-  //final instance = MediaSourceInfoBuilder();
+  final instance = MediaSourceInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(MediaSourceInfo, () {
@@ -217,6 +217,5 @@ void main() {
     test('to test the property `defaultSubtitleStreamIndex`', () async {
       // TODO
     });
-
   });
 }

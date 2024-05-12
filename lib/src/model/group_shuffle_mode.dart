@@ -10,17 +10,18 @@ import 'package:built_value/serializer.dart';
 part 'group_shuffle_mode.g.dart';
 
 class GroupShuffleMode extends EnumClass {
-
   /// Enum GroupShuffleMode.
   @BuiltValueEnumConst(wireName: r'Sorted')
   static const GroupShuffleMode sorted = _$sorted;
+
   /// Enum GroupShuffleMode.
   @BuiltValueEnumConst(wireName: r'Shuffle')
   static const GroupShuffleMode shuffle = _$shuffle;
 
-  static Serializer<GroupShuffleMode> get serializer => _$groupShuffleModeSerializer;
+  static Serializer<GroupShuffleMode> get serializer =>
+      _$groupShuffleModeSerializer;
 
-  const GroupShuffleMode._(String name): super(name);
+  const GroupShuffleMode._(String name) : super(name);
 
   static BuiltSet<GroupShuffleMode> get values => _$values;
   static GroupShuffleMode valueOf(String name) => _$valueOf(name);
@@ -33,4 +34,3 @@ class GroupShuffleMode extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class GroupShuffleModeMixin = Object with _$GroupShuffleModeMixin;
-

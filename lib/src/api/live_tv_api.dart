@@ -10,15 +10,11 @@ import 'package:dio/dio.dart';
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/add_listing_provider_request.dart';
-import 'package:tentacle/src/model/add_tuner_host_request.dart';
 import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/channel_mapping_options_dto.dart';
 import 'package:tentacle/src/model/channel_type.dart';
-import 'package:tentacle/src/model/create_series_timer_request.dart';
-import 'package:tentacle/src/model/create_timer_request.dart';
-import 'package:tentacle/src/model/get_programs_request.dart';
+import 'package:tentacle/src/model/get_programs_dto.dart';
 import 'package:tentacle/src/model/guide_info.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
@@ -29,7 +25,7 @@ import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/recording_status.dart';
 import 'package:tentacle/src/model/series_timer_info_dto.dart';
 import 'package:tentacle/src/model/series_timer_info_dto_query_result.dart';
-import 'package:tentacle/src/model/set_channel_mapping_request.dart';
+import 'package:tentacle/src/model/set_channel_mapping_dto.dart';
 import 'package:tentacle/src/model/sort_order.dart';
 import 'package:tentacle/src/model/timer_info_dto.dart';
 import 'package:tentacle/src/model/timer_info_dto_query_result.dart';
@@ -37,7 +33,6 @@ import 'package:tentacle/src/model/tuner_channel_mapping.dart';
 import 'package:tentacle/src/model/tuner_host_info.dart';
 
 class LiveTvApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -45,13 +40,13 @@ class LiveTvApi {
   const LiveTvApi(this._dio, this._serializers);
 
   /// Adds a listings provider.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [pw] - Password.
   /// * [validateListings] - Validate listings.
   /// * [validateLogin] - Validate login.
-  /// * [addListingProviderRequest] - New listings info.
+  /// * [listingsProviderInfo] - New listings info.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -60,12 +55,12 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ListingsProviderInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<ListingsProviderInfo>> addListingProvider({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<ListingsProviderInfo>> addListingProvider({
     String? pw,
     bool? validateListings = false,
     bool? validateLogin = false,
-    AddListingProviderRequest? addListingProviderRequest,
+    ListingsProviderInfo? listingsProviderInfo,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -95,27 +90,34 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (pw != null) r'pw': encodeQueryParameter(_serializers, pw, const FullType(String)),
-      if (validateListings != null) r'validateListings': encodeQueryParameter(_serializers, validateListings, const FullType(bool)),
-      if (validateLogin != null) r'validateLogin': encodeQueryParameter(_serializers, validateLogin, const FullType(bool)),
+      if (pw != null)
+        r'pw': encodeQueryParameter(_serializers, pw, const FullType(String)),
+      if (validateListings != null)
+        r'validateListings': encodeQueryParameter(
+            _serializers, validateListings, const FullType(bool)),
+      if (validateLogin != null)
+        r'validateLogin': encodeQueryParameter(
+            _serializers, validateLogin, const FullType(bool)),
     };
 
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AddListingProviderRequest);
-      _bodyData = addListingProviderRequest == null ? null : _serializers.serialize(addListingProviderRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(ListingsProviderInfo);
+      _bodyData = listingsProviderInfo == null
+          ? null
+          : _serializers.serialize(listingsProviderInfo, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -128,22 +130,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ListingsProviderInfo _responseData;
+    ListingsProviderInfo? _responseData;
 
     try {
-      const _responseType = FullType(ListingsProviderInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as ListingsProviderInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ListingsProviderInfo),
+            ) as ListingsProviderInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ListingsProviderInfo>(
@@ -159,10 +163,10 @@ class LiveTvApi {
   }
 
   /// Adds a tuner host.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [addTunerHostRequest] - New tuner host.
+  /// * [tunerHostInfo] - New tuner host.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -171,9 +175,9 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TunerHostInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<TunerHostInfo>> addTunerHost({ 
-    AddTunerHostRequest? addTunerHostRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TunerHostInfo>> addTunerHost({
+    TunerHostInfo? tunerHostInfo,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -205,18 +209,20 @@ class LiveTvApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(AddTunerHostRequest);
-      _bodyData = addTunerHostRequest == null ? null : _serializers.serialize(addTunerHostRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(TunerHostInfo);
+      _bodyData = tunerHostInfo == null
+          ? null
+          : _serializers.serialize(tunerHostInfo, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -228,22 +234,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TunerHostInfo _responseData;
+    TunerHostInfo? _responseData;
 
     try {
-      const _responseType = FullType(TunerHostInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as TunerHostInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TunerHostInfo),
+            ) as TunerHostInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<TunerHostInfo>(
@@ -259,7 +267,7 @@ class LiveTvApi {
   }
 
   /// Cancels a live tv series timer.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [timerId] - Timer id.
@@ -271,8 +279,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> cancelSeriesTimer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> cancelSeriesTimer({
     required String timerId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -281,7 +289,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/SeriesTimers/{timerId}'.replaceAll('{' r'timerId' '}', timerId.toString());
+    final _path = r'/LiveTv/SeriesTimers/{timerId}'.replaceAll(
+        '{' r'timerId' '}',
+        encodeQueryParameter(_serializers, timerId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -313,7 +324,7 @@ class LiveTvApi {
   }
 
   /// Cancels a live tv timer.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [timerId] - Timer id.
@@ -325,8 +336,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> cancelTimer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> cancelTimer({
     required String timerId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -335,7 +346,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Timers/{timerId}'.replaceAll('{' r'timerId' '}', timerId.toString());
+    final _path = r'/LiveTv/Timers/{timerId}'.replaceAll(
+        '{' r'timerId' '}',
+        encodeQueryParameter(_serializers, timerId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -367,10 +381,10 @@ class LiveTvApi {
   }
 
   /// Creates a live tv series timer.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [createSeriesTimerRequest] - New series timer info.
+  /// * [seriesTimerInfoDto] - New series timer info.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -379,9 +393,9 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> createSeriesTimer({ 
-    CreateSeriesTimerRequest? createSeriesTimerRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> createSeriesTimer({
+    SeriesTimerInfoDto? seriesTimerInfoDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -413,18 +427,20 @@ class LiveTvApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateSeriesTimerRequest);
-      _bodyData = createSeriesTimerRequest == null ? null : _serializers.serialize(createSeriesTimerRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(SeriesTimerInfoDto);
+      _bodyData = seriesTimerInfoDto == null
+          ? null
+          : _serializers.serialize(seriesTimerInfoDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -440,10 +456,10 @@ class LiveTvApi {
   }
 
   /// Creates a live tv timer.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [createTimerRequest] - New timer info.
+  /// * [timerInfoDto] - New timer info.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -452,9 +468,9 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> createTimer({ 
-    CreateTimerRequest? createTimerRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> createTimer({
+    TimerInfoDto? timerInfoDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -486,18 +502,20 @@ class LiveTvApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateTimerRequest);
-      _bodyData = createTimerRequest == null ? null : _serializers.serialize(createTimerRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(TimerInfoDto);
+      _bodyData = timerInfoDto == null
+          ? null
+          : _serializers.serialize(timerInfoDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -513,7 +531,7 @@ class LiveTvApi {
   }
 
   /// Delete listing provider.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Listing provider id.
@@ -525,8 +543,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteListingProvider({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteListingProvider({
     String? id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -556,7 +574,8 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (id != null) r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
+      if (id != null)
+        r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -572,7 +591,7 @@ class LiveTvApi {
   }
 
   /// Deletes a live tv recording.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [recordingId] - Recording id.
@@ -584,8 +603,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteRecording({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteRecording({
     required String recordingId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -594,7 +613,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Recordings/{recordingId}'.replaceAll('{' r'recordingId' '}', recordingId.toString());
+    final _path = r'/LiveTv/Recordings/{recordingId}'.replaceAll(
+        '{' r'recordingId' '}',
+        encodeQueryParameter(_serializers, recordingId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -626,7 +648,7 @@ class LiveTvApi {
   }
 
   /// Deletes a tuner host.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Tuner host id.
@@ -638,8 +660,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteTunerHost({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteTunerHost({
     String? id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -669,7 +691,8 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (id != null) r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
+      if (id != null)
+        r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -685,7 +708,7 @@ class LiveTvApi {
   }
 
   /// Discover tuners.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [newDevicesOnly] - Only discover new tuners.
@@ -697,8 +720,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<TunerHostInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<TunerHostInfo>>> discoverTuners({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<TunerHostInfo>>> discoverTuners({
     bool? newDevicesOnly = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -728,7 +751,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (newDevicesOnly != null) r'newDevicesOnly': encodeQueryParameter(_serializers, newDevicesOnly, const FullType(bool)),
+      if (newDevicesOnly != null)
+        r'newDevicesOnly': encodeQueryParameter(
+            _serializers, newDevicesOnly, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -740,22 +765,25 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<TunerHostInfo> _responseData;
+    BuiltList<TunerHostInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(TunerHostInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<TunerHostInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(TunerHostInfo)]),
+            ) as BuiltList<TunerHostInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<TunerHostInfo>>(
@@ -771,7 +799,7 @@ class LiveTvApi {
   }
 
   /// Discover tuners.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [newDevicesOnly] - Only discover new tuners.
@@ -783,8 +811,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<TunerHostInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<TunerHostInfo>>> discvoverTuners({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<TunerHostInfo>>> discvoverTuners({
     bool? newDevicesOnly = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -814,7 +842,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (newDevicesOnly != null) r'newDevicesOnly': encodeQueryParameter(_serializers, newDevicesOnly, const FullType(bool)),
+      if (newDevicesOnly != null)
+        r'newDevicesOnly': encodeQueryParameter(
+            _serializers, newDevicesOnly, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -826,22 +856,25 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<TunerHostInfo> _responseData;
+    BuiltList<TunerHostInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(TunerHostInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<TunerHostInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(TunerHostInfo)]),
+            ) as BuiltList<TunerHostInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<TunerHostInfo>>(
@@ -857,7 +890,7 @@ class LiveTvApi {
   }
 
   /// Gets a live tv channel.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [channelId] - Channel id.
@@ -870,8 +903,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDto>> getChannel({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDto>> getChannel({
     required String channelId,
     String? userId,
     CancelToken? cancelToken,
@@ -881,7 +914,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Channels/{channelId}'.replaceAll('{' r'channelId' '}', channelId.toString());
+    final _path = r'/LiveTv/Channels/{channelId}'.replaceAll(
+        '{' r'channelId' '}',
+        encodeQueryParameter(_serializers, channelId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -902,7 +938,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -914,22 +952,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDto _responseData;
+    BaseItemDto? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDto),
+            ) as BaseItemDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDto>(
@@ -945,7 +985,7 @@ class LiveTvApi {
   }
 
   /// Get channel mapping options.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [providerId] - Provider id.
@@ -957,8 +997,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ChannelMappingOptionsDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<ChannelMappingOptionsDto>> getChannelMappingOptions({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<ChannelMappingOptionsDto>> getChannelMappingOptions({
     String? providerId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -988,7 +1028,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (providerId != null) r'providerId': encodeQueryParameter(_serializers, providerId, const FullType(String)),
+      if (providerId != null)
+        r'providerId': encodeQueryParameter(
+            _serializers, providerId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1000,22 +1042,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ChannelMappingOptionsDto _responseData;
+    ChannelMappingOptionsDto? _responseData;
 
     try {
-      const _responseType = FullType(ChannelMappingOptionsDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as ChannelMappingOptionsDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ChannelMappingOptionsDto),
+            ) as ChannelMappingOptionsDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ChannelMappingOptionsDto>(
@@ -1031,7 +1075,7 @@ class LiveTvApi {
   }
 
   /// Gets default listings provider info.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -1042,8 +1086,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ListingsProviderInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<ListingsProviderInfo>> getDefaultListingProvider({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<ListingsProviderInfo>> getDefaultListingProvider({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1079,22 +1123,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ListingsProviderInfo _responseData;
+    ListingsProviderInfo? _responseData;
 
     try {
-      const _responseType = FullType(ListingsProviderInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as ListingsProviderInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ListingsProviderInfo),
+            ) as ListingsProviderInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ListingsProviderInfo>(
@@ -1110,7 +1156,7 @@ class LiveTvApi {
   }
 
   /// Gets the default values for a new timer.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [programId] - Optional. To attach default values based on a program.
@@ -1122,8 +1168,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [SeriesTimerInfoDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<SeriesTimerInfoDto>> getDefaultTimer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<SeriesTimerInfoDto>> getDefaultTimer({
     String? programId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1153,7 +1199,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (programId != null) r'programId': encodeQueryParameter(_serializers, programId, const FullType(String)),
+      if (programId != null)
+        r'programId': encodeQueryParameter(
+            _serializers, programId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1165,22 +1213,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SeriesTimerInfoDto _responseData;
+    SeriesTimerInfoDto? _responseData;
 
     try {
-      const _responseType = FullType(SeriesTimerInfoDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as SeriesTimerInfoDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(SeriesTimerInfoDto),
+            ) as SeriesTimerInfoDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<SeriesTimerInfoDto>(
@@ -1196,7 +1246,7 @@ class LiveTvApi {
   }
 
   /// Get guid info.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -1207,8 +1257,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [GuideInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<GuideInfo>> getGuideInfo({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<GuideInfo>> getGuideInfo({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1244,22 +1294,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    GuideInfo _responseData;
+    GuideInfo? _responseData;
 
     try {
-      const _responseType = FullType(GuideInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as GuideInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(GuideInfo),
+            ) as GuideInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<GuideInfo>(
@@ -1275,7 +1327,7 @@ class LiveTvApi {
   }
 
   /// Gets available lineups.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Provider id.
@@ -1290,8 +1342,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<NameIdPair>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<NameIdPair>>> getLineups({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<NameIdPair>>> getLineups({
     String? id,
     String? type,
     String? location,
@@ -1324,10 +1376,17 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (id != null) r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
-      if (type != null) r'type': encodeQueryParameter(_serializers, type, const FullType(String)),
-      if (location != null) r'location': encodeQueryParameter(_serializers, location, const FullType(String)),
-      if (country != null) r'country': encodeQueryParameter(_serializers, country, const FullType(String)),
+      if (id != null)
+        r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
+      if (type != null)
+        r'type':
+            encodeQueryParameter(_serializers, type, const FullType(String)),
+      if (location != null)
+        r'location': encodeQueryParameter(
+            _serializers, location, const FullType(String)),
+      if (country != null)
+        r'country':
+            encodeQueryParameter(_serializers, country, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1339,22 +1398,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<NameIdPair> _responseData;
+    BuiltList<NameIdPair>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(NameIdPair)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<NameIdPair>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(NameIdPair)]),
+            ) as BuiltList<NameIdPair>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<NameIdPair>>(
@@ -1370,7 +1431,7 @@ class LiveTvApi {
   }
 
   /// Gets a live tv recording stream.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [recordingId] - Recording id.
@@ -1382,8 +1443,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getLiveRecordingFile({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getLiveRecordingFile({
     required String recordingId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -1392,7 +1453,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/LiveRecordings/{recordingId}/stream'.replaceAll('{' r'recordingId' '}', recordingId.toString());
+    final _path = r'/LiveTv/LiveRecordings/{recordingId}/stream'.replaceAll(
+        '{' r'recordingId' '}',
+        encodeQueryParameter(_serializers, recordingId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1414,18 +1478,19 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1441,7 +1506,7 @@ class LiveTvApi {
   }
 
   /// Gets a live tv channel stream.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [streamId] - Stream id.
@@ -1454,8 +1519,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getLiveStreamFile({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getLiveStreamFile({
     required String streamId,
     required String container,
     CancelToken? cancelToken,
@@ -1465,7 +1530,16 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/LiveStreamFiles/{streamId}/stream.{container}'.replaceAll('{' r'streamId' '}', streamId.toString()).replaceAll('{' r'container' '}', container.toString());
+    final _path = r'/LiveTv/LiveStreamFiles/{streamId}/stream.{container}'
+        .replaceAll(
+            '{' r'streamId' '}',
+            encodeQueryParameter(_serializers, streamId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'container' '}',
+            encodeQueryParameter(
+                    _serializers, container, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -1487,18 +1561,19 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -1514,7 +1589,7 @@ class LiveTvApi {
   }
 
   /// Gets available live tv channels.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [type] - Optional. Filter by channel type.
@@ -1546,8 +1621,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getLiveTvChannels({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getLiveTvChannels({
     ChannelType? type,
     String? userId,
     int? startIndex,
@@ -1597,27 +1672,81 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (type != null) r'type': encodeQueryParameter(_serializers, type, const FullType(ChannelType)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (isMovie != null) r'isMovie': encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
-      if (isSeries != null) r'isSeries': encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
-      if (isNews != null) r'isNews': encodeQueryParameter(_serializers, isNews, const FullType(bool)),
-      if (isKids != null) r'isKids': encodeQueryParameter(_serializers, isKids, const FullType(bool)),
-      if (isSports != null) r'isSports': encodeQueryParameter(_serializers, isSports, const FullType(bool)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (isFavorite != null) r'isFavorite': encodeQueryParameter(_serializers, isFavorite, const FullType(bool)),
-      if (isLiked != null) r'isLiked': encodeQueryParameter(_serializers, isLiked, const FullType(bool)),
-      if (isDisliked != null) r'isDisliked': encodeQueryParameter(_serializers, isDisliked, const FullType(bool)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (sortBy != null) r'sortBy': encodeCollectionQueryParameter<String>(_serializers, sortBy, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (sortOrder != null) r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(SortOrder)),
-      if (enableFavoriteSorting != null) r'enableFavoriteSorting': encodeQueryParameter(_serializers, enableFavoriteSorting, const FullType(bool)),
-      if (addCurrentProgram != null) r'addCurrentProgram': encodeQueryParameter(_serializers, addCurrentProgram, const FullType(bool)),
+      if (type != null)
+        r'type': encodeQueryParameter(
+            _serializers, type, const FullType(ChannelType)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (isMovie != null)
+        r'isMovie':
+            encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
+      if (isSeries != null)
+        r'isSeries':
+            encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
+      if (isNews != null)
+        r'isNews':
+            encodeQueryParameter(_serializers, isNews, const FullType(bool)),
+      if (isKids != null)
+        r'isKids':
+            encodeQueryParameter(_serializers, isKids, const FullType(bool)),
+      if (isSports != null)
+        r'isSports':
+            encodeQueryParameter(_serializers, isSports, const FullType(bool)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (isFavorite != null)
+        r'isFavorite': encodeQueryParameter(
+            _serializers, isFavorite, const FullType(bool)),
+      if (isLiked != null)
+        r'isLiked':
+            encodeQueryParameter(_serializers, isLiked, const FullType(bool)),
+      if (isDisliked != null)
+        r'isDisliked': encodeQueryParameter(
+            _serializers, isDisliked, const FullType(bool)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (sortBy != null)
+        r'sortBy': encodeCollectionQueryParameter<String>(
+          _serializers,
+          sortBy,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (sortOrder != null)
+        r'sortOrder': encodeQueryParameter(
+            _serializers, sortOrder, const FullType(SortOrder)),
+      if (enableFavoriteSorting != null)
+        r'enableFavoriteSorting': encodeQueryParameter(
+            _serializers, enableFavoriteSorting, const FullType(bool)),
+      if (addCurrentProgram != null)
+        r'addCurrentProgram': encodeQueryParameter(
+            _serializers, addCurrentProgram, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1629,22 +1758,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -1660,7 +1791,7 @@ class LiveTvApi {
   }
 
   /// Gets available live tv services.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -1671,8 +1802,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [LiveTvInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<LiveTvInfo>> getLiveTvInfo({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<LiveTvInfo>> getLiveTvInfo({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1708,22 +1839,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    LiveTvInfo _responseData;
+    LiveTvInfo? _responseData;
 
     try {
-      const _responseType = FullType(LiveTvInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as LiveTvInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(LiveTvInfo),
+            ) as LiveTvInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<LiveTvInfo>(
@@ -1739,7 +1872,7 @@ class LiveTvApi {
   }
 
   /// Gets available live tv epgs.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [channelIds] - The channels to return guide information for.
@@ -1777,8 +1910,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getLiveTvPrograms({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getLiveTvPrograms({
     BuiltList<String>? channelIds,
     String? userId,
     DateTime? minStartDate,
@@ -1834,33 +1967,115 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (channelIds != null) r'channelIds': encodeCollectionQueryParameter<String>(_serializers, channelIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (minStartDate != null) r'minStartDate': encodeQueryParameter(_serializers, minStartDate, const FullType(DateTime)),
-      if (hasAired != null) r'hasAired': encodeQueryParameter(_serializers, hasAired, const FullType(bool)),
-      if (isAiring != null) r'isAiring': encodeQueryParameter(_serializers, isAiring, const FullType(bool)),
-      if (maxStartDate != null) r'maxStartDate': encodeQueryParameter(_serializers, maxStartDate, const FullType(DateTime)),
-      if (minEndDate != null) r'minEndDate': encodeQueryParameter(_serializers, minEndDate, const FullType(DateTime)),
-      if (maxEndDate != null) r'maxEndDate': encodeQueryParameter(_serializers, maxEndDate, const FullType(DateTime)),
-      if (isMovie != null) r'isMovie': encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
-      if (isSeries != null) r'isSeries': encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
-      if (isNews != null) r'isNews': encodeQueryParameter(_serializers, isNews, const FullType(bool)),
-      if (isKids != null) r'isKids': encodeQueryParameter(_serializers, isKids, const FullType(bool)),
-      if (isSports != null) r'isSports': encodeQueryParameter(_serializers, isSports, const FullType(bool)),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (sortBy != null) r'sortBy': encodeCollectionQueryParameter<String>(_serializers, sortBy, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (sortOrder != null) r'sortOrder': encodeCollectionQueryParameter<SortOrder>(_serializers, sortOrder, const FullType(BuiltList, [FullType(SortOrder)]), format: ListFormat.multi,),
-      if (genres != null) r'genres': encodeCollectionQueryParameter<String>(_serializers, genres, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (genreIds != null) r'genreIds': encodeCollectionQueryParameter<String>(_serializers, genreIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (seriesTimerId != null) r'seriesTimerId': encodeQueryParameter(_serializers, seriesTimerId, const FullType(String)),
-      if (librarySeriesId != null) r'librarySeriesId': encodeQueryParameter(_serializers, librarySeriesId, const FullType(String)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
+      if (channelIds != null)
+        r'channelIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          channelIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (minStartDate != null)
+        r'minStartDate': encodeQueryParameter(
+            _serializers, minStartDate, const FullType(DateTime)),
+      if (hasAired != null)
+        r'hasAired':
+            encodeQueryParameter(_serializers, hasAired, const FullType(bool)),
+      if (isAiring != null)
+        r'isAiring':
+            encodeQueryParameter(_serializers, isAiring, const FullType(bool)),
+      if (maxStartDate != null)
+        r'maxStartDate': encodeQueryParameter(
+            _serializers, maxStartDate, const FullType(DateTime)),
+      if (minEndDate != null)
+        r'minEndDate': encodeQueryParameter(
+            _serializers, minEndDate, const FullType(DateTime)),
+      if (maxEndDate != null)
+        r'maxEndDate': encodeQueryParameter(
+            _serializers, maxEndDate, const FullType(DateTime)),
+      if (isMovie != null)
+        r'isMovie':
+            encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
+      if (isSeries != null)
+        r'isSeries':
+            encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
+      if (isNews != null)
+        r'isNews':
+            encodeQueryParameter(_serializers, isNews, const FullType(bool)),
+      if (isKids != null)
+        r'isKids':
+            encodeQueryParameter(_serializers, isKids, const FullType(bool)),
+      if (isSports != null)
+        r'isSports':
+            encodeQueryParameter(_serializers, isSports, const FullType(bool)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (sortBy != null)
+        r'sortBy': encodeCollectionQueryParameter<String>(
+          _serializers,
+          sortBy,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (sortOrder != null)
+        r'sortOrder': encodeCollectionQueryParameter<SortOrder>(
+          _serializers,
+          sortOrder,
+          const FullType(BuiltList, [FullType(SortOrder)]),
+          format: ListFormat.multi,
+        ),
+      if (genres != null)
+        r'genres': encodeCollectionQueryParameter<String>(
+          _serializers,
+          genres,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (genreIds != null)
+        r'genreIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          genreIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (seriesTimerId != null)
+        r'seriesTimerId': encodeQueryParameter(
+            _serializers, seriesTimerId, const FullType(String)),
+      if (librarySeriesId != null)
+        r'librarySeriesId': encodeQueryParameter(
+            _serializers, librarySeriesId, const FullType(String)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1872,22 +2087,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -1903,7 +2120,7 @@ class LiveTvApi {
   }
 
   /// Gets a live tv program.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [programId] - Program id.
@@ -1916,8 +2133,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDto>> getProgram({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDto>> getProgram({
     required String programId,
     String? userId,
     CancelToken? cancelToken,
@@ -1927,7 +2144,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Programs/{programId}'.replaceAll('{' r'programId' '}', programId.toString());
+    final _path = r'/LiveTv/Programs/{programId}'.replaceAll(
+        '{' r'programId' '}',
+        encodeQueryParameter(_serializers, programId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -1948,7 +2168,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1960,22 +2182,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDto _responseData;
+    BaseItemDto? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDto),
+            ) as BaseItemDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDto>(
@@ -1991,10 +2215,10 @@ class LiveTvApi {
   }
 
   /// Gets available live tv epgs.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getProgramsRequest] - Request body.
+  /// * [getProgramsDto] - Request body.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2003,9 +2227,9 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getPrograms({ 
-    GetProgramsRequest? getProgramsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getPrograms({
+    GetProgramsDto? getProgramsDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -2037,18 +2261,20 @@ class LiveTvApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetProgramsRequest);
-      _bodyData = getProgramsRequest == null ? null : _serializers.serialize(getProgramsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(GetProgramsDto);
+      _bodyData = getProgramsDto == null
+          ? null
+          : _serializers.serialize(getProgramsDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -2060,22 +2286,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -2091,7 +2319,7 @@ class LiveTvApi {
   }
 
   /// Gets recommended live tv epgs.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - Optional. filter by user id.
@@ -2118,8 +2346,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getRecommendedPrograms({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getRecommendedPrograms({
     String? userId,
     int? limit,
     bool? isAiring,
@@ -2164,22 +2392,66 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (isAiring != null) r'isAiring': encodeQueryParameter(_serializers, isAiring, const FullType(bool)),
-      if (hasAired != null) r'hasAired': encodeQueryParameter(_serializers, hasAired, const FullType(bool)),
-      if (isSeries != null) r'isSeries': encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
-      if (isMovie != null) r'isMovie': encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
-      if (isNews != null) r'isNews': encodeQueryParameter(_serializers, isNews, const FullType(bool)),
-      if (isKids != null) r'isKids': encodeQueryParameter(_serializers, isKids, const FullType(bool)),
-      if (isSports != null) r'isSports': encodeQueryParameter(_serializers, isSports, const FullType(bool)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (genreIds != null) r'genreIds': encodeCollectionQueryParameter<String>(_serializers, genreIds, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (isAiring != null)
+        r'isAiring':
+            encodeQueryParameter(_serializers, isAiring, const FullType(bool)),
+      if (hasAired != null)
+        r'hasAired':
+            encodeQueryParameter(_serializers, hasAired, const FullType(bool)),
+      if (isSeries != null)
+        r'isSeries':
+            encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
+      if (isMovie != null)
+        r'isMovie':
+            encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
+      if (isNews != null)
+        r'isNews':
+            encodeQueryParameter(_serializers, isNews, const FullType(bool)),
+      if (isKids != null)
+        r'isKids':
+            encodeQueryParameter(_serializers, isKids, const FullType(bool)),
+      if (isSports != null)
+        r'isSports':
+            encodeQueryParameter(_serializers, isSports, const FullType(bool)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (genreIds != null)
+        r'genreIds': encodeCollectionQueryParameter<String>(
+          _serializers,
+          genreIds,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2191,22 +2463,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -2222,7 +2496,7 @@ class LiveTvApi {
   }
 
   /// Gets a live tv recording.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [recordingId] - Recording id.
@@ -2235,8 +2509,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDto>> getRecording({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDto>> getRecording({
     required String recordingId,
     String? userId,
     CancelToken? cancelToken,
@@ -2246,7 +2520,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Recordings/{recordingId}'.replaceAll('{' r'recordingId' '}', recordingId.toString());
+    final _path = r'/LiveTv/Recordings/{recordingId}'.replaceAll(
+        '{' r'recordingId' '}',
+        encodeQueryParameter(_serializers, recordingId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -2267,7 +2544,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2279,22 +2558,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDto _responseData;
+    BaseItemDto? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDto),
+            ) as BaseItemDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDto>(
@@ -2310,7 +2591,7 @@ class LiveTvApi {
   }
 
   /// Gets recording folders.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - Optional. Filter by user and attach user data.
@@ -2322,8 +2603,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getRecordingFolders({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getRecordingFolders({
     String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -2353,7 +2634,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2365,22 +2648,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -2396,7 +2681,7 @@ class LiveTvApi {
   }
 
   /// Get recording group.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [groupId] - Group id.
@@ -2408,9 +2693,9 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   @Deprecated('This operation has been deprecated')
-  Future<Response<void>> getRecordingGroup({ 
+  Future<Response<void>> getRecordingGroup({
     required String groupId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -2419,7 +2704,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Recordings/Groups/{groupId}'.replaceAll('{' r'groupId' '}', groupId.toString());
+    final _path = r'/LiveTv/Recordings/Groups/{groupId}'.replaceAll(
+        '{' r'groupId' '}',
+        encodeQueryParameter(_serializers, groupId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -2451,7 +2739,7 @@ class LiveTvApi {
   }
 
   /// Gets live tv recording groups.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - Optional. Filter by user and attach user data.
@@ -2463,9 +2751,9 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   @Deprecated('This operation has been deprecated')
-  Future<Response<BaseItemDtoQueryResult>> getRecordingGroups({ 
+  Future<Response<BaseItemDtoQueryResult>> getRecordingGroups({
     String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -2495,7 +2783,9 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2507,22 +2797,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -2538,7 +2830,7 @@ class LiveTvApi {
   }
 
   /// Gets live tv recordings.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [channelId] - Optional. Filter by channel id.
@@ -2568,8 +2860,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getRecordings({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getRecordings({
     String? channelId,
     String? userId,
     int? startIndex,
@@ -2617,25 +2909,71 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (channelId != null) r'channelId': encodeQueryParameter(_serializers, channelId, const FullType(String)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (status != null) r'status': encodeQueryParameter(_serializers, status, const FullType(RecordingStatus)),
-      if (isInProgress != null) r'isInProgress': encodeQueryParameter(_serializers, isInProgress, const FullType(bool)),
-      if (seriesTimerId != null) r'seriesTimerId': encodeQueryParameter(_serializers, seriesTimerId, const FullType(String)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (isMovie != null) r'isMovie': encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
-      if (isSeries != null) r'isSeries': encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
-      if (isKids != null) r'isKids': encodeQueryParameter(_serializers, isKids, const FullType(bool)),
-      if (isSports != null) r'isSports': encodeQueryParameter(_serializers, isSports, const FullType(bool)),
-      if (isNews != null) r'isNews': encodeQueryParameter(_serializers, isNews, const FullType(bool)),
-      if (isLibraryItem != null) r'isLibraryItem': encodeQueryParameter(_serializers, isLibraryItem, const FullType(bool)),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
+      if (channelId != null)
+        r'channelId': encodeQueryParameter(
+            _serializers, channelId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (status != null)
+        r'status': encodeQueryParameter(
+            _serializers, status, const FullType(RecordingStatus)),
+      if (isInProgress != null)
+        r'isInProgress': encodeQueryParameter(
+            _serializers, isInProgress, const FullType(bool)),
+      if (seriesTimerId != null)
+        r'seriesTimerId': encodeQueryParameter(
+            _serializers, seriesTimerId, const FullType(String)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (isMovie != null)
+        r'isMovie':
+            encodeQueryParameter(_serializers, isMovie, const FullType(bool)),
+      if (isSeries != null)
+        r'isSeries':
+            encodeQueryParameter(_serializers, isSeries, const FullType(bool)),
+      if (isKids != null)
+        r'isKids':
+            encodeQueryParameter(_serializers, isKids, const FullType(bool)),
+      if (isSports != null)
+        r'isSports':
+            encodeQueryParameter(_serializers, isSports, const FullType(bool)),
+      if (isNews != null)
+        r'isNews':
+            encodeQueryParameter(_serializers, isNews, const FullType(bool)),
+      if (isLibraryItem != null)
+        r'isLibraryItem': encodeQueryParameter(
+            _serializers, isLibraryItem, const FullType(bool)),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2647,22 +2985,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -2678,7 +3018,7 @@ class LiveTvApi {
   }
 
   /// Gets live tv recording series.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [channelId] - Optional. Filter by channel id.
@@ -2703,9 +3043,9 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   @Deprecated('This operation has been deprecated')
-  Future<Response<BaseItemDtoQueryResult>> getRecordingsSeries({ 
+  Future<Response<BaseItemDtoQueryResult>> getRecordingsSeries({
     String? channelId,
     String? userId,
     String? groupId,
@@ -2748,20 +3088,56 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (channelId != null) r'channelId': encodeQueryParameter(_serializers, channelId, const FullType(String)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (groupId != null) r'groupId': encodeQueryParameter(_serializers, groupId, const FullType(String)),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (status != null) r'status': encodeQueryParameter(_serializers, status, const FullType(RecordingStatus)),
-      if (isInProgress != null) r'isInProgress': encodeQueryParameter(_serializers, isInProgress, const FullType(bool)),
-      if (seriesTimerId != null) r'seriesTimerId': encodeQueryParameter(_serializers, seriesTimerId, const FullType(String)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
+      if (channelId != null)
+        r'channelId': encodeQueryParameter(
+            _serializers, channelId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (groupId != null)
+        r'groupId':
+            encodeQueryParameter(_serializers, groupId, const FullType(String)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (status != null)
+        r'status': encodeQueryParameter(
+            _serializers, status, const FullType(RecordingStatus)),
+      if (isInProgress != null)
+        r'isInProgress': encodeQueryParameter(
+            _serializers, isInProgress, const FullType(bool)),
+      if (seriesTimerId != null)
+        r'seriesTimerId': encodeQueryParameter(
+            _serializers, seriesTimerId, const FullType(String)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2773,22 +3149,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -2804,7 +3182,7 @@ class LiveTvApi {
   }
 
   /// Gets available countries.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -2815,8 +3193,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getSchedulesDirectCountries({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getSchedulesDirectCountries({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -2853,18 +3231,19 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -2880,7 +3259,7 @@ class LiveTvApi {
   }
 
   /// Gets a live tv series timer.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [timerId] - Timer id.
@@ -2892,8 +3271,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [SeriesTimerInfoDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<SeriesTimerInfoDto>> getSeriesTimer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<SeriesTimerInfoDto>> getSeriesTimer({
     required String timerId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -2902,7 +3281,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/SeriesTimers/{timerId}'.replaceAll('{' r'timerId' '}', timerId.toString());
+    final _path = r'/LiveTv/SeriesTimers/{timerId}'.replaceAll(
+        '{' r'timerId' '}',
+        encodeQueryParameter(_serializers, timerId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -2930,22 +3312,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SeriesTimerInfoDto _responseData;
+    SeriesTimerInfoDto? _responseData;
 
     try {
-      const _responseType = FullType(SeriesTimerInfoDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as SeriesTimerInfoDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(SeriesTimerInfoDto),
+            ) as SeriesTimerInfoDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<SeriesTimerInfoDto>(
@@ -2961,7 +3345,7 @@ class LiveTvApi {
   }
 
   /// Gets live tv series timers.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [sortBy] - Optional. Sort by SortName or Priority.
@@ -2974,8 +3358,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [SeriesTimerInfoDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<SeriesTimerInfoDtoQueryResult>> getSeriesTimers({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<SeriesTimerInfoDtoQueryResult>> getSeriesTimers({
     String? sortBy,
     SortOrder? sortOrder,
     CancelToken? cancelToken,
@@ -3006,8 +3390,12 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (sortBy != null) r'sortBy': encodeQueryParameter(_serializers, sortBy, const FullType(String)),
-      if (sortOrder != null) r'sortOrder': encodeQueryParameter(_serializers, sortOrder, const FullType(SortOrder)),
+      if (sortBy != null)
+        r'sortBy':
+            encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+      if (sortOrder != null)
+        r'sortOrder': encodeQueryParameter(
+            _serializers, sortOrder, const FullType(SortOrder)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3019,22 +3407,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SeriesTimerInfoDtoQueryResult _responseData;
+    SeriesTimerInfoDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(SeriesTimerInfoDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as SeriesTimerInfoDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(SeriesTimerInfoDtoQueryResult),
+            ) as SeriesTimerInfoDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<SeriesTimerInfoDtoQueryResult>(
@@ -3050,7 +3440,7 @@ class LiveTvApi {
   }
 
   /// Gets a timer.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [timerId] - Timer id.
@@ -3062,8 +3452,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TimerInfoDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<TimerInfoDto>> getTimer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TimerInfoDto>> getTimer({
     required String timerId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -3072,7 +3462,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Timers/{timerId}'.replaceAll('{' r'timerId' '}', timerId.toString());
+    final _path = r'/LiveTv/Timers/{timerId}'.replaceAll(
+        '{' r'timerId' '}',
+        encodeQueryParameter(_serializers, timerId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -3100,22 +3493,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TimerInfoDto _responseData;
+    TimerInfoDto? _responseData;
 
     try {
-      const _responseType = FullType(TimerInfoDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as TimerInfoDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TimerInfoDto),
+            ) as TimerInfoDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<TimerInfoDto>(
@@ -3131,7 +3526,7 @@ class LiveTvApi {
   }
 
   /// Gets the live tv timers.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [channelId] - Optional. Filter by channel id.
@@ -3146,8 +3541,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TimerInfoDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<TimerInfoDtoQueryResult>> getTimers({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TimerInfoDtoQueryResult>> getTimers({
     String? channelId,
     String? seriesTimerId,
     bool? isActive,
@@ -3180,10 +3575,18 @@ class LiveTvApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (channelId != null) r'channelId': encodeQueryParameter(_serializers, channelId, const FullType(String)),
-      if (seriesTimerId != null) r'seriesTimerId': encodeQueryParameter(_serializers, seriesTimerId, const FullType(String)),
-      if (isActive != null) r'isActive': encodeQueryParameter(_serializers, isActive, const FullType(bool)),
-      if (isScheduled != null) r'isScheduled': encodeQueryParameter(_serializers, isScheduled, const FullType(bool)),
+      if (channelId != null)
+        r'channelId': encodeQueryParameter(
+            _serializers, channelId, const FullType(String)),
+      if (seriesTimerId != null)
+        r'seriesTimerId': encodeQueryParameter(
+            _serializers, seriesTimerId, const FullType(String)),
+      if (isActive != null)
+        r'isActive':
+            encodeQueryParameter(_serializers, isActive, const FullType(bool)),
+      if (isScheduled != null)
+        r'isScheduled': encodeQueryParameter(
+            _serializers, isScheduled, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -3195,22 +3598,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TimerInfoDtoQueryResult _responseData;
+    TimerInfoDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(TimerInfoDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as TimerInfoDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TimerInfoDtoQueryResult),
+            ) as TimerInfoDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<TimerInfoDtoQueryResult>(
@@ -3226,7 +3631,7 @@ class LiveTvApi {
   }
 
   /// Get tuner host types.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -3237,8 +3642,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<NameIdPair>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<NameIdPair>>> getTunerHostTypes({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<NameIdPair>>> getTunerHostTypes({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -3274,22 +3679,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<NameIdPair> _responseData;
+    BuiltList<NameIdPair>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(NameIdPair)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<NameIdPair>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(NameIdPair)]),
+            ) as BuiltList<NameIdPair>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<NameIdPair>>(
@@ -3305,7 +3712,7 @@ class LiveTvApi {
   }
 
   /// Resets a tv tuner.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [tunerId] - Tuner id.
@@ -3317,8 +3724,8 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> resetTuner({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> resetTuner({
     required String tunerId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -3327,7 +3734,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Tuners/{tunerId}/Reset'.replaceAll('{' r'tunerId' '}', tunerId.toString());
+    final _path = r'/LiveTv/Tuners/{tunerId}/Reset'.replaceAll(
+        '{' r'tunerId' '}',
+        encodeQueryParameter(_serializers, tunerId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -3359,10 +3769,10 @@ class LiveTvApi {
   }
 
   /// Set channel mappings.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [setChannelMappingRequest] - The set channel mapping dto.
+  /// * [setChannelMappingDto] - The set channel mapping dto.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -3371,9 +3781,9 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [TunerChannelMapping] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<TunerChannelMapping>> setChannelMapping({ 
-    required SetChannelMappingRequest setChannelMappingRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<TunerChannelMapping>> setChannelMapping({
+    required SetChannelMappingDto setChannelMappingDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -3405,18 +3815,19 @@ class LiveTvApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SetChannelMappingRequest);
-      _bodyData = _serializers.serialize(setChannelMappingRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(SetChannelMappingDto);
+      _bodyData =
+          _serializers.serialize(setChannelMappingDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -3428,22 +3839,24 @@ class LiveTvApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    TunerChannelMapping _responseData;
+    TunerChannelMapping? _responseData;
 
     try {
-      const _responseType = FullType(TunerChannelMapping);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as TunerChannelMapping;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(TunerChannelMapping),
+            ) as TunerChannelMapping;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<TunerChannelMapping>(
@@ -3459,11 +3872,11 @@ class LiveTvApi {
   }
 
   /// Updates a live tv series timer.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [timerId] - Timer id.
-  /// * [createSeriesTimerRequest] - New series timer info.
+  /// * [seriesTimerInfoDto] - New series timer info.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -3472,10 +3885,10 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateSeriesTimer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateSeriesTimer({
     required String timerId,
-    CreateSeriesTimerRequest? createSeriesTimerRequest,
+    SeriesTimerInfoDto? seriesTimerInfoDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -3483,7 +3896,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/SeriesTimers/{timerId}'.replaceAll('{' r'timerId' '}', timerId.toString());
+    final _path = r'/LiveTv/SeriesTimers/{timerId}'.replaceAll(
+        '{' r'timerId' '}',
+        encodeQueryParameter(_serializers, timerId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -3507,18 +3923,20 @@ class LiveTvApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateSeriesTimerRequest);
-      _bodyData = createSeriesTimerRequest == null ? null : _serializers.serialize(createSeriesTimerRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(SeriesTimerInfoDto);
+      _bodyData = seriesTimerInfoDto == null
+          ? null
+          : _serializers.serialize(seriesTimerInfoDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -3534,11 +3952,11 @@ class LiveTvApi {
   }
 
   /// Updates a live tv timer.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [timerId] - Timer id.
-  /// * [createTimerRequest] - New timer info.
+  /// * [timerInfoDto] - New timer info.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -3547,10 +3965,10 @@ class LiveTvApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateTimer({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateTimer({
     required String timerId,
-    CreateTimerRequest? createTimerRequest,
+    TimerInfoDto? timerInfoDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -3558,7 +3976,10 @@ class LiveTvApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/LiveTv/Timers/{timerId}'.replaceAll('{' r'timerId' '}', timerId.toString());
+    final _path = r'/LiveTv/Timers/{timerId}'.replaceAll(
+        '{' r'timerId' '}',
+        encodeQueryParameter(_serializers, timerId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -3582,18 +4003,20 @@ class LiveTvApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateTimerRequest);
-      _bodyData = createTimerRequest == null ? null : _serializers.serialize(createTimerRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(TimerInfoDto);
+      _bodyData = timerInfoDto == null
+          ? null
+          : _serializers.serialize(timerInfoDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -3607,5 +4030,4 @@ class LiveTvApi {
 
     return _response;
   }
-
 }

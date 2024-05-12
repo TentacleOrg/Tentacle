@@ -6,17 +6,17 @@ part of 'session_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class SessionInfoBuilder {
+abstract mixin class SessionInfoBuilder {
   void replace(SessionInfo other);
   void update(void Function(SessionInfoBuilder) updates);
-  SessionInfoPlayStateBuilder get playState;
-  set playState(SessionInfoPlayStateBuilder? playState);
+  PlayerStateInfoBuilder get playState;
+  set playState(PlayerStateInfoBuilder? playState);
 
   ListBuilder<SessionUserInfo> get additionalUsers;
   set additionalUsers(ListBuilder<SessionUserInfo>? additionalUsers);
 
-  SessionInfoCapabilitiesBuilder get capabilities;
-  set capabilities(SessionInfoCapabilitiesBuilder? capabilities);
+  ClientCapabilities? get capabilities;
+  set capabilities(ClientCapabilities? capabilities);
 
   String? get remoteEndPoint;
   set remoteEndPoint(String? remoteEndPoint);
@@ -64,8 +64,8 @@ abstract class SessionInfoBuilder {
   String? get applicationVersion;
   set applicationVersion(String? applicationVersion);
 
-  SessionInfoTranscodingInfoBuilder get transcodingInfo;
-  set transcodingInfo(SessionInfoTranscodingInfoBuilder? transcodingInfo);
+  TranscodingInfoBuilder get transcodingInfo;
+  set transcodingInfo(TranscodingInfoBuilder? transcodingInfo);
 
   bool? get isActive;
   set isActive(bool? isActive);
@@ -101,11 +101,11 @@ abstract class SessionInfoBuilder {
 
 class _$$SessionInfo extends $SessionInfo {
   @override
-  final SessionInfoPlayState? playState;
+  final PlayerStateInfo? playState;
   @override
   final BuiltList<SessionUserInfo>? additionalUsers;
   @override
-  final SessionInfoCapabilities? capabilities;
+  final ClientCapabilities? capabilities;
   @override
   final String? remoteEndPoint;
   @override
@@ -137,7 +137,7 @@ class _$$SessionInfo extends $SessionInfo {
   @override
   final String? applicationVersion;
   @override
-  final SessionInfoTranscodingInfo? transcodingInfo;
+  final TranscodingInfo? transcodingInfo;
   @override
   final bool? isActive;
   @override
@@ -312,10 +312,10 @@ class $SessionInfoBuilder
     implements Builder<$SessionInfo, $SessionInfoBuilder>, SessionInfoBuilder {
   _$$SessionInfo? _$v;
 
-  SessionInfoPlayStateBuilder? _playState;
-  SessionInfoPlayStateBuilder get playState =>
-      _$this._playState ??= new SessionInfoPlayStateBuilder();
-  set playState(covariant SessionInfoPlayStateBuilder? playState) =>
+  PlayerStateInfoBuilder? _playState;
+  PlayerStateInfoBuilder get playState =>
+      _$this._playState ??= new PlayerStateInfoBuilder();
+  set playState(covariant PlayerStateInfoBuilder? playState) =>
       _$this._playState = playState;
 
   ListBuilder<SessionUserInfo>? _additionalUsers;
@@ -325,10 +325,9 @@ class $SessionInfoBuilder
           covariant ListBuilder<SessionUserInfo>? additionalUsers) =>
       _$this._additionalUsers = additionalUsers;
 
-  SessionInfoCapabilitiesBuilder? _capabilities;
-  SessionInfoCapabilitiesBuilder get capabilities =>
-      _$this._capabilities ??= new SessionInfoCapabilitiesBuilder();
-  set capabilities(covariant SessionInfoCapabilitiesBuilder? capabilities) =>
+  ClientCapabilities? _capabilities;
+  ClientCapabilities? get capabilities => _$this._capabilities;
+  set capabilities(covariant ClientCapabilities? capabilities) =>
       _$this._capabilities = capabilities;
 
   String? _remoteEndPoint;
@@ -408,11 +407,10 @@ class $SessionInfoBuilder
   set applicationVersion(covariant String? applicationVersion) =>
       _$this._applicationVersion = applicationVersion;
 
-  SessionInfoTranscodingInfoBuilder? _transcodingInfo;
-  SessionInfoTranscodingInfoBuilder get transcodingInfo =>
-      _$this._transcodingInfo ??= new SessionInfoTranscodingInfoBuilder();
-  set transcodingInfo(
-          covariant SessionInfoTranscodingInfoBuilder? transcodingInfo) =>
+  TranscodingInfoBuilder? _transcodingInfo;
+  TranscodingInfoBuilder get transcodingInfo =>
+      _$this._transcodingInfo ??= new TranscodingInfoBuilder();
+  set transcodingInfo(covariant TranscodingInfoBuilder? transcodingInfo) =>
       _$this._transcodingInfo = transcodingInfo;
 
   bool? _isActive;
@@ -477,7 +475,7 @@ class $SessionInfoBuilder
     if ($v != null) {
       _playState = $v.playState?.toBuilder();
       _additionalUsers = $v.additionalUsers?.toBuilder();
-      _capabilities = $v.capabilities?.toBuilder();
+      _capabilities = $v.capabilities;
       _remoteEndPoint = $v.remoteEndPoint;
       _playableMediaTypes = $v.playableMediaTypes?.toBuilder();
       _id = $v.id;
@@ -530,7 +528,7 @@ class $SessionInfoBuilder
           new _$$SessionInfo._(
               playState: _playState?.build(),
               additionalUsers: _additionalUsers?.build(),
-              capabilities: _capabilities?.build(),
+              capabilities: capabilities,
               remoteEndPoint: remoteEndPoint,
               playableMediaTypes: _playableMediaTypes?.build(),
               id: id,
@@ -564,8 +562,6 @@ class $SessionInfoBuilder
         _playState?.build();
         _$failedField = 'additionalUsers';
         _additionalUsers?.build();
-        _$failedField = 'capabilities';
-        _capabilities?.build();
 
         _$failedField = 'playableMediaTypes';
         _playableMediaTypes?.build();

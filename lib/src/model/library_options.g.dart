@@ -6,7 +6,7 @@ part of 'library_options.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class LibraryOptionsBuilder {
+abstract mixin class LibraryOptionsBuilder {
   void replace(LibraryOptions other);
   void update(void Function(LibraryOptionsBuilder) updates);
   bool? get enablePhotos;

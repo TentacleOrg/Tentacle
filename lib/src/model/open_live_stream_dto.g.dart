@@ -6,50 +6,7 @@ part of 'open_live_stream_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class OpenLiveStreamDtoBuilder {
-  void replace(OpenLiveStreamDto other);
-  void update(void Function(OpenLiveStreamDtoBuilder) updates);
-  String? get openToken;
-  set openToken(String? openToken);
-
-  String? get userId;
-  set userId(String? userId);
-
-  String? get playSessionId;
-  set playSessionId(String? playSessionId);
-
-  int? get maxStreamingBitrate;
-  set maxStreamingBitrate(int? maxStreamingBitrate);
-
-  int? get startTimeTicks;
-  set startTimeTicks(int? startTimeTicks);
-
-  int? get audioStreamIndex;
-  set audioStreamIndex(int? audioStreamIndex);
-
-  int? get subtitleStreamIndex;
-  set subtitleStreamIndex(int? subtitleStreamIndex);
-
-  int? get maxAudioChannels;
-  set maxAudioChannels(int? maxAudioChannels);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  bool? get enableDirectPlay;
-  set enableDirectPlay(bool? enableDirectPlay);
-
-  bool? get enableDirectStream;
-  set enableDirectStream(bool? enableDirectStream);
-
-  ClientCapabilitiesDtoDeviceProfileBuilder get deviceProfile;
-  set deviceProfile(ClientCapabilitiesDtoDeviceProfileBuilder? deviceProfile);
-
-  ListBuilder<MediaProtocol> get directPlayProtocols;
-  set directPlayProtocols(ListBuilder<MediaProtocol>? directPlayProtocols);
-}
-
-class _$$OpenLiveStreamDto extends $OpenLiveStreamDto {
+class _$OpenLiveStreamDto extends OpenLiveStreamDto {
   @override
   final String? openToken;
   @override
@@ -73,15 +30,15 @@ class _$$OpenLiveStreamDto extends $OpenLiveStreamDto {
   @override
   final bool? enableDirectStream;
   @override
-  final ClientCapabilitiesDtoDeviceProfile? deviceProfile;
+  final ClientCapabilitiesDeviceProfile? deviceProfile;
   @override
   final BuiltList<MediaProtocol>? directPlayProtocols;
 
-  factory _$$OpenLiveStreamDto(
-          [void Function($OpenLiveStreamDtoBuilder)? updates]) =>
-      (new $OpenLiveStreamDtoBuilder()..update(updates))._build();
+  factory _$OpenLiveStreamDto(
+          [void Function(OpenLiveStreamDtoBuilder)? updates]) =>
+      (new OpenLiveStreamDtoBuilder()..update(updates))._build();
 
-  _$$OpenLiveStreamDto._(
+  _$OpenLiveStreamDto._(
       {this.openToken,
       this.userId,
       this.playSessionId,
@@ -98,18 +55,17 @@ class _$$OpenLiveStreamDto extends $OpenLiveStreamDto {
       : super._();
 
   @override
-  $OpenLiveStreamDto rebuild(
-          void Function($OpenLiveStreamDtoBuilder) updates) =>
+  OpenLiveStreamDto rebuild(void Function(OpenLiveStreamDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $OpenLiveStreamDtoBuilder toBuilder() =>
-      new $OpenLiveStreamDtoBuilder()..replace(this);
+  OpenLiveStreamDtoBuilder toBuilder() =>
+      new OpenLiveStreamDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $OpenLiveStreamDto &&
+    return other is OpenLiveStreamDto &&
         openToken == other.openToken &&
         userId == other.userId &&
         playSessionId == other.playSessionId &&
@@ -147,7 +103,7 @@ class _$$OpenLiveStreamDto extends $OpenLiveStreamDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$OpenLiveStreamDto')
+    return (newBuiltValueToStringHelper(r'OpenLiveStreamDto')
           ..add('openToken', openToken)
           ..add('userId', userId)
           ..add('playSessionId', playSessionId)
@@ -165,83 +121,79 @@ class _$$OpenLiveStreamDto extends $OpenLiveStreamDto {
   }
 }
 
-class $OpenLiveStreamDtoBuilder
-    implements
-        Builder<$OpenLiveStreamDto, $OpenLiveStreamDtoBuilder>,
-        OpenLiveStreamDtoBuilder {
-  _$$OpenLiveStreamDto? _$v;
+class OpenLiveStreamDtoBuilder
+    implements Builder<OpenLiveStreamDto, OpenLiveStreamDtoBuilder> {
+  _$OpenLiveStreamDto? _$v;
 
   String? _openToken;
   String? get openToken => _$this._openToken;
-  set openToken(covariant String? openToken) => _$this._openToken = openToken;
+  set openToken(String? openToken) => _$this._openToken = openToken;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(covariant String? userId) => _$this._userId = userId;
+  set userId(String? userId) => _$this._userId = userId;
 
   String? _playSessionId;
   String? get playSessionId => _$this._playSessionId;
-  set playSessionId(covariant String? playSessionId) =>
+  set playSessionId(String? playSessionId) =>
       _$this._playSessionId = playSessionId;
 
   int? _maxStreamingBitrate;
   int? get maxStreamingBitrate => _$this._maxStreamingBitrate;
-  set maxStreamingBitrate(covariant int? maxStreamingBitrate) =>
+  set maxStreamingBitrate(int? maxStreamingBitrate) =>
       _$this._maxStreamingBitrate = maxStreamingBitrate;
 
   int? _startTimeTicks;
   int? get startTimeTicks => _$this._startTimeTicks;
-  set startTimeTicks(covariant int? startTimeTicks) =>
+  set startTimeTicks(int? startTimeTicks) =>
       _$this._startTimeTicks = startTimeTicks;
 
   int? _audioStreamIndex;
   int? get audioStreamIndex => _$this._audioStreamIndex;
-  set audioStreamIndex(covariant int? audioStreamIndex) =>
+  set audioStreamIndex(int? audioStreamIndex) =>
       _$this._audioStreamIndex = audioStreamIndex;
 
   int? _subtitleStreamIndex;
   int? get subtitleStreamIndex => _$this._subtitleStreamIndex;
-  set subtitleStreamIndex(covariant int? subtitleStreamIndex) =>
+  set subtitleStreamIndex(int? subtitleStreamIndex) =>
       _$this._subtitleStreamIndex = subtitleStreamIndex;
 
   int? _maxAudioChannels;
   int? get maxAudioChannels => _$this._maxAudioChannels;
-  set maxAudioChannels(covariant int? maxAudioChannels) =>
+  set maxAudioChannels(int? maxAudioChannels) =>
       _$this._maxAudioChannels = maxAudioChannels;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   bool? _enableDirectPlay;
   bool? get enableDirectPlay => _$this._enableDirectPlay;
-  set enableDirectPlay(covariant bool? enableDirectPlay) =>
+  set enableDirectPlay(bool? enableDirectPlay) =>
       _$this._enableDirectPlay = enableDirectPlay;
 
   bool? _enableDirectStream;
   bool? get enableDirectStream => _$this._enableDirectStream;
-  set enableDirectStream(covariant bool? enableDirectStream) =>
+  set enableDirectStream(bool? enableDirectStream) =>
       _$this._enableDirectStream = enableDirectStream;
 
-  ClientCapabilitiesDtoDeviceProfileBuilder? _deviceProfile;
-  ClientCapabilitiesDtoDeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new ClientCapabilitiesDtoDeviceProfileBuilder();
-  set deviceProfile(
-          covariant ClientCapabilitiesDtoDeviceProfileBuilder? deviceProfile) =>
+  ClientCapabilitiesDeviceProfileBuilder? _deviceProfile;
+  ClientCapabilitiesDeviceProfileBuilder get deviceProfile =>
+      _$this._deviceProfile ??= new ClientCapabilitiesDeviceProfileBuilder();
+  set deviceProfile(ClientCapabilitiesDeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
   ListBuilder<MediaProtocol>? _directPlayProtocols;
   ListBuilder<MediaProtocol> get directPlayProtocols =>
       _$this._directPlayProtocols ??= new ListBuilder<MediaProtocol>();
-  set directPlayProtocols(
-          covariant ListBuilder<MediaProtocol>? directPlayProtocols) =>
+  set directPlayProtocols(ListBuilder<MediaProtocol>? directPlayProtocols) =>
       _$this._directPlayProtocols = directPlayProtocols;
 
-  $OpenLiveStreamDtoBuilder() {
-    $OpenLiveStreamDto._defaults(this);
+  OpenLiveStreamDtoBuilder() {
+    OpenLiveStreamDto._defaults(this);
   }
 
-  $OpenLiveStreamDtoBuilder get _$this {
+  OpenLiveStreamDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _openToken = $v.openToken;
@@ -263,24 +215,24 @@ class $OpenLiveStreamDtoBuilder
   }
 
   @override
-  void replace(covariant $OpenLiveStreamDto other) {
+  void replace(OpenLiveStreamDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$OpenLiveStreamDto;
+    _$v = other as _$OpenLiveStreamDto;
   }
 
   @override
-  void update(void Function($OpenLiveStreamDtoBuilder)? updates) {
+  void update(void Function(OpenLiveStreamDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $OpenLiveStreamDto build() => _build();
+  OpenLiveStreamDto build() => _build();
 
-  _$$OpenLiveStreamDto _build() {
-    _$$OpenLiveStreamDto _$result;
+  _$OpenLiveStreamDto _build() {
+    _$OpenLiveStreamDto _$result;
     try {
       _$result = _$v ??
-          new _$$OpenLiveStreamDto._(
+          new _$OpenLiveStreamDto._(
               openToken: openToken,
               userId: userId,
               playSessionId: playSessionId,
@@ -303,7 +255,7 @@ class $OpenLiveStreamDtoBuilder
         _directPlayProtocols?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$OpenLiveStreamDto', _$failedField, e.toString());
+            r'OpenLiveStreamDto', _$failedField, e.toString());
       }
       rethrow;
     }

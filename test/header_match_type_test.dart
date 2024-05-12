@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for HeaderMatchType
 void main() {
-
-  group(HeaderMatchType, () {
-  });
+  group(HeaderMatchType, () {});
 }

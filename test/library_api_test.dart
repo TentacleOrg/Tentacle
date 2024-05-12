@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for LibraryApi
 void main() {
   final instance = Tentacle().getLibraryApi();
@@ -156,7 +155,7 @@ void main() {
 
     // Reports that new movies have been added by an external source.
     //
-    //Future postUpdatedMedia(PostUpdatedMediaRequest postUpdatedMediaRequest) async
+    //Future postUpdatedMedia(MediaUpdateInfoDto mediaUpdateInfoDto) async
     test('test postUpdatedMedia', () async {
       // TODO
     });
@@ -181,6 +180,5 @@ void main() {
     test('test refreshLibrary', () async {
       // TODO
     });
-
   });
 }

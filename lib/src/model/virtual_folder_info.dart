@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/library_options.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/virtual_folder_info_library_options.dart';
 import 'package:tentacle/src/model/collection_type_options.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -17,13 +17,14 @@ part 'virtual_folder_info.g.dart';
 /// * [name] - Gets or sets the name.
 /// * [locations] - Gets or sets the locations.
 /// * [collectionType] - Gets or sets the type of the collection.
-/// * [libraryOptions] 
+/// * [libraryOptions]
 /// * [itemId] - Gets or sets the item identifier.
 /// * [primaryImageItemId] - Gets or sets the primary image item identifier.
-/// * [refreshProgress] 
-/// * [refreshStatus] 
+/// * [refreshProgress]
+/// * [refreshStatus]
 @BuiltValue()
-abstract class VirtualFolderInfo implements Built<VirtualFolderInfo, VirtualFolderInfoBuilder> {
+abstract class VirtualFolderInfo
+    implements Built<VirtualFolderInfo, VirtualFolderInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -35,9 +36,10 @@ abstract class VirtualFolderInfo implements Built<VirtualFolderInfo, VirtualFold
   /// Gets or sets the type of the collection.
   @BuiltValueField(wireName: r'CollectionType')
   CollectionTypeOptions? get collectionType;
+  // enum collectionTypeEnum {  Movies,  TvShows,  Music,  MusicVideos,  HomeVideos,  BoxSets,  Books,  Mixed,  };
 
   @BuiltValueField(wireName: r'LibraryOptions')
-  VirtualFolderInfoLibraryOptions? get libraryOptions;
+  LibraryOptions? get libraryOptions;
 
   /// Gets or sets the item identifier.
   @BuiltValueField(wireName: r'ItemId')
@@ -55,16 +57,19 @@ abstract class VirtualFolderInfo implements Built<VirtualFolderInfo, VirtualFold
 
   VirtualFolderInfo._();
 
-  factory VirtualFolderInfo([void updates(VirtualFolderInfoBuilder b)]) = _$VirtualFolderInfo;
+  factory VirtualFolderInfo([void updates(VirtualFolderInfoBuilder b)]) =
+      _$VirtualFolderInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(VirtualFolderInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<VirtualFolderInfo> get serializer => _$VirtualFolderInfoSerializer();
+  static Serializer<VirtualFolderInfo> get serializer =>
+      _$VirtualFolderInfoSerializer();
 }
 
-class _$VirtualFolderInfoSerializer implements PrimitiveSerializer<VirtualFolderInfo> {
+class _$VirtualFolderInfoSerializer
+    implements PrimitiveSerializer<VirtualFolderInfo> {
   @override
   final Iterable<Type> types = const [VirtualFolderInfo, _$VirtualFolderInfo];
 
@@ -101,7 +106,7 @@ class _$VirtualFolderInfoSerializer implements PrimitiveSerializer<VirtualFolder
       yield r'LibraryOptions';
       yield serializers.serialize(
         object.libraryOptions,
-        specifiedType: const FullType.nullable(VirtualFolderInfoLibraryOptions),
+        specifiedType: const FullType.nullable(LibraryOptions),
       );
     }
     if (object.itemId != null) {
@@ -140,7 +145,9 @@ class _$VirtualFolderInfoSerializer implements PrimitiveSerializer<VirtualFolder
     VirtualFolderInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -166,7 +173,8 @@ class _$VirtualFolderInfoSerializer implements PrimitiveSerializer<VirtualFolder
         case r'Locations':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.locations.replace(valueDes);
@@ -182,10 +190,10 @@ class _$VirtualFolderInfoSerializer implements PrimitiveSerializer<VirtualFolder
         case r'LibraryOptions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(VirtualFolderInfoLibraryOptions),
-          ) as VirtualFolderInfoLibraryOptions?;
+            specifiedType: const FullType.nullable(LibraryOptions),
+          ) as LibraryOptions?;
           if (valueDes == null) continue;
-          result.libraryOptions.replace(valueDes);
+          result.libraryOptions = valueDes;
           break;
         case r'ItemId':
           final valueDes = serializers.deserialize(
@@ -247,4 +255,3 @@ class _$VirtualFolderInfoSerializer implements PrimitiveSerializer<VirtualFolder
     return result.build();
   }
 }
-

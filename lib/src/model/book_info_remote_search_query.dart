@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/book_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/book_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,16 @@ part 'book_info_remote_search_query.g.dart';
 /// BookInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo] 
-/// * [itemId] 
+/// * [searchInfo]
+/// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
-@BuiltValue(instantiable: false)
-abstract class BookInfoRemoteSearchQuery  {
+@BuiltValue()
+abstract class BookInfoRemoteSearchQuery
+    implements
+        Built<BookInfoRemoteSearchQuery, BookInfoRemoteSearchQueryBuilder> {
   @BuiltValueField(wireName: r'SearchInfo')
-  BookInfoRemoteSearchQuerySearchInfo? get searchInfo;
+  BookInfo? get searchInfo;
 
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
@@ -32,13 +34,27 @@ abstract class BookInfoRemoteSearchQuery  {
   @BuiltValueField(wireName: r'IncludeDisabledProviders')
   bool? get includeDisabledProviders;
 
+  BookInfoRemoteSearchQuery._();
+
+  factory BookInfoRemoteSearchQuery(
+          [void updates(BookInfoRemoteSearchQueryBuilder b)]) =
+      _$BookInfoRemoteSearchQuery;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BookInfoRemoteSearchQueryBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<BookInfoRemoteSearchQuery> get serializer => _$BookInfoRemoteSearchQuerySerializer();
+  static Serializer<BookInfoRemoteSearchQuery> get serializer =>
+      _$BookInfoRemoteSearchQuerySerializer();
 }
 
-class _$BookInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<BookInfoRemoteSearchQuery> {
+class _$BookInfoRemoteSearchQuerySerializer
+    implements PrimitiveSerializer<BookInfoRemoteSearchQuery> {
   @override
-  final Iterable<Type> types = const [BookInfoRemoteSearchQuery];
+  final Iterable<Type> types = const [
+    BookInfoRemoteSearchQuery,
+    _$BookInfoRemoteSearchQuery
+  ];
 
   @override
   final String wireName = r'BookInfoRemoteSearchQuery';
@@ -52,7 +68,7 @@ class _$BookInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<BookI
       yield r'SearchInfo';
       yield serializers.serialize(
         object.searchInfo,
-        specifiedType: const FullType.nullable(BookInfoRemoteSearchQuerySearchInfo),
+        specifiedType: const FullType.nullable(BookInfo),
       );
     }
     if (object.itemId != null) {
@@ -84,47 +100,9 @@ class _$BookInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<BookI
     BookInfoRemoteSearchQuery object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  BookInfoRemoteSearchQuery deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($BookInfoRemoteSearchQuery)) as $BookInfoRemoteSearchQuery;
-  }
-}
-
-/// a concrete implementation of [BookInfoRemoteSearchQuery], since [BookInfoRemoteSearchQuery] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $BookInfoRemoteSearchQuery implements BookInfoRemoteSearchQuery, Built<$BookInfoRemoteSearchQuery, $BookInfoRemoteSearchQueryBuilder> {
-  $BookInfoRemoteSearchQuery._();
-
-  factory $BookInfoRemoteSearchQuery([void Function($BookInfoRemoteSearchQueryBuilder)? updates]) = _$$BookInfoRemoteSearchQuery;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BookInfoRemoteSearchQueryBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$BookInfoRemoteSearchQuery> get serializer => _$$BookInfoRemoteSearchQuerySerializer();
-}
-
-class _$$BookInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$BookInfoRemoteSearchQuery> {
-  @override
-  final Iterable<Type> types = const [$BookInfoRemoteSearchQuery, _$$BookInfoRemoteSearchQuery];
-
-  @override
-  final String wireName = r'$BookInfoRemoteSearchQuery';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $BookInfoRemoteSearchQuery object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(BookInfoRemoteSearchQuery))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -142,8 +120,8 @@ class _$$BookInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Boo
         case r'SearchInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BookInfoRemoteSearchQuerySearchInfo),
-          ) as BookInfoRemoteSearchQuerySearchInfo?;
+            specifiedType: const FullType.nullable(BookInfo),
+          ) as BookInfo?;
           if (valueDes == null) continue;
           result.searchInfo.replace(valueDes);
           break;
@@ -178,12 +156,12 @@ class _$$BookInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Boo
   }
 
   @override
-  $BookInfoRemoteSearchQuery deserialize(
+  BookInfoRemoteSearchQuery deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $BookInfoRemoteSearchQueryBuilder();
+    final result = BookInfoRemoteSearchQueryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -197,4 +175,3 @@ class _$$BookInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Boo
     return result.build();
   }
 }
-

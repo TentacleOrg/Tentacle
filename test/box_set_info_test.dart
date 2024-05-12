@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for BoxSetInfo
 void main() {
-  //final instance = BoxSetInfoBuilder();
+  final instance = BoxSetInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(BoxSetInfo, () {
@@ -68,6 +68,5 @@ void main() {
     test('to test the property `isAutomated`', () async {
       // TODO
     });
-
   });
 }

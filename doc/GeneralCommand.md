@@ -1,8 +1,8 @@
-# openapi.model.GeneralCommand
+# tentacle.model.GeneralCommand
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

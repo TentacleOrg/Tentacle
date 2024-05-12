@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for DashboardApi
 void main() {
   final instance = Tentacle().getDashboardApi();
@@ -20,6 +19,5 @@ void main() {
     test('test getDashboardConfigurationPage', () async {
       // TODO
     });
-
   });
 }

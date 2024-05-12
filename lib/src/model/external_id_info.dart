@@ -17,7 +17,8 @@ part 'external_id_info.g.dart';
 /// * [type] - Gets or sets the specific media type for this id. This is used to distinguish between the different  external id types for providers with multiple ids.  A null value indicates there is no specific media type associated with the external id, or this is the  default id for the external provider so there is no need to specify a type.
 /// * [urlFormatString] - Gets or sets the URL format string.
 @BuiltValue()
-abstract class ExternalIdInfo implements Built<ExternalIdInfo, ExternalIdInfoBuilder> {
+abstract class ExternalIdInfo
+    implements Built<ExternalIdInfo, ExternalIdInfoBuilder> {
   /// Gets or sets the display name of the external id provider (IE: IMDB, MusicBrainz, etc).
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -29,6 +30,7 @@ abstract class ExternalIdInfo implements Built<ExternalIdInfo, ExternalIdInfoBui
   /// Gets or sets the specific media type for this id. This is used to distinguish between the different  external id types for providers with multiple ids.  A null value indicates there is no specific media type associated with the external id, or this is the  default id for the external provider so there is no need to specify a type.
   @BuiltValueField(wireName: r'Type')
   ExternalIdMediaType? get type;
+  // enum typeEnum {  Album,  AlbumArtist,  Artist,  BoxSet,  Episode,  Movie,  OtherArtist,  Person,  ReleaseGroup,  Season,  Series,  Track,  };
 
   /// Gets or sets the URL format string.
   @BuiltValueField(wireName: r'UrlFormatString')
@@ -36,16 +38,19 @@ abstract class ExternalIdInfo implements Built<ExternalIdInfo, ExternalIdInfoBui
 
   ExternalIdInfo._();
 
-  factory ExternalIdInfo([void updates(ExternalIdInfoBuilder b)]) = _$ExternalIdInfo;
+  factory ExternalIdInfo([void updates(ExternalIdInfoBuilder b)]) =
+      _$ExternalIdInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ExternalIdInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ExternalIdInfo> get serializer => _$ExternalIdInfoSerializer();
+  static Serializer<ExternalIdInfo> get serializer =>
+      _$ExternalIdInfoSerializer();
 }
 
-class _$ExternalIdInfoSerializer implements PrimitiveSerializer<ExternalIdInfo> {
+class _$ExternalIdInfoSerializer
+    implements PrimitiveSerializer<ExternalIdInfo> {
   @override
   final Iterable<Type> types = const [ExternalIdInfo, _$ExternalIdInfo];
 
@@ -93,7 +98,9 @@ class _$ExternalIdInfoSerializer implements PrimitiveSerializer<ExternalIdInfo> 
     ExternalIdInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -166,4 +173,3 @@ class _$ExternalIdInfoSerializer implements PrimitiveSerializer<ExternalIdInfo> 
     return result.build();
   }
 }
-

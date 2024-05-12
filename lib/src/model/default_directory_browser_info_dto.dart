@@ -13,25 +13,35 @@ part 'default_directory_browser_info_dto.g.dart';
 /// Properties:
 /// * [path] - Gets or sets the path.
 @BuiltValue()
-abstract class DefaultDirectoryBrowserInfoDto implements Built<DefaultDirectoryBrowserInfoDto, DefaultDirectoryBrowserInfoDtoBuilder> {
+abstract class DefaultDirectoryBrowserInfoDto
+    implements
+        Built<DefaultDirectoryBrowserInfoDto,
+            DefaultDirectoryBrowserInfoDtoBuilder> {
   /// Gets or sets the path.
   @BuiltValueField(wireName: r'Path')
   String? get path;
 
   DefaultDirectoryBrowserInfoDto._();
 
-  factory DefaultDirectoryBrowserInfoDto([void updates(DefaultDirectoryBrowserInfoDtoBuilder b)]) = _$DefaultDirectoryBrowserInfoDto;
+  factory DefaultDirectoryBrowserInfoDto(
+          [void updates(DefaultDirectoryBrowserInfoDtoBuilder b)]) =
+      _$DefaultDirectoryBrowserInfoDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DefaultDirectoryBrowserInfoDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DefaultDirectoryBrowserInfoDto> get serializer => _$DefaultDirectoryBrowserInfoDtoSerializer();
+  static Serializer<DefaultDirectoryBrowserInfoDto> get serializer =>
+      _$DefaultDirectoryBrowserInfoDtoSerializer();
 }
 
-class _$DefaultDirectoryBrowserInfoDtoSerializer implements PrimitiveSerializer<DefaultDirectoryBrowserInfoDto> {
+class _$DefaultDirectoryBrowserInfoDtoSerializer
+    implements PrimitiveSerializer<DefaultDirectoryBrowserInfoDto> {
   @override
-  final Iterable<Type> types = const [DefaultDirectoryBrowserInfoDto, _$DefaultDirectoryBrowserInfoDto];
+  final Iterable<Type> types = const [
+    DefaultDirectoryBrowserInfoDto,
+    _$DefaultDirectoryBrowserInfoDto
+  ];
 
   @override
   final String wireName = r'DefaultDirectoryBrowserInfoDto';
@@ -56,7 +66,9 @@ class _$DefaultDirectoryBrowserInfoDtoSerializer implements PrimitiveSerializer<
     DefaultDirectoryBrowserInfoDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -107,4 +119,3 @@ class _$DefaultDirectoryBrowserInfoDtoSerializer implements PrimitiveSerializer<
     return result.build();
   }
 }
-

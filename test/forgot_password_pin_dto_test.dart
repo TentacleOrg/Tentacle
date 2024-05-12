@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ForgotPasswordPinDto
 void main() {
-  //final instance = ForgotPasswordPinDtoBuilder();
+  final instance = ForgotPasswordPinDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(ForgotPasswordPinDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `pin`', () async {
       // TODO
     });
-
   });
 }

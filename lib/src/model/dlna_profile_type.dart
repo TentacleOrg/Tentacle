@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'dlna_profile_type.g.dart';
 
 class DlnaProfileType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Audio')
   static const DlnaProfileType audio = _$audio;
   @BuiltValueEnumConst(wireName: r'Video')
@@ -20,9 +19,10 @@ class DlnaProfileType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Subtitle')
   static const DlnaProfileType subtitle = _$subtitle;
 
-  static Serializer<DlnaProfileType> get serializer => _$dlnaProfileTypeSerializer;
+  static Serializer<DlnaProfileType> get serializer =>
+      _$dlnaProfileTypeSerializer;
 
-  const DlnaProfileType._(String name): super(name);
+  const DlnaProfileType._(String name) : super(name);
 
   static BuiltSet<DlnaProfileType> get values => _$values;
   static DlnaProfileType valueOf(String name) => _$valueOf(name);
@@ -35,4 +35,3 @@ class DlnaProfileType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class DlnaProfileTypeMixin = Object with _$DlnaProfileTypeMixin;
-

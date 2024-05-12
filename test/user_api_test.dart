@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for UserApi
 void main() {
   final instance = Tentacle().getUserApi();
@@ -16,21 +15,21 @@ void main() {
 
     // Authenticates a user by name.
     //
-    //Future<AuthenticationResult> authenticateUserByName(AuthenticateUserByNameRequest authenticateUserByNameRequest) async
+    //Future<AuthenticationResult> authenticateUserByName(AuthenticateUserByName authenticateUserByName) async
     test('test authenticateUserByName', () async {
       // TODO
     });
 
     // Authenticates a user with quick connect.
     //
-    //Future<AuthenticationResult> authenticateWithQuickConnect(AuthenticateWithQuickConnectRequest authenticateWithQuickConnectRequest) async
+    //Future<AuthenticationResult> authenticateWithQuickConnect(QuickConnectDto quickConnectDto) async
     test('test authenticateWithQuickConnect', () async {
       // TODO
     });
 
     // Creates a user.
     //
-    //Future<UserDto> createUserByName(CreateUserByNameRequest createUserByNameRequest) async
+    //Future<UserDto> createUserByName(CreateUserByName createUserByName) async
     test('test createUserByName', () async {
       // TODO
     });
@@ -44,14 +43,14 @@ void main() {
 
     // Initiates the forgot password process for a local user.
     //
-    //Future<ForgotPasswordResult> forgotPassword(ForgotPasswordRequest forgotPasswordRequest) async
+    //Future<ForgotPasswordResult> forgotPassword(ForgotPasswordDto forgotPasswordDto) async
     test('test forgotPassword', () async {
       // TODO
     });
 
     // Redeems a forgot password pin.
     //
-    //Future<PinRedeemResult> forgotPasswordPin(ForgotPasswordPinRequest forgotPasswordPinRequest) async
+    //Future<PinRedeemResult> forgotPasswordPin(ForgotPasswordPinDto forgotPasswordPinDto) async
     test('test forgotPasswordPin', () async {
       // TODO
     });
@@ -86,38 +85,37 @@ void main() {
 
     // Updates a user.
     //
-    //Future updateUser(String userId, UpdateUserRequest updateUserRequest) async
+    //Future updateUser(String userId, UserDto userDto) async
     test('test updateUser', () async {
       // TODO
     });
 
     // Updates a user configuration.
     //
-    //Future updateUserConfiguration(String userId, UpdateUserConfigurationRequest updateUserConfigurationRequest) async
+    //Future updateUserConfiguration(String userId, UserConfiguration userConfiguration) async
     test('test updateUserConfiguration', () async {
       // TODO
     });
 
     // Updates a user's easy password.
     //
-    //Future updateUserEasyPassword(String userId, UpdateUserEasyPasswordRequest updateUserEasyPasswordRequest) async
+    //Future updateUserEasyPassword(String userId, UpdateUserEasyPassword updateUserEasyPassword) async
     test('test updateUserEasyPassword', () async {
       // TODO
     });
 
     // Updates a user's password.
     //
-    //Future updateUserPassword(String userId, UpdateUserPasswordRequest updateUserPasswordRequest) async
+    //Future updateUserPassword(String userId, UpdateUserPassword updateUserPassword) async
     test('test updateUserPassword', () async {
       // TODO
     });
 
     // Updates a user policy.
     //
-    //Future updateUserPolicy(String userId, UpdateUserPolicyRequest updateUserPolicyRequest) async
+    //Future updateUserPolicy(String userId, UserPolicy userPolicy) async
     test('test updateUserPolicy', () async {
       // TODO
     });
-
   });
 }

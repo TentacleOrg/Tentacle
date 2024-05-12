@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for PlaylistsApi
 void main() {
   final instance = Tentacle().getPlaylistsApi();
@@ -18,7 +17,7 @@ void main() {
     //
     // For backwards compatibility parameters can be sent via Query or Body, with Query having higher precedence.  Query parameters are obsolete.
     //
-    //Future<PlaylistCreationResult> createPlaylist({ String name, BuiltList<String> ids, String userId, String mediaType, CreatePlaylistRequest createPlaylistRequest }) async
+    //Future<PlaylistCreationResult> createPlaylist({ String name, BuiltList<String> ids, String userId, String mediaType, CreatePlaylistDto createPlaylistDto }) async
     test('test createPlaylist', () async {
       // TODO
     });
@@ -43,6 +42,5 @@ void main() {
     test('test removeFromPlaylist', () async {
       // TODO
     });
-
   });
 }

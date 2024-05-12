@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'channel_media_type.g.dart';
 
 class ChannelMediaType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Audio')
   static const ChannelMediaType audio = _$audio;
   @BuiltValueEnumConst(wireName: r'Video')
@@ -18,9 +17,10 @@ class ChannelMediaType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Photo')
   static const ChannelMediaType photo = _$photo;
 
-  static Serializer<ChannelMediaType> get serializer => _$channelMediaTypeSerializer;
+  static Serializer<ChannelMediaType> get serializer =>
+      _$channelMediaTypeSerializer;
 
-  const ChannelMediaType._(String name): super(name);
+  const ChannelMediaType._(String name) : super(name);
 
   static BuiltSet<ChannelMediaType> get values => _$values;
   static ChannelMediaType valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class ChannelMediaType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class ChannelMediaTypeMixin = Object with _$ChannelMediaTypeMixin;
-

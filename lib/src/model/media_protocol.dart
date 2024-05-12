@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'media_protocol.g.dart';
 
 class MediaProtocol extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'File')
   static const MediaProtocol file = _$file;
   @BuiltValueEnumConst(wireName: r'Http')
@@ -28,7 +27,7 @@ class MediaProtocol extends EnumClass {
 
   static Serializer<MediaProtocol> get serializer => _$mediaProtocolSerializer;
 
-  const MediaProtocol._(String name): super(name);
+  const MediaProtocol._(String name) : super(name);
 
   static BuiltSet<MediaProtocol> get values => _$values;
   static MediaProtocol valueOf(String name) => _$valueOf(name);
@@ -41,4 +40,3 @@ class MediaProtocol extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class MediaProtocolMixin = Object with _$MediaProtocolMixin;
-

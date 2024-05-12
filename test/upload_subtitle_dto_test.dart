@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UploadSubtitleDto
 void main() {
-  //final instance = UploadSubtitleDtoBuilder();
+  final instance = UploadSubtitleDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(UploadSubtitleDto, () {
@@ -30,6 +30,5 @@ void main() {
     test('to test the property `data`', () async {
       // TODO
     });
-
   });
 }

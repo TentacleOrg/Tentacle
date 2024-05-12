@@ -17,7 +17,6 @@ import 'package:tentacle/src/model/item_filter.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 
 class PersonsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -25,7 +24,7 @@ class PersonsApi {
   const PersonsApi(this._dio, this._serializers);
 
   /// Get person by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Person name.
@@ -38,8 +37,8 @@ class PersonsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDto>> getPerson({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDto>> getPerson({
     required String name,
     String? userId,
     CancelToken? cancelToken,
@@ -49,7 +48,10 @@ class PersonsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Persons/{name}'.replaceAll('{' r'name' '}', name.toString());
+    final _path = r'/Persons/{name}'.replaceAll(
+        '{' r'name' '}',
+        encodeQueryParameter(_serializers, name, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -70,7 +72,9 @@ class PersonsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -82,22 +86,24 @@ class PersonsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDto _responseData;
+    BaseItemDto? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDto),
+            ) as BaseItemDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDto>(
@@ -113,7 +119,7 @@ class PersonsApi {
   }
 
   /// Gets all persons.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [limit] - Optional. The maximum number of records to return.
@@ -137,8 +143,8 @@ class PersonsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getPersons({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getPersons({
     int? limit,
     String? searchTerm,
     BuiltList<ItemFields>? fields,
@@ -180,19 +186,65 @@ class PersonsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (searchTerm != null) r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (filters != null) r'filters': encodeCollectionQueryParameter<ItemFilter>(_serializers, filters, const FullType(BuiltList, [FullType(ItemFilter)]), format: ListFormat.multi,),
-      if (isFavorite != null) r'isFavorite': encodeQueryParameter(_serializers, isFavorite, const FullType(bool)),
-      if (enableUserData != null) r'enableUserData': encodeQueryParameter(_serializers, enableUserData, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (excludePersonTypes != null) r'excludePersonTypes': encodeCollectionQueryParameter<String>(_serializers, excludePersonTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (personTypes != null) r'personTypes': encodeCollectionQueryParameter<String>(_serializers, personTypes, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (appearsInItemId != null) r'appearsInItemId': encodeQueryParameter(_serializers, appearsInItemId, const FullType(String)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (filters != null)
+        r'filters': encodeCollectionQueryParameter<ItemFilter>(
+          _serializers,
+          filters,
+          const FullType(BuiltList, [FullType(ItemFilter)]),
+          format: ListFormat.multi,
+        ),
+      if (isFavorite != null)
+        r'isFavorite': encodeQueryParameter(
+            _serializers, isFavorite, const FullType(bool)),
+      if (enableUserData != null)
+        r'enableUserData': encodeQueryParameter(
+            _serializers, enableUserData, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (excludePersonTypes != null)
+        r'excludePersonTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          excludePersonTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (personTypes != null)
+        r'personTypes': encodeCollectionQueryParameter<String>(
+          _serializers,
+          personTypes,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (appearsInItemId != null)
+        r'appearsInItemId': encodeQueryParameter(
+            _serializers, appearsInItemId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -204,22 +256,24 @@ class PersonsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -233,5 +287,4 @@ class PersonsApi {
       extra: _response.extra,
     );
   }
-
 }

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for AddVirtualFolderDto
 void main() {
-  //final instance = AddVirtualFolderDtoBuilder();
+  final instance = AddVirtualFolderDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(AddVirtualFolderDto, () {
@@ -11,6 +11,5 @@ void main() {
     test('to test the property `libraryOptions`', () async {
       // TODO
     });
-
   });
 }

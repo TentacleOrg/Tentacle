@@ -13,8 +13,9 @@ part 'media_encoder_path_dto.g.dart';
 /// Properties:
 /// * [path] - Gets or sets media encoder path.
 /// * [pathType] - Gets or sets media encoder path type.
-@BuiltValue(instantiable: false)
-abstract class MediaEncoderPathDto  {
+@BuiltValue()
+abstract class MediaEncoderPathDto
+    implements Built<MediaEncoderPathDto, MediaEncoderPathDtoBuilder> {
   /// Gets or sets media encoder path.
   @BuiltValueField(wireName: r'Path')
   String? get path;
@@ -23,13 +24,26 @@ abstract class MediaEncoderPathDto  {
   @BuiltValueField(wireName: r'PathType')
   String? get pathType;
 
+  MediaEncoderPathDto._();
+
+  factory MediaEncoderPathDto([void updates(MediaEncoderPathDtoBuilder b)]) =
+      _$MediaEncoderPathDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MediaEncoderPathDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<MediaEncoderPathDto> get serializer => _$MediaEncoderPathDtoSerializer();
+  static Serializer<MediaEncoderPathDto> get serializer =>
+      _$MediaEncoderPathDtoSerializer();
 }
 
-class _$MediaEncoderPathDtoSerializer implements PrimitiveSerializer<MediaEncoderPathDto> {
+class _$MediaEncoderPathDtoSerializer
+    implements PrimitiveSerializer<MediaEncoderPathDto> {
   @override
-  final Iterable<Type> types = const [MediaEncoderPathDto];
+  final Iterable<Type> types = const [
+    MediaEncoderPathDto,
+    _$MediaEncoderPathDto
+  ];
 
   @override
   final String wireName = r'MediaEncoderPathDto';
@@ -61,47 +75,9 @@ class _$MediaEncoderPathDtoSerializer implements PrimitiveSerializer<MediaEncode
     MediaEncoderPathDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MediaEncoderPathDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MediaEncoderPathDto)) as $MediaEncoderPathDto;
-  }
-}
-
-/// a concrete implementation of [MediaEncoderPathDto], since [MediaEncoderPathDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MediaEncoderPathDto implements MediaEncoderPathDto, Built<$MediaEncoderPathDto, $MediaEncoderPathDtoBuilder> {
-  $MediaEncoderPathDto._();
-
-  factory $MediaEncoderPathDto([void Function($MediaEncoderPathDtoBuilder)? updates]) = _$$MediaEncoderPathDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MediaEncoderPathDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MediaEncoderPathDto> get serializer => _$$MediaEncoderPathDtoSerializer();
-}
-
-class _$$MediaEncoderPathDtoSerializer implements PrimitiveSerializer<$MediaEncoderPathDto> {
-  @override
-  final Iterable<Type> types = const [$MediaEncoderPathDto, _$$MediaEncoderPathDto];
-
-  @override
-  final String wireName = r'$MediaEncoderPathDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MediaEncoderPathDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MediaEncoderPathDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -139,12 +115,12 @@ class _$$MediaEncoderPathDtoSerializer implements PrimitiveSerializer<$MediaEnco
   }
 
   @override
-  $MediaEncoderPathDto deserialize(
+  MediaEncoderPathDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MediaEncoderPathDtoBuilder();
+    final result = MediaEncoderPathDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -158,4 +134,3 @@ class _$$MediaEncoderPathDtoSerializer implements PrimitiveSerializer<$MediaEnco
     return result.build();
   }
 }
-

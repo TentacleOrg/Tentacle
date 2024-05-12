@@ -227,7 +227,7 @@ class _$SessionMessageTypeMeta {
   BuiltSet<SessionMessageType> get values => _$values;
 }
 
-abstract class _$SessionMessageTypeMixin {
+mixin _$SessionMessageTypeMixin {
   // ignore: non_constant_identifier_names
   _$SessionMessageTypeMeta get SessionMessageType =>
       const _$SessionMessageTypeMeta();

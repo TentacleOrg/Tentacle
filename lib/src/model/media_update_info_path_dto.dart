@@ -14,7 +14,8 @@ part 'media_update_info_path_dto.g.dart';
 /// * [path] - Gets or sets media path.
 /// * [updateType] - Gets or sets media update type.  Created, Modified, Deleted.
 @BuiltValue()
-abstract class MediaUpdateInfoPathDto implements Built<MediaUpdateInfoPathDto, MediaUpdateInfoPathDtoBuilder> {
+abstract class MediaUpdateInfoPathDto
+    implements Built<MediaUpdateInfoPathDto, MediaUpdateInfoPathDtoBuilder> {
   /// Gets or sets media path.
   @BuiltValueField(wireName: r'Path')
   String? get path;
@@ -25,18 +26,25 @@ abstract class MediaUpdateInfoPathDto implements Built<MediaUpdateInfoPathDto, M
 
   MediaUpdateInfoPathDto._();
 
-  factory MediaUpdateInfoPathDto([void updates(MediaUpdateInfoPathDtoBuilder b)]) = _$MediaUpdateInfoPathDto;
+  factory MediaUpdateInfoPathDto(
+          [void updates(MediaUpdateInfoPathDtoBuilder b)]) =
+      _$MediaUpdateInfoPathDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MediaUpdateInfoPathDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MediaUpdateInfoPathDto> get serializer => _$MediaUpdateInfoPathDtoSerializer();
+  static Serializer<MediaUpdateInfoPathDto> get serializer =>
+      _$MediaUpdateInfoPathDtoSerializer();
 }
 
-class _$MediaUpdateInfoPathDtoSerializer implements PrimitiveSerializer<MediaUpdateInfoPathDto> {
+class _$MediaUpdateInfoPathDtoSerializer
+    implements PrimitiveSerializer<MediaUpdateInfoPathDto> {
   @override
-  final Iterable<Type> types = const [MediaUpdateInfoPathDto, _$MediaUpdateInfoPathDto];
+  final Iterable<Type> types = const [
+    MediaUpdateInfoPathDto,
+    _$MediaUpdateInfoPathDto
+  ];
 
   @override
   final String wireName = r'MediaUpdateInfoPathDto';
@@ -68,7 +76,9 @@ class _$MediaUpdateInfoPathDtoSerializer implements PrimitiveSerializer<MediaUpd
     MediaUpdateInfoPathDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +137,3 @@ class _$MediaUpdateInfoPathDtoSerializer implements PrimitiveSerializer<MediaUpd
     return result.build();
   }
 }
-

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for CreatePlaylistDto
 void main() {
-  //final instance = CreatePlaylistDtoBuilder();
+  final instance = CreatePlaylistDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(CreatePlaylistDto, () {
@@ -30,6 +30,5 @@ void main() {
     test('to test the property `mediaType`', () async {
       // TODO
     });
-
   });
 }

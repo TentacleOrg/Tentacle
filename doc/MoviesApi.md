@@ -1,8 +1,8 @@
-# openapi.api.MoviesApi
+# tentacle.api.MoviesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -19,13 +19,13 @@ Gets movie recommendations.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getMoviesApi();
+final api = Tentacle().getMoviesApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
 final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. The fields to return.
@@ -35,7 +35,7 @@ final int itemLimit = 56; // int | The max number of items to return per categor
 try {
     final response = api.getMovieRecommendations(userId, parentId, fields, categoryLimit, itemLimit);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling MoviesApi->getMovieRecommendations: $e\n');
 }
 ```

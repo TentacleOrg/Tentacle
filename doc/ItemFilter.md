@@ -1,8 +1,8 @@
-# openapi.model.ItemFilter
+# tentacle.model.ItemFilter
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

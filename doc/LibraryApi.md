@@ -1,8 +1,8 @@
-# openapi.api.LibraryApi
+# tentacle.api.LibraryApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -43,18 +43,18 @@ Deletes an item from the library and filesystem.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
     api.deleteItem(itemId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->deleteItem: $e\n');
 }
 ```
@@ -87,18 +87,18 @@ Deletes items from the library and filesystem.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final BuiltList<String> ids = ; // BuiltList<String> | The item ids.
 
 try {
     api.deleteItems(ids);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->deleteItems: $e\n');
 }
 ```
@@ -131,20 +131,20 @@ Gets all parents of an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
 try {
     final response = api.getAncestors(itemId, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getAncestors: $e\n');
 }
 ```
@@ -178,19 +178,19 @@ Gets critic review for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = itemId_example; // String | 
 
 try {
     final response = api.getCriticReviews(itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getCriticReviews: $e\n');
 }
 ```
@@ -223,19 +223,19 @@ Downloads item media.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
     final response = api.getDownload(itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getDownload: $e\n');
 }
 ```
@@ -268,19 +268,19 @@ Get the original file of an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 
 try {
     final response = api.getFile(itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getFile: $e\n');
 }
 ```
@@ -313,20 +313,20 @@ Get item counts.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Get counts from a specific user's library.
 final bool isFavorite = true; // bool | Optional. Get counts of favorite items.
 
 try {
     final response = api.getItemCounts(userId, isFavorite);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getItemCounts: $e\n');
 }
 ```
@@ -360,20 +360,20 @@ Gets the library options info.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String libraryContentType = libraryContentType_example; // String | Library content type.
 final bool isNewLibrary = true; // bool | Whether this is a new library.
 
 try {
     final response = api.getLibraryOptionsInfo(libraryContentType, isNewLibrary);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getLibraryOptionsInfo: $e\n');
 }
 ```
@@ -407,19 +407,19 @@ Gets all user media folders.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final bool isHidden = true; // bool | Optional. Filter by folders that are marked hidden, or not.
 
 try {
     final response = api.getMediaFolders(isHidden);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getMediaFolders: $e\n');
 }
 ```
@@ -452,18 +452,18 @@ Gets a list of physical paths from virtual folders.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 
 try {
     final response = api.getPhysicalPaths();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getPhysicalPaths: $e\n');
 }
 ```
@@ -493,13 +493,13 @@ Gets similar items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
@@ -509,7 +509,7 @@ final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Spec
 try {
     final response = api.getSimilarAlbums(itemId, excludeArtistIds, userId, limit, fields);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getSimilarAlbums: $e\n');
 }
 ```
@@ -546,13 +546,13 @@ Gets similar items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
@@ -562,7 +562,7 @@ final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Spec
 try {
     final response = api.getSimilarArtists(itemId, excludeArtistIds, userId, limit, fields);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getSimilarArtists: $e\n');
 }
 ```
@@ -599,13 +599,13 @@ Gets similar items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
@@ -615,7 +615,7 @@ final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Spec
 try {
     final response = api.getSimilarItems(itemId, excludeArtistIds, userId, limit, fields);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getSimilarItems: $e\n');
 }
 ```
@@ -652,13 +652,13 @@ Gets similar items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
@@ -668,7 +668,7 @@ final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Spec
 try {
     final response = api.getSimilarMovies(itemId, excludeArtistIds, userId, limit, fields);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getSimilarMovies: $e\n');
 }
 ```
@@ -705,13 +705,13 @@ Gets similar items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
@@ -721,7 +721,7 @@ final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Spec
 try {
     final response = api.getSimilarShows(itemId, excludeArtistIds, userId, limit, fields);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getSimilarShows: $e\n');
 }
 ```
@@ -758,13 +758,13 @@ Gets similar items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final BuiltList<String> excludeArtistIds = ; // BuiltList<String> | Exclude artist ids.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
@@ -774,7 +774,7 @@ final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Spec
 try {
     final response = api.getSimilarTrailers(itemId, excludeArtistIds, userId, limit, fields);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getSimilarTrailers: $e\n');
 }
 ```
@@ -811,13 +811,13 @@ Get theme songs and videos for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
@@ -825,7 +825,7 @@ final bool inheritFromParent = true; // bool | Optional. Determines whether or n
 try {
     final response = api.getThemeMedia(itemId, userId, inheritFromParent);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getThemeMedia: $e\n');
 }
 ```
@@ -860,13 +860,13 @@ Get theme songs for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
@@ -874,7 +874,7 @@ final bool inheritFromParent = true; // bool | Optional. Determines whether or n
 try {
     final response = api.getThemeSongs(itemId, userId, inheritFromParent);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getThemeSongs: $e\n');
 }
 ```
@@ -909,13 +909,13 @@ Get theme videos for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
@@ -923,7 +923,7 @@ final bool inheritFromParent = true; // bool | Optional. Determines whether or n
 try {
     final response = api.getThemeVideos(itemId, userId, inheritFromParent);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->getThemeVideos: $e\n');
 }
 ```
@@ -958,19 +958,19 @@ Reports that new movies have been added by an external source.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String tmdbId = tmdbId_example; // String | The tmdbId.
 final String imdbId = imdbId_example; // String | The imdbId.
 
 try {
     api.postAddedMovies(tmdbId, imdbId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->postAddedMovies: $e\n');
 }
 ```
@@ -1004,18 +1004,18 @@ Reports that new episodes of a series have been added by an external source.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String tvdbId = tvdbId_example; // String | The tvdbId.
 
 try {
     api.postAddedSeries(tvdbId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->postAddedSeries: $e\n');
 }
 ```
@@ -1042,24 +1042,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postUpdatedMedia**
-> postUpdatedMedia(postUpdatedMediaRequest)
+> postUpdatedMedia(mediaUpdateInfoDto)
 
 Reports that new movies have been added by an external source.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
-final PostUpdatedMediaRequest postUpdatedMediaRequest = ; // PostUpdatedMediaRequest | The update paths.
+final api = Tentacle().getLibraryApi();
+final MediaUpdateInfoDto mediaUpdateInfoDto = ; // MediaUpdateInfoDto | The update paths.
 
 try {
-    api.postUpdatedMedia(postUpdatedMediaRequest);
-} catch on DioError (e) {
+    api.postUpdatedMedia(mediaUpdateInfoDto);
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->postUpdatedMedia: $e\n');
 }
 ```
@@ -1068,7 +1068,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **postUpdatedMediaRequest** | [**PostUpdatedMediaRequest**](PostUpdatedMediaRequest.md)| The update paths. | 
+ **mediaUpdateInfoDto** | [**MediaUpdateInfoDto**](MediaUpdateInfoDto.md)| The update paths. | 
 
 ### Return type
 
@@ -1092,19 +1092,19 @@ Reports that new movies have been added by an external source.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String tmdbId = tmdbId_example; // String | The tmdbId.
 final String imdbId = imdbId_example; // String | The imdbId.
 
 try {
     api.postUpdatedMovies(tmdbId, imdbId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->postUpdatedMovies: $e\n');
 }
 ```
@@ -1138,18 +1138,18 @@ Reports that new episodes of a series have been added by an external source.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 final String tvdbId = tvdbId_example; // String | The tvdbId.
 
 try {
     api.postUpdatedSeries(tvdbId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->postUpdatedSeries: $e\n');
 }
 ```
@@ -1182,17 +1182,17 @@ Starts a library scan.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryApi();
+final api = Tentacle().getLibraryApi();
 
 try {
     api.refreshLibrary();
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryApi->refreshLibrary: $e\n');
 }
 ```

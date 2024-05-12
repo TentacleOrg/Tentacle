@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for AuthenticateUserByName
 void main() {
-  //final instance = AuthenticateUserByNameBuilder();
+  final instance = AuthenticateUserByNameBuilder();
   // TODO add properties to the builder and call build()
 
   group(AuthenticateUserByName, () {
@@ -24,6 +24,5 @@ void main() {
     test('to test the property `password`', () async {
       // TODO
     });
-
   });
 }

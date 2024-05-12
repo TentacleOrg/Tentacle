@@ -11,8 +11,8 @@ part 'queue_item.g.dart';
 /// QueueItem
 ///
 /// Properties:
-/// * [id] 
-/// * [playlistItemId] 
+/// * [id]
+/// * [playlistItemId]
 @BuiltValue()
 abstract class QueueItem implements Built<QueueItem, QueueItemBuilder> {
   @BuiltValueField(wireName: r'Id')
@@ -66,7 +66,9 @@ class _$QueueItemSerializer implements PrimitiveSerializer<QueueItem> {
     QueueItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -124,4 +126,3 @@ class _$QueueItemSerializer implements PrimitiveSerializer<QueueItem> {
     return result.build();
   }
 }
-

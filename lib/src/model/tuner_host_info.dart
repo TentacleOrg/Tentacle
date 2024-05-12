@@ -11,19 +11,20 @@ part 'tuner_host_info.g.dart';
 /// TunerHostInfo
 ///
 /// Properties:
-/// * [id] 
-/// * [url] 
-/// * [type] 
-/// * [deviceId] 
-/// * [friendlyName] 
-/// * [importFavoritesOnly] 
-/// * [allowHWTranscoding] 
-/// * [enableStreamLooping] 
-/// * [source_] 
-/// * [tunerCount] 
-/// * [userAgent] 
-@BuiltValue(instantiable: false)
-abstract class TunerHostInfo  {
+/// * [id]
+/// * [url]
+/// * [type]
+/// * [deviceId]
+/// * [friendlyName]
+/// * [importFavoritesOnly]
+/// * [allowHWTranscoding]
+/// * [enableStreamLooping]
+/// * [source_]
+/// * [tunerCount]
+/// * [userAgent]
+@BuiltValue()
+abstract class TunerHostInfo
+    implements Built<TunerHostInfo, TunerHostInfoBuilder> {
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
@@ -57,13 +58,22 @@ abstract class TunerHostInfo  {
   @BuiltValueField(wireName: r'UserAgent')
   String? get userAgent;
 
+  TunerHostInfo._();
+
+  factory TunerHostInfo([void updates(TunerHostInfoBuilder b)]) =
+      _$TunerHostInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TunerHostInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<TunerHostInfo> get serializer => _$TunerHostInfoSerializer();
+  static Serializer<TunerHostInfo> get serializer =>
+      _$TunerHostInfoSerializer();
 }
 
 class _$TunerHostInfoSerializer implements PrimitiveSerializer<TunerHostInfo> {
   @override
-  final Iterable<Type> types = const [TunerHostInfo];
+  final Iterable<Type> types = const [TunerHostInfo, _$TunerHostInfo];
 
   @override
   final String wireName = r'TunerHostInfo';
@@ -158,47 +168,9 @@ class _$TunerHostInfoSerializer implements PrimitiveSerializer<TunerHostInfo> {
     TunerHostInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  TunerHostInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($TunerHostInfo)) as $TunerHostInfo;
-  }
-}
-
-/// a concrete implementation of [TunerHostInfo], since [TunerHostInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $TunerHostInfo implements TunerHostInfo, Built<$TunerHostInfo, $TunerHostInfoBuilder> {
-  $TunerHostInfo._();
-
-  factory $TunerHostInfo([void Function($TunerHostInfoBuilder)? updates]) = _$$TunerHostInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TunerHostInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$TunerHostInfo> get serializer => _$$TunerHostInfoSerializer();
-}
-
-class _$$TunerHostInfoSerializer implements PrimitiveSerializer<$TunerHostInfo> {
-  @override
-  final Iterable<Type> types = const [$TunerHostInfo, _$$TunerHostInfo];
-
-  @override
-  final String wireName = r'$TunerHostInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $TunerHostInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(TunerHostInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -306,12 +278,12 @@ class _$$TunerHostInfoSerializer implements PrimitiveSerializer<$TunerHostInfo> 
   }
 
   @override
-  $TunerHostInfo deserialize(
+  TunerHostInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $TunerHostInfoBuilder();
+    final result = TunerHostInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -325,4 +297,3 @@ class _$$TunerHostInfoSerializer implements PrimitiveSerializer<$TunerHostInfo> 
     return result.build();
   }
 }
-

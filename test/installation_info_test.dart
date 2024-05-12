@@ -47,6 +47,5 @@ void main() {
     test('to test the property `packageInfo`', () async {
       // TODO
     });
-
   });
 }

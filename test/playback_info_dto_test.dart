@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlaybackInfoDto
 void main() {
-  //final instance = PlaybackInfoDtoBuilder();
+  final instance = PlaybackInfoDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PlaybackInfoDto, () {
@@ -55,7 +55,7 @@ void main() {
       // TODO
     });
 
-    // ClientCapabilitiesDtoDeviceProfile deviceProfile
+    // ClientCapabilitiesDeviceProfile deviceProfile
     test('to test the property `deviceProfile`', () async {
       // TODO
     });
@@ -95,6 +95,5 @@ void main() {
     test('to test the property `autoOpenLiveStream`', () async {
       // TODO
     });
-
   });
 }

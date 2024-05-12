@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/client_capabilities.dart';
 import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/client_capabilities.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,32 +15,42 @@ part 'device_info_capabilities.g.dart';
 /// Gets or sets the capabilities.
 ///
 /// Properties:
-/// * [playableMediaTypes] 
-/// * [supportedCommands] 
-/// * [supportsMediaControl] 
-/// * [supportsContentUploading] 
-/// * [messageCallbackUrl] 
-/// * [supportsPersistentIdentifier] 
-/// * [supportsSync] 
-/// * [deviceProfile] 
-/// * [appStoreUrl] 
-/// * [iconUrl] 
+/// * [playableMediaTypes]
+/// * [supportedCommands]
+/// * [supportsMediaControl]
+/// * [supportsContentUploading]
+/// * [messageCallbackUrl]
+/// * [supportsPersistentIdentifier]
+/// * [supportsSync]
+/// * [deviceProfile]
+/// * [appStoreUrl]
+/// * [iconUrl]
 @BuiltValue()
-abstract class DeviceInfoCapabilities implements ClientCapabilities, Built<DeviceInfoCapabilities, DeviceInfoCapabilitiesBuilder> {
+abstract class DeviceInfoCapabilities
+    implements
+        ClientCapabilities,
+        Built<DeviceInfoCapabilities, DeviceInfoCapabilitiesBuilder> {
   DeviceInfoCapabilities._();
 
-  factory DeviceInfoCapabilities([void updates(DeviceInfoCapabilitiesBuilder b)]) = _$DeviceInfoCapabilities;
+  factory DeviceInfoCapabilities(
+          [void updates(DeviceInfoCapabilitiesBuilder b)]) =
+      _$DeviceInfoCapabilities;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DeviceInfoCapabilitiesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeviceInfoCapabilities> get serializer => _$DeviceInfoCapabilitiesSerializer();
+  static Serializer<DeviceInfoCapabilities> get serializer =>
+      _$DeviceInfoCapabilitiesSerializer();
 }
 
-class _$DeviceInfoCapabilitiesSerializer implements PrimitiveSerializer<DeviceInfoCapabilities> {
+class _$DeviceInfoCapabilitiesSerializer
+    implements PrimitiveSerializer<DeviceInfoCapabilities> {
   @override
-  final Iterable<Type> types = const [DeviceInfoCapabilities, _$DeviceInfoCapabilities];
+  final Iterable<Type> types = const [
+    DeviceInfoCapabilities,
+    _$DeviceInfoCapabilities
+  ];
 
   @override
   final String wireName = r'DeviceInfoCapabilities';
@@ -82,7 +92,8 @@ class _$DeviceInfoCapabilitiesSerializer implements PrimitiveSerializer<DeviceIn
       yield r'SupportedCommands';
       yield serializers.serialize(
         object.supportedCommands,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
       );
     }
     if (object.supportsContentUploading != null) {
@@ -128,7 +139,9 @@ class _$DeviceInfoCapabilitiesSerializer implements PrimitiveSerializer<DeviceIn
     DeviceInfoCapabilities object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -146,7 +159,8 @@ class _$DeviceInfoCapabilitiesSerializer implements PrimitiveSerializer<DeviceIn
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(ClientCapabilitiesDeviceProfile),
+            specifiedType:
+                const FullType.nullable(ClientCapabilitiesDeviceProfile),
           ) as ClientCapabilitiesDeviceProfile?;
           if (valueDes == null) continue;
           result.deviceProfile.replace(valueDes);
@@ -176,7 +190,8 @@ class _$DeviceInfoCapabilitiesSerializer implements PrimitiveSerializer<DeviceIn
         case r'SupportedCommands':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(GeneralCommandType)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(GeneralCommandType)]),
           ) as BuiltList<GeneralCommandType>?;
           if (valueDes == null) continue;
           result.supportedCommands.replace(valueDes);
@@ -207,7 +222,8 @@ class _$DeviceInfoCapabilitiesSerializer implements PrimitiveSerializer<DeviceIn
         case r'PlayableMediaTypes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.playableMediaTypes.replace(valueDes);
@@ -247,4 +263,3 @@ class _$DeviceInfoCapabilitiesSerializer implements PrimitiveSerializer<DeviceIn
     return result.build();
   }
 }
-

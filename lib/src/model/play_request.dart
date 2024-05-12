@@ -17,10 +17,10 @@ part 'play_request.g.dart';
 /// * [startPositionTicks] - Gets or sets the start position ticks that the first item should be played at.
 /// * [playCommand] - Gets or sets the play command.
 /// * [controllingUserId] - Gets or sets the controlling user identifier.
-/// * [subtitleStreamIndex] 
-/// * [audioStreamIndex] 
-/// * [mediaSourceId] 
-/// * [startIndex] 
+/// * [subtitleStreamIndex]
+/// * [audioStreamIndex]
+/// * [mediaSourceId]
+/// * [startIndex]
 @BuiltValue()
 abstract class PlayRequest implements Built<PlayRequest, PlayRequestBuilder> {
   /// Gets or sets the item ids.
@@ -34,6 +34,7 @@ abstract class PlayRequest implements Built<PlayRequest, PlayRequestBuilder> {
   /// Gets or sets the play command.
   @BuiltValueField(wireName: r'PlayCommand')
   PlayCommand? get playCommand;
+  // enum playCommandEnum {  PlayNow,  PlayNext,  PlayLast,  PlayInstantMix,  PlayShuffle,  };
 
   /// Gets or sets the controlling user identifier.
   @BuiltValueField(wireName: r'ControllingUserId')
@@ -138,7 +139,9 @@ class _$PlayRequestSerializer implements PrimitiveSerializer<PlayRequest> {
     PlayRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -156,7 +159,8 @@ class _$PlayRequestSerializer implements PrimitiveSerializer<PlayRequest> {
         case r'ItemIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.itemIds.replace(valueDes);
@@ -243,4 +247,3 @@ class _$PlayRequestSerializer implements PrimitiveSerializer<PlayRequest> {
     return result.build();
   }
 }
-

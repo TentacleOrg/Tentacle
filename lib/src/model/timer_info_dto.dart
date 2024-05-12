@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/keep_until.dart';
-import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/recording_status.dart';
 import 'package:tentacle/src/model/timer_info_dto_program_info.dart';
+import 'package:tentacle/src/model/recording_status.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/keep_until.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,13 +16,13 @@ part 'timer_info_dto.g.dart';
 ///
 /// Properties:
 /// * [id] - Gets or sets the Id of the recording.
-/// * [type] 
+/// * [type]
 /// * [serverId] - Gets or sets the server identifier.
 /// * [externalId] - Gets or sets the external identifier.
 /// * [channelId] - Gets or sets the channel id of the recording.
 /// * [externalChannelId] - Gets or sets the external channel identifier.
 /// * [channelName] - Gets or sets the channel name of the recording.
-/// * [channelPrimaryImageTag] 
+/// * [channelPrimaryImageTag]
 /// * [programId] - Gets or sets the program identifier.
 /// * [externalProgramId] - Gets or sets the external program identifier.
 /// * [name] - Gets or sets the name of the recording.
@@ -37,14 +37,15 @@ part 'timer_info_dto.g.dart';
 /// * [parentBackdropItemId] - Gets or sets the Id of the Parent that has a backdrop if the item does not have one.
 /// * [parentBackdropImageTags] - Gets or sets the parent backdrop image tags.
 /// * [isPostPaddingRequired] - Gets or sets a value indicating whether this instance is post padding required.
-/// * [keepUntil] 
+/// * [keepUntil]
 /// * [status] - Gets or sets the status.
 /// * [seriesTimerId] - Gets or sets the series timer identifier.
 /// * [externalSeriesTimerId] - Gets or sets the external series timer identifier.
 /// * [runTimeTicks] - Gets or sets the run time ticks.
-/// * [programInfo] 
-@BuiltValue(instantiable: false)
-abstract class TimerInfoDto  {
+/// * [programInfo]
+@BuiltValue()
+abstract class TimerInfoDto
+    implements Built<TimerInfoDto, TimerInfoDtoBuilder> {
   /// Gets or sets the Id of the recording.
   @BuiltValueField(wireName: r'Id')
   String? get id;
@@ -133,10 +134,12 @@ abstract class TimerInfoDto  {
 
   @BuiltValueField(wireName: r'KeepUntil')
   KeepUntil? get keepUntil;
+  // enum keepUntilEnum {  UntilDeleted,  UntilSpaceNeeded,  UntilWatched,  UntilDate,  };
 
   /// Gets or sets the status.
   @BuiltValueField(wireName: r'Status')
   RecordingStatus? get status;
+  // enum statusEnum {  New,  InProgress,  Completed,  Cancelled,  ConflictedOk,  ConflictedNotOk,  Error,  };
 
   /// Gets or sets the series timer identifier.
   @BuiltValueField(wireName: r'SeriesTimerId')
@@ -153,13 +156,20 @@ abstract class TimerInfoDto  {
   @BuiltValueField(wireName: r'ProgramInfo')
   TimerInfoDtoProgramInfo? get programInfo;
 
+  TimerInfoDto._();
+
+  factory TimerInfoDto([void updates(TimerInfoDtoBuilder b)]) = _$TimerInfoDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TimerInfoDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<TimerInfoDto> get serializer => _$TimerInfoDtoSerializer();
 }
 
 class _$TimerInfoDtoSerializer implements PrimitiveSerializer<TimerInfoDto> {
   @override
-  final Iterable<Type> types = const [TimerInfoDto];
+  final Iterable<Type> types = const [TimerInfoDto, _$TimerInfoDto];
 
   @override
   final String wireName = r'TimerInfoDto';
@@ -373,47 +383,9 @@ class _$TimerInfoDtoSerializer implements PrimitiveSerializer<TimerInfoDto> {
     TimerInfoDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  TimerInfoDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($TimerInfoDto)) as $TimerInfoDto;
-  }
-}
-
-/// a concrete implementation of [TimerInfoDto], since [TimerInfoDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $TimerInfoDto implements TimerInfoDto, Built<$TimerInfoDto, $TimerInfoDtoBuilder> {
-  $TimerInfoDto._();
-
-  factory $TimerInfoDto([void Function($TimerInfoDtoBuilder)? updates]) = _$$TimerInfoDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TimerInfoDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$TimerInfoDto> get serializer => _$$TimerInfoDtoSerializer();
-}
-
-class _$$TimerInfoDtoSerializer implements PrimitiveSerializer<$TimerInfoDto> {
-  @override
-  final Iterable<Type> types = const [$TimerInfoDto, _$$TimerInfoDto];
-
-  @override
-  final String wireName = r'$TimerInfoDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $TimerInfoDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(TimerInfoDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -584,7 +556,8 @@ class _$$TimerInfoDtoSerializer implements PrimitiveSerializer<$TimerInfoDto> {
         case r'ParentBackdropImageTags':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.parentBackdropImageTags.replace(valueDes);
@@ -651,12 +624,12 @@ class _$$TimerInfoDtoSerializer implements PrimitiveSerializer<$TimerInfoDto> {
   }
 
   @override
-  $TimerInfoDto deserialize(
+  TimerInfoDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $TimerInfoDtoBuilder();
+    final result = TimerInfoDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -670,4 +643,3 @@ class _$$TimerInfoDtoSerializer implements PrimitiveSerializer<$TimerInfoDto> {
     return result.build();
   }
 }
-

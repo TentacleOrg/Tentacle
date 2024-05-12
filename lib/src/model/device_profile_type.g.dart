@@ -34,7 +34,7 @@ class _$DeviceProfileTypeMeta {
   BuiltSet<DeviceProfileType> get values => _$values;
 }
 
-abstract class _$DeviceProfileTypeMixin {
+mixin _$DeviceProfileTypeMixin {
   // ignore: non_constant_identifier_names
   _$DeviceProfileTypeMeta get DeviceProfileType =>
       const _$DeviceProfileTypeMeta();

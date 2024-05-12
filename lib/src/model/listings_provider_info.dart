@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/name_value_pair.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/name_value_pair.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,26 +13,27 @@ part 'listings_provider_info.g.dart';
 /// ListingsProviderInfo
 ///
 /// Properties:
-/// * [id] 
-/// * [type] 
-/// * [username] 
-/// * [password] 
-/// * [listingsId] 
-/// * [zipCode] 
-/// * [country] 
-/// * [path] 
-/// * [enabledTuners] 
-/// * [enableAllTuners] 
-/// * [newsCategories] 
-/// * [sportsCategories] 
-/// * [kidsCategories] 
-/// * [movieCategories] 
-/// * [channelMappings] 
-/// * [moviePrefix] 
-/// * [preferredLanguage] 
-/// * [userAgent] 
-@BuiltValue(instantiable: false)
-abstract class ListingsProviderInfo  {
+/// * [id]
+/// * [type]
+/// * [username]
+/// * [password]
+/// * [listingsId]
+/// * [zipCode]
+/// * [country]
+/// * [path]
+/// * [enabledTuners]
+/// * [enableAllTuners]
+/// * [newsCategories]
+/// * [sportsCategories]
+/// * [kidsCategories]
+/// * [movieCategories]
+/// * [channelMappings]
+/// * [moviePrefix]
+/// * [preferredLanguage]
+/// * [userAgent]
+@BuiltValue()
+abstract class ListingsProviderInfo
+    implements Built<ListingsProviderInfo, ListingsProviderInfoBuilder> {
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
@@ -87,13 +88,26 @@ abstract class ListingsProviderInfo  {
   @BuiltValueField(wireName: r'UserAgent')
   String? get userAgent;
 
+  ListingsProviderInfo._();
+
+  factory ListingsProviderInfo([void updates(ListingsProviderInfoBuilder b)]) =
+      _$ListingsProviderInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ListingsProviderInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<ListingsProviderInfo> get serializer => _$ListingsProviderInfoSerializer();
+  static Serializer<ListingsProviderInfo> get serializer =>
+      _$ListingsProviderInfoSerializer();
 }
 
-class _$ListingsProviderInfoSerializer implements PrimitiveSerializer<ListingsProviderInfo> {
+class _$ListingsProviderInfoSerializer
+    implements PrimitiveSerializer<ListingsProviderInfo> {
   @override
-  final Iterable<Type> types = const [ListingsProviderInfo];
+  final Iterable<Type> types = const [
+    ListingsProviderInfo,
+    _$ListingsProviderInfo
+  ];
 
   @override
   final String wireName = r'ListingsProviderInfo';
@@ -205,7 +219,8 @@ class _$ListingsProviderInfoSerializer implements PrimitiveSerializer<ListingsPr
       yield r'ChannelMappings';
       yield serializers.serialize(
         object.channelMappings,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(NameValuePair)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameValuePair)]),
       );
     }
     if (object.moviePrefix != null) {
@@ -237,47 +252,9 @@ class _$ListingsProviderInfoSerializer implements PrimitiveSerializer<ListingsPr
     ListingsProviderInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  ListingsProviderInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ListingsProviderInfo)) as $ListingsProviderInfo;
-  }
-}
-
-/// a concrete implementation of [ListingsProviderInfo], since [ListingsProviderInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ListingsProviderInfo implements ListingsProviderInfo, Built<$ListingsProviderInfo, $ListingsProviderInfoBuilder> {
-  $ListingsProviderInfo._();
-
-  factory $ListingsProviderInfo([void Function($ListingsProviderInfoBuilder)? updates]) = _$$ListingsProviderInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ListingsProviderInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ListingsProviderInfo> get serializer => _$$ListingsProviderInfoSerializer();
-}
-
-class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$ListingsProviderInfo> {
-  @override
-  final Iterable<Type> types = const [$ListingsProviderInfo, _$$ListingsProviderInfo];
-
-  @override
-  final String wireName = r'$ListingsProviderInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ListingsProviderInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(ListingsProviderInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -359,7 +336,8 @@ class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$Listings
         case r'EnabledTuners':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.enabledTuners.replace(valueDes);
@@ -374,7 +352,8 @@ class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$Listings
         case r'NewsCategories':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.newsCategories.replace(valueDes);
@@ -382,7 +361,8 @@ class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$Listings
         case r'SportsCategories':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.sportsCategories.replace(valueDes);
@@ -390,7 +370,8 @@ class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$Listings
         case r'KidsCategories':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.kidsCategories.replace(valueDes);
@@ -398,7 +379,8 @@ class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$Listings
         case r'MovieCategories':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.movieCategories.replace(valueDes);
@@ -406,7 +388,8 @@ class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$Listings
         case r'ChannelMappings':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(NameValuePair)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameValuePair)]),
           ) as BuiltList<NameValuePair>?;
           if (valueDes == null) continue;
           result.channelMappings.replace(valueDes);
@@ -444,12 +427,12 @@ class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$Listings
   }
 
   @override
-  $ListingsProviderInfo deserialize(
+  ListingsProviderInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ListingsProviderInfoBuilder();
+    final result = ListingsProviderInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -463,4 +446,3 @@ class _$$ListingsProviderInfoSerializer implements PrimitiveSerializer<$Listings
     return result.build();
   }
 }
-

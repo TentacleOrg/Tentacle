@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'program_audio.g.dart';
 
 class ProgramAudio extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Mono')
   static const ProgramAudio mono = _$mono;
   @BuiltValueEnumConst(wireName: r'Stereo')
@@ -26,7 +25,7 @@ class ProgramAudio extends EnumClass {
 
   static Serializer<ProgramAudio> get serializer => _$programAudioSerializer;
 
-  const ProgramAudio._(String name): super(name);
+  const ProgramAudio._(String name) : super(name);
 
   static BuiltSet<ProgramAudio> get values => _$values;
   static ProgramAudio valueOf(String name) => _$valueOf(name);
@@ -39,4 +38,3 @@ class ProgramAudio extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class ProgramAudioMixin = Object with _$ProgramAudioMixin;
-

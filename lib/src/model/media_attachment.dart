@@ -19,7 +19,8 @@ part 'media_attachment.g.dart';
 /// * [mimeType] - Gets or sets the MIME type.
 /// * [deliveryUrl] - Gets or sets the delivery URL.
 @BuiltValue()
-abstract class MediaAttachment implements Built<MediaAttachment, MediaAttachmentBuilder> {
+abstract class MediaAttachment
+    implements Built<MediaAttachment, MediaAttachmentBuilder> {
   /// Gets or sets the codec.
   @BuiltValueField(wireName: r'Codec')
   String? get codec;
@@ -50,16 +51,19 @@ abstract class MediaAttachment implements Built<MediaAttachment, MediaAttachment
 
   MediaAttachment._();
 
-  factory MediaAttachment([void updates(MediaAttachmentBuilder b)]) = _$MediaAttachment;
+  factory MediaAttachment([void updates(MediaAttachmentBuilder b)]) =
+      _$MediaAttachment;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MediaAttachmentBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MediaAttachment> get serializer => _$MediaAttachmentSerializer();
+  static Serializer<MediaAttachment> get serializer =>
+      _$MediaAttachmentSerializer();
 }
 
-class _$MediaAttachmentSerializer implements PrimitiveSerializer<MediaAttachment> {
+class _$MediaAttachmentSerializer
+    implements PrimitiveSerializer<MediaAttachment> {
   @override
   final Iterable<Type> types = const [MediaAttachment, _$MediaAttachment];
 
@@ -128,7 +132,9 @@ class _$MediaAttachmentSerializer implements PrimitiveSerializer<MediaAttachment
     MediaAttachment object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -226,4 +232,3 @@ class _$MediaAttachmentSerializer implements PrimitiveSerializer<MediaAttachment
     return result.build();
   }
 }
-

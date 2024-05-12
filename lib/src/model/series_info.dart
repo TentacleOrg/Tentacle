@@ -19,12 +19,12 @@ part 'series_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-@BuiltValue(instantiable: false)
-abstract class SeriesInfo  {
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+@BuiltValue()
+abstract class SeriesInfo implements Built<SeriesInfo, SeriesInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -65,13 +65,20 @@ abstract class SeriesInfo  {
   @BuiltValueField(wireName: r'IsAutomated')
   bool? get isAutomated;
 
+  SeriesInfo._();
+
+  factory SeriesInfo([void updates(SeriesInfoBuilder b)]) = _$SeriesInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SeriesInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<SeriesInfo> get serializer => _$SeriesInfoSerializer();
 }
 
 class _$SeriesInfoSerializer implements PrimitiveSerializer<SeriesInfo> {
   @override
-  final Iterable<Type> types = const [SeriesInfo];
+  final Iterable<Type> types = const [SeriesInfo, _$SeriesInfo];
 
   @override
   final String wireName = r'SeriesInfo';
@@ -120,7 +127,8 @@ class _$SeriesInfoSerializer implements PrimitiveSerializer<SeriesInfo> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -166,47 +174,9 @@ class _$SeriesInfoSerializer implements PrimitiveSerializer<SeriesInfo> {
     SeriesInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  SeriesInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SeriesInfo)) as $SeriesInfo;
-  }
-}
-
-/// a concrete implementation of [SeriesInfo], since [SeriesInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SeriesInfo implements SeriesInfo, Built<$SeriesInfo, $SeriesInfoBuilder> {
-  $SeriesInfo._();
-
-  factory $SeriesInfo([void Function($SeriesInfoBuilder)? updates]) = _$$SeriesInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SeriesInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SeriesInfo> get serializer => _$$SeriesInfoSerializer();
-}
-
-class _$$SeriesInfoSerializer implements PrimitiveSerializer<$SeriesInfo> {
-  @override
-  final Iterable<Type> types = const [$SeriesInfo, _$$SeriesInfo];
-
-  @override
-  final String wireName = r'$SeriesInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SeriesInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SeriesInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -264,7 +234,8 @@ class _$$SeriesInfoSerializer implements PrimitiveSerializer<$SeriesInfo> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -317,12 +288,12 @@ class _$$SeriesInfoSerializer implements PrimitiveSerializer<$SeriesInfo> {
   }
 
   @override
-  $SeriesInfo deserialize(
+  SeriesInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SeriesInfoBuilder();
+    final result = SeriesInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -336,4 +307,3 @@ class _$$SeriesInfoSerializer implements PrimitiveSerializer<$SeriesInfo> {
     return result.build();
   }
 }
-

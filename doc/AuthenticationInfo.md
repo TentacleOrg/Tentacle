@@ -1,8 +1,8 @@
-# openapi.model.AuthenticationInfo
+# tentacle.model.AuthenticationInfo
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

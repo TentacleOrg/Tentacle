@@ -1,8 +1,8 @@
-# openapi.api.LiveTvApi
+# tentacle.api.LiveTvApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -53,28 +53,28 @@ Method | HTTP request | Description
 
 
 # **addListingProvider**
-> ListingsProviderInfo addListingProvider(pw, validateListings, validateLogin, addListingProviderRequest)
+> ListingsProviderInfo addListingProvider(pw, validateListings, validateLogin, listingsProviderInfo)
 
 Adds a listings provider.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String pw = pw_example; // String | Password.
 final bool validateListings = true; // bool | Validate listings.
 final bool validateLogin = true; // bool | Validate login.
-final AddListingProviderRequest addListingProviderRequest = ; // AddListingProviderRequest | New listings info.
+final ListingsProviderInfo listingsProviderInfo = ; // ListingsProviderInfo | New listings info.
 
 try {
-    final response = api.addListingProvider(pw, validateListings, validateLogin, addListingProviderRequest);
+    final response = api.addListingProvider(pw, validateListings, validateLogin, listingsProviderInfo);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->addListingProvider: $e\n');
 }
 ```
@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
  **pw** | **String**| Password. | [optional] 
  **validateListings** | **bool**| Validate listings. | [optional] [default to false]
  **validateLogin** | **bool**| Validate login. | [optional] [default to false]
- **addListingProviderRequest** | [**AddListingProviderRequest**](AddListingProviderRequest.md)| New listings info. | [optional] 
+ **listingsProviderInfo** | [**ListingsProviderInfo**](ListingsProviderInfo.md)| New listings info. | [optional] 
 
 ### Return type
 
@@ -104,25 +104,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addTunerHost**
-> TunerHostInfo addTunerHost(addTunerHostRequest)
+> TunerHostInfo addTunerHost(tunerHostInfo)
 
 Adds a tuner host.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
-final AddTunerHostRequest addTunerHostRequest = ; // AddTunerHostRequest | New tuner host.
+final api = Tentacle().getLiveTvApi();
+final TunerHostInfo tunerHostInfo = ; // TunerHostInfo | New tuner host.
 
 try {
-    final response = api.addTunerHost(addTunerHostRequest);
+    final response = api.addTunerHost(tunerHostInfo);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->addTunerHost: $e\n');
 }
 ```
@@ -131,7 +131,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addTunerHostRequest** | [**AddTunerHostRequest**](AddTunerHostRequest.md)| New tuner host. | [optional] 
+ **tunerHostInfo** | [**TunerHostInfo**](TunerHostInfo.md)| New tuner host. | [optional] 
 
 ### Return type
 
@@ -155,18 +155,18 @@ Cancels a live tv series timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String timerId = timerId_example; // String | Timer id.
 
 try {
     api.cancelSeriesTimer(timerId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->cancelSeriesTimer: $e\n');
 }
 ```
@@ -199,18 +199,18 @@ Cancels a live tv timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String timerId = timerId_example; // String | Timer id.
 
 try {
     api.cancelTimer(timerId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->cancelTimer: $e\n');
 }
 ```
@@ -237,24 +237,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createSeriesTimer**
-> createSeriesTimer(createSeriesTimerRequest)
+> createSeriesTimer(seriesTimerInfoDto)
 
 Creates a live tv series timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
-final CreateSeriesTimerRequest createSeriesTimerRequest = ; // CreateSeriesTimerRequest | New series timer info.
+final api = Tentacle().getLiveTvApi();
+final SeriesTimerInfoDto seriesTimerInfoDto = ; // SeriesTimerInfoDto | New series timer info.
 
 try {
-    api.createSeriesTimer(createSeriesTimerRequest);
-} catch on DioError (e) {
+    api.createSeriesTimer(seriesTimerInfoDto);
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->createSeriesTimer: $e\n');
 }
 ```
@@ -263,7 +263,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createSeriesTimerRequest** | [**CreateSeriesTimerRequest**](CreateSeriesTimerRequest.md)| New series timer info. | [optional] 
+ **seriesTimerInfoDto** | [**SeriesTimerInfoDto**](SeriesTimerInfoDto.md)| New series timer info. | [optional] 
 
 ### Return type
 
@@ -281,24 +281,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createTimer**
-> createTimer(createTimerRequest)
+> createTimer(timerInfoDto)
 
 Creates a live tv timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
-final CreateTimerRequest createTimerRequest = ; // CreateTimerRequest | New timer info.
+final api = Tentacle().getLiveTvApi();
+final TimerInfoDto timerInfoDto = ; // TimerInfoDto | New timer info.
 
 try {
-    api.createTimer(createTimerRequest);
-} catch on DioError (e) {
+    api.createTimer(timerInfoDto);
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->createTimer: $e\n');
 }
 ```
@@ -307,7 +307,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createTimerRequest** | [**CreateTimerRequest**](CreateTimerRequest.md)| New timer info. | [optional] 
+ **timerInfoDto** | [**TimerInfoDto**](TimerInfoDto.md)| New timer info. | [optional] 
 
 ### Return type
 
@@ -331,18 +331,18 @@ Delete listing provider.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String id = id_example; // String | Listing provider id.
 
 try {
     api.deleteListingProvider(id);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->deleteListingProvider: $e\n');
 }
 ```
@@ -375,18 +375,18 @@ Deletes a live tv recording.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String recordingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Recording id.
 
 try {
     api.deleteRecording(recordingId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->deleteRecording: $e\n');
 }
 ```
@@ -419,18 +419,18 @@ Deletes a tuner host.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String id = id_example; // String | Tuner host id.
 
 try {
     api.deleteTunerHost(id);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->deleteTunerHost: $e\n');
 }
 ```
@@ -463,19 +463,19 @@ Discover tuners.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final bool newDevicesOnly = true; // bool | Only discover new tuners.
 
 try {
     final response = api.discoverTuners(newDevicesOnly);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->discoverTuners: $e\n');
 }
 ```
@@ -508,19 +508,19 @@ Discover tuners.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final bool newDevicesOnly = true; // bool | Only discover new tuners.
 
 try {
     final response = api.discvoverTuners(newDevicesOnly);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->discvoverTuners: $e\n');
 }
 ```
@@ -553,20 +553,20 @@ Gets a live tv channel.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
 
 try {
     final response = api.getChannel(channelId, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getChannel: $e\n');
 }
 ```
@@ -600,19 +600,19 @@ Get channel mapping options.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String providerId = providerId_example; // String | Provider id.
 
 try {
     final response = api.getChannelMappingOptions(providerId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getChannelMappingOptions: $e\n');
 }
 ```
@@ -645,18 +645,18 @@ Gets default listings provider info.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 
 try {
     final response = api.getDefaultListingProvider();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getDefaultListingProvider: $e\n');
 }
 ```
@@ -686,19 +686,19 @@ Gets the default values for a new timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String programId = programId_example; // String | Optional. To attach default values based on a program.
 
 try {
     final response = api.getDefaultTimer(programId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getDefaultTimer: $e\n');
 }
 ```
@@ -731,18 +731,18 @@ Get guid info.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 
 try {
     final response = api.getGuideInfo();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getGuideInfo: $e\n');
 }
 ```
@@ -772,13 +772,13 @@ Gets available lineups.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String id = id_example; // String | Provider id.
 final String type = type_example; // String | Provider type.
 final String location = location_example; // String | Location.
@@ -787,7 +787,7 @@ final String country = country_example; // String | Country.
 try {
     final response = api.getLineups(id, type, location, country);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getLineups: $e\n');
 }
 ```
@@ -823,15 +823,15 @@ Gets a live tv recording stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String recordingId = recordingId_example; // String | Recording id.
 
 try {
     final response = api.getLiveRecordingFile(recordingId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getLiveRecordingFile: $e\n');
 }
 ```
@@ -864,16 +864,16 @@ Gets a live tv channel stream.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String streamId = streamId_example; // String | Stream id.
 final String container = container_example; // String | Container type.
 
 try {
     final response = api.getLiveStreamFile(streamId, container);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getLiveStreamFile: $e\n');
 }
 ```
@@ -907,13 +907,13 @@ Gets available live tv channels.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final ChannelType type = ; // ChannelType | Optional. Filter by channel type.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
@@ -939,7 +939,7 @@ final bool addCurrentProgram = true; // bool | Optional. Adds current program in
 try {
     final response = api.getLiveTvChannels(type, userId, startIndex, isMovie, isSeries, isNews, isKids, isSports, limit, isFavorite, isLiked, isDisliked, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, sortBy, sortOrder, enableFavoriteSorting, addCurrentProgram);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getLiveTvChannels: $e\n');
 }
 ```
@@ -992,18 +992,18 @@ Gets available live tv services.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 
 try {
     final response = api.getLiveTvInfo();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getLiveTvInfo: $e\n');
 }
 ```
@@ -1033,13 +1033,13 @@ Gets available live tv epgs.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final BuiltList<String> channelIds = ; // BuiltList<String> | The channels to return guide information for.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id.
 final DateTime minStartDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum premiere start date.
@@ -1071,7 +1071,7 @@ final bool enableTotalRecordCount = true; // bool | Retrieve total record count.
 try {
     final response = api.getLiveTvPrograms(channelIds, userId, minStartDate, hasAired, isAiring, maxStartDate, minEndDate, maxEndDate, isMovie, isSeries, isNews, isKids, isSports, startIndex, limit, sortBy, sortOrder, genres, genreIds, enableImages, imageTypeLimit, enableImageTypes, enableUserData, seriesTimerId, librarySeriesId, fields, enableTotalRecordCount);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getLiveTvPrograms: $e\n');
 }
 ```
@@ -1130,20 +1130,20 @@ Gets a live tv program.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String programId = programId_example; // String | Program id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
 
 try {
     final response = api.getProgram(programId, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getProgram: $e\n');
 }
 ```
@@ -1171,25 +1171,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPrograms**
-> BaseItemDtoQueryResult getPrograms(getProgramsRequest)
+> BaseItemDtoQueryResult getPrograms(getProgramsDto)
 
 Gets available live tv epgs.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
-final GetProgramsRequest getProgramsRequest = ; // GetProgramsRequest | Request body.
+final api = Tentacle().getLiveTvApi();
+final GetProgramsDto getProgramsDto = ; // GetProgramsDto | Request body.
 
 try {
-    final response = api.getPrograms(getProgramsRequest);
+    final response = api.getPrograms(getProgramsDto);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getPrograms: $e\n');
 }
 ```
@@ -1198,7 +1198,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **getProgramsRequest** | [**GetProgramsRequest**](GetProgramsRequest.md)| Request body. | [optional] 
+ **getProgramsDto** | [**GetProgramsDto**](GetProgramsDto.md)| Request body. | [optional] 
 
 ### Return type
 
@@ -1222,13 +1222,13 @@ Gets recommended live tv epgs.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. filter by user id.
 final int limit = 56; // int | Optional. The maximum number of records to return.
 final bool isAiring = true; // bool | Optional. Filter by programs that are currently airing, or not.
@@ -1249,7 +1249,7 @@ final bool enableTotalRecordCount = true; // bool | Retrieve total record count.
 try {
     final response = api.getRecommendedPrograms(userId, limit, isAiring, hasAired, isSeries, isMovie, isNews, isKids, isSports, enableImages, imageTypeLimit, enableImageTypes, genreIds, fields, enableUserData, enableTotalRecordCount);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getRecommendedPrograms: $e\n');
 }
 ```
@@ -1297,20 +1297,20 @@ Gets a live tv recording.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String recordingId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Recording id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Attach user data.
 
 try {
     final response = api.getRecording(recordingId, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getRecording: $e\n');
 }
 ```
@@ -1344,19 +1344,19 @@ Gets recording folders.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 
 try {
     final response = api.getRecordingFolders(userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getRecordingFolders: $e\n');
 }
 ```
@@ -1389,18 +1389,18 @@ Get recording group.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String groupId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Group id.
 
 try {
     api.getRecordingGroup(groupId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getRecordingGroup: $e\n');
 }
 ```
@@ -1433,19 +1433,19 @@ Gets live tv recording groups.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 
 try {
     final response = api.getRecordingGroups(userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getRecordingGroups: $e\n');
 }
 ```
@@ -1478,13 +1478,13 @@ Gets live tv recordings.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String channelId = channelId_example; // String | Optional. Filter by channel id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
@@ -1508,7 +1508,7 @@ final bool enableTotalRecordCount = true; // bool | Optional. Return total recor
 try {
     final response = api.getRecordings(channelId, userId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, isMovie, isSeries, isKids, isSports, isNews, isLibraryItem, enableTotalRecordCount);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getRecordings: $e\n');
 }
 ```
@@ -1559,13 +1559,13 @@ Gets live tv recording series.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String channelId = channelId_example; // String | Optional. Filter by channel id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 final String groupId = groupId_example; // String | Optional. Filter by recording group.
@@ -1584,7 +1584,7 @@ final bool enableTotalRecordCount = true; // bool | Optional. Return total recor
 try {
     final response = api.getRecordingsSeries(channelId, userId, groupId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, enableTotalRecordCount);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getRecordingsSeries: $e\n');
 }
 ```
@@ -1630,18 +1630,18 @@ Gets available countries.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 
 try {
     final response = api.getSchedulesDirectCountries();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getSchedulesDirectCountries: $e\n');
 }
 ```
@@ -1671,19 +1671,19 @@ Gets a live tv series timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String timerId = timerId_example; // String | Timer id.
 
 try {
     final response = api.getSeriesTimer(timerId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getSeriesTimer: $e\n');
 }
 ```
@@ -1716,20 +1716,20 @@ Gets live tv series timers.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String sortBy = sortBy_example; // String | Optional. Sort by SortName or Priority.
 final SortOrder sortOrder = ; // SortOrder | Optional. Sort in Ascending or Descending order.
 
 try {
     final response = api.getSeriesTimers(sortBy, sortOrder);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getSeriesTimers: $e\n');
 }
 ```
@@ -1763,19 +1763,19 @@ Gets a timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String timerId = timerId_example; // String | Timer id.
 
 try {
     final response = api.getTimer(timerId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getTimer: $e\n');
 }
 ```
@@ -1808,13 +1808,13 @@ Gets the live tv timers.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String channelId = channelId_example; // String | Optional. Filter by channel id.
 final String seriesTimerId = seriesTimerId_example; // String | Optional. Filter by timers belonging to a series timer.
 final bool isActive = true; // bool | Optional. Filter by timers that are active.
@@ -1823,7 +1823,7 @@ final bool isScheduled = true; // bool | Optional. Filter by timers that are sch
 try {
     final response = api.getTimers(channelId, seriesTimerId, isActive, isScheduled);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getTimers: $e\n');
 }
 ```
@@ -1859,18 +1859,18 @@ Get tuner host types.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 
 try {
     final response = api.getTunerHostTypes();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->getTunerHostTypes: $e\n');
 }
 ```
@@ -1900,18 +1900,18 @@ Resets a tv tuner.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String tunerId = tunerId_example; // String | Tuner id.
 
 try {
     api.resetTuner(tunerId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->resetTuner: $e\n');
 }
 ```
@@ -1938,25 +1938,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **setChannelMapping**
-> TunerChannelMapping setChannelMapping(setChannelMappingRequest)
+> TunerChannelMapping setChannelMapping(setChannelMappingDto)
 
 Set channel mappings.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
-final SetChannelMappingRequest setChannelMappingRequest = ; // SetChannelMappingRequest | The set channel mapping dto.
+final api = Tentacle().getLiveTvApi();
+final SetChannelMappingDto setChannelMappingDto = ; // SetChannelMappingDto | The set channel mapping dto.
 
 try {
-    final response = api.setChannelMapping(setChannelMappingRequest);
+    final response = api.setChannelMapping(setChannelMappingDto);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->setChannelMapping: $e\n');
 }
 ```
@@ -1965,7 +1965,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **setChannelMappingRequest** | [**SetChannelMappingRequest**](SetChannelMappingRequest.md)| The set channel mapping dto. | 
+ **setChannelMappingDto** | [**SetChannelMappingDto**](SetChannelMappingDto.md)| The set channel mapping dto. | 
 
 ### Return type
 
@@ -1983,25 +1983,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateSeriesTimer**
-> updateSeriesTimer(timerId, createSeriesTimerRequest)
+> updateSeriesTimer(timerId, seriesTimerInfoDto)
 
 Updates a live tv series timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String timerId = timerId_example; // String | Timer id.
-final CreateSeriesTimerRequest createSeriesTimerRequest = ; // CreateSeriesTimerRequest | New series timer info.
+final SeriesTimerInfoDto seriesTimerInfoDto = ; // SeriesTimerInfoDto | New series timer info.
 
 try {
-    api.updateSeriesTimer(timerId, createSeriesTimerRequest);
-} catch on DioError (e) {
+    api.updateSeriesTimer(timerId, seriesTimerInfoDto);
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->updateSeriesTimer: $e\n');
 }
 ```
@@ -2011,7 +2011,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **timerId** | **String**| Timer id. | 
- **createSeriesTimerRequest** | [**CreateSeriesTimerRequest**](CreateSeriesTimerRequest.md)| New series timer info. | [optional] 
+ **seriesTimerInfoDto** | [**SeriesTimerInfoDto**](SeriesTimerInfoDto.md)| New series timer info. | [optional] 
 
 ### Return type
 
@@ -2029,25 +2029,25 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateTimer**
-> updateTimer(timerId, createTimerRequest)
+> updateTimer(timerId, timerInfoDto)
 
 Updates a live tv timer.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLiveTvApi();
+final api = Tentacle().getLiveTvApi();
 final String timerId = timerId_example; // String | Timer id.
-final CreateTimerRequest createTimerRequest = ; // CreateTimerRequest | New timer info.
+final TimerInfoDto timerInfoDto = ; // TimerInfoDto | New timer info.
 
 try {
-    api.updateTimer(timerId, createTimerRequest);
-} catch on DioError (e) {
+    api.updateTimer(timerId, timerInfoDto);
+} catch on DioException (e) {
     print('Exception when calling LiveTvApi->updateTimer: $e\n');
 }
 ```
@@ -2057,7 +2057,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **timerId** | **String**| Timer id. | 
- **createTimerRequest** | [**CreateTimerRequest**](CreateTimerRequest.md)| New timer info. | [optional] 
+ **timerInfoDto** | [**TimerInfoDto**](TimerInfoDto.md)| New timer info. | [optional] 
 
 ### Return type
 

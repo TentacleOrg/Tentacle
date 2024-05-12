@@ -14,8 +14,9 @@ part 'set_channel_mapping_dto.g.dart';
 /// * [providerId] - Gets or sets the provider id.
 /// * [tunerChannelId] - Gets or sets the tuner channel id.
 /// * [providerChannelId] - Gets or sets the provider channel id.
-@BuiltValue(instantiable: false)
-abstract class SetChannelMappingDto  {
+@BuiltValue()
+abstract class SetChannelMappingDto
+    implements Built<SetChannelMappingDto, SetChannelMappingDtoBuilder> {
   /// Gets or sets the provider id.
   @BuiltValueField(wireName: r'ProviderId')
   String get providerId;
@@ -28,13 +29,26 @@ abstract class SetChannelMappingDto  {
   @BuiltValueField(wireName: r'ProviderChannelId')
   String get providerChannelId;
 
+  SetChannelMappingDto._();
+
+  factory SetChannelMappingDto([void updates(SetChannelMappingDtoBuilder b)]) =
+      _$SetChannelMappingDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SetChannelMappingDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<SetChannelMappingDto> get serializer => _$SetChannelMappingDtoSerializer();
+  static Serializer<SetChannelMappingDto> get serializer =>
+      _$SetChannelMappingDtoSerializer();
 }
 
-class _$SetChannelMappingDtoSerializer implements PrimitiveSerializer<SetChannelMappingDto> {
+class _$SetChannelMappingDtoSerializer
+    implements PrimitiveSerializer<SetChannelMappingDto> {
   @override
-  final Iterable<Type> types = const [SetChannelMappingDto];
+  final Iterable<Type> types = const [
+    SetChannelMappingDto,
+    _$SetChannelMappingDto
+  ];
 
   @override
   final String wireName = r'SetChannelMappingDto';
@@ -67,47 +81,9 @@ class _$SetChannelMappingDtoSerializer implements PrimitiveSerializer<SetChannel
     SetChannelMappingDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  SetChannelMappingDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SetChannelMappingDto)) as $SetChannelMappingDto;
-  }
-}
-
-/// a concrete implementation of [SetChannelMappingDto], since [SetChannelMappingDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SetChannelMappingDto implements SetChannelMappingDto, Built<$SetChannelMappingDto, $SetChannelMappingDtoBuilder> {
-  $SetChannelMappingDto._();
-
-  factory $SetChannelMappingDto([void Function($SetChannelMappingDtoBuilder)? updates]) = _$$SetChannelMappingDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SetChannelMappingDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SetChannelMappingDto> get serializer => _$$SetChannelMappingDtoSerializer();
-}
-
-class _$$SetChannelMappingDtoSerializer implements PrimitiveSerializer<$SetChannelMappingDto> {
-  @override
-  final Iterable<Type> types = const [$SetChannelMappingDto, _$$SetChannelMappingDto];
-
-  @override
-  final String wireName = r'$SetChannelMappingDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SetChannelMappingDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SetChannelMappingDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -152,12 +128,12 @@ class _$$SetChannelMappingDtoSerializer implements PrimitiveSerializer<$SetChann
   }
 
   @override
-  $SetChannelMappingDto deserialize(
+  SetChannelMappingDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SetChannelMappingDtoBuilder();
+    final result = SetChannelMappingDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -171,4 +147,3 @@ class _$$SetChannelMappingDtoSerializer implements PrimitiveSerializer<$SetChann
     return result.build();
   }
 }
-

@@ -11,10 +11,11 @@ part 'name_guid_pair.g.dart';
 /// NameGuidPair
 ///
 /// Properties:
-/// * [name] 
-/// * [id] 
+/// * [name]
+/// * [id]
 @BuiltValue()
-abstract class NameGuidPair implements Built<NameGuidPair, NameGuidPairBuilder> {
+abstract class NameGuidPair
+    implements Built<NameGuidPair, NameGuidPairBuilder> {
   @BuiltValueField(wireName: r'Name')
   String? get name;
 
@@ -66,7 +67,9 @@ class _$NameGuidPairSerializer implements PrimitiveSerializer<NameGuidPair> {
     NameGuidPair object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -124,4 +127,3 @@ class _$NameGuidPairSerializer implements PrimitiveSerializer<NameGuidPair> {
     return result.build();
   }
 }
-

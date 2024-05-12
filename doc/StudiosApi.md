@@ -1,8 +1,8 @@
-# openapi.api.StudiosApi
+# tentacle.api.StudiosApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,20 +20,20 @@ Gets a studio by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getStudiosApi();
+final api = Tentacle().getStudiosApi();
 final String name = name_example; // String | Studio name.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
 try {
     final response = api.getStudio(name, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling StudiosApi->getStudio: $e\n');
 }
 ```
@@ -67,13 +67,13 @@ Gets all studios from a given item, folder, or the entire library.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getStudiosApi();
+final api = Tentacle().getStudiosApi();
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
 final String searchTerm = searchTerm_example; // String | Optional. Search term.
@@ -95,7 +95,7 @@ final bool enableTotalRecordCount = true; // bool | Total record count.
 try {
     final response = api.getStudios(startIndex, limit, searchTerm, parentId, fields, excludeItemTypes, includeItemTypes, isFavorite, enableUserData, imageTypeLimit, enableImageTypes, userId, nameStartsWithOrGreater, nameStartsWith, nameLessThan, enableImages, enableTotalRecordCount);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling StudiosApi->getStudios: $e\n');
 }
 ```

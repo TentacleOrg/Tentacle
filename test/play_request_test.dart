@@ -50,6 +50,5 @@ void main() {
     test('to test the property `startIndex`', () async {
       // TODO
     });
-
   });
 }

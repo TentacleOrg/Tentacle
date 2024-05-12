@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for RemoveFromPlaylistRequestDto
 void main() {
-  //final instance = RemoveFromPlaylistRequestDtoBuilder();
+  final instance = RemoveFromPlaylistRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(RemoveFromPlaylistRequestDto, () {
@@ -24,6 +24,5 @@ void main() {
     test('to test the property `clearPlayingItem`', () async {
       // TODO
     });
-
   });
 }

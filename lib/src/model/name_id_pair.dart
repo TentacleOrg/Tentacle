@@ -68,7 +68,9 @@ class _$NameIdPairSerializer implements PrimitiveSerializer<NameIdPair> {
     NameIdPair object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +129,3 @@ class _$NameIdPairSerializer implements PrimitiveSerializer<NameIdPair> {
     return result.build();
   }
 }
-

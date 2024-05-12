@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'day_pattern.g.dart';
 
 class DayPattern extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Daily')
   static const DayPattern daily = _$daily;
   @BuiltValueEnumConst(wireName: r'Weekdays')
@@ -20,7 +19,7 @@ class DayPattern extends EnumClass {
 
   static Serializer<DayPattern> get serializer => _$dayPatternSerializer;
 
-  const DayPattern._(String name): super(name);
+  const DayPattern._(String name) : super(name);
 
   static BuiltSet<DayPattern> get values => _$values;
   static DayPattern valueOf(String name) => _$valueOf(name);
@@ -33,4 +32,3 @@ class DayPattern extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class DayPatternMixin = Object with _$DayPatternMixin;
-

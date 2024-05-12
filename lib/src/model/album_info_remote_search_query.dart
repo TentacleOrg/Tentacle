@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/album_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/album_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,16 @@ part 'album_info_remote_search_query.g.dart';
 /// AlbumInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo] 
-/// * [itemId] 
+/// * [searchInfo]
+/// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
-@BuiltValue(instantiable: false)
-abstract class AlbumInfoRemoteSearchQuery  {
+@BuiltValue()
+abstract class AlbumInfoRemoteSearchQuery
+    implements
+        Built<AlbumInfoRemoteSearchQuery, AlbumInfoRemoteSearchQueryBuilder> {
   @BuiltValueField(wireName: r'SearchInfo')
-  AlbumInfoRemoteSearchQuerySearchInfo? get searchInfo;
+  AlbumInfo? get searchInfo;
 
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
@@ -32,13 +34,27 @@ abstract class AlbumInfoRemoteSearchQuery  {
   @BuiltValueField(wireName: r'IncludeDisabledProviders')
   bool? get includeDisabledProviders;
 
+  AlbumInfoRemoteSearchQuery._();
+
+  factory AlbumInfoRemoteSearchQuery(
+          [void updates(AlbumInfoRemoteSearchQueryBuilder b)]) =
+      _$AlbumInfoRemoteSearchQuery;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AlbumInfoRemoteSearchQueryBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<AlbumInfoRemoteSearchQuery> get serializer => _$AlbumInfoRemoteSearchQuerySerializer();
+  static Serializer<AlbumInfoRemoteSearchQuery> get serializer =>
+      _$AlbumInfoRemoteSearchQuerySerializer();
 }
 
-class _$AlbumInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<AlbumInfoRemoteSearchQuery> {
+class _$AlbumInfoRemoteSearchQuerySerializer
+    implements PrimitiveSerializer<AlbumInfoRemoteSearchQuery> {
   @override
-  final Iterable<Type> types = const [AlbumInfoRemoteSearchQuery];
+  final Iterable<Type> types = const [
+    AlbumInfoRemoteSearchQuery,
+    _$AlbumInfoRemoteSearchQuery
+  ];
 
   @override
   final String wireName = r'AlbumInfoRemoteSearchQuery';
@@ -52,7 +68,7 @@ class _$AlbumInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Albu
       yield r'SearchInfo';
       yield serializers.serialize(
         object.searchInfo,
-        specifiedType: const FullType.nullable(AlbumInfoRemoteSearchQuerySearchInfo),
+        specifiedType: const FullType.nullable(AlbumInfo),
       );
     }
     if (object.itemId != null) {
@@ -84,47 +100,9 @@ class _$AlbumInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Albu
     AlbumInfoRemoteSearchQuery object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  AlbumInfoRemoteSearchQuery deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AlbumInfoRemoteSearchQuery)) as $AlbumInfoRemoteSearchQuery;
-  }
-}
-
-/// a concrete implementation of [AlbumInfoRemoteSearchQuery], since [AlbumInfoRemoteSearchQuery] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $AlbumInfoRemoteSearchQuery implements AlbumInfoRemoteSearchQuery, Built<$AlbumInfoRemoteSearchQuery, $AlbumInfoRemoteSearchQueryBuilder> {
-  $AlbumInfoRemoteSearchQuery._();
-
-  factory $AlbumInfoRemoteSearchQuery([void Function($AlbumInfoRemoteSearchQueryBuilder)? updates]) = _$$AlbumInfoRemoteSearchQuery;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AlbumInfoRemoteSearchQueryBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$AlbumInfoRemoteSearchQuery> get serializer => _$$AlbumInfoRemoteSearchQuerySerializer();
-}
-
-class _$$AlbumInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$AlbumInfoRemoteSearchQuery> {
-  @override
-  final Iterable<Type> types = const [$AlbumInfoRemoteSearchQuery, _$$AlbumInfoRemoteSearchQuery];
-
-  @override
-  final String wireName = r'$AlbumInfoRemoteSearchQuery';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $AlbumInfoRemoteSearchQuery object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(AlbumInfoRemoteSearchQuery))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -142,8 +120,8 @@ class _$$AlbumInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Al
         case r'SearchInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AlbumInfoRemoteSearchQuerySearchInfo),
-          ) as AlbumInfoRemoteSearchQuerySearchInfo?;
+            specifiedType: const FullType.nullable(AlbumInfo),
+          ) as AlbumInfo?;
           if (valueDes == null) continue;
           result.searchInfo.replace(valueDes);
           break;
@@ -178,12 +156,12 @@ class _$$AlbumInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Al
   }
 
   @override
-  $AlbumInfoRemoteSearchQuery deserialize(
+  AlbumInfoRemoteSearchQuery deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $AlbumInfoRemoteSearchQueryBuilder();
+    final result = AlbumInfoRemoteSearchQueryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -197,4 +175,3 @@ class _$$AlbumInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Al
     return result.build();
   }
 }
-

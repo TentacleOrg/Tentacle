@@ -68,7 +68,9 @@ class _$GuideInfoSerializer implements PrimitiveSerializer<GuideInfo> {
     GuideInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -125,4 +127,3 @@ class _$GuideInfoSerializer implements PrimitiveSerializer<GuideInfo> {
     return result.build();
   }
 }
-

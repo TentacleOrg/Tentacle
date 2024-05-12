@@ -44,7 +44,7 @@ class _$FFmpegLocationMeta {
   BuiltSet<FFmpegLocation> get values => _$values;
 }
 
-abstract class _$FFmpegLocationMixin {
+mixin _$FFmpegLocationMixin {
   // ignore: non_constant_identifier_names
   _$FFmpegLocationMeta get FFmpegLocation => const _$FFmpegLocationMeta();
 }

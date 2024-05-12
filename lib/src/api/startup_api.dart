@@ -7,14 +7,11 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:tentacle/src/model/set_remote_access_request.dart';
 import 'package:tentacle/src/model/startup_configuration_dto.dart';
+import 'package:tentacle/src/model/startup_remote_access_dto.dart';
 import 'package:tentacle/src/model/startup_user_dto.dart';
-import 'package:tentacle/src/model/update_initial_configuration_request.dart';
-import 'package:tentacle/src/model/update_startup_user_request.dart';
 
 class StartupApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +19,7 @@ class StartupApi {
   const StartupApi(this._dio, this._serializers);
 
   /// Completes the startup wizard.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -33,8 +30,8 @@ class StartupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> completeWizard({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> completeWizard({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -74,7 +71,7 @@ class StartupApi {
   }
 
   /// Gets the first user.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -85,8 +82,8 @@ class StartupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [StartupUserDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<StartupUserDto>> getFirstUser({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<StartupUserDto>> getFirstUser({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -122,22 +119,24 @@ class StartupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    StartupUserDto _responseData;
+    StartupUserDto? _responseData;
 
     try {
-      const _responseType = FullType(StartupUserDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as StartupUserDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StartupUserDto),
+            ) as StartupUserDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<StartupUserDto>(
@@ -153,7 +152,7 @@ class StartupApi {
   }
 
   /// Gets the first user.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -164,8 +163,8 @@ class StartupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [StartupUserDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<StartupUserDto>> getFirstUser2({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<StartupUserDto>> getFirstUser2({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -201,22 +200,24 @@ class StartupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    StartupUserDto _responseData;
+    StartupUserDto? _responseData;
 
     try {
-      const _responseType = FullType(StartupUserDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as StartupUserDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StartupUserDto),
+            ) as StartupUserDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<StartupUserDto>(
@@ -232,7 +233,7 @@ class StartupApi {
   }
 
   /// Gets the initial startup wizard configuration.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -243,8 +244,8 @@ class StartupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [StartupConfigurationDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<StartupConfigurationDto>> getStartupConfiguration({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<StartupConfigurationDto>> getStartupConfiguration({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -280,22 +281,24 @@ class StartupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    StartupConfigurationDto _responseData;
+    StartupConfigurationDto? _responseData;
 
     try {
-      const _responseType = FullType(StartupConfigurationDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as StartupConfigurationDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(StartupConfigurationDto),
+            ) as StartupConfigurationDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<StartupConfigurationDto>(
@@ -311,10 +314,10 @@ class StartupApi {
   }
 
   /// Sets remote access and UPnP.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [setRemoteAccessRequest] - The startup remote access dto.
+  /// * [startupRemoteAccessDto] - The startup remote access dto.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -323,9 +326,9 @@ class StartupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> setRemoteAccess({ 
-    required SetRemoteAccessRequest setRemoteAccessRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> setRemoteAccess({
+    required StartupRemoteAccessDto startupRemoteAccessDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -357,18 +360,19 @@ class StartupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(SetRemoteAccessRequest);
-      _bodyData = _serializers.serialize(setRemoteAccessRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(StartupRemoteAccessDto);
+      _bodyData =
+          _serializers.serialize(startupRemoteAccessDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -384,10 +388,10 @@ class StartupApi {
   }
 
   /// Sets the initial startup wizard configuration.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [updateInitialConfigurationRequest] - The updated startup configuration.
+  /// * [startupConfigurationDto] - The updated startup configuration.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -396,9 +400,9 @@ class StartupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateInitialConfiguration({ 
-    required UpdateInitialConfigurationRequest updateInitialConfigurationRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateInitialConfiguration({
+    required StartupConfigurationDto startupConfigurationDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -430,18 +434,19 @@ class StartupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateInitialConfigurationRequest);
-      _bodyData = _serializers.serialize(updateInitialConfigurationRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(StartupConfigurationDto);
+      _bodyData =
+          _serializers.serialize(startupConfigurationDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -457,10 +462,10 @@ class StartupApi {
   }
 
   /// Sets the user name and password.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [updateStartupUserRequest] - The DTO containing username and password.
+  /// * [startupUserDto] - The DTO containing username and password.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -469,9 +474,9 @@ class StartupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateStartupUser({ 
-    UpdateStartupUserRequest? updateStartupUserRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateStartupUser({
+    StartupUserDto? startupUserDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -503,18 +508,20 @@ class StartupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateStartupUserRequest);
-      _bodyData = updateStartupUserRequest == null ? null : _serializers.serialize(updateStartupUserRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(StartupUserDto);
+      _bodyData = startupUserDto == null
+          ? null
+          : _serializers.serialize(startupUserDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -528,5 +535,4 @@ class StartupApi {
 
     return _response;
   }
-
 }

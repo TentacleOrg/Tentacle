@@ -18,7 +18,8 @@ part 'configuration_page_info.g.dart';
 /// * [displayName] - Gets or sets the display name.
 /// * [pluginId] - Gets or sets the plugin id.
 @BuiltValue()
-abstract class ConfigurationPageInfo implements Built<ConfigurationPageInfo, ConfigurationPageInfoBuilder> {
+abstract class ConfigurationPageInfo
+    implements Built<ConfigurationPageInfo, ConfigurationPageInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -45,18 +46,24 @@ abstract class ConfigurationPageInfo implements Built<ConfigurationPageInfo, Con
 
   ConfigurationPageInfo._();
 
-  factory ConfigurationPageInfo([void updates(ConfigurationPageInfoBuilder b)]) = _$ConfigurationPageInfo;
+  factory ConfigurationPageInfo(
+      [void updates(ConfigurationPageInfoBuilder b)]) = _$ConfigurationPageInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ConfigurationPageInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ConfigurationPageInfo> get serializer => _$ConfigurationPageInfoSerializer();
+  static Serializer<ConfigurationPageInfo> get serializer =>
+      _$ConfigurationPageInfoSerializer();
 }
 
-class _$ConfigurationPageInfoSerializer implements PrimitiveSerializer<ConfigurationPageInfo> {
+class _$ConfigurationPageInfoSerializer
+    implements PrimitiveSerializer<ConfigurationPageInfo> {
   @override
-  final Iterable<Type> types = const [ConfigurationPageInfo, _$ConfigurationPageInfo];
+  final Iterable<Type> types = const [
+    ConfigurationPageInfo,
+    _$ConfigurationPageInfo
+  ];
 
   @override
   final String wireName = r'ConfigurationPageInfo';
@@ -116,7 +123,9 @@ class _$ConfigurationPageInfoSerializer implements PrimitiveSerializer<Configura
     ConfigurationPageInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -205,4 +214,3 @@ class _$ConfigurationPageInfoSerializer implements PrimitiveSerializer<Configura
     return result.build();
   }
 }
-

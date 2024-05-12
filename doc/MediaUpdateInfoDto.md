@@ -1,8 +1,8 @@
-# openapi.model.MediaUpdateInfoDto
+# tentacle.model.MediaUpdateInfoDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

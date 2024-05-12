@@ -1,8 +1,8 @@
-# openapi.api.ChannelsApi
+# tentacle.api.ChannelsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -23,18 +23,18 @@ Get all channel features.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getChannelsApi();
+final api = Tentacle().getChannelsApi();
 
 try {
     final response = api.getAllChannelFeatures();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ChannelsApi->getAllChannelFeatures: $e\n');
 }
 ```
@@ -64,19 +64,19 @@ Get channel features.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getChannelsApi();
+final api = Tentacle().getChannelsApi();
 final String channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel id.
 
 try {
     final response = api.getChannelFeatures(channelId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ChannelsApi->getChannelFeatures: $e\n');
 }
 ```
@@ -109,13 +109,13 @@ Get channel items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getChannelsApi();
+final api = Tentacle().getChannelsApi();
 final String channelId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Channel Id.
 final String folderId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Folder Id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User Id.
@@ -129,7 +129,7 @@ final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Spec
 try {
     final response = api.getChannelItems(channelId, folderId, userId, startIndex, limit, sortOrder, filters, sortBy, fields);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ChannelsApi->getChannelItems: $e\n');
 }
 ```
@@ -170,13 +170,13 @@ Gets available channels.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getChannelsApi();
+final api = Tentacle().getChannelsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id to filter by. Use System.Guid.Empty to not filter by user.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -187,7 +187,7 @@ final bool isFavorite = true; // bool | Optional. Filter by channels that are fa
 try {
     final response = api.getChannels(userId, startIndex, limit, supportsLatestItems, supportsMediaDeletion, isFavorite);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ChannelsApi->getChannels: $e\n');
 }
 ```
@@ -225,13 +225,13 @@ Gets latest channel items.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getChannelsApi();
+final api = Tentacle().getChannelsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User Id.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -242,7 +242,7 @@ final BuiltList<String> channelIds = ; // BuiltList<String> | Optional. Specify 
 try {
     final response = api.getLatestChannelItems(userId, startIndex, limit, filters, fields, channelIds);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ChannelsApi->getLatestChannelItems: $e\n');
 }
 ```

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MediaEncoderPathDto
 void main() {
-  //final instance = MediaEncoderPathDtoBuilder();
+  final instance = MediaEncoderPathDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(MediaEncoderPathDto, () {
@@ -18,6 +18,5 @@ void main() {
     test('to test the property `pathType`', () async {
       // TODO
     });
-
   });
 }

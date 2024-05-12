@@ -15,8 +15,9 @@ part 'buffer_request_dto.g.dart';
 /// * [positionTicks] - Gets or sets the position ticks.
 /// * [isPlaying] - Gets or sets a value indicating whether the client playback is unpaused.
 /// * [playlistItemId] - Gets or sets the playlist item identifier of the playing item.
-@BuiltValue(instantiable: false)
-abstract class BufferRequestDto  {
+@BuiltValue()
+abstract class BufferRequestDto
+    implements Built<BufferRequestDto, BufferRequestDtoBuilder> {
   /// Gets or sets when the request has been made by the client.
   @BuiltValueField(wireName: r'When')
   DateTime? get when;
@@ -33,13 +34,23 @@ abstract class BufferRequestDto  {
   @BuiltValueField(wireName: r'PlaylistItemId')
   String? get playlistItemId;
 
+  BufferRequestDto._();
+
+  factory BufferRequestDto([void updates(BufferRequestDtoBuilder b)]) =
+      _$BufferRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BufferRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<BufferRequestDto> get serializer => _$BufferRequestDtoSerializer();
+  static Serializer<BufferRequestDto> get serializer =>
+      _$BufferRequestDtoSerializer();
 }
 
-class _$BufferRequestDtoSerializer implements PrimitiveSerializer<BufferRequestDto> {
+class _$BufferRequestDtoSerializer
+    implements PrimitiveSerializer<BufferRequestDto> {
   @override
-  final Iterable<Type> types = const [BufferRequestDto];
+  final Iterable<Type> types = const [BufferRequestDto, _$BufferRequestDto];
 
   @override
   final String wireName = r'BufferRequestDto';
@@ -85,47 +96,9 @@ class _$BufferRequestDtoSerializer implements PrimitiveSerializer<BufferRequestD
     BufferRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  BufferRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($BufferRequestDto)) as $BufferRequestDto;
-  }
-}
-
-/// a concrete implementation of [BufferRequestDto], since [BufferRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $BufferRequestDto implements BufferRequestDto, Built<$BufferRequestDto, $BufferRequestDtoBuilder> {
-  $BufferRequestDto._();
-
-  factory $BufferRequestDto([void Function($BufferRequestDtoBuilder)? updates]) = _$$BufferRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BufferRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$BufferRequestDto> get serializer => _$$BufferRequestDtoSerializer();
-}
-
-class _$$BufferRequestDtoSerializer implements PrimitiveSerializer<$BufferRequestDto> {
-  @override
-  final Iterable<Type> types = const [$BufferRequestDto, _$$BufferRequestDto];
-
-  @override
-  final String wireName = r'$BufferRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $BufferRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(BufferRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -177,12 +150,12 @@ class _$$BufferRequestDtoSerializer implements PrimitiveSerializer<$BufferReques
   }
 
   @override
-  $BufferRequestDto deserialize(
+  BufferRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $BufferRequestDtoBuilder();
+    final result = BufferRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -196,4 +169,3 @@ class _$$BufferRequestDtoSerializer implements PrimitiveSerializer<$BufferReques
     return result.build();
   }
 }
-

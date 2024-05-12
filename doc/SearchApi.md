@@ -1,8 +1,8 @@
-# openapi.api.SearchApi
+# tentacle.api.SearchApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -19,13 +19,13 @@ Gets the search hint result.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSearchApi();
+final api = Tentacle().getSearchApi();
 final String searchTerm = searchTerm_example; // String | The search term to filter on.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
@@ -48,7 +48,7 @@ final bool includeArtists = true; // bool | Optional filter whether to include a
 try {
     final response = api.callGet(searchTerm, startIndex, limit, userId, includeItemTypes, excludeItemTypes, mediaTypes, parentId, isMovie, isSeries, isNews, isKids, isSports, includePeople, includeMedia, includeGenres, includeStudios, includeArtists);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SearchApi->callGet: $e\n');
 }
 ```

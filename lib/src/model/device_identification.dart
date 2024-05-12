@@ -23,7 +23,7 @@ part 'device_identification.g.dart';
 /// * [manufacturerUrl] - Gets or sets the manufacturer URL.
 /// * [headers] - Gets or sets the headers.
 @BuiltValue(instantiable: false)
-abstract class DeviceIdentification  {
+abstract class DeviceIdentification {
   /// Gets or sets the name of the friendly.
   @BuiltValueField(wireName: r'FriendlyName')
   String? get friendlyName;
@@ -61,10 +61,12 @@ abstract class DeviceIdentification  {
   BuiltList<HttpHeaderInfo>? get headers;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeviceIdentification> get serializer => _$DeviceIdentificationSerializer();
+  static Serializer<DeviceIdentification> get serializer =>
+      _$DeviceIdentificationSerializer();
 }
 
-class _$DeviceIdentificationSerializer implements PrimitiveSerializer<DeviceIdentification> {
+class _$DeviceIdentificationSerializer
+    implements PrimitiveSerializer<DeviceIdentification> {
   @override
   final Iterable<Type> types = const [DeviceIdentification];
 
@@ -147,7 +149,9 @@ class _$DeviceIdentificationSerializer implements PrimitiveSerializer<DeviceIden
     DeviceIdentification object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -156,27 +160,39 @@ class _$DeviceIdentificationSerializer implements PrimitiveSerializer<DeviceIden
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($DeviceIdentification)) as $DeviceIdentification;
+    return serializers.deserialize(serialized,
+            specifiedType: FullType($DeviceIdentification))
+        as $DeviceIdentification;
   }
 }
 
 /// a concrete implementation of [DeviceIdentification], since [DeviceIdentification] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $DeviceIdentification implements DeviceIdentification, Built<$DeviceIdentification, $DeviceIdentificationBuilder> {
+abstract class $DeviceIdentification
+    implements
+        DeviceIdentification,
+        Built<$DeviceIdentification, $DeviceIdentificationBuilder> {
   $DeviceIdentification._();
 
-  factory $DeviceIdentification([void Function($DeviceIdentificationBuilder)? updates]) = _$$DeviceIdentification;
+  factory $DeviceIdentification(
+          [void Function($DeviceIdentificationBuilder)? updates]) =
+      _$$DeviceIdentification;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($DeviceIdentificationBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$DeviceIdentification> get serializer => _$$DeviceIdentificationSerializer();
+  static Serializer<$DeviceIdentification> get serializer =>
+      _$$DeviceIdentificationSerializer();
 }
 
-class _$$DeviceIdentificationSerializer implements PrimitiveSerializer<$DeviceIdentification> {
+class _$$DeviceIdentificationSerializer
+    implements PrimitiveSerializer<$DeviceIdentification> {
   @override
-  final Iterable<Type> types = const [$DeviceIdentification, _$$DeviceIdentification];
+  final Iterable<Type> types = const [
+    $DeviceIdentification,
+    _$$DeviceIdentification
+  ];
 
   @override
   final String wireName = r'$DeviceIdentification';
@@ -187,7 +203,8 @@ class _$$DeviceIdentificationSerializer implements PrimitiveSerializer<$DeviceId
     $DeviceIdentification object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(DeviceIdentification))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(DeviceIdentification))!;
   }
 
   void _deserializeProperties(
@@ -261,7 +278,8 @@ class _$$DeviceIdentificationSerializer implements PrimitiveSerializer<$DeviceId
         case r'Headers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(HttpHeaderInfo)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(HttpHeaderInfo)]),
           ) as BuiltList<HttpHeaderInfo>;
           result.headers.replace(valueDes);
           break;
@@ -293,4 +311,3 @@ class _$$DeviceIdentificationSerializer implements PrimitiveSerializer<$DeviceId
     return result.build();
   }
 }
-

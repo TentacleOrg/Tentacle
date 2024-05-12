@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for HardwareEncodingType
 void main() {
-
-  group(HardwareEncodingType, () {
-  });
+  group(HardwareEncodingType, () {});
 }

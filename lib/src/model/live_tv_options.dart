@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/listings_provider_info.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/tuner_host_info.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/listings_provider_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,21 +14,22 @@ part 'live_tv_options.g.dart';
 /// LiveTvOptions
 ///
 /// Properties:
-/// * [guideDays] 
-/// * [recordingPath] 
-/// * [movieRecordingPath] 
-/// * [seriesRecordingPath] 
-/// * [enableRecordingSubfolders] 
-/// * [enableOriginalAudioWithEncodedRecordings] 
-/// * [tunerHosts] 
-/// * [listingProviders] 
-/// * [prePaddingSeconds] 
-/// * [postPaddingSeconds] 
-/// * [mediaLocationsCreated] 
-/// * [recordingPostProcessor] 
-/// * [recordingPostProcessorArguments] 
+/// * [guideDays]
+/// * [recordingPath]
+/// * [movieRecordingPath]
+/// * [seriesRecordingPath]
+/// * [enableRecordingSubfolders]
+/// * [enableOriginalAudioWithEncodedRecordings]
+/// * [tunerHosts]
+/// * [listingProviders]
+/// * [prePaddingSeconds]
+/// * [postPaddingSeconds]
+/// * [mediaLocationsCreated]
+/// * [recordingPostProcessor]
+/// * [recordingPostProcessorArguments]
 @BuiltValue()
-abstract class LiveTvOptions implements Built<LiveTvOptions, LiveTvOptionsBuilder> {
+abstract class LiveTvOptions
+    implements Built<LiveTvOptions, LiveTvOptionsBuilder> {
   @BuiltValueField(wireName: r'GuideDays')
   int? get guideDays;
 
@@ -70,13 +71,15 @@ abstract class LiveTvOptions implements Built<LiveTvOptions, LiveTvOptionsBuilde
 
   LiveTvOptions._();
 
-  factory LiveTvOptions([void updates(LiveTvOptionsBuilder b)]) = _$LiveTvOptions;
+  factory LiveTvOptions([void updates(LiveTvOptionsBuilder b)]) =
+      _$LiveTvOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LiveTvOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LiveTvOptions> get serializer => _$LiveTvOptionsSerializer();
+  static Serializer<LiveTvOptions> get serializer =>
+      _$LiveTvOptionsSerializer();
 }
 
 class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
@@ -137,14 +140,16 @@ class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
       yield r'TunerHosts';
       yield serializers.serialize(
         object.tunerHosts,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(TunerHostInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(TunerHostInfo)]),
       );
     }
     if (object.listingProviders != null) {
       yield r'ListingProviders';
       yield serializers.serialize(
         object.listingProviders,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ListingsProviderInfo)]),
+        specifiedType: const FullType.nullable(
+            BuiltList, [FullType(ListingsProviderInfo)]),
       );
     }
     if (object.prePaddingSeconds != null) {
@@ -190,7 +195,9 @@ class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
     LiveTvOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -254,7 +261,8 @@ class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
         case r'TunerHosts':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(TunerHostInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(TunerHostInfo)]),
           ) as BuiltList<TunerHostInfo>?;
           if (valueDes == null) continue;
           result.tunerHosts.replace(valueDes);
@@ -262,7 +270,8 @@ class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
         case r'ListingProviders':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ListingsProviderInfo)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(ListingsProviderInfo)]),
           ) as BuiltList<ListingsProviderInfo>?;
           if (valueDes == null) continue;
           result.listingProviders.replace(valueDes);
@@ -284,7 +293,8 @@ class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
         case r'MediaLocationsCreated':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.mediaLocationsCreated.replace(valueDes);
@@ -333,4 +343,3 @@ class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
     return result.build();
   }
 }
-

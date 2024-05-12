@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'collection_type_options.g.dart';
 
 class CollectionTypeOptions extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Movies')
   static const CollectionTypeOptions movies = _$movies;
   @BuiltValueEnumConst(wireName: r'TvShows')
@@ -28,9 +27,10 @@ class CollectionTypeOptions extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Mixed')
   static const CollectionTypeOptions mixed = _$mixed;
 
-  static Serializer<CollectionTypeOptions> get serializer => _$collectionTypeOptionsSerializer;
+  static Serializer<CollectionTypeOptions> get serializer =>
+      _$collectionTypeOptionsSerializer;
 
-  const CollectionTypeOptions._(String name): super(name);
+  const CollectionTypeOptions._(String name) : super(name);
 
   static BuiltSet<CollectionTypeOptions> get values => _$values;
   static CollectionTypeOptions valueOf(String name) => _$valueOf(name);
@@ -42,5 +42,5 @@ class CollectionTypeOptions extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class CollectionTypeOptionsMixin = Object with _$CollectionTypeOptionsMixin;
-
+abstract class CollectionTypeOptionsMixin = Object
+    with _$CollectionTypeOptionsMixin;

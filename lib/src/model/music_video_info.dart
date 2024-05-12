@@ -19,13 +19,14 @@ part 'music_video_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-/// * [artists] 
-@BuiltValue(instantiable: false)
-abstract class MusicVideoInfo  {
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+/// * [artists]
+@BuiltValue()
+abstract class MusicVideoInfo
+    implements Built<MusicVideoInfo, MusicVideoInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -69,13 +70,23 @@ abstract class MusicVideoInfo  {
   @BuiltValueField(wireName: r'Artists')
   BuiltList<String>? get artists;
 
+  MusicVideoInfo._();
+
+  factory MusicVideoInfo([void updates(MusicVideoInfoBuilder b)]) =
+      _$MusicVideoInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MusicVideoInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<MusicVideoInfo> get serializer => _$MusicVideoInfoSerializer();
+  static Serializer<MusicVideoInfo> get serializer =>
+      _$MusicVideoInfoSerializer();
 }
 
-class _$MusicVideoInfoSerializer implements PrimitiveSerializer<MusicVideoInfo> {
+class _$MusicVideoInfoSerializer
+    implements PrimitiveSerializer<MusicVideoInfo> {
   @override
-  final Iterable<Type> types = const [MusicVideoInfo];
+  final Iterable<Type> types = const [MusicVideoInfo, _$MusicVideoInfo];
 
   @override
   final String wireName = r'MusicVideoInfo';
@@ -124,7 +135,8 @@ class _$MusicVideoInfoSerializer implements PrimitiveSerializer<MusicVideoInfo> 
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -177,47 +189,9 @@ class _$MusicVideoInfoSerializer implements PrimitiveSerializer<MusicVideoInfo> 
     MusicVideoInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MusicVideoInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MusicVideoInfo)) as $MusicVideoInfo;
-  }
-}
-
-/// a concrete implementation of [MusicVideoInfo], since [MusicVideoInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MusicVideoInfo implements MusicVideoInfo, Built<$MusicVideoInfo, $MusicVideoInfoBuilder> {
-  $MusicVideoInfo._();
-
-  factory $MusicVideoInfo([void Function($MusicVideoInfoBuilder)? updates]) = _$$MusicVideoInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MusicVideoInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MusicVideoInfo> get serializer => _$$MusicVideoInfoSerializer();
-}
-
-class _$$MusicVideoInfoSerializer implements PrimitiveSerializer<$MusicVideoInfo> {
-  @override
-  final Iterable<Type> types = const [$MusicVideoInfo, _$$MusicVideoInfo];
-
-  @override
-  final String wireName = r'$MusicVideoInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MusicVideoInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MusicVideoInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -275,7 +249,8 @@ class _$$MusicVideoInfoSerializer implements PrimitiveSerializer<$MusicVideoInfo
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -322,7 +297,8 @@ class _$$MusicVideoInfoSerializer implements PrimitiveSerializer<$MusicVideoInfo
         case r'Artists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.artists.replace(valueDes);
@@ -336,12 +312,12 @@ class _$$MusicVideoInfoSerializer implements PrimitiveSerializer<$MusicVideoInfo
   }
 
   @override
-  $MusicVideoInfo deserialize(
+  MusicVideoInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MusicVideoInfoBuilder();
+    final result = MusicVideoInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -355,4 +331,3 @@ class _$$MusicVideoInfoSerializer implements PrimitiveSerializer<$MusicVideoInfo
     return result.build();
   }
 }
-

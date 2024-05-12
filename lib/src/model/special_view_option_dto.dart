@@ -14,7 +14,8 @@ part 'special_view_option_dto.g.dart';
 /// * [name] - Gets or sets view option name.
 /// * [id] - Gets or sets view option id.
 @BuiltValue()
-abstract class SpecialViewOptionDto implements Built<SpecialViewOptionDto, SpecialViewOptionDtoBuilder> {
+abstract class SpecialViewOptionDto
+    implements Built<SpecialViewOptionDto, SpecialViewOptionDtoBuilder> {
   /// Gets or sets view option name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -25,18 +26,24 @@ abstract class SpecialViewOptionDto implements Built<SpecialViewOptionDto, Speci
 
   SpecialViewOptionDto._();
 
-  factory SpecialViewOptionDto([void updates(SpecialViewOptionDtoBuilder b)]) = _$SpecialViewOptionDto;
+  factory SpecialViewOptionDto([void updates(SpecialViewOptionDtoBuilder b)]) =
+      _$SpecialViewOptionDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SpecialViewOptionDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SpecialViewOptionDto> get serializer => _$SpecialViewOptionDtoSerializer();
+  static Serializer<SpecialViewOptionDto> get serializer =>
+      _$SpecialViewOptionDtoSerializer();
 }
 
-class _$SpecialViewOptionDtoSerializer implements PrimitiveSerializer<SpecialViewOptionDto> {
+class _$SpecialViewOptionDtoSerializer
+    implements PrimitiveSerializer<SpecialViewOptionDto> {
   @override
-  final Iterable<Type> types = const [SpecialViewOptionDto, _$SpecialViewOptionDto];
+  final Iterable<Type> types = const [
+    SpecialViewOptionDto,
+    _$SpecialViewOptionDto
+  ];
 
   @override
   final String wireName = r'SpecialViewOptionDto';
@@ -68,7 +75,9 @@ class _$SpecialViewOptionDtoSerializer implements PrimitiveSerializer<SpecialVie
     SpecialViewOptionDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +136,3 @@ class _$SpecialViewOptionDtoSerializer implements PrimitiveSerializer<SpecialVie
     return result.build();
   }
 }
-

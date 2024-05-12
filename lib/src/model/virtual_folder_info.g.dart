@@ -14,7 +14,7 @@ class _$VirtualFolderInfo extends VirtualFolderInfo {
   @override
   final CollectionTypeOptions? collectionType;
   @override
-  final VirtualFolderInfoLibraryOptions? libraryOptions;
+  final LibraryOptions? libraryOptions;
   @override
   final String? itemId;
   @override
@@ -110,10 +110,9 @@ class VirtualFolderInfoBuilder
   set collectionType(CollectionTypeOptions? collectionType) =>
       _$this._collectionType = collectionType;
 
-  VirtualFolderInfoLibraryOptionsBuilder? _libraryOptions;
-  VirtualFolderInfoLibraryOptionsBuilder get libraryOptions =>
-      _$this._libraryOptions ??= new VirtualFolderInfoLibraryOptionsBuilder();
-  set libraryOptions(VirtualFolderInfoLibraryOptionsBuilder? libraryOptions) =>
+  LibraryOptions? _libraryOptions;
+  LibraryOptions? get libraryOptions => _$this._libraryOptions;
+  set libraryOptions(LibraryOptions? libraryOptions) =>
       _$this._libraryOptions = libraryOptions;
 
   String? _itemId;
@@ -145,7 +144,7 @@ class VirtualFolderInfoBuilder
       _name = $v.name;
       _locations = $v.locations?.toBuilder();
       _collectionType = $v.collectionType;
-      _libraryOptions = $v.libraryOptions?.toBuilder();
+      _libraryOptions = $v.libraryOptions;
       _itemId = $v.itemId;
       _primaryImageItemId = $v.primaryImageItemId;
       _refreshProgress = $v.refreshProgress;
@@ -177,7 +176,7 @@ class VirtualFolderInfoBuilder
               name: name,
               locations: _locations?.build(),
               collectionType: collectionType,
-              libraryOptions: _libraryOptions?.build(),
+              libraryOptions: libraryOptions,
               itemId: itemId,
               primaryImageItemId: primaryImageItemId,
               refreshProgress: refreshProgress,
@@ -187,9 +186,6 @@ class VirtualFolderInfoBuilder
       try {
         _$failedField = 'locations';
         _locations?.build();
-
-        _$failedField = 'libraryOptions';
-        _libraryOptions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'VirtualFolderInfo', _$failedField, e.toString());

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PingRequestDto
 void main() {
-  //final instance = PingRequestDtoBuilder();
+  final instance = PingRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PingRequestDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `ping`', () async {
       // TODO
     });
-
   });
 }

@@ -65,6 +65,5 @@ void main() {
     test('to test the property `key`', () async {
       // TODO
     });
-
   });
 }

@@ -1,8 +1,8 @@
-# openapi.api.DevicesApi
+# tentacle.api.DevicesApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -23,18 +23,18 @@ Deletes a device.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDevicesApi();
+final api = Tentacle().getDevicesApi();
 final String id = id_example; // String | Device Id.
 
 try {
     api.deleteDevice(id);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DevicesApi->deleteDevice: $e\n');
 }
 ```
@@ -67,19 +67,19 @@ Get info for a device.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDevicesApi();
+final api = Tentacle().getDevicesApi();
 final String id = id_example; // String | Device Id.
 
 try {
     final response = api.getDeviceInfo(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DevicesApi->getDeviceInfo: $e\n');
 }
 ```
@@ -112,19 +112,19 @@ Get options for a device.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDevicesApi();
+final api = Tentacle().getDevicesApi();
 final String id = id_example; // String | Device Id.
 
 try {
     final response = api.getDeviceOptions(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DevicesApi->getDeviceOptions: $e\n');
 }
 ```
@@ -157,20 +157,20 @@ Get Devices.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDevicesApi();
+final api = Tentacle().getDevicesApi();
 final bool supportsSync = true; // bool | Gets or sets a value indicating whether [supports synchronize].
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Gets or sets the user identifier.
 
 try {
     final response = api.getDevices(supportsSync, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DevicesApi->getDevices: $e\n');
 }
 ```
@@ -198,25 +198,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateDeviceOptions**
-> updateDeviceOptions(id, updateDeviceOptionsRequest)
+> updateDeviceOptions(id, deviceOptionsDto)
 
 Update device options.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDevicesApi();
+final api = Tentacle().getDevicesApi();
 final String id = id_example; // String | Device Id.
-final UpdateDeviceOptionsRequest updateDeviceOptionsRequest = ; // UpdateDeviceOptionsRequest | Device Options.
+final DeviceOptionsDto deviceOptionsDto = ; // DeviceOptionsDto | Device Options.
 
 try {
-    api.updateDeviceOptions(id, updateDeviceOptionsRequest);
-} catch on DioError (e) {
+    api.updateDeviceOptions(id, deviceOptionsDto);
+} catch on DioException (e) {
     print('Exception when calling DevicesApi->updateDeviceOptions: $e\n');
 }
 ```
@@ -226,7 +226,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Device Id. | 
- **updateDeviceOptionsRequest** | [**UpdateDeviceOptionsRequest**](UpdateDeviceOptionsRequest.md)| Device Options. | 
+ **deviceOptionsDto** | [**DeviceOptionsDto**](DeviceOptionsDto.md)| Device Options. | 
 
 ### Return type
 

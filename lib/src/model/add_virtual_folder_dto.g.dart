@@ -6,36 +6,29 @@ part of 'add_virtual_folder_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class AddVirtualFolderDtoBuilder {
-  void replace(AddVirtualFolderDto other);
-  void update(void Function(AddVirtualFolderDtoBuilder) updates);
-  AddVirtualFolderDtoLibraryOptionsBuilder get libraryOptions;
-  set libraryOptions(AddVirtualFolderDtoLibraryOptionsBuilder? libraryOptions);
-}
-
-class _$$AddVirtualFolderDto extends $AddVirtualFolderDto {
+class _$AddVirtualFolderDto extends AddVirtualFolderDto {
   @override
   final AddVirtualFolderDtoLibraryOptions? libraryOptions;
 
-  factory _$$AddVirtualFolderDto(
-          [void Function($AddVirtualFolderDtoBuilder)? updates]) =>
-      (new $AddVirtualFolderDtoBuilder()..update(updates))._build();
+  factory _$AddVirtualFolderDto(
+          [void Function(AddVirtualFolderDtoBuilder)? updates]) =>
+      (new AddVirtualFolderDtoBuilder()..update(updates))._build();
 
-  _$$AddVirtualFolderDto._({this.libraryOptions}) : super._();
+  _$AddVirtualFolderDto._({this.libraryOptions}) : super._();
 
   @override
-  $AddVirtualFolderDto rebuild(
-          void Function($AddVirtualFolderDtoBuilder) updates) =>
+  AddVirtualFolderDto rebuild(
+          void Function(AddVirtualFolderDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $AddVirtualFolderDtoBuilder toBuilder() =>
-      new $AddVirtualFolderDtoBuilder()..replace(this);
+  AddVirtualFolderDtoBuilder toBuilder() =>
+      new AddVirtualFolderDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $AddVirtualFolderDto &&
+    return other is AddVirtualFolderDto &&
         libraryOptions == other.libraryOptions;
   }
 
@@ -49,30 +42,28 @@ class _$$AddVirtualFolderDto extends $AddVirtualFolderDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$AddVirtualFolderDto')
+    return (newBuiltValueToStringHelper(r'AddVirtualFolderDto')
           ..add('libraryOptions', libraryOptions))
         .toString();
   }
 }
 
-class $AddVirtualFolderDtoBuilder
-    implements
-        Builder<$AddVirtualFolderDto, $AddVirtualFolderDtoBuilder>,
-        AddVirtualFolderDtoBuilder {
-  _$$AddVirtualFolderDto? _$v;
+class AddVirtualFolderDtoBuilder
+    implements Builder<AddVirtualFolderDto, AddVirtualFolderDtoBuilder> {
+  _$AddVirtualFolderDto? _$v;
 
   AddVirtualFolderDtoLibraryOptionsBuilder? _libraryOptions;
   AddVirtualFolderDtoLibraryOptionsBuilder get libraryOptions =>
       _$this._libraryOptions ??= new AddVirtualFolderDtoLibraryOptionsBuilder();
   set libraryOptions(
-          covariant AddVirtualFolderDtoLibraryOptionsBuilder? libraryOptions) =>
+          AddVirtualFolderDtoLibraryOptionsBuilder? libraryOptions) =>
       _$this._libraryOptions = libraryOptions;
 
-  $AddVirtualFolderDtoBuilder() {
-    $AddVirtualFolderDto._defaults(this);
+  AddVirtualFolderDtoBuilder() {
+    AddVirtualFolderDto._defaults(this);
   }
 
-  $AddVirtualFolderDtoBuilder get _$this {
+  AddVirtualFolderDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _libraryOptions = $v.libraryOptions?.toBuilder();
@@ -82,25 +73,24 @@ class $AddVirtualFolderDtoBuilder
   }
 
   @override
-  void replace(covariant $AddVirtualFolderDto other) {
+  void replace(AddVirtualFolderDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$AddVirtualFolderDto;
+    _$v = other as _$AddVirtualFolderDto;
   }
 
   @override
-  void update(void Function($AddVirtualFolderDtoBuilder)? updates) {
+  void update(void Function(AddVirtualFolderDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $AddVirtualFolderDto build() => _build();
+  AddVirtualFolderDto build() => _build();
 
-  _$$AddVirtualFolderDto _build() {
-    _$$AddVirtualFolderDto _$result;
+  _$AddVirtualFolderDto _build() {
+    _$AddVirtualFolderDto _$result;
     try {
       _$result = _$v ??
-          new _$$AddVirtualFolderDto._(
-              libraryOptions: _libraryOptions?.build());
+          new _$AddVirtualFolderDto._(libraryOptions: _libraryOptions?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -108,7 +98,7 @@ class $AddVirtualFolderDtoBuilder
         _libraryOptions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$AddVirtualFolderDto', _$failedField, e.toString());
+            r'AddVirtualFolderDto', _$failedField, e.toString());
       }
       rethrow;
     }

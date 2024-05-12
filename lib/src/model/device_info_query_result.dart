@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/device_info.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,7 +17,8 @@ part 'device_info_query_result.g.dart';
 /// * [totalRecordCount] - Gets or sets the total number of records available.
 /// * [startIndex] - Gets or sets the index of the first record in Items.
 @BuiltValue()
-abstract class DeviceInfoQueryResult implements Built<DeviceInfoQueryResult, DeviceInfoQueryResultBuilder> {
+abstract class DeviceInfoQueryResult
+    implements Built<DeviceInfoQueryResult, DeviceInfoQueryResultBuilder> {
   /// Gets or sets the items.
   @BuiltValueField(wireName: r'Items')
   BuiltList<DeviceInfo>? get items;
@@ -32,18 +33,24 @@ abstract class DeviceInfoQueryResult implements Built<DeviceInfoQueryResult, Dev
 
   DeviceInfoQueryResult._();
 
-  factory DeviceInfoQueryResult([void updates(DeviceInfoQueryResultBuilder b)]) = _$DeviceInfoQueryResult;
+  factory DeviceInfoQueryResult(
+      [void updates(DeviceInfoQueryResultBuilder b)]) = _$DeviceInfoQueryResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DeviceInfoQueryResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeviceInfoQueryResult> get serializer => _$DeviceInfoQueryResultSerializer();
+  static Serializer<DeviceInfoQueryResult> get serializer =>
+      _$DeviceInfoQueryResultSerializer();
 }
 
-class _$DeviceInfoQueryResultSerializer implements PrimitiveSerializer<DeviceInfoQueryResult> {
+class _$DeviceInfoQueryResultSerializer
+    implements PrimitiveSerializer<DeviceInfoQueryResult> {
   @override
-  final Iterable<Type> types = const [DeviceInfoQueryResult, _$DeviceInfoQueryResult];
+  final Iterable<Type> types = const [
+    DeviceInfoQueryResult,
+    _$DeviceInfoQueryResult
+  ];
 
   @override
   final String wireName = r'DeviceInfoQueryResult';
@@ -57,7 +64,8 @@ class _$DeviceInfoQueryResultSerializer implements PrimitiveSerializer<DeviceInf
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(DeviceInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(DeviceInfo)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -82,7 +90,9 @@ class _$DeviceInfoQueryResultSerializer implements PrimitiveSerializer<DeviceInf
     DeviceInfoQueryResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -100,7 +110,8 @@ class _$DeviceInfoQueryResultSerializer implements PrimitiveSerializer<DeviceInf
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(DeviceInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(DeviceInfo)]),
           ) as BuiltList<DeviceInfo>?;
           if (valueDes == null) continue;
           result.items.replace(valueDes);
@@ -147,4 +158,3 @@ class _$DeviceInfoQueryResultSerializer implements PrimitiveSerializer<DeviceInf
     return result.build();
   }
 }
-

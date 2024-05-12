@@ -165,7 +165,7 @@ class _$ProfileConditionValueMeta {
   BuiltSet<ProfileConditionValue> get values => _$values;
 }
 
-abstract class _$ProfileConditionValueMixin {
+mixin _$ProfileConditionValueMixin {
   // ignore: non_constant_identifier_names
   _$ProfileConditionValueMeta get ProfileConditionValue =>
       const _$ProfileConditionValueMeta();

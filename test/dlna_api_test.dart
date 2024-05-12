@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for DlnaApi
 void main() {
   final instance = Tentacle().getDlnaApi();
@@ -9,7 +8,7 @@ void main() {
   group(DlnaApi, () {
     // Creates a profile.
     //
-    //Future createProfile({ CreateProfileRequest createProfileRequest }) async
+    //Future createProfile({ DeviceProfile deviceProfile }) async
     test('test createProfile', () async {
       // TODO
     });
@@ -44,10 +43,9 @@ void main() {
 
     // Updates a profile.
     //
-    //Future updateProfile(String profileId, { CreateProfileRequest createProfileRequest }) async
+    //Future updateProfile(String profileId, { DeviceProfile deviceProfile }) async
     test('test updateProfile', () async {
       // TODO
     });
-
   });
 }

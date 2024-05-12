@@ -25,6 +25,7 @@ abstract class ImageInfo implements Built<ImageInfo, ImageInfoBuilder> {
   /// Gets or sets the type of the image.
   @BuiltValueField(wireName: r'ImageType')
   ImageType? get imageType;
+  // enum imageTypeEnum {  Primary,  Art,  Backdrop,  Banner,  Logo,  Thumb,  Disc,  Box,  Screenshot,  Menu,  Chapter,  BoxRear,  Profile,  };
 
   /// Gets or sets the index of the image.
   @BuiltValueField(wireName: r'ImageIndex')
@@ -141,7 +142,9 @@ class _$ImageInfoSerializer implements PrimitiveSerializer<ImageInfo> {
     ImageInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -246,4 +249,3 @@ class _$ImageInfoSerializer implements PrimitiveSerializer<ImageInfo> {
     return result.build();
   }
 }
-

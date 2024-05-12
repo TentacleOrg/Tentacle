@@ -1,8 +1,8 @@
-# openapi.api.LibraryStructureApi
+# tentacle.api.LibraryStructureApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,25 +20,25 @@ Method | HTTP request | Description
 
 
 # **addMediaPath**
-> addMediaPath(addMediaPathRequest, refreshLibrary)
+> addMediaPath(mediaPathDto, refreshLibrary)
 
 Add a media path to a library.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final AddMediaPathRequest addMediaPathRequest = ; // AddMediaPathRequest | The media path dto.
+final api = Tentacle().getLibraryStructureApi();
+final MediaPathDto mediaPathDto = ; // MediaPathDto | The media path dto.
 final bool refreshLibrary = true; // bool | Whether to refresh the library.
 
 try {
-    api.addMediaPath(addMediaPathRequest, refreshLibrary);
-} catch on DioError (e) {
+    api.addMediaPath(mediaPathDto, refreshLibrary);
+} catch on DioException (e) {
     print('Exception when calling LibraryStructureApi->addMediaPath: $e\n');
 }
 ```
@@ -47,7 +47,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addMediaPathRequest** | [**AddMediaPathRequest**](AddMediaPathRequest.md)| The media path dto. | 
+ **mediaPathDto** | [**MediaPathDto**](MediaPathDto.md)| The media path dto. | 
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
 
 ### Return type
@@ -66,28 +66,28 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **addVirtualFolder**
-> addVirtualFolder(name, collectionType, paths, refreshLibrary, addVirtualFolderRequest)
+> addVirtualFolder(name, collectionType, paths, refreshLibrary, addVirtualFolderDto)
 
 Adds a virtual folder.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
+final api = Tentacle().getLibraryStructureApi();
 final String name = name_example; // String | The name of the virtual folder.
 final CollectionTypeOptions collectionType = ; // CollectionTypeOptions | The type of the collection.
 final BuiltList<String> paths = ; // BuiltList<String> | The paths of the virtual folder.
 final bool refreshLibrary = true; // bool | Whether to refresh the library.
-final AddVirtualFolderRequest addVirtualFolderRequest = ; // AddVirtualFolderRequest | The library options.
+final AddVirtualFolderDto addVirtualFolderDto = ; // AddVirtualFolderDto | The library options.
 
 try {
-    api.addVirtualFolder(name, collectionType, paths, refreshLibrary, addVirtualFolderRequest);
-} catch on DioError (e) {
+    api.addVirtualFolder(name, collectionType, paths, refreshLibrary, addVirtualFolderDto);
+} catch on DioException (e) {
     print('Exception when calling LibraryStructureApi->addVirtualFolder: $e\n');
 }
 ```
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
  **collectionType** | [**CollectionTypeOptions**](.md)| The type of the collection. | [optional] 
  **paths** | [**BuiltList&lt;String&gt;**](String.md)| The paths of the virtual folder. | [optional] 
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
- **addVirtualFolderRequest** | [**AddVirtualFolderRequest**](AddVirtualFolderRequest.md)| The library options. | [optional] 
+ **addVirtualFolderDto** | [**AddVirtualFolderDto**](AddVirtualFolderDto.md)| The library options. | [optional] 
 
 ### Return type
 
@@ -124,18 +124,18 @@ Gets all virtual folders.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
+final api = Tentacle().getLibraryStructureApi();
 
 try {
     final response = api.getVirtualFolders();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryStructureApi->getVirtualFolders: $e\n');
 }
 ```
@@ -165,20 +165,20 @@ Remove a media path.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
+final api = Tentacle().getLibraryStructureApi();
 final String name = name_example; // String | The name of the library.
 final String path = path_example; // String | The path to remove.
 final bool refreshLibrary = true; // bool | Whether to refresh the library.
 
 try {
     api.removeMediaPath(name, path, refreshLibrary);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryStructureApi->removeMediaPath: $e\n');
 }
 ```
@@ -213,19 +213,19 @@ Removes a virtual folder.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
+final api = Tentacle().getLibraryStructureApi();
 final String name = name_example; // String | The name of the folder.
 final bool refreshLibrary = true; // bool | Whether to refresh the library.
 
 try {
     api.removeVirtualFolder(name, refreshLibrary);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryStructureApi->removeVirtualFolder: $e\n');
 }
 ```
@@ -259,20 +259,20 @@ Renames a virtual folder.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
+final api = Tentacle().getLibraryStructureApi();
 final String name = name_example; // String | The name of the virtual folder.
 final String newName = newName_example; // String | The new name.
 final bool refreshLibrary = true; // bool | Whether to refresh the library.
 
 try {
     api.renameVirtualFolder(name, newName, refreshLibrary);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling LibraryStructureApi->renameVirtualFolder: $e\n');
 }
 ```
@@ -301,24 +301,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateLibraryOptions**
-> updateLibraryOptions(updateLibraryOptionsRequest)
+> updateLibraryOptions(updateLibraryOptionsDto)
 
 Update library options.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final UpdateLibraryOptionsRequest updateLibraryOptionsRequest = ; // UpdateLibraryOptionsRequest | The library name and options.
+final api = Tentacle().getLibraryStructureApi();
+final UpdateLibraryOptionsDto updateLibraryOptionsDto = ; // UpdateLibraryOptionsDto | The library name and options.
 
 try {
-    api.updateLibraryOptions(updateLibraryOptionsRequest);
-} catch on DioError (e) {
+    api.updateLibraryOptions(updateLibraryOptionsDto);
+} catch on DioException (e) {
     print('Exception when calling LibraryStructureApi->updateLibraryOptions: $e\n');
 }
 ```
@@ -327,7 +327,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateLibraryOptionsRequest** | [**UpdateLibraryOptionsRequest**](UpdateLibraryOptionsRequest.md)| The library name and options. | [optional] 
+ **updateLibraryOptionsDto** | [**UpdateLibraryOptionsDto**](UpdateLibraryOptionsDto.md)| The library name and options. | [optional] 
 
 ### Return type
 
@@ -345,24 +345,24 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateMediaPath**
-> updateMediaPath(updateMediaPathRequest)
+> updateMediaPath(updateMediaPathRequestDto)
 
 Updates a media path.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getLibraryStructureApi();
-final UpdateMediaPathRequest updateMediaPathRequest = ; // UpdateMediaPathRequest | The name of the library and path infos.
+final api = Tentacle().getLibraryStructureApi();
+final UpdateMediaPathRequestDto updateMediaPathRequestDto = ; // UpdateMediaPathRequestDto | The name of the library and path infos.
 
 try {
-    api.updateMediaPath(updateMediaPathRequest);
-} catch on DioError (e) {
+    api.updateMediaPath(updateMediaPathRequestDto);
+} catch on DioException (e) {
     print('Exception when calling LibraryStructureApi->updateMediaPath: $e\n');
 }
 ```
@@ -371,7 +371,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **updateMediaPathRequest** | [**UpdateMediaPathRequest**](UpdateMediaPathRequest.md)| The name of the library and path infos. | 
+ **updateMediaPathRequestDto** | [**UpdateMediaPathRequestDto**](UpdateMediaPathRequestDto.md)| The name of the library and path infos. | 
 
 ### Return type
 

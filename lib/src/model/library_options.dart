@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/type_options.dart';
+import 'package:tentacle/src/model/embedded_subtitle_options.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/media_path_info.dart';
-import 'package:tentacle/src/model/embedded_subtitle_options.dart';
+import 'package:tentacle/src/model/type_options.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,35 +15,35 @@ part 'library_options.g.dart';
 /// LibraryOptions
 ///
 /// Properties:
-/// * [enablePhotos] 
-/// * [enableRealtimeMonitor] 
-/// * [enableChapterImageExtraction] 
-/// * [extractChapterImagesDuringLibraryScan] 
-/// * [pathInfos] 
-/// * [saveLocalMetadata] 
-/// * [enableInternetProviders] 
-/// * [enableAutomaticSeriesGrouping] 
-/// * [enableEmbeddedTitles] 
-/// * [enableEmbeddedEpisodeInfos] 
-/// * [automaticRefreshIntervalDays] 
+/// * [enablePhotos]
+/// * [enableRealtimeMonitor]
+/// * [enableChapterImageExtraction]
+/// * [extractChapterImagesDuringLibraryScan]
+/// * [pathInfos]
+/// * [saveLocalMetadata]
+/// * [enableInternetProviders]
+/// * [enableAutomaticSeriesGrouping]
+/// * [enableEmbeddedTitles]
+/// * [enableEmbeddedEpisodeInfos]
+/// * [automaticRefreshIntervalDays]
 /// * [preferredMetadataLanguage] - Gets or sets the preferred metadata language.
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
-/// * [seasonZeroDisplayName] 
-/// * [metadataSavers] 
-/// * [disabledLocalMetadataReaders] 
-/// * [localMetadataReaderOrder] 
-/// * [disabledSubtitleFetchers] 
-/// * [subtitleFetcherOrder] 
-/// * [skipSubtitlesIfEmbeddedSubtitlesPresent] 
-/// * [skipSubtitlesIfAudioTrackMatches] 
-/// * [subtitleDownloadLanguages] 
-/// * [requirePerfectSubtitleMatch] 
-/// * [saveSubtitlesWithMedia] 
-/// * [automaticallyAddToCollection] 
+/// * [seasonZeroDisplayName]
+/// * [metadataSavers]
+/// * [disabledLocalMetadataReaders]
+/// * [localMetadataReaderOrder]
+/// * [disabledSubtitleFetchers]
+/// * [subtitleFetcherOrder]
+/// * [skipSubtitlesIfEmbeddedSubtitlesPresent]
+/// * [skipSubtitlesIfAudioTrackMatches]
+/// * [subtitleDownloadLanguages]
+/// * [requirePerfectSubtitleMatch]
+/// * [saveSubtitlesWithMedia]
+/// * [automaticallyAddToCollection]
 /// * [allowEmbeddedSubtitles] - An enum representing the options to disable embedded subs.
-/// * [typeOptions] 
+/// * [typeOptions]
 @BuiltValue(instantiable: false)
-abstract class LibraryOptions  {
+abstract class LibraryOptions {
   @BuiltValueField(wireName: r'EnablePhotos')
   bool? get enablePhotos;
 
@@ -62,6 +62,7 @@ abstract class LibraryOptions  {
   @BuiltValueField(wireName: r'SaveLocalMetadata')
   bool? get saveLocalMetadata;
 
+  @Deprecated('enableInternetProviders has been deprecated')
   @BuiltValueField(wireName: r'EnableInternetProviders')
   bool? get enableInternetProviders;
 
@@ -124,15 +125,18 @@ abstract class LibraryOptions  {
   /// An enum representing the options to disable embedded subs.
   @BuiltValueField(wireName: r'AllowEmbeddedSubtitles')
   EmbeddedSubtitleOptions? get allowEmbeddedSubtitles;
+  // enum allowEmbeddedSubtitlesEnum {  AllowAll,  AllowText,  AllowImage,  AllowNone,  };
 
   @BuiltValueField(wireName: r'TypeOptions')
   BuiltList<TypeOptions>? get typeOptions;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LibraryOptions> get serializer => _$LibraryOptionsSerializer();
+  static Serializer<LibraryOptions> get serializer =>
+      _$LibraryOptionsSerializer();
 }
 
-class _$LibraryOptionsSerializer implements PrimitiveSerializer<LibraryOptions> {
+class _$LibraryOptionsSerializer
+    implements PrimitiveSerializer<LibraryOptions> {
   @override
   final Iterable<Type> types = const [LibraryOptions];
 
@@ -341,7 +345,9 @@ class _$LibraryOptionsSerializer implements PrimitiveSerializer<LibraryOptions> 
     LibraryOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -350,25 +356,30 @@ class _$LibraryOptionsSerializer implements PrimitiveSerializer<LibraryOptions> 
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($LibraryOptions)) as $LibraryOptions;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($LibraryOptions)) as $LibraryOptions;
   }
 }
 
 /// a concrete implementation of [LibraryOptions], since [LibraryOptions] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $LibraryOptions implements LibraryOptions, Built<$LibraryOptions, $LibraryOptionsBuilder> {
+abstract class $LibraryOptions
+    implements LibraryOptions, Built<$LibraryOptions, $LibraryOptionsBuilder> {
   $LibraryOptions._();
 
-  factory $LibraryOptions([void Function($LibraryOptionsBuilder)? updates]) = _$$LibraryOptions;
+  factory $LibraryOptions([void Function($LibraryOptionsBuilder)? updates]) =
+      _$$LibraryOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($LibraryOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$LibraryOptions> get serializer => _$$LibraryOptionsSerializer();
+  static Serializer<$LibraryOptions> get serializer =>
+      _$$LibraryOptionsSerializer();
 }
 
-class _$$LibraryOptionsSerializer implements PrimitiveSerializer<$LibraryOptions> {
+class _$$LibraryOptionsSerializer
+    implements PrimitiveSerializer<$LibraryOptions> {
   @override
   final Iterable<Type> types = const [$LibraryOptions, _$$LibraryOptions];
 
@@ -381,7 +392,8 @@ class _$$LibraryOptionsSerializer implements PrimitiveSerializer<$LibraryOptions
     $LibraryOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(LibraryOptions))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(LibraryOptions))!;
   }
 
   void _deserializeProperties(
@@ -499,7 +511,8 @@ class _$$LibraryOptionsSerializer implements PrimitiveSerializer<$LibraryOptions
         case r'MetadataSavers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.metadataSavers.replace(valueDes);
@@ -514,7 +527,8 @@ class _$$LibraryOptionsSerializer implements PrimitiveSerializer<$LibraryOptions
         case r'LocalMetadataReaderOrder':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.localMetadataReaderOrder.replace(valueDes);
@@ -550,7 +564,8 @@ class _$$LibraryOptionsSerializer implements PrimitiveSerializer<$LibraryOptions
         case r'SubtitleDownloadLanguages':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.subtitleDownloadLanguages.replace(valueDes);
@@ -618,4 +633,3 @@ class _$$LibraryOptionsSerializer implements PrimitiveSerializer<$LibraryOptions
     return result.build();
   }
 }
-

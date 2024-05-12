@@ -1,8 +1,8 @@
-# openapi.api.SuggestionsApi
+# tentacle.api.SuggestionsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -19,13 +19,13 @@ Gets suggestions.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSuggestionsApi();
+final api = Tentacle().getSuggestionsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final BuiltList<String> mediaType = ; // BuiltList<String> | The media types.
 final BuiltList<BaseItemKind> type = ; // BuiltList<BaseItemKind> | The type.
@@ -36,7 +36,7 @@ final bool enableTotalRecordCount = true; // bool | Whether to enable the total 
 try {
     final response = api.getSuggestions(userId, mediaType, type, startIndex, limit, enableTotalRecordCount);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SuggestionsApi->getSuggestions: $e\n');
 }
 ```

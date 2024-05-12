@@ -12,10 +12,9 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/default_directory_browser_info_dto.dart';
 import 'package:tentacle/src/model/file_system_entry_info.dart';
 import 'package:tentacle/src/model/problem_details.dart';
-import 'package:tentacle/src/model/validate_path_request.dart';
+import 'package:tentacle/src/model/validate_path_dto.dart';
 
 class EnvironmentApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -23,7 +22,7 @@ class EnvironmentApi {
   const EnvironmentApi(this._dio, this._serializers);
 
   /// Get Default directory browser.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -34,8 +33,8 @@ class EnvironmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DefaultDirectoryBrowserInfoDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<DefaultDirectoryBrowserInfoDto>> getDefaultDirectoryBrowser({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<DefaultDirectoryBrowserInfoDto>> getDefaultDirectoryBrowser({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -71,22 +70,24 @@ class EnvironmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DefaultDirectoryBrowserInfoDto _responseData;
+    DefaultDirectoryBrowserInfoDto? _responseData;
 
     try {
-      const _responseType = FullType(DefaultDirectoryBrowserInfoDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as DefaultDirectoryBrowserInfoDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DefaultDirectoryBrowserInfoDto),
+            ) as DefaultDirectoryBrowserInfoDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<DefaultDirectoryBrowserInfoDto>(
@@ -102,7 +103,7 @@ class EnvironmentApi {
   }
 
   /// Gets the contents of a given directory in the file system.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [path] - The path.
@@ -116,8 +117,8 @@ class EnvironmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<FileSystemEntryInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<FileSystemEntryInfo>>> getDirectoryContents({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<FileSystemEntryInfo>>> getDirectoryContents({
     required String path,
     bool? includeFiles = false,
     bool? includeDirectories = false,
@@ -150,8 +151,12 @@ class EnvironmentApi {
 
     final _queryParameters = <String, dynamic>{
       r'path': encodeQueryParameter(_serializers, path, const FullType(String)),
-      if (includeFiles != null) r'includeFiles': encodeQueryParameter(_serializers, includeFiles, const FullType(bool)),
-      if (includeDirectories != null) r'includeDirectories': encodeQueryParameter(_serializers, includeDirectories, const FullType(bool)),
+      if (includeFiles != null)
+        r'includeFiles': encodeQueryParameter(
+            _serializers, includeFiles, const FullType(bool)),
+      if (includeDirectories != null)
+        r'includeDirectories': encodeQueryParameter(
+            _serializers, includeDirectories, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -163,22 +168,25 @@ class EnvironmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<FileSystemEntryInfo> _responseData;
+    BuiltList<FileSystemEntryInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(FileSystemEntryInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<FileSystemEntryInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(FileSystemEntryInfo)]),
+            ) as BuiltList<FileSystemEntryInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<FileSystemEntryInfo>>(
@@ -194,7 +202,7 @@ class EnvironmentApi {
   }
 
   /// Gets available drives from the server&#39;s file system.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -205,8 +213,8 @@ class EnvironmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<FileSystemEntryInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<FileSystemEntryInfo>>> getDrives({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<FileSystemEntryInfo>>> getDrives({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -242,22 +250,25 @@ class EnvironmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<FileSystemEntryInfo> _responseData;
+    BuiltList<FileSystemEntryInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(FileSystemEntryInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<FileSystemEntryInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(FileSystemEntryInfo)]),
+            ) as BuiltList<FileSystemEntryInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<FileSystemEntryInfo>>(
@@ -273,7 +284,7 @@ class EnvironmentApi {
   }
 
   /// Gets network paths.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -284,9 +295,9 @@ class EnvironmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<FileSystemEntryInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   @Deprecated('This operation has been deprecated')
-  Future<Response<BuiltList<FileSystemEntryInfo>>> getNetworkShares({ 
+  Future<Response<BuiltList<FileSystemEntryInfo>>> getNetworkShares({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -322,22 +333,25 @@ class EnvironmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<FileSystemEntryInfo> _responseData;
+    BuiltList<FileSystemEntryInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(FileSystemEntryInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<FileSystemEntryInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(FileSystemEntryInfo)]),
+            ) as BuiltList<FileSystemEntryInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<FileSystemEntryInfo>>(
@@ -353,7 +367,7 @@ class EnvironmentApi {
   }
 
   /// Gets the parent path of a given path.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [path] - The path.
@@ -365,8 +379,8 @@ class EnvironmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [String] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<String>> getParentPath({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<String>> getParentPath({
     required String path,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -408,18 +422,19 @@ class EnvironmentApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    String _responseData;
+    String? _responseData;
 
     try {
-      _responseData = _response.data as String;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as String;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<String>(
@@ -435,10 +450,10 @@ class EnvironmentApi {
   }
 
   /// Validates path.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [validatePathRequest] - Validate request object.
+  /// * [validatePathDto] - Validate request object.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -447,9 +462,9 @@ class EnvironmentApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> validatePath({ 
-    required ValidatePathRequest validatePathRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> validatePath({
+    required ValidatePathDto validatePathDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -481,18 +496,18 @@ class EnvironmentApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(ValidatePathRequest);
-      _bodyData = _serializers.serialize(validatePathRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(ValidatePathDto);
+      _bodyData = _serializers.serialize(validatePathDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -506,5 +521,4 @@ class EnvironmentApi {
 
     return _response;
   }
-
 }

@@ -13,8 +13,9 @@ part 'create_user_by_name.g.dart';
 /// Properties:
 /// * [name] - Gets or sets the username.
 /// * [password] - Gets or sets the password.
-@BuiltValue(instantiable: false)
-abstract class CreateUserByName  {
+@BuiltValue()
+abstract class CreateUserByName
+    implements Built<CreateUserByName, CreateUserByNameBuilder> {
   /// Gets or sets the username.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -23,13 +24,23 @@ abstract class CreateUserByName  {
   @BuiltValueField(wireName: r'Password')
   String? get password;
 
+  CreateUserByName._();
+
+  factory CreateUserByName([void updates(CreateUserByNameBuilder b)]) =
+      _$CreateUserByName;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(CreateUserByNameBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<CreateUserByName> get serializer => _$CreateUserByNameSerializer();
+  static Serializer<CreateUserByName> get serializer =>
+      _$CreateUserByNameSerializer();
 }
 
-class _$CreateUserByNameSerializer implements PrimitiveSerializer<CreateUserByName> {
+class _$CreateUserByNameSerializer
+    implements PrimitiveSerializer<CreateUserByName> {
   @override
-  final Iterable<Type> types = const [CreateUserByName];
+  final Iterable<Type> types = const [CreateUserByName, _$CreateUserByName];
 
   @override
   final String wireName = r'CreateUserByName';
@@ -61,47 +72,9 @@ class _$CreateUserByNameSerializer implements PrimitiveSerializer<CreateUserByNa
     CreateUserByName object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  CreateUserByName deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($CreateUserByName)) as $CreateUserByName;
-  }
-}
-
-/// a concrete implementation of [CreateUserByName], since [CreateUserByName] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $CreateUserByName implements CreateUserByName, Built<$CreateUserByName, $CreateUserByNameBuilder> {
-  $CreateUserByName._();
-
-  factory $CreateUserByName([void Function($CreateUserByNameBuilder)? updates]) = _$$CreateUserByName;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($CreateUserByNameBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$CreateUserByName> get serializer => _$$CreateUserByNameSerializer();
-}
-
-class _$$CreateUserByNameSerializer implements PrimitiveSerializer<$CreateUserByName> {
-  @override
-  final Iterable<Type> types = const [$CreateUserByName, _$$CreateUserByName];
-
-  @override
-  final String wireName = r'$CreateUserByName';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $CreateUserByName object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(CreateUserByName))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -141,12 +114,12 @@ class _$$CreateUserByNameSerializer implements PrimitiveSerializer<$CreateUserBy
   }
 
   @override
-  $CreateUserByName deserialize(
+  CreateUserByName deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $CreateUserByNameBuilder();
+    final result = CreateUserByNameBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -160,4 +133,3 @@ class _$$CreateUserByNameSerializer implements PrimitiveSerializer<$CreateUserBy
     return result.build();
   }
 }
-

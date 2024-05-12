@@ -34,7 +34,7 @@ class _$GroupShuffleModeMeta {
   BuiltSet<GroupShuffleMode> get values => _$values;
 }
 
-abstract class _$GroupShuffleModeMixin {
+mixin _$GroupShuffleModeMixin {
   // ignore: non_constant_identifier_names
   _$GroupShuffleModeMeta get GroupShuffleMode => const _$GroupShuffleModeMeta();
 }

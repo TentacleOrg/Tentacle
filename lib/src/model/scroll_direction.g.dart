@@ -34,7 +34,7 @@ class _$ScrollDirectionMeta {
   BuiltSet<ScrollDirection> get values => _$values;
 }
 
-abstract class _$ScrollDirectionMixin {
+mixin _$ScrollDirectionMixin {
   // ignore: non_constant_identifier_names
   _$ScrollDirectionMeta get ScrollDirection => const _$ScrollDirectionMeta();
 }

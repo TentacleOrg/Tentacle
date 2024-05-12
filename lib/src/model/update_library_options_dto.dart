@@ -13,9 +13,10 @@ part 'update_library_options_dto.g.dart';
 ///
 /// Properties:
 /// * [id] - Gets or sets the library item id.
-/// * [libraryOptions] 
-@BuiltValue(instantiable: false)
-abstract class UpdateLibraryOptionsDto  {
+/// * [libraryOptions]
+@BuiltValue()
+abstract class UpdateLibraryOptionsDto
+    implements Built<UpdateLibraryOptionsDto, UpdateLibraryOptionsDtoBuilder> {
   /// Gets or sets the library item id.
   @BuiltValueField(wireName: r'Id')
   String? get id;
@@ -23,13 +24,27 @@ abstract class UpdateLibraryOptionsDto  {
   @BuiltValueField(wireName: r'LibraryOptions')
   AddVirtualFolderDtoLibraryOptions? get libraryOptions;
 
+  UpdateLibraryOptionsDto._();
+
+  factory UpdateLibraryOptionsDto(
+          [void updates(UpdateLibraryOptionsDtoBuilder b)]) =
+      _$UpdateLibraryOptionsDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UpdateLibraryOptionsDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<UpdateLibraryOptionsDto> get serializer => _$UpdateLibraryOptionsDtoSerializer();
+  static Serializer<UpdateLibraryOptionsDto> get serializer =>
+      _$UpdateLibraryOptionsDtoSerializer();
 }
 
-class _$UpdateLibraryOptionsDtoSerializer implements PrimitiveSerializer<UpdateLibraryOptionsDto> {
+class _$UpdateLibraryOptionsDtoSerializer
+    implements PrimitiveSerializer<UpdateLibraryOptionsDto> {
   @override
-  final Iterable<Type> types = const [UpdateLibraryOptionsDto];
+  final Iterable<Type> types = const [
+    UpdateLibraryOptionsDto,
+    _$UpdateLibraryOptionsDto
+  ];
 
   @override
   final String wireName = r'UpdateLibraryOptionsDto';
@@ -50,7 +65,8 @@ class _$UpdateLibraryOptionsDtoSerializer implements PrimitiveSerializer<UpdateL
       yield r'LibraryOptions';
       yield serializers.serialize(
         object.libraryOptions,
-        specifiedType: const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
+        specifiedType:
+            const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
       );
     }
   }
@@ -61,47 +77,9 @@ class _$UpdateLibraryOptionsDtoSerializer implements PrimitiveSerializer<UpdateL
     UpdateLibraryOptionsDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  UpdateLibraryOptionsDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($UpdateLibraryOptionsDto)) as $UpdateLibraryOptionsDto;
-  }
-}
-
-/// a concrete implementation of [UpdateLibraryOptionsDto], since [UpdateLibraryOptionsDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $UpdateLibraryOptionsDto implements UpdateLibraryOptionsDto, Built<$UpdateLibraryOptionsDto, $UpdateLibraryOptionsDtoBuilder> {
-  $UpdateLibraryOptionsDto._();
-
-  factory $UpdateLibraryOptionsDto([void Function($UpdateLibraryOptionsDtoBuilder)? updates]) = _$$UpdateLibraryOptionsDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UpdateLibraryOptionsDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$UpdateLibraryOptionsDto> get serializer => _$$UpdateLibraryOptionsDtoSerializer();
-}
-
-class _$$UpdateLibraryOptionsDtoSerializer implements PrimitiveSerializer<$UpdateLibraryOptionsDto> {
-  @override
-  final Iterable<Type> types = const [$UpdateLibraryOptionsDto, _$$UpdateLibraryOptionsDto];
-
-  @override
-  final String wireName = r'$UpdateLibraryOptionsDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $UpdateLibraryOptionsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(UpdateLibraryOptionsDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -126,7 +104,8 @@ class _$$UpdateLibraryOptionsDtoSerializer implements PrimitiveSerializer<$Updat
         case r'LibraryOptions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
+            specifiedType:
+                const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
           ) as AddVirtualFolderDtoLibraryOptions?;
           if (valueDes == null) continue;
           result.libraryOptions.replace(valueDes);
@@ -140,12 +119,12 @@ class _$$UpdateLibraryOptionsDtoSerializer implements PrimitiveSerializer<$Updat
   }
 
   @override
-  $UpdateLibraryOptionsDto deserialize(
+  UpdateLibraryOptionsDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $UpdateLibraryOptionsDtoBuilder();
+    final result = UpdateLibraryOptionsDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -159,4 +138,3 @@ class _$$UpdateLibraryOptionsDtoSerializer implements PrimitiveSerializer<$Updat
     return result.build();
   }
 }
-

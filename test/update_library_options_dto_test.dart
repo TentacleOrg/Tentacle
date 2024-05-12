@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UpdateLibraryOptionsDto
 void main() {
-  //final instance = UpdateLibraryOptionsDtoBuilder();
+  final instance = UpdateLibraryOptionsDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(UpdateLibraryOptionsDto, () {
@@ -17,6 +17,5 @@ void main() {
     test('to test the property `libraryOptions`', () async {
       // TODO
     });
-
   });
 }

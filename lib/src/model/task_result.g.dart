@@ -6,7 +6,7 @@ part of 'task_result.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class TaskResultBuilder {
+abstract mixin class TaskResultBuilder {
   void replace(TaskResult other);
   void update(void Function(TaskResultBuilder) updates);
   DateTime? get startTimeUtc;

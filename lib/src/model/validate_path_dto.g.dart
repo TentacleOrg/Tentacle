@@ -6,20 +6,7 @@ part of 'validate_path_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ValidatePathDtoBuilder {
-  void replace(ValidatePathDto other);
-  void update(void Function(ValidatePathDtoBuilder) updates);
-  bool? get validateWritable;
-  set validateWritable(bool? validateWritable);
-
-  String? get path;
-  set path(String? path);
-
-  bool? get isFile;
-  set isFile(bool? isFile);
-}
-
-class _$$ValidatePathDto extends $ValidatePathDto {
+class _$ValidatePathDto extends ValidatePathDto {
   @override
   final bool? validateWritable;
   @override
@@ -27,25 +14,24 @@ class _$$ValidatePathDto extends $ValidatePathDto {
   @override
   final bool? isFile;
 
-  factory _$$ValidatePathDto(
-          [void Function($ValidatePathDtoBuilder)? updates]) =>
-      (new $ValidatePathDtoBuilder()..update(updates))._build();
+  factory _$ValidatePathDto([void Function(ValidatePathDtoBuilder)? updates]) =>
+      (new ValidatePathDtoBuilder()..update(updates))._build();
 
-  _$$ValidatePathDto._({this.validateWritable, this.path, this.isFile})
+  _$ValidatePathDto._({this.validateWritable, this.path, this.isFile})
       : super._();
 
   @override
-  $ValidatePathDto rebuild(void Function($ValidatePathDtoBuilder) updates) =>
+  ValidatePathDto rebuild(void Function(ValidatePathDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $ValidatePathDtoBuilder toBuilder() =>
-      new $ValidatePathDtoBuilder()..replace(this);
+  ValidatePathDtoBuilder toBuilder() =>
+      new ValidatePathDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $ValidatePathDto &&
+    return other is ValidatePathDto &&
         validateWritable == other.validateWritable &&
         path == other.path &&
         isFile == other.isFile;
@@ -63,7 +49,7 @@ class _$$ValidatePathDto extends $ValidatePathDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$ValidatePathDto')
+    return (newBuiltValueToStringHelper(r'ValidatePathDto')
           ..add('validateWritable', validateWritable)
           ..add('path', path)
           ..add('isFile', isFile))
@@ -71,30 +57,28 @@ class _$$ValidatePathDto extends $ValidatePathDto {
   }
 }
 
-class $ValidatePathDtoBuilder
-    implements
-        Builder<$ValidatePathDto, $ValidatePathDtoBuilder>,
-        ValidatePathDtoBuilder {
-  _$$ValidatePathDto? _$v;
+class ValidatePathDtoBuilder
+    implements Builder<ValidatePathDto, ValidatePathDtoBuilder> {
+  _$ValidatePathDto? _$v;
 
   bool? _validateWritable;
   bool? get validateWritable => _$this._validateWritable;
-  set validateWritable(covariant bool? validateWritable) =>
+  set validateWritable(bool? validateWritable) =>
       _$this._validateWritable = validateWritable;
 
   String? _path;
   String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
+  set path(String? path) => _$this._path = path;
 
   bool? _isFile;
   bool? get isFile => _$this._isFile;
-  set isFile(covariant bool? isFile) => _$this._isFile = isFile;
+  set isFile(bool? isFile) => _$this._isFile = isFile;
 
-  $ValidatePathDtoBuilder() {
-    $ValidatePathDto._defaults(this);
+  ValidatePathDtoBuilder() {
+    ValidatePathDto._defaults(this);
   }
 
-  $ValidatePathDtoBuilder get _$this {
+  ValidatePathDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _validateWritable = $v.validateWritable;
@@ -106,22 +90,22 @@ class $ValidatePathDtoBuilder
   }
 
   @override
-  void replace(covariant $ValidatePathDto other) {
+  void replace(ValidatePathDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$ValidatePathDto;
+    _$v = other as _$ValidatePathDto;
   }
 
   @override
-  void update(void Function($ValidatePathDtoBuilder)? updates) {
+  void update(void Function(ValidatePathDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $ValidatePathDto build() => _build();
+  ValidatePathDto build() => _build();
 
-  _$$ValidatePathDto _build() {
+  _$ValidatePathDto _build() {
     final _$result = _$v ??
-        new _$$ValidatePathDto._(
+        new _$ValidatePathDto._(
             validateWritable: validateWritable, path: path, isFile: isFile);
     replace(_$result);
     return _$result;

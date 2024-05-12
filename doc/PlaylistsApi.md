@@ -1,8 +1,8 @@
-# openapi.api.PlaylistsApi
+# tentacle.api.PlaylistsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -23,20 +23,20 @@ Adds items to a playlist.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaylistsApi();
+final api = Tentacle().getPlaylistsApi();
 final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
 final BuiltList<String> ids = ; // BuiltList<String> | Item id, comma delimited.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The userId.
 
 try {
     api.addToPlaylist(playlistId, ids, userId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaylistsApi->addToPlaylist: $e\n');
 }
 ```
@@ -65,7 +65,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createPlaylist**
-> PlaylistCreationResult createPlaylist(name, ids, userId, mediaType, createPlaylistRequest)
+> PlaylistCreationResult createPlaylist(name, ids, userId, mediaType, createPlaylistDto)
 
 Creates a new playlist.
 
@@ -73,23 +73,23 @@ For backwards compatibility parameters can be sent via Query or Body, with Query
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaylistsApi();
+final api = Tentacle().getPlaylistsApi();
 final String name = name_example; // String | The playlist name.
 final BuiltList<String> ids = ; // BuiltList<String> | The item ids.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final String mediaType = mediaType_example; // String | The media type.
-final CreatePlaylistRequest createPlaylistRequest = ; // CreatePlaylistRequest | The create playlist payload.
+final CreatePlaylistDto createPlaylistDto = ; // CreatePlaylistDto | The create playlist payload.
 
 try {
-    final response = api.createPlaylist(name, ids, userId, mediaType, createPlaylistRequest);
+    final response = api.createPlaylist(name, ids, userId, mediaType, createPlaylistDto);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaylistsApi->createPlaylist: $e\n');
 }
 ```
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
  **ids** | [**BuiltList&lt;String&gt;**](String.md)| The item ids. | [optional] 
  **userId** | **String**| The user id. | [optional] 
  **mediaType** | **String**| The media type. | [optional] 
- **createPlaylistRequest** | [**CreatePlaylistRequest**](CreatePlaylistRequest.md)| The create playlist payload. | [optional] 
+ **createPlaylistDto** | [**CreatePlaylistDto**](CreatePlaylistDto.md)| The create playlist payload. | [optional] 
 
 ### Return type
 
@@ -126,13 +126,13 @@ Gets the original items of a playlist.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaylistsApi();
+final api = Tentacle().getPlaylistsApi();
 final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
@@ -146,7 +146,7 @@ final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Option
 try {
     final response = api.getPlaylistItems(playlistId, userId, startIndex, limit, fields, enableImages, enableUserData, imageTypeLimit, enableImageTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaylistsApi->getPlaylistItems: $e\n');
 }
 ```
@@ -187,20 +187,20 @@ Moves a playlist item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaylistsApi();
+final api = Tentacle().getPlaylistsApi();
 final String playlistId = playlistId_example; // String | The playlist id.
 final String itemId = itemId_example; // String | The item id.
 final int newIndex = 56; // int | The new index.
 
 try {
     api.moveItem(playlistId, itemId, newIndex);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaylistsApi->moveItem: $e\n');
 }
 ```
@@ -235,19 +235,19 @@ Removes items from a playlist.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPlaylistsApi();
+final api = Tentacle().getPlaylistsApi();
 final String playlistId = playlistId_example; // String | The playlist id.
 final BuiltList<String> entryIds = ; // BuiltList<String> | The item ids, comma delimited.
 
 try {
     api.removeFromPlaylist(playlistId, entryIds);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PlaylistsApi->removeFromPlaylist: $e\n');
 }
 ```

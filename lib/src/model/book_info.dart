@@ -19,13 +19,13 @@ part 'book_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-/// * [seriesName] 
-@BuiltValue(instantiable: false)
-abstract class BookInfo  {
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+/// * [seriesName]
+@BuiltValue()
+abstract class BookInfo implements Built<BookInfo, BookInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -69,13 +69,20 @@ abstract class BookInfo  {
   @BuiltValueField(wireName: r'SeriesName')
   String? get seriesName;
 
+  BookInfo._();
+
+  factory BookInfo([void updates(BookInfoBuilder b)]) = _$BookInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BookInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<BookInfo> get serializer => _$BookInfoSerializer();
 }
 
 class _$BookInfoSerializer implements PrimitiveSerializer<BookInfo> {
   @override
-  final Iterable<Type> types = const [BookInfo];
+  final Iterable<Type> types = const [BookInfo, _$BookInfo];
 
   @override
   final String wireName = r'BookInfo';
@@ -124,7 +131,8 @@ class _$BookInfoSerializer implements PrimitiveSerializer<BookInfo> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -177,47 +185,9 @@ class _$BookInfoSerializer implements PrimitiveSerializer<BookInfo> {
     BookInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  BookInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($BookInfo)) as $BookInfo;
-  }
-}
-
-/// a concrete implementation of [BookInfo], since [BookInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $BookInfo implements BookInfo, Built<$BookInfo, $BookInfoBuilder> {
-  $BookInfo._();
-
-  factory $BookInfo([void Function($BookInfoBuilder)? updates]) = _$$BookInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BookInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$BookInfo> get serializer => _$$BookInfoSerializer();
-}
-
-class _$$BookInfoSerializer implements PrimitiveSerializer<$BookInfo> {
-  @override
-  final Iterable<Type> types = const [$BookInfo, _$$BookInfo];
-
-  @override
-  final String wireName = r'$BookInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $BookInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(BookInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -275,7 +245,8 @@ class _$$BookInfoSerializer implements PrimitiveSerializer<$BookInfo> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -336,12 +307,12 @@ class _$$BookInfoSerializer implements PrimitiveSerializer<$BookInfo> {
   }
 
   @override
-  $BookInfo deserialize(
+  BookInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $BookInfoBuilder();
+    final result = BookInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -355,4 +326,3 @@ class _$$BookInfoSerializer implements PrimitiveSerializer<$BookInfo> {
     return result.build();
   }
 }
-

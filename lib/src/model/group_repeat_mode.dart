@@ -10,20 +10,22 @@ import 'package:built_value/serializer.dart';
 part 'group_repeat_mode.g.dart';
 
 class GroupRepeatMode extends EnumClass {
-
   /// Enum GroupRepeatMode.
   @BuiltValueEnumConst(wireName: r'RepeatOne')
   static const GroupRepeatMode repeatOne = _$repeatOne;
+
   /// Enum GroupRepeatMode.
   @BuiltValueEnumConst(wireName: r'RepeatAll')
   static const GroupRepeatMode repeatAll = _$repeatAll;
+
   /// Enum GroupRepeatMode.
   @BuiltValueEnumConst(wireName: r'RepeatNone')
   static const GroupRepeatMode repeatNone = _$repeatNone;
 
-  static Serializer<GroupRepeatMode> get serializer => _$groupRepeatModeSerializer;
+  static Serializer<GroupRepeatMode> get serializer =>
+      _$groupRepeatModeSerializer;
 
-  const GroupRepeatMode._(String name): super(name);
+  const GroupRepeatMode._(String name) : super(name);
 
   static BuiltSet<GroupRepeatMode> get values => _$values;
   static GroupRepeatMode valueOf(String name) => _$valueOf(name);
@@ -36,4 +38,3 @@ class GroupRepeatMode extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class GroupRepeatModeMixin = Object with _$GroupRepeatModeMixin;
-

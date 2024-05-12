@@ -15,8 +15,9 @@ part 'upload_subtitle_dto.g.dart';
 /// * [format] - Gets or sets the subtitle format.
 /// * [isForced] - Gets or sets a value indicating whether the subtitle is forced.
 /// * [data] - Gets or sets the subtitle data.
-@BuiltValue(instantiable: false)
-abstract class UploadSubtitleDto  {
+@BuiltValue()
+abstract class UploadSubtitleDto
+    implements Built<UploadSubtitleDto, UploadSubtitleDtoBuilder> {
   /// Gets or sets the subtitle language.
   @BuiltValueField(wireName: r'Language')
   String get language;
@@ -33,13 +34,23 @@ abstract class UploadSubtitleDto  {
   @BuiltValueField(wireName: r'Data')
   String get data;
 
+  UploadSubtitleDto._();
+
+  factory UploadSubtitleDto([void updates(UploadSubtitleDtoBuilder b)]) =
+      _$UploadSubtitleDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UploadSubtitleDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<UploadSubtitleDto> get serializer => _$UploadSubtitleDtoSerializer();
+  static Serializer<UploadSubtitleDto> get serializer =>
+      _$UploadSubtitleDtoSerializer();
 }
 
-class _$UploadSubtitleDtoSerializer implements PrimitiveSerializer<UploadSubtitleDto> {
+class _$UploadSubtitleDtoSerializer
+    implements PrimitiveSerializer<UploadSubtitleDto> {
   @override
-  final Iterable<Type> types = const [UploadSubtitleDto];
+  final Iterable<Type> types = const [UploadSubtitleDto, _$UploadSubtitleDto];
 
   @override
   final String wireName = r'UploadSubtitleDto';
@@ -77,47 +88,9 @@ class _$UploadSubtitleDtoSerializer implements PrimitiveSerializer<UploadSubtitl
     UploadSubtitleDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  UploadSubtitleDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($UploadSubtitleDto)) as $UploadSubtitleDto;
-  }
-}
-
-/// a concrete implementation of [UploadSubtitleDto], since [UploadSubtitleDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $UploadSubtitleDto implements UploadSubtitleDto, Built<$UploadSubtitleDto, $UploadSubtitleDtoBuilder> {
-  $UploadSubtitleDto._();
-
-  factory $UploadSubtitleDto([void Function($UploadSubtitleDtoBuilder)? updates]) = _$$UploadSubtitleDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UploadSubtitleDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$UploadSubtitleDto> get serializer => _$$UploadSubtitleDtoSerializer();
-}
-
-class _$$UploadSubtitleDtoSerializer implements PrimitiveSerializer<$UploadSubtitleDto> {
-  @override
-  final Iterable<Type> types = const [$UploadSubtitleDto, _$$UploadSubtitleDto];
-
-  @override
-  final String wireName = r'$UploadSubtitleDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $UploadSubtitleDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(UploadSubtitleDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -169,12 +142,12 @@ class _$$UploadSubtitleDtoSerializer implements PrimitiveSerializer<$UploadSubti
   }
 
   @override
-  $UploadSubtitleDto deserialize(
+  UploadSubtitleDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $UploadSubtitleDtoBuilder();
+    final result = UploadSubtitleDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -188,4 +161,3 @@ class _$$UploadSubtitleDtoSerializer implements PrimitiveSerializer<$UploadSubti
     return result.build();
   }
 }
-

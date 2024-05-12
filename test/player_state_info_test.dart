@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlayerStateInfo
 void main() {
-  //final instance = PlayerStateInfoBuilder();
+  final instance = PlayerStateInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PlayerStateInfo, () {
@@ -72,6 +72,5 @@ void main() {
     test('to test the property `liveStreamId`', () async {
       // TODO
     });
-
   });
 }

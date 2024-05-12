@@ -6,7 +6,7 @@ part of 'device_profile.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class DeviceProfileBuilder {
+abstract mixin class DeviceProfileBuilder {
   void replace(DeviceProfile other);
   void update(void Function(DeviceProfileBuilder) updates);
   String? get name;

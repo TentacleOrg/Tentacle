@@ -6,40 +6,30 @@ part of 'create_user_by_name.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class CreateUserByNameBuilder {
-  void replace(CreateUserByName other);
-  void update(void Function(CreateUserByNameBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  String? get password;
-  set password(String? password);
-}
-
-class _$$CreateUserByName extends $CreateUserByName {
+class _$CreateUserByName extends CreateUserByName {
   @override
   final String? name;
   @override
   final String? password;
 
-  factory _$$CreateUserByName(
-          [void Function($CreateUserByNameBuilder)? updates]) =>
-      (new $CreateUserByNameBuilder()..update(updates))._build();
+  factory _$CreateUserByName(
+          [void Function(CreateUserByNameBuilder)? updates]) =>
+      (new CreateUserByNameBuilder()..update(updates))._build();
 
-  _$$CreateUserByName._({this.name, this.password}) : super._();
+  _$CreateUserByName._({this.name, this.password}) : super._();
 
   @override
-  $CreateUserByName rebuild(void Function($CreateUserByNameBuilder) updates) =>
+  CreateUserByName rebuild(void Function(CreateUserByNameBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $CreateUserByNameBuilder toBuilder() =>
-      new $CreateUserByNameBuilder()..replace(this);
+  CreateUserByNameBuilder toBuilder() =>
+      new CreateUserByNameBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $CreateUserByName &&
+    return other is CreateUserByName &&
         name == other.name &&
         password == other.password;
   }
@@ -55,32 +45,30 @@ class _$$CreateUserByName extends $CreateUserByName {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$CreateUserByName')
+    return (newBuiltValueToStringHelper(r'CreateUserByName')
           ..add('name', name)
           ..add('password', password))
         .toString();
   }
 }
 
-class $CreateUserByNameBuilder
-    implements
-        Builder<$CreateUserByName, $CreateUserByNameBuilder>,
-        CreateUserByNameBuilder {
-  _$$CreateUserByName? _$v;
+class CreateUserByNameBuilder
+    implements Builder<CreateUserByName, CreateUserByNameBuilder> {
+  _$CreateUserByName? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _password;
   String? get password => _$this._password;
-  set password(covariant String? password) => _$this._password = password;
+  set password(String? password) => _$this._password = password;
 
-  $CreateUserByNameBuilder() {
-    $CreateUserByName._defaults(this);
+  CreateUserByNameBuilder() {
+    CreateUserByName._defaults(this);
   }
 
-  $CreateUserByNameBuilder get _$this {
+  CreateUserByNameBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -91,22 +79,22 @@ class $CreateUserByNameBuilder
   }
 
   @override
-  void replace(covariant $CreateUserByName other) {
+  void replace(CreateUserByName other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$CreateUserByName;
+    _$v = other as _$CreateUserByName;
   }
 
   @override
-  void update(void Function($CreateUserByNameBuilder)? updates) {
+  void update(void Function(CreateUserByNameBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $CreateUserByName build() => _build();
+  CreateUserByName build() => _build();
 
-  _$$CreateUserByName _build() {
+  _$CreateUserByName _build() {
     final _$result =
-        _$v ?? new _$$CreateUserByName._(name: name, password: password);
+        _$v ?? new _$CreateUserByName._(name: name, password: password);
     replace(_$result);
     return _$result;
   }

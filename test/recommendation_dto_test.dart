@@ -26,6 +26,5 @@ void main() {
     test('to test the property `categoryId`', () async {
       // TODO
     });
-
   });
 }

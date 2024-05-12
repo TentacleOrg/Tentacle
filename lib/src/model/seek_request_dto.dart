@@ -12,19 +12,30 @@ part 'seek_request_dto.g.dart';
 ///
 /// Properties:
 /// * [positionTicks] - Gets or sets the position ticks.
-@BuiltValue(instantiable: false)
-abstract class SeekRequestDto  {
+@BuiltValue()
+abstract class SeekRequestDto
+    implements Built<SeekRequestDto, SeekRequestDtoBuilder> {
   /// Gets or sets the position ticks.
   @BuiltValueField(wireName: r'PositionTicks')
   int? get positionTicks;
 
+  SeekRequestDto._();
+
+  factory SeekRequestDto([void updates(SeekRequestDtoBuilder b)]) =
+      _$SeekRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SeekRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<SeekRequestDto> get serializer => _$SeekRequestDtoSerializer();
+  static Serializer<SeekRequestDto> get serializer =>
+      _$SeekRequestDtoSerializer();
 }
 
-class _$SeekRequestDtoSerializer implements PrimitiveSerializer<SeekRequestDto> {
+class _$SeekRequestDtoSerializer
+    implements PrimitiveSerializer<SeekRequestDto> {
   @override
-  final Iterable<Type> types = const [SeekRequestDto];
+  final Iterable<Type> types = const [SeekRequestDto, _$SeekRequestDto];
 
   @override
   final String wireName = r'SeekRequestDto';
@@ -49,47 +60,9 @@ class _$SeekRequestDtoSerializer implements PrimitiveSerializer<SeekRequestDto> 
     SeekRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  SeekRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($SeekRequestDto)) as $SeekRequestDto;
-  }
-}
-
-/// a concrete implementation of [SeekRequestDto], since [SeekRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SeekRequestDto implements SeekRequestDto, Built<$SeekRequestDto, $SeekRequestDtoBuilder> {
-  $SeekRequestDto._();
-
-  factory $SeekRequestDto([void Function($SeekRequestDtoBuilder)? updates]) = _$$SeekRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SeekRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SeekRequestDto> get serializer => _$$SeekRequestDtoSerializer();
-}
-
-class _$$SeekRequestDtoSerializer implements PrimitiveSerializer<$SeekRequestDto> {
-  @override
-  final Iterable<Type> types = const [$SeekRequestDto, _$$SeekRequestDto];
-
-  @override
-  final String wireName = r'$SeekRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SeekRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SeekRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,12 +93,12 @@ class _$$SeekRequestDtoSerializer implements PrimitiveSerializer<$SeekRequestDto
   }
 
   @override
-  $SeekRequestDto deserialize(
+  SeekRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SeekRequestDtoBuilder();
+    final result = SeekRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -139,4 +112,3 @@ class _$$SeekRequestDtoSerializer implements PrimitiveSerializer<$SeekRequestDto
     return result.build();
   }
 }
-

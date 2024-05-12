@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for NotificationLevel
 void main() {
-
-  group(NotificationLevel, () {
-  });
+  group(NotificationLevel, () {});
 }

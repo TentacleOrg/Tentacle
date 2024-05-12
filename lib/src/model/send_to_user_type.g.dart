@@ -39,7 +39,7 @@ class _$SendToUserTypeMeta {
   BuiltSet<SendToUserType> get values => _$values;
 }
 
-abstract class _$SendToUserTypeMixin {
+mixin _$SendToUserTypeMixin {
   // ignore: non_constant_identifier_names
   _$SendToUserTypeMeta get SendToUserType => const _$SendToUserTypeMeta();
 }

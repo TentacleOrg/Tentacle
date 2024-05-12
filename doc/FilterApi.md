@@ -1,8 +1,8 @@
-# openapi.api.FilterApi
+# tentacle.api.FilterApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,13 +20,13 @@ Gets query filters.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getFilterApi();
+final api = Tentacle().getFilterApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
 final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Specify this to localize the search to a specific item or folder. Omit to use the root.
 final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
@@ -41,7 +41,7 @@ final bool recursive = true; // bool | Optional. Search recursive.
 try {
     final response = api.getQueryFilters(userId, parentId, includeItemTypes, isAiring, isMovie, isSports, isKids, isNews, isSeries, recursive);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling FilterApi->getQueryFilters: $e\n');
 }
 ```
@@ -83,13 +83,13 @@ Gets legacy query filters.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getFilterApi();
+final api = Tentacle().getFilterApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
 final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Parent id.
 final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
@@ -98,7 +98,7 @@ final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional. Filter b
 try {
     final response = api.getQueryFiltersLegacy(userId, parentId, includeItemTypes, mediaTypes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling FilterApi->getQueryFiltersLegacy: $e\n');
 }
 ```

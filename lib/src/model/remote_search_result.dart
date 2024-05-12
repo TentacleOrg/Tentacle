@@ -3,7 +3,6 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/remote_search_result_album_artist.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -16,17 +15,18 @@ part 'remote_search_result.g.dart';
 /// * [name] - Gets or sets the name.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [productionYear] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [indexNumberEnd] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [imageUrl] 
-/// * [searchProviderName] 
-/// * [overview] 
-/// * [albumArtist] 
-/// * [artists] 
-@BuiltValue(instantiable: false)
-abstract class RemoteSearchResult  {
+/// * [indexNumber]
+/// * [indexNumberEnd]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [imageUrl]
+/// * [searchProviderName]
+/// * [overview]
+/// * [albumArtist]
+/// * [artists]
+@BuiltValue()
+abstract class RemoteSearchResult
+    implements Built<RemoteSearchResult, RemoteSearchResultBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -61,18 +61,28 @@ abstract class RemoteSearchResult  {
   String? get overview;
 
   @BuiltValueField(wireName: r'AlbumArtist')
-  RemoteSearchResultAlbumArtist? get albumArtist;
+  RemoteSearchResult? get albumArtist;
 
   @BuiltValueField(wireName: r'Artists')
   BuiltList<RemoteSearchResult>? get artists;
 
+  RemoteSearchResult._();
+
+  factory RemoteSearchResult([void updates(RemoteSearchResultBuilder b)]) =
+      _$RemoteSearchResult;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(RemoteSearchResultBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<RemoteSearchResult> get serializer => _$RemoteSearchResultSerializer();
+  static Serializer<RemoteSearchResult> get serializer =>
+      _$RemoteSearchResultSerializer();
 }
 
-class _$RemoteSearchResultSerializer implements PrimitiveSerializer<RemoteSearchResult> {
+class _$RemoteSearchResultSerializer
+    implements PrimitiveSerializer<RemoteSearchResult> {
   @override
-  final Iterable<Type> types = const [RemoteSearchResult];
+  final Iterable<Type> types = const [RemoteSearchResult, _$RemoteSearchResult];
 
   @override
   final String wireName = r'RemoteSearchResult';
@@ -93,7 +103,8 @@ class _$RemoteSearchResultSerializer implements PrimitiveSerializer<RemoteSearch
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.productionYear != null) {
@@ -156,14 +167,15 @@ class _$RemoteSearchResultSerializer implements PrimitiveSerializer<RemoteSearch
       yield r'AlbumArtist';
       yield serializers.serialize(
         object.albumArtist,
-        specifiedType: const FullType.nullable(RemoteSearchResultAlbumArtist),
+        specifiedType: const FullType.nullable(RemoteSearchResult),
       );
     }
     if (object.artists != null) {
       yield r'Artists';
       yield serializers.serialize(
         object.artists,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(RemoteSearchResult)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(RemoteSearchResult)]),
       );
     }
   }
@@ -174,47 +186,9 @@ class _$RemoteSearchResultSerializer implements PrimitiveSerializer<RemoteSearch
     RemoteSearchResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  RemoteSearchResult deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($RemoteSearchResult)) as $RemoteSearchResult;
-  }
-}
-
-/// a concrete implementation of [RemoteSearchResult], since [RemoteSearchResult] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $RemoteSearchResult implements RemoteSearchResult, Built<$RemoteSearchResult, $RemoteSearchResultBuilder> {
-  $RemoteSearchResult._();
-
-  factory $RemoteSearchResult([void Function($RemoteSearchResultBuilder)? updates]) = _$$RemoteSearchResult;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($RemoteSearchResultBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$RemoteSearchResult> get serializer => _$$RemoteSearchResultSerializer();
-}
-
-class _$$RemoteSearchResultSerializer implements PrimitiveSerializer<$RemoteSearchResult> {
-  @override
-  final Iterable<Type> types = const [$RemoteSearchResult, _$$RemoteSearchResult];
-
-  @override
-  final String wireName = r'$RemoteSearchResult';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $RemoteSearchResult object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(RemoteSearchResult))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -240,7 +214,8 @@ class _$$RemoteSearchResultSerializer implements PrimitiveSerializer<$RemoteSear
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -312,15 +287,16 @@ class _$$RemoteSearchResultSerializer implements PrimitiveSerializer<$RemoteSear
         case r'AlbumArtist':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(RemoteSearchResultAlbumArtist),
-          ) as RemoteSearchResultAlbumArtist?;
+            specifiedType: const FullType.nullable(RemoteSearchResult),
+          ) as RemoteSearchResult?;
           if (valueDes == null) continue;
           result.albumArtist.replace(valueDes);
           break;
         case r'Artists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(RemoteSearchResult)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(RemoteSearchResult)]),
           ) as BuiltList<RemoteSearchResult>?;
           if (valueDes == null) continue;
           result.artists.replace(valueDes);
@@ -334,12 +310,12 @@ class _$$RemoteSearchResultSerializer implements PrimitiveSerializer<$RemoteSear
   }
 
   @override
-  $RemoteSearchResult deserialize(
+  RemoteSearchResult deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $RemoteSearchResultBuilder();
+    final result = RemoteSearchResultBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -353,4 +329,3 @@ class _$$RemoteSearchResultSerializer implements PrimitiveSerializer<$RemoteSear
     return result.build();
   }
 }
-

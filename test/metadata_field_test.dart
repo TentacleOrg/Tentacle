@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MetadataField
 void main() {
-
-  group(MetadataField, () {
-  });
+  group(MetadataField, () {});
 }

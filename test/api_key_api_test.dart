@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for ApiKeyApi
 void main() {
   final instance = Tentacle().getApiKeyApi();
@@ -27,6 +26,5 @@ void main() {
     test('test revokeKey', () async {
       // TODO
     });
-
   });
 }

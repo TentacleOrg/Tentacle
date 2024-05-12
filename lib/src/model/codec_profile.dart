@@ -14,15 +14,17 @@ part 'codec_profile.g.dart';
 /// CodecProfile
 ///
 /// Properties:
-/// * [type] 
-/// * [conditions] 
-/// * [applyConditions] 
-/// * [codec] 
-/// * [container] 
+/// * [type]
+/// * [conditions]
+/// * [applyConditions]
+/// * [codec]
+/// * [container]
 @BuiltValue()
-abstract class CodecProfile implements Built<CodecProfile, CodecProfileBuilder> {
+abstract class CodecProfile
+    implements Built<CodecProfile, CodecProfileBuilder> {
   @BuiltValueField(wireName: r'Type')
   CodecType? get type;
+  // enum typeEnum {  Video,  VideoAudio,  Audio,  };
 
   @BuiltValueField(wireName: r'Conditions')
   BuiltList<ProfileCondition>? get conditions;
@@ -70,14 +72,16 @@ class _$CodecProfileSerializer implements PrimitiveSerializer<CodecProfile> {
       yield r'Conditions';
       yield serializers.serialize(
         object.conditions,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
       );
     }
     if (object.applyConditions != null) {
       yield r'ApplyConditions';
       yield serializers.serialize(
         object.applyConditions,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
       );
     }
     if (object.codec != null) {
@@ -102,7 +106,9 @@ class _$CodecProfileSerializer implements PrimitiveSerializer<CodecProfile> {
     CodecProfile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,7 +133,8 @@ class _$CodecProfileSerializer implements PrimitiveSerializer<CodecProfile> {
         case r'Conditions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(ProfileCondition)]),
           ) as BuiltList<ProfileCondition>?;
           if (valueDes == null) continue;
           result.conditions.replace(valueDes);
@@ -135,7 +142,8 @@ class _$CodecProfileSerializer implements PrimitiveSerializer<CodecProfile> {
         case r'ApplyConditions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(ProfileCondition)]),
           ) as BuiltList<ProfileCondition>?;
           if (valueDes == null) continue;
           result.applyConditions.replace(valueDes);
@@ -184,4 +192,3 @@ class _$CodecProfileSerializer implements PrimitiveSerializer<CodecProfile> {
     return result.build();
   }
 }
-

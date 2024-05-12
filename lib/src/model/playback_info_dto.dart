@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/client_capabilities_dto_device_profile.dart';
+import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -20,15 +20,16 @@ part 'playback_info_dto.g.dart';
 /// * [maxAudioChannels] - Gets or sets the max audio channels.
 /// * [mediaSourceId] - Gets or sets the media source id.
 /// * [liveStreamId] - Gets or sets the live stream id.
-/// * [deviceProfile] 
+/// * [deviceProfile]
 /// * [enableDirectPlay] - Gets or sets a value indicating whether to enable direct play.
 /// * [enableDirectStream] - Gets or sets a value indicating whether to enable direct stream.
 /// * [enableTranscoding] - Gets or sets a value indicating whether to enable transcoding.
 /// * [allowVideoStreamCopy] - Gets or sets a value indicating whether to enable video stream copy.
 /// * [allowAudioStreamCopy] - Gets or sets a value indicating whether to allow audio stream copy.
 /// * [autoOpenLiveStream] - Gets or sets a value indicating whether to auto open the live stream.
-@BuiltValue(instantiable: false)
-abstract class PlaybackInfoDto  {
+@BuiltValue()
+abstract class PlaybackInfoDto
+    implements Built<PlaybackInfoDto, PlaybackInfoDtoBuilder> {
   /// Gets or sets the playback userId.
   @BuiltValueField(wireName: r'UserId')
   String? get userId;
@@ -62,7 +63,7 @@ abstract class PlaybackInfoDto  {
   String? get liveStreamId;
 
   @BuiltValueField(wireName: r'DeviceProfile')
-  ClientCapabilitiesDtoDeviceProfile? get deviceProfile;
+  ClientCapabilitiesDeviceProfile? get deviceProfile;
 
   /// Gets or sets a value indicating whether to enable direct play.
   @BuiltValueField(wireName: r'EnableDirectPlay')
@@ -88,13 +89,23 @@ abstract class PlaybackInfoDto  {
   @BuiltValueField(wireName: r'AutoOpenLiveStream')
   bool? get autoOpenLiveStream;
 
+  PlaybackInfoDto._();
+
+  factory PlaybackInfoDto([void updates(PlaybackInfoDtoBuilder b)]) =
+      _$PlaybackInfoDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PlaybackInfoDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PlaybackInfoDto> get serializer => _$PlaybackInfoDtoSerializer();
+  static Serializer<PlaybackInfoDto> get serializer =>
+      _$PlaybackInfoDtoSerializer();
 }
 
-class _$PlaybackInfoDtoSerializer implements PrimitiveSerializer<PlaybackInfoDto> {
+class _$PlaybackInfoDtoSerializer
+    implements PrimitiveSerializer<PlaybackInfoDto> {
   @override
-  final Iterable<Type> types = const [PlaybackInfoDto];
+  final Iterable<Type> types = const [PlaybackInfoDto, _$PlaybackInfoDto];
 
   @override
   final String wireName = r'PlaybackInfoDto';
@@ -164,7 +175,7 @@ class _$PlaybackInfoDtoSerializer implements PrimitiveSerializer<PlaybackInfoDto
       yield r'DeviceProfile';
       yield serializers.serialize(
         object.deviceProfile,
-        specifiedType: const FullType.nullable(ClientCapabilitiesDtoDeviceProfile),
+        specifiedType: const FullType.nullable(ClientCapabilitiesDeviceProfile),
       );
     }
     if (object.enableDirectPlay != null) {
@@ -217,47 +228,9 @@ class _$PlaybackInfoDtoSerializer implements PrimitiveSerializer<PlaybackInfoDto
     PlaybackInfoDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PlaybackInfoDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PlaybackInfoDto)) as $PlaybackInfoDto;
-  }
-}
-
-/// a concrete implementation of [PlaybackInfoDto], since [PlaybackInfoDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PlaybackInfoDto implements PlaybackInfoDto, Built<$PlaybackInfoDto, $PlaybackInfoDtoBuilder> {
-  $PlaybackInfoDto._();
-
-  factory $PlaybackInfoDto([void Function($PlaybackInfoDtoBuilder)? updates]) = _$$PlaybackInfoDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PlaybackInfoDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PlaybackInfoDto> get serializer => _$$PlaybackInfoDtoSerializer();
-}
-
-class _$$PlaybackInfoDtoSerializer implements PrimitiveSerializer<$PlaybackInfoDto> {
-  @override
-  final Iterable<Type> types = const [$PlaybackInfoDto, _$$PlaybackInfoDto];
-
-  @override
-  final String wireName = r'$PlaybackInfoDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PlaybackInfoDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PlaybackInfoDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -339,8 +312,9 @@ class _$$PlaybackInfoDtoSerializer implements PrimitiveSerializer<$PlaybackInfoD
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(ClientCapabilitiesDtoDeviceProfile),
-          ) as ClientCapabilitiesDtoDeviceProfile?;
+            specifiedType:
+                const FullType.nullable(ClientCapabilitiesDeviceProfile),
+          ) as ClientCapabilitiesDeviceProfile?;
           if (valueDes == null) continue;
           result.deviceProfile.replace(valueDes);
           break;
@@ -401,12 +375,12 @@ class _$$PlaybackInfoDtoSerializer implements PrimitiveSerializer<$PlaybackInfoD
   }
 
   @override
-  $PlaybackInfoDto deserialize(
+  PlaybackInfoDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PlaybackInfoDtoBuilder();
+    final result = PlaybackInfoDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -420,4 +394,3 @@ class _$$PlaybackInfoDtoSerializer implements PrimitiveSerializer<$PlaybackInfoD
     return result.build();
   }
 }
-

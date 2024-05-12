@@ -1,16 +1,16 @@
-# openapi.model.AuthenticationResultSessionInfo
+# tentacle.model.AuthenticationResultSessionInfo
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**playState** | [**SessionInfoPlayState**](SessionInfoPlayState.md) |  | [optional] 
+**playState** | [**PlayerStateInfo**](PlayerStateInfo.md) |  | [optional] 
 **additionalUsers** | [**BuiltList&lt;SessionUserInfo&gt;**](SessionUserInfo.md) |  | [optional] 
-**capabilities** | [**SessionInfoCapabilities**](SessionInfoCapabilities.md) |  | [optional] 
+**capabilities** | [**ClientCapabilities**](ClientCapabilities.md) |  | [optional] 
 **remoteEndPoint** | **String** | Gets or sets the remote end point. | [optional] 
 **playableMediaTypes** | **BuiltList&lt;String&gt;** | Gets the playable media types. | [optional] 
 **id** | **String** | Gets or sets the id. | [optional] 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **nowViewingItem** | [**SessionInfoNowViewingItem**](SessionInfoNowViewingItem.md) |  | [optional] 
 **deviceId** | **String** | Gets or sets the device id. | [optional] 
 **applicationVersion** | **String** | Gets or sets the application version. | [optional] 
-**transcodingInfo** | [**SessionInfoTranscodingInfo**](SessionInfoTranscodingInfo.md) |  | [optional] 
+**transcodingInfo** | [**TranscodingInfo**](TranscodingInfo.md) |  | [optional] 
 **isActive** | **bool** | Gets a value indicating whether this instance is active. | [optional] 
 **supportsMediaControl** | **bool** |  | [optional] 
 **supportsRemoteControl** | **bool** |  | [optional] 

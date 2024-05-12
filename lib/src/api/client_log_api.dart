@@ -11,7 +11,6 @@ import 'package:tentacle/src/model/client_log_document_response_dto.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 
 class ClientLogApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -19,10 +18,10 @@ class ClientLogApi {
   const ClientLogApi(this._dio, this._serializers);
 
   /// Upload a document.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [body] 
+  /// * [body]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -31,8 +30,8 @@ class ClientLogApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ClientLogDocumentResponseDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<ClientLogDocumentResponseDto>> logFile({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<ClientLogDocumentResponseDto>> logFile({
     MultipartFile? body,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -66,16 +65,16 @@ class ClientLogApi {
 
     try {
       _bodyData = body?.finalize();
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -87,22 +86,24 @@ class ClientLogApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ClientLogDocumentResponseDto _responseData;
+    ClientLogDocumentResponseDto? _responseData;
 
     try {
-      const _responseType = FullType(ClientLogDocumentResponseDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as ClientLogDocumentResponseDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ClientLogDocumentResponseDto),
+            ) as ClientLogDocumentResponseDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ClientLogDocumentResponseDto>(
@@ -116,5 +117,4 @@ class ClientLogApi {
       extra: _response.extra,
     );
   }
-
 }

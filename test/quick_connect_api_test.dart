@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for QuickConnectApi
 void main() {
   final instance = Tentacle().getQuickConnectApi();
@@ -34,6 +33,5 @@ void main() {
     test('test initiate', () async {
       // TODO
     });
-
   });
 }

@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'image_orientation.g.dart';
 
 class ImageOrientation extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'TopLeft')
   static const ImageOrientation topLeft = _$topLeft;
   @BuiltValueEnumConst(wireName: r'TopRight')
@@ -28,9 +27,10 @@ class ImageOrientation extends EnumClass {
   @BuiltValueEnumConst(wireName: r'LeftBottom')
   static const ImageOrientation leftBottom = _$leftBottom;
 
-  static Serializer<ImageOrientation> get serializer => _$imageOrientationSerializer;
+  static Serializer<ImageOrientation> get serializer =>
+      _$imageOrientationSerializer;
 
-  const ImageOrientation._(String name): super(name);
+  const ImageOrientation._(String name) : super(name);
 
   static BuiltSet<ImageOrientation> get values => _$values;
   static ImageOrientation valueOf(String name) => _$valueOf(name);
@@ -43,4 +43,3 @@ class ImageOrientation extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class ImageOrientationMixin = Object with _$ImageOrientationMixin;
-

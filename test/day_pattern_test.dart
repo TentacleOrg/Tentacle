@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for DayPattern
 void main() {
-
-  group(DayPattern, () {
-  });
+  group(DayPattern, () {});
 }

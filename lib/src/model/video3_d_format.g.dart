@@ -51,7 +51,7 @@ class _$Video3DFormatMeta {
   BuiltSet<Video3DFormat> get values => _$values;
 }
 
-abstract class _$Video3DFormatMixin {
+mixin _$Video3DFormatMixin {
   // ignore: non_constant_identifier_names
   _$Video3DFormatMeta get Video3DFormat => const _$Video3DFormatMeta();
 }

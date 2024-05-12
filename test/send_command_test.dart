@@ -42,6 +42,5 @@ void main() {
     test('to test the property `emittedAt`', () async {
       // TODO
     });
-
   });
 }

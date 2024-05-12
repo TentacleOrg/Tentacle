@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'rating_type.g.dart';
 
 class RatingType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Score')
   static const RatingType score = _$score;
   @BuiltValueEnumConst(wireName: r'Likes')
@@ -18,7 +17,7 @@ class RatingType extends EnumClass {
 
   static Serializer<RatingType> get serializer => _$ratingTypeSerializer;
 
-  const RatingType._(String name): super(name);
+  const RatingType._(String name) : super(name);
 
   static BuiltSet<RatingType> get values => _$values;
   static RatingType valueOf(String name) => _$valueOf(name);
@@ -31,4 +30,3 @@ class RatingType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class RatingTypeMixin = Object with _$RatingTypeMixin;
-

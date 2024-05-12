@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UpdateMediaPathRequestDto
 void main() {
-  //final instance = UpdateMediaPathRequestDtoBuilder();
+  final instance = UpdateMediaPathRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(UpdateMediaPathRequestDto, () {
@@ -13,10 +13,10 @@ void main() {
       // TODO
     });
 
-    // UpdateMediaPathRequestDtoPathInfo pathInfo
+    // Gets or sets library folder path information.
+    // MediaPathInfo pathInfo
     test('to test the property `pathInfo`', () async {
       // TODO
     });
-
   });
 }

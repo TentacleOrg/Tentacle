@@ -1,8 +1,8 @@
-# openapi.api.MediaInfoApi
+# tentacle.api.MediaInfoApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -23,18 +23,18 @@ Closes a media source.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getMediaInfoApi();
+final api = Tentacle().getMediaInfoApi();
 final String liveStreamId = liveStreamId_example; // String | The livestream id.
 
 try {
     api.closeLiveStream(liveStreamId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling MediaInfoApi->closeLiveStream: $e\n');
 }
 ```
@@ -67,19 +67,19 @@ Tests the network with a request with the size of the bitrate.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getMediaInfoApi();
+final api = Tentacle().getMediaInfoApi();
 final int size = 56; // int | The bitrate. Defaults to 102400.
 
 try {
     final response = api.getBitrateTestBytes(size);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling MediaInfoApi->getBitrateTestBytes: $e\n');
 }
 ```
@@ -112,20 +112,20 @@ Gets live playback media info for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getMediaInfoApi();
+final api = Tentacle().getMediaInfoApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 
 try {
     final response = api.getPlaybackInfo(itemId, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling MediaInfoApi->getPlaybackInfo: $e\n');
 }
 ```
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPostedPlaybackInfo**
-> PlaybackInfoResponse getPostedPlaybackInfo(itemId, userId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, mediaSourceId, liveStreamId, autoOpenLiveStream, enableDirectPlay, enableDirectStream, enableTranscoding, allowVideoStreamCopy, allowAudioStreamCopy, getPostedPlaybackInfoRequest)
+> PlaybackInfoResponse getPostedPlaybackInfo(itemId, userId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, mediaSourceId, liveStreamId, autoOpenLiveStream, enableDirectPlay, enableDirectStream, enableTranscoding, allowVideoStreamCopy, allowAudioStreamCopy, playbackInfoDto)
 
 Gets live playback media info for an item.
 
@@ -161,13 +161,13 @@ For backwards compatibility parameters can be sent via Query or Body, with Query
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getMediaInfoApi();
+final api = Tentacle().getMediaInfoApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final int maxStreamingBitrate = 56; // int | The maximum streaming bitrate.
@@ -183,12 +183,12 @@ final bool enableDirectStream = true; // bool | Whether to enable direct stream.
 final bool enableTranscoding = true; // bool | Whether to enable transcoding. Default: true.
 final bool allowVideoStreamCopy = true; // bool | Whether to allow to copy the video stream. Default: true.
 final bool allowAudioStreamCopy = true; // bool | Whether to allow to copy the audio stream. Default: true.
-final GetPostedPlaybackInfoRequest getPostedPlaybackInfoRequest = ; // GetPostedPlaybackInfoRequest | The playback info.
+final PlaybackInfoDto playbackInfoDto = ; // PlaybackInfoDto | The playback info.
 
 try {
-    final response = api.getPostedPlaybackInfo(itemId, userId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, mediaSourceId, liveStreamId, autoOpenLiveStream, enableDirectPlay, enableDirectStream, enableTranscoding, allowVideoStreamCopy, allowAudioStreamCopy, getPostedPlaybackInfoRequest);
+    final response = api.getPostedPlaybackInfo(itemId, userId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, mediaSourceId, liveStreamId, autoOpenLiveStream, enableDirectPlay, enableDirectStream, enableTranscoding, allowVideoStreamCopy, allowAudioStreamCopy, playbackInfoDto);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling MediaInfoApi->getPostedPlaybackInfo: $e\n');
 }
 ```
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
  **enableTranscoding** | **bool**| Whether to enable transcoding. Default: true. | [optional] 
  **allowVideoStreamCopy** | **bool**| Whether to allow to copy the video stream. Default: true. | [optional] 
  **allowAudioStreamCopy** | **bool**| Whether to allow to copy the audio stream. Default: true. | [optional] 
- **getPostedPlaybackInfoRequest** | [**GetPostedPlaybackInfoRequest**](GetPostedPlaybackInfoRequest.md)| The playback info. | [optional] 
+ **playbackInfoDto** | [**PlaybackInfoDto**](PlaybackInfoDto.md)| The playback info. | [optional] 
 
 ### Return type
 
@@ -230,19 +230,19 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **openLiveStream**
-> LiveStreamResponse openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, openLiveStreamRequest)
+> LiveStreamResponse openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, openLiveStreamDto)
 
 Opens a media source.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getMediaInfoApi();
+final api = Tentacle().getMediaInfoApi();
 final String openToken = openToken_example; // String | The open token.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final String playSessionId = playSessionId_example; // String | The play session id.
@@ -254,12 +254,12 @@ final int maxAudioChannels = 56; // int | The maximum number of audio channels.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final bool enableDirectPlay = true; // bool | Whether to enable direct play. Default: true.
 final bool enableDirectStream = true; // bool | Whether to enable direct stream. Default: true.
-final OpenLiveStreamRequest openLiveStreamRequest = ; // OpenLiveStreamRequest | The open live stream dto.
+final OpenLiveStreamDto openLiveStreamDto = ; // OpenLiveStreamDto | The open live stream dto.
 
 try {
-    final response = api.openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, openLiveStreamRequest);
+    final response = api.openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, openLiveStreamDto);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling MediaInfoApi->openLiveStream: $e\n');
 }
 ```
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
  **itemId** | **String**| The item id. | [optional] 
  **enableDirectPlay** | **bool**| Whether to enable direct play. Default: true. | [optional] 
  **enableDirectStream** | **bool**| Whether to enable direct stream. Default: true. | [optional] 
- **openLiveStreamRequest** | [**OpenLiveStreamRequest**](OpenLiveStreamRequest.md)| The open live stream dto. | [optional] 
+ **openLiveStreamDto** | [**OpenLiveStreamDto**](OpenLiveStreamDto.md)| The open live stream dto. | [optional] 
 
 ### Return type
 

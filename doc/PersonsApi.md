@@ -1,8 +1,8 @@
-# openapi.api.PersonsApi
+# tentacle.api.PersonsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,20 +20,20 @@ Get person by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPersonsApi();
+final api = Tentacle().getPersonsApi();
 final String name = name_example; // String | Person name.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
 try {
     final response = api.getPerson(name, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PersonsApi->getPerson: $e\n');
 }
 ```
@@ -67,13 +67,13 @@ Gets all persons.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPersonsApi();
+final api = Tentacle().getPersonsApi();
 final int limit = 56; // int | Optional. The maximum number of records to return.
 final String searchTerm = searchTerm_example; // String | The search term.
 final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
@@ -91,7 +91,7 @@ final bool enableImages = true; // bool | Optional, include image information in
 try {
     final response = api.getPersons(limit, searchTerm, fields, filters, isFavorite, enableUserData, imageTypeLimit, enableImageTypes, excludePersonTypes, personTypes, appearsInItemId, userId, enableImages);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PersonsApi->getPersons: $e\n');
 }
 ```

@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SendToUserType
 void main() {
-
-  group(SendToUserType, () {
-  });
+  group(SendToUserType, () {});
 }

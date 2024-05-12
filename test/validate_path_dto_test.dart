@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ValidatePathDto
 void main() {
-  //final instance = ValidatePathDtoBuilder();
+  final instance = ValidatePathDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(ValidatePathDto, () {
@@ -24,6 +24,5 @@ void main() {
     test('to test the property `isFile`', () async {
       // TODO
     });
-
   });
 }

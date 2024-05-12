@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for ItemsApi
 void main() {
   final instance = Tentacle().getItemsApi();
@@ -27,6 +26,5 @@ void main() {
     test('test getResumeItems', () async {
       // TODO
     });
-
   });
 }

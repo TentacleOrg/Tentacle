@@ -1,8 +1,8 @@
-# openapi.api.PluginsApi
+# tentacle.api.PluginsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -27,19 +27,19 @@ Disable a plugin.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 final String version = version_example; // String | Plugin version.
 
 try {
     api.disablePlugin(pluginId, version);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->disablePlugin: $e\n');
 }
 ```
@@ -73,19 +73,19 @@ Enables a disabled plugin.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 final String version = version_example; // String | Plugin version.
 
 try {
     api.enablePlugin(pluginId, version);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->enablePlugin: $e\n');
 }
 ```
@@ -119,19 +119,19 @@ Gets plugin configuration.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 
 try {
     final response = api.getPluginConfiguration(pluginId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->getPluginConfiguration: $e\n');
 }
 ```
@@ -164,20 +164,20 @@ Gets a plugin's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 final String version = version_example; // String | Plugin version.
 
 try {
     final response = api.getPluginImage(pluginId, version);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->getPluginImage: $e\n');
 }
 ```
@@ -211,18 +211,18 @@ Gets a plugin's manifest.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 
 try {
     api.getPluginManifest(pluginId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->getPluginManifest: $e\n');
 }
 ```
@@ -255,18 +255,18 @@ Gets a list of currently installed plugins.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 
 try {
     final response = api.getPlugins();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->getPlugins: $e\n');
 }
 ```
@@ -296,18 +296,18 @@ Uninstalls a plugin.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 
 try {
     api.uninstallPlugin(pluginId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->uninstallPlugin: $e\n');
 }
 ```
@@ -340,19 +340,19 @@ Uninstalls a plugin by version.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 final String version = version_example; // String | Plugin version.
 
 try {
     api.uninstallPluginByVersion(pluginId, version);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->uninstallPluginByVersion: $e\n');
 }
 ```
@@ -388,18 +388,18 @@ Accepts plugin configuration as JSON body.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPluginsApi();
+final api = Tentacle().getPluginsApi();
 final String pluginId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Plugin id.
 
 try {
     api.updatePluginConfiguration(pluginId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PluginsApi->updatePluginConfiguration: $e\n');
 }
 ```

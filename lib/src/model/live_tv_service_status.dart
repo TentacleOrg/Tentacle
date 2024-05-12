@@ -10,15 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'live_tv_service_status.g.dart';
 
 class LiveTvServiceStatus extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Ok')
   static const LiveTvServiceStatus ok = _$ok;
   @BuiltValueEnumConst(wireName: r'Unavailable')
   static const LiveTvServiceStatus unavailable = _$unavailable;
 
-  static Serializer<LiveTvServiceStatus> get serializer => _$liveTvServiceStatusSerializer;
+  static Serializer<LiveTvServiceStatus> get serializer =>
+      _$liveTvServiceStatusSerializer;
 
-  const LiveTvServiceStatus._(String name): super(name);
+  const LiveTvServiceStatus._(String name) : super(name);
 
   static BuiltSet<LiveTvServiceStatus> get values => _$values;
   static LiveTvServiceStatus valueOf(String name) => _$valueOf(name);
@@ -30,5 +30,5 @@ class LiveTvServiceStatus extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class LiveTvServiceStatusMixin = Object with _$LiveTvServiceStatusMixin;
-
+abstract class LiveTvServiceStatusMixin = Object
+    with _$LiveTvServiceStatusMixin;

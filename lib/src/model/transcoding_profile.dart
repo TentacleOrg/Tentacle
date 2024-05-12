@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/dlna_profile_type.dart';
 import 'package:tentacle/src/model/encoding_context.dart';
+import 'package:tentacle/src/model/transcode_seek_info.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/profile_condition.dart';
-import 'package:tentacle/src/model/transcode_seek_info.dart';
-import 'package:tentacle/src/model/dlna_profile_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -40,6 +40,7 @@ abstract class TranscodingProfile
 
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
+  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  };
 
   @BuiltValueField(wireName: r'VideoCodec')
   String? get videoCodec;
@@ -58,12 +59,14 @@ abstract class TranscodingProfile
 
   @BuiltValueField(wireName: r'TranscodeSeekInfo')
   TranscodeSeekInfo? get transcodeSeekInfo;
+  // enum transcodeSeekInfoEnum {  Auto,  Bytes,  };
 
   @BuiltValueField(wireName: r'CopyTimestamps')
   bool? get copyTimestamps;
 
   @BuiltValueField(wireName: r'Context')
   EncodingContext? get context;
+  // enum contextEnum {  Streaming,  Static,  };
 
   @BuiltValueField(wireName: r'EnableSubtitlesInManifest')
   bool? get enableSubtitlesInManifest;

@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'send_to_user_type.g.dart';
 
 class SendToUserType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'All')
   static const SendToUserType all = _$all;
   @BuiltValueEnumConst(wireName: r'Admins')
@@ -18,9 +17,10 @@ class SendToUserType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Custom')
   static const SendToUserType custom = _$custom;
 
-  static Serializer<SendToUserType> get serializer => _$sendToUserTypeSerializer;
+  static Serializer<SendToUserType> get serializer =>
+      _$sendToUserTypeSerializer;
 
-  const SendToUserType._(String name): super(name);
+  const SendToUserType._(String name) : super(name);
 
   static BuiltSet<SendToUserType> get values => _$values;
   static SendToUserType valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class SendToUserType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class SendToUserTypeMixin = Object with _$SendToUserTypeMixin;
-

@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/media_protocol.dart';
-import 'package:tentacle/src/model/client_capabilities_dto_device_profile.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -25,10 +25,11 @@ part 'open_live_stream_dto.g.dart';
 /// * [itemId] - Gets or sets the item id.
 /// * [enableDirectPlay] - Gets or sets a value indicating whether to enable direct play.
 /// * [enableDirectStream] - Gets or sets a value indicating whether to enale direct stream.
-/// * [deviceProfile] 
+/// * [deviceProfile]
 /// * [directPlayProtocols] - Gets or sets the device play protocols.
-@BuiltValue(instantiable: false)
-abstract class OpenLiveStreamDto  {
+@BuiltValue()
+abstract class OpenLiveStreamDto
+    implements Built<OpenLiveStreamDto, OpenLiveStreamDtoBuilder> {
   /// Gets or sets the open token.
   @BuiltValueField(wireName: r'OpenToken')
   String? get openToken;
@@ -74,19 +75,29 @@ abstract class OpenLiveStreamDto  {
   bool? get enableDirectStream;
 
   @BuiltValueField(wireName: r'DeviceProfile')
-  ClientCapabilitiesDtoDeviceProfile? get deviceProfile;
+  ClientCapabilitiesDeviceProfile? get deviceProfile;
 
   /// Gets or sets the device play protocols.
   @BuiltValueField(wireName: r'DirectPlayProtocols')
   BuiltList<MediaProtocol>? get directPlayProtocols;
 
+  OpenLiveStreamDto._();
+
+  factory OpenLiveStreamDto([void updates(OpenLiveStreamDtoBuilder b)]) =
+      _$OpenLiveStreamDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(OpenLiveStreamDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<OpenLiveStreamDto> get serializer => _$OpenLiveStreamDtoSerializer();
+  static Serializer<OpenLiveStreamDto> get serializer =>
+      _$OpenLiveStreamDtoSerializer();
 }
 
-class _$OpenLiveStreamDtoSerializer implements PrimitiveSerializer<OpenLiveStreamDto> {
+class _$OpenLiveStreamDtoSerializer
+    implements PrimitiveSerializer<OpenLiveStreamDto> {
   @override
-  final Iterable<Type> types = const [OpenLiveStreamDto];
+  final Iterable<Type> types = const [OpenLiveStreamDto, _$OpenLiveStreamDto];
 
   @override
   final String wireName = r'OpenLiveStreamDto';
@@ -177,7 +188,7 @@ class _$OpenLiveStreamDtoSerializer implements PrimitiveSerializer<OpenLiveStrea
       yield r'DeviceProfile';
       yield serializers.serialize(
         object.deviceProfile,
-        specifiedType: const FullType.nullable(ClientCapabilitiesDtoDeviceProfile),
+        specifiedType: const FullType.nullable(ClientCapabilitiesDeviceProfile),
       );
     }
     if (object.directPlayProtocols != null) {
@@ -195,47 +206,9 @@ class _$OpenLiveStreamDtoSerializer implements PrimitiveSerializer<OpenLiveStrea
     OpenLiveStreamDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  OpenLiveStreamDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($OpenLiveStreamDto)) as $OpenLiveStreamDto;
-  }
-}
-
-/// a concrete implementation of [OpenLiveStreamDto], since [OpenLiveStreamDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $OpenLiveStreamDto implements OpenLiveStreamDto, Built<$OpenLiveStreamDto, $OpenLiveStreamDtoBuilder> {
-  $OpenLiveStreamDto._();
-
-  factory $OpenLiveStreamDto([void Function($OpenLiveStreamDtoBuilder)? updates]) = _$$OpenLiveStreamDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($OpenLiveStreamDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$OpenLiveStreamDto> get serializer => _$$OpenLiveStreamDtoSerializer();
-}
-
-class _$$OpenLiveStreamDtoSerializer implements PrimitiveSerializer<$OpenLiveStreamDto> {
-  @override
-  final Iterable<Type> types = const [$OpenLiveStreamDto, _$$OpenLiveStreamDto];
-
-  @override
-  final String wireName = r'$OpenLiveStreamDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $OpenLiveStreamDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(OpenLiveStreamDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -341,8 +314,9 @@ class _$$OpenLiveStreamDtoSerializer implements PrimitiveSerializer<$OpenLiveStr
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(ClientCapabilitiesDtoDeviceProfile),
-          ) as ClientCapabilitiesDtoDeviceProfile?;
+            specifiedType:
+                const FullType.nullable(ClientCapabilitiesDeviceProfile),
+          ) as ClientCapabilitiesDeviceProfile?;
           if (valueDes == null) continue;
           result.deviceProfile.replace(valueDes);
           break;
@@ -362,12 +336,12 @@ class _$$OpenLiveStreamDtoSerializer implements PrimitiveSerializer<$OpenLiveStr
   }
 
   @override
-  $OpenLiveStreamDto deserialize(
+  OpenLiveStreamDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $OpenLiveStreamDtoBuilder();
+    final result = OpenLiveStreamDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -381,4 +355,3 @@ class _$$OpenLiveStreamDtoSerializer implements PrimitiveSerializer<$OpenLiveStr
     return result.build();
   }
 }
-

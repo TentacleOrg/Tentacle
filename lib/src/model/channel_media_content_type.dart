@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'channel_media_content_type.g.dart';
 
 class ChannelMediaContentType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Clip')
   static const ChannelMediaContentType clip = _$clip;
   @BuiltValueEnumConst(wireName: r'Podcast')
@@ -28,9 +27,10 @@ class ChannelMediaContentType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'TvExtra')
   static const ChannelMediaContentType tvExtra = _$tvExtra;
 
-  static Serializer<ChannelMediaContentType> get serializer => _$channelMediaContentTypeSerializer;
+  static Serializer<ChannelMediaContentType> get serializer =>
+      _$channelMediaContentTypeSerializer;
 
-  const ChannelMediaContentType._(String name): super(name);
+  const ChannelMediaContentType._(String name) : super(name);
 
   static BuiltSet<ChannelMediaContentType> get values => _$values;
   static ChannelMediaContentType valueOf(String name) => _$valueOf(name);
@@ -42,5 +42,5 @@ class ChannelMediaContentType extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class ChannelMediaContentTypeMixin = Object with _$ChannelMediaContentTypeMixin;
-
+abstract class ChannelMediaContentTypeMixin = Object
+    with _$ChannelMediaContentTypeMixin;

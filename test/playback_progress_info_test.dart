@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlaybackProgressInfo
 void main() {
-  //final instance = PlaybackProgressInfoBuilder();
+  final instance = PlaybackProgressInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PlaybackProgressInfo, () {
@@ -120,6 +120,5 @@ void main() {
     test('to test the property `playlistItemId`', () async {
       // TODO
     });
-
   });
 }

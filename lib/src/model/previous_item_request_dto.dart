@@ -12,19 +12,34 @@ part 'previous_item_request_dto.g.dart';
 ///
 /// Properties:
 /// * [playlistItemId] - Gets or sets the playing item identifier.
-@BuiltValue(instantiable: false)
-abstract class PreviousItemRequestDto  {
+@BuiltValue()
+abstract class PreviousItemRequestDto
+    implements Built<PreviousItemRequestDto, PreviousItemRequestDtoBuilder> {
   /// Gets or sets the playing item identifier.
   @BuiltValueField(wireName: r'PlaylistItemId')
   String? get playlistItemId;
 
+  PreviousItemRequestDto._();
+
+  factory PreviousItemRequestDto(
+          [void updates(PreviousItemRequestDtoBuilder b)]) =
+      _$PreviousItemRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PreviousItemRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PreviousItemRequestDto> get serializer => _$PreviousItemRequestDtoSerializer();
+  static Serializer<PreviousItemRequestDto> get serializer =>
+      _$PreviousItemRequestDtoSerializer();
 }
 
-class _$PreviousItemRequestDtoSerializer implements PrimitiveSerializer<PreviousItemRequestDto> {
+class _$PreviousItemRequestDtoSerializer
+    implements PrimitiveSerializer<PreviousItemRequestDto> {
   @override
-  final Iterable<Type> types = const [PreviousItemRequestDto];
+  final Iterable<Type> types = const [
+    PreviousItemRequestDto,
+    _$PreviousItemRequestDto
+  ];
 
   @override
   final String wireName = r'PreviousItemRequestDto';
@@ -49,47 +64,9 @@ class _$PreviousItemRequestDtoSerializer implements PrimitiveSerializer<Previous
     PreviousItemRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PreviousItemRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PreviousItemRequestDto)) as $PreviousItemRequestDto;
-  }
-}
-
-/// a concrete implementation of [PreviousItemRequestDto], since [PreviousItemRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PreviousItemRequestDto implements PreviousItemRequestDto, Built<$PreviousItemRequestDto, $PreviousItemRequestDtoBuilder> {
-  $PreviousItemRequestDto._();
-
-  factory $PreviousItemRequestDto([void Function($PreviousItemRequestDtoBuilder)? updates]) = _$$PreviousItemRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PreviousItemRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PreviousItemRequestDto> get serializer => _$$PreviousItemRequestDtoSerializer();
-}
-
-class _$$PreviousItemRequestDtoSerializer implements PrimitiveSerializer<$PreviousItemRequestDto> {
-  @override
-  final Iterable<Type> types = const [$PreviousItemRequestDto, _$$PreviousItemRequestDto];
-
-  @override
-  final String wireName = r'$PreviousItemRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PreviousItemRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PreviousItemRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,12 +97,12 @@ class _$$PreviousItemRequestDtoSerializer implements PrimitiveSerializer<$Previo
   }
 
   @override
-  $PreviousItemRequestDto deserialize(
+  PreviousItemRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PreviousItemRequestDtoBuilder();
+    final result = PreviousItemRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -139,4 +116,3 @@ class _$$PreviousItemRequestDtoSerializer implements PrimitiveSerializer<$Previo
     return result.build();
   }
 }
-

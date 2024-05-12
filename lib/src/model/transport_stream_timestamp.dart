@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'transport_stream_timestamp.g.dart';
 
 class TransportStreamTimestamp extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'None')
   static const TransportStreamTimestamp none = _$none;
   @BuiltValueEnumConst(wireName: r'Zero')
@@ -18,9 +17,10 @@ class TransportStreamTimestamp extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Valid')
   static const TransportStreamTimestamp valid = _$valid;
 
-  static Serializer<TransportStreamTimestamp> get serializer => _$transportStreamTimestampSerializer;
+  static Serializer<TransportStreamTimestamp> get serializer =>
+      _$transportStreamTimestampSerializer;
 
-  const TransportStreamTimestamp._(String name): super(name);
+  const TransportStreamTimestamp._(String name) : super(name);
 
   static BuiltSet<TransportStreamTimestamp> get values => _$values;
   static TransportStreamTimestamp valueOf(String name) => _$valueOf(name);
@@ -32,5 +32,5 @@ class TransportStreamTimestamp extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class TransportStreamTimestampMixin = Object with _$TransportStreamTimestampMixin;
-
+abstract class TransportStreamTimestampMixin = Object
+    with _$TransportStreamTimestampMixin;

@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'forgot_password_action.g.dart';
 
 class ForgotPasswordAction extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'ContactAdmin')
   static const ForgotPasswordAction contactAdmin = _$contactAdmin;
   @BuiltValueEnumConst(wireName: r'PinCode')
@@ -18,9 +17,10 @@ class ForgotPasswordAction extends EnumClass {
   @BuiltValueEnumConst(wireName: r'InNetworkRequired')
   static const ForgotPasswordAction inNetworkRequired = _$inNetworkRequired;
 
-  static Serializer<ForgotPasswordAction> get serializer => _$forgotPasswordActionSerializer;
+  static Serializer<ForgotPasswordAction> get serializer =>
+      _$forgotPasswordActionSerializer;
 
-  const ForgotPasswordAction._(String name): super(name);
+  const ForgotPasswordAction._(String name) : super(name);
 
   static BuiltSet<ForgotPasswordAction> get values => _$values;
   static ForgotPasswordAction valueOf(String name) => _$valueOf(name);
@@ -32,5 +32,5 @@ class ForgotPasswordAction extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class ForgotPasswordActionMixin = Object with _$ForgotPasswordActionMixin;
-
+abstract class ForgotPasswordActionMixin = Object
+    with _$ForgotPasswordActionMixin;

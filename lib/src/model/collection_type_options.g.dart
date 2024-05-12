@@ -68,7 +68,7 @@ class _$CollectionTypeOptionsMeta {
   BuiltSet<CollectionTypeOptions> get values => _$values;
 }
 
-abstract class _$CollectionTypeOptionsMixin {
+mixin _$CollectionTypeOptionsMixin {
   // ignore: non_constant_identifier_names
   _$CollectionTypeOptionsMeta get CollectionTypeOptions =>
       const _$CollectionTypeOptionsMeta();

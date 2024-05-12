@@ -1,8 +1,8 @@
-# openapi.model.AccessSchedule
+# tentacle.model.AccessSchedule
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

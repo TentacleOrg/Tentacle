@@ -11,26 +11,33 @@ part 'metadata_configuration.g.dart';
 /// MetadataConfiguration
 ///
 /// Properties:
-/// * [useFileCreationTimeForDateAdded] 
+/// * [useFileCreationTimeForDateAdded]
 @BuiltValue()
-abstract class MetadataConfiguration implements Built<MetadataConfiguration, MetadataConfigurationBuilder> {
+abstract class MetadataConfiguration
+    implements Built<MetadataConfiguration, MetadataConfigurationBuilder> {
   @BuiltValueField(wireName: r'UseFileCreationTimeForDateAdded')
   bool? get useFileCreationTimeForDateAdded;
 
   MetadataConfiguration._();
 
-  factory MetadataConfiguration([void updates(MetadataConfigurationBuilder b)]) = _$MetadataConfiguration;
+  factory MetadataConfiguration(
+      [void updates(MetadataConfigurationBuilder b)]) = _$MetadataConfiguration;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataConfigurationBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataConfiguration> get serializer => _$MetadataConfigurationSerializer();
+  static Serializer<MetadataConfiguration> get serializer =>
+      _$MetadataConfigurationSerializer();
 }
 
-class _$MetadataConfigurationSerializer implements PrimitiveSerializer<MetadataConfiguration> {
+class _$MetadataConfigurationSerializer
+    implements PrimitiveSerializer<MetadataConfiguration> {
   @override
-  final Iterable<Type> types = const [MetadataConfiguration, _$MetadataConfiguration];
+  final Iterable<Type> types = const [
+    MetadataConfiguration,
+    _$MetadataConfiguration
+  ];
 
   @override
   final String wireName = r'MetadataConfiguration';
@@ -55,7 +62,9 @@ class _$MetadataConfigurationSerializer implements PrimitiveSerializer<MetadataC
     MetadataConfiguration object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -105,4 +114,3 @@ class _$MetadataConfigurationSerializer implements PrimitiveSerializer<MetadataC
     return result.build();
   }
 }
-

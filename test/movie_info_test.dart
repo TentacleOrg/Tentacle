@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MovieInfo
 void main() {
-  //final instance = MovieInfoBuilder();
+  final instance = MovieInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(MovieInfo, () {
@@ -68,6 +68,5 @@ void main() {
     test('to test the property `isAutomated`', () async {
       // TODO
     });
-
   });
 }

@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,7 +17,8 @@ part 'base_item_dto_query_result.g.dart';
 /// * [totalRecordCount] - Gets or sets the total number of records available.
 /// * [startIndex] - Gets or sets the index of the first record in Items.
 @BuiltValue()
-abstract class BaseItemDtoQueryResult implements Built<BaseItemDtoQueryResult, BaseItemDtoQueryResultBuilder> {
+abstract class BaseItemDtoQueryResult
+    implements Built<BaseItemDtoQueryResult, BaseItemDtoQueryResultBuilder> {
   /// Gets or sets the items.
   @BuiltValueField(wireName: r'Items')
   BuiltList<BaseItemDto>? get items;
@@ -32,18 +33,25 @@ abstract class BaseItemDtoQueryResult implements Built<BaseItemDtoQueryResult, B
 
   BaseItemDtoQueryResult._();
 
-  factory BaseItemDtoQueryResult([void updates(BaseItemDtoQueryResultBuilder b)]) = _$BaseItemDtoQueryResult;
+  factory BaseItemDtoQueryResult(
+          [void updates(BaseItemDtoQueryResultBuilder b)]) =
+      _$BaseItemDtoQueryResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BaseItemDtoQueryResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BaseItemDtoQueryResult> get serializer => _$BaseItemDtoQueryResultSerializer();
+  static Serializer<BaseItemDtoQueryResult> get serializer =>
+      _$BaseItemDtoQueryResultSerializer();
 }
 
-class _$BaseItemDtoQueryResultSerializer implements PrimitiveSerializer<BaseItemDtoQueryResult> {
+class _$BaseItemDtoQueryResultSerializer
+    implements PrimitiveSerializer<BaseItemDtoQueryResult> {
   @override
-  final Iterable<Type> types = const [BaseItemDtoQueryResult, _$BaseItemDtoQueryResult];
+  final Iterable<Type> types = const [
+    BaseItemDtoQueryResult,
+    _$BaseItemDtoQueryResult
+  ];
 
   @override
   final String wireName = r'BaseItemDtoQueryResult';
@@ -57,7 +65,8 @@ class _$BaseItemDtoQueryResultSerializer implements PrimitiveSerializer<BaseItem
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -82,7 +91,9 @@ class _$BaseItemDtoQueryResultSerializer implements PrimitiveSerializer<BaseItem
     BaseItemDtoQueryResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -100,7 +111,8 @@ class _$BaseItemDtoQueryResultSerializer implements PrimitiveSerializer<BaseItem
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
           ) as BuiltList<BaseItemDto>?;
           if (valueDes == null) continue;
           result.items.replace(valueDes);
@@ -147,4 +159,3 @@ class _$BaseItemDtoQueryResultSerializer implements PrimitiveSerializer<BaseItem
     return result.build();
   }
 }
-

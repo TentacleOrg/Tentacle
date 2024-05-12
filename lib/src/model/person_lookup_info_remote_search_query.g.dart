@@ -6,27 +6,10 @@ part of 'person_lookup_info_remote_search_query.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class PersonLookupInfoRemoteSearchQueryBuilder {
-  void replace(PersonLookupInfoRemoteSearchQuery other);
-  void update(void Function(PersonLookupInfoRemoteSearchQueryBuilder) updates);
-  PersonLookupInfoRemoteSearchQuerySearchInfoBuilder get searchInfo;
-  set searchInfo(
-      PersonLookupInfoRemoteSearchQuerySearchInfoBuilder? searchInfo);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get searchProviderName;
-  set searchProviderName(String? searchProviderName);
-
-  bool? get includeDisabledProviders;
-  set includeDisabledProviders(bool? includeDisabledProviders);
-}
-
-class _$$PersonLookupInfoRemoteSearchQuery
-    extends $PersonLookupInfoRemoteSearchQuery {
+class _$PersonLookupInfoRemoteSearchQuery
+    extends PersonLookupInfoRemoteSearchQuery {
   @override
-  final PersonLookupInfoRemoteSearchQuerySearchInfo? searchInfo;
+  final PersonLookupInfo? searchInfo;
   @override
   final String? itemId;
   @override
@@ -34,13 +17,12 @@ class _$$PersonLookupInfoRemoteSearchQuery
   @override
   final bool? includeDisabledProviders;
 
-  factory _$$PersonLookupInfoRemoteSearchQuery(
-          [void Function($PersonLookupInfoRemoteSearchQueryBuilder)?
-              updates]) =>
-      (new $PersonLookupInfoRemoteSearchQueryBuilder()..update(updates))
+  factory _$PersonLookupInfoRemoteSearchQuery(
+          [void Function(PersonLookupInfoRemoteSearchQueryBuilder)? updates]) =>
+      (new PersonLookupInfoRemoteSearchQueryBuilder()..update(updates))
           ._build();
 
-  _$$PersonLookupInfoRemoteSearchQuery._(
+  _$PersonLookupInfoRemoteSearchQuery._(
       {this.searchInfo,
       this.itemId,
       this.searchProviderName,
@@ -48,18 +30,18 @@ class _$$PersonLookupInfoRemoteSearchQuery
       : super._();
 
   @override
-  $PersonLookupInfoRemoteSearchQuery rebuild(
-          void Function($PersonLookupInfoRemoteSearchQueryBuilder) updates) =>
+  PersonLookupInfoRemoteSearchQuery rebuild(
+          void Function(PersonLookupInfoRemoteSearchQueryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $PersonLookupInfoRemoteSearchQueryBuilder toBuilder() =>
-      new $PersonLookupInfoRemoteSearchQueryBuilder()..replace(this);
+  PersonLookupInfoRemoteSearchQueryBuilder toBuilder() =>
+      new PersonLookupInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $PersonLookupInfoRemoteSearchQuery &&
+    return other is PersonLookupInfoRemoteSearchQuery &&
         searchInfo == other.searchInfo &&
         itemId == other.itemId &&
         searchProviderName == other.searchProviderName &&
@@ -79,7 +61,7 @@ class _$$PersonLookupInfoRemoteSearchQuery
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$PersonLookupInfoRemoteSearchQuery')
+    return (newBuiltValueToStringHelper(r'PersonLookupInfoRemoteSearchQuery')
           ..add('searchInfo', searchInfo)
           ..add('itemId', itemId)
           ..add('searchProviderName', searchProviderName)
@@ -88,41 +70,37 @@ class _$$PersonLookupInfoRemoteSearchQuery
   }
 }
 
-class $PersonLookupInfoRemoteSearchQueryBuilder
+class PersonLookupInfoRemoteSearchQueryBuilder
     implements
-        Builder<$PersonLookupInfoRemoteSearchQuery,
-            $PersonLookupInfoRemoteSearchQueryBuilder>,
-        PersonLookupInfoRemoteSearchQueryBuilder {
-  _$$PersonLookupInfoRemoteSearchQuery? _$v;
+        Builder<PersonLookupInfoRemoteSearchQuery,
+            PersonLookupInfoRemoteSearchQueryBuilder> {
+  _$PersonLookupInfoRemoteSearchQuery? _$v;
 
-  PersonLookupInfoRemoteSearchQuerySearchInfoBuilder? _searchInfo;
-  PersonLookupInfoRemoteSearchQuerySearchInfoBuilder get searchInfo =>
-      _$this._searchInfo ??=
-          new PersonLookupInfoRemoteSearchQuerySearchInfoBuilder();
-  set searchInfo(
-          covariant PersonLookupInfoRemoteSearchQuerySearchInfoBuilder?
-              searchInfo) =>
+  PersonLookupInfoBuilder? _searchInfo;
+  PersonLookupInfoBuilder get searchInfo =>
+      _$this._searchInfo ??= new PersonLookupInfoBuilder();
+  set searchInfo(PersonLookupInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   String? _searchProviderName;
   String? get searchProviderName => _$this._searchProviderName;
-  set searchProviderName(covariant String? searchProviderName) =>
+  set searchProviderName(String? searchProviderName) =>
       _$this._searchProviderName = searchProviderName;
 
   bool? _includeDisabledProviders;
   bool? get includeDisabledProviders => _$this._includeDisabledProviders;
-  set includeDisabledProviders(covariant bool? includeDisabledProviders) =>
+  set includeDisabledProviders(bool? includeDisabledProviders) =>
       _$this._includeDisabledProviders = includeDisabledProviders;
 
-  $PersonLookupInfoRemoteSearchQueryBuilder() {
-    $PersonLookupInfoRemoteSearchQuery._defaults(this);
+  PersonLookupInfoRemoteSearchQueryBuilder() {
+    PersonLookupInfoRemoteSearchQuery._defaults(this);
   }
 
-  $PersonLookupInfoRemoteSearchQueryBuilder get _$this {
+  PersonLookupInfoRemoteSearchQueryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _searchInfo = $v.searchInfo?.toBuilder();
@@ -135,25 +113,25 @@ class $PersonLookupInfoRemoteSearchQueryBuilder
   }
 
   @override
-  void replace(covariant $PersonLookupInfoRemoteSearchQuery other) {
+  void replace(PersonLookupInfoRemoteSearchQuery other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$PersonLookupInfoRemoteSearchQuery;
+    _$v = other as _$PersonLookupInfoRemoteSearchQuery;
   }
 
   @override
   void update(
-      void Function($PersonLookupInfoRemoteSearchQueryBuilder)? updates) {
+      void Function(PersonLookupInfoRemoteSearchQueryBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $PersonLookupInfoRemoteSearchQuery build() => _build();
+  PersonLookupInfoRemoteSearchQuery build() => _build();
 
-  _$$PersonLookupInfoRemoteSearchQuery _build() {
-    _$$PersonLookupInfoRemoteSearchQuery _$result;
+  _$PersonLookupInfoRemoteSearchQuery _build() {
+    _$PersonLookupInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$$PersonLookupInfoRemoteSearchQuery._(
+          new _$PersonLookupInfoRemoteSearchQuery._(
               searchInfo: _searchInfo?.build(),
               itemId: itemId,
               searchProviderName: searchProviderName,
@@ -165,7 +143,7 @@ class $PersonLookupInfoRemoteSearchQueryBuilder
         _searchInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$PersonLookupInfoRemoteSearchQuery', _$failedField, e.toString());
+            r'PersonLookupInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -10,26 +10,30 @@ import 'package:built_value/serializer.dart';
 part 'media_stream_type.g.dart';
 
 class MediaStreamType extends EnumClass {
-
   /// Enum MediaStreamType.
   @BuiltValueEnumConst(wireName: r'Audio')
   static const MediaStreamType audio = _$audio;
+
   /// Enum MediaStreamType.
   @BuiltValueEnumConst(wireName: r'Video')
   static const MediaStreamType video = _$video;
+
   /// Enum MediaStreamType.
   @BuiltValueEnumConst(wireName: r'Subtitle')
   static const MediaStreamType subtitle = _$subtitle;
+
   /// Enum MediaStreamType.
   @BuiltValueEnumConst(wireName: r'EmbeddedImage')
   static const MediaStreamType embeddedImage = _$embeddedImage;
+
   /// Enum MediaStreamType.
   @BuiltValueEnumConst(wireName: r'Data')
   static const MediaStreamType data = _$data;
 
-  static Serializer<MediaStreamType> get serializer => _$mediaStreamTypeSerializer;
+  static Serializer<MediaStreamType> get serializer =>
+      _$mediaStreamTypeSerializer;
 
-  const MediaStreamType._(String name): super(name);
+  const MediaStreamType._(String name) : super(name);
 
   static BuiltSet<MediaStreamType> get values => _$values;
   static MediaStreamType valueOf(String name) => _$valueOf(name);
@@ -42,4 +46,3 @@ class MediaStreamType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class MediaStreamTypeMixin = Object with _$MediaStreamTypeMixin;
-

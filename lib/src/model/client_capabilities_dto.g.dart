@@ -6,41 +6,7 @@ part of 'client_capabilities_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ClientCapabilitiesDtoBuilder {
-  void replace(ClientCapabilitiesDto other);
-  void update(void Function(ClientCapabilitiesDtoBuilder) updates);
-  ListBuilder<String> get playableMediaTypes;
-  set playableMediaTypes(ListBuilder<String>? playableMediaTypes);
-
-  ListBuilder<GeneralCommandType> get supportedCommands;
-  set supportedCommands(ListBuilder<GeneralCommandType>? supportedCommands);
-
-  bool? get supportsMediaControl;
-  set supportsMediaControl(bool? supportsMediaControl);
-
-  bool? get supportsContentUploading;
-  set supportsContentUploading(bool? supportsContentUploading);
-
-  String? get messageCallbackUrl;
-  set messageCallbackUrl(String? messageCallbackUrl);
-
-  bool? get supportsPersistentIdentifier;
-  set supportsPersistentIdentifier(bool? supportsPersistentIdentifier);
-
-  bool? get supportsSync;
-  set supportsSync(bool? supportsSync);
-
-  ClientCapabilitiesDtoDeviceProfileBuilder get deviceProfile;
-  set deviceProfile(ClientCapabilitiesDtoDeviceProfileBuilder? deviceProfile);
-
-  String? get appStoreUrl;
-  set appStoreUrl(String? appStoreUrl);
-
-  String? get iconUrl;
-  set iconUrl(String? iconUrl);
-}
-
-class _$$ClientCapabilitiesDto extends $ClientCapabilitiesDto {
+class _$ClientCapabilitiesDto extends ClientCapabilitiesDto {
   @override
   final BuiltList<String>? playableMediaTypes;
   @override
@@ -56,17 +22,17 @@ class _$$ClientCapabilitiesDto extends $ClientCapabilitiesDto {
   @override
   final bool? supportsSync;
   @override
-  final ClientCapabilitiesDtoDeviceProfile? deviceProfile;
+  final ClientCapabilitiesDeviceProfile? deviceProfile;
   @override
   final String? appStoreUrl;
   @override
   final String? iconUrl;
 
-  factory _$$ClientCapabilitiesDto(
-          [void Function($ClientCapabilitiesDtoBuilder)? updates]) =>
-      (new $ClientCapabilitiesDtoBuilder()..update(updates))._build();
+  factory _$ClientCapabilitiesDto(
+          [void Function(ClientCapabilitiesDtoBuilder)? updates]) =>
+      (new ClientCapabilitiesDtoBuilder()..update(updates))._build();
 
-  _$$ClientCapabilitiesDto._(
+  _$ClientCapabilitiesDto._(
       {this.playableMediaTypes,
       this.supportedCommands,
       this.supportsMediaControl,
@@ -80,18 +46,18 @@ class _$$ClientCapabilitiesDto extends $ClientCapabilitiesDto {
       : super._();
 
   @override
-  $ClientCapabilitiesDto rebuild(
-          void Function($ClientCapabilitiesDtoBuilder) updates) =>
+  ClientCapabilitiesDto rebuild(
+          void Function(ClientCapabilitiesDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $ClientCapabilitiesDtoBuilder toBuilder() =>
-      new $ClientCapabilitiesDtoBuilder()..replace(this);
+  ClientCapabilitiesDtoBuilder toBuilder() =>
+      new ClientCapabilitiesDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $ClientCapabilitiesDto &&
+    return other is ClientCapabilitiesDto &&
         playableMediaTypes == other.playableMediaTypes &&
         supportedCommands == other.supportedCommands &&
         supportsMediaControl == other.supportsMediaControl &&
@@ -123,7 +89,7 @@ class _$$ClientCapabilitiesDto extends $ClientCapabilitiesDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$ClientCapabilitiesDto')
+    return (newBuiltValueToStringHelper(r'ClientCapabilitiesDto')
           ..add('playableMediaTypes', playableMediaTypes)
           ..add('supportedCommands', supportedCommands)
           ..add('supportsMediaControl', supportsMediaControl)
@@ -138,73 +104,66 @@ class _$$ClientCapabilitiesDto extends $ClientCapabilitiesDto {
   }
 }
 
-class $ClientCapabilitiesDtoBuilder
-    implements
-        Builder<$ClientCapabilitiesDto, $ClientCapabilitiesDtoBuilder>,
-        ClientCapabilitiesDtoBuilder {
-  _$$ClientCapabilitiesDto? _$v;
+class ClientCapabilitiesDtoBuilder
+    implements Builder<ClientCapabilitiesDto, ClientCapabilitiesDtoBuilder> {
+  _$ClientCapabilitiesDto? _$v;
 
   ListBuilder<String>? _playableMediaTypes;
   ListBuilder<String> get playableMediaTypes =>
       _$this._playableMediaTypes ??= new ListBuilder<String>();
-  set playableMediaTypes(covariant ListBuilder<String>? playableMediaTypes) =>
+  set playableMediaTypes(ListBuilder<String>? playableMediaTypes) =>
       _$this._playableMediaTypes = playableMediaTypes;
 
   ListBuilder<GeneralCommandType>? _supportedCommands;
   ListBuilder<GeneralCommandType> get supportedCommands =>
       _$this._supportedCommands ??= new ListBuilder<GeneralCommandType>();
-  set supportedCommands(
-          covariant ListBuilder<GeneralCommandType>? supportedCommands) =>
+  set supportedCommands(ListBuilder<GeneralCommandType>? supportedCommands) =>
       _$this._supportedCommands = supportedCommands;
 
   bool? _supportsMediaControl;
   bool? get supportsMediaControl => _$this._supportsMediaControl;
-  set supportsMediaControl(covariant bool? supportsMediaControl) =>
+  set supportsMediaControl(bool? supportsMediaControl) =>
       _$this._supportsMediaControl = supportsMediaControl;
 
   bool? _supportsContentUploading;
   bool? get supportsContentUploading => _$this._supportsContentUploading;
-  set supportsContentUploading(covariant bool? supportsContentUploading) =>
+  set supportsContentUploading(bool? supportsContentUploading) =>
       _$this._supportsContentUploading = supportsContentUploading;
 
   String? _messageCallbackUrl;
   String? get messageCallbackUrl => _$this._messageCallbackUrl;
-  set messageCallbackUrl(covariant String? messageCallbackUrl) =>
+  set messageCallbackUrl(String? messageCallbackUrl) =>
       _$this._messageCallbackUrl = messageCallbackUrl;
 
   bool? _supportsPersistentIdentifier;
   bool? get supportsPersistentIdentifier =>
       _$this._supportsPersistentIdentifier;
-  set supportsPersistentIdentifier(
-          covariant bool? supportsPersistentIdentifier) =>
+  set supportsPersistentIdentifier(bool? supportsPersistentIdentifier) =>
       _$this._supportsPersistentIdentifier = supportsPersistentIdentifier;
 
   bool? _supportsSync;
   bool? get supportsSync => _$this._supportsSync;
-  set supportsSync(covariant bool? supportsSync) =>
-      _$this._supportsSync = supportsSync;
+  set supportsSync(bool? supportsSync) => _$this._supportsSync = supportsSync;
 
-  ClientCapabilitiesDtoDeviceProfileBuilder? _deviceProfile;
-  ClientCapabilitiesDtoDeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new ClientCapabilitiesDtoDeviceProfileBuilder();
-  set deviceProfile(
-          covariant ClientCapabilitiesDtoDeviceProfileBuilder? deviceProfile) =>
+  ClientCapabilitiesDeviceProfileBuilder? _deviceProfile;
+  ClientCapabilitiesDeviceProfileBuilder get deviceProfile =>
+      _$this._deviceProfile ??= new ClientCapabilitiesDeviceProfileBuilder();
+  set deviceProfile(ClientCapabilitiesDeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
   String? _appStoreUrl;
   String? get appStoreUrl => _$this._appStoreUrl;
-  set appStoreUrl(covariant String? appStoreUrl) =>
-      _$this._appStoreUrl = appStoreUrl;
+  set appStoreUrl(String? appStoreUrl) => _$this._appStoreUrl = appStoreUrl;
 
   String? _iconUrl;
   String? get iconUrl => _$this._iconUrl;
-  set iconUrl(covariant String? iconUrl) => _$this._iconUrl = iconUrl;
+  set iconUrl(String? iconUrl) => _$this._iconUrl = iconUrl;
 
-  $ClientCapabilitiesDtoBuilder() {
-    $ClientCapabilitiesDto._defaults(this);
+  ClientCapabilitiesDtoBuilder() {
+    ClientCapabilitiesDto._defaults(this);
   }
 
-  $ClientCapabilitiesDtoBuilder get _$this {
+  ClientCapabilitiesDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _playableMediaTypes = $v.playableMediaTypes?.toBuilder();
@@ -223,24 +182,24 @@ class $ClientCapabilitiesDtoBuilder
   }
 
   @override
-  void replace(covariant $ClientCapabilitiesDto other) {
+  void replace(ClientCapabilitiesDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$ClientCapabilitiesDto;
+    _$v = other as _$ClientCapabilitiesDto;
   }
 
   @override
-  void update(void Function($ClientCapabilitiesDtoBuilder)? updates) {
+  void update(void Function(ClientCapabilitiesDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $ClientCapabilitiesDto build() => _build();
+  ClientCapabilitiesDto build() => _build();
 
-  _$$ClientCapabilitiesDto _build() {
-    _$$ClientCapabilitiesDto _$result;
+  _$ClientCapabilitiesDto _build() {
+    _$ClientCapabilitiesDto _$result;
     try {
       _$result = _$v ??
-          new _$$ClientCapabilitiesDto._(
+          new _$ClientCapabilitiesDto._(
               playableMediaTypes: _playableMediaTypes?.build(),
               supportedCommands: _supportedCommands?.build(),
               supportsMediaControl: supportsMediaControl,
@@ -263,7 +222,7 @@ class $ClientCapabilitiesDtoBuilder
         _deviceProfile?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$ClientCapabilitiesDto', _$failedField, e.toString());
+            r'ClientCapabilitiesDto', _$failedField, e.toString());
       }
       rethrow;
     }

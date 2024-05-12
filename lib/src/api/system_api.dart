@@ -17,7 +17,6 @@ import 'package:tentacle/src/model/system_info.dart';
 import 'package:tentacle/src/model/wake_on_lan_info.dart';
 
 class SystemApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -25,7 +24,7 @@ class SystemApi {
   const SystemApi(this._dio, this._serializers);
 
   /// Gets information about the request endpoint.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -36,8 +35,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [EndPointInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<EndPointInfo>> getEndpointInfo({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<EndPointInfo>> getEndpointInfo({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -73,22 +72,24 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    EndPointInfo _responseData;
+    EndPointInfo? _responseData;
 
     try {
-      const _responseType = FullType(EndPointInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as EndPointInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(EndPointInfo),
+            ) as EndPointInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<EndPointInfo>(
@@ -104,7 +105,7 @@ class SystemApi {
   }
 
   /// Gets a log file.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the log file to get.
@@ -116,8 +117,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getLogFile({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getLogFile({
     required String name,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -160,18 +161,19 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -187,7 +189,7 @@ class SystemApi {
   }
 
   /// Pings the system.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -198,8 +200,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [String] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<String>> getPingSystem({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<String>> getPingSystem({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -228,18 +230,19 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    String _responseData;
+    String? _responseData;
 
     try {
-      _responseData = _response.data as String;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as String;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<String>(
@@ -255,7 +258,7 @@ class SystemApi {
   }
 
   /// Gets public information about the server.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -266,8 +269,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [PublicSystemInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<PublicSystemInfo>> getPublicSystemInfo({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<PublicSystemInfo>> getPublicSystemInfo({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -296,22 +299,24 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PublicSystemInfo _responseData;
+    PublicSystemInfo? _responseData;
 
     try {
-      const _responseType = FullType(PublicSystemInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as PublicSystemInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(PublicSystemInfo),
+            ) as PublicSystemInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<PublicSystemInfo>(
@@ -327,7 +332,7 @@ class SystemApi {
   }
 
   /// Gets a list of available server log files.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -338,8 +343,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<LogFile>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<LogFile>>> getServerLogs({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<LogFile>>> getServerLogs({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -375,22 +380,24 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<LogFile> _responseData;
+    BuiltList<LogFile>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(LogFile)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<LogFile>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(LogFile)]),
+            ) as BuiltList<LogFile>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<LogFile>>(
@@ -406,7 +413,7 @@ class SystemApi {
   }
 
   /// Gets information about the server.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -417,8 +424,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [SystemInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<SystemInfo>> getSystemInfo({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<SystemInfo>> getSystemInfo({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -454,22 +461,24 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    SystemInfo _responseData;
+    SystemInfo? _responseData;
 
     try {
-      const _responseType = FullType(SystemInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as SystemInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(SystemInfo),
+            ) as SystemInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<SystemInfo>(
@@ -485,7 +494,7 @@ class SystemApi {
   }
 
   /// Gets wake on lan information.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -496,9 +505,9 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<WakeOnLanInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   @Deprecated('This operation has been deprecated')
-  Future<Response<BuiltList<WakeOnLanInfo>>> getWakeOnLanInfo({ 
+  Future<Response<BuiltList<WakeOnLanInfo>>> getWakeOnLanInfo({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -534,22 +543,25 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<WakeOnLanInfo> _responseData;
+    BuiltList<WakeOnLanInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(WakeOnLanInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<WakeOnLanInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(WakeOnLanInfo)]),
+            ) as BuiltList<WakeOnLanInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<WakeOnLanInfo>>(
@@ -565,7 +577,7 @@ class SystemApi {
   }
 
   /// Pings the system.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -576,8 +588,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [String] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<String>> postPingSystem({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<String>> postPingSystem({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -606,18 +618,19 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    String _responseData;
+    String? _responseData;
 
     try {
-      _responseData = _response.data as String;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as String;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<String>(
@@ -633,7 +646,7 @@ class SystemApi {
   }
 
   /// Restarts the application.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -644,8 +657,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> restartApplication({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> restartApplication({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -685,7 +698,7 @@ class SystemApi {
   }
 
   /// Shuts down the application.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -696,8 +709,8 @@ class SystemApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> shutdownApplication({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> shutdownApplication({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -735,5 +748,4 @@ class SystemApi {
 
     return _response;
   }
-
 }

@@ -15,7 +15,8 @@ part 'device_options.g.dart';
 /// * [deviceId] - Gets the device id.
 /// * [customName] - Gets or sets the custom name.
 @BuiltValue()
-abstract class DeviceOptions implements Built<DeviceOptions, DeviceOptionsBuilder> {
+abstract class DeviceOptions
+    implements Built<DeviceOptions, DeviceOptionsBuilder> {
   /// Gets the id.
   @BuiltValueField(wireName: r'Id')
   int? get id;
@@ -30,13 +31,15 @@ abstract class DeviceOptions implements Built<DeviceOptions, DeviceOptionsBuilde
 
   DeviceOptions._();
 
-  factory DeviceOptions([void updates(DeviceOptionsBuilder b)]) = _$DeviceOptions;
+  factory DeviceOptions([void updates(DeviceOptionsBuilder b)]) =
+      _$DeviceOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DeviceOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeviceOptions> get serializer => _$DeviceOptionsSerializer();
+  static Serializer<DeviceOptions> get serializer =>
+      _$DeviceOptionsSerializer();
 }
 
 class _$DeviceOptionsSerializer implements PrimitiveSerializer<DeviceOptions> {
@@ -80,7 +83,9 @@ class _$DeviceOptionsSerializer implements PrimitiveSerializer<DeviceOptions> {
     DeviceOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -145,4 +150,3 @@ class _$DeviceOptionsSerializer implements PrimitiveSerializer<DeviceOptions> {
     return result.build();
   }
 }
-

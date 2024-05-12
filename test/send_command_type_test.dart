@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SendCommandType
 void main() {
-
-  group(SendCommandType, () {
-  });
+  group(SendCommandType, () {});
 }

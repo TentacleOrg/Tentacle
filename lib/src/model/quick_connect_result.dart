@@ -20,7 +20,8 @@ part 'quick_connect_result.g.dart';
 /// * [appVersion] - Gets the requesting app version.
 /// * [dateAdded] - Gets or sets the DateTime that this request was created.
 @BuiltValue()
-abstract class QuickConnectResult implements Built<QuickConnectResult, QuickConnectResultBuilder> {
+abstract class QuickConnectResult
+    implements Built<QuickConnectResult, QuickConnectResultBuilder> {
   /// Gets or sets a value indicating whether this request is authorized.
   @BuiltValueField(wireName: r'Authenticated')
   bool? get authenticated;
@@ -55,16 +56,19 @@ abstract class QuickConnectResult implements Built<QuickConnectResult, QuickConn
 
   QuickConnectResult._();
 
-  factory QuickConnectResult([void updates(QuickConnectResultBuilder b)]) = _$QuickConnectResult;
+  factory QuickConnectResult([void updates(QuickConnectResultBuilder b)]) =
+      _$QuickConnectResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(QuickConnectResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<QuickConnectResult> get serializer => _$QuickConnectResultSerializer();
+  static Serializer<QuickConnectResult> get serializer =>
+      _$QuickConnectResultSerializer();
 }
 
-class _$QuickConnectResultSerializer implements PrimitiveSerializer<QuickConnectResult> {
+class _$QuickConnectResultSerializer
+    implements PrimitiveSerializer<QuickConnectResult> {
   @override
   final Iterable<Type> types = const [QuickConnectResult, _$QuickConnectResult];
 
@@ -140,7 +144,9 @@ class _$QuickConnectResultSerializer implements PrimitiveSerializer<QuickConnect
     QuickConnectResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -239,4 +245,3 @@ class _$QuickConnectResultSerializer implements PrimitiveSerializer<QuickConnect
     return result.build();
   }
 }
-

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for NewGroupRequestDto
 void main() {
-  //final instance = NewGroupRequestDtoBuilder();
+  final instance = NewGroupRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(NewGroupRequestDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `groupName`', () async {
       // TODO
     });
-
   });
 }

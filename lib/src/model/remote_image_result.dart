@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/remote_image_info.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,7 +17,8 @@ part 'remote_image_result.g.dart';
 /// * [totalRecordCount] - Gets or sets the total record count.
 /// * [providers] - Gets or sets the providers.
 @BuiltValue()
-abstract class RemoteImageResult implements Built<RemoteImageResult, RemoteImageResultBuilder> {
+abstract class RemoteImageResult
+    implements Built<RemoteImageResult, RemoteImageResultBuilder> {
   /// Gets or sets the images.
   @BuiltValueField(wireName: r'Images')
   BuiltList<RemoteImageInfo>? get images;
@@ -32,16 +33,19 @@ abstract class RemoteImageResult implements Built<RemoteImageResult, RemoteImage
 
   RemoteImageResult._();
 
-  factory RemoteImageResult([void updates(RemoteImageResultBuilder b)]) = _$RemoteImageResult;
+  factory RemoteImageResult([void updates(RemoteImageResultBuilder b)]) =
+      _$RemoteImageResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RemoteImageResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<RemoteImageResult> get serializer => _$RemoteImageResultSerializer();
+  static Serializer<RemoteImageResult> get serializer =>
+      _$RemoteImageResultSerializer();
 }
 
-class _$RemoteImageResultSerializer implements PrimitiveSerializer<RemoteImageResult> {
+class _$RemoteImageResultSerializer
+    implements PrimitiveSerializer<RemoteImageResult> {
   @override
   final Iterable<Type> types = const [RemoteImageResult, _$RemoteImageResult];
 
@@ -57,7 +61,8 @@ class _$RemoteImageResultSerializer implements PrimitiveSerializer<RemoteImageRe
       yield r'Images';
       yield serializers.serialize(
         object.images,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(RemoteImageInfo)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(RemoteImageInfo)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -82,7 +87,9 @@ class _$RemoteImageResultSerializer implements PrimitiveSerializer<RemoteImageRe
     RemoteImageResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -100,7 +107,8 @@ class _$RemoteImageResultSerializer implements PrimitiveSerializer<RemoteImageRe
         case r'Images':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(RemoteImageInfo)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(RemoteImageInfo)]),
           ) as BuiltList<RemoteImageInfo>?;
           if (valueDes == null) continue;
           result.images.replace(valueDes);
@@ -115,7 +123,8 @@ class _$RemoteImageResultSerializer implements PrimitiveSerializer<RemoteImageRe
         case r'Providers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.providers.replace(valueDes);
@@ -148,4 +157,3 @@ class _$RemoteImageResultSerializer implements PrimitiveSerializer<RemoteImageRe
     return result.build();
   }
 }
-

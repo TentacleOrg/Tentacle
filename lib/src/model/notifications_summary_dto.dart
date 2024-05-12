@@ -15,7 +15,8 @@ part 'notifications_summary_dto.g.dart';
 /// * [unreadCount] - Gets or sets the number of unread notifications.
 /// * [maxUnreadNotificationLevel] - Gets or sets the maximum unread notification level.
 @BuiltValue()
-abstract class NotificationsSummaryDto implements Built<NotificationsSummaryDto, NotificationsSummaryDtoBuilder> {
+abstract class NotificationsSummaryDto
+    implements Built<NotificationsSummaryDto, NotificationsSummaryDtoBuilder> {
   /// Gets or sets the number of unread notifications.
   @BuiltValueField(wireName: r'UnreadCount')
   int? get unreadCount;
@@ -23,21 +24,29 @@ abstract class NotificationsSummaryDto implements Built<NotificationsSummaryDto,
   /// Gets or sets the maximum unread notification level.
   @BuiltValueField(wireName: r'MaxUnreadNotificationLevel')
   NotificationLevel? get maxUnreadNotificationLevel;
+  // enum maxUnreadNotificationLevelEnum {  Normal,  Warning,  Error,  };
 
   NotificationsSummaryDto._();
 
-  factory NotificationsSummaryDto([void updates(NotificationsSummaryDtoBuilder b)]) = _$NotificationsSummaryDto;
+  factory NotificationsSummaryDto(
+          [void updates(NotificationsSummaryDtoBuilder b)]) =
+      _$NotificationsSummaryDto;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NotificationsSummaryDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationsSummaryDto> get serializer => _$NotificationsSummaryDtoSerializer();
+  static Serializer<NotificationsSummaryDto> get serializer =>
+      _$NotificationsSummaryDtoSerializer();
 }
 
-class _$NotificationsSummaryDtoSerializer implements PrimitiveSerializer<NotificationsSummaryDto> {
+class _$NotificationsSummaryDtoSerializer
+    implements PrimitiveSerializer<NotificationsSummaryDto> {
   @override
-  final Iterable<Type> types = const [NotificationsSummaryDto, _$NotificationsSummaryDto];
+  final Iterable<Type> types = const [
+    NotificationsSummaryDto,
+    _$NotificationsSummaryDto
+  ];
 
   @override
   final String wireName = r'NotificationsSummaryDto';
@@ -69,7 +78,9 @@ class _$NotificationsSummaryDtoSerializer implements PrimitiveSerializer<Notific
     NotificationsSummaryDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -127,4 +138,3 @@ class _$NotificationsSummaryDtoSerializer implements PrimitiveSerializer<Notific
     return result.build();
   }
 }
-

@@ -1,8 +1,8 @@
-# openapi.api.UserLibraryApi
+# tentacle.api.UserLibraryApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -28,20 +28,20 @@ Deletes a user's saved personal rating for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.deleteUserItemRating(userId, itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->deleteUserItemRating: $e\n');
 }
 ```
@@ -75,20 +75,20 @@ Gets intros to play before the main media item plays.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.getIntros(userId, itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->getIntros: $e\n');
 }
 ```
@@ -122,20 +122,20 @@ Gets an item from a user's library.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.getItem(userId, itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->getItem: $e\n');
 }
 ```
@@ -169,13 +169,13 @@ Gets latest media.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
 final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
@@ -191,7 +191,7 @@ final bool groupItems = true; // bool | Whether or not to group items into a par
 try {
     final response = api.getLatestMedia(userId, parentId, fields, includeItemTypes, isPlayed, enableImages, imageTypeLimit, enableImageTypes, enableUserData, limit, groupItems);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->getLatestMedia: $e\n');
 }
 ```
@@ -234,20 +234,20 @@ Gets local trailers for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.getLocalTrailers(userId, itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->getLocalTrailers: $e\n');
 }
 ```
@@ -281,19 +281,19 @@ Gets the root folder from a user's library.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 
 try {
     final response = api.getRootFolder(userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->getRootFolder: $e\n');
 }
 ```
@@ -326,20 +326,20 @@ Gets special features for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.getSpecialFeatures(userId, itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->getSpecialFeatures: $e\n');
 }
 ```
@@ -373,20 +373,20 @@ Marks an item as a favorite.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.markFavoriteItem(userId, itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->markFavoriteItem: $e\n');
 }
 ```
@@ -420,20 +420,20 @@ Unmarks item as a favorite.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.unmarkFavoriteItem(userId, itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->unmarkFavoriteItem: $e\n');
 }
 ```
@@ -467,13 +467,13 @@ Updates a user's rating for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserLibraryApi();
+final api = Tentacle().getUserLibraryApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final bool likes = true; // bool | Whether this M:Jellyfin.Api.Controllers.UserLibraryController.UpdateUserItemRating(System.Guid,System.Guid,System.Nullable{System.Boolean}) is likes.
@@ -481,7 +481,7 @@ final bool likes = true; // bool | Whether this M:Jellyfin.Api.Controllers.UserL
 try {
     final response = api.updateUserItemRating(userId, itemId, likes);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserLibraryApi->updateUserItemRating: $e\n');
 }
 ```

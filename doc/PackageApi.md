@@ -1,8 +1,8 @@
-# openapi.api.PackageApi
+# tentacle.api.PackageApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -24,18 +24,18 @@ Cancels a package installation.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPackageApi();
+final api = Tentacle().getPackageApi();
 final String packageId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Installation Id.
 
 try {
     api.cancelPackageInstallation(packageId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PackageApi->cancelPackageInstallation: $e\n');
 }
 ```
@@ -68,20 +68,20 @@ Gets a package by name or assembly GUID.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPackageApi();
+final api = Tentacle().getPackageApi();
 final String name = name_example; // String | The name of the package.
 final String assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The GUID of the associated assembly.
 
 try {
     final response = api.getPackageInfo(name, assemblyGuid);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PackageApi->getPackageInfo: $e\n');
 }
 ```
@@ -115,18 +115,18 @@ Gets available packages.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPackageApi();
+final api = Tentacle().getPackageApi();
 
 try {
     final response = api.getPackages();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PackageApi->getPackages: $e\n');
 }
 ```
@@ -156,18 +156,18 @@ Gets all package repositories.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPackageApi();
+final api = Tentacle().getPackageApi();
 
 try {
     final response = api.getRepositories();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PackageApi->getRepositories: $e\n');
 }
 ```
@@ -197,13 +197,13 @@ Installs a package.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPackageApi();
+final api = Tentacle().getPackageApi();
 final String name = name_example; // String | Package name.
 final String assemblyGuid = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | GUID of the associated assembly.
 final String version = version_example; // String | Optional version. Defaults to latest version.
@@ -211,7 +211,7 @@ final String repositoryUrl = repositoryUrl_example; // String | Optional. Specif
 
 try {
     api.installPackage(name, assemblyGuid, version, repositoryUrl);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PackageApi->installPackage: $e\n');
 }
 ```
@@ -247,18 +247,18 @@ Sets the enabled and existing package repositories.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getPackageApi();
+final api = Tentacle().getPackageApi();
 final BuiltList<RepositoryInfo> repositoryInfo = ; // BuiltList<RepositoryInfo> | The list of package repositories.
 
 try {
     api.setRepositories(repositoryInfo);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling PackageApi->setRepositories: $e\n');
 }
 ```

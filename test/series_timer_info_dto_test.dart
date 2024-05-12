@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SeriesTimerInfoDto
 void main() {
-  //final instance = SeriesTimerInfoDtoBuilder();
+  final instance = SeriesTimerInfoDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(SeriesTimerInfoDto, () {
@@ -211,6 +211,5 @@ void main() {
     test('to test the property `parentPrimaryImageTag`', () async {
       // TODO
     });
-
   });
 }

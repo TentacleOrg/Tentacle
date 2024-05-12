@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/box_set_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/box_set_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,16 @@ part 'box_set_info_remote_search_query.g.dart';
 /// BoxSetInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo] 
-/// * [itemId] 
+/// * [searchInfo]
+/// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
-@BuiltValue(instantiable: false)
-abstract class BoxSetInfoRemoteSearchQuery  {
+@BuiltValue()
+abstract class BoxSetInfoRemoteSearchQuery
+    implements
+        Built<BoxSetInfoRemoteSearchQuery, BoxSetInfoRemoteSearchQueryBuilder> {
   @BuiltValueField(wireName: r'SearchInfo')
-  BoxSetInfoRemoteSearchQuerySearchInfo? get searchInfo;
+  BoxSetInfo? get searchInfo;
 
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
@@ -32,13 +34,27 @@ abstract class BoxSetInfoRemoteSearchQuery  {
   @BuiltValueField(wireName: r'IncludeDisabledProviders')
   bool? get includeDisabledProviders;
 
+  BoxSetInfoRemoteSearchQuery._();
+
+  factory BoxSetInfoRemoteSearchQuery(
+          [void updates(BoxSetInfoRemoteSearchQueryBuilder b)]) =
+      _$BoxSetInfoRemoteSearchQuery;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BoxSetInfoRemoteSearchQueryBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<BoxSetInfoRemoteSearchQuery> get serializer => _$BoxSetInfoRemoteSearchQuerySerializer();
+  static Serializer<BoxSetInfoRemoteSearchQuery> get serializer =>
+      _$BoxSetInfoRemoteSearchQuerySerializer();
 }
 
-class _$BoxSetInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<BoxSetInfoRemoteSearchQuery> {
+class _$BoxSetInfoRemoteSearchQuerySerializer
+    implements PrimitiveSerializer<BoxSetInfoRemoteSearchQuery> {
   @override
-  final Iterable<Type> types = const [BoxSetInfoRemoteSearchQuery];
+  final Iterable<Type> types = const [
+    BoxSetInfoRemoteSearchQuery,
+    _$BoxSetInfoRemoteSearchQuery
+  ];
 
   @override
   final String wireName = r'BoxSetInfoRemoteSearchQuery';
@@ -52,7 +68,7 @@ class _$BoxSetInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Box
       yield r'SearchInfo';
       yield serializers.serialize(
         object.searchInfo,
-        specifiedType: const FullType.nullable(BoxSetInfoRemoteSearchQuerySearchInfo),
+        specifiedType: const FullType.nullable(BoxSetInfo),
       );
     }
     if (object.itemId != null) {
@@ -84,47 +100,9 @@ class _$BoxSetInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Box
     BoxSetInfoRemoteSearchQuery object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  BoxSetInfoRemoteSearchQuery deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($BoxSetInfoRemoteSearchQuery)) as $BoxSetInfoRemoteSearchQuery;
-  }
-}
-
-/// a concrete implementation of [BoxSetInfoRemoteSearchQuery], since [BoxSetInfoRemoteSearchQuery] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $BoxSetInfoRemoteSearchQuery implements BoxSetInfoRemoteSearchQuery, Built<$BoxSetInfoRemoteSearchQuery, $BoxSetInfoRemoteSearchQueryBuilder> {
-  $BoxSetInfoRemoteSearchQuery._();
-
-  factory $BoxSetInfoRemoteSearchQuery([void Function($BoxSetInfoRemoteSearchQueryBuilder)? updates]) = _$$BoxSetInfoRemoteSearchQuery;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BoxSetInfoRemoteSearchQueryBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$BoxSetInfoRemoteSearchQuery> get serializer => _$$BoxSetInfoRemoteSearchQuerySerializer();
-}
-
-class _$$BoxSetInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$BoxSetInfoRemoteSearchQuery> {
-  @override
-  final Iterable<Type> types = const [$BoxSetInfoRemoteSearchQuery, _$$BoxSetInfoRemoteSearchQuery];
-
-  @override
-  final String wireName = r'$BoxSetInfoRemoteSearchQuery';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $BoxSetInfoRemoteSearchQuery object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(BoxSetInfoRemoteSearchQuery))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -142,8 +120,8 @@ class _$$BoxSetInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$B
         case r'SearchInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BoxSetInfoRemoteSearchQuerySearchInfo),
-          ) as BoxSetInfoRemoteSearchQuerySearchInfo?;
+            specifiedType: const FullType.nullable(BoxSetInfo),
+          ) as BoxSetInfo?;
           if (valueDes == null) continue;
           result.searchInfo.replace(valueDes);
           break;
@@ -178,12 +156,12 @@ class _$$BoxSetInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$B
   }
 
   @override
-  $BoxSetInfoRemoteSearchQuery deserialize(
+  BoxSetInfoRemoteSearchQuery deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $BoxSetInfoRemoteSearchQueryBuilder();
+    final result = BoxSetInfoRemoteSearchQueryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -197,4 +175,3 @@ class _$$BoxSetInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$B
     return result.build();
   }
 }
-

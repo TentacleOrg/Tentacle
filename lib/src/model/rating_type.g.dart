@@ -34,7 +34,7 @@ class _$RatingTypeMeta {
   BuiltSet<RatingType> get values => _$values;
 }
 
-abstract class _$RatingTypeMixin {
+mixin _$RatingTypeMixin {
   // ignore: non_constant_identifier_names
   _$RatingTypeMeta get RatingType => const _$RatingTypeMeta();
 }

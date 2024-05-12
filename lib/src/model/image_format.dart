@@ -10,26 +10,29 @@ import 'package:built_value/serializer.dart';
 part 'image_format.g.dart';
 
 class ImageFormat extends EnumClass {
-
   /// Enum ImageOutputFormat.
   @BuiltValueEnumConst(wireName: r'Bmp')
   static const ImageFormat bmp = _$bmp;
+
   /// Enum ImageOutputFormat.
   @BuiltValueEnumConst(wireName: r'Gif')
   static const ImageFormat gif = _$gif;
+
   /// Enum ImageOutputFormat.
   @BuiltValueEnumConst(wireName: r'Jpg')
   static const ImageFormat jpg = _$jpg;
+
   /// Enum ImageOutputFormat.
   @BuiltValueEnumConst(wireName: r'Png')
   static const ImageFormat png = _$png;
+
   /// Enum ImageOutputFormat.
   @BuiltValueEnumConst(wireName: r'Webp')
   static const ImageFormat webp = _$webp;
 
   static Serializer<ImageFormat> get serializer => _$imageFormatSerializer;
 
-  const ImageFormat._(String name): super(name);
+  const ImageFormat._(String name) : super(name);
 
   static BuiltSet<ImageFormat> get values => _$values;
   static ImageFormat valueOf(String name) => _$valueOf(name);
@@ -42,4 +45,3 @@ class ImageFormat extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class ImageFormatMixin = Object with _$ImageFormatMixin;
-

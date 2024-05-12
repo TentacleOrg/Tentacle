@@ -25,7 +25,7 @@ void main() {
       // TODO
     });
 
-    // VirtualFolderInfoLibraryOptions libraryOptions
+    // LibraryOptions libraryOptions
     test('to test the property `libraryOptions`', () async {
       // TODO
     });
@@ -51,6 +51,5 @@ void main() {
     test('to test the property `refreshStatus`', () async {
       // TODO
     });
-
   });
 }

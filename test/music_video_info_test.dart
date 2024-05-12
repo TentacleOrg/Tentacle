@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MusicVideoInfo
 void main() {
-  //final instance = MusicVideoInfoBuilder();
+  final instance = MusicVideoInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(MusicVideoInfo, () {
@@ -73,6 +73,5 @@ void main() {
     test('to test the property `artists`', () async {
       // TODO
     });
-
   });
 }

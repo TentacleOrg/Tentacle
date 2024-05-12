@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/user_dto.dart';
 import 'package:tentacle/src/model/user_dto_configuration.dart';
 import 'package:tentacle/src/model/user_dto_policy.dart';
-import 'package:tentacle/src/model/user_dto.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -25,25 +25,35 @@ part 'authentication_result_user.g.dart';
 /// * [enableAutoLogin] - Gets or sets whether async login is enabled or not.
 /// * [lastLoginDate] - Gets or sets the last login date.
 /// * [lastActivityDate] - Gets or sets the last activity date.
-/// * [configuration] 
-/// * [policy] 
+/// * [configuration]
+/// * [policy]
 /// * [primaryImageAspectRatio] - Gets or sets the primary image aspect ratio.
 @BuiltValue()
-abstract class AuthenticationResultUser implements UserDto, Built<AuthenticationResultUser, AuthenticationResultUserBuilder> {
+abstract class AuthenticationResultUser
+    implements
+        UserDto,
+        Built<AuthenticationResultUser, AuthenticationResultUserBuilder> {
   AuthenticationResultUser._();
 
-  factory AuthenticationResultUser([void updates(AuthenticationResultUserBuilder b)]) = _$AuthenticationResultUser;
+  factory AuthenticationResultUser(
+          [void updates(AuthenticationResultUserBuilder b)]) =
+      _$AuthenticationResultUser;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AuthenticationResultUserBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AuthenticationResultUser> get serializer => _$AuthenticationResultUserSerializer();
+  static Serializer<AuthenticationResultUser> get serializer =>
+      _$AuthenticationResultUserSerializer();
 }
 
-class _$AuthenticationResultUserSerializer implements PrimitiveSerializer<AuthenticationResultUser> {
+class _$AuthenticationResultUserSerializer
+    implements PrimitiveSerializer<AuthenticationResultUser> {
   @override
-  final Iterable<Type> types = const [AuthenticationResultUser, _$AuthenticationResultUser];
+  final Iterable<Type> types = const [
+    AuthenticationResultUser,
+    _$AuthenticationResultUser
+  ];
 
   @override
   final String wireName = r'AuthenticationResultUser';
@@ -159,7 +169,9 @@ class _$AuthenticationResultUserSerializer implements PrimitiveSerializer<Authen
     AuthenticationResultUser object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -310,4 +322,3 @@ class _$AuthenticationResultUserSerializer implements PrimitiveSerializer<Authen
     return result.build();
   }
 }
-

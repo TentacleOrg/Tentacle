@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ScrollDirection
 void main() {
-
-  group(ScrollDirection, () {
-  });
+  group(ScrollDirection, () {});
 }

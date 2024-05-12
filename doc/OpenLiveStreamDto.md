@@ -1,8 +1,8 @@
-# openapi.model.OpenLiveStreamDto
+# tentacle.model.OpenLiveStreamDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **itemId** | **String** | Gets or sets the item id. | [optional] 
 **enableDirectPlay** | **bool** | Gets or sets a value indicating whether to enable direct play. | [optional] 
 **enableDirectStream** | **bool** | Gets or sets a value indicating whether to enale direct stream. | [optional] 
-**deviceProfile** | [**ClientCapabilitiesDtoDeviceProfile**](ClientCapabilitiesDtoDeviceProfile.md) |  | [optional] 
+**deviceProfile** | [**ClientCapabilitiesDeviceProfile**](ClientCapabilitiesDeviceProfile.md) |  | [optional] 
 **directPlayProtocols** | [**BuiltList&lt;MediaProtocol&gt;**](MediaProtocol.md) | Gets or sets the device play protocols. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

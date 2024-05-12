@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/person_lookup_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/person_lookup_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,17 @@ part 'person_lookup_info_remote_search_query.g.dart';
 /// PersonLookupInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo] 
-/// * [itemId] 
+/// * [searchInfo]
+/// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
-@BuiltValue(instantiable: false)
-abstract class PersonLookupInfoRemoteSearchQuery  {
+@BuiltValue()
+abstract class PersonLookupInfoRemoteSearchQuery
+    implements
+        Built<PersonLookupInfoRemoteSearchQuery,
+            PersonLookupInfoRemoteSearchQueryBuilder> {
   @BuiltValueField(wireName: r'SearchInfo')
-  PersonLookupInfoRemoteSearchQuerySearchInfo? get searchInfo;
+  PersonLookupInfo? get searchInfo;
 
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
@@ -32,13 +35,27 @@ abstract class PersonLookupInfoRemoteSearchQuery  {
   @BuiltValueField(wireName: r'IncludeDisabledProviders')
   bool? get includeDisabledProviders;
 
+  PersonLookupInfoRemoteSearchQuery._();
+
+  factory PersonLookupInfoRemoteSearchQuery(
+          [void updates(PersonLookupInfoRemoteSearchQueryBuilder b)]) =
+      _$PersonLookupInfoRemoteSearchQuery;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PersonLookupInfoRemoteSearchQueryBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PersonLookupInfoRemoteSearchQuery> get serializer => _$PersonLookupInfoRemoteSearchQuerySerializer();
+  static Serializer<PersonLookupInfoRemoteSearchQuery> get serializer =>
+      _$PersonLookupInfoRemoteSearchQuerySerializer();
 }
 
-class _$PersonLookupInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<PersonLookupInfoRemoteSearchQuery> {
+class _$PersonLookupInfoRemoteSearchQuerySerializer
+    implements PrimitiveSerializer<PersonLookupInfoRemoteSearchQuery> {
   @override
-  final Iterable<Type> types = const [PersonLookupInfoRemoteSearchQuery];
+  final Iterable<Type> types = const [
+    PersonLookupInfoRemoteSearchQuery,
+    _$PersonLookupInfoRemoteSearchQuery
+  ];
 
   @override
   final String wireName = r'PersonLookupInfoRemoteSearchQuery';
@@ -52,7 +69,7 @@ class _$PersonLookupInfoRemoteSearchQuerySerializer implements PrimitiveSerializ
       yield r'SearchInfo';
       yield serializers.serialize(
         object.searchInfo,
-        specifiedType: const FullType.nullable(PersonLookupInfoRemoteSearchQuerySearchInfo),
+        specifiedType: const FullType.nullable(PersonLookupInfo),
       );
     }
     if (object.itemId != null) {
@@ -84,47 +101,9 @@ class _$PersonLookupInfoRemoteSearchQuerySerializer implements PrimitiveSerializ
     PersonLookupInfoRemoteSearchQuery object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PersonLookupInfoRemoteSearchQuery deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PersonLookupInfoRemoteSearchQuery)) as $PersonLookupInfoRemoteSearchQuery;
-  }
-}
-
-/// a concrete implementation of [PersonLookupInfoRemoteSearchQuery], since [PersonLookupInfoRemoteSearchQuery] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PersonLookupInfoRemoteSearchQuery implements PersonLookupInfoRemoteSearchQuery, Built<$PersonLookupInfoRemoteSearchQuery, $PersonLookupInfoRemoteSearchQueryBuilder> {
-  $PersonLookupInfoRemoteSearchQuery._();
-
-  factory $PersonLookupInfoRemoteSearchQuery([void Function($PersonLookupInfoRemoteSearchQueryBuilder)? updates]) = _$$PersonLookupInfoRemoteSearchQuery;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PersonLookupInfoRemoteSearchQueryBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PersonLookupInfoRemoteSearchQuery> get serializer => _$$PersonLookupInfoRemoteSearchQuerySerializer();
-}
-
-class _$$PersonLookupInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$PersonLookupInfoRemoteSearchQuery> {
-  @override
-  final Iterable<Type> types = const [$PersonLookupInfoRemoteSearchQuery, _$$PersonLookupInfoRemoteSearchQuery];
-
-  @override
-  final String wireName = r'$PersonLookupInfoRemoteSearchQuery';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PersonLookupInfoRemoteSearchQuery object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PersonLookupInfoRemoteSearchQuery))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -142,8 +121,8 @@ class _$$PersonLookupInfoRemoteSearchQuerySerializer implements PrimitiveSeriali
         case r'SearchInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(PersonLookupInfoRemoteSearchQuerySearchInfo),
-          ) as PersonLookupInfoRemoteSearchQuerySearchInfo?;
+            specifiedType: const FullType.nullable(PersonLookupInfo),
+          ) as PersonLookupInfo?;
           if (valueDes == null) continue;
           result.searchInfo.replace(valueDes);
           break;
@@ -178,12 +157,12 @@ class _$$PersonLookupInfoRemoteSearchQuerySerializer implements PrimitiveSeriali
   }
 
   @override
-  $PersonLookupInfoRemoteSearchQuery deserialize(
+  PersonLookupInfoRemoteSearchQuery deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PersonLookupInfoRemoteSearchQueryBuilder();
+    final result = PersonLookupInfoRemoteSearchQueryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -197,4 +176,3 @@ class _$$PersonLookupInfoRemoteSearchQuerySerializer implements PrimitiveSeriali
     return result.build();
   }
 }
-

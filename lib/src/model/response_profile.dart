@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/dlna_profile_type.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/profile_condition.dart';
-import 'package:tentacle/src/model/dlna_profile_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,15 +14,16 @@ part 'response_profile.g.dart';
 /// ResponseProfile
 ///
 /// Properties:
-/// * [container] 
-/// * [audioCodec] 
-/// * [videoCodec] 
-/// * [type] 
-/// * [orgPn] 
-/// * [mimeType] 
-/// * [conditions] 
+/// * [container]
+/// * [audioCodec]
+/// * [videoCodec]
+/// * [type]
+/// * [orgPn]
+/// * [mimeType]
+/// * [conditions]
 @BuiltValue()
-abstract class ResponseProfile implements Built<ResponseProfile, ResponseProfileBuilder> {
+abstract class ResponseProfile
+    implements Built<ResponseProfile, ResponseProfileBuilder> {
   @BuiltValueField(wireName: r'Container')
   String? get container;
 
@@ -34,6 +35,7 @@ abstract class ResponseProfile implements Built<ResponseProfile, ResponseProfile
 
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
+  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  };
 
   @BuiltValueField(wireName: r'OrgPn')
   String? get orgPn;
@@ -46,16 +48,19 @@ abstract class ResponseProfile implements Built<ResponseProfile, ResponseProfile
 
   ResponseProfile._();
 
-  factory ResponseProfile([void updates(ResponseProfileBuilder b)]) = _$ResponseProfile;
+  factory ResponseProfile([void updates(ResponseProfileBuilder b)]) =
+      _$ResponseProfile;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ResponseProfileBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ResponseProfile> get serializer => _$ResponseProfileSerializer();
+  static Serializer<ResponseProfile> get serializer =>
+      _$ResponseProfileSerializer();
 }
 
-class _$ResponseProfileSerializer implements PrimitiveSerializer<ResponseProfile> {
+class _$ResponseProfileSerializer
+    implements PrimitiveSerializer<ResponseProfile> {
   @override
   final Iterable<Type> types = const [ResponseProfile, _$ResponseProfile];
 
@@ -113,7 +118,8 @@ class _$ResponseProfileSerializer implements PrimitiveSerializer<ResponseProfile
       yield r'Conditions';
       yield serializers.serialize(
         object.conditions,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
       );
     }
   }
@@ -124,7 +130,9 @@ class _$ResponseProfileSerializer implements PrimitiveSerializer<ResponseProfile
     ResponseProfile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -189,7 +197,8 @@ class _$ResponseProfileSerializer implements PrimitiveSerializer<ResponseProfile
         case r'Conditions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(ProfileCondition)]),
           ) as BuiltList<ProfileCondition>?;
           if (valueDes == null) continue;
           result.conditions.replace(valueDes);
@@ -222,4 +231,3 @@ class _$ResponseProfileSerializer implements PrimitiveSerializer<ResponseProfile
     return result.build();
   }
 }
-

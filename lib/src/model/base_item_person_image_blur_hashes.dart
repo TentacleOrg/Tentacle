@@ -12,21 +12,24 @@ part 'base_item_person_image_blur_hashes.g.dart';
 /// Gets or sets the primary image blurhash.
 ///
 /// Properties:
-/// * [primary] 
-/// * [art] 
-/// * [backdrop] 
-/// * [banner] 
-/// * [logo] 
-/// * [thumb] 
-/// * [disc] 
-/// * [box] 
-/// * [screenshot] 
-/// * [menu] 
-/// * [chapter] 
-/// * [boxRear] 
-/// * [profile] 
+/// * [primary]
+/// * [art]
+/// * [backdrop]
+/// * [banner]
+/// * [logo]
+/// * [thumb]
+/// * [disc]
+/// * [box]
+/// * [screenshot]
+/// * [menu]
+/// * [chapter]
+/// * [boxRear]
+/// * [profile]
 @BuiltValue()
-abstract class BaseItemPersonImageBlurHashes implements Built<BaseItemPersonImageBlurHashes, BaseItemPersonImageBlurHashesBuilder> {
+abstract class BaseItemPersonImageBlurHashes
+    implements
+        Built<BaseItemPersonImageBlurHashes,
+            BaseItemPersonImageBlurHashesBuilder> {
   @BuiltValueField(wireName: r'Primary')
   BuiltMap<String, String>? get primary;
 
@@ -68,18 +71,25 @@ abstract class BaseItemPersonImageBlurHashes implements Built<BaseItemPersonImag
 
   BaseItemPersonImageBlurHashes._();
 
-  factory BaseItemPersonImageBlurHashes([void updates(BaseItemPersonImageBlurHashesBuilder b)]) = _$BaseItemPersonImageBlurHashes;
+  factory BaseItemPersonImageBlurHashes(
+          [void updates(BaseItemPersonImageBlurHashesBuilder b)]) =
+      _$BaseItemPersonImageBlurHashes;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(BaseItemPersonImageBlurHashesBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<BaseItemPersonImageBlurHashes> get serializer => _$BaseItemPersonImageBlurHashesSerializer();
+  static Serializer<BaseItemPersonImageBlurHashes> get serializer =>
+      _$BaseItemPersonImageBlurHashesSerializer();
 }
 
-class _$BaseItemPersonImageBlurHashesSerializer implements PrimitiveSerializer<BaseItemPersonImageBlurHashes> {
+class _$BaseItemPersonImageBlurHashesSerializer
+    implements PrimitiveSerializer<BaseItemPersonImageBlurHashes> {
   @override
-  final Iterable<Type> types = const [BaseItemPersonImageBlurHashes, _$BaseItemPersonImageBlurHashes];
+  final Iterable<Type> types = const [
+    BaseItemPersonImageBlurHashes,
+    _$BaseItemPersonImageBlurHashes
+  ];
 
   @override
   final String wireName = r'BaseItemPersonImageBlurHashes';
@@ -93,91 +103,104 @@ class _$BaseItemPersonImageBlurHashesSerializer implements PrimitiveSerializer<B
       yield r'Primary';
       yield serializers.serialize(
         object.primary,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.art != null) {
       yield r'Art';
       yield serializers.serialize(
         object.art,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.backdrop != null) {
       yield r'Backdrop';
       yield serializers.serialize(
         object.backdrop,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.banner != null) {
       yield r'Banner';
       yield serializers.serialize(
         object.banner,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.logo != null) {
       yield r'Logo';
       yield serializers.serialize(
         object.logo,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.thumb != null) {
       yield r'Thumb';
       yield serializers.serialize(
         object.thumb,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.disc != null) {
       yield r'Disc';
       yield serializers.serialize(
         object.disc,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.box != null) {
       yield r'Box';
       yield serializers.serialize(
         object.box,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.screenshot != null) {
       yield r'Screenshot';
       yield serializers.serialize(
         object.screenshot,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.menu != null) {
       yield r'Menu';
       yield serializers.serialize(
         object.menu,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.chapter != null) {
       yield r'Chapter';
       yield serializers.serialize(
         object.chapter,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.boxRear != null) {
       yield r'BoxRear';
       yield serializers.serialize(
         object.boxRear,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.profile != null) {
       yield r'Profile';
       yield serializers.serialize(
         object.profile,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
   }
@@ -188,7 +211,9 @@ class _$BaseItemPersonImageBlurHashesSerializer implements PrimitiveSerializer<B
     BaseItemPersonImageBlurHashes object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -206,91 +231,104 @@ class _$BaseItemPersonImageBlurHashesSerializer implements PrimitiveSerializer<B
         case r'Primary':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.primary.replace(valueDes);
           break;
         case r'Art':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.art.replace(valueDes);
           break;
         case r'Backdrop':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.backdrop.replace(valueDes);
           break;
         case r'Banner':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.banner.replace(valueDes);
           break;
         case r'Logo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.logo.replace(valueDes);
           break;
         case r'Thumb':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.thumb.replace(valueDes);
           break;
         case r'Disc':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.disc.replace(valueDes);
           break;
         case r'Box':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.box.replace(valueDes);
           break;
         case r'Screenshot':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.screenshot.replace(valueDes);
           break;
         case r'Menu':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.menu.replace(valueDes);
           break;
         case r'Chapter':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.chapter.replace(valueDes);
           break;
         case r'BoxRear':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.boxRear.replace(valueDes);
           break;
         case r'Profile':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
           ) as BuiltMap<String, String>;
           result.profile.replace(valueDes);
           break;
@@ -322,4 +360,3 @@ class _$BaseItemPersonImageBlurHashesSerializer implements PrimitiveSerializer<B
     return result.build();
   }
 }
-

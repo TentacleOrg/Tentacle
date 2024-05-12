@@ -12,19 +12,30 @@ part 'new_group_request_dto.g.dart';
 ///
 /// Properties:
 /// * [groupName] - Gets or sets the group name.
-@BuiltValue(instantiable: false)
-abstract class NewGroupRequestDto  {
+@BuiltValue()
+abstract class NewGroupRequestDto
+    implements Built<NewGroupRequestDto, NewGroupRequestDtoBuilder> {
   /// Gets or sets the group name.
   @BuiltValueField(wireName: r'GroupName')
   String? get groupName;
 
+  NewGroupRequestDto._();
+
+  factory NewGroupRequestDto([void updates(NewGroupRequestDtoBuilder b)]) =
+      _$NewGroupRequestDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(NewGroupRequestDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<NewGroupRequestDto> get serializer => _$NewGroupRequestDtoSerializer();
+  static Serializer<NewGroupRequestDto> get serializer =>
+      _$NewGroupRequestDtoSerializer();
 }
 
-class _$NewGroupRequestDtoSerializer implements PrimitiveSerializer<NewGroupRequestDto> {
+class _$NewGroupRequestDtoSerializer
+    implements PrimitiveSerializer<NewGroupRequestDto> {
   @override
-  final Iterable<Type> types = const [NewGroupRequestDto];
+  final Iterable<Type> types = const [NewGroupRequestDto, _$NewGroupRequestDto];
 
   @override
   final String wireName = r'NewGroupRequestDto';
@@ -49,47 +60,9 @@ class _$NewGroupRequestDtoSerializer implements PrimitiveSerializer<NewGroupRequ
     NewGroupRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  NewGroupRequestDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($NewGroupRequestDto)) as $NewGroupRequestDto;
-  }
-}
-
-/// a concrete implementation of [NewGroupRequestDto], since [NewGroupRequestDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $NewGroupRequestDto implements NewGroupRequestDto, Built<$NewGroupRequestDto, $NewGroupRequestDtoBuilder> {
-  $NewGroupRequestDto._();
-
-  factory $NewGroupRequestDto([void Function($NewGroupRequestDtoBuilder)? updates]) = _$$NewGroupRequestDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($NewGroupRequestDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$NewGroupRequestDto> get serializer => _$$NewGroupRequestDtoSerializer();
-}
-
-class _$$NewGroupRequestDtoSerializer implements PrimitiveSerializer<$NewGroupRequestDto> {
-  @override
-  final Iterable<Type> types = const [$NewGroupRequestDto, _$$NewGroupRequestDto];
-
-  @override
-  final String wireName = r'$NewGroupRequestDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $NewGroupRequestDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(NewGroupRequestDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,12 +93,12 @@ class _$$NewGroupRequestDtoSerializer implements PrimitiveSerializer<$NewGroupRe
   }
 
   @override
-  $NewGroupRequestDto deserialize(
+  NewGroupRequestDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $NewGroupRequestDtoBuilder();
+    final result = NewGroupRequestDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -139,4 +112,3 @@ class _$$NewGroupRequestDtoSerializer implements PrimitiveSerializer<$NewGroupRe
     return result.build();
   }
 }
-

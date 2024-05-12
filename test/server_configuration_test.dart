@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ServerConfiguration
 void main() {
-  //final instance = ServerConfigurationBuilder();
+  final instance = ServerConfigurationBuilder();
   // TODO add properties to the builder and call build()
 
   group(ServerConfiguration, () {
@@ -276,6 +276,5 @@ void main() {
     test('to test the property `allowClientLogUpload`', () async {
       // TODO
     });
-
   });
 }

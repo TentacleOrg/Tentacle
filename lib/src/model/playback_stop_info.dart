@@ -14,7 +14,7 @@ part 'playback_stop_info.g.dart';
 /// Class PlaybackStopInfo.
 ///
 /// Properties:
-/// * [item] 
+/// * [item]
 /// * [itemId] - Gets or sets the item identifier.
 /// * [sessionId] - Gets or sets the session id.
 /// * [mediaSourceId] - Gets or sets the media version identifier.
@@ -22,11 +22,12 @@ part 'playback_stop_info.g.dart';
 /// * [liveStreamId] - Gets or sets the live stream identifier.
 /// * [playSessionId] - Gets or sets the play session identifier.
 /// * [failed] - Gets or sets a value indicating whether this MediaBrowser.Model.Session.PlaybackStopInfo is failed.
-/// * [nextMediaType] 
-/// * [playlistItemId] 
-/// * [nowPlayingQueue] 
-@BuiltValue(instantiable: false)
-abstract class PlaybackStopInfo  {
+/// * [nextMediaType]
+/// * [playlistItemId]
+/// * [nowPlayingQueue]
+@BuiltValue()
+abstract class PlaybackStopInfo
+    implements Built<PlaybackStopInfo, PlaybackStopInfoBuilder> {
   @BuiltValueField(wireName: r'Item')
   PlaybackProgressInfoItem? get item;
 
@@ -67,13 +68,23 @@ abstract class PlaybackStopInfo  {
   @BuiltValueField(wireName: r'NowPlayingQueue')
   BuiltList<QueueItem>? get nowPlayingQueue;
 
+  PlaybackStopInfo._();
+
+  factory PlaybackStopInfo([void updates(PlaybackStopInfoBuilder b)]) =
+      _$PlaybackStopInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PlaybackStopInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<PlaybackStopInfo> get serializer => _$PlaybackStopInfoSerializer();
+  static Serializer<PlaybackStopInfo> get serializer =>
+      _$PlaybackStopInfoSerializer();
 }
 
-class _$PlaybackStopInfoSerializer implements PrimitiveSerializer<PlaybackStopInfo> {
+class _$PlaybackStopInfoSerializer
+    implements PrimitiveSerializer<PlaybackStopInfo> {
   @override
-  final Iterable<Type> types = const [PlaybackStopInfo];
+  final Iterable<Type> types = const [PlaybackStopInfo, _$PlaybackStopInfo];
 
   @override
   final String wireName = r'PlaybackStopInfo';
@@ -157,7 +168,8 @@ class _$PlaybackStopInfoSerializer implements PrimitiveSerializer<PlaybackStopIn
       yield r'NowPlayingQueue';
       yield serializers.serialize(
         object.nowPlayingQueue,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(QueueItem)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(QueueItem)]),
       );
     }
   }
@@ -168,47 +180,9 @@ class _$PlaybackStopInfoSerializer implements PrimitiveSerializer<PlaybackStopIn
     PlaybackStopInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  PlaybackStopInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($PlaybackStopInfo)) as $PlaybackStopInfo;
-  }
-}
-
-/// a concrete implementation of [PlaybackStopInfo], since [PlaybackStopInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PlaybackStopInfo implements PlaybackStopInfo, Built<$PlaybackStopInfo, $PlaybackStopInfoBuilder> {
-  $PlaybackStopInfo._();
-
-  factory $PlaybackStopInfo([void Function($PlaybackStopInfoBuilder)? updates]) = _$$PlaybackStopInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PlaybackStopInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PlaybackStopInfo> get serializer => _$$PlaybackStopInfoSerializer();
-}
-
-class _$$PlaybackStopInfoSerializer implements PrimitiveSerializer<$PlaybackStopInfo> {
-  @override
-  final Iterable<Type> types = const [$PlaybackStopInfo, _$$PlaybackStopInfo];
-
-  @override
-  final String wireName = r'$PlaybackStopInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PlaybackStopInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PlaybackStopInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -304,7 +278,8 @@ class _$$PlaybackStopInfoSerializer implements PrimitiveSerializer<$PlaybackStop
         case r'NowPlayingQueue':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(QueueItem)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(QueueItem)]),
           ) as BuiltList<QueueItem>?;
           if (valueDes == null) continue;
           result.nowPlayingQueue.replace(valueDes);
@@ -318,12 +293,12 @@ class _$$PlaybackStopInfoSerializer implements PrimitiveSerializer<$PlaybackStop
   }
 
   @override
-  $PlaybackStopInfo deserialize(
+  PlaybackStopInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PlaybackStopInfoBuilder();
+    final result = PlaybackStopInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -337,4 +312,3 @@ class _$$PlaybackStopInfoSerializer implements PrimitiveSerializer<$PlaybackStop
     return result.build();
   }
 }
-

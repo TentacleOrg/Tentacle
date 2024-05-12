@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SortOrder
 void main() {
-
-  group(SortOrder, () {
-  });
+  group(SortOrder, () {});
 }

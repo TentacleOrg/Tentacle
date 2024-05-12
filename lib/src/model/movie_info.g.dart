@@ -6,44 +6,7 @@ part of 'movie_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class MovieInfoBuilder {
-  void replace(MovieInfo other);
-  void update(void Function(MovieInfoBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  String? get originalTitle;
-  set originalTitle(String? originalTitle);
-
-  String? get path;
-  set path(String? path);
-
-  String? get metadataLanguage;
-  set metadataLanguage(String? metadataLanguage);
-
-  String? get metadataCountryCode;
-  set metadataCountryCode(String? metadataCountryCode);
-
-  MapBuilder<String, String?> get providerIds;
-  set providerIds(MapBuilder<String, String?>? providerIds);
-
-  int? get year;
-  set year(int? year);
-
-  int? get indexNumber;
-  set indexNumber(int? indexNumber);
-
-  int? get parentIndexNumber;
-  set parentIndexNumber(int? parentIndexNumber);
-
-  DateTime? get premiereDate;
-  set premiereDate(DateTime? premiereDate);
-
-  bool? get isAutomated;
-  set isAutomated(bool? isAutomated);
-}
-
-class _$$MovieInfo extends $MovieInfo {
+class _$MovieInfo extends MovieInfo {
   @override
   final String? name;
   @override
@@ -67,10 +30,10 @@ class _$$MovieInfo extends $MovieInfo {
   @override
   final bool? isAutomated;
 
-  factory _$$MovieInfo([void Function($MovieInfoBuilder)? updates]) =>
-      (new $MovieInfoBuilder()..update(updates))._build();
+  factory _$MovieInfo([void Function(MovieInfoBuilder)? updates]) =>
+      (new MovieInfoBuilder()..update(updates))._build();
 
-  _$$MovieInfo._(
+  _$MovieInfo._(
       {this.name,
       this.originalTitle,
       this.path,
@@ -85,16 +48,16 @@ class _$$MovieInfo extends $MovieInfo {
       : super._();
 
   @override
-  $MovieInfo rebuild(void Function($MovieInfoBuilder) updates) =>
+  MovieInfo rebuild(void Function(MovieInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $MovieInfoBuilder toBuilder() => new $MovieInfoBuilder()..replace(this);
+  MovieInfoBuilder toBuilder() => new MovieInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $MovieInfo &&
+    return other is MovieInfo &&
         name == other.name &&
         originalTitle == other.originalTitle &&
         path == other.path &&
@@ -128,7 +91,7 @@ class _$$MovieInfo extends $MovieInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$MovieInfo')
+    return (newBuiltValueToStringHelper(r'MovieInfo')
           ..add('name', name)
           ..add('originalTitle', originalTitle)
           ..add('path', path)
@@ -144,68 +107,65 @@ class _$$MovieInfo extends $MovieInfo {
   }
 }
 
-class $MovieInfoBuilder
-    implements Builder<$MovieInfo, $MovieInfoBuilder>, MovieInfoBuilder {
-  _$$MovieInfo? _$v;
+class MovieInfoBuilder implements Builder<MovieInfo, MovieInfoBuilder> {
+  _$MovieInfo? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _originalTitle;
   String? get originalTitle => _$this._originalTitle;
-  set originalTitle(covariant String? originalTitle) =>
+  set originalTitle(String? originalTitle) =>
       _$this._originalTitle = originalTitle;
 
   String? _path;
   String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
+  set path(String? path) => _$this._path = path;
 
   String? _metadataLanguage;
   String? get metadataLanguage => _$this._metadataLanguage;
-  set metadataLanguage(covariant String? metadataLanguage) =>
+  set metadataLanguage(String? metadataLanguage) =>
       _$this._metadataLanguage = metadataLanguage;
 
   String? _metadataCountryCode;
   String? get metadataCountryCode => _$this._metadataCountryCode;
-  set metadataCountryCode(covariant String? metadataCountryCode) =>
+  set metadataCountryCode(String? metadataCountryCode) =>
       _$this._metadataCountryCode = metadataCountryCode;
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
       _$this._providerIds ??= new MapBuilder<String, String?>();
-  set providerIds(covariant MapBuilder<String, String?>? providerIds) =>
+  set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
   int? _year;
   int? get year => _$this._year;
-  set year(covariant int? year) => _$this._year = year;
+  set year(int? year) => _$this._year = year;
 
   int? _indexNumber;
   int? get indexNumber => _$this._indexNumber;
-  set indexNumber(covariant int? indexNumber) =>
-      _$this._indexNumber = indexNumber;
+  set indexNumber(int? indexNumber) => _$this._indexNumber = indexNumber;
 
   int? _parentIndexNumber;
   int? get parentIndexNumber => _$this._parentIndexNumber;
-  set parentIndexNumber(covariant int? parentIndexNumber) =>
+  set parentIndexNumber(int? parentIndexNumber) =>
       _$this._parentIndexNumber = parentIndexNumber;
 
   DateTime? _premiereDate;
   DateTime? get premiereDate => _$this._premiereDate;
-  set premiereDate(covariant DateTime? premiereDate) =>
+  set premiereDate(DateTime? premiereDate) =>
       _$this._premiereDate = premiereDate;
 
   bool? _isAutomated;
   bool? get isAutomated => _$this._isAutomated;
-  set isAutomated(covariant bool? isAutomated) =>
-      _$this._isAutomated = isAutomated;
+  set isAutomated(bool? isAutomated) => _$this._isAutomated = isAutomated;
 
-  $MovieInfoBuilder() {
-    $MovieInfo._defaults(this);
+  MovieInfoBuilder() {
+    MovieInfo._defaults(this);
   }
 
-  $MovieInfoBuilder get _$this {
+  MovieInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -225,24 +185,24 @@ class $MovieInfoBuilder
   }
 
   @override
-  void replace(covariant $MovieInfo other) {
+  void replace(MovieInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$MovieInfo;
+    _$v = other as _$MovieInfo;
   }
 
   @override
-  void update(void Function($MovieInfoBuilder)? updates) {
+  void update(void Function(MovieInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $MovieInfo build() => _build();
+  MovieInfo build() => _build();
 
-  _$$MovieInfo _build() {
-    _$$MovieInfo _$result;
+  _$MovieInfo _build() {
+    _$MovieInfo _$result;
     try {
       _$result = _$v ??
-          new _$$MovieInfo._(
+          new _$MovieInfo._(
               name: name,
               originalTitle: originalTitle,
               path: path,
@@ -261,7 +221,7 @@ class $MovieInfoBuilder
         _providerIds?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$MovieInfo', _$failedField, e.toString());
+            r'MovieInfo', _$failedField, e.toString());
       }
       rethrow;
     }

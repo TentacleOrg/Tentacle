@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'header_match_type.g.dart';
 
 class HeaderMatchType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Equals')
   static const HeaderMatchType equals = _$equals;
   @BuiltValueEnumConst(wireName: r'Regex')
@@ -18,9 +17,10 @@ class HeaderMatchType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Substring')
   static const HeaderMatchType substring = _$substring;
 
-  static Serializer<HeaderMatchType> get serializer => _$headerMatchTypeSerializer;
+  static Serializer<HeaderMatchType> get serializer =>
+      _$headerMatchTypeSerializer;
 
-  const HeaderMatchType._(String name): super(name);
+  const HeaderMatchType._(String name) : super(name);
 
   static BuiltSet<HeaderMatchType> get values => _$values;
   static HeaderMatchType valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class HeaderMatchType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class HeaderMatchTypeMixin = Object with _$HeaderMatchTypeMixin;
-

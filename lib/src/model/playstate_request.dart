@@ -13,13 +13,15 @@ part 'playstate_request.g.dart';
 ///
 /// Properties:
 /// * [command] - Enum PlaystateCommand.
-/// * [seekPositionTicks] 
+/// * [seekPositionTicks]
 /// * [controllingUserId] - Gets or sets the controlling user identifier.
 @BuiltValue()
-abstract class PlaystateRequest implements Built<PlaystateRequest, PlaystateRequestBuilder> {
+abstract class PlaystateRequest
+    implements Built<PlaystateRequest, PlaystateRequestBuilder> {
   /// Enum PlaystateCommand.
   @BuiltValueField(wireName: r'Command')
   PlaystateCommand? get command;
+  // enum commandEnum {  Stop,  Pause,  Unpause,  NextTrack,  PreviousTrack,  Seek,  Rewind,  FastForward,  PlayPause,  };
 
   @BuiltValueField(wireName: r'SeekPositionTicks')
   int? get seekPositionTicks;
@@ -30,16 +32,19 @@ abstract class PlaystateRequest implements Built<PlaystateRequest, PlaystateRequ
 
   PlaystateRequest._();
 
-  factory PlaystateRequest([void updates(PlaystateRequestBuilder b)]) = _$PlaystateRequest;
+  factory PlaystateRequest([void updates(PlaystateRequestBuilder b)]) =
+      _$PlaystateRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PlaystateRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<PlaystateRequest> get serializer => _$PlaystateRequestSerializer();
+  static Serializer<PlaystateRequest> get serializer =>
+      _$PlaystateRequestSerializer();
 }
 
-class _$PlaystateRequestSerializer implements PrimitiveSerializer<PlaystateRequest> {
+class _$PlaystateRequestSerializer
+    implements PrimitiveSerializer<PlaystateRequest> {
   @override
   final Iterable<Type> types = const [PlaystateRequest, _$PlaystateRequest];
 
@@ -80,7 +85,9 @@ class _$PlaystateRequestSerializer implements PrimitiveSerializer<PlaystateReque
     PlaystateRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -146,4 +153,3 @@ class _$PlaystateRequestSerializer implements PrimitiveSerializer<PlaystateReque
     return result.build();
   }
 }
-

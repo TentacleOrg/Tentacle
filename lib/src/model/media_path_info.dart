@@ -11,10 +11,10 @@ part 'media_path_info.g.dart';
 /// MediaPathInfo
 ///
 /// Properties:
-/// * [path] 
-/// * [networkPath] 
+/// * [path]
+/// * [networkPath]
 @BuiltValue(instantiable: false)
-abstract class MediaPathInfo  {
+abstract class MediaPathInfo {
   @BuiltValueField(wireName: r'Path')
   String? get path;
 
@@ -22,7 +22,8 @@ abstract class MediaPathInfo  {
   String? get networkPath;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MediaPathInfo> get serializer => _$MediaPathInfoSerializer();
+  static Serializer<MediaPathInfo> get serializer =>
+      _$MediaPathInfoSerializer();
 }
 
 class _$MediaPathInfoSerializer implements PrimitiveSerializer<MediaPathInfo> {
@@ -59,7 +60,9 @@ class _$MediaPathInfoSerializer implements PrimitiveSerializer<MediaPathInfo> {
     MediaPathInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -68,25 +71,30 @@ class _$MediaPathInfoSerializer implements PrimitiveSerializer<MediaPathInfo> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MediaPathInfo)) as $MediaPathInfo;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($MediaPathInfo)) as $MediaPathInfo;
   }
 }
 
 /// a concrete implementation of [MediaPathInfo], since [MediaPathInfo] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $MediaPathInfo implements MediaPathInfo, Built<$MediaPathInfo, $MediaPathInfoBuilder> {
+abstract class $MediaPathInfo
+    implements MediaPathInfo, Built<$MediaPathInfo, $MediaPathInfoBuilder> {
   $MediaPathInfo._();
 
-  factory $MediaPathInfo([void Function($MediaPathInfoBuilder)? updates]) = _$$MediaPathInfo;
+  factory $MediaPathInfo([void Function($MediaPathInfoBuilder)? updates]) =
+      _$$MediaPathInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($MediaPathInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$MediaPathInfo> get serializer => _$$MediaPathInfoSerializer();
+  static Serializer<$MediaPathInfo> get serializer =>
+      _$$MediaPathInfoSerializer();
 }
 
-class _$$MediaPathInfoSerializer implements PrimitiveSerializer<$MediaPathInfo> {
+class _$$MediaPathInfoSerializer
+    implements PrimitiveSerializer<$MediaPathInfo> {
   @override
   final Iterable<Type> types = const [$MediaPathInfo, _$$MediaPathInfo];
 
@@ -99,7 +107,8 @@ class _$$MediaPathInfoSerializer implements PrimitiveSerializer<$MediaPathInfo> 
     $MediaPathInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(MediaPathInfo))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(MediaPathInfo))!;
   }
 
   void _deserializeProperties(
@@ -157,4 +166,3 @@ class _$$MediaPathInfoSerializer implements PrimitiveSerializer<$MediaPathInfo> 
     return result.build();
   }
 }
-

@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'codec_type.g.dart';
 
 class CodecType extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Video')
   static const CodecType video = _$video;
   @BuiltValueEnumConst(wireName: r'VideoAudio')
@@ -20,7 +19,7 @@ class CodecType extends EnumClass {
 
   static Serializer<CodecType> get serializer => _$codecTypeSerializer;
 
-  const CodecType._(String name): super(name);
+  const CodecType._(String name) : super(name);
 
   static BuiltSet<CodecType> get values => _$values;
   static CodecType valueOf(String name) => _$valueOf(name);
@@ -33,4 +32,3 @@ class CodecType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class CodecTypeMixin = Object with _$CodecTypeMixin;
-

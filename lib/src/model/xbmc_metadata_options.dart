@@ -11,13 +11,14 @@ part 'xbmc_metadata_options.g.dart';
 /// XbmcMetadataOptions
 ///
 /// Properties:
-/// * [userId] 
-/// * [releaseDateFormat] 
-/// * [saveImagePathsInNfo] 
-/// * [enablePathSubstitution] 
-/// * [enableExtraThumbsDuplication] 
+/// * [userId]
+/// * [releaseDateFormat]
+/// * [saveImagePathsInNfo]
+/// * [enablePathSubstitution]
+/// * [enableExtraThumbsDuplication]
 @BuiltValue()
-abstract class XbmcMetadataOptions implements Built<XbmcMetadataOptions, XbmcMetadataOptionsBuilder> {
+abstract class XbmcMetadataOptions
+    implements Built<XbmcMetadataOptions, XbmcMetadataOptionsBuilder> {
   @BuiltValueField(wireName: r'UserId')
   String? get userId;
 
@@ -35,18 +36,24 @@ abstract class XbmcMetadataOptions implements Built<XbmcMetadataOptions, XbmcMet
 
   XbmcMetadataOptions._();
 
-  factory XbmcMetadataOptions([void updates(XbmcMetadataOptionsBuilder b)]) = _$XbmcMetadataOptions;
+  factory XbmcMetadataOptions([void updates(XbmcMetadataOptionsBuilder b)]) =
+      _$XbmcMetadataOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(XbmcMetadataOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<XbmcMetadataOptions> get serializer => _$XbmcMetadataOptionsSerializer();
+  static Serializer<XbmcMetadataOptions> get serializer =>
+      _$XbmcMetadataOptionsSerializer();
 }
 
-class _$XbmcMetadataOptionsSerializer implements PrimitiveSerializer<XbmcMetadataOptions> {
+class _$XbmcMetadataOptionsSerializer
+    implements PrimitiveSerializer<XbmcMetadataOptions> {
   @override
-  final Iterable<Type> types = const [XbmcMetadataOptions, _$XbmcMetadataOptions];
+  final Iterable<Type> types = const [
+    XbmcMetadataOptions,
+    _$XbmcMetadataOptions
+  ];
 
   @override
   final String wireName = r'XbmcMetadataOptions';
@@ -99,7 +106,9 @@ class _$XbmcMetadataOptionsSerializer implements PrimitiveSerializer<XbmcMetadat
     XbmcMetadataOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -178,4 +187,3 @@ class _$XbmcMetadataOptionsSerializer implements PrimitiveSerializer<XbmcMetadat
     return result.build();
   }
 }
-

@@ -11,11 +11,10 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/device_info.dart';
 import 'package:tentacle/src/model/device_info_query_result.dart';
 import 'package:tentacle/src/model/device_options.dart';
+import 'package:tentacle/src/model/device_options_dto.dart';
 import 'package:tentacle/src/model/problem_details.dart';
-import 'package:tentacle/src/model/update_device_options_request.dart';
 
 class DevicesApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -23,7 +22,7 @@ class DevicesApi {
   const DevicesApi(this._dio, this._serializers);
 
   /// Deletes a device.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Device Id.
@@ -35,8 +34,8 @@ class DevicesApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteDevice({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteDevice({
     required String id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -82,7 +81,7 @@ class DevicesApi {
   }
 
   /// Get info for a device.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Device Id.
@@ -94,8 +93,8 @@ class DevicesApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DeviceInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<DeviceInfo>> getDeviceInfo({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<DeviceInfo>> getDeviceInfo({
     required String id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -137,22 +136,24 @@ class DevicesApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceInfo _responseData;
+    DeviceInfo? _responseData;
 
     try {
-      const _responseType = FullType(DeviceInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as DeviceInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DeviceInfo),
+            ) as DeviceInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<DeviceInfo>(
@@ -168,7 +169,7 @@ class DevicesApi {
   }
 
   /// Get options for a device.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Device Id.
@@ -180,8 +181,8 @@ class DevicesApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DeviceOptions] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<DeviceOptions>> getDeviceOptions({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<DeviceOptions>> getDeviceOptions({
     required String id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -223,22 +224,24 @@ class DevicesApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceOptions _responseData;
+    DeviceOptions? _responseData;
 
     try {
-      const _responseType = FullType(DeviceOptions);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as DeviceOptions;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DeviceOptions),
+            ) as DeviceOptions;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<DeviceOptions>(
@@ -254,7 +257,7 @@ class DevicesApi {
   }
 
   /// Get Devices.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [supportsSync] - Gets or sets a value indicating whether [supports synchronize].
@@ -267,8 +270,8 @@ class DevicesApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [DeviceInfoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<DeviceInfoQueryResult>> getDevices({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<DeviceInfoQueryResult>> getDevices({
     bool? supportsSync,
     String? userId,
     CancelToken? cancelToken,
@@ -299,8 +302,12 @@ class DevicesApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (supportsSync != null) r'supportsSync': encodeQueryParameter(_serializers, supportsSync, const FullType(bool)),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (supportsSync != null)
+        r'supportsSync': encodeQueryParameter(
+            _serializers, supportsSync, const FullType(bool)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -312,22 +319,24 @@ class DevicesApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceInfoQueryResult _responseData;
+    DeviceInfoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(DeviceInfoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as DeviceInfoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(DeviceInfoQueryResult),
+            ) as DeviceInfoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<DeviceInfoQueryResult>(
@@ -343,11 +352,11 @@ class DevicesApi {
   }
 
   /// Update device options.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - Device Id.
-  /// * [updateDeviceOptionsRequest] - Device Options.
+  /// * [deviceOptionsDto] - Device Options.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -356,10 +365,10 @@ class DevicesApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateDeviceOptions({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateDeviceOptions({
     required String id,
-    required UpdateDeviceOptionsRequest updateDeviceOptionsRequest,
+    required DeviceOptionsDto deviceOptionsDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -395,19 +404,20 @@ class DevicesApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateDeviceOptionsRequest);
-      _bodyData = _serializers.serialize(updateDeviceOptionsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(DeviceOptionsDto);
+      _bodyData =
+          _serializers.serialize(deviceOptionsDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -422,5 +432,4 @@ class DevicesApi {
 
     return _response;
   }
-
 }

@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/name_value_pair.dart';
-import 'package:tentacle/src/model/culture_dto.dart';
+import 'package:tentacle/src/model/external_id_info.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/parental_rating.dart';
-import 'package:tentacle/src/model/external_id_info.dart';
+import 'package:tentacle/src/model/culture_dto.dart';
+import 'package:tentacle/src/model/name_value_pair.dart';
 import 'package:tentacle/src/model/country_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -17,14 +17,15 @@ part 'metadata_editor_info.g.dart';
 /// MetadataEditorInfo
 ///
 /// Properties:
-/// * [parentalRatingOptions] 
-/// * [countries] 
-/// * [cultures] 
-/// * [externalIdInfos] 
-/// * [contentType] 
-/// * [contentTypeOptions] 
+/// * [parentalRatingOptions]
+/// * [countries]
+/// * [cultures]
+/// * [externalIdInfos]
+/// * [contentType]
+/// * [contentTypeOptions]
 @BuiltValue()
-abstract class MetadataEditorInfo implements Built<MetadataEditorInfo, MetadataEditorInfoBuilder> {
+abstract class MetadataEditorInfo
+    implements Built<MetadataEditorInfo, MetadataEditorInfoBuilder> {
   @BuiltValueField(wireName: r'ParentalRatingOptions')
   BuiltList<ParentalRating>? get parentalRatingOptions;
 
@@ -45,16 +46,19 @@ abstract class MetadataEditorInfo implements Built<MetadataEditorInfo, MetadataE
 
   MetadataEditorInfo._();
 
-  factory MetadataEditorInfo([void updates(MetadataEditorInfoBuilder b)]) = _$MetadataEditorInfo;
+  factory MetadataEditorInfo([void updates(MetadataEditorInfoBuilder b)]) =
+      _$MetadataEditorInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(MetadataEditorInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<MetadataEditorInfo> get serializer => _$MetadataEditorInfoSerializer();
+  static Serializer<MetadataEditorInfo> get serializer =>
+      _$MetadataEditorInfoSerializer();
 }
 
-class _$MetadataEditorInfoSerializer implements PrimitiveSerializer<MetadataEditorInfo> {
+class _$MetadataEditorInfoSerializer
+    implements PrimitiveSerializer<MetadataEditorInfo> {
   @override
   final Iterable<Type> types = const [MetadataEditorInfo, _$MetadataEditorInfo];
 
@@ -116,7 +120,9 @@ class _$MetadataEditorInfoSerializer implements PrimitiveSerializer<MetadataEdit
     MetadataEditorInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -134,7 +140,8 @@ class _$MetadataEditorInfoSerializer implements PrimitiveSerializer<MetadataEdit
         case r'ParentalRatingOptions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ParentalRating)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ParentalRating)]),
           ) as BuiltList<ParentalRating>;
           result.parentalRatingOptions.replace(valueDes);
           break;
@@ -155,7 +162,8 @@ class _$MetadataEditorInfoSerializer implements PrimitiveSerializer<MetadataEdit
         case r'ExternalIdInfos':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ExternalIdInfo)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(ExternalIdInfo)]),
           ) as BuiltList<ExternalIdInfo>;
           result.externalIdInfos.replace(valueDes);
           break;
@@ -202,4 +210,3 @@ class _$MetadataEditorInfoSerializer implements PrimitiveSerializer<MetadataEdit
     return result.build();
   }
 }
-

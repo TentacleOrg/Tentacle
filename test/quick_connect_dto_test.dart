@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for QuickConnectDto
 void main() {
-  //final instance = QuickConnectDtoBuilder();
+  final instance = QuickConnectDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(QuickConnectDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `secret`', () async {
       // TODO
     });
-
   });
 }

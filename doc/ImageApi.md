@@ -1,8 +1,8 @@
-# openapi.api.ImageApi
+# tentacle.api.ImageApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -59,17 +59,17 @@ Delete a custom splashscreen.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 
 try {
     api.deleteCustomSplashscreen();
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->deleteCustomSplashscreen: $e\n');
 }
 ```
@@ -99,20 +99,20 @@ Delete an item's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | The image index.
 
 try {
     api.deleteItemImage(itemId, imageType, imageIndex);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->deleteItemImage: $e\n');
 }
 ```
@@ -147,20 +147,20 @@ Delete an item's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | The image index.
 
 try {
     api.deleteItemImageByIndex(itemId, imageType, imageIndex);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->deleteItemImageByIndex: $e\n');
 }
 ```
@@ -195,20 +195,20 @@ Delete the user's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
 final ImageType imageType = ; // ImageType | (Unused) Image type.
 final int index = 56; // int | (Unused) Image index.
 
 try {
     api.deleteUserImage(userId, imageType, index);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->deleteUserImage: $e\n');
 }
 ```
@@ -243,20 +243,20 @@ Delete the user's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
 final ImageType imageType = ; // ImageType | (Unused) Image type.
 final int index = 56; // int | (Unused) Image index.
 
 try {
     api.deleteUserImageByIndex(userId, imageType, index);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->deleteUserImageByIndex: $e\n');
 }
 ```
@@ -291,9 +291,9 @@ Get artist image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Artist name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -317,7 +317,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getArtistImage: $e\n');
 }
 ```
@@ -368,9 +368,9 @@ Get genre image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Genre name.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -394,7 +394,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getGenreImage: $e\n');
 }
 ```
@@ -445,9 +445,9 @@ Get genre image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Genre name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -471,7 +471,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getGenreImageByIndex: $e\n');
 }
 ```
@@ -522,9 +522,9 @@ Gets the item's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int maxWidth = 56; // int | The maximum image width to return.
@@ -548,7 +548,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getItemImage: $e\n');
 }
 ```
@@ -599,9 +599,9 @@ Gets the item's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int maxWidth = 56; // int | The maximum image width to return.
@@ -625,7 +625,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getItemImage2: $e\n');
 }
 ```
@@ -676,9 +676,9 @@ Gets the item's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -702,7 +702,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getItemImageByIndex: $e\n');
 }
 ```
@@ -753,19 +753,19 @@ Get item image infos.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 
 try {
     final response = api.getItemImageInfos(itemId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getItemImageInfos: $e\n');
 }
 ```
@@ -798,9 +798,9 @@ Get music genre image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Music genre name.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -824,7 +824,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getMusicGenreImage: $e\n');
 }
 ```
@@ -875,9 +875,9 @@ Get music genre image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Music genre name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -901,7 +901,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getMusicGenreImageByIndex: $e\n');
 }
 ```
@@ -952,9 +952,9 @@ Get person image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Person name.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -978,7 +978,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getPersonImage: $e\n');
 }
 ```
@@ -1029,9 +1029,9 @@ Get person image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Person name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -1055,7 +1055,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getPersonImageByIndex: $e\n');
 }
 ```
@@ -1106,9 +1106,9 @@ Generates or gets the splashscreen.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String tag = tag_example; // String | Supply the cache tag from the item object to receive strong caching headers.
 final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
@@ -1125,7 +1125,7 @@ final int quality = 56; // int | Quality setting, from 0-100.
 try {
     final response = api.getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getSplashscreen: $e\n');
 }
 ```
@@ -1169,9 +1169,9 @@ Get studio image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Studio name.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -1195,7 +1195,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getStudioImage: $e\n');
 }
 ```
@@ -1246,9 +1246,9 @@ Get studio image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Studio name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -1272,7 +1272,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getStudioImageByIndex: $e\n');
 }
 ```
@@ -1323,9 +1323,9 @@ Get user profile image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -1349,7 +1349,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getUserImage: $e\n');
 }
 ```
@@ -1400,9 +1400,9 @@ Get user profile image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -1426,7 +1426,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->getUserImageByIndex: $e\n');
 }
 ```
@@ -1477,9 +1477,9 @@ Get artist image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Artist name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -1503,7 +1503,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headArtistImage: $e\n');
 }
 ```
@@ -1554,9 +1554,9 @@ Get genre image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Genre name.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -1580,7 +1580,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headGenreImage: $e\n');
 }
 ```
@@ -1631,9 +1631,9 @@ Get genre image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Genre name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -1657,7 +1657,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headGenreImageByIndex: $e\n');
 }
 ```
@@ -1708,9 +1708,9 @@ Gets the item's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int maxWidth = 56; // int | The maximum image width to return.
@@ -1734,7 +1734,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headItemImage: $e\n');
 }
 ```
@@ -1785,9 +1785,9 @@ Gets the item's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int maxWidth = 56; // int | The maximum image width to return.
@@ -1811,7 +1811,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headItemImage2: $e\n');
 }
 ```
@@ -1862,9 +1862,9 @@ Gets the item's image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -1888,7 +1888,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headItemImageByIndex: $e\n');
 }
 ```
@@ -1939,9 +1939,9 @@ Get music genre image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Music genre name.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -1965,7 +1965,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headMusicGenreImage: $e\n');
 }
 ```
@@ -2016,9 +2016,9 @@ Get music genre image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Music genre name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -2042,7 +2042,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headMusicGenreImageByIndex: $e\n');
 }
 ```
@@ -2093,9 +2093,9 @@ Get person image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Person name.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -2119,7 +2119,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headPersonImage: $e\n');
 }
 ```
@@ -2170,9 +2170,9 @@ Get person image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Person name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -2196,7 +2196,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headPersonImageByIndex: $e\n');
 }
 ```
@@ -2247,9 +2247,9 @@ Get studio image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Studio name.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -2273,7 +2273,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headStudioImage: $e\n');
 }
 ```
@@ -2324,9 +2324,9 @@ Get studio image by name.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String name = name_example; // String | Studio name.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -2350,7 +2350,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headStudioImageByIndex: $e\n');
 }
 ```
@@ -2401,9 +2401,9 @@ Get user profile image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
@@ -2427,7 +2427,7 @@ final int imageIndex = 56; // int | Image index.
 try {
     final response = api.headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headUserImage: $e\n');
 }
 ```
@@ -2478,9 +2478,9 @@ Get user profile image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
@@ -2504,7 +2504,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 try {
     final response = api.headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->headUserImageByIndex: $e\n');
 }
 ```
@@ -2555,13 +2555,13 @@ Sets the user image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
 final ImageType imageType = ; // ImageType | (Unused) Image type.
 final int index = 56; // int | (Unused) Image index.
@@ -2569,7 +2569,7 @@ final MultipartFile body = BINARY_DATA_HERE; // MultipartFile |
 
 try {
     api.postUserImage(userId, imageType, index, body);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->postUserImage: $e\n');
 }
 ```
@@ -2605,13 +2605,13 @@ Sets the user image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
 final ImageType imageType = ; // ImageType | (Unused) Image type.
 final int index = 56; // int | (Unused) Image index.
@@ -2619,7 +2619,7 @@ final MultipartFile body = BINARY_DATA_HERE; // MultipartFile |
 
 try {
     api.postUserImageByIndex(userId, imageType, index, body);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->postUserImageByIndex: $e\n');
 }
 ```
@@ -2655,20 +2655,20 @@ Set item image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
     api.setItemImage(itemId, imageType, body);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->setItemImage: $e\n');
 }
 ```
@@ -2703,13 +2703,13 @@ Set item image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | (Unused) Image index.
@@ -2717,7 +2717,7 @@ final MultipartFile body = BINARY_DATA_HERE; // MultipartFile |
 
 try {
     api.setItemImageByIndex(itemId, imageType, imageIndex, body);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->setItemImageByIndex: $e\n');
 }
 ```
@@ -2753,13 +2753,13 @@ Updates the index for an item image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final ImageType imageType = ; // ImageType | Image type.
 final int imageIndex = 56; // int | Old image index.
@@ -2767,7 +2767,7 @@ final int newIndex = 56; // int | New image index.
 
 try {
     api.updateItemImageIndex(itemId, imageType, imageIndex, newIndex);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->updateItemImageIndex: $e\n');
 }
 ```
@@ -2803,18 +2803,18 @@ Uploads a custom splashscreen.  The body is expected to the image contents base6
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageApi();
+final api = Tentacle().getImageApi();
 final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
     api.uploadCustomSplashscreen(body);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageApi->uploadCustomSplashscreen: $e\n');
 }
 ```

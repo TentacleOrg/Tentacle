@@ -6,39 +6,31 @@ part of 'forgot_password_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ForgotPasswordDtoBuilder {
-  void replace(ForgotPasswordDto other);
-  void update(void Function(ForgotPasswordDtoBuilder) updates);
-  String? get enteredUsername;
-  set enteredUsername(String? enteredUsername);
-}
-
-class _$$ForgotPasswordDto extends $ForgotPasswordDto {
+class _$ForgotPasswordDto extends ForgotPasswordDto {
   @override
   final String enteredUsername;
 
-  factory _$$ForgotPasswordDto(
-          [void Function($ForgotPasswordDtoBuilder)? updates]) =>
-      (new $ForgotPasswordDtoBuilder()..update(updates))._build();
+  factory _$ForgotPasswordDto(
+          [void Function(ForgotPasswordDtoBuilder)? updates]) =>
+      (new ForgotPasswordDtoBuilder()..update(updates))._build();
 
-  _$$ForgotPasswordDto._({required this.enteredUsername}) : super._() {
+  _$ForgotPasswordDto._({required this.enteredUsername}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enteredUsername, r'$ForgotPasswordDto', 'enteredUsername');
+        enteredUsername, r'ForgotPasswordDto', 'enteredUsername');
   }
 
   @override
-  $ForgotPasswordDto rebuild(
-          void Function($ForgotPasswordDtoBuilder) updates) =>
+  ForgotPasswordDto rebuild(void Function(ForgotPasswordDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $ForgotPasswordDtoBuilder toBuilder() =>
-      new $ForgotPasswordDtoBuilder()..replace(this);
+  ForgotPasswordDtoBuilder toBuilder() =>
+      new ForgotPasswordDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $ForgotPasswordDto &&
+    return other is ForgotPasswordDto &&
         enteredUsername == other.enteredUsername;
   }
 
@@ -52,28 +44,26 @@ class _$$ForgotPasswordDto extends $ForgotPasswordDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$ForgotPasswordDto')
+    return (newBuiltValueToStringHelper(r'ForgotPasswordDto')
           ..add('enteredUsername', enteredUsername))
         .toString();
   }
 }
 
-class $ForgotPasswordDtoBuilder
-    implements
-        Builder<$ForgotPasswordDto, $ForgotPasswordDtoBuilder>,
-        ForgotPasswordDtoBuilder {
-  _$$ForgotPasswordDto? _$v;
+class ForgotPasswordDtoBuilder
+    implements Builder<ForgotPasswordDto, ForgotPasswordDtoBuilder> {
+  _$ForgotPasswordDto? _$v;
 
   String? _enteredUsername;
   String? get enteredUsername => _$this._enteredUsername;
-  set enteredUsername(covariant String? enteredUsername) =>
+  set enteredUsername(String? enteredUsername) =>
       _$this._enteredUsername = enteredUsername;
 
-  $ForgotPasswordDtoBuilder() {
-    $ForgotPasswordDto._defaults(this);
+  ForgotPasswordDtoBuilder() {
+    ForgotPasswordDto._defaults(this);
   }
 
-  $ForgotPasswordDtoBuilder get _$this {
+  ForgotPasswordDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enteredUsername = $v.enteredUsername;
@@ -83,24 +73,24 @@ class $ForgotPasswordDtoBuilder
   }
 
   @override
-  void replace(covariant $ForgotPasswordDto other) {
+  void replace(ForgotPasswordDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$ForgotPasswordDto;
+    _$v = other as _$ForgotPasswordDto;
   }
 
   @override
-  void update(void Function($ForgotPasswordDtoBuilder)? updates) {
+  void update(void Function(ForgotPasswordDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $ForgotPasswordDto build() => _build();
+  ForgotPasswordDto build() => _build();
 
-  _$$ForgotPasswordDto _build() {
+  _$ForgotPasswordDto _build() {
     final _$result = _$v ??
-        new _$$ForgotPasswordDto._(
+        new _$ForgotPasswordDto._(
             enteredUsername: BuiltValueNullFieldError.checkNotNull(
-                enteredUsername, r'$ForgotPasswordDto', 'enteredUsername'));
+                enteredUsername, r'ForgotPasswordDto', 'enteredUsername'));
     replace(_$result);
     return _$result;
   }

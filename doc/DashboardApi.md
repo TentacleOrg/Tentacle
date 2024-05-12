@@ -1,8 +1,8 @@
-# openapi.api.DashboardApi
+# tentacle.api.DashboardApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,19 +20,19 @@ Gets the configuration pages.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getDashboardApi();
+final api = Tentacle().getDashboardApi();
 final bool enableInMainMenu = true; // bool | Whether to enable in the main menu.
 
 try {
     final response = api.getConfigurationPages(enableInMainMenu);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DashboardApi->getConfigurationPages: $e\n');
 }
 ```
@@ -65,15 +65,15 @@ Gets a dashboard configuration page.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getDashboardApi();
+final api = Tentacle().getDashboardApi();
 final String name = name_example; // String | The name of the page.
 
 try {
     final response = api.getDashboardConfigurationPage(name);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling DashboardApi->getDashboardConfigurationPage: $e\n');
 }
 ```

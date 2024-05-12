@@ -84,6 +84,11 @@ void main() {
       // TODO
     });
 
+    // String tonemappingMode
+    test('to test the property `tonemappingMode`', () async {
+      // TODO
+    });
+
     // String tonemappingRange
     test('to test the property `tonemappingRange`', () async {
       // TODO
@@ -91,11 +96,6 @@ void main() {
 
     // double tonemappingDesat
     test('to test the property `tonemappingDesat`', () async {
-      // TODO
-    });
-
-    // double tonemappingThreshold
-    test('to test the property `tonemappingThreshold`', () async {
       // TODO
     });
 
@@ -195,9 +195,10 @@ void main() {
     });
 
     // BuiltList<String> allowOnDemandMetadataBasedKeyframeExtractionForExtensions
-    test('to test the property `allowOnDemandMetadataBasedKeyframeExtractionForExtensions`', () async {
+    test(
+        'to test the property `allowOnDemandMetadataBasedKeyframeExtractionForExtensions`',
+        () async {
       // TODO
     });
-
   });
 }

@@ -10,17 +10,18 @@ import 'package:built_value/serializer.dart';
 part 'group_queue_mode.g.dart';
 
 class GroupQueueMode extends EnumClass {
-
   /// Enum GroupQueueMode.
   @BuiltValueEnumConst(wireName: r'Queue')
   static const GroupQueueMode queue = _$queue;
+
   /// Enum GroupQueueMode.
   @BuiltValueEnumConst(wireName: r'QueueNext')
   static const GroupQueueMode queueNext = _$queueNext;
 
-  static Serializer<GroupQueueMode> get serializer => _$groupQueueModeSerializer;
+  static Serializer<GroupQueueMode> get serializer =>
+      _$groupQueueModeSerializer;
 
-  const GroupQueueMode._(String name): super(name);
+  const GroupQueueMode._(String name) : super(name);
 
   static BuiltSet<GroupQueueMode> get values => _$values;
   static GroupQueueMode valueOf(String name) => _$valueOf(name);
@@ -33,4 +34,3 @@ class GroupQueueMode extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class GroupQueueModeMixin = Object with _$GroupQueueModeMixin;
-

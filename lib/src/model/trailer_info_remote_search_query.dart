@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/trailer_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/trailer_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,17 @@ part 'trailer_info_remote_search_query.g.dart';
 /// TrailerInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo] 
-/// * [itemId] 
+/// * [searchInfo]
+/// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
-@BuiltValue(instantiable: false)
-abstract class TrailerInfoRemoteSearchQuery  {
+@BuiltValue()
+abstract class TrailerInfoRemoteSearchQuery
+    implements
+        Built<TrailerInfoRemoteSearchQuery,
+            TrailerInfoRemoteSearchQueryBuilder> {
   @BuiltValueField(wireName: r'SearchInfo')
-  TrailerInfoRemoteSearchQuerySearchInfo? get searchInfo;
+  TrailerInfo? get searchInfo;
 
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
@@ -32,13 +35,27 @@ abstract class TrailerInfoRemoteSearchQuery  {
   @BuiltValueField(wireName: r'IncludeDisabledProviders')
   bool? get includeDisabledProviders;
 
+  TrailerInfoRemoteSearchQuery._();
+
+  factory TrailerInfoRemoteSearchQuery(
+          [void updates(TrailerInfoRemoteSearchQueryBuilder b)]) =
+      _$TrailerInfoRemoteSearchQuery;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TrailerInfoRemoteSearchQueryBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<TrailerInfoRemoteSearchQuery> get serializer => _$TrailerInfoRemoteSearchQuerySerializer();
+  static Serializer<TrailerInfoRemoteSearchQuery> get serializer =>
+      _$TrailerInfoRemoteSearchQuerySerializer();
 }
 
-class _$TrailerInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<TrailerInfoRemoteSearchQuery> {
+class _$TrailerInfoRemoteSearchQuerySerializer
+    implements PrimitiveSerializer<TrailerInfoRemoteSearchQuery> {
   @override
-  final Iterable<Type> types = const [TrailerInfoRemoteSearchQuery];
+  final Iterable<Type> types = const [
+    TrailerInfoRemoteSearchQuery,
+    _$TrailerInfoRemoteSearchQuery
+  ];
 
   @override
   final String wireName = r'TrailerInfoRemoteSearchQuery';
@@ -52,7 +69,7 @@ class _$TrailerInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Tr
       yield r'SearchInfo';
       yield serializers.serialize(
         object.searchInfo,
-        specifiedType: const FullType.nullable(TrailerInfoRemoteSearchQuerySearchInfo),
+        specifiedType: const FullType.nullable(TrailerInfo),
       );
     }
     if (object.itemId != null) {
@@ -84,47 +101,9 @@ class _$TrailerInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Tr
     TrailerInfoRemoteSearchQuery object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  TrailerInfoRemoteSearchQuery deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($TrailerInfoRemoteSearchQuery)) as $TrailerInfoRemoteSearchQuery;
-  }
-}
-
-/// a concrete implementation of [TrailerInfoRemoteSearchQuery], since [TrailerInfoRemoteSearchQuery] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $TrailerInfoRemoteSearchQuery implements TrailerInfoRemoteSearchQuery, Built<$TrailerInfoRemoteSearchQuery, $TrailerInfoRemoteSearchQueryBuilder> {
-  $TrailerInfoRemoteSearchQuery._();
-
-  factory $TrailerInfoRemoteSearchQuery([void Function($TrailerInfoRemoteSearchQueryBuilder)? updates]) = _$$TrailerInfoRemoteSearchQuery;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TrailerInfoRemoteSearchQueryBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$TrailerInfoRemoteSearchQuery> get serializer => _$$TrailerInfoRemoteSearchQuerySerializer();
-}
-
-class _$$TrailerInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$TrailerInfoRemoteSearchQuery> {
-  @override
-  final Iterable<Type> types = const [$TrailerInfoRemoteSearchQuery, _$$TrailerInfoRemoteSearchQuery];
-
-  @override
-  final String wireName = r'$TrailerInfoRemoteSearchQuery';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $TrailerInfoRemoteSearchQuery object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(TrailerInfoRemoteSearchQuery))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -142,8 +121,8 @@ class _$$TrailerInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$
         case r'SearchInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(TrailerInfoRemoteSearchQuerySearchInfo),
-          ) as TrailerInfoRemoteSearchQuerySearchInfo?;
+            specifiedType: const FullType.nullable(TrailerInfo),
+          ) as TrailerInfo?;
           if (valueDes == null) continue;
           result.searchInfo.replace(valueDes);
           break;
@@ -178,12 +157,12 @@ class _$$TrailerInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$
   }
 
   @override
-  $TrailerInfoRemoteSearchQuery deserialize(
+  TrailerInfoRemoteSearchQuery deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $TrailerInfoRemoteSearchQueryBuilder();
+    final result = TrailerInfoRemoteSearchQueryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -197,4 +176,3 @@ class _$$TrailerInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$
     return result.build();
   }
 }
-

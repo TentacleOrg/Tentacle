@@ -6,34 +6,27 @@ part of 'seek_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class SeekRequestDtoBuilder {
-  void replace(SeekRequestDto other);
-  void update(void Function(SeekRequestDtoBuilder) updates);
-  int? get positionTicks;
-  set positionTicks(int? positionTicks);
-}
-
-class _$$SeekRequestDto extends $SeekRequestDto {
+class _$SeekRequestDto extends SeekRequestDto {
   @override
   final int? positionTicks;
 
-  factory _$$SeekRequestDto([void Function($SeekRequestDtoBuilder)? updates]) =>
-      (new $SeekRequestDtoBuilder()..update(updates))._build();
+  factory _$SeekRequestDto([void Function(SeekRequestDtoBuilder)? updates]) =>
+      (new SeekRequestDtoBuilder()..update(updates))._build();
 
-  _$$SeekRequestDto._({this.positionTicks}) : super._();
+  _$SeekRequestDto._({this.positionTicks}) : super._();
 
   @override
-  $SeekRequestDto rebuild(void Function($SeekRequestDtoBuilder) updates) =>
+  SeekRequestDto rebuild(void Function(SeekRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $SeekRequestDtoBuilder toBuilder() =>
-      new $SeekRequestDtoBuilder()..replace(this);
+  SeekRequestDtoBuilder toBuilder() =>
+      new SeekRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $SeekRequestDto && positionTicks == other.positionTicks;
+    return other is SeekRequestDto && positionTicks == other.positionTicks;
   }
 
   @override
@@ -46,28 +39,26 @@ class _$$SeekRequestDto extends $SeekRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$SeekRequestDto')
+    return (newBuiltValueToStringHelper(r'SeekRequestDto')
           ..add('positionTicks', positionTicks))
         .toString();
   }
 }
 
-class $SeekRequestDtoBuilder
-    implements
-        Builder<$SeekRequestDto, $SeekRequestDtoBuilder>,
-        SeekRequestDtoBuilder {
-  _$$SeekRequestDto? _$v;
+class SeekRequestDtoBuilder
+    implements Builder<SeekRequestDto, SeekRequestDtoBuilder> {
+  _$SeekRequestDto? _$v;
 
   int? _positionTicks;
   int? get positionTicks => _$this._positionTicks;
-  set positionTicks(covariant int? positionTicks) =>
+  set positionTicks(int? positionTicks) =>
       _$this._positionTicks = positionTicks;
 
-  $SeekRequestDtoBuilder() {
-    $SeekRequestDto._defaults(this);
+  SeekRequestDtoBuilder() {
+    SeekRequestDto._defaults(this);
   }
 
-  $SeekRequestDtoBuilder get _$this {
+  SeekRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _positionTicks = $v.positionTicks;
@@ -77,22 +68,22 @@ class $SeekRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $SeekRequestDto other) {
+  void replace(SeekRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$SeekRequestDto;
+    _$v = other as _$SeekRequestDto;
   }
 
   @override
-  void update(void Function($SeekRequestDtoBuilder)? updates) {
+  void update(void Function(SeekRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $SeekRequestDto build() => _build();
+  SeekRequestDto build() => _build();
 
-  _$$SeekRequestDto _build() {
+  _$SeekRequestDto _build() {
     final _$result =
-        _$v ?? new _$$SeekRequestDto._(positionTicks: positionTicks);
+        _$v ?? new _$SeekRequestDto._(positionTicks: positionTicks);
     replace(_$result);
     return _$result;
   }

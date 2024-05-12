@@ -6,7 +6,7 @@ part of 'base_item_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class BaseItemDtoBuilder {
+abstract mixin class BaseItemDtoBuilder {
   void replace(BaseItemDto other);
   void update(void Function(BaseItemDtoBuilder) updates);
   String? get name;

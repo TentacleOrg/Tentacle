@@ -6,34 +6,27 @@ part of 'ping_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class PingRequestDtoBuilder {
-  void replace(PingRequestDto other);
-  void update(void Function(PingRequestDtoBuilder) updates);
-  int? get ping;
-  set ping(int? ping);
-}
-
-class _$$PingRequestDto extends $PingRequestDto {
+class _$PingRequestDto extends PingRequestDto {
   @override
   final int? ping;
 
-  factory _$$PingRequestDto([void Function($PingRequestDtoBuilder)? updates]) =>
-      (new $PingRequestDtoBuilder()..update(updates))._build();
+  factory _$PingRequestDto([void Function(PingRequestDtoBuilder)? updates]) =>
+      (new PingRequestDtoBuilder()..update(updates))._build();
 
-  _$$PingRequestDto._({this.ping}) : super._();
+  _$PingRequestDto._({this.ping}) : super._();
 
   @override
-  $PingRequestDto rebuild(void Function($PingRequestDtoBuilder) updates) =>
+  PingRequestDto rebuild(void Function(PingRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $PingRequestDtoBuilder toBuilder() =>
-      new $PingRequestDtoBuilder()..replace(this);
+  PingRequestDtoBuilder toBuilder() =>
+      new PingRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $PingRequestDto && ping == other.ping;
+    return other is PingRequestDto && ping == other.ping;
   }
 
   @override
@@ -46,26 +39,24 @@ class _$$PingRequestDto extends $PingRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$PingRequestDto')..add('ping', ping))
+    return (newBuiltValueToStringHelper(r'PingRequestDto')..add('ping', ping))
         .toString();
   }
 }
 
-class $PingRequestDtoBuilder
-    implements
-        Builder<$PingRequestDto, $PingRequestDtoBuilder>,
-        PingRequestDtoBuilder {
-  _$$PingRequestDto? _$v;
+class PingRequestDtoBuilder
+    implements Builder<PingRequestDto, PingRequestDtoBuilder> {
+  _$PingRequestDto? _$v;
 
   int? _ping;
   int? get ping => _$this._ping;
-  set ping(covariant int? ping) => _$this._ping = ping;
+  set ping(int? ping) => _$this._ping = ping;
 
-  $PingRequestDtoBuilder() {
-    $PingRequestDto._defaults(this);
+  PingRequestDtoBuilder() {
+    PingRequestDto._defaults(this);
   }
 
-  $PingRequestDtoBuilder get _$this {
+  PingRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _ping = $v.ping;
@@ -75,21 +66,21 @@ class $PingRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $PingRequestDto other) {
+  void replace(PingRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$PingRequestDto;
+    _$v = other as _$PingRequestDto;
   }
 
   @override
-  void update(void Function($PingRequestDtoBuilder)? updates) {
+  void update(void Function(PingRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $PingRequestDto build() => _build();
+  PingRequestDto build() => _build();
 
-  _$$PingRequestDto _build() {
-    final _$result = _$v ?? new _$$PingRequestDto._(ping: ping);
+  _$PingRequestDto _build() {
+    final _$result = _$v ?? new _$PingRequestDto._(ping: ping);
     replace(_$result);
     return _$result;
   }

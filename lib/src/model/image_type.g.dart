@@ -88,7 +88,7 @@ class _$ImageTypeMeta {
   BuiltSet<ImageType> get values => _$values;
 }
 
-abstract class _$ImageTypeMixin {
+mixin _$ImageTypeMixin {
   // ignore: non_constant_identifier_names
   _$ImageTypeMeta get ImageType => const _$ImageTypeMeta();
 }

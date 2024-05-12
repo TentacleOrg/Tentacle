@@ -1,8 +1,8 @@
-# openapi.model.SeekRequestDto
+# tentacle.model.SeekRequestDto
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

@@ -6,23 +6,7 @@ part of 'upload_subtitle_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class UploadSubtitleDtoBuilder {
-  void replace(UploadSubtitleDto other);
-  void update(void Function(UploadSubtitleDtoBuilder) updates);
-  String? get language;
-  set language(String? language);
-
-  String? get format;
-  set format(String? format);
-
-  bool? get isForced;
-  set isForced(bool? isForced);
-
-  String? get data;
-  set data(String? data);
-}
-
-class _$$UploadSubtitleDto extends $UploadSubtitleDto {
+class _$UploadSubtitleDto extends UploadSubtitleDto {
   @override
   final String language;
   @override
@@ -32,38 +16,37 @@ class _$$UploadSubtitleDto extends $UploadSubtitleDto {
   @override
   final String data;
 
-  factory _$$UploadSubtitleDto(
-          [void Function($UploadSubtitleDtoBuilder)? updates]) =>
-      (new $UploadSubtitleDtoBuilder()..update(updates))._build();
+  factory _$UploadSubtitleDto(
+          [void Function(UploadSubtitleDtoBuilder)? updates]) =>
+      (new UploadSubtitleDtoBuilder()..update(updates))._build();
 
-  _$$UploadSubtitleDto._(
+  _$UploadSubtitleDto._(
       {required this.language,
       required this.format,
       required this.isForced,
       required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        language, r'$UploadSubtitleDto', 'language');
+        language, r'UploadSubtitleDto', 'language');
     BuiltValueNullFieldError.checkNotNull(
-        format, r'$UploadSubtitleDto', 'format');
+        format, r'UploadSubtitleDto', 'format');
     BuiltValueNullFieldError.checkNotNull(
-        isForced, r'$UploadSubtitleDto', 'isForced');
-    BuiltValueNullFieldError.checkNotNull(data, r'$UploadSubtitleDto', 'data');
+        isForced, r'UploadSubtitleDto', 'isForced');
+    BuiltValueNullFieldError.checkNotNull(data, r'UploadSubtitleDto', 'data');
   }
 
   @override
-  $UploadSubtitleDto rebuild(
-          void Function($UploadSubtitleDtoBuilder) updates) =>
+  UploadSubtitleDto rebuild(void Function(UploadSubtitleDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $UploadSubtitleDtoBuilder toBuilder() =>
-      new $UploadSubtitleDtoBuilder()..replace(this);
+  UploadSubtitleDtoBuilder toBuilder() =>
+      new UploadSubtitleDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $UploadSubtitleDto &&
+    return other is UploadSubtitleDto &&
         language == other.language &&
         format == other.format &&
         isForced == other.isForced &&
@@ -83,7 +66,7 @@ class _$$UploadSubtitleDto extends $UploadSubtitleDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$UploadSubtitleDto')
+    return (newBuiltValueToStringHelper(r'UploadSubtitleDto')
           ..add('language', language)
           ..add('format', format)
           ..add('isForced', isForced)
@@ -92,33 +75,31 @@ class _$$UploadSubtitleDto extends $UploadSubtitleDto {
   }
 }
 
-class $UploadSubtitleDtoBuilder
-    implements
-        Builder<$UploadSubtitleDto, $UploadSubtitleDtoBuilder>,
-        UploadSubtitleDtoBuilder {
-  _$$UploadSubtitleDto? _$v;
+class UploadSubtitleDtoBuilder
+    implements Builder<UploadSubtitleDto, UploadSubtitleDtoBuilder> {
+  _$UploadSubtitleDto? _$v;
 
   String? _language;
   String? get language => _$this._language;
-  set language(covariant String? language) => _$this._language = language;
+  set language(String? language) => _$this._language = language;
 
   String? _format;
   String? get format => _$this._format;
-  set format(covariant String? format) => _$this._format = format;
+  set format(String? format) => _$this._format = format;
 
   bool? _isForced;
   bool? get isForced => _$this._isForced;
-  set isForced(covariant bool? isForced) => _$this._isForced = isForced;
+  set isForced(bool? isForced) => _$this._isForced = isForced;
 
   String? _data;
   String? get data => _$this._data;
-  set data(covariant String? data) => _$this._data = data;
+  set data(String? data) => _$this._data = data;
 
-  $UploadSubtitleDtoBuilder() {
-    $UploadSubtitleDto._defaults(this);
+  UploadSubtitleDtoBuilder() {
+    UploadSubtitleDto._defaults(this);
   }
 
-  $UploadSubtitleDtoBuilder get _$this {
+  UploadSubtitleDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _language = $v.language;
@@ -131,30 +112,30 @@ class $UploadSubtitleDtoBuilder
   }
 
   @override
-  void replace(covariant $UploadSubtitleDto other) {
+  void replace(UploadSubtitleDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$UploadSubtitleDto;
+    _$v = other as _$UploadSubtitleDto;
   }
 
   @override
-  void update(void Function($UploadSubtitleDtoBuilder)? updates) {
+  void update(void Function(UploadSubtitleDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $UploadSubtitleDto build() => _build();
+  UploadSubtitleDto build() => _build();
 
-  _$$UploadSubtitleDto _build() {
+  _$UploadSubtitleDto _build() {
     final _$result = _$v ??
-        new _$$UploadSubtitleDto._(
+        new _$UploadSubtitleDto._(
             language: BuiltValueNullFieldError.checkNotNull(
-                language, r'$UploadSubtitleDto', 'language'),
+                language, r'UploadSubtitleDto', 'language'),
             format: BuiltValueNullFieldError.checkNotNull(
-                format, r'$UploadSubtitleDto', 'format'),
+                format, r'UploadSubtitleDto', 'format'),
             isForced: BuiltValueNullFieldError.checkNotNull(
-                isForced, r'$UploadSubtitleDto', 'isForced'),
+                isForced, r'UploadSubtitleDto', 'isForced'),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'$UploadSubtitleDto', 'data'));
+                data, r'UploadSubtitleDto', 'data'));
     replace(_$result);
     return _$result;
   }

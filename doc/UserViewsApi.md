@@ -1,8 +1,8 @@
-# openapi.api.UserViewsApi
+# tentacle.api.UserViewsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,19 +20,19 @@ Get user view grouping options.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserViewsApi();
+final api = Tentacle().getUserViewsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 
 try {
     final response = api.getGroupingOptions(userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserViewsApi->getGroupingOptions: $e\n');
 }
 ```
@@ -65,13 +65,13 @@ Get user views.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getUserViewsApi();
+final api = Tentacle().getUserViewsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final bool includeExternalContent = true; // bool | Whether or not to include external views such as channels or live tv.
 final BuiltList<String> presetViews = ; // BuiltList<String> | Preset views.
@@ -80,7 +80,7 @@ final bool includeHidden = true; // bool | Whether or not to include hidden cont
 try {
     final response = api.getUserViews(userId, includeExternalContent, presetViews, includeHidden);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling UserViewsApi->getUserViews: $e\n');
 }
 ```

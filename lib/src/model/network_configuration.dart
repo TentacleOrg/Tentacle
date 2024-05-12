@@ -47,7 +47,8 @@ part 'network_configuration.g.dart';
 /// * [knownProxies] - Gets or sets the known proxies. If the proxy is a network, it's added to the KnownNetworks.
 /// * [enablePublishedServerUriByRequest] - Gets or sets a value indicating whether the published server uri is based on information in HTTP requests.
 @BuiltValue()
-abstract class NetworkConfiguration implements Built<NetworkConfiguration, NetworkConfigurationBuilder> {
+abstract class NetworkConfiguration
+    implements Built<NetworkConfiguration, NetworkConfigurationBuilder> {
   /// Gets or sets a value indicating whether the server should force connections over HTTPS.
   @BuiltValueField(wireName: r'RequireHttps')
   bool? get requireHttps;
@@ -186,18 +187,24 @@ abstract class NetworkConfiguration implements Built<NetworkConfiguration, Netwo
 
   NetworkConfiguration._();
 
-  factory NetworkConfiguration([void updates(NetworkConfigurationBuilder b)]) = _$NetworkConfiguration;
+  factory NetworkConfiguration([void updates(NetworkConfigurationBuilder b)]) =
+      _$NetworkConfiguration;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NetworkConfigurationBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NetworkConfiguration> get serializer => _$NetworkConfigurationSerializer();
+  static Serializer<NetworkConfiguration> get serializer =>
+      _$NetworkConfigurationSerializer();
 }
 
-class _$NetworkConfigurationSerializer implements PrimitiveSerializer<NetworkConfiguration> {
+class _$NetworkConfigurationSerializer
+    implements PrimitiveSerializer<NetworkConfiguration> {
   @override
-  final Iterable<Type> types = const [NetworkConfiguration, _$NetworkConfiguration];
+  final Iterable<Type> types = const [
+    NetworkConfiguration,
+    _$NetworkConfiguration
+  ];
 
   @override
   final String wireName = r'NetworkConfiguration';
@@ -453,7 +460,9 @@ class _$NetworkConfigurationSerializer implements PrimitiveSerializer<NetworkCon
     NetworkConfiguration object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -734,4 +743,3 @@ class _$NetworkConfigurationSerializer implements PrimitiveSerializer<NetworkCon
     return result.build();
   }
 }
-

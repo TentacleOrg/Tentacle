@@ -176,7 +176,9 @@ class _$DlnaOptionsSerializer implements PrimitiveSerializer<DlnaOptions> {
     DlnaOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -297,4 +299,3 @@ class _$DlnaOptionsSerializer implements PrimitiveSerializer<DlnaOptions> {
     return result.build();
   }
 }
-

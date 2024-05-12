@@ -14,8 +14,9 @@ part 'startup_configuration_dto.g.dart';
 /// * [uICulture] - Gets or sets UI language culture.
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [preferredMetadataLanguage] - Gets or sets the preferred language for the metadata.
-@BuiltValue(instantiable: false)
-abstract class StartupConfigurationDto  {
+@BuiltValue()
+abstract class StartupConfigurationDto
+    implements Built<StartupConfigurationDto, StartupConfigurationDtoBuilder> {
   /// Gets or sets UI language culture.
   @BuiltValueField(wireName: r'UICulture')
   String? get uICulture;
@@ -28,13 +29,27 @@ abstract class StartupConfigurationDto  {
   @BuiltValueField(wireName: r'PreferredMetadataLanguage')
   String? get preferredMetadataLanguage;
 
+  StartupConfigurationDto._();
+
+  factory StartupConfigurationDto(
+          [void updates(StartupConfigurationDtoBuilder b)]) =
+      _$StartupConfigurationDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(StartupConfigurationDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<StartupConfigurationDto> get serializer => _$StartupConfigurationDtoSerializer();
+  static Serializer<StartupConfigurationDto> get serializer =>
+      _$StartupConfigurationDtoSerializer();
 }
 
-class _$StartupConfigurationDtoSerializer implements PrimitiveSerializer<StartupConfigurationDto> {
+class _$StartupConfigurationDtoSerializer
+    implements PrimitiveSerializer<StartupConfigurationDto> {
   @override
-  final Iterable<Type> types = const [StartupConfigurationDto];
+  final Iterable<Type> types = const [
+    StartupConfigurationDto,
+    _$StartupConfigurationDto
+  ];
 
   @override
   final String wireName = r'StartupConfigurationDto';
@@ -73,47 +88,9 @@ class _$StartupConfigurationDtoSerializer implements PrimitiveSerializer<Startup
     StartupConfigurationDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  StartupConfigurationDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($StartupConfigurationDto)) as $StartupConfigurationDto;
-  }
-}
-
-/// a concrete implementation of [StartupConfigurationDto], since [StartupConfigurationDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $StartupConfigurationDto implements StartupConfigurationDto, Built<$StartupConfigurationDto, $StartupConfigurationDtoBuilder> {
-  $StartupConfigurationDto._();
-
-  factory $StartupConfigurationDto([void Function($StartupConfigurationDtoBuilder)? updates]) = _$$StartupConfigurationDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($StartupConfigurationDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$StartupConfigurationDto> get serializer => _$$StartupConfigurationDtoSerializer();
-}
-
-class _$$StartupConfigurationDtoSerializer implements PrimitiveSerializer<$StartupConfigurationDto> {
-  @override
-  final Iterable<Type> types = const [$StartupConfigurationDto, _$$StartupConfigurationDto];
-
-  @override
-  final String wireName = r'$StartupConfigurationDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $StartupConfigurationDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(StartupConfigurationDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -161,12 +138,12 @@ class _$$StartupConfigurationDtoSerializer implements PrimitiveSerializer<$Start
   }
 
   @override
-  $StartupConfigurationDto deserialize(
+  StartupConfigurationDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $StartupConfigurationDtoBuilder();
+    final result = StartupConfigurationDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -180,4 +157,3 @@ class _$$StartupConfigurationDtoSerializer implements PrimitiveSerializer<$Start
     return result.build();
   }
 }
-

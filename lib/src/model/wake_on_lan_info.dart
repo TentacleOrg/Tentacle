@@ -14,7 +14,8 @@ part 'wake_on_lan_info.g.dart';
 /// * [macAddress] - Gets the MAC address of the device.
 /// * [port] - Gets or sets the wake-on-LAN port.
 @BuiltValue()
-abstract class WakeOnLanInfo implements Built<WakeOnLanInfo, WakeOnLanInfoBuilder> {
+abstract class WakeOnLanInfo
+    implements Built<WakeOnLanInfo, WakeOnLanInfoBuilder> {
   /// Gets the MAC address of the device.
   @BuiltValueField(wireName: r'MacAddress')
   String? get macAddress;
@@ -25,13 +26,15 @@ abstract class WakeOnLanInfo implements Built<WakeOnLanInfo, WakeOnLanInfoBuilde
 
   WakeOnLanInfo._();
 
-  factory WakeOnLanInfo([void updates(WakeOnLanInfoBuilder b)]) = _$WakeOnLanInfo;
+  factory WakeOnLanInfo([void updates(WakeOnLanInfoBuilder b)]) =
+      _$WakeOnLanInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(WakeOnLanInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<WakeOnLanInfo> get serializer => _$WakeOnLanInfoSerializer();
+  static Serializer<WakeOnLanInfo> get serializer =>
+      _$WakeOnLanInfoSerializer();
 }
 
 class _$WakeOnLanInfoSerializer implements PrimitiveSerializer<WakeOnLanInfo> {
@@ -68,7 +71,9 @@ class _$WakeOnLanInfoSerializer implements PrimitiveSerializer<WakeOnLanInfo> {
     WakeOnLanInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -126,4 +131,3 @@ class _$WakeOnLanInfoSerializer implements PrimitiveSerializer<WakeOnLanInfo> {
     return result.build();
   }
 }
-

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MediaPathDto
 void main() {
-  //final instance = MediaPathDtoBuilder();
+  final instance = MediaPathDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(MediaPathDto, () {
@@ -23,6 +23,5 @@ void main() {
     test('to test the property `pathInfo`', () async {
       // TODO
     });
-
   });
 }

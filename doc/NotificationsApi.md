@@ -1,8 +1,8 @@
-# openapi.api.NotificationsApi
+# tentacle.api.NotificationsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -19,24 +19,24 @@ Method | HTTP request | Description
 
 
 # **createAdminNotification**
-> createAdminNotification(createAdminNotificationRequest)
+> createAdminNotification(adminNotificationDto)
 
 Sends a notification to all admins.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
-final CreateAdminNotificationRequest createAdminNotificationRequest = ; // CreateAdminNotificationRequest | The notification request.
+final api = Tentacle().getNotificationsApi();
+final AdminNotificationDto adminNotificationDto = ; // AdminNotificationDto | The notification request.
 
 try {
-    api.createAdminNotification(createAdminNotificationRequest);
-} catch on DioError (e) {
+    api.createAdminNotification(adminNotificationDto);
+} catch on DioException (e) {
     print('Exception when calling NotificationsApi->createAdminNotification: $e\n');
 }
 ```
@@ -45,7 +45,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **createAdminNotificationRequest** | [**CreateAdminNotificationRequest**](CreateAdminNotificationRequest.md)| The notification request. | 
+ **adminNotificationDto** | [**AdminNotificationDto**](AdminNotificationDto.md)| The notification request. | 
 
 ### Return type
 
@@ -69,18 +69,18 @@ Gets notification services.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
+final api = Tentacle().getNotificationsApi();
 
 try {
     final response = api.getNotificationServices();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling NotificationsApi->getNotificationServices: $e\n');
 }
 ```
@@ -110,18 +110,18 @@ Gets notification types.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
+final api = Tentacle().getNotificationsApi();
 
 try {
     final response = api.getNotificationTypes();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling NotificationsApi->getNotificationTypes: $e\n');
 }
 ```
@@ -151,19 +151,19 @@ Gets a user's notifications.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
+final api = Tentacle().getNotificationsApi();
 final String userId = userId_example; // String | 
 
 try {
     final response = api.getNotifications(userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling NotificationsApi->getNotifications: $e\n');
 }
 ```
@@ -196,19 +196,19 @@ Gets a user's notification summary.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
+final api = Tentacle().getNotificationsApi();
 final String userId = userId_example; // String | 
 
 try {
     final response = api.getNotificationsSummary(userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling NotificationsApi->getNotificationsSummary: $e\n');
 }
 ```
@@ -241,18 +241,18 @@ Sets notifications as read.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
+final api = Tentacle().getNotificationsApi();
 final String userId = userId_example; // String | 
 
 try {
     api.setRead(userId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling NotificationsApi->setRead: $e\n');
 }
 ```
@@ -285,18 +285,18 @@ Sets notifications as unread.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getNotificationsApi();
+final api = Tentacle().getNotificationsApi();
 final String userId = userId_example; // String | 
 
 try {
     api.setUnread(userId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling NotificationsApi->setUnread: $e\n');
 }
 ```

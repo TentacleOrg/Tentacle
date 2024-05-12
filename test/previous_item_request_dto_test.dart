@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PreviousItemRequestDto
 void main() {
-  //final instance = PreviousItemRequestDtoBuilder();
+  final instance = PreviousItemRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PreviousItemRequestDto, () {
@@ -12,6 +12,5 @@ void main() {
     test('to test the property `playlistItemId`', () async {
       // TODO
     });
-
   });
 }

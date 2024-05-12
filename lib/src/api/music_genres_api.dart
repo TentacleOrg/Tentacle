@@ -17,7 +17,6 @@ import 'package:tentacle/src/model/item_fields.dart';
 import 'package:tentacle/src/model/sort_order.dart';
 
 class MusicGenresApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -25,7 +24,7 @@ class MusicGenresApi {
   const MusicGenresApi(this._dio, this._serializers);
 
   /// Gets a music genre, by name.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [genreName] - The genre name.
@@ -38,8 +37,8 @@ class MusicGenresApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDto>> getMusicGenre({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDto>> getMusicGenre({
     required String genreName,
     String? userId,
     CancelToken? cancelToken,
@@ -49,7 +48,10 @@ class MusicGenresApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/MusicGenres/{genreName}'.replaceAll('{' r'genreName' '}', genreName.toString());
+    final _path = r'/MusicGenres/{genreName}'.replaceAll(
+        '{' r'genreName' '}',
+        encodeQueryParameter(_serializers, genreName, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -70,7 +72,9 @@ class MusicGenresApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -82,22 +86,24 @@ class MusicGenresApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDto _responseData;
+    BaseItemDto? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDto),
+            ) as BaseItemDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDto>(
@@ -113,7 +119,7 @@ class MusicGenresApi {
   }
 
   /// Gets all music genres from a given item, folder, or the entire library.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [startIndex] - Optional. The record index to start at. All items with a lower index will be dropped from the results.
@@ -142,9 +148,9 @@ class MusicGenresApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   @Deprecated('This operation has been deprecated')
-  Future<Response<BaseItemDtoQueryResult>> getMusicGenres({ 
+  Future<Response<BaseItemDtoQueryResult>> getMusicGenres({
     int? startIndex,
     int? limit,
     String? searchTerm,
@@ -191,24 +197,84 @@ class MusicGenresApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (searchTerm != null) r'searchTerm': encodeQueryParameter(_serializers, searchTerm, const FullType(String)),
-      if (parentId != null) r'parentId': encodeQueryParameter(_serializers, parentId, const FullType(String)),
-      if (fields != null) r'fields': encodeCollectionQueryParameter<ItemFields>(_serializers, fields, const FullType(BuiltList, [FullType(ItemFields)]), format: ListFormat.multi,),
-      if (excludeItemTypes != null) r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, excludeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (includeItemTypes != null) r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(_serializers, includeItemTypes, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (isFavorite != null) r'isFavorite': encodeQueryParameter(_serializers, isFavorite, const FullType(bool)),
-      if (imageTypeLimit != null) r'imageTypeLimit': encodeQueryParameter(_serializers, imageTypeLimit, const FullType(int)),
-      if (enableImageTypes != null) r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(_serializers, enableImageTypes, const FullType(BuiltList, [FullType(ImageType)]), format: ListFormat.multi,),
-      if (userId != null) r'userId': encodeQueryParameter(_serializers, userId, const FullType(String)),
-      if (nameStartsWithOrGreater != null) r'nameStartsWithOrGreater': encodeQueryParameter(_serializers, nameStartsWithOrGreater, const FullType(String)),
-      if (nameStartsWith != null) r'nameStartsWith': encodeQueryParameter(_serializers, nameStartsWith, const FullType(String)),
-      if (nameLessThan != null) r'nameLessThan': encodeQueryParameter(_serializers, nameLessThan, const FullType(String)),
-      if (sortBy != null) r'sortBy': encodeCollectionQueryParameter<String>(_serializers, sortBy, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (sortOrder != null) r'sortOrder': encodeCollectionQueryParameter<SortOrder>(_serializers, sortOrder, const FullType(BuiltList, [FullType(SortOrder)]), format: ListFormat.multi,),
-      if (enableImages != null) r'enableImages': encodeQueryParameter(_serializers, enableImages, const FullType(bool)),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (searchTerm != null)
+        r'searchTerm': encodeQueryParameter(
+            _serializers, searchTerm, const FullType(String)),
+      if (parentId != null)
+        r'parentId': encodeQueryParameter(
+            _serializers, parentId, const FullType(String)),
+      if (fields != null)
+        r'fields': encodeCollectionQueryParameter<ItemFields>(
+          _serializers,
+          fields,
+          const FullType(BuiltList, [FullType(ItemFields)]),
+          format: ListFormat.multi,
+        ),
+      if (excludeItemTypes != null)
+        r'excludeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          excludeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (includeItemTypes != null)
+        r'includeItemTypes': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          includeItemTypes,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (isFavorite != null)
+        r'isFavorite': encodeQueryParameter(
+            _serializers, isFavorite, const FullType(bool)),
+      if (imageTypeLimit != null)
+        r'imageTypeLimit': encodeQueryParameter(
+            _serializers, imageTypeLimit, const FullType(int)),
+      if (enableImageTypes != null)
+        r'enableImageTypes': encodeCollectionQueryParameter<ImageType>(
+          _serializers,
+          enableImageTypes,
+          const FullType(BuiltList, [FullType(ImageType)]),
+          format: ListFormat.multi,
+        ),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (nameStartsWithOrGreater != null)
+        r'nameStartsWithOrGreater': encodeQueryParameter(
+            _serializers, nameStartsWithOrGreater, const FullType(String)),
+      if (nameStartsWith != null)
+        r'nameStartsWith': encodeQueryParameter(
+            _serializers, nameStartsWith, const FullType(String)),
+      if (nameLessThan != null)
+        r'nameLessThan': encodeQueryParameter(
+            _serializers, nameLessThan, const FullType(String)),
+      if (sortBy != null)
+        r'sortBy': encodeCollectionQueryParameter<String>(
+          _serializers,
+          sortBy,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (sortOrder != null)
+        r'sortOrder': encodeCollectionQueryParameter<SortOrder>(
+          _serializers,
+          sortOrder,
+          const FullType(BuiltList, [FullType(SortOrder)]),
+          format: ListFormat.multi,
+        ),
+      if (enableImages != null)
+        r'enableImages': encodeQueryParameter(
+            _serializers, enableImages, const FullType(bool)),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -220,22 +286,24 @@ class MusicGenresApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -249,5 +317,4 @@ class MusicGenresApi {
       extra: _response.extra,
     );
   }
-
 }

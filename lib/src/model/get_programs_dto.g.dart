@@ -6,92 +6,7 @@ part of 'get_programs_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class GetProgramsDtoBuilder {
-  void replace(GetProgramsDto other);
-  void update(void Function(GetProgramsDtoBuilder) updates);
-  ListBuilder<String> get channelIds;
-  set channelIds(ListBuilder<String>? channelIds);
-
-  String? get userId;
-  set userId(String? userId);
-
-  DateTime? get minStartDate;
-  set minStartDate(DateTime? minStartDate);
-
-  bool? get hasAired;
-  set hasAired(bool? hasAired);
-
-  bool? get isAiring;
-  set isAiring(bool? isAiring);
-
-  DateTime? get maxStartDate;
-  set maxStartDate(DateTime? maxStartDate);
-
-  DateTime? get minEndDate;
-  set minEndDate(DateTime? minEndDate);
-
-  DateTime? get maxEndDate;
-  set maxEndDate(DateTime? maxEndDate);
-
-  bool? get isMovie;
-  set isMovie(bool? isMovie);
-
-  bool? get isSeries;
-  set isSeries(bool? isSeries);
-
-  bool? get isNews;
-  set isNews(bool? isNews);
-
-  bool? get isKids;
-  set isKids(bool? isKids);
-
-  bool? get isSports;
-  set isSports(bool? isSports);
-
-  int? get startIndex;
-  set startIndex(int? startIndex);
-
-  int? get limit;
-  set limit(int? limit);
-
-  ListBuilder<String> get sortBy;
-  set sortBy(ListBuilder<String>? sortBy);
-
-  ListBuilder<SortOrder> get sortOrder;
-  set sortOrder(ListBuilder<SortOrder>? sortOrder);
-
-  ListBuilder<String> get genres;
-  set genres(ListBuilder<String>? genres);
-
-  ListBuilder<String> get genreIds;
-  set genreIds(ListBuilder<String>? genreIds);
-
-  bool? get enableImages;
-  set enableImages(bool? enableImages);
-
-  bool? get enableTotalRecordCount;
-  set enableTotalRecordCount(bool? enableTotalRecordCount);
-
-  int? get imageTypeLimit;
-  set imageTypeLimit(int? imageTypeLimit);
-
-  ListBuilder<ImageType> get enableImageTypes;
-  set enableImageTypes(ListBuilder<ImageType>? enableImageTypes);
-
-  bool? get enableUserData;
-  set enableUserData(bool? enableUserData);
-
-  String? get seriesTimerId;
-  set seriesTimerId(String? seriesTimerId);
-
-  String? get librarySeriesId;
-  set librarySeriesId(String? librarySeriesId);
-
-  ListBuilder<ItemFields> get fields;
-  set fields(ListBuilder<ItemFields>? fields);
-}
-
-class _$$GetProgramsDto extends $GetProgramsDto {
+class _$GetProgramsDto extends GetProgramsDto {
   @override
   final BuiltList<String>? channelIds;
   @override
@@ -147,10 +62,10 @@ class _$$GetProgramsDto extends $GetProgramsDto {
   @override
   final BuiltList<ItemFields>? fields;
 
-  factory _$$GetProgramsDto([void Function($GetProgramsDtoBuilder)? updates]) =>
-      (new $GetProgramsDtoBuilder()..update(updates))._build();
+  factory _$GetProgramsDto([void Function(GetProgramsDtoBuilder)? updates]) =>
+      (new GetProgramsDtoBuilder()..update(updates))._build();
 
-  _$$GetProgramsDto._(
+  _$GetProgramsDto._(
       {this.channelIds,
       this.userId,
       this.minStartDate,
@@ -181,17 +96,17 @@ class _$$GetProgramsDto extends $GetProgramsDto {
       : super._();
 
   @override
-  $GetProgramsDto rebuild(void Function($GetProgramsDtoBuilder) updates) =>
+  GetProgramsDto rebuild(void Function(GetProgramsDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $GetProgramsDtoBuilder toBuilder() =>
-      new $GetProgramsDtoBuilder()..replace(this);
+  GetProgramsDtoBuilder toBuilder() =>
+      new GetProgramsDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $GetProgramsDto &&
+    return other is GetProgramsDto &&
         channelIds == other.channelIds &&
         userId == other.userId &&
         minStartDate == other.minStartDate &&
@@ -257,7 +172,7 @@ class _$$GetProgramsDto extends $GetProgramsDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$GetProgramsDto')
+    return (newBuiltValueToStringHelper(r'GetProgramsDto')
           ..add('channelIds', channelIds)
           ..add('userId', userId)
           ..add('minStartDate', minStartDate)
@@ -289,147 +204,140 @@ class _$$GetProgramsDto extends $GetProgramsDto {
   }
 }
 
-class $GetProgramsDtoBuilder
-    implements
-        Builder<$GetProgramsDto, $GetProgramsDtoBuilder>,
-        GetProgramsDtoBuilder {
-  _$$GetProgramsDto? _$v;
+class GetProgramsDtoBuilder
+    implements Builder<GetProgramsDto, GetProgramsDtoBuilder> {
+  _$GetProgramsDto? _$v;
 
   ListBuilder<String>? _channelIds;
   ListBuilder<String> get channelIds =>
       _$this._channelIds ??= new ListBuilder<String>();
-  set channelIds(covariant ListBuilder<String>? channelIds) =>
+  set channelIds(ListBuilder<String>? channelIds) =>
       _$this._channelIds = channelIds;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(covariant String? userId) => _$this._userId = userId;
+  set userId(String? userId) => _$this._userId = userId;
 
   DateTime? _minStartDate;
   DateTime? get minStartDate => _$this._minStartDate;
-  set minStartDate(covariant DateTime? minStartDate) =>
+  set minStartDate(DateTime? minStartDate) =>
       _$this._minStartDate = minStartDate;
 
   bool? _hasAired;
   bool? get hasAired => _$this._hasAired;
-  set hasAired(covariant bool? hasAired) => _$this._hasAired = hasAired;
+  set hasAired(bool? hasAired) => _$this._hasAired = hasAired;
 
   bool? _isAiring;
   bool? get isAiring => _$this._isAiring;
-  set isAiring(covariant bool? isAiring) => _$this._isAiring = isAiring;
+  set isAiring(bool? isAiring) => _$this._isAiring = isAiring;
 
   DateTime? _maxStartDate;
   DateTime? get maxStartDate => _$this._maxStartDate;
-  set maxStartDate(covariant DateTime? maxStartDate) =>
+  set maxStartDate(DateTime? maxStartDate) =>
       _$this._maxStartDate = maxStartDate;
 
   DateTime? _minEndDate;
   DateTime? get minEndDate => _$this._minEndDate;
-  set minEndDate(covariant DateTime? minEndDate) =>
-      _$this._minEndDate = minEndDate;
+  set minEndDate(DateTime? minEndDate) => _$this._minEndDate = minEndDate;
 
   DateTime? _maxEndDate;
   DateTime? get maxEndDate => _$this._maxEndDate;
-  set maxEndDate(covariant DateTime? maxEndDate) =>
-      _$this._maxEndDate = maxEndDate;
+  set maxEndDate(DateTime? maxEndDate) => _$this._maxEndDate = maxEndDate;
 
   bool? _isMovie;
   bool? get isMovie => _$this._isMovie;
-  set isMovie(covariant bool? isMovie) => _$this._isMovie = isMovie;
+  set isMovie(bool? isMovie) => _$this._isMovie = isMovie;
 
   bool? _isSeries;
   bool? get isSeries => _$this._isSeries;
-  set isSeries(covariant bool? isSeries) => _$this._isSeries = isSeries;
+  set isSeries(bool? isSeries) => _$this._isSeries = isSeries;
 
   bool? _isNews;
   bool? get isNews => _$this._isNews;
-  set isNews(covariant bool? isNews) => _$this._isNews = isNews;
+  set isNews(bool? isNews) => _$this._isNews = isNews;
 
   bool? _isKids;
   bool? get isKids => _$this._isKids;
-  set isKids(covariant bool? isKids) => _$this._isKids = isKids;
+  set isKids(bool? isKids) => _$this._isKids = isKids;
 
   bool? _isSports;
   bool? get isSports => _$this._isSports;
-  set isSports(covariant bool? isSports) => _$this._isSports = isSports;
+  set isSports(bool? isSports) => _$this._isSports = isSports;
 
   int? _startIndex;
   int? get startIndex => _$this._startIndex;
-  set startIndex(covariant int? startIndex) => _$this._startIndex = startIndex;
+  set startIndex(int? startIndex) => _$this._startIndex = startIndex;
 
   int? _limit;
   int? get limit => _$this._limit;
-  set limit(covariant int? limit) => _$this._limit = limit;
+  set limit(int? limit) => _$this._limit = limit;
 
   ListBuilder<String>? _sortBy;
   ListBuilder<String> get sortBy =>
       _$this._sortBy ??= new ListBuilder<String>();
-  set sortBy(covariant ListBuilder<String>? sortBy) => _$this._sortBy = sortBy;
+  set sortBy(ListBuilder<String>? sortBy) => _$this._sortBy = sortBy;
 
   ListBuilder<SortOrder>? _sortOrder;
   ListBuilder<SortOrder> get sortOrder =>
       _$this._sortOrder ??= new ListBuilder<SortOrder>();
-  set sortOrder(covariant ListBuilder<SortOrder>? sortOrder) =>
+  set sortOrder(ListBuilder<SortOrder>? sortOrder) =>
       _$this._sortOrder = sortOrder;
 
   ListBuilder<String>? _genres;
   ListBuilder<String> get genres =>
       _$this._genres ??= new ListBuilder<String>();
-  set genres(covariant ListBuilder<String>? genres) => _$this._genres = genres;
+  set genres(ListBuilder<String>? genres) => _$this._genres = genres;
 
   ListBuilder<String>? _genreIds;
   ListBuilder<String> get genreIds =>
       _$this._genreIds ??= new ListBuilder<String>();
-  set genreIds(covariant ListBuilder<String>? genreIds) =>
-      _$this._genreIds = genreIds;
+  set genreIds(ListBuilder<String>? genreIds) => _$this._genreIds = genreIds;
 
   bool? _enableImages;
   bool? get enableImages => _$this._enableImages;
-  set enableImages(covariant bool? enableImages) =>
-      _$this._enableImages = enableImages;
+  set enableImages(bool? enableImages) => _$this._enableImages = enableImages;
 
   bool? _enableTotalRecordCount;
   bool? get enableTotalRecordCount => _$this._enableTotalRecordCount;
-  set enableTotalRecordCount(covariant bool? enableTotalRecordCount) =>
+  set enableTotalRecordCount(bool? enableTotalRecordCount) =>
       _$this._enableTotalRecordCount = enableTotalRecordCount;
 
   int? _imageTypeLimit;
   int? get imageTypeLimit => _$this._imageTypeLimit;
-  set imageTypeLimit(covariant int? imageTypeLimit) =>
+  set imageTypeLimit(int? imageTypeLimit) =>
       _$this._imageTypeLimit = imageTypeLimit;
 
   ListBuilder<ImageType>? _enableImageTypes;
   ListBuilder<ImageType> get enableImageTypes =>
       _$this._enableImageTypes ??= new ListBuilder<ImageType>();
-  set enableImageTypes(covariant ListBuilder<ImageType>? enableImageTypes) =>
+  set enableImageTypes(ListBuilder<ImageType>? enableImageTypes) =>
       _$this._enableImageTypes = enableImageTypes;
 
   bool? _enableUserData;
   bool? get enableUserData => _$this._enableUserData;
-  set enableUserData(covariant bool? enableUserData) =>
+  set enableUserData(bool? enableUserData) =>
       _$this._enableUserData = enableUserData;
 
   String? _seriesTimerId;
   String? get seriesTimerId => _$this._seriesTimerId;
-  set seriesTimerId(covariant String? seriesTimerId) =>
+  set seriesTimerId(String? seriesTimerId) =>
       _$this._seriesTimerId = seriesTimerId;
 
   String? _librarySeriesId;
   String? get librarySeriesId => _$this._librarySeriesId;
-  set librarySeriesId(covariant String? librarySeriesId) =>
+  set librarySeriesId(String? librarySeriesId) =>
       _$this._librarySeriesId = librarySeriesId;
 
   ListBuilder<ItemFields>? _fields;
   ListBuilder<ItemFields> get fields =>
       _$this._fields ??= new ListBuilder<ItemFields>();
-  set fields(covariant ListBuilder<ItemFields>? fields) =>
-      _$this._fields = fields;
+  set fields(ListBuilder<ItemFields>? fields) => _$this._fields = fields;
 
-  $GetProgramsDtoBuilder() {
-    $GetProgramsDto._defaults(this);
+  GetProgramsDtoBuilder() {
+    GetProgramsDto._defaults(this);
   }
 
-  $GetProgramsDtoBuilder get _$this {
+  GetProgramsDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _channelIds = $v.channelIds?.toBuilder();
@@ -465,24 +373,24 @@ class $GetProgramsDtoBuilder
   }
 
   @override
-  void replace(covariant $GetProgramsDto other) {
+  void replace(GetProgramsDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$GetProgramsDto;
+    _$v = other as _$GetProgramsDto;
   }
 
   @override
-  void update(void Function($GetProgramsDtoBuilder)? updates) {
+  void update(void Function(GetProgramsDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $GetProgramsDto build() => _build();
+  GetProgramsDto build() => _build();
 
-  _$$GetProgramsDto _build() {
-    _$$GetProgramsDto _$result;
+  _$GetProgramsDto _build() {
+    _$GetProgramsDto _$result;
     try {
       _$result = _$v ??
-          new _$$GetProgramsDto._(
+          new _$GetProgramsDto._(
               channelIds: _channelIds?.build(),
               userId: userId,
               minStartDate: minStartDate,
@@ -532,7 +440,7 @@ class $GetProgramsDtoBuilder
         _fields?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$GetProgramsDto', _$failedField, e.toString());
+            r'GetProgramsDto', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -82,7 +82,9 @@ class _$LiveTvInfoSerializer implements PrimitiveSerializer<LiveTvInfo> {
     LiveTvInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -100,7 +102,8 @@ class _$LiveTvInfoSerializer implements PrimitiveSerializer<LiveTvInfo> {
         case r'Services':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(LiveTvServiceInfo)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(LiveTvServiceInfo)]),
           ) as BuiltList<LiveTvServiceInfo>;
           result.services.replace(valueDes);
           break;
@@ -146,4 +149,3 @@ class _$LiveTvInfoSerializer implements PrimitiveSerializer<LiveTvInfo> {
     return result.build();
   }
 }
-

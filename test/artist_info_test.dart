@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ArtistInfo
 void main() {
-  //final instance = ArtistInfoBuilder();
+  final instance = ArtistInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(ArtistInfo, () {
@@ -73,6 +73,5 @@ void main() {
     test('to test the property `songInfos`', () async {
       // TODO
     });
-
   });
 }

@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'repeat_mode.g.dart';
 
 class RepeatMode extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'RepeatNone')
   static const RepeatMode repeatNone = _$repeatNone;
   @BuiltValueEnumConst(wireName: r'RepeatAll')
@@ -20,7 +19,7 @@ class RepeatMode extends EnumClass {
 
   static Serializer<RepeatMode> get serializer => _$repeatModeSerializer;
 
-  const RepeatMode._(String name): super(name);
+  const RepeatMode._(String name) : super(name);
 
   static BuiltSet<RepeatMode> get values => _$values;
   static RepeatMode valueOf(String name) => _$valueOf(name);
@@ -33,4 +32,3 @@ class RepeatMode extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class RepeatModeMixin = Object with _$RepeatModeMixin;
-

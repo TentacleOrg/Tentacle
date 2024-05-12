@@ -239,6 +239,5 @@ void main() {
     test('to test the property `subtitleProfiles`', () async {
       // TODO
     });
-
   });
 }

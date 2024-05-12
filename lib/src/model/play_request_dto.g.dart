@@ -6,20 +6,7 @@ part of 'play_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class PlayRequestDtoBuilder {
-  void replace(PlayRequestDto other);
-  void update(void Function(PlayRequestDtoBuilder) updates);
-  ListBuilder<String> get playingQueue;
-  set playingQueue(ListBuilder<String>? playingQueue);
-
-  int? get playingItemPosition;
-  set playingItemPosition(int? playingItemPosition);
-
-  int? get startPositionTicks;
-  set startPositionTicks(int? startPositionTicks);
-}
-
-class _$$PlayRequestDto extends $PlayRequestDto {
+class _$PlayRequestDto extends PlayRequestDto {
   @override
   final BuiltList<String>? playingQueue;
   @override
@@ -27,25 +14,25 @@ class _$$PlayRequestDto extends $PlayRequestDto {
   @override
   final int? startPositionTicks;
 
-  factory _$$PlayRequestDto([void Function($PlayRequestDtoBuilder)? updates]) =>
-      (new $PlayRequestDtoBuilder()..update(updates))._build();
+  factory _$PlayRequestDto([void Function(PlayRequestDtoBuilder)? updates]) =>
+      (new PlayRequestDtoBuilder()..update(updates))._build();
 
-  _$$PlayRequestDto._(
+  _$PlayRequestDto._(
       {this.playingQueue, this.playingItemPosition, this.startPositionTicks})
       : super._();
 
   @override
-  $PlayRequestDto rebuild(void Function($PlayRequestDtoBuilder) updates) =>
+  PlayRequestDto rebuild(void Function(PlayRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $PlayRequestDtoBuilder toBuilder() =>
-      new $PlayRequestDtoBuilder()..replace(this);
+  PlayRequestDtoBuilder toBuilder() =>
+      new PlayRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $PlayRequestDto &&
+    return other is PlayRequestDto &&
         playingQueue == other.playingQueue &&
         playingItemPosition == other.playingItemPosition &&
         startPositionTicks == other.startPositionTicks;
@@ -63,7 +50,7 @@ class _$$PlayRequestDto extends $PlayRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$PlayRequestDto')
+    return (newBuiltValueToStringHelper(r'PlayRequestDto')
           ..add('playingQueue', playingQueue)
           ..add('playingItemPosition', playingItemPosition)
           ..add('startPositionTicks', startPositionTicks))
@@ -71,33 +58,31 @@ class _$$PlayRequestDto extends $PlayRequestDto {
   }
 }
 
-class $PlayRequestDtoBuilder
-    implements
-        Builder<$PlayRequestDto, $PlayRequestDtoBuilder>,
-        PlayRequestDtoBuilder {
-  _$$PlayRequestDto? _$v;
+class PlayRequestDtoBuilder
+    implements Builder<PlayRequestDto, PlayRequestDtoBuilder> {
+  _$PlayRequestDto? _$v;
 
   ListBuilder<String>? _playingQueue;
   ListBuilder<String> get playingQueue =>
       _$this._playingQueue ??= new ListBuilder<String>();
-  set playingQueue(covariant ListBuilder<String>? playingQueue) =>
+  set playingQueue(ListBuilder<String>? playingQueue) =>
       _$this._playingQueue = playingQueue;
 
   int? _playingItemPosition;
   int? get playingItemPosition => _$this._playingItemPosition;
-  set playingItemPosition(covariant int? playingItemPosition) =>
+  set playingItemPosition(int? playingItemPosition) =>
       _$this._playingItemPosition = playingItemPosition;
 
   int? _startPositionTicks;
   int? get startPositionTicks => _$this._startPositionTicks;
-  set startPositionTicks(covariant int? startPositionTicks) =>
+  set startPositionTicks(int? startPositionTicks) =>
       _$this._startPositionTicks = startPositionTicks;
 
-  $PlayRequestDtoBuilder() {
-    $PlayRequestDto._defaults(this);
+  PlayRequestDtoBuilder() {
+    PlayRequestDto._defaults(this);
   }
 
-  $PlayRequestDtoBuilder get _$this {
+  PlayRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _playingQueue = $v.playingQueue?.toBuilder();
@@ -109,24 +94,24 @@ class $PlayRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $PlayRequestDto other) {
+  void replace(PlayRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$PlayRequestDto;
+    _$v = other as _$PlayRequestDto;
   }
 
   @override
-  void update(void Function($PlayRequestDtoBuilder)? updates) {
+  void update(void Function(PlayRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $PlayRequestDto build() => _build();
+  PlayRequestDto build() => _build();
 
-  _$$PlayRequestDto _build() {
-    _$$PlayRequestDto _$result;
+  _$PlayRequestDto _build() {
+    _$PlayRequestDto _$result;
     try {
       _$result = _$v ??
-          new _$$PlayRequestDto._(
+          new _$PlayRequestDto._(
               playingQueue: _playingQueue?.build(),
               playingItemPosition: playingItemPosition,
               startPositionTicks: startPositionTicks);
@@ -137,7 +122,7 @@ class $PlayRequestDtoBuilder
         _playingQueue?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$PlayRequestDto', _$failedField, e.toString());
+            r'PlayRequestDto', _$failedField, e.toString());
       }
       rethrow;
     }

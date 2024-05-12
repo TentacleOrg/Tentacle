@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for GroupStateType
 void main() {
-
-  group(GroupStateType, () {
-  });
+  group(GroupStateType, () {});
 }

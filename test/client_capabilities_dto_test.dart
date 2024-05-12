@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ClientCapabilitiesDto
 void main() {
-  //final instance = ClientCapabilitiesDtoBuilder();
+  final instance = ClientCapabilitiesDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(ClientCapabilitiesDto, () {
@@ -49,7 +49,7 @@ void main() {
       // TODO
     });
 
-    // ClientCapabilitiesDtoDeviceProfile deviceProfile
+    // ClientCapabilitiesDeviceProfile deviceProfile
     test('to test the property `deviceProfile`', () async {
       // TODO
     });
@@ -65,6 +65,5 @@ void main() {
     test('to test the property `iconUrl`', () async {
       // TODO
     });
-
   });
 }

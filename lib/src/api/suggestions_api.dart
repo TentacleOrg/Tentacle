@@ -13,7 +13,6 @@ import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/base_item_kind.dart';
 
 class SuggestionsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -21,7 +20,7 @@ class SuggestionsApi {
   const SuggestionsApi(this._dio, this._serializers);
 
   /// Gets suggestions.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [userId] - The user id.
@@ -38,8 +37,8 @@ class SuggestionsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BaseItemDtoQueryResult>> getSuggestions({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BaseItemDtoQueryResult>> getSuggestions({
     required String userId,
     BuiltList<String>? mediaType,
     BuiltList<BaseItemKind>? type,
@@ -53,7 +52,10 @@ class SuggestionsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Suggestions'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/Suggestions'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -74,11 +76,29 @@ class SuggestionsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (mediaType != null) r'mediaType': encodeCollectionQueryParameter<String>(_serializers, mediaType, const FullType(BuiltList, [FullType(String)]), format: ListFormat.multi,),
-      if (type != null) r'type': encodeCollectionQueryParameter<BaseItemKind>(_serializers, type, const FullType(BuiltList, [FullType(BaseItemKind)]), format: ListFormat.multi,),
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (enableTotalRecordCount != null) r'enableTotalRecordCount': encodeQueryParameter(_serializers, enableTotalRecordCount, const FullType(bool)),
+      if (mediaType != null)
+        r'mediaType': encodeCollectionQueryParameter<String>(
+          _serializers,
+          mediaType,
+          const FullType(BuiltList, [FullType(String)]),
+          format: ListFormat.multi,
+        ),
+      if (type != null)
+        r'type': encodeCollectionQueryParameter<BaseItemKind>(
+          _serializers,
+          type,
+          const FullType(BuiltList, [FullType(BaseItemKind)]),
+          format: ListFormat.multi,
+        ),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (enableTotalRecordCount != null)
+        r'enableTotalRecordCount': encodeQueryParameter(
+            _serializers, enableTotalRecordCount, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -90,22 +110,24 @@ class SuggestionsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -119,5 +141,4 @@ class SuggestionsApi {
       extra: _response.extra,
     );
   }
-
 }

@@ -1,8 +1,8 @@
-# openapi.model.BoxSetInfo
+# tentacle.model.BoxSetInfo
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

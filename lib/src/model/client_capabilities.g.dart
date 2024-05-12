@@ -6,7 +6,7 @@ part of 'client_capabilities.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ClientCapabilitiesBuilder {
+abstract mixin class ClientCapabilitiesBuilder {
   void replace(ClientCapabilities other);
   void update(void Function(ClientCapabilitiesBuilder) updates);
   ListBuilder<String> get playableMediaTypes;

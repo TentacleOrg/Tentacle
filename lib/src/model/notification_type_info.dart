@@ -11,13 +11,14 @@ part 'notification_type_info.g.dart';
 /// NotificationTypeInfo
 ///
 /// Properties:
-/// * [type] 
-/// * [name] 
-/// * [enabled] 
-/// * [category] 
-/// * [isBasedOnUserEvent] 
+/// * [type]
+/// * [name]
+/// * [enabled]
+/// * [category]
+/// * [isBasedOnUserEvent]
 @BuiltValue()
-abstract class NotificationTypeInfo implements Built<NotificationTypeInfo, NotificationTypeInfoBuilder> {
+abstract class NotificationTypeInfo
+    implements Built<NotificationTypeInfo, NotificationTypeInfoBuilder> {
   @BuiltValueField(wireName: r'Type')
   String? get type;
 
@@ -35,18 +36,24 @@ abstract class NotificationTypeInfo implements Built<NotificationTypeInfo, Notif
 
   NotificationTypeInfo._();
 
-  factory NotificationTypeInfo([void updates(NotificationTypeInfoBuilder b)]) = _$NotificationTypeInfo;
+  factory NotificationTypeInfo([void updates(NotificationTypeInfoBuilder b)]) =
+      _$NotificationTypeInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(NotificationTypeInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<NotificationTypeInfo> get serializer => _$NotificationTypeInfoSerializer();
+  static Serializer<NotificationTypeInfo> get serializer =>
+      _$NotificationTypeInfoSerializer();
 }
 
-class _$NotificationTypeInfoSerializer implements PrimitiveSerializer<NotificationTypeInfo> {
+class _$NotificationTypeInfoSerializer
+    implements PrimitiveSerializer<NotificationTypeInfo> {
   @override
-  final Iterable<Type> types = const [NotificationTypeInfo, _$NotificationTypeInfo];
+  final Iterable<Type> types = const [
+    NotificationTypeInfo,
+    _$NotificationTypeInfo
+  ];
 
   @override
   final String wireName = r'NotificationTypeInfo';
@@ -99,7 +106,9 @@ class _$NotificationTypeInfoSerializer implements PrimitiveSerializer<Notificati
     NotificationTypeInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -180,4 +189,3 @@ class _$NotificationTypeInfoSerializer implements PrimitiveSerializer<Notificati
     return result.build();
   }
 }
-

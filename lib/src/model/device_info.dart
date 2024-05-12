@@ -12,7 +12,7 @@ part 'device_info.g.dart';
 /// DeviceInfo
 ///
 /// Properties:
-/// * [name] 
+/// * [name]
 /// * [accessToken] - Gets or sets the access token.
 /// * [id] - Gets or sets the identifier.
 /// * [lastUserName] - Gets or sets the last name of the user.
@@ -20,8 +20,8 @@ part 'device_info.g.dart';
 /// * [appVersion] - Gets or sets the application version.
 /// * [lastUserId] - Gets or sets the last user identifier.
 /// * [dateLastActivity] - Gets or sets the date last modified.
-/// * [capabilities] 
-/// * [iconUrl] 
+/// * [capabilities]
+/// * [iconUrl]
 @BuiltValue()
 abstract class DeviceInfo implements Built<DeviceInfo, DeviceInfoBuilder> {
   @BuiltValueField(wireName: r'Name')
@@ -162,7 +162,9 @@ class _$DeviceInfoSerializer implements PrimitiveSerializer<DeviceInfo> {
     DeviceInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -283,4 +285,3 @@ class _$DeviceInfoSerializer implements PrimitiveSerializer<DeviceInfo> {
     return result.build();
   }
 }
-

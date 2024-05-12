@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/movie_info_remote_search_query_search_info.dart';
+import 'package:tentacle/src/model/movie_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,14 +12,16 @@ part 'movie_info_remote_search_query.g.dart';
 /// MovieInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo] 
-/// * [itemId] 
+/// * [searchInfo]
+/// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
-@BuiltValue(instantiable: false)
-abstract class MovieInfoRemoteSearchQuery  {
+@BuiltValue()
+abstract class MovieInfoRemoteSearchQuery
+    implements
+        Built<MovieInfoRemoteSearchQuery, MovieInfoRemoteSearchQueryBuilder> {
   @BuiltValueField(wireName: r'SearchInfo')
-  MovieInfoRemoteSearchQuerySearchInfo? get searchInfo;
+  MovieInfo? get searchInfo;
 
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
@@ -32,13 +34,27 @@ abstract class MovieInfoRemoteSearchQuery  {
   @BuiltValueField(wireName: r'IncludeDisabledProviders')
   bool? get includeDisabledProviders;
 
+  MovieInfoRemoteSearchQuery._();
+
+  factory MovieInfoRemoteSearchQuery(
+          [void updates(MovieInfoRemoteSearchQueryBuilder b)]) =
+      _$MovieInfoRemoteSearchQuery;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(MovieInfoRemoteSearchQueryBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<MovieInfoRemoteSearchQuery> get serializer => _$MovieInfoRemoteSearchQuerySerializer();
+  static Serializer<MovieInfoRemoteSearchQuery> get serializer =>
+      _$MovieInfoRemoteSearchQuerySerializer();
 }
 
-class _$MovieInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<MovieInfoRemoteSearchQuery> {
+class _$MovieInfoRemoteSearchQuerySerializer
+    implements PrimitiveSerializer<MovieInfoRemoteSearchQuery> {
   @override
-  final Iterable<Type> types = const [MovieInfoRemoteSearchQuery];
+  final Iterable<Type> types = const [
+    MovieInfoRemoteSearchQuery,
+    _$MovieInfoRemoteSearchQuery
+  ];
 
   @override
   final String wireName = r'MovieInfoRemoteSearchQuery';
@@ -52,7 +68,7 @@ class _$MovieInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Movi
       yield r'SearchInfo';
       yield serializers.serialize(
         object.searchInfo,
-        specifiedType: const FullType.nullable(MovieInfoRemoteSearchQuerySearchInfo),
+        specifiedType: const FullType.nullable(MovieInfo),
       );
     }
     if (object.itemId != null) {
@@ -84,47 +100,9 @@ class _$MovieInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<Movi
     MovieInfoRemoteSearchQuery object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  MovieInfoRemoteSearchQuery deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($MovieInfoRemoteSearchQuery)) as $MovieInfoRemoteSearchQuery;
-  }
-}
-
-/// a concrete implementation of [MovieInfoRemoteSearchQuery], since [MovieInfoRemoteSearchQuery] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $MovieInfoRemoteSearchQuery implements MovieInfoRemoteSearchQuery, Built<$MovieInfoRemoteSearchQuery, $MovieInfoRemoteSearchQueryBuilder> {
-  $MovieInfoRemoteSearchQuery._();
-
-  factory $MovieInfoRemoteSearchQuery([void Function($MovieInfoRemoteSearchQueryBuilder)? updates]) = _$$MovieInfoRemoteSearchQuery;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($MovieInfoRemoteSearchQueryBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$MovieInfoRemoteSearchQuery> get serializer => _$$MovieInfoRemoteSearchQuerySerializer();
-}
-
-class _$$MovieInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$MovieInfoRemoteSearchQuery> {
-  @override
-  final Iterable<Type> types = const [$MovieInfoRemoteSearchQuery, _$$MovieInfoRemoteSearchQuery];
-
-  @override
-  final String wireName = r'$MovieInfoRemoteSearchQuery';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $MovieInfoRemoteSearchQuery object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(MovieInfoRemoteSearchQuery))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -142,8 +120,8 @@ class _$$MovieInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Mo
         case r'SearchInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(MovieInfoRemoteSearchQuerySearchInfo),
-          ) as MovieInfoRemoteSearchQuerySearchInfo?;
+            specifiedType: const FullType.nullable(MovieInfo),
+          ) as MovieInfo?;
           if (valueDes == null) continue;
           result.searchInfo.replace(valueDes);
           break;
@@ -178,12 +156,12 @@ class _$$MovieInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Mo
   }
 
   @override
-  $MovieInfoRemoteSearchQuery deserialize(
+  MovieInfoRemoteSearchQuery deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $MovieInfoRemoteSearchQueryBuilder();
+    final result = MovieInfoRemoteSearchQueryBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -197,4 +175,3 @@ class _$$MovieInfoRemoteSearchQuerySerializer implements PrimitiveSerializer<$Mo
     return result.build();
   }
 }
-

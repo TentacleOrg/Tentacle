@@ -6,25 +6,9 @@ part of 'album_info_remote_search_query.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class AlbumInfoRemoteSearchQueryBuilder {
-  void replace(AlbumInfoRemoteSearchQuery other);
-  void update(void Function(AlbumInfoRemoteSearchQueryBuilder) updates);
-  AlbumInfoRemoteSearchQuerySearchInfoBuilder get searchInfo;
-  set searchInfo(AlbumInfoRemoteSearchQuerySearchInfoBuilder? searchInfo);
-
-  String? get itemId;
-  set itemId(String? itemId);
-
-  String? get searchProviderName;
-  set searchProviderName(String? searchProviderName);
-
-  bool? get includeDisabledProviders;
-  set includeDisabledProviders(bool? includeDisabledProviders);
-}
-
-class _$$AlbumInfoRemoteSearchQuery extends $AlbumInfoRemoteSearchQuery {
+class _$AlbumInfoRemoteSearchQuery extends AlbumInfoRemoteSearchQuery {
   @override
-  final AlbumInfoRemoteSearchQuerySearchInfo? searchInfo;
+  final AlbumInfo? searchInfo;
   @override
   final String? itemId;
   @override
@@ -32,11 +16,11 @@ class _$$AlbumInfoRemoteSearchQuery extends $AlbumInfoRemoteSearchQuery {
   @override
   final bool? includeDisabledProviders;
 
-  factory _$$AlbumInfoRemoteSearchQuery(
-          [void Function($AlbumInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new $AlbumInfoRemoteSearchQueryBuilder()..update(updates))._build();
+  factory _$AlbumInfoRemoteSearchQuery(
+          [void Function(AlbumInfoRemoteSearchQueryBuilder)? updates]) =>
+      (new AlbumInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
-  _$$AlbumInfoRemoteSearchQuery._(
+  _$AlbumInfoRemoteSearchQuery._(
       {this.searchInfo,
       this.itemId,
       this.searchProviderName,
@@ -44,18 +28,18 @@ class _$$AlbumInfoRemoteSearchQuery extends $AlbumInfoRemoteSearchQuery {
       : super._();
 
   @override
-  $AlbumInfoRemoteSearchQuery rebuild(
-          void Function($AlbumInfoRemoteSearchQueryBuilder) updates) =>
+  AlbumInfoRemoteSearchQuery rebuild(
+          void Function(AlbumInfoRemoteSearchQueryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $AlbumInfoRemoteSearchQueryBuilder toBuilder() =>
-      new $AlbumInfoRemoteSearchQueryBuilder()..replace(this);
+  AlbumInfoRemoteSearchQueryBuilder toBuilder() =>
+      new AlbumInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $AlbumInfoRemoteSearchQuery &&
+    return other is AlbumInfoRemoteSearchQuery &&
         searchInfo == other.searchInfo &&
         itemId == other.itemId &&
         searchProviderName == other.searchProviderName &&
@@ -75,7 +59,7 @@ class _$$AlbumInfoRemoteSearchQuery extends $AlbumInfoRemoteSearchQuery {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$AlbumInfoRemoteSearchQuery')
+    return (newBuiltValueToStringHelper(r'AlbumInfoRemoteSearchQuery')
           ..add('searchInfo', searchInfo)
           ..add('itemId', itemId)
           ..add('searchProviderName', searchProviderName)
@@ -84,39 +68,36 @@ class _$$AlbumInfoRemoteSearchQuery extends $AlbumInfoRemoteSearchQuery {
   }
 }
 
-class $AlbumInfoRemoteSearchQueryBuilder
+class AlbumInfoRemoteSearchQueryBuilder
     implements
-        Builder<$AlbumInfoRemoteSearchQuery,
-            $AlbumInfoRemoteSearchQueryBuilder>,
-        AlbumInfoRemoteSearchQueryBuilder {
-  _$$AlbumInfoRemoteSearchQuery? _$v;
+        Builder<AlbumInfoRemoteSearchQuery, AlbumInfoRemoteSearchQueryBuilder> {
+  _$AlbumInfoRemoteSearchQuery? _$v;
 
-  AlbumInfoRemoteSearchQuerySearchInfoBuilder? _searchInfo;
-  AlbumInfoRemoteSearchQuerySearchInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new AlbumInfoRemoteSearchQuerySearchInfoBuilder();
-  set searchInfo(
-          covariant AlbumInfoRemoteSearchQuerySearchInfoBuilder? searchInfo) =>
+  AlbumInfoBuilder? _searchInfo;
+  AlbumInfoBuilder get searchInfo =>
+      _$this._searchInfo ??= new AlbumInfoBuilder();
+  set searchInfo(AlbumInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
   String? _itemId;
   String? get itemId => _$this._itemId;
-  set itemId(covariant String? itemId) => _$this._itemId = itemId;
+  set itemId(String? itemId) => _$this._itemId = itemId;
 
   String? _searchProviderName;
   String? get searchProviderName => _$this._searchProviderName;
-  set searchProviderName(covariant String? searchProviderName) =>
+  set searchProviderName(String? searchProviderName) =>
       _$this._searchProviderName = searchProviderName;
 
   bool? _includeDisabledProviders;
   bool? get includeDisabledProviders => _$this._includeDisabledProviders;
-  set includeDisabledProviders(covariant bool? includeDisabledProviders) =>
+  set includeDisabledProviders(bool? includeDisabledProviders) =>
       _$this._includeDisabledProviders = includeDisabledProviders;
 
-  $AlbumInfoRemoteSearchQueryBuilder() {
-    $AlbumInfoRemoteSearchQuery._defaults(this);
+  AlbumInfoRemoteSearchQueryBuilder() {
+    AlbumInfoRemoteSearchQuery._defaults(this);
   }
 
-  $AlbumInfoRemoteSearchQueryBuilder get _$this {
+  AlbumInfoRemoteSearchQueryBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _searchInfo = $v.searchInfo?.toBuilder();
@@ -129,24 +110,24 @@ class $AlbumInfoRemoteSearchQueryBuilder
   }
 
   @override
-  void replace(covariant $AlbumInfoRemoteSearchQuery other) {
+  void replace(AlbumInfoRemoteSearchQuery other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$AlbumInfoRemoteSearchQuery;
+    _$v = other as _$AlbumInfoRemoteSearchQuery;
   }
 
   @override
-  void update(void Function($AlbumInfoRemoteSearchQueryBuilder)? updates) {
+  void update(void Function(AlbumInfoRemoteSearchQueryBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $AlbumInfoRemoteSearchQuery build() => _build();
+  AlbumInfoRemoteSearchQuery build() => _build();
 
-  _$$AlbumInfoRemoteSearchQuery _build() {
-    _$$AlbumInfoRemoteSearchQuery _$result;
+  _$AlbumInfoRemoteSearchQuery _build() {
+    _$AlbumInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$$AlbumInfoRemoteSearchQuery._(
+          new _$AlbumInfoRemoteSearchQuery._(
               searchInfo: _searchInfo?.build(),
               itemId: itemId,
               searchProviderName: searchProviderName,
@@ -158,7 +139,7 @@ class $AlbumInfoRemoteSearchQueryBuilder
         _searchInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$AlbumInfoRemoteSearchQuery', _$failedField, e.toString());
+            r'AlbumInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;
     }

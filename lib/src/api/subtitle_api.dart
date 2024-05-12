@@ -13,10 +13,9 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/font_file.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/remote_subtitle_info.dart';
-import 'package:tentacle/src/model/upload_subtitle_request.dart';
+import 'package:tentacle/src/model/upload_subtitle_dto.dart';
 
 class SubtitleApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -24,7 +23,7 @@ class SubtitleApi {
   const SubtitleApi(this._dio, this._serializers);
 
   /// Deletes an external subtitle file.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -37,8 +36,8 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> deleteSubtitle({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> deleteSubtitle({
     required String itemId,
     required int index,
     CancelToken? cancelToken,
@@ -48,7 +47,15 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Videos/{itemId}/Subtitles/{index}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'index' '}', index.toString());
+    final _path = r'/Videos/{itemId}/Subtitles/{index}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'index' '}',
+            encodeQueryParameter(_serializers, index, const FullType(int))
+                .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -80,7 +87,7 @@ class SubtitleApi {
   }
 
   /// Downloads a remote subtitle.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -93,8 +100,8 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> downloadRemoteSubtitles({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> downloadRemoteSubtitles({
     required String itemId,
     required String subtitleId,
     CancelToken? cancelToken,
@@ -104,7 +111,16 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/RemoteSearch/Subtitles/{subtitleId}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'subtitleId' '}', subtitleId.toString());
+    final _path = r'/Items/{itemId}/RemoteSearch/Subtitles/{subtitleId}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'subtitleId' '}',
+            encodeQueryParameter(
+                    _serializers, subtitleId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -136,7 +152,7 @@ class SubtitleApi {
   }
 
   /// Gets a fallback font file.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the fallback font file to get.
@@ -148,8 +164,8 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getFallbackFont({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getFallbackFont({
     required String name,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -158,7 +174,10 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/FallbackFont/Fonts/{name}'.replaceAll('{' r'name' '}', name.toString());
+    final _path = r'/FallbackFont/Fonts/{name}'.replaceAll(
+        '{' r'name' '}',
+        encodeQueryParameter(_serializers, name, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -187,18 +206,19 @@ class SubtitleApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -214,7 +234,7 @@ class SubtitleApi {
   }
 
   /// Gets a list of available fallback font files.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -225,8 +245,8 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<FontFile>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<FontFile>>> getFallbackFontList({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<FontFile>>> getFallbackFontList({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -262,22 +282,24 @@ class SubtitleApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<FontFile> _responseData;
+    BuiltList<FontFile>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(FontFile)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<FontFile>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(FontFile)]),
+            ) as BuiltList<FontFile>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<FontFile>>(
@@ -293,7 +315,7 @@ class SubtitleApi {
   }
 
   /// Gets the remote subtitles.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [id] - The item id.
@@ -305,8 +327,8 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getRemoteSubtitles({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getRemoteSubtitles({
     required String id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -315,7 +337,10 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Providers/Subtitles/Subtitles/{id}'.replaceAll('{' r'id' '}', id.toString());
+    final _path = r'/Providers/Subtitles/Subtitles/{id}'.replaceAll(
+        '{' r'id' '}',
+        encodeQueryParameter(_serializers, id, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -344,18 +369,19 @@ class SubtitleApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -371,7 +397,7 @@ class SubtitleApi {
   }
 
   /// Gets subtitles in a specified format.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [routeItemId] - The (route) item id.
@@ -394,16 +420,16 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getSubtitle({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getSubtitle({
     required String routeItemId,
     required String routeMediaSourceId,
     required int routeIndex,
     required String routeFormat,
-    String? itemId,
-    String? mediaSourceId,
-    int? index,
-    String? format,
+    @Deprecated('itemId is deprecated') String? itemId,
+    @Deprecated('mediaSourceId is deprecated') String? mediaSourceId,
+    @Deprecated('index is deprecated') int? index,
+    @Deprecated('format is deprecated') String? format,
     int? endPositionTicks,
     bool? copyTimestamps = false,
     bool? addVttTimeMap = false,
@@ -415,7 +441,28 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/Stream.{routeFormat}'.replaceAll('{' r'routeItemId' '}', routeItemId.toString()).replaceAll('{' r'routeMediaSourceId' '}', routeMediaSourceId.toString()).replaceAll('{' r'routeIndex' '}', routeIndex.toString()).replaceAll('{' r'routeFormat' '}', routeFormat.toString());
+    final _path =
+        r'/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/Stream.{routeFormat}'
+            .replaceAll(
+                '{' r'routeItemId' '}',
+                encodeQueryParameter(
+                        _serializers, routeItemId, const FullType(String))
+                    .toString())
+            .replaceAll(
+                '{' r'routeMediaSourceId' '}',
+                encodeQueryParameter(_serializers, routeMediaSourceId,
+                        const FullType(String))
+                    .toString())
+            .replaceAll(
+                '{' r'routeIndex' '}',
+                encodeQueryParameter(
+                        _serializers, routeIndex, const FullType(int))
+                    .toString())
+            .replaceAll(
+                '{' r'routeFormat' '}',
+                encodeQueryParameter(
+                        _serializers, routeFormat, const FullType(String))
+                    .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -430,14 +477,30 @@ class SubtitleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (itemId != null) r'itemId': encodeQueryParameter(_serializers, itemId, const FullType(String)),
-      if (mediaSourceId != null) r'mediaSourceId': encodeQueryParameter(_serializers, mediaSourceId, const FullType(String)),
-      if (index != null) r'index': encodeQueryParameter(_serializers, index, const FullType(int)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(String)),
-      if (endPositionTicks != null) r'endPositionTicks': encodeQueryParameter(_serializers, endPositionTicks, const FullType(int)),
-      if (copyTimestamps != null) r'copyTimestamps': encodeQueryParameter(_serializers, copyTimestamps, const FullType(bool)),
-      if (addVttTimeMap != null) r'addVttTimeMap': encodeQueryParameter(_serializers, addVttTimeMap, const FullType(bool)),
-      if (startPositionTicks != null) r'startPositionTicks': encodeQueryParameter(_serializers, startPositionTicks, const FullType(int)),
+      if (itemId != null)
+        r'itemId':
+            encodeQueryParameter(_serializers, itemId, const FullType(String)),
+      if (mediaSourceId != null)
+        r'mediaSourceId': encodeQueryParameter(
+            _serializers, mediaSourceId, const FullType(String)),
+      if (index != null)
+        r'index':
+            encodeQueryParameter(_serializers, index, const FullType(int)),
+      if (format != null)
+        r'format':
+            encodeQueryParameter(_serializers, format, const FullType(String)),
+      if (endPositionTicks != null)
+        r'endPositionTicks': encodeQueryParameter(
+            _serializers, endPositionTicks, const FullType(int)),
+      if (copyTimestamps != null)
+        r'copyTimestamps': encodeQueryParameter(
+            _serializers, copyTimestamps, const FullType(bool)),
+      if (addVttTimeMap != null)
+        r'addVttTimeMap': encodeQueryParameter(
+            _serializers, addVttTimeMap, const FullType(bool)),
+      if (startPositionTicks != null)
+        r'startPositionTicks': encodeQueryParameter(
+            _serializers, startPositionTicks, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -449,18 +512,19 @@ class SubtitleApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -476,7 +540,7 @@ class SubtitleApi {
   }
 
   /// Gets an HLS subtitle playlist.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -491,8 +555,8 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getSubtitlePlaylist({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getSubtitlePlaylist({
     required String itemId,
     required int index,
     required String mediaSourceId,
@@ -504,7 +568,22 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Videos/{itemId}/{mediaSourceId}/Subtitles/{index}/subtitles.m3u8'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'index' '}', index.toString()).replaceAll('{' r'mediaSourceId' '}', mediaSourceId.toString());
+    final _path =
+        r'/Videos/{itemId}/{mediaSourceId}/Subtitles/{index}/subtitles.m3u8'
+            .replaceAll(
+                '{' r'itemId' '}',
+                encodeQueryParameter(
+                        _serializers, itemId, const FullType(String))
+                    .toString())
+            .replaceAll(
+                '{' r'index' '}',
+                encodeQueryParameter(_serializers, index, const FullType(int))
+                    .toString())
+            .replaceAll(
+                '{' r'mediaSourceId' '}',
+                encodeQueryParameter(
+                        _serializers, mediaSourceId, const FullType(String))
+                    .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -526,7 +605,8 @@ class SubtitleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'segmentLength': encodeQueryParameter(_serializers, segmentLength, const FullType(int)),
+      r'segmentLength': encodeQueryParameter(
+          _serializers, segmentLength, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -538,18 +618,19 @@ class SubtitleApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -565,7 +646,7 @@ class SubtitleApi {
   }
 
   /// Gets subtitles in a specified format.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [routeItemId] - The (route) item id.
@@ -589,18 +670,18 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<Uint8List>> getSubtitleWithTicks({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<Uint8List>> getSubtitleWithTicks({
     required String routeItemId,
     required String routeMediaSourceId,
     required int routeIndex,
     required int routeStartPositionTicks,
     required String routeFormat,
-    String? itemId,
-    String? mediaSourceId,
-    int? index,
-    int? startPositionTicks,
-    String? format,
+    @Deprecated('itemId is deprecated') String? itemId,
+    @Deprecated('mediaSourceId is deprecated') String? mediaSourceId,
+    @Deprecated('index is deprecated') int? index,
+    @Deprecated('startPositionTicks is deprecated') int? startPositionTicks,
+    @Deprecated('format is deprecated') String? format,
     int? endPositionTicks,
     bool? copyTimestamps = false,
     bool? addVttTimeMap = false,
@@ -611,7 +692,33 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat}'.replaceAll('{' r'routeItemId' '}', routeItemId.toString()).replaceAll('{' r'routeMediaSourceId' '}', routeMediaSourceId.toString()).replaceAll('{' r'routeIndex' '}', routeIndex.toString()).replaceAll('{' r'routeStartPositionTicks' '}', routeStartPositionTicks.toString()).replaceAll('{' r'routeFormat' '}', routeFormat.toString());
+    final _path =
+        r'/Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat}'
+            .replaceAll(
+                '{' r'routeItemId' '}',
+                encodeQueryParameter(
+                        _serializers, routeItemId, const FullType(String))
+                    .toString())
+            .replaceAll(
+                '{' r'routeMediaSourceId' '}',
+                encodeQueryParameter(_serializers, routeMediaSourceId,
+                        const FullType(String))
+                    .toString())
+            .replaceAll(
+                '{' r'routeIndex' '}',
+                encodeQueryParameter(
+                        _serializers, routeIndex, const FullType(int))
+                    .toString())
+            .replaceAll(
+                '{' r'routeStartPositionTicks' '}',
+                encodeQueryParameter(_serializers, routeStartPositionTicks,
+                        const FullType(int))
+                    .toString())
+            .replaceAll(
+                '{' r'routeFormat' '}',
+                encodeQueryParameter(
+                        _serializers, routeFormat, const FullType(String))
+                    .toString());
     final _options = Options(
       method: r'GET',
       responseType: ResponseType.bytes,
@@ -626,14 +733,30 @@ class SubtitleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (itemId != null) r'itemId': encodeQueryParameter(_serializers, itemId, const FullType(String)),
-      if (mediaSourceId != null) r'mediaSourceId': encodeQueryParameter(_serializers, mediaSourceId, const FullType(String)),
-      if (index != null) r'index': encodeQueryParameter(_serializers, index, const FullType(int)),
-      if (startPositionTicks != null) r'startPositionTicks': encodeQueryParameter(_serializers, startPositionTicks, const FullType(int)),
-      if (format != null) r'format': encodeQueryParameter(_serializers, format, const FullType(String)),
-      if (endPositionTicks != null) r'endPositionTicks': encodeQueryParameter(_serializers, endPositionTicks, const FullType(int)),
-      if (copyTimestamps != null) r'copyTimestamps': encodeQueryParameter(_serializers, copyTimestamps, const FullType(bool)),
-      if (addVttTimeMap != null) r'addVttTimeMap': encodeQueryParameter(_serializers, addVttTimeMap, const FullType(bool)),
+      if (itemId != null)
+        r'itemId':
+            encodeQueryParameter(_serializers, itemId, const FullType(String)),
+      if (mediaSourceId != null)
+        r'mediaSourceId': encodeQueryParameter(
+            _serializers, mediaSourceId, const FullType(String)),
+      if (index != null)
+        r'index':
+            encodeQueryParameter(_serializers, index, const FullType(int)),
+      if (startPositionTicks != null)
+        r'startPositionTicks': encodeQueryParameter(
+            _serializers, startPositionTicks, const FullType(int)),
+      if (format != null)
+        r'format':
+            encodeQueryParameter(_serializers, format, const FullType(String)),
+      if (endPositionTicks != null)
+        r'endPositionTicks': encodeQueryParameter(
+            _serializers, endPositionTicks, const FullType(int)),
+      if (copyTimestamps != null)
+        r'copyTimestamps': encodeQueryParameter(
+            _serializers, copyTimestamps, const FullType(bool)),
+      if (addVttTimeMap != null)
+        r'addVttTimeMap': encodeQueryParameter(
+            _serializers, addVttTimeMap, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -645,18 +768,19 @@ class SubtitleApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    Uint8List _responseData;
+    Uint8List? _responseData;
 
     try {
-      _responseData = _response.data as Uint8List;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null ? null : rawResponse as Uint8List;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<Uint8List>(
@@ -672,7 +796,7 @@ class SubtitleApi {
   }
 
   /// Search remote subtitles.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -686,8 +810,8 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSubtitleInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSubtitleInfo>>> searchRemoteSubtitles({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSubtitleInfo>>> searchRemoteSubtitles({
     required String itemId,
     required String language,
     bool? isPerfectMatch,
@@ -698,7 +822,15 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/RemoteSearch/Subtitles/{language}'.replaceAll('{' r'itemId' '}', itemId.toString()).replaceAll('{' r'language' '}', language.toString());
+    final _path = r'/Items/{itemId}/RemoteSearch/Subtitles/{language}'
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'language' '}',
+            encodeQueryParameter(_serializers, language, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -719,7 +851,9 @@ class SubtitleApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (isPerfectMatch != null) r'isPerfectMatch': encodeQueryParameter(_serializers, isPerfectMatch, const FullType(bool)),
+      if (isPerfectMatch != null)
+        r'isPerfectMatch': encodeQueryParameter(
+            _serializers, isPerfectMatch, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -731,22 +865,25 @@ class SubtitleApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSubtitleInfo> _responseData;
+    BuiltList<RemoteSubtitleInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSubtitleInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSubtitleInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSubtitleInfo)]),
+            ) as BuiltList<RemoteSubtitleInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSubtitleInfo>>(
@@ -762,11 +899,11 @@ class SubtitleApi {
   }
 
   /// Upload an external subtitle file.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item the subtitle belongs to.
-  /// * [uploadSubtitleRequest] - The request body.
+  /// * [uploadSubtitleDto] - The request body.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -775,10 +912,10 @@ class SubtitleApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> uploadSubtitle({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> uploadSubtitle({
     required String itemId,
-    required UploadSubtitleRequest uploadSubtitleRequest,
+    required UploadSubtitleDto uploadSubtitleDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -786,7 +923,10 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Videos/{itemId}/Subtitles'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Videos/{itemId}/Subtitles'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -810,18 +950,19 @@ class SubtitleApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UploadSubtitleRequest);
-      _bodyData = _serializers.serialize(uploadSubtitleRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(UploadSubtitleDto);
+      _bodyData =
+          _serializers.serialize(uploadSubtitleDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -835,5 +976,4 @@ class SubtitleApi {
 
     return _response;
   }
-
 }

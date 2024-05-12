@@ -20,13 +20,13 @@ part 'artist_info.g.dart';
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [providerIds] - Gets or sets the provider ids.
 /// * [year] - Gets or sets the year.
-/// * [indexNumber] 
-/// * [parentIndexNumber] 
-/// * [premiereDate] 
-/// * [isAutomated] 
-/// * [songInfos] 
-@BuiltValue(instantiable: false)
-abstract class ArtistInfo  {
+/// * [indexNumber]
+/// * [parentIndexNumber]
+/// * [premiereDate]
+/// * [isAutomated]
+/// * [songInfos]
+@BuiltValue()
+abstract class ArtistInfo implements Built<ArtistInfo, ArtistInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -70,13 +70,20 @@ abstract class ArtistInfo  {
   @BuiltValueField(wireName: r'SongInfos')
   BuiltList<SongInfo>? get songInfos;
 
+  ArtistInfo._();
+
+  factory ArtistInfo([void updates(ArtistInfoBuilder b)]) = _$ArtistInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ArtistInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<ArtistInfo> get serializer => _$ArtistInfoSerializer();
 }
 
 class _$ArtistInfoSerializer implements PrimitiveSerializer<ArtistInfo> {
   @override
-  final Iterable<Type> types = const [ArtistInfo];
+  final Iterable<Type> types = const [ArtistInfo, _$ArtistInfo];
 
   @override
   final String wireName = r'ArtistInfo';
@@ -125,7 +132,8 @@ class _$ArtistInfoSerializer implements PrimitiveSerializer<ArtistInfo> {
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType: const FullType.nullable(
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.year != null) {
@@ -178,47 +186,9 @@ class _$ArtistInfoSerializer implements PrimitiveSerializer<ArtistInfo> {
     ArtistInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  ArtistInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ArtistInfo)) as $ArtistInfo;
-  }
-}
-
-/// a concrete implementation of [ArtistInfo], since [ArtistInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ArtistInfo implements ArtistInfo, Built<$ArtistInfo, $ArtistInfoBuilder> {
-  $ArtistInfo._();
-
-  factory $ArtistInfo([void Function($ArtistInfoBuilder)? updates]) = _$$ArtistInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ArtistInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ArtistInfo> get serializer => _$$ArtistInfoSerializer();
-}
-
-class _$$ArtistInfoSerializer implements PrimitiveSerializer<$ArtistInfo> {
-  @override
-  final Iterable<Type> types = const [$ArtistInfo, _$$ArtistInfo];
-
-  @override
-  final String wireName = r'$ArtistInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ArtistInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(ArtistInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -276,7 +246,8 @@ class _$$ArtistInfoSerializer implements PrimitiveSerializer<$ArtistInfo> {
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltMap, [FullType(String), FullType.nullable(String)]),
+            specifiedType: const FullType.nullable(
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
           ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.providerIds.replace(valueDes);
@@ -336,12 +307,12 @@ class _$$ArtistInfoSerializer implements PrimitiveSerializer<$ArtistInfo> {
   }
 
   @override
-  $ArtistInfo deserialize(
+  ArtistInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ArtistInfoBuilder();
+    final result = ArtistInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -355,4 +326,3 @@ class _$$ArtistInfoSerializer implements PrimitiveSerializer<$ArtistInfo> {
     return result.build();
   }
 }
-

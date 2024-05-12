@@ -8,12 +8,11 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:tentacle/src/model/metadata_editor_info.dart';
 import 'package:tentacle/src/model/problem_details.dart';
-import 'package:tentacle/src/model/update_item_request.dart';
 
 class ItemUpdateApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -21,7 +20,7 @@ class ItemUpdateApi {
   const ItemUpdateApi(this._dio, this._serializers);
 
   /// Gets metadata editor info for an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -33,8 +32,8 @@ class ItemUpdateApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [MetadataEditorInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<MetadataEditorInfo>> getMetadataEditorInfo({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<MetadataEditorInfo>> getMetadataEditorInfo({
     required String itemId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -43,7 +42,10 @@ class ItemUpdateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/MetadataEditor'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/MetadataEditor'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -71,22 +73,24 @@ class ItemUpdateApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    MetadataEditorInfo _responseData;
+    MetadataEditorInfo? _responseData;
 
     try {
-      const _responseType = FullType(MetadataEditorInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as MetadataEditorInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(MetadataEditorInfo),
+            ) as MetadataEditorInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<MetadataEditorInfo>(
@@ -102,11 +106,11 @@ class ItemUpdateApi {
   }
 
   /// Updates an item.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
-  /// * [updateItemRequest] - The new item properties.
+  /// * [baseItemDto] - The new item properties.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -115,10 +119,10 @@ class ItemUpdateApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateItem({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateItem({
     required String itemId,
-    required UpdateItemRequest updateItemRequest,
+    required BaseItemDto baseItemDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -126,7 +130,10 @@ class ItemUpdateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -150,18 +157,18 @@ class ItemUpdateApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(UpdateItemRequest);
-      _bodyData = _serializers.serialize(updateItemRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(BaseItemDto);
+      _bodyData = _serializers.serialize(baseItemDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -177,7 +184,7 @@ class ItemUpdateApi {
   }
 
   /// Updates an item&#39;s content type.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - The item id.
@@ -190,8 +197,8 @@ class ItemUpdateApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> updateItemContentType({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updateItemContentType({
     required String itemId,
     String? contentType,
     CancelToken? cancelToken,
@@ -201,7 +208,10 @@ class ItemUpdateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/ContentType'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/ContentType'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -222,7 +232,9 @@ class ItemUpdateApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (contentType != null) r'contentType': encodeQueryParameter(_serializers, contentType, const FullType(String)),
+      if (contentType != null)
+        r'contentType': encodeQueryParameter(
+            _serializers, contentType, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -236,5 +248,4 @@ class ItemUpdateApi {
 
     return _response;
   }
-
 }

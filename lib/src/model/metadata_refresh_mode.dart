@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'metadata_refresh_mode.g.dart';
 
 class MetadataRefreshMode extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'None')
   static const MetadataRefreshMode none = _$none;
   @BuiltValueEnumConst(wireName: r'ValidationOnly')
@@ -20,9 +19,10 @@ class MetadataRefreshMode extends EnumClass {
   @BuiltValueEnumConst(wireName: r'FullRefresh')
   static const MetadataRefreshMode fullRefresh = _$fullRefresh;
 
-  static Serializer<MetadataRefreshMode> get serializer => _$metadataRefreshModeSerializer;
+  static Serializer<MetadataRefreshMode> get serializer =>
+      _$metadataRefreshModeSerializer;
 
-  const MetadataRefreshMode._(String name): super(name);
+  const MetadataRefreshMode._(String name) : super(name);
 
   static BuiltSet<MetadataRefreshMode> get values => _$values;
   static MetadataRefreshMode valueOf(String name) => _$valueOf(name);
@@ -34,5 +34,5 @@ class MetadataRefreshMode extends EnumClass {
 /// corresponding Angular template.
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
-abstract class MetadataRefreshModeMixin = Object with _$MetadataRefreshModeMixin;
-
+abstract class MetadataRefreshModeMixin = Object
+    with _$MetadataRefreshModeMixin;

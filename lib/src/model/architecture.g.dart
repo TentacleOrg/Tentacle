@@ -54,7 +54,7 @@ class _$ArchitectureMeta {
   BuiltSet<Architecture> get values => _$values;
 }
 
-abstract class _$ArchitectureMixin {
+mixin _$ArchitectureMixin {
   // ignore: non_constant_identifier_names
   _$ArchitectureMeta get Architecture => const _$ArchitectureMeta();
 }

@@ -9,22 +9,20 @@ import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/apply_search_criteria_request.dart';
+import 'package:tentacle/src/model/album_info_remote_search_query.dart';
+import 'package:tentacle/src/model/artist_info_remote_search_query.dart';
+import 'package:tentacle/src/model/book_info_remote_search_query.dart';
+import 'package:tentacle/src/model/box_set_info_remote_search_query.dart';
 import 'package:tentacle/src/model/external_id_info.dart';
-import 'package:tentacle/src/model/get_book_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_box_set_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_movie_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_music_album_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_music_artist_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_music_video_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_person_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_series_remote_search_results_request.dart';
-import 'package:tentacle/src/model/get_trailer_remote_search_results_request.dart';
+import 'package:tentacle/src/model/movie_info_remote_search_query.dart';
+import 'package:tentacle/src/model/music_video_info_remote_search_query.dart';
+import 'package:tentacle/src/model/person_lookup_info_remote_search_query.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/remote_search_result.dart';
+import 'package:tentacle/src/model/series_info_remote_search_query.dart';
+import 'package:tentacle/src/model/trailer_info_remote_search_query.dart';
 
 class ItemLookupApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -32,11 +30,11 @@ class ItemLookupApi {
   const ItemLookupApi(this._dio, this._serializers);
 
   /// Applies search criteria to an item and refreshes metadata.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
-  /// * [applySearchCriteriaRequest] - The remote search result.
+  /// * [remoteSearchResult] - The remote search result.
   /// * [replaceAllImages] - Optional. Whether or not to replace all images. Default: True.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -46,10 +44,10 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> applySearchCriteria({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> applySearchCriteria({
     required String itemId,
-    required ApplySearchCriteriaRequest applySearchCriteriaRequest,
+    required RemoteSearchResult remoteSearchResult,
     bool? replaceAllImages = true,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -58,7 +56,10 @@ class ItemLookupApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/RemoteSearch/Apply/{itemId}'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/RemoteSearch/Apply/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -80,25 +81,28 @@ class ItemLookupApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (replaceAllImages != null) r'replaceAllImages': encodeQueryParameter(_serializers, replaceAllImages, const FullType(bool)),
+      if (replaceAllImages != null)
+        r'replaceAllImages': encodeQueryParameter(
+            _serializers, replaceAllImages, const FullType(bool)),
     };
 
     dynamic _bodyData;
 
     try {
-      const _type = FullType(ApplySearchCriteriaRequest);
-      _bodyData = _serializers.serialize(applySearchCriteriaRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(RemoteSearchResult);
+      _bodyData =
+          _serializers.serialize(remoteSearchResult, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
           queryParameters: _queryParameters,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -115,10 +119,10 @@ class ItemLookupApi {
   }
 
   /// Get book remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getBookRemoteSearchResultsRequest] - Remote search query.
+  /// * [bookInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -127,9 +131,9 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getBookRemoteSearchResults({ 
-    required GetBookRemoteSearchResultsRequest getBookRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>> getBookRemoteSearchResults({
+    required BookInfoRemoteSearchQuery bookInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -161,18 +165,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetBookRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getBookRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(BookInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(bookInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -184,22 +189,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -215,10 +223,10 @@ class ItemLookupApi {
   }
 
   /// Get box set remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getBoxSetRemoteSearchResultsRequest] - Remote search query.
+  /// * [boxSetInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -227,9 +235,9 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getBoxSetRemoteSearchResults({ 
-    required GetBoxSetRemoteSearchResultsRequest getBoxSetRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>> getBoxSetRemoteSearchResults({
+    required BoxSetInfoRemoteSearchQuery boxSetInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -261,18 +269,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetBoxSetRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getBoxSetRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(BoxSetInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(boxSetInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -284,22 +293,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -315,7 +327,7 @@ class ItemLookupApi {
   }
 
   /// Get the item&#39;s external id info.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [itemId] - Item id.
@@ -327,8 +339,8 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<ExternalIdInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<ExternalIdInfo>>> getExternalIdInfos({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<ExternalIdInfo>>> getExternalIdInfos({
     required String itemId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -337,7 +349,10 @@ class ItemLookupApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{itemId}/ExternalIdInfos'.replaceAll('{' r'itemId' '}', itemId.toString());
+    final _path = r'/Items/{itemId}/ExternalIdInfos'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -365,22 +380,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<ExternalIdInfo> _responseData;
+    BuiltList<ExternalIdInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(ExternalIdInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<ExternalIdInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(ExternalIdInfo)]),
+            ) as BuiltList<ExternalIdInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<ExternalIdInfo>>(
@@ -396,10 +414,10 @@ class ItemLookupApi {
   }
 
   /// Get movie remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getMovieRemoteSearchResultsRequest] - Remote search query.
+  /// * [movieInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -408,9 +426,9 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getMovieRemoteSearchResults({ 
-    required GetMovieRemoteSearchResultsRequest getMovieRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>> getMovieRemoteSearchResults({
+    required MovieInfoRemoteSearchQuery movieInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -442,18 +460,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetMovieRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getMovieRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(MovieInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(movieInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -465,22 +484,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -496,10 +518,10 @@ class ItemLookupApi {
   }
 
   /// Get music album remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getMusicAlbumRemoteSearchResultsRequest] - Remote search query.
+  /// * [albumInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -508,9 +530,10 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getMusicAlbumRemoteSearchResults({ 
-    required GetMusicAlbumRemoteSearchResultsRequest getMusicAlbumRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>>
+      getMusicAlbumRemoteSearchResults({
+    required AlbumInfoRemoteSearchQuery albumInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -542,18 +565,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetMusicAlbumRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getMusicAlbumRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(AlbumInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(albumInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -565,22 +589,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -596,10 +623,10 @@ class ItemLookupApi {
   }
 
   /// Get music artist remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getMusicArtistRemoteSearchResultsRequest] - Remote search query.
+  /// * [artistInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -608,9 +635,10 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getMusicArtistRemoteSearchResults({ 
-    required GetMusicArtistRemoteSearchResultsRequest getMusicArtistRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>>
+      getMusicArtistRemoteSearchResults({
+    required ArtistInfoRemoteSearchQuery artistInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -642,18 +670,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetMusicArtistRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getMusicArtistRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(ArtistInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(artistInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -665,22 +694,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -696,10 +728,10 @@ class ItemLookupApi {
   }
 
   /// Get music video remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getMusicVideoRemoteSearchResultsRequest] - Remote search query.
+  /// * [musicVideoInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -708,9 +740,10 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getMusicVideoRemoteSearchResults({ 
-    required GetMusicVideoRemoteSearchResultsRequest getMusicVideoRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>>
+      getMusicVideoRemoteSearchResults({
+    required MusicVideoInfoRemoteSearchQuery musicVideoInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -742,18 +775,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetMusicVideoRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getMusicVideoRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(MusicVideoInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(musicVideoInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -765,22 +799,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -796,10 +833,10 @@ class ItemLookupApi {
   }
 
   /// Get person remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getPersonRemoteSearchResultsRequest] - Remote search query.
+  /// * [personLookupInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -808,9 +845,10 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getPersonRemoteSearchResults({ 
-    required GetPersonRemoteSearchResultsRequest getPersonRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>> getPersonRemoteSearchResults({
+    required PersonLookupInfoRemoteSearchQuery
+        personLookupInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -842,18 +880,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetPersonRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getPersonRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(PersonLookupInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(personLookupInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -865,22 +904,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -896,10 +938,10 @@ class ItemLookupApi {
   }
 
   /// Get series remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getSeriesRemoteSearchResultsRequest] - Remote search query.
+  /// * [seriesInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -908,9 +950,9 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getSeriesRemoteSearchResults({ 
-    required GetSeriesRemoteSearchResultsRequest getSeriesRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>> getSeriesRemoteSearchResults({
+    required SeriesInfoRemoteSearchQuery seriesInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -942,18 +984,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetSeriesRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getSeriesRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(SeriesInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(seriesInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -965,22 +1008,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -996,10 +1042,10 @@ class ItemLookupApi {
   }
 
   /// Get trailer remote search.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [getTrailerRemoteSearchResultsRequest] - Remote search query.
+  /// * [trailerInfoRemoteSearchQuery] - Remote search query.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1008,9 +1054,10 @@ class ItemLookupApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RemoteSearchResult>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RemoteSearchResult>>> getTrailerRemoteSearchResults({ 
-    required GetTrailerRemoteSearchResultsRequest getTrailerRemoteSearchResultsRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RemoteSearchResult>>>
+      getTrailerRemoteSearchResults({
+    required TrailerInfoRemoteSearchQuery trailerInfoRemoteSearchQuery,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1042,18 +1089,19 @@ class ItemLookupApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(GetTrailerRemoteSearchResultsRequest);
-      _bodyData = _serializers.serialize(getTrailerRemoteSearchResultsRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(TrailerInfoRemoteSearchQuery);
+      _bodyData = _serializers.serialize(trailerInfoRemoteSearchQuery,
+          specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -1065,22 +1113,25 @@ class ItemLookupApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RemoteSearchResult> _responseData;
+    BuiltList<RemoteSearchResult>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RemoteSearchResult)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RemoteSearchResult>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+            ) as BuiltList<RemoteSearchResult>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RemoteSearchResult>>(
@@ -1094,5 +1145,4 @@ class ItemLookupApi {
       extra: _response.extra,
     );
   }
-
 }

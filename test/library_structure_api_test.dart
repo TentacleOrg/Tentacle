@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for LibraryStructureApi
 void main() {
   final instance = Tentacle().getLibraryStructureApi();
@@ -9,14 +8,14 @@ void main() {
   group(LibraryStructureApi, () {
     // Add a media path to a library.
     //
-    //Future addMediaPath(AddMediaPathRequest addMediaPathRequest, { bool refreshLibrary }) async
+    //Future addMediaPath(MediaPathDto mediaPathDto, { bool refreshLibrary }) async
     test('test addMediaPath', () async {
       // TODO
     });
 
     // Adds a virtual folder.
     //
-    //Future addVirtualFolder({ String name, CollectionTypeOptions collectionType, BuiltList<String> paths, bool refreshLibrary, AddVirtualFolderRequest addVirtualFolderRequest }) async
+    //Future addVirtualFolder({ String name, CollectionTypeOptions collectionType, BuiltList<String> paths, bool refreshLibrary, AddVirtualFolderDto addVirtualFolderDto }) async
     test('test addVirtualFolder', () async {
       // TODO
     });
@@ -51,17 +50,16 @@ void main() {
 
     // Update library options.
     //
-    //Future updateLibraryOptions({ UpdateLibraryOptionsRequest updateLibraryOptionsRequest }) async
+    //Future updateLibraryOptions({ UpdateLibraryOptionsDto updateLibraryOptionsDto }) async
     test('test updateLibraryOptions', () async {
       // TODO
     });
 
     // Updates a media path.
     //
-    //Future updateMediaPath(UpdateMediaPathRequest updateMediaPathRequest) async
+    //Future updateMediaPath(UpdateMediaPathRequestDto updateMediaPathRequestDto) async
     test('test updateMediaPath', () async {
       // TODO
     });
-
   });
 }

@@ -1,8 +1,8 @@
-# openapi.api.HlsSegmentApi
+# tentacle.api.HlsSegmentApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -23,16 +23,16 @@ Gets the specified audio segment for an audio item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getHlsSegmentApi();
+final api = Tentacle().getHlsSegmentApi();
 final String itemId = itemId_example; // String | The item id.
 final String segmentId = segmentId_example; // String | The segment id.
 
 try {
     final response = api.getHlsAudioSegmentLegacyAac(itemId, segmentId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling HlsSegmentApi->getHlsAudioSegmentLegacyAac: $e\n');
 }
 ```
@@ -66,16 +66,16 @@ Gets the specified audio segment for an audio item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getHlsSegmentApi();
+final api = Tentacle().getHlsSegmentApi();
 final String itemId = itemId_example; // String | The item id.
 final String segmentId = segmentId_example; // String | The segment id.
 
 try {
     final response = api.getHlsAudioSegmentLegacyMp3(itemId, segmentId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling HlsSegmentApi->getHlsAudioSegmentLegacyMp3: $e\n');
 }
 ```
@@ -109,20 +109,20 @@ Gets a hls video playlist.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getHlsSegmentApi();
+final api = Tentacle().getHlsSegmentApi();
 final String itemId = itemId_example; // String | The video id.
 final String playlistId = playlistId_example; // String | The playlist id.
 
 try {
     final response = api.getHlsPlaylistLegacy(itemId, playlistId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling HlsSegmentApi->getHlsPlaylistLegacy: $e\n');
 }
 ```
@@ -156,9 +156,9 @@ Gets a hls video segment.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getHlsSegmentApi();
+final api = Tentacle().getHlsSegmentApi();
 final String itemId = itemId_example; // String | The item id.
 final String playlistId = playlistId_example; // String | The playlist id.
 final String segmentId = segmentId_example; // String | The segment id.
@@ -167,7 +167,7 @@ final String segmentContainer = segmentContainer_example; // String | The segmen
 try {
     final response = api.getHlsVideoSegmentLegacy(itemId, playlistId, segmentId, segmentContainer);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling HlsSegmentApi->getHlsVideoSegmentLegacy: $e\n');
 }
 ```
@@ -203,19 +203,19 @@ Stops an active encoding.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getHlsSegmentApi();
+final api = Tentacle().getHlsSegmentApi();
 final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
 final String playSessionId = playSessionId_example; // String | The play session id.
 
 try {
     api.stopEncodingProcess(deviceId, playSessionId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling HlsSegmentApi->stopEncodingProcess: $e\n');
 }
 ```

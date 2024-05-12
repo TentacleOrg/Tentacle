@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/live_stream_response_media_source.dart';
+import 'package:tentacle/src/model/media_source_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,24 +12,28 @@ part 'live_stream_response.g.dart';
 /// LiveStreamResponse
 ///
 /// Properties:
-/// * [mediaSource] 
+/// * [mediaSource]
 @BuiltValue()
-abstract class LiveStreamResponse implements Built<LiveStreamResponse, LiveStreamResponseBuilder> {
+abstract class LiveStreamResponse
+    implements Built<LiveStreamResponse, LiveStreamResponseBuilder> {
   @BuiltValueField(wireName: r'MediaSource')
-  LiveStreamResponseMediaSource? get mediaSource;
+  MediaSourceInfo? get mediaSource;
 
   LiveStreamResponse._();
 
-  factory LiveStreamResponse([void updates(LiveStreamResponseBuilder b)]) = _$LiveStreamResponse;
+  factory LiveStreamResponse([void updates(LiveStreamResponseBuilder b)]) =
+      _$LiveStreamResponse;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LiveStreamResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<LiveStreamResponse> get serializer => _$LiveStreamResponseSerializer();
+  static Serializer<LiveStreamResponse> get serializer =>
+      _$LiveStreamResponseSerializer();
 }
 
-class _$LiveStreamResponseSerializer implements PrimitiveSerializer<LiveStreamResponse> {
+class _$LiveStreamResponseSerializer
+    implements PrimitiveSerializer<LiveStreamResponse> {
   @override
   final Iterable<Type> types = const [LiveStreamResponse, _$LiveStreamResponse];
 
@@ -45,7 +49,7 @@ class _$LiveStreamResponseSerializer implements PrimitiveSerializer<LiveStreamRe
       yield r'MediaSource';
       yield serializers.serialize(
         object.mediaSource,
-        specifiedType: const FullType(LiveStreamResponseMediaSource),
+        specifiedType: const FullType(MediaSourceInfo),
       );
     }
   }
@@ -56,7 +60,9 @@ class _$LiveStreamResponseSerializer implements PrimitiveSerializer<LiveStreamRe
     LiveStreamResponse object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -74,8 +80,8 @@ class _$LiveStreamResponseSerializer implements PrimitiveSerializer<LiveStreamRe
         case r'MediaSource':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(LiveStreamResponseMediaSource),
-          ) as LiveStreamResponseMediaSource;
+            specifiedType: const FullType(MediaSourceInfo),
+          ) as MediaSourceInfo;
           result.mediaSource.replace(valueDes);
           break;
         default:
@@ -106,4 +112,3 @@ class _$LiveStreamResponseSerializer implements PrimitiveSerializer<LiveStreamRe
     return result.build();
   }
 }
-

@@ -6,20 +6,7 @@ part of 'message_command.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class MessageCommandBuilder {
-  void replace(MessageCommand other);
-  void update(void Function(MessageCommandBuilder) updates);
-  String? get header;
-  set header(String? header);
-
-  String? get text;
-  set text(String? text);
-
-  int? get timeoutMs;
-  set timeoutMs(int? timeoutMs);
-}
-
-class _$$MessageCommand extends $MessageCommand {
+class _$MessageCommand extends MessageCommand {
   @override
   final String? header;
   @override
@@ -27,26 +14,26 @@ class _$$MessageCommand extends $MessageCommand {
   @override
   final int? timeoutMs;
 
-  factory _$$MessageCommand([void Function($MessageCommandBuilder)? updates]) =>
-      (new $MessageCommandBuilder()..update(updates))._build();
+  factory _$MessageCommand([void Function(MessageCommandBuilder)? updates]) =>
+      (new MessageCommandBuilder()..update(updates))._build();
 
-  _$$MessageCommand._({this.header, required this.text, this.timeoutMs})
+  _$MessageCommand._({this.header, required this.text, this.timeoutMs})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(text, r'$MessageCommand', 'text');
+    BuiltValueNullFieldError.checkNotNull(text, r'MessageCommand', 'text');
   }
 
   @override
-  $MessageCommand rebuild(void Function($MessageCommandBuilder) updates) =>
+  MessageCommand rebuild(void Function(MessageCommandBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $MessageCommandBuilder toBuilder() =>
-      new $MessageCommandBuilder()..replace(this);
+  MessageCommandBuilder toBuilder() =>
+      new MessageCommandBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $MessageCommand &&
+    return other is MessageCommand &&
         header == other.header &&
         text == other.text &&
         timeoutMs == other.timeoutMs;
@@ -64,7 +51,7 @@ class _$$MessageCommand extends $MessageCommand {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$MessageCommand')
+    return (newBuiltValueToStringHelper(r'MessageCommand')
           ..add('header', header)
           ..add('text', text)
           ..add('timeoutMs', timeoutMs))
@@ -72,29 +59,27 @@ class _$$MessageCommand extends $MessageCommand {
   }
 }
 
-class $MessageCommandBuilder
-    implements
-        Builder<$MessageCommand, $MessageCommandBuilder>,
-        MessageCommandBuilder {
-  _$$MessageCommand? _$v;
+class MessageCommandBuilder
+    implements Builder<MessageCommand, MessageCommandBuilder> {
+  _$MessageCommand? _$v;
 
   String? _header;
   String? get header => _$this._header;
-  set header(covariant String? header) => _$this._header = header;
+  set header(String? header) => _$this._header = header;
 
   String? _text;
   String? get text => _$this._text;
-  set text(covariant String? text) => _$this._text = text;
+  set text(String? text) => _$this._text = text;
 
   int? _timeoutMs;
   int? get timeoutMs => _$this._timeoutMs;
-  set timeoutMs(covariant int? timeoutMs) => _$this._timeoutMs = timeoutMs;
+  set timeoutMs(int? timeoutMs) => _$this._timeoutMs = timeoutMs;
 
-  $MessageCommandBuilder() {
-    $MessageCommand._defaults(this);
+  MessageCommandBuilder() {
+    MessageCommand._defaults(this);
   }
 
-  $MessageCommandBuilder get _$this {
+  MessageCommandBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _header = $v.header;
@@ -106,25 +91,25 @@ class $MessageCommandBuilder
   }
 
   @override
-  void replace(covariant $MessageCommand other) {
+  void replace(MessageCommand other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$MessageCommand;
+    _$v = other as _$MessageCommand;
   }
 
   @override
-  void update(void Function($MessageCommandBuilder)? updates) {
+  void update(void Function(MessageCommandBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $MessageCommand build() => _build();
+  MessageCommand build() => _build();
 
-  _$$MessageCommand _build() {
+  _$MessageCommand _build() {
     final _$result = _$v ??
-        new _$$MessageCommand._(
+        new _$MessageCommand._(
             header: header,
             text: BuiltValueNullFieldError.checkNotNull(
-                text, r'$MessageCommand', 'text'),
+                text, r'MessageCommand', 'text'),
             timeoutMs: timeoutMs);
     replace(_$result);
     return _$result;

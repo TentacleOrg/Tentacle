@@ -10,23 +10,26 @@ import 'package:built_value/serializer.dart';
 part 'group_state_type.g.dart';
 
 class GroupStateType extends EnumClass {
-
   /// Enum GroupState.
   @BuiltValueEnumConst(wireName: r'Idle')
   static const GroupStateType idle = _$idle;
+
   /// Enum GroupState.
   @BuiltValueEnumConst(wireName: r'Waiting')
   static const GroupStateType waiting = _$waiting;
+
   /// Enum GroupState.
   @BuiltValueEnumConst(wireName: r'Paused')
   static const GroupStateType paused = _$paused;
+
   /// Enum GroupState.
   @BuiltValueEnumConst(wireName: r'Playing')
   static const GroupStateType playing = _$playing;
 
-  static Serializer<GroupStateType> get serializer => _$groupStateTypeSerializer;
+  static Serializer<GroupStateType> get serializer =>
+      _$groupStateTypeSerializer;
 
-  const GroupStateType._(String name): super(name);
+  const GroupStateType._(String name) : super(name);
 
   static BuiltSet<GroupStateType> get values => _$values;
   static GroupStateType valueOf(String name) => _$valueOf(name);
@@ -39,4 +42,3 @@ class GroupStateType extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class GroupStateTypeMixin = Object with _$GroupStateTypeMixin;
-

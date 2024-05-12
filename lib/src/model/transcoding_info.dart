@@ -14,21 +14,22 @@ part 'transcoding_info.g.dart';
 /// TranscodingInfo
 ///
 /// Properties:
-/// * [audioCodec] 
-/// * [videoCodec] 
-/// * [container] 
-/// * [isVideoDirect] 
-/// * [isAudioDirect] 
-/// * [bitrate] 
-/// * [framerate] 
-/// * [completionPercentage] 
-/// * [width] 
-/// * [height] 
-/// * [audioChannels] 
-/// * [hardwareAccelerationType] 
-/// * [transcodeReasons] 
-@BuiltValue(instantiable: false)
-abstract class TranscodingInfo  {
+/// * [audioCodec]
+/// * [videoCodec]
+/// * [container]
+/// * [isVideoDirect]
+/// * [isAudioDirect]
+/// * [bitrate]
+/// * [framerate]
+/// * [completionPercentage]
+/// * [width]
+/// * [height]
+/// * [audioChannels]
+/// * [hardwareAccelerationType]
+/// * [transcodeReasons]
+@BuiltValue()
+abstract class TranscodingInfo
+    implements Built<TranscodingInfo, TranscodingInfoBuilder> {
   @BuiltValueField(wireName: r'AudioCodec')
   String? get audioCodec;
 
@@ -64,17 +65,28 @@ abstract class TranscodingInfo  {
 
   @BuiltValueField(wireName: r'HardwareAccelerationType')
   HardwareEncodingType? get hardwareAccelerationType;
+  // enum hardwareAccelerationTypeEnum {  AMF,  QSV,  NVENC,  V4L2M2M,  VAAPI,  VideoToolBox,  };
 
   @BuiltValueField(wireName: r'TranscodeReasons')
   BuiltList<TranscodeReason>? get transcodeReasons;
 
+  TranscodingInfo._();
+
+  factory TranscodingInfo([void updates(TranscodingInfoBuilder b)]) =
+      _$TranscodingInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TranscodingInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<TranscodingInfo> get serializer => _$TranscodingInfoSerializer();
+  static Serializer<TranscodingInfo> get serializer =>
+      _$TranscodingInfoSerializer();
 }
 
-class _$TranscodingInfoSerializer implements PrimitiveSerializer<TranscodingInfo> {
+class _$TranscodingInfoSerializer
+    implements PrimitiveSerializer<TranscodingInfo> {
   @override
-  final Iterable<Type> types = const [TranscodingInfo];
+  final Iterable<Type> types = const [TranscodingInfo, _$TranscodingInfo];
 
   @override
   final String wireName = r'TranscodingInfo';
@@ -183,47 +195,9 @@ class _$TranscodingInfoSerializer implements PrimitiveSerializer<TranscodingInfo
     TranscodingInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  TranscodingInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($TranscodingInfo)) as $TranscodingInfo;
-  }
-}
-
-/// a concrete implementation of [TranscodingInfo], since [TranscodingInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $TranscodingInfo implements TranscodingInfo, Built<$TranscodingInfo, $TranscodingInfoBuilder> {
-  $TranscodingInfo._();
-
-  factory $TranscodingInfo([void Function($TranscodingInfoBuilder)? updates]) = _$$TranscodingInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TranscodingInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$TranscodingInfo> get serializer => _$$TranscodingInfoSerializer();
-}
-
-class _$$TranscodingInfoSerializer implements PrimitiveSerializer<$TranscodingInfo> {
-  @override
-  final Iterable<Type> types = const [$TranscodingInfo, _$$TranscodingInfo];
-
-  @override
-  final String wireName = r'$TranscodingInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $TranscodingInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(TranscodingInfo))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -335,7 +309,8 @@ class _$$TranscodingInfoSerializer implements PrimitiveSerializer<$TranscodingIn
         case r'TranscodeReasons':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(TranscodeReason)]),
+            specifiedType:
+                const FullType(BuiltList, [FullType(TranscodeReason)]),
           ) as BuiltList<TranscodeReason>;
           result.transcodeReasons.replace(valueDes);
           break;
@@ -348,12 +323,12 @@ class _$$TranscodingInfoSerializer implements PrimitiveSerializer<$TranscodingIn
   }
 
   @override
-  $TranscodingInfo deserialize(
+  TranscodingInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $TranscodingInfoBuilder();
+    final result = TranscodingInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -367,4 +342,3 @@ class _$$TranscodingInfoSerializer implements PrimitiveSerializer<$TranscodingIn
     return result.build();
   }
 }
-

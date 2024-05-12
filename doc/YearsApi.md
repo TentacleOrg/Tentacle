@@ -1,8 +1,8 @@
-# openapi.api.YearsApi
+# tentacle.api.YearsApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -20,20 +20,20 @@ Gets a year.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getYearsApi();
+final api = Tentacle().getYearsApi();
 final int year = 56; // int | The year.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 
 try {
     final response = api.getYear(year, userId);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling YearsApi->getYear: $e\n');
 }
 ```
@@ -67,13 +67,13 @@ Get years.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getYearsApi();
+final api = Tentacle().getYearsApi();
 final int startIndex = 56; // int | Skips over a given number of items within the results. Use for paging.
 final int limit = 56; // int | Optional. The maximum number of records to return.
 final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
@@ -93,7 +93,7 @@ final bool enableImages = true; // bool | Optional. Include image information in
 try {
     final response = api.getYears(startIndex, limit, sortOrder, parentId, fields, excludeItemTypes, includeItemTypes, mediaTypes, sortBy, enableUserData, imageTypeLimit, enableImageTypes, userId, recursive, enableImages);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling YearsApi->getYears: $e\n');
 }
 ```

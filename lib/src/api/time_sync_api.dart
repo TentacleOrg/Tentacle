@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:tentacle/src/model/utc_time_response.dart';
 
 class TimeSyncApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -18,7 +17,7 @@ class TimeSyncApi {
   const TimeSyncApi(this._dio, this._serializers);
 
   /// Gets the current UTC time.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -29,8 +28,8 @@ class TimeSyncApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UtcTimeResponse] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<UtcTimeResponse>> getUtcTime({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<UtcTimeResponse>> getUtcTime({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -59,22 +58,24 @@ class TimeSyncApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UtcTimeResponse _responseData;
+    UtcTimeResponse? _responseData;
 
     try {
-      const _responseType = FullType(UtcTimeResponse);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as UtcTimeResponse;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(UtcTimeResponse),
+            ) as UtcTimeResponse;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UtcTimeResponse>(
@@ -88,5 +89,4 @@ class TimeSyncApi {
       extra: _response.extra,
     );
   }
-
 }

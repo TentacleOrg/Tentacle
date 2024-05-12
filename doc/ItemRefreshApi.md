@@ -1,8 +1,8 @@
-# openapi.api.ItemRefreshApi
+# tentacle.api.ItemRefreshApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -19,13 +19,13 @@ Refreshes metadata for an item.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getItemRefreshApi();
+final api = Tentacle().getItemRefreshApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
 final MetadataRefreshMode metadataRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the metadata refresh mode.
 final MetadataRefreshMode imageRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the image refresh mode.
@@ -34,7 +34,7 @@ final bool replaceAllImages = true; // bool | (Optional) Determines if images sh
 
 try {
     api.refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ItemRefreshApi->refreshItem: $e\n');
 }
 ```

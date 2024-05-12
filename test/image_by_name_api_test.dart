@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for ImageByNameApi
 void main() {
   final instance = Tentacle().getImageByNameApi();
@@ -48,6 +47,5 @@ void main() {
     test('test getRatingImages', () async {
       // TODO
     });
-
   });
 }

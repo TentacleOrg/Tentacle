@@ -92,7 +92,9 @@ class _$FontFileSerializer implements PrimitiveSerializer<FontFile> {
     FontFile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -164,4 +166,3 @@ class _$FontFileSerializer implements PrimitiveSerializer<FontFile> {
     return result.build();
   }
 }
-

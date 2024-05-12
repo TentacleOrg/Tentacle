@@ -8,14 +8,14 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/create_admin_notification_request.dart';
+import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/admin_notification_dto.dart';
 import 'package:tentacle/src/model/name_id_pair.dart';
 import 'package:tentacle/src/model/notification_result_dto.dart';
 import 'package:tentacle/src/model/notification_type_info.dart';
 import 'package:tentacle/src/model/notifications_summary_dto.dart';
 
 class NotificationsApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -23,10 +23,10 @@ class NotificationsApi {
   const NotificationsApi(this._dio, this._serializers);
 
   /// Sends a notification to all admins.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [createAdminNotificationRequest] - The notification request.
+  /// * [adminNotificationDto] - The notification request.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -35,9 +35,9 @@ class NotificationsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> createAdminNotification({ 
-    required CreateAdminNotificationRequest createAdminNotificationRequest,
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> createAdminNotification({
+    required AdminNotificationDto adminNotificationDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -69,18 +69,19 @@ class NotificationsApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(CreateAdminNotificationRequest);
-      _bodyData = _serializers.serialize(createAdminNotificationRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+      const _type = FullType(AdminNotificationDto);
+      _bodyData =
+          _serializers.serialize(adminNotificationDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -96,7 +97,7 @@ class NotificationsApi {
   }
 
   /// Gets notification services.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -107,8 +108,8 @@ class NotificationsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<NameIdPair>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<NameIdPair>>> getNotificationServices({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<NameIdPair>>> getNotificationServices({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -144,22 +145,24 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<NameIdPair> _responseData;
+    BuiltList<NameIdPair>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(NameIdPair)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<NameIdPair>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(NameIdPair)]),
+            ) as BuiltList<NameIdPair>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<NameIdPair>>(
@@ -175,7 +178,7 @@ class NotificationsApi {
   }
 
   /// Gets notification types.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -186,8 +189,8 @@ class NotificationsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<NotificationTypeInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<NotificationTypeInfo>>> getNotificationTypes({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<NotificationTypeInfo>>> getNotificationTypes({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -223,22 +226,25 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<NotificationTypeInfo> _responseData;
+    BuiltList<NotificationTypeInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(NotificationTypeInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<NotificationTypeInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(NotificationTypeInfo)]),
+            ) as BuiltList<NotificationTypeInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<NotificationTypeInfo>>(
@@ -254,10 +260,10 @@ class NotificationsApi {
   }
 
   /// Gets a user&#39;s notifications.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [userId] 
+  /// * [userId]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -266,8 +272,8 @@ class NotificationsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [NotificationResultDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<NotificationResultDto>> getNotifications({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<NotificationResultDto>> getNotifications({
     required String userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -276,7 +282,10 @@ class NotificationsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Notifications/{userId}'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Notifications/{userId}'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -304,22 +313,24 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    NotificationResultDto _responseData;
+    NotificationResultDto? _responseData;
 
     try {
-      const _responseType = FullType(NotificationResultDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as NotificationResultDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(NotificationResultDto),
+            ) as NotificationResultDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<NotificationResultDto>(
@@ -335,10 +346,10 @@ class NotificationsApi {
   }
 
   /// Gets a user&#39;s notification summary.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [userId] 
+  /// * [userId]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -347,8 +358,8 @@ class NotificationsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [NotificationsSummaryDto] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<NotificationsSummaryDto>> getNotificationsSummary({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<NotificationsSummaryDto>> getNotificationsSummary({
     required String userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -357,7 +368,10 @@ class NotificationsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Notifications/{userId}/Summary'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Notifications/{userId}/Summary'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -385,22 +399,24 @@ class NotificationsApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    NotificationsSummaryDto _responseData;
+    NotificationsSummaryDto? _responseData;
 
     try {
-      const _responseType = FullType(NotificationsSummaryDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as NotificationsSummaryDto;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(NotificationsSummaryDto),
+            ) as NotificationsSummaryDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<NotificationsSummaryDto>(
@@ -416,10 +432,10 @@ class NotificationsApi {
   }
 
   /// Sets notifications as read.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [userId] 
+  /// * [userId]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -428,8 +444,8 @@ class NotificationsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> setRead({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> setRead({
     required String userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -438,7 +454,10 @@ class NotificationsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Notifications/{userId}/Read'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Notifications/{userId}/Read'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -470,10 +489,10 @@ class NotificationsApi {
   }
 
   /// Sets notifications as unread.
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [userId] 
+  /// * [userId]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -482,8 +501,8 @@ class NotificationsApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> setUnread({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> setUnread({
     required String userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -492,7 +511,10 @@ class NotificationsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Notifications/{userId}/Unread'.replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Notifications/{userId}/Unread'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -522,5 +544,4 @@ class NotificationsApi {
 
     return _response;
   }
-
 }

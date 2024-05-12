@@ -17,7 +17,8 @@ part 'object_group_update.g.dart';
 /// * [type] - Gets the update type.
 /// * [data] - Gets the update data.
 @BuiltValue()
-abstract class ObjectGroupUpdate implements Built<ObjectGroupUpdate, ObjectGroupUpdateBuilder> {
+abstract class ObjectGroupUpdate
+    implements Built<ObjectGroupUpdate, ObjectGroupUpdateBuilder> {
   /// Gets the group identifier.
   @BuiltValueField(wireName: r'GroupId')
   String? get groupId;
@@ -25,6 +26,7 @@ abstract class ObjectGroupUpdate implements Built<ObjectGroupUpdate, ObjectGroup
   /// Gets the update type.
   @BuiltValueField(wireName: r'Type')
   GroupUpdateType? get type;
+  // enum typeEnum {  UserJoined,  UserLeft,  GroupJoined,  GroupLeft,  StateUpdate,  PlayQueue,  NotInGroup,  GroupDoesNotExist,  CreateGroupDenied,  JoinGroupDenied,  LibraryAccessDenied,  };
 
   /// Gets the update data.
   @BuiltValueField(wireName: r'Data')
@@ -32,16 +34,19 @@ abstract class ObjectGroupUpdate implements Built<ObjectGroupUpdate, ObjectGroup
 
   ObjectGroupUpdate._();
 
-  factory ObjectGroupUpdate([void updates(ObjectGroupUpdateBuilder b)]) = _$ObjectGroupUpdate;
+  factory ObjectGroupUpdate([void updates(ObjectGroupUpdateBuilder b)]) =
+      _$ObjectGroupUpdate;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ObjectGroupUpdateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ObjectGroupUpdate> get serializer => _$ObjectGroupUpdateSerializer();
+  static Serializer<ObjectGroupUpdate> get serializer =>
+      _$ObjectGroupUpdateSerializer();
 }
 
-class _$ObjectGroupUpdateSerializer implements PrimitiveSerializer<ObjectGroupUpdate> {
+class _$ObjectGroupUpdateSerializer
+    implements PrimitiveSerializer<ObjectGroupUpdate> {
   @override
   final Iterable<Type> types = const [ObjectGroupUpdate, _$ObjectGroupUpdate];
 
@@ -82,7 +87,9 @@ class _$ObjectGroupUpdateSerializer implements PrimitiveSerializer<ObjectGroupUp
     ObjectGroupUpdate object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -147,4 +154,3 @@ class _$ObjectGroupUpdateSerializer implements PrimitiveSerializer<ObjectGroupUp
     return result.build();
   }
 }
-

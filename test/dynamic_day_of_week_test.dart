@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for DynamicDayOfWeek
 void main() {
-
-  group(DynamicDayOfWeek, () {
-  });
+  group(DynamicDayOfWeek, () {});
 }

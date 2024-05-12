@@ -10,17 +10,17 @@ import 'package:built_value/serializer.dart';
 part 'series_status.g.dart';
 
 class SeriesStatus extends EnumClass {
-
   /// Enum SeriesStatus.
   @BuiltValueEnumConst(wireName: r'Continuing')
   static const SeriesStatus continuing = _$continuing;
+
   /// Enum SeriesStatus.
   @BuiltValueEnumConst(wireName: r'Ended')
   static const SeriesStatus ended = _$ended;
 
   static Serializer<SeriesStatus> get serializer => _$seriesStatusSerializer;
 
-  const SeriesStatus._(String name): super(name);
+  const SeriesStatus._(String name) : super(name);
 
   static BuiltSet<SeriesStatus> get values => _$values;
   static SeriesStatus valueOf(String name) => _$valueOf(name);
@@ -33,4 +33,3 @@ class SeriesStatus extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class SeriesStatusMixin = Object with _$SeriesStatusMixin;
-

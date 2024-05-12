@@ -33,7 +33,8 @@ void main() {
     });
 
     // bool enableOriginalAudioWithEncodedRecordings
-    test('to test the property `enableOriginalAudioWithEncodedRecordings`', () async {
+    test('to test the property `enableOriginalAudioWithEncodedRecordings`',
+        () async {
       // TODO
     });
 
@@ -71,6 +72,5 @@ void main() {
     test('to test the property `recordingPostProcessorArguments`', () async {
       // TODO
     });
-
   });
 }

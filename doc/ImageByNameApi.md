@@ -1,8 +1,8 @@
-# openapi.api.ImageByNameApi
+# tentacle.api.ImageByNameApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -24,16 +24,16 @@ Get General Image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageByNameApi();
+final api = Tentacle().getImageByNameApi();
 final String name = name_example; // String | The name of the image.
 final String type = type_example; // String | Image Type (primary, backdrop, logo, etc).
 
 try {
     final response = api.getGeneralImage(name, type);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageByNameApi->getGeneralImage: $e\n');
 }
 ```
@@ -67,18 +67,18 @@ Get all general images.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageByNameApi();
+final api = Tentacle().getImageByNameApi();
 
 try {
     final response = api.getGeneralImages();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageByNameApi->getGeneralImages: $e\n');
 }
 ```
@@ -108,16 +108,16 @@ Get media info image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageByNameApi();
+final api = Tentacle().getImageByNameApi();
 final String theme = theme_example; // String | The theme to get the image from.
 final String name = name_example; // String | The name of the image.
 
 try {
     final response = api.getMediaInfoImage(theme, name);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageByNameApi->getMediaInfoImage: $e\n');
 }
 ```
@@ -151,18 +151,18 @@ Get all media info images.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageByNameApi();
+final api = Tentacle().getImageByNameApi();
 
 try {
     final response = api.getMediaInfoImages();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageByNameApi->getMediaInfoImages: $e\n');
 }
 ```
@@ -192,16 +192,16 @@ Get rating image.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getImageByNameApi();
+final api = Tentacle().getImageByNameApi();
 final String theme = theme_example; // String | The theme to get the image from.
 final String name = name_example; // String | The name of the image.
 
 try {
     final response = api.getRatingImage(theme, name);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageByNameApi->getRatingImage: $e\n');
 }
 ```
@@ -235,18 +235,18 @@ Get all general images.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getImageByNameApi();
+final api = Tentacle().getImageByNameApi();
 
 try {
     final response = api.getRatingImages();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling ImageByNameApi->getRatingImages: $e\n');
 }
 ```

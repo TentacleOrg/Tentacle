@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/type_options.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/library_options.dart';
-import 'package:tentacle/src/model/media_path_info.dart';
 import 'package:tentacle/src/model/embedded_subtitle_options.dart';
+import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/media_path_info.dart';
+import 'package:tentacle/src/model/type_options.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,49 +16,60 @@ part 'add_virtual_folder_dto_library_options.g.dart';
 /// Gets or sets library options.
 ///
 /// Properties:
-/// * [enablePhotos] 
-/// * [enableRealtimeMonitor] 
-/// * [enableChapterImageExtraction] 
-/// * [extractChapterImagesDuringLibraryScan] 
-/// * [pathInfos] 
-/// * [saveLocalMetadata] 
-/// * [enableInternetProviders] 
-/// * [enableAutomaticSeriesGrouping] 
-/// * [enableEmbeddedTitles] 
-/// * [enableEmbeddedEpisodeInfos] 
-/// * [automaticRefreshIntervalDays] 
+/// * [enablePhotos]
+/// * [enableRealtimeMonitor]
+/// * [enableChapterImageExtraction]
+/// * [extractChapterImagesDuringLibraryScan]
+/// * [pathInfos]
+/// * [saveLocalMetadata]
+/// * [enableInternetProviders]
+/// * [enableAutomaticSeriesGrouping]
+/// * [enableEmbeddedTitles]
+/// * [enableEmbeddedEpisodeInfos]
+/// * [automaticRefreshIntervalDays]
 /// * [preferredMetadataLanguage] - Gets or sets the preferred metadata language.
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
-/// * [seasonZeroDisplayName] 
-/// * [metadataSavers] 
-/// * [disabledLocalMetadataReaders] 
-/// * [localMetadataReaderOrder] 
-/// * [disabledSubtitleFetchers] 
-/// * [subtitleFetcherOrder] 
-/// * [skipSubtitlesIfEmbeddedSubtitlesPresent] 
-/// * [skipSubtitlesIfAudioTrackMatches] 
-/// * [subtitleDownloadLanguages] 
-/// * [requirePerfectSubtitleMatch] 
-/// * [saveSubtitlesWithMedia] 
-/// * [automaticallyAddToCollection] 
+/// * [seasonZeroDisplayName]
+/// * [metadataSavers]
+/// * [disabledLocalMetadataReaders]
+/// * [localMetadataReaderOrder]
+/// * [disabledSubtitleFetchers]
+/// * [subtitleFetcherOrder]
+/// * [skipSubtitlesIfEmbeddedSubtitlesPresent]
+/// * [skipSubtitlesIfAudioTrackMatches]
+/// * [subtitleDownloadLanguages]
+/// * [requirePerfectSubtitleMatch]
+/// * [saveSubtitlesWithMedia]
+/// * [automaticallyAddToCollection]
 /// * [allowEmbeddedSubtitles] - An enum representing the options to disable embedded subs.
-/// * [typeOptions] 
+/// * [typeOptions]
 @BuiltValue()
-abstract class AddVirtualFolderDtoLibraryOptions implements LibraryOptions, Built<AddVirtualFolderDtoLibraryOptions, AddVirtualFolderDtoLibraryOptionsBuilder> {
+abstract class AddVirtualFolderDtoLibraryOptions
+    implements
+        LibraryOptions,
+        Built<AddVirtualFolderDtoLibraryOptions,
+            AddVirtualFolderDtoLibraryOptionsBuilder> {
   AddVirtualFolderDtoLibraryOptions._();
 
-  factory AddVirtualFolderDtoLibraryOptions([void updates(AddVirtualFolderDtoLibraryOptionsBuilder b)]) = _$AddVirtualFolderDtoLibraryOptions;
+  factory AddVirtualFolderDtoLibraryOptions(
+          [void updates(AddVirtualFolderDtoLibraryOptionsBuilder b)]) =
+      _$AddVirtualFolderDtoLibraryOptions;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(AddVirtualFolderDtoLibraryOptionsBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<AddVirtualFolderDtoLibraryOptions> get serializer => _$AddVirtualFolderDtoLibraryOptionsSerializer();
+  static Serializer<AddVirtualFolderDtoLibraryOptions> get serializer =>
+      _$AddVirtualFolderDtoLibraryOptionsSerializer();
 }
 
-class _$AddVirtualFolderDtoLibraryOptionsSerializer implements PrimitiveSerializer<AddVirtualFolderDtoLibraryOptions> {
+class _$AddVirtualFolderDtoLibraryOptionsSerializer
+    implements PrimitiveSerializer<AddVirtualFolderDtoLibraryOptions> {
   @override
-  final Iterable<Type> types = const [AddVirtualFolderDtoLibraryOptions, _$AddVirtualFolderDtoLibraryOptions];
+  final Iterable<Type> types = const [
+    AddVirtualFolderDtoLibraryOptions,
+    _$AddVirtualFolderDtoLibraryOptions
+  ];
 
   @override
   final String wireName = r'AddVirtualFolderDtoLibraryOptions';
@@ -265,7 +276,9 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer implements PrimitiveSerializ
     AddVirtualFolderDtoLibraryOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -290,7 +303,8 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer implements PrimitiveSerializ
         case r'SubtitleDownloadLanguages':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.subtitleDownloadLanguages.replace(valueDes);
@@ -341,7 +355,8 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer implements PrimitiveSerializ
         case r'LocalMetadataReaderOrder':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.localMetadataReaderOrder.replace(valueDes);
@@ -363,7 +378,8 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer implements PrimitiveSerializ
         case r'MetadataSavers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.metadataSavers.replace(valueDes);
@@ -502,4 +518,3 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer implements PrimitiveSerializ
     return result.build();
   }
 }
-

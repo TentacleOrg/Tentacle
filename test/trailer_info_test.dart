@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TrailerInfo
 void main() {
-  //final instance = TrailerInfoBuilder();
+  final instance = TrailerInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(TrailerInfo, () {
@@ -68,6 +68,5 @@ void main() {
     test('to test the property `isAutomated`', () async {
       // TODO
     });
-
   });
 }

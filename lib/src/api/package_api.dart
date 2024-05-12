@@ -14,7 +14,6 @@ import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/repository_info.dart';
 
 class PackageApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -22,7 +21,7 @@ class PackageApi {
   const PackageApi(this._dio, this._serializers);
 
   /// Cancels a package installation.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [packageId] - Installation Id.
@@ -34,8 +33,8 @@ class PackageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> cancelPackageInstallation({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> cancelPackageInstallation({
     required String packageId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -44,7 +43,10 @@ class PackageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Packages/Installing/{packageId}'.replaceAll('{' r'packageId' '}', packageId.toString());
+    final _path = r'/Packages/Installing/{packageId}'.replaceAll(
+        '{' r'packageId' '}',
+        encodeQueryParameter(_serializers, packageId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -76,7 +78,7 @@ class PackageApi {
   }
 
   /// Gets a package by name or assembly GUID.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - The name of the package.
@@ -89,8 +91,8 @@ class PackageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [PackageInfo] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<PackageInfo>> getPackageInfo({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<PackageInfo>> getPackageInfo({
     required String name,
     String? assemblyGuid,
     CancelToken? cancelToken,
@@ -100,7 +102,10 @@ class PackageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Packages/{name}'.replaceAll('{' r'name' '}', name.toString());
+    final _path = r'/Packages/{name}'.replaceAll(
+        '{' r'name' '}',
+        encodeQueryParameter(_serializers, name, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -121,7 +126,9 @@ class PackageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (assemblyGuid != null) r'assemblyGuid': encodeQueryParameter(_serializers, assemblyGuid, const FullType(String)),
+      if (assemblyGuid != null)
+        r'assemblyGuid': encodeQueryParameter(
+            _serializers, assemblyGuid, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -133,22 +140,24 @@ class PackageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    PackageInfo _responseData;
+    PackageInfo? _responseData;
 
     try {
-      const _responseType = FullType(PackageInfo);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as PackageInfo;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(PackageInfo),
+            ) as PackageInfo;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<PackageInfo>(
@@ -164,7 +173,7 @@ class PackageApi {
   }
 
   /// Gets available packages.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -175,8 +184,8 @@ class PackageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<PackageInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<PackageInfo>>> getPackages({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<PackageInfo>>> getPackages({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -212,22 +221,24 @@ class PackageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<PackageInfo> _responseData;
+    BuiltList<PackageInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(PackageInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<PackageInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(PackageInfo)]),
+            ) as BuiltList<PackageInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<PackageInfo>>(
@@ -243,7 +254,7 @@ class PackageApi {
   }
 
   /// Gets all package repositories.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -254,8 +265,8 @@ class PackageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<RepositoryInfo>] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<BuiltList<RepositoryInfo>>> getRepositories({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<RepositoryInfo>>> getRepositories({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -291,22 +302,25 @@ class PackageApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<RepositoryInfo> _responseData;
+    BuiltList<RepositoryInfo>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(RepositoryInfo)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<RepositoryInfo>;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(RepositoryInfo)]),
+            ) as BuiltList<RepositoryInfo>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<RepositoryInfo>>(
@@ -322,7 +336,7 @@ class PackageApi {
   }
 
   /// Installs a package.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [name] - Package name.
@@ -337,8 +351,8 @@ class PackageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> installPackage({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> installPackage({
     required String name,
     String? assemblyGuid,
     String? version,
@@ -350,7 +364,10 @@ class PackageApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Packages/Installed/{name}'.replaceAll('{' r'name' '}', name.toString());
+    final _path = r'/Packages/Installed/{name}'.replaceAll(
+        '{' r'name' '}',
+        encodeQueryParameter(_serializers, name, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -371,9 +388,15 @@ class PackageApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (assemblyGuid != null) r'assemblyGuid': encodeQueryParameter(_serializers, assemblyGuid, const FullType(String)),
-      if (version != null) r'version': encodeQueryParameter(_serializers, version, const FullType(String)),
-      if (repositoryUrl != null) r'repositoryUrl': encodeQueryParameter(_serializers, repositoryUrl, const FullType(String)),
+      if (assemblyGuid != null)
+        r'assemblyGuid': encodeQueryParameter(
+            _serializers, assemblyGuid, const FullType(String)),
+      if (version != null)
+        r'version':
+            encodeQueryParameter(_serializers, version, const FullType(String)),
+      if (repositoryUrl != null)
+        r'repositoryUrl': encodeQueryParameter(
+            _serializers, repositoryUrl, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(
@@ -389,7 +412,7 @@ class PackageApi {
   }
 
   /// Sets the enabled and existing package repositories.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [repositoryInfo] - The list of package repositories.
@@ -401,8 +424,8 @@ class PackageApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future]
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<void>> setRepositories({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> setRepositories({
     required BuiltList<RepositoryInfo> repositoryInfo,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -437,16 +460,16 @@ class PackageApi {
     try {
       const _type = FullType(BuiltList, [FullType(RepositoryInfo)]);
       _bodyData = _serializers.serialize(repositoryInfo, specifiedType: _type);
-
-    } catch(error, stackTrace) {
-      throw DioError(
-         requestOptions: _options.compose(
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     final _response = await _dio.request<Object>(
@@ -460,5 +483,4 @@ class PackageApi {
 
     return _response;
   }
-
 }

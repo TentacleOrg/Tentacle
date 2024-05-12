@@ -14,8 +14,9 @@ part 'authenticate_user_by_name.g.dart';
 /// * [username] - Gets or sets the username.
 /// * [pw] - Gets or sets the plain text password.
 /// * [password] - Gets or sets the sha1-hashed password.
-@BuiltValue(instantiable: false)
-abstract class AuthenticateUserByName  {
+@BuiltValue()
+abstract class AuthenticateUserByName
+    implements Built<AuthenticateUserByName, AuthenticateUserByNameBuilder> {
   /// Gets or sets the username.
   @BuiltValueField(wireName: r'Username')
   String? get username;
@@ -25,16 +26,31 @@ abstract class AuthenticateUserByName  {
   String? get pw;
 
   /// Gets or sets the sha1-hashed password.
+  @Deprecated('password has been deprecated')
   @BuiltValueField(wireName: r'Password')
   String? get password;
 
+  AuthenticateUserByName._();
+
+  factory AuthenticateUserByName(
+          [void updates(AuthenticateUserByNameBuilder b)]) =
+      _$AuthenticateUserByName;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(AuthenticateUserByNameBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<AuthenticateUserByName> get serializer => _$AuthenticateUserByNameSerializer();
+  static Serializer<AuthenticateUserByName> get serializer =>
+      _$AuthenticateUserByNameSerializer();
 }
 
-class _$AuthenticateUserByNameSerializer implements PrimitiveSerializer<AuthenticateUserByName> {
+class _$AuthenticateUserByNameSerializer
+    implements PrimitiveSerializer<AuthenticateUserByName> {
   @override
-  final Iterable<Type> types = const [AuthenticateUserByName];
+  final Iterable<Type> types = const [
+    AuthenticateUserByName,
+    _$AuthenticateUserByName
+  ];
 
   @override
   final String wireName = r'AuthenticateUserByName';
@@ -73,47 +89,9 @@ class _$AuthenticateUserByNameSerializer implements PrimitiveSerializer<Authenti
     AuthenticateUserByName object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  AuthenticateUserByName deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($AuthenticateUserByName)) as $AuthenticateUserByName;
-  }
-}
-
-/// a concrete implementation of [AuthenticateUserByName], since [AuthenticateUserByName] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $AuthenticateUserByName implements AuthenticateUserByName, Built<$AuthenticateUserByName, $AuthenticateUserByNameBuilder> {
-  $AuthenticateUserByName._();
-
-  factory $AuthenticateUserByName([void Function($AuthenticateUserByNameBuilder)? updates]) = _$$AuthenticateUserByName;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($AuthenticateUserByNameBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$AuthenticateUserByName> get serializer => _$$AuthenticateUserByNameSerializer();
-}
-
-class _$$AuthenticateUserByNameSerializer implements PrimitiveSerializer<$AuthenticateUserByName> {
-  @override
-  final Iterable<Type> types = const [$AuthenticateUserByName, _$$AuthenticateUserByName];
-
-  @override
-  final String wireName = r'$AuthenticateUserByName';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $AuthenticateUserByName object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(AuthenticateUserByName))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -161,12 +139,12 @@ class _$$AuthenticateUserByNameSerializer implements PrimitiveSerializer<$Authen
   }
 
   @override
-  $AuthenticateUserByName deserialize(
+  AuthenticateUserByName deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $AuthenticateUserByNameBuilder();
+    final result = AuthenticateUserByNameBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -180,4 +158,3 @@ class _$$AuthenticateUserByNameSerializer implements PrimitiveSerializer<$Authen
     return result.build();
   }
 }
-

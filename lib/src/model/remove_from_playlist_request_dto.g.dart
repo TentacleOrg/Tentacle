@@ -6,20 +6,7 @@ part of 'remove_from_playlist_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class RemoveFromPlaylistRequestDtoBuilder {
-  void replace(RemoveFromPlaylistRequestDto other);
-  void update(void Function(RemoveFromPlaylistRequestDtoBuilder) updates);
-  ListBuilder<String> get playlistItemIds;
-  set playlistItemIds(ListBuilder<String>? playlistItemIds);
-
-  bool? get clearPlaylist;
-  set clearPlaylist(bool? clearPlaylist);
-
-  bool? get clearPlayingItem;
-  set clearPlayingItem(bool? clearPlayingItem);
-}
-
-class _$$RemoveFromPlaylistRequestDto extends $RemoveFromPlaylistRequestDto {
+class _$RemoveFromPlaylistRequestDto extends RemoveFromPlaylistRequestDto {
   @override
   final BuiltList<String>? playlistItemIds;
   @override
@@ -27,27 +14,27 @@ class _$$RemoveFromPlaylistRequestDto extends $RemoveFromPlaylistRequestDto {
   @override
   final bool? clearPlayingItem;
 
-  factory _$$RemoveFromPlaylistRequestDto(
-          [void Function($RemoveFromPlaylistRequestDtoBuilder)? updates]) =>
-      (new $RemoveFromPlaylistRequestDtoBuilder()..update(updates))._build();
+  factory _$RemoveFromPlaylistRequestDto(
+          [void Function(RemoveFromPlaylistRequestDtoBuilder)? updates]) =>
+      (new RemoveFromPlaylistRequestDtoBuilder()..update(updates))._build();
 
-  _$$RemoveFromPlaylistRequestDto._(
+  _$RemoveFromPlaylistRequestDto._(
       {this.playlistItemIds, this.clearPlaylist, this.clearPlayingItem})
       : super._();
 
   @override
-  $RemoveFromPlaylistRequestDto rebuild(
-          void Function($RemoveFromPlaylistRequestDtoBuilder) updates) =>
+  RemoveFromPlaylistRequestDto rebuild(
+          void Function(RemoveFromPlaylistRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $RemoveFromPlaylistRequestDtoBuilder toBuilder() =>
-      new $RemoveFromPlaylistRequestDtoBuilder()..replace(this);
+  RemoveFromPlaylistRequestDtoBuilder toBuilder() =>
+      new RemoveFromPlaylistRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $RemoveFromPlaylistRequestDto &&
+    return other is RemoveFromPlaylistRequestDto &&
         playlistItemIds == other.playlistItemIds &&
         clearPlaylist == other.clearPlaylist &&
         clearPlayingItem == other.clearPlayingItem;
@@ -65,7 +52,7 @@ class _$$RemoveFromPlaylistRequestDto extends $RemoveFromPlaylistRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$RemoveFromPlaylistRequestDto')
+    return (newBuiltValueToStringHelper(r'RemoveFromPlaylistRequestDto')
           ..add('playlistItemIds', playlistItemIds)
           ..add('clearPlaylist', clearPlaylist)
           ..add('clearPlayingItem', clearPlayingItem))
@@ -73,34 +60,33 @@ class _$$RemoveFromPlaylistRequestDto extends $RemoveFromPlaylistRequestDto {
   }
 }
 
-class $RemoveFromPlaylistRequestDtoBuilder
+class RemoveFromPlaylistRequestDtoBuilder
     implements
-        Builder<$RemoveFromPlaylistRequestDto,
-            $RemoveFromPlaylistRequestDtoBuilder>,
-        RemoveFromPlaylistRequestDtoBuilder {
-  _$$RemoveFromPlaylistRequestDto? _$v;
+        Builder<RemoveFromPlaylistRequestDto,
+            RemoveFromPlaylistRequestDtoBuilder> {
+  _$RemoveFromPlaylistRequestDto? _$v;
 
   ListBuilder<String>? _playlistItemIds;
   ListBuilder<String> get playlistItemIds =>
       _$this._playlistItemIds ??= new ListBuilder<String>();
-  set playlistItemIds(covariant ListBuilder<String>? playlistItemIds) =>
+  set playlistItemIds(ListBuilder<String>? playlistItemIds) =>
       _$this._playlistItemIds = playlistItemIds;
 
   bool? _clearPlaylist;
   bool? get clearPlaylist => _$this._clearPlaylist;
-  set clearPlaylist(covariant bool? clearPlaylist) =>
+  set clearPlaylist(bool? clearPlaylist) =>
       _$this._clearPlaylist = clearPlaylist;
 
   bool? _clearPlayingItem;
   bool? get clearPlayingItem => _$this._clearPlayingItem;
-  set clearPlayingItem(covariant bool? clearPlayingItem) =>
+  set clearPlayingItem(bool? clearPlayingItem) =>
       _$this._clearPlayingItem = clearPlayingItem;
 
-  $RemoveFromPlaylistRequestDtoBuilder() {
-    $RemoveFromPlaylistRequestDto._defaults(this);
+  RemoveFromPlaylistRequestDtoBuilder() {
+    RemoveFromPlaylistRequestDto._defaults(this);
   }
 
-  $RemoveFromPlaylistRequestDtoBuilder get _$this {
+  RemoveFromPlaylistRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _playlistItemIds = $v.playlistItemIds?.toBuilder();
@@ -112,24 +98,24 @@ class $RemoveFromPlaylistRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $RemoveFromPlaylistRequestDto other) {
+  void replace(RemoveFromPlaylistRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$RemoveFromPlaylistRequestDto;
+    _$v = other as _$RemoveFromPlaylistRequestDto;
   }
 
   @override
-  void update(void Function($RemoveFromPlaylistRequestDtoBuilder)? updates) {
+  void update(void Function(RemoveFromPlaylistRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $RemoveFromPlaylistRequestDto build() => _build();
+  RemoveFromPlaylistRequestDto build() => _build();
 
-  _$$RemoveFromPlaylistRequestDto _build() {
-    _$$RemoveFromPlaylistRequestDto _$result;
+  _$RemoveFromPlaylistRequestDto _build() {
+    _$RemoveFromPlaylistRequestDto _$result;
     try {
       _$result = _$v ??
-          new _$$RemoveFromPlaylistRequestDto._(
+          new _$RemoveFromPlaylistRequestDto._(
               playlistItemIds: _playlistItemIds?.build(),
               clearPlaylist: clearPlaylist,
               clearPlayingItem: clearPlayingItem);
@@ -140,7 +126,7 @@ class $RemoveFromPlaylistRequestDtoBuilder
         _playlistItemIds?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$RemoveFromPlaylistRequestDto', _$failedField, e.toString());
+            r'RemoveFromPlaylistRequestDto', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -6,95 +6,7 @@ part of 'timer_info_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class TimerInfoDtoBuilder {
-  void replace(TimerInfoDto other);
-  void update(void Function(TimerInfoDtoBuilder) updates);
-  String? get id;
-  set id(String? id);
-
-  String? get type;
-  set type(String? type);
-
-  String? get serverId;
-  set serverId(String? serverId);
-
-  String? get externalId;
-  set externalId(String? externalId);
-
-  String? get channelId;
-  set channelId(String? channelId);
-
-  String? get externalChannelId;
-  set externalChannelId(String? externalChannelId);
-
-  String? get channelName;
-  set channelName(String? channelName);
-
-  String? get channelPrimaryImageTag;
-  set channelPrimaryImageTag(String? channelPrimaryImageTag);
-
-  String? get programId;
-  set programId(String? programId);
-
-  String? get externalProgramId;
-  set externalProgramId(String? externalProgramId);
-
-  String? get name;
-  set name(String? name);
-
-  String? get overview;
-  set overview(String? overview);
-
-  DateTime? get startDate;
-  set startDate(DateTime? startDate);
-
-  DateTime? get endDate;
-  set endDate(DateTime? endDate);
-
-  String? get serviceName;
-  set serviceName(String? serviceName);
-
-  int? get priority;
-  set priority(int? priority);
-
-  int? get prePaddingSeconds;
-  set prePaddingSeconds(int? prePaddingSeconds);
-
-  int? get postPaddingSeconds;
-  set postPaddingSeconds(int? postPaddingSeconds);
-
-  bool? get isPrePaddingRequired;
-  set isPrePaddingRequired(bool? isPrePaddingRequired);
-
-  String? get parentBackdropItemId;
-  set parentBackdropItemId(String? parentBackdropItemId);
-
-  ListBuilder<String> get parentBackdropImageTags;
-  set parentBackdropImageTags(ListBuilder<String>? parentBackdropImageTags);
-
-  bool? get isPostPaddingRequired;
-  set isPostPaddingRequired(bool? isPostPaddingRequired);
-
-  KeepUntil? get keepUntil;
-  set keepUntil(KeepUntil? keepUntil);
-
-  RecordingStatus? get status;
-  set status(RecordingStatus? status);
-
-  String? get seriesTimerId;
-  set seriesTimerId(String? seriesTimerId);
-
-  String? get externalSeriesTimerId;
-  set externalSeriesTimerId(String? externalSeriesTimerId);
-
-  int? get runTimeTicks;
-  set runTimeTicks(int? runTimeTicks);
-
-  TimerInfoDtoProgramInfoBuilder get programInfo;
-  set programInfo(TimerInfoDtoProgramInfoBuilder? programInfo);
-}
-
-class _$$TimerInfoDto extends $TimerInfoDto {
+class _$TimerInfoDto extends TimerInfoDto {
   @override
   final String? id;
   @override
@@ -152,10 +64,10 @@ class _$$TimerInfoDto extends $TimerInfoDto {
   @override
   final TimerInfoDtoProgramInfo? programInfo;
 
-  factory _$$TimerInfoDto([void Function($TimerInfoDtoBuilder)? updates]) =>
-      (new $TimerInfoDtoBuilder()..update(updates))._build();
+  factory _$TimerInfoDto([void Function(TimerInfoDtoBuilder)? updates]) =>
+      (new TimerInfoDtoBuilder()..update(updates))._build();
 
-  _$$TimerInfoDto._(
+  _$TimerInfoDto._(
       {this.id,
       this.type,
       this.serverId,
@@ -187,16 +99,16 @@ class _$$TimerInfoDto extends $TimerInfoDto {
       : super._();
 
   @override
-  $TimerInfoDto rebuild(void Function($TimerInfoDtoBuilder) updates) =>
+  TimerInfoDto rebuild(void Function(TimerInfoDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $TimerInfoDtoBuilder toBuilder() => new $TimerInfoDtoBuilder()..replace(this);
+  TimerInfoDtoBuilder toBuilder() => new TimerInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $TimerInfoDto &&
+    return other is TimerInfoDto &&
         id == other.id &&
         type == other.type &&
         serverId == other.serverId &&
@@ -264,7 +176,7 @@ class _$$TimerInfoDto extends $TimerInfoDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$TimerInfoDto')
+    return (newBuiltValueToStringHelper(r'TimerInfoDto')
           ..add('id', id)
           ..add('type', type)
           ..add('serverId', serverId)
@@ -297,149 +209,141 @@ class _$$TimerInfoDto extends $TimerInfoDto {
   }
 }
 
-class $TimerInfoDtoBuilder
-    implements
-        Builder<$TimerInfoDto, $TimerInfoDtoBuilder>,
-        TimerInfoDtoBuilder {
-  _$$TimerInfoDto? _$v;
+class TimerInfoDtoBuilder
+    implements Builder<TimerInfoDto, TimerInfoDtoBuilder> {
+  _$TimerInfoDto? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   String? _type;
   String? get type => _$this._type;
-  set type(covariant String? type) => _$this._type = type;
+  set type(String? type) => _$this._type = type;
 
   String? _serverId;
   String? get serverId => _$this._serverId;
-  set serverId(covariant String? serverId) => _$this._serverId = serverId;
+  set serverId(String? serverId) => _$this._serverId = serverId;
 
   String? _externalId;
   String? get externalId => _$this._externalId;
-  set externalId(covariant String? externalId) =>
-      _$this._externalId = externalId;
+  set externalId(String? externalId) => _$this._externalId = externalId;
 
   String? _channelId;
   String? get channelId => _$this._channelId;
-  set channelId(covariant String? channelId) => _$this._channelId = channelId;
+  set channelId(String? channelId) => _$this._channelId = channelId;
 
   String? _externalChannelId;
   String? get externalChannelId => _$this._externalChannelId;
-  set externalChannelId(covariant String? externalChannelId) =>
+  set externalChannelId(String? externalChannelId) =>
       _$this._externalChannelId = externalChannelId;
 
   String? _channelName;
   String? get channelName => _$this._channelName;
-  set channelName(covariant String? channelName) =>
-      _$this._channelName = channelName;
+  set channelName(String? channelName) => _$this._channelName = channelName;
 
   String? _channelPrimaryImageTag;
   String? get channelPrimaryImageTag => _$this._channelPrimaryImageTag;
-  set channelPrimaryImageTag(covariant String? channelPrimaryImageTag) =>
+  set channelPrimaryImageTag(String? channelPrimaryImageTag) =>
       _$this._channelPrimaryImageTag = channelPrimaryImageTag;
 
   String? _programId;
   String? get programId => _$this._programId;
-  set programId(covariant String? programId) => _$this._programId = programId;
+  set programId(String? programId) => _$this._programId = programId;
 
   String? _externalProgramId;
   String? get externalProgramId => _$this._externalProgramId;
-  set externalProgramId(covariant String? externalProgramId) =>
+  set externalProgramId(String? externalProgramId) =>
       _$this._externalProgramId = externalProgramId;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _overview;
   String? get overview => _$this._overview;
-  set overview(covariant String? overview) => _$this._overview = overview;
+  set overview(String? overview) => _$this._overview = overview;
 
   DateTime? _startDate;
   DateTime? get startDate => _$this._startDate;
-  set startDate(covariant DateTime? startDate) => _$this._startDate = startDate;
+  set startDate(DateTime? startDate) => _$this._startDate = startDate;
 
   DateTime? _endDate;
   DateTime? get endDate => _$this._endDate;
-  set endDate(covariant DateTime? endDate) => _$this._endDate = endDate;
+  set endDate(DateTime? endDate) => _$this._endDate = endDate;
 
   String? _serviceName;
   String? get serviceName => _$this._serviceName;
-  set serviceName(covariant String? serviceName) =>
-      _$this._serviceName = serviceName;
+  set serviceName(String? serviceName) => _$this._serviceName = serviceName;
 
   int? _priority;
   int? get priority => _$this._priority;
-  set priority(covariant int? priority) => _$this._priority = priority;
+  set priority(int? priority) => _$this._priority = priority;
 
   int? _prePaddingSeconds;
   int? get prePaddingSeconds => _$this._prePaddingSeconds;
-  set prePaddingSeconds(covariant int? prePaddingSeconds) =>
+  set prePaddingSeconds(int? prePaddingSeconds) =>
       _$this._prePaddingSeconds = prePaddingSeconds;
 
   int? _postPaddingSeconds;
   int? get postPaddingSeconds => _$this._postPaddingSeconds;
-  set postPaddingSeconds(covariant int? postPaddingSeconds) =>
+  set postPaddingSeconds(int? postPaddingSeconds) =>
       _$this._postPaddingSeconds = postPaddingSeconds;
 
   bool? _isPrePaddingRequired;
   bool? get isPrePaddingRequired => _$this._isPrePaddingRequired;
-  set isPrePaddingRequired(covariant bool? isPrePaddingRequired) =>
+  set isPrePaddingRequired(bool? isPrePaddingRequired) =>
       _$this._isPrePaddingRequired = isPrePaddingRequired;
 
   String? _parentBackdropItemId;
   String? get parentBackdropItemId => _$this._parentBackdropItemId;
-  set parentBackdropItemId(covariant String? parentBackdropItemId) =>
+  set parentBackdropItemId(String? parentBackdropItemId) =>
       _$this._parentBackdropItemId = parentBackdropItemId;
 
   ListBuilder<String>? _parentBackdropImageTags;
   ListBuilder<String> get parentBackdropImageTags =>
       _$this._parentBackdropImageTags ??= new ListBuilder<String>();
-  set parentBackdropImageTags(
-          covariant ListBuilder<String>? parentBackdropImageTags) =>
+  set parentBackdropImageTags(ListBuilder<String>? parentBackdropImageTags) =>
       _$this._parentBackdropImageTags = parentBackdropImageTags;
 
   bool? _isPostPaddingRequired;
   bool? get isPostPaddingRequired => _$this._isPostPaddingRequired;
-  set isPostPaddingRequired(covariant bool? isPostPaddingRequired) =>
+  set isPostPaddingRequired(bool? isPostPaddingRequired) =>
       _$this._isPostPaddingRequired = isPostPaddingRequired;
 
   KeepUntil? _keepUntil;
   KeepUntil? get keepUntil => _$this._keepUntil;
-  set keepUntil(covariant KeepUntil? keepUntil) =>
-      _$this._keepUntil = keepUntil;
+  set keepUntil(KeepUntil? keepUntil) => _$this._keepUntil = keepUntil;
 
   RecordingStatus? _status;
   RecordingStatus? get status => _$this._status;
-  set status(covariant RecordingStatus? status) => _$this._status = status;
+  set status(RecordingStatus? status) => _$this._status = status;
 
   String? _seriesTimerId;
   String? get seriesTimerId => _$this._seriesTimerId;
-  set seriesTimerId(covariant String? seriesTimerId) =>
+  set seriesTimerId(String? seriesTimerId) =>
       _$this._seriesTimerId = seriesTimerId;
 
   String? _externalSeriesTimerId;
   String? get externalSeriesTimerId => _$this._externalSeriesTimerId;
-  set externalSeriesTimerId(covariant String? externalSeriesTimerId) =>
+  set externalSeriesTimerId(String? externalSeriesTimerId) =>
       _$this._externalSeriesTimerId = externalSeriesTimerId;
 
   int? _runTimeTicks;
   int? get runTimeTicks => _$this._runTimeTicks;
-  set runTimeTicks(covariant int? runTimeTicks) =>
-      _$this._runTimeTicks = runTimeTicks;
+  set runTimeTicks(int? runTimeTicks) => _$this._runTimeTicks = runTimeTicks;
 
   TimerInfoDtoProgramInfoBuilder? _programInfo;
   TimerInfoDtoProgramInfoBuilder get programInfo =>
       _$this._programInfo ??= new TimerInfoDtoProgramInfoBuilder();
-  set programInfo(covariant TimerInfoDtoProgramInfoBuilder? programInfo) =>
+  set programInfo(TimerInfoDtoProgramInfoBuilder? programInfo) =>
       _$this._programInfo = programInfo;
 
-  $TimerInfoDtoBuilder() {
-    $TimerInfoDto._defaults(this);
+  TimerInfoDtoBuilder() {
+    TimerInfoDto._defaults(this);
   }
 
-  $TimerInfoDtoBuilder get _$this {
+  TimerInfoDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -476,24 +380,24 @@ class $TimerInfoDtoBuilder
   }
 
   @override
-  void replace(covariant $TimerInfoDto other) {
+  void replace(TimerInfoDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$TimerInfoDto;
+    _$v = other as _$TimerInfoDto;
   }
 
   @override
-  void update(void Function($TimerInfoDtoBuilder)? updates) {
+  void update(void Function(TimerInfoDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $TimerInfoDto build() => _build();
+  TimerInfoDto build() => _build();
 
-  _$$TimerInfoDto _build() {
-    _$$TimerInfoDto _$result;
+  _$TimerInfoDto _build() {
+    _$TimerInfoDto _$result;
     try {
       _$result = _$v ??
-          new _$$TimerInfoDto._(
+          new _$TimerInfoDto._(
               id: id,
               type: type,
               serverId: serverId,
@@ -532,7 +436,7 @@ class $TimerInfoDtoBuilder
         _programInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$TimerInfoDto', _$failedField, e.toString());
+            r'TimerInfoDto', _$failedField, e.toString());
       }
       rethrow;
     }

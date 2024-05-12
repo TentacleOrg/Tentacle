@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
-
 /// tests for BrandingApi
 void main() {
   final instance = Tentacle().getBrandingApi();
@@ -27,6 +26,5 @@ void main() {
     test('test getBrandingOptions', () async {
       // TODO
     });
-
   });
 }

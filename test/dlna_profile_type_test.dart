@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for DlnaProfileType
 void main() {
-
-  group(DlnaProfileType, () {
-  });
+  group(DlnaProfileType, () {});
 }

@@ -12,12 +12,13 @@ part 'direct_play_profile.g.dart';
 /// DirectPlayProfile
 ///
 /// Properties:
-/// * [container] 
-/// * [audioCodec] 
-/// * [videoCodec] 
-/// * [type] 
+/// * [container]
+/// * [audioCodec]
+/// * [videoCodec]
+/// * [type]
 @BuiltValue()
-abstract class DirectPlayProfile implements Built<DirectPlayProfile, DirectPlayProfileBuilder> {
+abstract class DirectPlayProfile
+    implements Built<DirectPlayProfile, DirectPlayProfileBuilder> {
   @BuiltValueField(wireName: r'Container')
   String? get container;
 
@@ -29,19 +30,23 @@ abstract class DirectPlayProfile implements Built<DirectPlayProfile, DirectPlayP
 
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
+  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  };
 
   DirectPlayProfile._();
 
-  factory DirectPlayProfile([void updates(DirectPlayProfileBuilder b)]) = _$DirectPlayProfile;
+  factory DirectPlayProfile([void updates(DirectPlayProfileBuilder b)]) =
+      _$DirectPlayProfile;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(DirectPlayProfileBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<DirectPlayProfile> get serializer => _$DirectPlayProfileSerializer();
+  static Serializer<DirectPlayProfile> get serializer =>
+      _$DirectPlayProfileSerializer();
 }
 
-class _$DirectPlayProfileSerializer implements PrimitiveSerializer<DirectPlayProfile> {
+class _$DirectPlayProfileSerializer
+    implements PrimitiveSerializer<DirectPlayProfile> {
   @override
   final Iterable<Type> types = const [DirectPlayProfile, _$DirectPlayProfile];
 
@@ -89,7 +94,9 @@ class _$DirectPlayProfileSerializer implements PrimitiveSerializer<DirectPlayPro
     DirectPlayProfile object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -163,4 +170,3 @@ class _$DirectPlayProfileSerializer implements PrimitiveSerializer<DirectPlayPro
     return result.build();
   }
 }
-

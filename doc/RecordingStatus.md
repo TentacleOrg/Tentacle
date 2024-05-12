@@ -1,8 +1,8 @@
-# openapi.model.RecordingStatus
+# tentacle.model.RecordingStatus
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

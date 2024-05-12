@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,7 +18,7 @@ part 'theme_media_result.g.dart';
 /// * [startIndex] - Gets or sets the index of the first record in Items.
 /// * [ownerId] - Gets or sets the owner id.
 @BuiltValue(instantiable: false)
-abstract class ThemeMediaResult  {
+abstract class ThemeMediaResult {
   /// Gets or sets the items.
   @BuiltValueField(wireName: r'Items')
   BuiltList<BaseItemDto>? get items;
@@ -36,10 +36,12 @@ abstract class ThemeMediaResult  {
   String? get ownerId;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ThemeMediaResult> get serializer => _$ThemeMediaResultSerializer();
+  static Serializer<ThemeMediaResult> get serializer =>
+      _$ThemeMediaResultSerializer();
 }
 
-class _$ThemeMediaResultSerializer implements PrimitiveSerializer<ThemeMediaResult> {
+class _$ThemeMediaResultSerializer
+    implements PrimitiveSerializer<ThemeMediaResult> {
   @override
   final Iterable<Type> types = const [ThemeMediaResult];
 
@@ -55,7 +57,8 @@ class _$ThemeMediaResultSerializer implements PrimitiveSerializer<ThemeMediaResu
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -87,7 +90,9 @@ class _$ThemeMediaResultSerializer implements PrimitiveSerializer<ThemeMediaResu
     ThemeMediaResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   @override
@@ -96,25 +101,32 @@ class _$ThemeMediaResultSerializer implements PrimitiveSerializer<ThemeMediaResu
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($ThemeMediaResult)) as $ThemeMediaResult;
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($ThemeMediaResult)) as $ThemeMediaResult;
   }
 }
 
 /// a concrete implementation of [ThemeMediaResult], since [ThemeMediaResult] is not instantiable
 @BuiltValue(instantiable: true)
-abstract class $ThemeMediaResult implements ThemeMediaResult, Built<$ThemeMediaResult, $ThemeMediaResultBuilder> {
+abstract class $ThemeMediaResult
+    implements
+        ThemeMediaResult,
+        Built<$ThemeMediaResult, $ThemeMediaResultBuilder> {
   $ThemeMediaResult._();
 
-  factory $ThemeMediaResult([void Function($ThemeMediaResultBuilder)? updates]) = _$$ThemeMediaResult;
+  factory $ThemeMediaResult(
+      [void Function($ThemeMediaResultBuilder)? updates]) = _$$ThemeMediaResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults($ThemeMediaResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<$ThemeMediaResult> get serializer => _$$ThemeMediaResultSerializer();
+  static Serializer<$ThemeMediaResult> get serializer =>
+      _$$ThemeMediaResultSerializer();
 }
 
-class _$$ThemeMediaResultSerializer implements PrimitiveSerializer<$ThemeMediaResult> {
+class _$$ThemeMediaResultSerializer
+    implements PrimitiveSerializer<$ThemeMediaResult> {
   @override
   final Iterable<Type> types = const [$ThemeMediaResult, _$$ThemeMediaResult];
 
@@ -127,7 +139,8 @@ class _$$ThemeMediaResultSerializer implements PrimitiveSerializer<$ThemeMediaRe
     $ThemeMediaResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serialize(object, specifiedType: FullType(ThemeMediaResult))!;
+    return serializers.serialize(object,
+        specifiedType: FullType(ThemeMediaResult))!;
   }
 
   void _deserializeProperties(
@@ -145,7 +158,8 @@ class _$$ThemeMediaResultSerializer implements PrimitiveSerializer<$ThemeMediaRe
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
           ) as BuiltList<BaseItemDto>?;
           if (valueDes == null) continue;
           result.items.replace(valueDes);
@@ -199,4 +213,3 @@ class _$$ThemeMediaResultSerializer implements PrimitiveSerializer<$ThemeMediaRe
     return result.build();
   }
 }
-

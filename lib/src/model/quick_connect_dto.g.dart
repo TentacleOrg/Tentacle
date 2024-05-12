@@ -6,38 +6,29 @@ part of 'quick_connect_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class QuickConnectDtoBuilder {
-  void replace(QuickConnectDto other);
-  void update(void Function(QuickConnectDtoBuilder) updates);
-  String? get secret;
-  set secret(String? secret);
-}
-
-class _$$QuickConnectDto extends $QuickConnectDto {
+class _$QuickConnectDto extends QuickConnectDto {
   @override
   final String secret;
 
-  factory _$$QuickConnectDto(
-          [void Function($QuickConnectDtoBuilder)? updates]) =>
-      (new $QuickConnectDtoBuilder()..update(updates))._build();
+  factory _$QuickConnectDto([void Function(QuickConnectDtoBuilder)? updates]) =>
+      (new QuickConnectDtoBuilder()..update(updates))._build();
 
-  _$$QuickConnectDto._({required this.secret}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        secret, r'$QuickConnectDto', 'secret');
+  _$QuickConnectDto._({required this.secret}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(secret, r'QuickConnectDto', 'secret');
   }
 
   @override
-  $QuickConnectDto rebuild(void Function($QuickConnectDtoBuilder) updates) =>
+  QuickConnectDto rebuild(void Function(QuickConnectDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $QuickConnectDtoBuilder toBuilder() =>
-      new $QuickConnectDtoBuilder()..replace(this);
+  QuickConnectDtoBuilder toBuilder() =>
+      new QuickConnectDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $QuickConnectDto && secret == other.secret;
+    return other is QuickConnectDto && secret == other.secret;
   }
 
   @override
@@ -50,27 +41,25 @@ class _$$QuickConnectDto extends $QuickConnectDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$QuickConnectDto')
+    return (newBuiltValueToStringHelper(r'QuickConnectDto')
           ..add('secret', secret))
         .toString();
   }
 }
 
-class $QuickConnectDtoBuilder
-    implements
-        Builder<$QuickConnectDto, $QuickConnectDtoBuilder>,
-        QuickConnectDtoBuilder {
-  _$$QuickConnectDto? _$v;
+class QuickConnectDtoBuilder
+    implements Builder<QuickConnectDto, QuickConnectDtoBuilder> {
+  _$QuickConnectDto? _$v;
 
   String? _secret;
   String? get secret => _$this._secret;
-  set secret(covariant String? secret) => _$this._secret = secret;
+  set secret(String? secret) => _$this._secret = secret;
 
-  $QuickConnectDtoBuilder() {
-    $QuickConnectDto._defaults(this);
+  QuickConnectDtoBuilder() {
+    QuickConnectDto._defaults(this);
   }
 
-  $QuickConnectDtoBuilder get _$this {
+  QuickConnectDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _secret = $v.secret;
@@ -80,24 +69,24 @@ class $QuickConnectDtoBuilder
   }
 
   @override
-  void replace(covariant $QuickConnectDto other) {
+  void replace(QuickConnectDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$QuickConnectDto;
+    _$v = other as _$QuickConnectDto;
   }
 
   @override
-  void update(void Function($QuickConnectDtoBuilder)? updates) {
+  void update(void Function(QuickConnectDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $QuickConnectDto build() => _build();
+  QuickConnectDto build() => _build();
 
-  _$$QuickConnectDto _build() {
+  _$QuickConnectDto _build() {
     final _$result = _$v ??
-        new _$$QuickConnectDto._(
+        new _$QuickConnectDto._(
             secret: BuiltValueNullFieldError.checkNotNull(
-                secret, r'$QuickConnectDto', 'secret'));
+                secret, r'QuickConnectDto', 'secret'));
     replace(_$result);
     return _$result;
   }

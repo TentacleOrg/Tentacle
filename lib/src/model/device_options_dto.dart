@@ -14,8 +14,9 @@ part 'device_options_dto.g.dart';
 /// * [id] - Gets or sets the id.
 /// * [deviceId] - Gets or sets the device id.
 /// * [customName] - Gets or sets the custom name.
-@BuiltValue(instantiable: false)
-abstract class DeviceOptionsDto  {
+@BuiltValue()
+abstract class DeviceOptionsDto
+    implements Built<DeviceOptionsDto, DeviceOptionsDtoBuilder> {
   /// Gets or sets the id.
   @BuiltValueField(wireName: r'Id')
   int? get id;
@@ -28,13 +29,23 @@ abstract class DeviceOptionsDto  {
   @BuiltValueField(wireName: r'CustomName')
   String? get customName;
 
+  DeviceOptionsDto._();
+
+  factory DeviceOptionsDto([void updates(DeviceOptionsDtoBuilder b)]) =
+      _$DeviceOptionsDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeviceOptionsDtoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
-  static Serializer<DeviceOptionsDto> get serializer => _$DeviceOptionsDtoSerializer();
+  static Serializer<DeviceOptionsDto> get serializer =>
+      _$DeviceOptionsDtoSerializer();
 }
 
-class _$DeviceOptionsDtoSerializer implements PrimitiveSerializer<DeviceOptionsDto> {
+class _$DeviceOptionsDtoSerializer
+    implements PrimitiveSerializer<DeviceOptionsDto> {
   @override
-  final Iterable<Type> types = const [DeviceOptionsDto];
+  final Iterable<Type> types = const [DeviceOptionsDto, _$DeviceOptionsDto];
 
   @override
   final String wireName = r'DeviceOptionsDto';
@@ -73,47 +84,9 @@ class _$DeviceOptionsDtoSerializer implements PrimitiveSerializer<DeviceOptionsD
     DeviceOptionsDto object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
-  }
-
-  @override
-  DeviceOptionsDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized, specifiedType: FullType($DeviceOptionsDto)) as $DeviceOptionsDto;
-  }
-}
-
-/// a concrete implementation of [DeviceOptionsDto], since [DeviceOptionsDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $DeviceOptionsDto implements DeviceOptionsDto, Built<$DeviceOptionsDto, $DeviceOptionsDtoBuilder> {
-  $DeviceOptionsDto._();
-
-  factory $DeviceOptionsDto([void Function($DeviceOptionsDtoBuilder)? updates]) = _$$DeviceOptionsDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($DeviceOptionsDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$DeviceOptionsDto> get serializer => _$$DeviceOptionsDtoSerializer();
-}
-
-class _$$DeviceOptionsDtoSerializer implements PrimitiveSerializer<$DeviceOptionsDto> {
-  @override
-  final Iterable<Type> types = const [$DeviceOptionsDto, _$$DeviceOptionsDto];
-
-  @override
-  final String wireName = r'$DeviceOptionsDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $DeviceOptionsDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(DeviceOptionsDto))!;
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -160,12 +133,12 @@ class _$$DeviceOptionsDtoSerializer implements PrimitiveSerializer<$DeviceOption
   }
 
   @override
-  $DeviceOptionsDto deserialize(
+  DeviceOptionsDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $DeviceOptionsDtoBuilder();
+    final result = DeviceOptionsDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(
@@ -179,4 +152,3 @@ class _$$DeviceOptionsDtoSerializer implements PrimitiveSerializer<$DeviceOption
     return result.build();
   }
 }
-

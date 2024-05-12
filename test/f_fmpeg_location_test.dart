@@ -3,7 +3,5 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for FFmpegLocation
 void main() {
-
-  group(FFmpegLocation, () {
-  });
+  group(FFmpegLocation, () {});
 }

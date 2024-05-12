@@ -6,116 +6,7 @@ part of 'series_timer_info_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class SeriesTimerInfoDtoBuilder {
-  void replace(SeriesTimerInfoDto other);
-  void update(void Function(SeriesTimerInfoDtoBuilder) updates);
-  String? get id;
-  set id(String? id);
-
-  String? get type;
-  set type(String? type);
-
-  String? get serverId;
-  set serverId(String? serverId);
-
-  String? get externalId;
-  set externalId(String? externalId);
-
-  String? get channelId;
-  set channelId(String? channelId);
-
-  String? get externalChannelId;
-  set externalChannelId(String? externalChannelId);
-
-  String? get channelName;
-  set channelName(String? channelName);
-
-  String? get channelPrimaryImageTag;
-  set channelPrimaryImageTag(String? channelPrimaryImageTag);
-
-  String? get programId;
-  set programId(String? programId);
-
-  String? get externalProgramId;
-  set externalProgramId(String? externalProgramId);
-
-  String? get name;
-  set name(String? name);
-
-  String? get overview;
-  set overview(String? overview);
-
-  DateTime? get startDate;
-  set startDate(DateTime? startDate);
-
-  DateTime? get endDate;
-  set endDate(DateTime? endDate);
-
-  String? get serviceName;
-  set serviceName(String? serviceName);
-
-  int? get priority;
-  set priority(int? priority);
-
-  int? get prePaddingSeconds;
-  set prePaddingSeconds(int? prePaddingSeconds);
-
-  int? get postPaddingSeconds;
-  set postPaddingSeconds(int? postPaddingSeconds);
-
-  bool? get isPrePaddingRequired;
-  set isPrePaddingRequired(bool? isPrePaddingRequired);
-
-  String? get parentBackdropItemId;
-  set parentBackdropItemId(String? parentBackdropItemId);
-
-  ListBuilder<String> get parentBackdropImageTags;
-  set parentBackdropImageTags(ListBuilder<String>? parentBackdropImageTags);
-
-  bool? get isPostPaddingRequired;
-  set isPostPaddingRequired(bool? isPostPaddingRequired);
-
-  KeepUntil? get keepUntil;
-  set keepUntil(KeepUntil? keepUntil);
-
-  bool? get recordAnyTime;
-  set recordAnyTime(bool? recordAnyTime);
-
-  bool? get skipEpisodesInLibrary;
-  set skipEpisodesInLibrary(bool? skipEpisodesInLibrary);
-
-  bool? get recordAnyChannel;
-  set recordAnyChannel(bool? recordAnyChannel);
-
-  int? get keepUpTo;
-  set keepUpTo(int? keepUpTo);
-
-  bool? get recordNewOnly;
-  set recordNewOnly(bool? recordNewOnly);
-
-  ListBuilder<DayOfWeek> get days;
-  set days(ListBuilder<DayOfWeek>? days);
-
-  DayPattern? get dayPattern;
-  set dayPattern(DayPattern? dayPattern);
-
-  MapBuilder<String, String> get imageTags;
-  set imageTags(MapBuilder<String, String>? imageTags);
-
-  String? get parentThumbItemId;
-  set parentThumbItemId(String? parentThumbItemId);
-
-  String? get parentThumbImageTag;
-  set parentThumbImageTag(String? parentThumbImageTag);
-
-  String? get parentPrimaryImageItemId;
-  set parentPrimaryImageItemId(String? parentPrimaryImageItemId);
-
-  String? get parentPrimaryImageTag;
-  set parentPrimaryImageTag(String? parentPrimaryImageTag);
-}
-
-class _$$SeriesTimerInfoDto extends $SeriesTimerInfoDto {
+class _$SeriesTimerInfoDto extends SeriesTimerInfoDto {
   @override
   final String? id;
   @override
@@ -187,11 +78,11 @@ class _$$SeriesTimerInfoDto extends $SeriesTimerInfoDto {
   @override
   final String? parentPrimaryImageTag;
 
-  factory _$$SeriesTimerInfoDto(
-          [void Function($SeriesTimerInfoDtoBuilder)? updates]) =>
-      (new $SeriesTimerInfoDtoBuilder()..update(updates))._build();
+  factory _$SeriesTimerInfoDto(
+          [void Function(SeriesTimerInfoDtoBuilder)? updates]) =>
+      (new SeriesTimerInfoDtoBuilder()..update(updates))._build();
 
-  _$$SeriesTimerInfoDto._(
+  _$SeriesTimerInfoDto._(
       {this.id,
       this.type,
       this.serverId,
@@ -230,18 +121,18 @@ class _$$SeriesTimerInfoDto extends $SeriesTimerInfoDto {
       : super._();
 
   @override
-  $SeriesTimerInfoDto rebuild(
-          void Function($SeriesTimerInfoDtoBuilder) updates) =>
+  SeriesTimerInfoDto rebuild(
+          void Function(SeriesTimerInfoDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $SeriesTimerInfoDtoBuilder toBuilder() =>
-      new $SeriesTimerInfoDtoBuilder()..replace(this);
+  SeriesTimerInfoDtoBuilder toBuilder() =>
+      new SeriesTimerInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $SeriesTimerInfoDto &&
+    return other is SeriesTimerInfoDto &&
         id == other.id &&
         type == other.type &&
         serverId == other.serverId &&
@@ -323,7 +214,7 @@ class _$$SeriesTimerInfoDto extends $SeriesTimerInfoDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$SeriesTimerInfoDto')
+    return (newBuiltValueToStringHelper(r'SeriesTimerInfoDto')
           ..add('id', id)
           ..add('type', type)
           ..add('serverId', serverId)
@@ -363,184 +254,176 @@ class _$$SeriesTimerInfoDto extends $SeriesTimerInfoDto {
   }
 }
 
-class $SeriesTimerInfoDtoBuilder
-    implements
-        Builder<$SeriesTimerInfoDto, $SeriesTimerInfoDtoBuilder>,
-        SeriesTimerInfoDtoBuilder {
-  _$$SeriesTimerInfoDto? _$v;
+class SeriesTimerInfoDtoBuilder
+    implements Builder<SeriesTimerInfoDto, SeriesTimerInfoDtoBuilder> {
+  _$SeriesTimerInfoDto? _$v;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   String? _type;
   String? get type => _$this._type;
-  set type(covariant String? type) => _$this._type = type;
+  set type(String? type) => _$this._type = type;
 
   String? _serverId;
   String? get serverId => _$this._serverId;
-  set serverId(covariant String? serverId) => _$this._serverId = serverId;
+  set serverId(String? serverId) => _$this._serverId = serverId;
 
   String? _externalId;
   String? get externalId => _$this._externalId;
-  set externalId(covariant String? externalId) =>
-      _$this._externalId = externalId;
+  set externalId(String? externalId) => _$this._externalId = externalId;
 
   String? _channelId;
   String? get channelId => _$this._channelId;
-  set channelId(covariant String? channelId) => _$this._channelId = channelId;
+  set channelId(String? channelId) => _$this._channelId = channelId;
 
   String? _externalChannelId;
   String? get externalChannelId => _$this._externalChannelId;
-  set externalChannelId(covariant String? externalChannelId) =>
+  set externalChannelId(String? externalChannelId) =>
       _$this._externalChannelId = externalChannelId;
 
   String? _channelName;
   String? get channelName => _$this._channelName;
-  set channelName(covariant String? channelName) =>
-      _$this._channelName = channelName;
+  set channelName(String? channelName) => _$this._channelName = channelName;
 
   String? _channelPrimaryImageTag;
   String? get channelPrimaryImageTag => _$this._channelPrimaryImageTag;
-  set channelPrimaryImageTag(covariant String? channelPrimaryImageTag) =>
+  set channelPrimaryImageTag(String? channelPrimaryImageTag) =>
       _$this._channelPrimaryImageTag = channelPrimaryImageTag;
 
   String? _programId;
   String? get programId => _$this._programId;
-  set programId(covariant String? programId) => _$this._programId = programId;
+  set programId(String? programId) => _$this._programId = programId;
 
   String? _externalProgramId;
   String? get externalProgramId => _$this._externalProgramId;
-  set externalProgramId(covariant String? externalProgramId) =>
+  set externalProgramId(String? externalProgramId) =>
       _$this._externalProgramId = externalProgramId;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _overview;
   String? get overview => _$this._overview;
-  set overview(covariant String? overview) => _$this._overview = overview;
+  set overview(String? overview) => _$this._overview = overview;
 
   DateTime? _startDate;
   DateTime? get startDate => _$this._startDate;
-  set startDate(covariant DateTime? startDate) => _$this._startDate = startDate;
+  set startDate(DateTime? startDate) => _$this._startDate = startDate;
 
   DateTime? _endDate;
   DateTime? get endDate => _$this._endDate;
-  set endDate(covariant DateTime? endDate) => _$this._endDate = endDate;
+  set endDate(DateTime? endDate) => _$this._endDate = endDate;
 
   String? _serviceName;
   String? get serviceName => _$this._serviceName;
-  set serviceName(covariant String? serviceName) =>
-      _$this._serviceName = serviceName;
+  set serviceName(String? serviceName) => _$this._serviceName = serviceName;
 
   int? _priority;
   int? get priority => _$this._priority;
-  set priority(covariant int? priority) => _$this._priority = priority;
+  set priority(int? priority) => _$this._priority = priority;
 
   int? _prePaddingSeconds;
   int? get prePaddingSeconds => _$this._prePaddingSeconds;
-  set prePaddingSeconds(covariant int? prePaddingSeconds) =>
+  set prePaddingSeconds(int? prePaddingSeconds) =>
       _$this._prePaddingSeconds = prePaddingSeconds;
 
   int? _postPaddingSeconds;
   int? get postPaddingSeconds => _$this._postPaddingSeconds;
-  set postPaddingSeconds(covariant int? postPaddingSeconds) =>
+  set postPaddingSeconds(int? postPaddingSeconds) =>
       _$this._postPaddingSeconds = postPaddingSeconds;
 
   bool? _isPrePaddingRequired;
   bool? get isPrePaddingRequired => _$this._isPrePaddingRequired;
-  set isPrePaddingRequired(covariant bool? isPrePaddingRequired) =>
+  set isPrePaddingRequired(bool? isPrePaddingRequired) =>
       _$this._isPrePaddingRequired = isPrePaddingRequired;
 
   String? _parentBackdropItemId;
   String? get parentBackdropItemId => _$this._parentBackdropItemId;
-  set parentBackdropItemId(covariant String? parentBackdropItemId) =>
+  set parentBackdropItemId(String? parentBackdropItemId) =>
       _$this._parentBackdropItemId = parentBackdropItemId;
 
   ListBuilder<String>? _parentBackdropImageTags;
   ListBuilder<String> get parentBackdropImageTags =>
       _$this._parentBackdropImageTags ??= new ListBuilder<String>();
-  set parentBackdropImageTags(
-          covariant ListBuilder<String>? parentBackdropImageTags) =>
+  set parentBackdropImageTags(ListBuilder<String>? parentBackdropImageTags) =>
       _$this._parentBackdropImageTags = parentBackdropImageTags;
 
   bool? _isPostPaddingRequired;
   bool? get isPostPaddingRequired => _$this._isPostPaddingRequired;
-  set isPostPaddingRequired(covariant bool? isPostPaddingRequired) =>
+  set isPostPaddingRequired(bool? isPostPaddingRequired) =>
       _$this._isPostPaddingRequired = isPostPaddingRequired;
 
   KeepUntil? _keepUntil;
   KeepUntil? get keepUntil => _$this._keepUntil;
-  set keepUntil(covariant KeepUntil? keepUntil) =>
-      _$this._keepUntil = keepUntil;
+  set keepUntil(KeepUntil? keepUntil) => _$this._keepUntil = keepUntil;
 
   bool? _recordAnyTime;
   bool? get recordAnyTime => _$this._recordAnyTime;
-  set recordAnyTime(covariant bool? recordAnyTime) =>
+  set recordAnyTime(bool? recordAnyTime) =>
       _$this._recordAnyTime = recordAnyTime;
 
   bool? _skipEpisodesInLibrary;
   bool? get skipEpisodesInLibrary => _$this._skipEpisodesInLibrary;
-  set skipEpisodesInLibrary(covariant bool? skipEpisodesInLibrary) =>
+  set skipEpisodesInLibrary(bool? skipEpisodesInLibrary) =>
       _$this._skipEpisodesInLibrary = skipEpisodesInLibrary;
 
   bool? _recordAnyChannel;
   bool? get recordAnyChannel => _$this._recordAnyChannel;
-  set recordAnyChannel(covariant bool? recordAnyChannel) =>
+  set recordAnyChannel(bool? recordAnyChannel) =>
       _$this._recordAnyChannel = recordAnyChannel;
 
   int? _keepUpTo;
   int? get keepUpTo => _$this._keepUpTo;
-  set keepUpTo(covariant int? keepUpTo) => _$this._keepUpTo = keepUpTo;
+  set keepUpTo(int? keepUpTo) => _$this._keepUpTo = keepUpTo;
 
   bool? _recordNewOnly;
   bool? get recordNewOnly => _$this._recordNewOnly;
-  set recordNewOnly(covariant bool? recordNewOnly) =>
+  set recordNewOnly(bool? recordNewOnly) =>
       _$this._recordNewOnly = recordNewOnly;
 
   ListBuilder<DayOfWeek>? _days;
   ListBuilder<DayOfWeek> get days =>
       _$this._days ??= new ListBuilder<DayOfWeek>();
-  set days(covariant ListBuilder<DayOfWeek>? days) => _$this._days = days;
+  set days(ListBuilder<DayOfWeek>? days) => _$this._days = days;
 
   DayPattern? _dayPattern;
   DayPattern? get dayPattern => _$this._dayPattern;
-  set dayPattern(covariant DayPattern? dayPattern) =>
-      _$this._dayPattern = dayPattern;
+  set dayPattern(DayPattern? dayPattern) => _$this._dayPattern = dayPattern;
 
   MapBuilder<String, String>? _imageTags;
   MapBuilder<String, String> get imageTags =>
       _$this._imageTags ??= new MapBuilder<String, String>();
-  set imageTags(covariant MapBuilder<String, String>? imageTags) =>
+  set imageTags(MapBuilder<String, String>? imageTags) =>
       _$this._imageTags = imageTags;
 
   String? _parentThumbItemId;
   String? get parentThumbItemId => _$this._parentThumbItemId;
-  set parentThumbItemId(covariant String? parentThumbItemId) =>
+  set parentThumbItemId(String? parentThumbItemId) =>
       _$this._parentThumbItemId = parentThumbItemId;
 
   String? _parentThumbImageTag;
   String? get parentThumbImageTag => _$this._parentThumbImageTag;
-  set parentThumbImageTag(covariant String? parentThumbImageTag) =>
+  set parentThumbImageTag(String? parentThumbImageTag) =>
       _$this._parentThumbImageTag = parentThumbImageTag;
 
   String? _parentPrimaryImageItemId;
   String? get parentPrimaryImageItemId => _$this._parentPrimaryImageItemId;
-  set parentPrimaryImageItemId(covariant String? parentPrimaryImageItemId) =>
+  set parentPrimaryImageItemId(String? parentPrimaryImageItemId) =>
       _$this._parentPrimaryImageItemId = parentPrimaryImageItemId;
 
   String? _parentPrimaryImageTag;
   String? get parentPrimaryImageTag => _$this._parentPrimaryImageTag;
-  set parentPrimaryImageTag(covariant String? parentPrimaryImageTag) =>
+  set parentPrimaryImageTag(String? parentPrimaryImageTag) =>
       _$this._parentPrimaryImageTag = parentPrimaryImageTag;
 
-  $SeriesTimerInfoDtoBuilder() {
-    $SeriesTimerInfoDto._defaults(this);
+  SeriesTimerInfoDtoBuilder() {
+    SeriesTimerInfoDto._defaults(this);
   }
 
-  $SeriesTimerInfoDtoBuilder get _$this {
+  SeriesTimerInfoDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
@@ -584,24 +467,24 @@ class $SeriesTimerInfoDtoBuilder
   }
 
   @override
-  void replace(covariant $SeriesTimerInfoDto other) {
+  void replace(SeriesTimerInfoDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$SeriesTimerInfoDto;
+    _$v = other as _$SeriesTimerInfoDto;
   }
 
   @override
-  void update(void Function($SeriesTimerInfoDtoBuilder)? updates) {
+  void update(void Function(SeriesTimerInfoDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $SeriesTimerInfoDto build() => _build();
+  SeriesTimerInfoDto build() => _build();
 
-  _$$SeriesTimerInfoDto _build() {
-    _$$SeriesTimerInfoDto _$result;
+  _$SeriesTimerInfoDto _build() {
+    _$SeriesTimerInfoDto _$result;
     try {
       _$result = _$v ??
-          new _$$SeriesTimerInfoDto._(
+          new _$SeriesTimerInfoDto._(
               id: id,
               type: type,
               serverId: serverId,
@@ -650,7 +533,7 @@ class $SeriesTimerInfoDtoBuilder
         _imageTags?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$SeriesTimerInfoDto', _$failedField, e.toString());
+            r'SeriesTimerInfoDto', _$failedField, e.toString());
       }
       rethrow;
     }

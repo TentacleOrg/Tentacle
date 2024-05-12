@@ -11,7 +11,6 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/activity_log_entry_query_result.dart';
 
 class ActivityLogApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -19,7 +18,7 @@ class ActivityLogApi {
   const ActivityLogApi(this._dio, this._serializers);
 
   /// Gets activity log entries.
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [startIndex] - Optional. The record index to start at. All items with a lower index will be dropped from the results.
@@ -34,8 +33,8 @@ class ActivityLogApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [ActivityLogEntryQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
-  Future<Response<ActivityLogEntryQueryResult>> getLogEntries({ 
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<ActivityLogEntryQueryResult>> getLogEntries({
     int? startIndex,
     int? limit,
     DateTime? minDate,
@@ -68,10 +67,18 @@ class ActivityLogApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (startIndex != null) r'startIndex': encodeQueryParameter(_serializers, startIndex, const FullType(int)),
-      if (limit != null) r'limit': encodeQueryParameter(_serializers, limit, const FullType(int)),
-      if (minDate != null) r'minDate': encodeQueryParameter(_serializers, minDate, const FullType(DateTime)),
-      if (hasUserId != null) r'hasUserId': encodeQueryParameter(_serializers, hasUserId, const FullType(bool)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
+      if (limit != null)
+        r'limit':
+            encodeQueryParameter(_serializers, limit, const FullType(int)),
+      if (minDate != null)
+        r'minDate': encodeQueryParameter(
+            _serializers, minDate, const FullType(DateTime)),
+      if (hasUserId != null)
+        r'hasUserId':
+            encodeQueryParameter(_serializers, hasUserId, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -83,22 +90,24 @@ class ActivityLogApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ActivityLogEntryQueryResult _responseData;
+    ActivityLogEntryQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(ActivityLogEntryQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as ActivityLogEntryQueryResult;
-
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ActivityLogEntryQueryResult),
+            ) as ActivityLogEntryQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<ActivityLogEntryQueryResult>(
@@ -112,5 +121,4 @@ class ActivityLogApi {
       extra: _response.extra,
     );
   }
-
 }

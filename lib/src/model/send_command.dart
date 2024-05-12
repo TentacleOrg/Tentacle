@@ -39,6 +39,7 @@ abstract class SendCommand implements Built<SendCommand, SendCommandBuilder> {
   /// Gets the command.
   @BuiltValueField(wireName: r'Command')
   SendCommandType? get command;
+  // enum commandEnum {  Unpause,  Pause,  Stop,  Seek,  };
 
   /// Gets the UTC time when this command has been emitted.
   @BuiltValueField(wireName: r'EmittedAt')
@@ -117,7 +118,9 @@ class _$SendCommandSerializer implements PrimitiveSerializer<SendCommand> {
     SendCommand object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -203,4 +206,3 @@ class _$SendCommandSerializer implements PrimitiveSerializer<SendCommand> {
     return result.build();
   }
 }
-

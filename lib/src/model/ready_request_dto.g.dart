@@ -6,23 +6,7 @@ part of 'ready_request_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract class ReadyRequestDtoBuilder {
-  void replace(ReadyRequestDto other);
-  void update(void Function(ReadyRequestDtoBuilder) updates);
-  DateTime? get when;
-  set when(DateTime? when);
-
-  int? get positionTicks;
-  set positionTicks(int? positionTicks);
-
-  bool? get isPlaying;
-  set isPlaying(bool? isPlaying);
-
-  String? get playlistItemId;
-  set playlistItemId(String? playlistItemId);
-}
-
-class _$$ReadyRequestDto extends $ReadyRequestDto {
+class _$ReadyRequestDto extends ReadyRequestDto {
   @override
   final DateTime? when;
   @override
@@ -32,26 +16,25 @@ class _$$ReadyRequestDto extends $ReadyRequestDto {
   @override
   final String? playlistItemId;
 
-  factory _$$ReadyRequestDto(
-          [void Function($ReadyRequestDtoBuilder)? updates]) =>
-      (new $ReadyRequestDtoBuilder()..update(updates))._build();
+  factory _$ReadyRequestDto([void Function(ReadyRequestDtoBuilder)? updates]) =>
+      (new ReadyRequestDtoBuilder()..update(updates))._build();
 
-  _$$ReadyRequestDto._(
+  _$ReadyRequestDto._(
       {this.when, this.positionTicks, this.isPlaying, this.playlistItemId})
       : super._();
 
   @override
-  $ReadyRequestDto rebuild(void Function($ReadyRequestDtoBuilder) updates) =>
+  ReadyRequestDto rebuild(void Function(ReadyRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $ReadyRequestDtoBuilder toBuilder() =>
-      new $ReadyRequestDtoBuilder()..replace(this);
+  ReadyRequestDtoBuilder toBuilder() =>
+      new ReadyRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $ReadyRequestDto &&
+    return other is ReadyRequestDto &&
         when == other.when &&
         positionTicks == other.positionTicks &&
         isPlaying == other.isPlaying &&
@@ -71,7 +54,7 @@ class _$$ReadyRequestDto extends $ReadyRequestDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$ReadyRequestDto')
+    return (newBuiltValueToStringHelper(r'ReadyRequestDto')
           ..add('when', when)
           ..add('positionTicks', positionTicks)
           ..add('isPlaying', isPlaying)
@@ -80,35 +63,33 @@ class _$$ReadyRequestDto extends $ReadyRequestDto {
   }
 }
 
-class $ReadyRequestDtoBuilder
-    implements
-        Builder<$ReadyRequestDto, $ReadyRequestDtoBuilder>,
-        ReadyRequestDtoBuilder {
-  _$$ReadyRequestDto? _$v;
+class ReadyRequestDtoBuilder
+    implements Builder<ReadyRequestDto, ReadyRequestDtoBuilder> {
+  _$ReadyRequestDto? _$v;
 
   DateTime? _when;
   DateTime? get when => _$this._when;
-  set when(covariant DateTime? when) => _$this._when = when;
+  set when(DateTime? when) => _$this._when = when;
 
   int? _positionTicks;
   int? get positionTicks => _$this._positionTicks;
-  set positionTicks(covariant int? positionTicks) =>
+  set positionTicks(int? positionTicks) =>
       _$this._positionTicks = positionTicks;
 
   bool? _isPlaying;
   bool? get isPlaying => _$this._isPlaying;
-  set isPlaying(covariant bool? isPlaying) => _$this._isPlaying = isPlaying;
+  set isPlaying(bool? isPlaying) => _$this._isPlaying = isPlaying;
 
   String? _playlistItemId;
   String? get playlistItemId => _$this._playlistItemId;
-  set playlistItemId(covariant String? playlistItemId) =>
+  set playlistItemId(String? playlistItemId) =>
       _$this._playlistItemId = playlistItemId;
 
-  $ReadyRequestDtoBuilder() {
-    $ReadyRequestDto._defaults(this);
+  ReadyRequestDtoBuilder() {
+    ReadyRequestDto._defaults(this);
   }
 
-  $ReadyRequestDtoBuilder get _$this {
+  ReadyRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _when = $v.when;
@@ -121,22 +102,22 @@ class $ReadyRequestDtoBuilder
   }
 
   @override
-  void replace(covariant $ReadyRequestDto other) {
+  void replace(ReadyRequestDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$ReadyRequestDto;
+    _$v = other as _$ReadyRequestDto;
   }
 
   @override
-  void update(void Function($ReadyRequestDtoBuilder)? updates) {
+  void update(void Function(ReadyRequestDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $ReadyRequestDto build() => _build();
+  ReadyRequestDto build() => _build();
 
-  _$$ReadyRequestDto _build() {
+  _$ReadyRequestDto _build() {
     final _$result = _$v ??
-        new _$$ReadyRequestDto._(
+        new _$ReadyRequestDto._(
             when: when,
             positionTicks: positionTicks,
             isPlaying: isPlaying,

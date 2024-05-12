@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'architecture.g.dart';
 
 class Architecture extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'X86')
   static const Architecture x86 = _$x86;
   @BuiltValueEnumConst(wireName: r'X64')
@@ -26,7 +25,7 @@ class Architecture extends EnumClass {
 
   static Serializer<Architecture> get serializer => _$architectureSerializer;
 
-  const Architecture._(String name): super(name);
+  const Architecture._(String name) : super(name);
 
   static BuiltSet<Architecture> get values => _$values;
   static Architecture valueOf(String name) => _$valueOf(name);
@@ -39,4 +38,3 @@ class Architecture extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class ArchitectureMixin = Object with _$ArchitectureMixin;
-

@@ -1,8 +1,8 @@
-# openapi.api.SubtitleApi
+# tentacle.api.SubtitleApi
 
 ## Load the API package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 All URIs are relative to *http://localhost*
@@ -28,19 +28,19 @@ Deletes an external subtitle file.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final int index = 56; // int | The index of the subtitle file.
 
 try {
     api.deleteSubtitle(itemId, index);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->deleteSubtitle: $e\n');
 }
 ```
@@ -74,19 +74,19 @@ Downloads a remote subtitle.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String subtitleId = subtitleId_example; // String | The subtitle id.
 
 try {
     api.downloadRemoteSubtitles(itemId, subtitleId);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->downloadRemoteSubtitles: $e\n');
 }
 ```
@@ -120,19 +120,19 @@ Gets a fallback font file.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String name = name_example; // String | The name of the fallback font file to get.
 
 try {
     final response = api.getFallbackFont(name);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->getFallbackFont: $e\n');
 }
 ```
@@ -165,18 +165,18 @@ Gets a list of available fallback font files.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 
 try {
     final response = api.getFallbackFontList();
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->getFallbackFontList: $e\n');
 }
 ```
@@ -206,19 +206,19 @@ Gets the remote subtitles.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String id = id_example; // String | The item id.
 
 try {
     final response = api.getRemoteSubtitles(id);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->getRemoteSubtitles: $e\n');
 }
 ```
@@ -251,9 +251,9 @@ Gets subtitles in a specified format.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
 final String routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
 final int routeIndex = 56; // int | The (route) subtitle stream index.
@@ -270,7 +270,7 @@ final int startPositionTicks = 789; // int | The start position of the subtitle 
 try {
     final response = api.getSubtitle(routeItemId, routeMediaSourceId, routeIndex, routeFormat, itemId, mediaSourceId, index, format, endPositionTicks, copyTimestamps, addVttTimeMap, startPositionTicks);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->getSubtitle: $e\n');
 }
 ```
@@ -314,13 +314,13 @@ Gets an HLS subtitle playlist.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final int index = 56; // int | The subtitle stream index.
 final String mediaSourceId = mediaSourceId_example; // String | The media source id.
@@ -329,7 +329,7 @@ final int segmentLength = 56; // int | The subtitle segment length.
 try {
     final response = api.getSubtitlePlaylist(itemId, index, mediaSourceId, segmentLength);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->getSubtitlePlaylist: $e\n');
 }
 ```
@@ -365,9 +365,9 @@ Gets subtitles in a specified format.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String routeItemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The (route) item id.
 final String routeMediaSourceId = routeMediaSourceId_example; // String | The (route) media source id.
 final int routeIndex = 56; // int | The (route) subtitle stream index.
@@ -385,7 +385,7 @@ final bool addVttTimeMap = true; // bool | Optional. Whether to add a VTT time m
 try {
     final response = api.getSubtitleWithTicks(routeItemId, routeMediaSourceId, routeIndex, routeStartPositionTicks, routeFormat, itemId, mediaSourceId, index, startPositionTicks, format, endPositionTicks, copyTimestamps, addVttTimeMap);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->getSubtitleWithTicks: $e\n');
 }
 ```
@@ -430,13 +430,13 @@ Search remote subtitles.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String language = language_example; // String | The language of the subtitles.
 final bool isPerfectMatch = true; // bool | Optional. Only show subtitles which are a perfect match.
@@ -444,7 +444,7 @@ final bool isPerfectMatch = true; // bool | Optional. Only show subtitles which 
 try {
     final response = api.searchRemoteSubtitles(itemId, language, isPerfectMatch);
     print(response);
-} catch on DioError (e) {
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->searchRemoteSubtitles: $e\n');
 }
 ```
@@ -473,25 +473,25 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **uploadSubtitle**
-> uploadSubtitle(itemId, uploadSubtitleRequest)
+> uploadSubtitle(itemId, uploadSubtitleDto)
 
 Upload an external subtitle file.
 
 ### Example
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 // TODO Configure API key authorization: CustomAuthentication
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
-final api = Openapi().getSubtitleApi();
+final api = Tentacle().getSubtitleApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item the subtitle belongs to.
-final UploadSubtitleRequest uploadSubtitleRequest = ; // UploadSubtitleRequest | The request body.
+final UploadSubtitleDto uploadSubtitleDto = ; // UploadSubtitleDto | The request body.
 
 try {
-    api.uploadSubtitle(itemId, uploadSubtitleRequest);
-} catch on DioError (e) {
+    api.uploadSubtitle(itemId, uploadSubtitleDto);
+} catch on DioException (e) {
     print('Exception when calling SubtitleApi->uploadSubtitle: $e\n');
 }
 ```
@@ -501,7 +501,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item the subtitle belongs to. | 
- **uploadSubtitleRequest** | [**UploadSubtitleRequest**](UploadSubtitleRequest.md)| The request body. | 
+ **uploadSubtitleDto** | [**UploadSubtitleDto**](UploadSubtitleDto.md)| The request body. | 
 
 ### Return type
 

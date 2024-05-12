@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ReadyRequestDto
 void main() {
-  //final instance = ReadyRequestDtoBuilder();
+  final instance = ReadyRequestDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(ReadyRequestDto, () {
@@ -30,6 +30,5 @@ void main() {
     test('to test the property `playlistItemId`', () async {
       // TODO
     });
-
   });
 }

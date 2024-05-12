@@ -17,7 +17,8 @@ part 'image_by_name_info.g.dart';
 /// * [fileLength] - Gets or sets the length of the file.
 /// * [format] - Gets or sets the format.
 @BuiltValue()
-abstract class ImageByNameInfo implements Built<ImageByNameInfo, ImageByNameInfoBuilder> {
+abstract class ImageByNameInfo
+    implements Built<ImageByNameInfo, ImageByNameInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -40,16 +41,19 @@ abstract class ImageByNameInfo implements Built<ImageByNameInfo, ImageByNameInfo
 
   ImageByNameInfo._();
 
-  factory ImageByNameInfo([void updates(ImageByNameInfoBuilder b)]) = _$ImageByNameInfo;
+  factory ImageByNameInfo([void updates(ImageByNameInfoBuilder b)]) =
+      _$ImageByNameInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ImageByNameInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ImageByNameInfo> get serializer => _$ImageByNameInfoSerializer();
+  static Serializer<ImageByNameInfo> get serializer =>
+      _$ImageByNameInfoSerializer();
 }
 
-class _$ImageByNameInfoSerializer implements PrimitiveSerializer<ImageByNameInfo> {
+class _$ImageByNameInfoSerializer
+    implements PrimitiveSerializer<ImageByNameInfo> {
   @override
   final Iterable<Type> types = const [ImageByNameInfo, _$ImageByNameInfo];
 
@@ -104,7 +108,9 @@ class _$ImageByNameInfoSerializer implements PrimitiveSerializer<ImageByNameInfo
     ImageByNameInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -186,4 +192,3 @@ class _$ImageByNameInfoSerializer implements PrimitiveSerializer<ImageByNameInfo
     return result.build();
   }
 }
-

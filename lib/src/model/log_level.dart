@@ -10,7 +10,6 @@ import 'package:built_value/serializer.dart';
 part 'log_level.g.dart';
 
 class LogLevel extends EnumClass {
-
   @BuiltValueEnumConst(wireName: r'Trace')
   static const LogLevel trace = _$trace;
   @BuiltValueEnumConst(wireName: r'Debug')
@@ -28,7 +27,7 @@ class LogLevel extends EnumClass {
 
   static Serializer<LogLevel> get serializer => _$logLevelSerializer;
 
-  const LogLevel._(String name): super(name);
+  const LogLevel._(String name) : super(name);
 
   static BuiltSet<LogLevel> get values => _$values;
   static LogLevel valueOf(String name) => _$valueOf(name);
@@ -41,4 +40,3 @@ class LogLevel extends EnumClass {
 ///
 /// Trigger mixin generation by writing a line like this one next to your enum.
 abstract class LogLevelMixin = Object with _$LogLevelMixin;
-

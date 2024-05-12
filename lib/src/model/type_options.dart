@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/image_option.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/image_option.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,12 +13,12 @@ part 'type_options.g.dart';
 /// TypeOptions
 ///
 /// Properties:
-/// * [type] 
-/// * [metadataFetchers] 
-/// * [metadataFetcherOrder] 
-/// * [imageFetchers] 
-/// * [imageFetcherOrder] 
-/// * [imageOptions] 
+/// * [type]
+/// * [metadataFetchers]
+/// * [metadataFetcherOrder]
+/// * [imageFetchers]
+/// * [imageFetcherOrder]
+/// * [imageOptions]
 @BuiltValue()
 abstract class TypeOptions implements Built<TypeOptions, TypeOptionsBuilder> {
   @BuiltValueField(wireName: r'Type')
@@ -101,7 +101,8 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
       yield r'ImageOptions';
       yield serializers.serialize(
         object.imageOptions,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(ImageOption)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ImageOption)]),
       );
     }
   }
@@ -112,7 +113,9 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
     TypeOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -138,7 +141,8 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
         case r'MetadataFetchers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.metadataFetchers.replace(valueDes);
@@ -146,7 +150,8 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
         case r'MetadataFetcherOrder':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.metadataFetcherOrder.replace(valueDes);
@@ -154,7 +159,8 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
         case r'ImageFetchers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.imageFetchers.replace(valueDes);
@@ -162,7 +168,8 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
         case r'ImageFetcherOrder':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.imageFetcherOrder.replace(valueDes);
@@ -170,7 +177,8 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
         case r'ImageOptions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(ImageOption)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ImageOption)]),
           ) as BuiltList<ImageOption>?;
           if (valueDes == null) continue;
           result.imageOptions.replace(valueDes);
@@ -203,4 +211,3 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
     return result.build();
   }
 }
-

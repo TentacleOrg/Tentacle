@@ -14,33 +14,44 @@ part 'session_info_full_now_playing_item.g.dart';
 /// Class BaseItem.
 ///
 /// Properties:
-/// * [size] 
-/// * [container] 
-/// * [isHD] 
-/// * [isShortcut] 
-/// * [shortcutPath] 
-/// * [width] 
-/// * [height] 
-/// * [extraIds] 
-/// * [dateLastSaved] 
+/// * [size]
+/// * [container]
+/// * [isHD]
+/// * [isShortcut]
+/// * [shortcutPath]
+/// * [width]
+/// * [height]
+/// * [extraIds]
+/// * [dateLastSaved]
 /// * [remoteTrailers] - Gets or sets the remote trailers.
-/// * [supportsExternalTransfer] 
+/// * [supportsExternalTransfer]
 @BuiltValue()
-abstract class SessionInfoFullNowPlayingItem implements BaseItem, Built<SessionInfoFullNowPlayingItem, SessionInfoFullNowPlayingItemBuilder> {
+abstract class SessionInfoFullNowPlayingItem
+    implements
+        BaseItem,
+        Built<SessionInfoFullNowPlayingItem,
+            SessionInfoFullNowPlayingItemBuilder> {
   SessionInfoFullNowPlayingItem._();
 
-  factory SessionInfoFullNowPlayingItem([void updates(SessionInfoFullNowPlayingItemBuilder b)]) = _$SessionInfoFullNowPlayingItem;
+  factory SessionInfoFullNowPlayingItem(
+          [void updates(SessionInfoFullNowPlayingItemBuilder b)]) =
+      _$SessionInfoFullNowPlayingItem;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SessionInfoFullNowPlayingItemBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<SessionInfoFullNowPlayingItem> get serializer => _$SessionInfoFullNowPlayingItemSerializer();
+  static Serializer<SessionInfoFullNowPlayingItem> get serializer =>
+      _$SessionInfoFullNowPlayingItemSerializer();
 }
 
-class _$SessionInfoFullNowPlayingItemSerializer implements PrimitiveSerializer<SessionInfoFullNowPlayingItem> {
+class _$SessionInfoFullNowPlayingItemSerializer
+    implements PrimitiveSerializer<SessionInfoFullNowPlayingItem> {
   @override
-  final Iterable<Type> types = const [SessionInfoFullNowPlayingItem, _$SessionInfoFullNowPlayingItem];
+  final Iterable<Type> types = const [
+    SessionInfoFullNowPlayingItem,
+    _$SessionInfoFullNowPlayingItem
+  ];
 
   @override
   final String wireName = r'SessionInfoFullNowPlayingItem';
@@ -135,7 +146,9 @@ class _$SessionInfoFullNowPlayingItemSerializer implements PrimitiveSerializer<S
     SessionInfoFullNowPlayingItem object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -161,7 +174,8 @@ class _$SessionInfoFullNowPlayingItemSerializer implements PrimitiveSerializer<S
         case r'ExtraIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.extraIds.replace(valueDes);
@@ -185,7 +199,8 @@ class _$SessionInfoFullNowPlayingItemSerializer implements PrimitiveSerializer<S
         case r'RemoteTrailers':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BuiltList, [FullType(MediaUrl)]),
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(MediaUrl)]),
           ) as BuiltList<MediaUrl>?;
           if (valueDes == null) continue;
           result.remoteTrailers.replace(valueDes);
@@ -260,4 +275,3 @@ class _$SessionInfoFullNowPlayingItemSerializer implements PrimitiveSerializer<S
     return result.build();
   }
 }
-

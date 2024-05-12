@@ -22,21 +22,31 @@ part 'task_info_last_execution_result.g.dart';
 /// * [errorMessage] - Gets or sets the error message.
 /// * [longErrorMessage] - Gets or sets the long error message.
 @BuiltValue()
-abstract class TaskInfoLastExecutionResult implements TaskResult, Built<TaskInfoLastExecutionResult, TaskInfoLastExecutionResultBuilder> {
+abstract class TaskInfoLastExecutionResult
+    implements
+        TaskResult,
+        Built<TaskInfoLastExecutionResult, TaskInfoLastExecutionResultBuilder> {
   TaskInfoLastExecutionResult._();
 
-  factory TaskInfoLastExecutionResult([void updates(TaskInfoLastExecutionResultBuilder b)]) = _$TaskInfoLastExecutionResult;
+  factory TaskInfoLastExecutionResult(
+          [void updates(TaskInfoLastExecutionResultBuilder b)]) =
+      _$TaskInfoLastExecutionResult;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TaskInfoLastExecutionResultBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TaskInfoLastExecutionResult> get serializer => _$TaskInfoLastExecutionResultSerializer();
+  static Serializer<TaskInfoLastExecutionResult> get serializer =>
+      _$TaskInfoLastExecutionResultSerializer();
 }
 
-class _$TaskInfoLastExecutionResultSerializer implements PrimitiveSerializer<TaskInfoLastExecutionResult> {
+class _$TaskInfoLastExecutionResultSerializer
+    implements PrimitiveSerializer<TaskInfoLastExecutionResult> {
   @override
-  final Iterable<Type> types = const [TaskInfoLastExecutionResult, _$TaskInfoLastExecutionResult];
+  final Iterable<Type> types = const [
+    TaskInfoLastExecutionResult,
+    _$TaskInfoLastExecutionResult
+  ];
 
   @override
   final String wireName = r'TaskInfoLastExecutionResult';
@@ -110,7 +120,9 @@ class _$TaskInfoLastExecutionResultSerializer implements PrimitiveSerializer<Tas
     TaskInfoLastExecutionResult object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -214,4 +226,3 @@ class _$TaskInfoLastExecutionResultSerializer implements PrimitiveSerializer<Tas
     return result.build();
   }
 }
-

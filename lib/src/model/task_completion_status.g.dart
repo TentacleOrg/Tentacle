@@ -46,7 +46,7 @@ class _$TaskCompletionStatusMeta {
   BuiltSet<TaskCompletionStatus> get values => _$values;
 }
 
-abstract class _$TaskCompletionStatusMixin {
+mixin _$TaskCompletionStatusMixin {
   // ignore: non_constant_identifier_names
   _$TaskCompletionStatusMeta get TaskCompletionStatus =>
       const _$TaskCompletionStatusMeta();

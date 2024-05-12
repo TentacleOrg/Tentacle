@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/package_info.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/package_info.dart';
 import 'package:tentacle/src/model/version_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -23,21 +23,31 @@ part 'installation_info_package_info.g.dart';
 /// * [versions] - Gets or sets the versions.
 /// * [imageUrl] - Gets or sets the image url for the package.
 @BuiltValue()
-abstract class InstallationInfoPackageInfo implements PackageInfo, Built<InstallationInfoPackageInfo, InstallationInfoPackageInfoBuilder> {
+abstract class InstallationInfoPackageInfo
+    implements
+        PackageInfo,
+        Built<InstallationInfoPackageInfo, InstallationInfoPackageInfoBuilder> {
   InstallationInfoPackageInfo._();
 
-  factory InstallationInfoPackageInfo([void updates(InstallationInfoPackageInfoBuilder b)]) = _$InstallationInfoPackageInfo;
+  factory InstallationInfoPackageInfo(
+          [void updates(InstallationInfoPackageInfoBuilder b)]) =
+      _$InstallationInfoPackageInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(InstallationInfoPackageInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<InstallationInfoPackageInfo> get serializer => _$InstallationInfoPackageInfoSerializer();
+  static Serializer<InstallationInfoPackageInfo> get serializer =>
+      _$InstallationInfoPackageInfoSerializer();
 }
 
-class _$InstallationInfoPackageInfoSerializer implements PrimitiveSerializer<InstallationInfoPackageInfo> {
+class _$InstallationInfoPackageInfoSerializer
+    implements PrimitiveSerializer<InstallationInfoPackageInfo> {
   @override
-  final Iterable<Type> types = const [InstallationInfoPackageInfo, _$InstallationInfoPackageInfo];
+  final Iterable<Type> types = const [
+    InstallationInfoPackageInfo,
+    _$InstallationInfoPackageInfo
+  ];
 
   @override
   final String wireName = r'InstallationInfoPackageInfo';
@@ -111,7 +121,9 @@ class _$InstallationInfoPackageInfoSerializer implements PrimitiveSerializer<Ins
     InstallationInfoPackageInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -211,4 +223,3 @@ class _$InstallationInfoPackageInfoSerializer implements PrimitiveSerializer<Ins
     return result.build();
   }
 }
-

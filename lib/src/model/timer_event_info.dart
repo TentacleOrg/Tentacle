@@ -11,10 +11,11 @@ part 'timer_event_info.g.dart';
 /// TimerEventInfo
 ///
 /// Properties:
-/// * [id] 
-/// * [programId] 
+/// * [id]
+/// * [programId]
 @BuiltValue()
-abstract class TimerEventInfo implements Built<TimerEventInfo, TimerEventInfoBuilder> {
+abstract class TimerEventInfo
+    implements Built<TimerEventInfo, TimerEventInfoBuilder> {
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
@@ -23,16 +24,19 @@ abstract class TimerEventInfo implements Built<TimerEventInfo, TimerEventInfoBui
 
   TimerEventInfo._();
 
-  factory TimerEventInfo([void updates(TimerEventInfoBuilder b)]) = _$TimerEventInfo;
+  factory TimerEventInfo([void updates(TimerEventInfoBuilder b)]) =
+      _$TimerEventInfo;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(TimerEventInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<TimerEventInfo> get serializer => _$TimerEventInfoSerializer();
+  static Serializer<TimerEventInfo> get serializer =>
+      _$TimerEventInfoSerializer();
 }
 
-class _$TimerEventInfoSerializer implements PrimitiveSerializer<TimerEventInfo> {
+class _$TimerEventInfoSerializer
+    implements PrimitiveSerializer<TimerEventInfo> {
   @override
   final Iterable<Type> types = const [TimerEventInfo, _$TimerEventInfo];
 
@@ -66,7 +70,9 @@ class _$TimerEventInfoSerializer implements PrimitiveSerializer<TimerEventInfo> 
     TimerEventInfo object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -124,4 +130,3 @@ class _$TimerEventInfoSerializer implements PrimitiveSerializer<TimerEventInfo> 
     return result.build();
   }
 }
-

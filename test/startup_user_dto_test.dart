@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for StartupUserDto
 void main() {
-  //final instance = StartupUserDtoBuilder();
+  final instance = StartupUserDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(StartupUserDto, () {
@@ -18,6 +18,5 @@ void main() {
     test('to test the property `password`', () async {
       // TODO
     });
-
   });
 }

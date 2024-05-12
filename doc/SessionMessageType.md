@@ -1,8 +1,8 @@
-# openapi.model.SessionMessageType
+# tentacle.model.SessionMessageType
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties

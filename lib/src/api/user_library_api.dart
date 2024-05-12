@@ -37,7 +37,7 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> deleteUserItemRating({
     required String userId,
     required String itemId,
@@ -49,8 +49,14 @@ class UserLibraryApi {
     ProgressCallback? onReceiveProgress,
   }) async {
     final _path = r'/Users/{userId}/Items/{itemId}/Rating'
-        .replaceAll('{' r'userId' '}', userId.toString())
-        .replaceAll('{' r'itemId' '}', itemId.toString());
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -78,21 +84,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserItemDataDto _responseData;
+    UserItemDataDto? _responseData;
 
     try {
-      const _responseType = FullType(UserItemDataDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as UserItemDataDto;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(UserItemDataDto),
+            ) as UserItemDataDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UserItemDataDto>(
@@ -121,7 +130,7 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getIntros({
     required String userId,
     required String itemId,
@@ -133,8 +142,14 @@ class UserLibraryApi {
     ProgressCallback? onReceiveProgress,
   }) async {
     final _path = r'/Users/{userId}/Items/{itemId}/Intros'
-        .replaceAll('{' r'userId' '}', userId.toString())
-        .replaceAll('{' r'itemId' '}', itemId.toString());
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -162,21 +177,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDtoQueryResult _responseData;
+    BaseItemDtoQueryResult? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDtoQueryResult);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDtoQueryResult;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDtoQueryResult),
+            ) as BaseItemDtoQueryResult;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDtoQueryResult>(
@@ -205,7 +223,7 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDto>> getItem({
     required String userId,
     required String itemId,
@@ -217,8 +235,14 @@ class UserLibraryApi {
     ProgressCallback? onReceiveProgress,
   }) async {
     final _path = r'/Users/{userId}/Items/{itemId}'
-        .replaceAll('{' r'userId' '}', userId.toString())
-        .replaceAll('{' r'itemId' '}', itemId.toString());
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -246,21 +270,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDto _responseData;
+    BaseItemDto? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDto;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDto),
+            ) as BaseItemDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDto>(
@@ -298,7 +325,7 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<BuiltList<BaseItemDto>>> getLatestMedia({
     required String userId,
     String? parentId,
@@ -318,8 +345,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/Latest'
-        .replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/Items/Latest'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -393,21 +422,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<BaseItemDto> _responseData;
+    BuiltList<BaseItemDto>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(BaseItemDto)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<BaseItemDto>;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(BaseItemDto)]),
+            ) as BuiltList<BaseItemDto>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<BaseItemDto>>(
@@ -436,7 +468,7 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<BuiltList<BaseItemDto>>> getLocalTrailers({
     required String userId,
     required String itemId,
@@ -448,8 +480,14 @@ class UserLibraryApi {
     ProgressCallback? onReceiveProgress,
   }) async {
     final _path = r'/Users/{userId}/Items/{itemId}/LocalTrailers'
-        .replaceAll('{' r'userId' '}', userId.toString())
-        .replaceAll('{' r'itemId' '}', itemId.toString());
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -477,21 +515,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<BaseItemDto> _responseData;
+    BuiltList<BaseItemDto>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(BaseItemDto)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<BaseItemDto>;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(BaseItemDto)]),
+            ) as BuiltList<BaseItemDto>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<BaseItemDto>>(
@@ -519,7 +560,7 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDto>> getRootFolder({
     required String userId,
     CancelToken? cancelToken,
@@ -529,8 +570,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/Root'
-        .replaceAll('{' r'userId' '}', userId.toString());
+    final _path = r'/Users/{userId}/Items/Root'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -558,21 +601,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BaseItemDto _responseData;
+    BaseItemDto? _responseData;
 
     try {
-      const _responseType = FullType(BaseItemDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BaseItemDto;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BaseItemDto),
+            ) as BaseItemDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BaseItemDto>(
@@ -601,7 +647,7 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<BuiltList<BaseItemDto>>> getSpecialFeatures({
     required String userId,
     required String itemId,
@@ -613,8 +659,14 @@ class UserLibraryApi {
     ProgressCallback? onReceiveProgress,
   }) async {
     final _path = r'/Users/{userId}/Items/{itemId}/SpecialFeatures'
-        .replaceAll('{' r'userId' '}', userId.toString())
-        .replaceAll('{' r'itemId' '}', itemId.toString());
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -642,21 +694,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<BaseItemDto> _responseData;
+    BuiltList<BaseItemDto>? _responseData;
 
     try {
-      const _responseType = FullType(BuiltList, [FullType(BaseItemDto)]);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as BuiltList<BaseItemDto>;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(BuiltList, [FullType(BaseItemDto)]),
+            ) as BuiltList<BaseItemDto>;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<BuiltList<BaseItemDto>>(
@@ -677,7 +732,6 @@ class UserLibraryApi {
   /// Parameters:
   /// * [userId] - User id.
   /// * [itemId] - Item id.
-  /// * [url] - The url to the server.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -686,11 +740,10 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> markFavoriteItem({
     required String userId,
     required String itemId,
-    required String url,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -698,10 +751,15 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'{url}/Users/{userId}/FavoriteItems/{itemId}'
-        .replaceAll('{' r'userId' '}', userId.toString())
-        .replaceAll('{' r'itemId' '}', itemId.toString())
-        .replaceAll('{' r'url' '}', url.toString());
+    final _path = r'/Users/{userId}/FavoriteItems/{itemId}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -729,21 +787,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserItemDataDto _responseData;
+    UserItemDataDto? _responseData;
 
     try {
-      const _responseType = FullType(UserItemDataDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as UserItemDataDto;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(UserItemDataDto),
+            ) as UserItemDataDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UserItemDataDto>(
@@ -764,7 +825,6 @@ class UserLibraryApi {
   /// Parameters:
   /// * [userId] - User id.
   /// * [itemId] - Item id.
-  /// * [url] - The url of the server.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -773,11 +833,10 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> unmarkFavoriteItem({
     required String userId,
     required String itemId,
-    required String url,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -785,10 +844,15 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'{url}/Users/{userId}/FavoriteItems/{itemId}'
-        .replaceAll('{' r'userId' '}', userId.toString())
-        .replaceAll('{' r'itemId' '}', itemId.toString())
-        .replaceAll('{' r'url' '}', url.toString());
+    final _path = r'/Users/{userId}/FavoriteItems/{itemId}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -816,21 +880,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserItemDataDto _responseData;
+    UserItemDataDto? _responseData;
 
     try {
-      const _responseType = FullType(UserItemDataDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as UserItemDataDto;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(UserItemDataDto),
+            ) as UserItemDataDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UserItemDataDto>(
@@ -860,7 +927,7 @@ class UserLibraryApi {
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
-  /// Throws [DioError] if API call or serialization fails
+  /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> updateUserItemRating({
     required String userId,
     required String itemId,
@@ -873,8 +940,14 @@ class UserLibraryApi {
     ProgressCallback? onReceiveProgress,
   }) async {
     final _path = r'/Users/{userId}/Items/{itemId}/Rating'
-        .replaceAll('{' r'userId' '}', userId.toString())
-        .replaceAll('{' r'itemId' '}', itemId.toString());
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'itemId' '}',
+            encodeQueryParameter(_serializers, itemId, const FullType(String))
+                .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -909,21 +982,24 @@ class UserLibraryApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    UserItemDataDto _responseData;
+    UserItemDataDto? _responseData;
 
     try {
-      const _responseType = FullType(UserItemDataDto);
-      _responseData = _serializers.deserialize(
-        _response.data!,
-        specifiedType: _responseType,
-      ) as UserItemDataDto;
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(UserItemDataDto),
+            ) as UserItemDataDto;
     } catch (error, stackTrace) {
-      throw DioError(
+      throw DioException(
         requestOptions: _response.requestOptions,
         response: _response,
-        type: DioErrorType.unknown,
+        type: DioExceptionType.unknown,
         error: error,
-      )..stackTrace;
+        stackTrace: stackTrace,
+      );
     }
 
     return Response<UserItemDataDto>(

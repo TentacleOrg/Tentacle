@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(SessionInfo, () {
-    // SessionInfoPlayState playState
+    // PlayerStateInfo playState
     test('to test the property `playState`', () async {
       // TODO
     });
@@ -17,7 +17,7 @@ void main() {
       // TODO
     });
 
-    // SessionInfoCapabilities capabilities
+    // ClientCapabilities capabilities
     test('to test the property `capabilities`', () async {
       // TODO
     });
@@ -109,7 +109,7 @@ void main() {
       // TODO
     });
 
-    // SessionInfoTranscodingInfo transcodingInfo
+    // TranscodingInfo transcodingInfo
     test('to test the property `transcodingInfo`', () async {
       // TODO
     });
@@ -165,6 +165,5 @@ void main() {
     test('to test the property `supportedCommands`', () async {
       // TODO
     });
-
   });
 }

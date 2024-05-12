@@ -38,11 +38,11 @@ class _$EncodingOptions extends EncodingOptions {
   @override
   final String? tonemappingAlgorithm;
   @override
+  final String? tonemappingMode;
+  @override
   final String? tonemappingRange;
   @override
   final double? tonemappingDesat;
-  @override
-  final double? tonemappingThreshold;
   @override
   final double? tonemappingPeak;
   @override
@@ -104,9 +104,9 @@ class _$EncodingOptions extends EncodingOptions {
       this.enableTonemapping,
       this.enableVppTonemapping,
       this.tonemappingAlgorithm,
+      this.tonemappingMode,
       this.tonemappingRange,
       this.tonemappingDesat,
-      this.tonemappingThreshold,
       this.tonemappingPeak,
       this.tonemappingParam,
       this.vppTonemappingBrightness,
@@ -156,9 +156,9 @@ class _$EncodingOptions extends EncodingOptions {
         enableTonemapping == other.enableTonemapping &&
         enableVppTonemapping == other.enableVppTonemapping &&
         tonemappingAlgorithm == other.tonemappingAlgorithm &&
+        tonemappingMode == other.tonemappingMode &&
         tonemappingRange == other.tonemappingRange &&
         tonemappingDesat == other.tonemappingDesat &&
-        tonemappingThreshold == other.tonemappingThreshold &&
         tonemappingPeak == other.tonemappingPeak &&
         tonemappingParam == other.tonemappingParam &&
         vppTonemappingBrightness == other.vppTonemappingBrightness &&
@@ -203,9 +203,9 @@ class _$EncodingOptions extends EncodingOptions {
     _$hash = $jc(_$hash, enableTonemapping.hashCode);
     _$hash = $jc(_$hash, enableVppTonemapping.hashCode);
     _$hash = $jc(_$hash, tonemappingAlgorithm.hashCode);
+    _$hash = $jc(_$hash, tonemappingMode.hashCode);
     _$hash = $jc(_$hash, tonemappingRange.hashCode);
     _$hash = $jc(_$hash, tonemappingDesat.hashCode);
-    _$hash = $jc(_$hash, tonemappingThreshold.hashCode);
     _$hash = $jc(_$hash, tonemappingPeak.hashCode);
     _$hash = $jc(_$hash, tonemappingParam.hashCode);
     _$hash = $jc(_$hash, vppTonemappingBrightness.hashCode);
@@ -249,9 +249,9 @@ class _$EncodingOptions extends EncodingOptions {
           ..add('enableTonemapping', enableTonemapping)
           ..add('enableVppTonemapping', enableVppTonemapping)
           ..add('tonemappingAlgorithm', tonemappingAlgorithm)
+          ..add('tonemappingMode', tonemappingMode)
           ..add('tonemappingRange', tonemappingRange)
           ..add('tonemappingDesat', tonemappingDesat)
-          ..add('tonemappingThreshold', tonemappingThreshold)
           ..add('tonemappingPeak', tonemappingPeak)
           ..add('tonemappingParam', tonemappingParam)
           ..add('vppTonemappingBrightness', vppTonemappingBrightness)
@@ -358,6 +358,11 @@ class EncodingOptionsBuilder
   set tonemappingAlgorithm(String? tonemappingAlgorithm) =>
       _$this._tonemappingAlgorithm = tonemappingAlgorithm;
 
+  String? _tonemappingMode;
+  String? get tonemappingMode => _$this._tonemappingMode;
+  set tonemappingMode(String? tonemappingMode) =>
+      _$this._tonemappingMode = tonemappingMode;
+
   String? _tonemappingRange;
   String? get tonemappingRange => _$this._tonemappingRange;
   set tonemappingRange(String? tonemappingRange) =>
@@ -367,11 +372,6 @@ class EncodingOptionsBuilder
   double? get tonemappingDesat => _$this._tonemappingDesat;
   set tonemappingDesat(double? tonemappingDesat) =>
       _$this._tonemappingDesat = tonemappingDesat;
-
-  double? _tonemappingThreshold;
-  double? get tonemappingThreshold => _$this._tonemappingThreshold;
-  set tonemappingThreshold(double? tonemappingThreshold) =>
-      _$this._tonemappingThreshold = tonemappingThreshold;
 
   double? _tonemappingPeak;
   double? get tonemappingPeak => _$this._tonemappingPeak;
@@ -509,9 +509,9 @@ class EncodingOptionsBuilder
       _enableTonemapping = $v.enableTonemapping;
       _enableVppTonemapping = $v.enableVppTonemapping;
       _tonemappingAlgorithm = $v.tonemappingAlgorithm;
+      _tonemappingMode = $v.tonemappingMode;
       _tonemappingRange = $v.tonemappingRange;
       _tonemappingDesat = $v.tonemappingDesat;
-      _tonemappingThreshold = $v.tonemappingThreshold;
       _tonemappingPeak = $v.tonemappingPeak;
       _tonemappingParam = $v.tonemappingParam;
       _vppTonemappingBrightness = $v.vppTonemappingBrightness;
@@ -573,9 +573,9 @@ class EncodingOptionsBuilder
               enableTonemapping: enableTonemapping,
               enableVppTonemapping: enableVppTonemapping,
               tonemappingAlgorithm: tonemappingAlgorithm,
+              tonemappingMode: tonemappingMode,
               tonemappingRange: tonemappingRange,
               tonemappingDesat: tonemappingDesat,
-              tonemappingThreshold: tonemappingThreshold,
               tonemappingPeak: tonemappingPeak,
               tonemappingParam: tonemappingParam,
               vppTonemappingBrightness: vppTonemappingBrightness,

@@ -1,8 +1,8 @@
-# openapi.model.PlaybackProgressInfoItem
+# tentacle.model.PlaybackProgressInfoItem
 
 ## Load the model package
 ```dart
-import 'package:openapi/api.dart';
+import 'package:tentacle/api.dart';
 ```
 
 ## Properties
@@ -62,7 +62,7 @@ Name | Type | Description | Notes
 **isHD** | **bool** | Gets or sets a value indicating whether this instance is HD. | [optional] 
 **isFolder** | **bool** | Gets or sets a value indicating whether this instance is folder. | [optional] 
 **parentId** | **String** | Gets or sets the parent id. | [optional] 
-**type** | [**BaseItemKind**](BaseItemKind.md) | The base item kind. | [optional] 
+**type** | [**BaseItemKind**](BaseItemKind.md) | Gets or sets the type. | [optional] 
 **people** | [**BuiltList&lt;BaseItemPerson&gt;**](BaseItemPerson.md) | Gets or sets the people. | [optional] 
 **studios** | [**BuiltList&lt;NameGuidPair&gt;**](NameGuidPair.md) | Gets or sets the studios. | [optional] 
 **genreItems** | [**BuiltList&lt;NameGuidPair&gt;**](NameGuidPair.md) |  | [optional] 
