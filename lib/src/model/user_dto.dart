@@ -58,6 +58,7 @@ abstract class UserDto {
   bool? get hasConfiguredPassword;
 
   /// Gets or sets a value indicating whether this instance has configured easy password.
+  @Deprecated('hasConfiguredEasyPassword has been deprecated')
   @BuiltValueField(wireName: r'HasConfiguredEasyPassword')
   bool? get hasConfiguredEasyPassword;
 

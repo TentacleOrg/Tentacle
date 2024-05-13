@@ -15,6 +15,15 @@ abstract mixin class UserPolicyBuilder {
   bool? get isHidden;
   set isHidden(bool? isHidden);
 
+  bool? get enableCollectionManagement;
+  set enableCollectionManagement(bool? enableCollectionManagement);
+
+  bool? get enableSubtitleManagement;
+  set enableSubtitleManagement(bool? enableSubtitleManagement);
+
+  bool? get enableLyricManagement;
+  set enableLyricManagement(bool? enableLyricManagement);
+
   bool? get isDisabled;
   set isDisabled(bool? isDisabled);
 
@@ -23,6 +32,9 @@ abstract mixin class UserPolicyBuilder {
 
   ListBuilder<String> get blockedTags;
   set blockedTags(ListBuilder<String>? blockedTags);
+
+  ListBuilder<String> get allowedTags;
+  set allowedTags(ListBuilder<String>? allowedTags);
 
   bool? get enableUserPreferenceAccess;
   set enableUserPreferenceAccess(bool? enableUserPreferenceAccess);
@@ -134,11 +146,19 @@ class _$$UserPolicy extends $UserPolicy {
   @override
   final bool? isHidden;
   @override
+  final bool? enableCollectionManagement;
+  @override
+  final bool? enableSubtitleManagement;
+  @override
+  final bool? enableLyricManagement;
+  @override
   final bool? isDisabled;
   @override
   final int? maxParentalRating;
   @override
   final BuiltList<String>? blockedTags;
+  @override
+  final BuiltList<String>? allowedTags;
   @override
   final bool? enableUserPreferenceAccess;
   @override
@@ -202,9 +222,9 @@ class _$$UserPolicy extends $UserPolicy {
   @override
   final int? remoteClientBitrateLimit;
   @override
-  final String? authenticationProviderId;
+  final String authenticationProviderId;
   @override
-  final String? passwordResetProviderId;
+  final String passwordResetProviderId;
   @override
   final SyncPlayUserAccessType? syncPlayAccess;
 
@@ -214,9 +234,13 @@ class _$$UserPolicy extends $UserPolicy {
   _$$UserPolicy._(
       {this.isAdministrator,
       this.isHidden,
+      this.enableCollectionManagement,
+      this.enableSubtitleManagement,
+      this.enableLyricManagement,
       this.isDisabled,
       this.maxParentalRating,
       this.blockedTags,
+      this.allowedTags,
       this.enableUserPreferenceAccess,
       this.accessSchedules,
       this.blockUnratedItems,
@@ -248,10 +272,15 @@ class _$$UserPolicy extends $UserPolicy {
       this.blockedMediaFolders,
       this.blockedChannels,
       this.remoteClientBitrateLimit,
-      this.authenticationProviderId,
-      this.passwordResetProviderId,
+      required this.authenticationProviderId,
+      required this.passwordResetProviderId,
       this.syncPlayAccess})
-      : super._();
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        authenticationProviderId, r'$UserPolicy', 'authenticationProviderId');
+    BuiltValueNullFieldError.checkNotNull(
+        passwordResetProviderId, r'$UserPolicy', 'passwordResetProviderId');
+  }
 
   @override
   $UserPolicy rebuild(void Function($UserPolicyBuilder) updates) =>
@@ -266,9 +295,13 @@ class _$$UserPolicy extends $UserPolicy {
     return other is $UserPolicy &&
         isAdministrator == other.isAdministrator &&
         isHidden == other.isHidden &&
+        enableCollectionManagement == other.enableCollectionManagement &&
+        enableSubtitleManagement == other.enableSubtitleManagement &&
+        enableLyricManagement == other.enableLyricManagement &&
         isDisabled == other.isDisabled &&
         maxParentalRating == other.maxParentalRating &&
         blockedTags == other.blockedTags &&
+        allowedTags == other.allowedTags &&
         enableUserPreferenceAccess == other.enableUserPreferenceAccess &&
         accessSchedules == other.accessSchedules &&
         blockUnratedItems == other.blockUnratedItems &&
@@ -314,9 +347,13 @@ class _$$UserPolicy extends $UserPolicy {
     var _$hash = 0;
     _$hash = $jc(_$hash, isAdministrator.hashCode);
     _$hash = $jc(_$hash, isHidden.hashCode);
+    _$hash = $jc(_$hash, enableCollectionManagement.hashCode);
+    _$hash = $jc(_$hash, enableSubtitleManagement.hashCode);
+    _$hash = $jc(_$hash, enableLyricManagement.hashCode);
     _$hash = $jc(_$hash, isDisabled.hashCode);
     _$hash = $jc(_$hash, maxParentalRating.hashCode);
     _$hash = $jc(_$hash, blockedTags.hashCode);
+    _$hash = $jc(_$hash, allowedTags.hashCode);
     _$hash = $jc(_$hash, enableUserPreferenceAccess.hashCode);
     _$hash = $jc(_$hash, accessSchedules.hashCode);
     _$hash = $jc(_$hash, blockUnratedItems.hashCode);
@@ -360,9 +397,13 @@ class _$$UserPolicy extends $UserPolicy {
     return (newBuiltValueToStringHelper(r'$UserPolicy')
           ..add('isAdministrator', isAdministrator)
           ..add('isHidden', isHidden)
+          ..add('enableCollectionManagement', enableCollectionManagement)
+          ..add('enableSubtitleManagement', enableSubtitleManagement)
+          ..add('enableLyricManagement', enableLyricManagement)
           ..add('isDisabled', isDisabled)
           ..add('maxParentalRating', maxParentalRating)
           ..add('blockedTags', blockedTags)
+          ..add('allowedTags', allowedTags)
           ..add('enableUserPreferenceAccess', enableUserPreferenceAccess)
           ..add('accessSchedules', accessSchedules)
           ..add('blockUnratedItems', blockUnratedItems)
@@ -418,6 +459,21 @@ class $UserPolicyBuilder
   bool? get isHidden => _$this._isHidden;
   set isHidden(covariant bool? isHidden) => _$this._isHidden = isHidden;
 
+  bool? _enableCollectionManagement;
+  bool? get enableCollectionManagement => _$this._enableCollectionManagement;
+  set enableCollectionManagement(covariant bool? enableCollectionManagement) =>
+      _$this._enableCollectionManagement = enableCollectionManagement;
+
+  bool? _enableSubtitleManagement;
+  bool? get enableSubtitleManagement => _$this._enableSubtitleManagement;
+  set enableSubtitleManagement(covariant bool? enableSubtitleManagement) =>
+      _$this._enableSubtitleManagement = enableSubtitleManagement;
+
+  bool? _enableLyricManagement;
+  bool? get enableLyricManagement => _$this._enableLyricManagement;
+  set enableLyricManagement(covariant bool? enableLyricManagement) =>
+      _$this._enableLyricManagement = enableLyricManagement;
+
   bool? _isDisabled;
   bool? get isDisabled => _$this._isDisabled;
   set isDisabled(covariant bool? isDisabled) => _$this._isDisabled = isDisabled;
@@ -432,6 +488,12 @@ class $UserPolicyBuilder
       _$this._blockedTags ??= new ListBuilder<String>();
   set blockedTags(covariant ListBuilder<String>? blockedTags) =>
       _$this._blockedTags = blockedTags;
+
+  ListBuilder<String>? _allowedTags;
+  ListBuilder<String> get allowedTags =>
+      _$this._allowedTags ??= new ListBuilder<String>();
+  set allowedTags(covariant ListBuilder<String>? allowedTags) =>
+      _$this._allowedTags = allowedTags;
 
   bool? _enableUserPreferenceAccess;
   bool? get enableUserPreferenceAccess => _$this._enableUserPreferenceAccess;
@@ -631,9 +693,13 @@ class $UserPolicyBuilder
     if ($v != null) {
       _isAdministrator = $v.isAdministrator;
       _isHidden = $v.isHidden;
+      _enableCollectionManagement = $v.enableCollectionManagement;
+      _enableSubtitleManagement = $v.enableSubtitleManagement;
+      _enableLyricManagement = $v.enableLyricManagement;
       _isDisabled = $v.isDisabled;
       _maxParentalRating = $v.maxParentalRating;
       _blockedTags = $v.blockedTags?.toBuilder();
+      _allowedTags = $v.allowedTags?.toBuilder();
       _enableUserPreferenceAccess = $v.enableUserPreferenceAccess;
       _accessSchedules = $v.accessSchedules?.toBuilder();
       _blockUnratedItems = $v.blockUnratedItems?.toBuilder();
@@ -695,9 +761,13 @@ class $UserPolicyBuilder
           new _$$UserPolicy._(
               isAdministrator: isAdministrator,
               isHidden: isHidden,
+              enableCollectionManagement: enableCollectionManagement,
+              enableSubtitleManagement: enableSubtitleManagement,
+              enableLyricManagement: enableLyricManagement,
               isDisabled: isDisabled,
               maxParentalRating: maxParentalRating,
               blockedTags: _blockedTags?.build(),
+              allowedTags: _allowedTags?.build(),
               enableUserPreferenceAccess: enableUserPreferenceAccess,
               accessSchedules: _accessSchedules?.build(),
               blockUnratedItems: _blockUnratedItems?.build(),
@@ -730,14 +800,22 @@ class $UserPolicyBuilder
               blockedMediaFolders: _blockedMediaFolders?.build(),
               blockedChannels: _blockedChannels?.build(),
               remoteClientBitrateLimit: remoteClientBitrateLimit,
-              authenticationProviderId: authenticationProviderId,
-              passwordResetProviderId: passwordResetProviderId,
+              authenticationProviderId: BuiltValueNullFieldError.checkNotNull(
+                  authenticationProviderId,
+                  r'$UserPolicy',
+                  'authenticationProviderId'),
+              passwordResetProviderId: BuiltValueNullFieldError.checkNotNull(
+                  passwordResetProviderId,
+                  r'$UserPolicy',
+                  'passwordResetProviderId'),
               syncPlayAccess: syncPlayAccess);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'blockedTags';
         _blockedTags?.build();
+        _$failedField = 'allowedTags';
+        _allowedTags?.build();
 
         _$failedField = 'accessSchedules';
         _accessSchedules?.build();

@@ -8,16 +8,15 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**playableMediaTypes** | **BuiltList&lt;String&gt;** | Gets or sets the list of playable media types. | [optional] 
+**playableMediaTypes** | [**BuiltList&lt;MediaType&gt;**](MediaType.md) | Gets or sets the list of playable media types. | [optional] 
 **supportedCommands** | [**BuiltList&lt;GeneralCommandType&gt;**](GeneralCommandType.md) | Gets or sets the list of supported commands. | [optional] 
 **supportsMediaControl** | **bool** | Gets or sets a value indicating whether session supports media control. | [optional] 
-**supportsContentUploading** | **bool** | Gets or sets a value indicating whether session supports content uploading. | [optional] 
-**messageCallbackUrl** | **String** | Gets or sets the message callback url. | [optional] 
 **supportsPersistentIdentifier** | **bool** | Gets or sets a value indicating whether session supports a persistent identifier. | [optional] 
-**supportsSync** | **bool** | Gets or sets a value indicating whether session supports sync. | [optional] 
 **deviceProfile** | [**ClientCapabilitiesDeviceProfile**](ClientCapabilitiesDeviceProfile.md) |  | [optional] 
 **appStoreUrl** | **String** | Gets or sets the app store url. | [optional] 
 **iconUrl** | **String** | Gets or sets the icon url. | [optional] 
+**supportsContentUploading** | **bool** |  | [optional] [default to false]
+**supportsSync** | **bool** |  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,7 +9,6 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authenticateUser**](UserApi.md#authenticateuser) | **POST** /Users/{userId}/Authenticate | Authenticates a user.
 [**authenticateUserByName**](UserApi.md#authenticateuserbyname) | **POST** /Users/AuthenticateByName | Authenticates a user by name.
 [**authenticateWithQuickConnect**](UserApi.md#authenticatewithquickconnect) | **POST** /Users/AuthenticateWithQuickConnect | Authenticates a user with quick connect.
 [**createUserByName**](UserApi.md#createuserbyname) | **POST** /Users/New | Creates a user.
@@ -20,57 +19,11 @@ Method | HTTP request | Description
 [**getPublicUsers**](UserApi.md#getpublicusers) | **GET** /Users/Public | Gets a list of publicly visible users for display on a login screen.
 [**getUserById**](UserApi.md#getuserbyid) | **GET** /Users/{userId} | Gets a user by Id.
 [**getUsers**](UserApi.md#getusers) | **GET** /Users | Gets a list of users.
-[**updateUser**](UserApi.md#updateuser) | **POST** /Users/{userId} | Updates a user.
-[**updateUserConfiguration**](UserApi.md#updateuserconfiguration) | **POST** /Users/{userId}/Configuration | Updates a user configuration.
-[**updateUserEasyPassword**](UserApi.md#updateusereasypassword) | **POST** /Users/{userId}/EasyPassword | Updates a user&#39;s easy password.
-[**updateUserPassword**](UserApi.md#updateuserpassword) | **POST** /Users/{userId}/Password | Updates a user&#39;s password.
+[**updateUser**](UserApi.md#updateuser) | **POST** /Users | Updates a user.
+[**updateUserConfiguration**](UserApi.md#updateuserconfiguration) | **POST** /Users/Configuration | Updates a user configuration.
+[**updateUserPassword**](UserApi.md#updateuserpassword) | **POST** /Users/Password | Updates a user&#39;s password.
 [**updateUserPolicy**](UserApi.md#updateuserpolicy) | **POST** /Users/{userId}/Policy | Updates a user policy.
 
-
-# **authenticateUser**
-> AuthenticationResult authenticateUser(userId, pw, password)
-
-Authenticates a user.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-
-final api = Tentacle().getUserApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final String pw = pw_example; // String | The password as plain text.
-final String password = password_example; // String | The password sha1-hash.
-
-try {
-    final response = api.authenticateUser(userId, pw, password);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling UserApi->authenticateUser: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| The user id. | 
- **pw** | **String**| The password as plain text. | 
- **password** | **String**| The password sha1-hash. | [optional] 
-
-### Return type
-
-[**AuthenticationResult**](AuthenticationResult.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authenticateUserByName**
 > AuthenticationResult authenticateUserByName(authenticateUserByName)
@@ -496,7 +449,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUser**
-> updateUser(userId, userDto)
+> updateUser(userDto, userId)
 
 Updates a user.
 
@@ -509,11 +462,11 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getUserApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final UserDto userDto = ; // UserDto | The updated user model.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 
 try {
-    api.updateUser(userId, userDto);
+    api.updateUser(userDto, userId);
 } catch on DioException (e) {
     print('Exception when calling UserApi->updateUser: $e\n');
 }
@@ -523,8 +476,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The user id. | 
  **userDto** | [**UserDto**](UserDto.md)| The updated user model. | 
+ **userId** | **String**| The user id. | [optional] 
 
 ### Return type
 
@@ -542,7 +495,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUserConfiguration**
-> updateUserConfiguration(userId, userConfiguration)
+> updateUserConfiguration(userConfiguration, userId)
 
 Updates a user configuration.
 
@@ -555,11 +508,11 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getUserApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 final UserConfiguration userConfiguration = ; // UserConfiguration | The new user configuration.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
 
 try {
-    api.updateUserConfiguration(userId, userConfiguration);
+    api.updateUserConfiguration(userConfiguration, userId);
 } catch on DioException (e) {
     print('Exception when calling UserApi->updateUserConfiguration: $e\n');
 }
@@ -569,54 +522,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The user id. | 
  **userConfiguration** | [**UserConfiguration**](UserConfiguration.md)| The new user configuration. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **updateUserEasyPassword**
-> updateUserEasyPassword(userId, updateUserEasyPassword)
-
-Updates a user's easy password.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getUserApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final UpdateUserEasyPassword updateUserEasyPassword = ; // UpdateUserEasyPassword | The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request.
-
-try {
-    api.updateUserEasyPassword(userId, updateUserEasyPassword);
-} catch on DioException (e) {
-    print('Exception when calling UserApi->updateUserEasyPassword: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| The user id. | 
- **updateUserEasyPassword** | [**UpdateUserEasyPassword**](UpdateUserEasyPassword.md)| The M:Jellyfin.Api.Controllers.UserController.UpdateUserEasyPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserEasyPassword) request. | 
+ **userId** | **String**| The user id. | [optional] 
 
 ### Return type
 
@@ -634,7 +541,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateUserPassword**
-> updateUserPassword(userId, updateUserPassword)
+> updateUserPassword(updateUserPassword, userId)
 
 Updates a user's password.
 
@@ -647,11 +554,11 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getUserApi();
+final UpdateUserPassword updateUserPassword = ; // UpdateUserPassword | The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Nullable{System.Guid},Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final UpdateUserPassword updateUserPassword = ; // UpdateUserPassword | The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request.
 
 try {
-    api.updateUserPassword(userId, updateUserPassword);
+    api.updateUserPassword(updateUserPassword, userId);
 } catch on DioException (e) {
     print('Exception when calling UserApi->updateUserPassword: $e\n');
 }
@@ -661,8 +568,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The user id. | 
- **updateUserPassword** | [**UpdateUserPassword**](UpdateUserPassword.md)| The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Guid,Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request. | 
+ **updateUserPassword** | [**UpdateUserPassword**](UpdateUserPassword.md)| The M:Jellyfin.Api.Controllers.UserController.UpdateUserPassword(System.Nullable{System.Guid},Jellyfin.Api.Models.UserDtos.UpdateUserPassword) request. | 
+ **userId** | **String**| The user id. | [optional] 
 
 ### Return type
 

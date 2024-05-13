@@ -16,15 +16,20 @@ part 'add_virtual_folder_dto_library_options.g.dart';
 /// Gets or sets library options.
 ///
 /// Properties:
+/// * [enabled]
 /// * [enablePhotos]
 /// * [enableRealtimeMonitor]
+/// * [enableLUFSScan]
 /// * [enableChapterImageExtraction]
 /// * [extractChapterImagesDuringLibraryScan]
+/// * [enableTrickplayImageExtraction]
+/// * [extractTrickplayImagesDuringLibraryScan]
 /// * [pathInfos]
 /// * [saveLocalMetadata]
 /// * [enableInternetProviders]
 /// * [enableAutomaticSeriesGrouping]
 /// * [enableEmbeddedTitles]
+/// * [enableEmbeddedExtrasTitles]
 /// * [enableEmbeddedEpisodeInfos]
 /// * [automaticRefreshIntervalDays]
 /// * [preferredMetadataLanguage] - Gets or sets the preferred metadata language.
@@ -40,6 +45,7 @@ part 'add_virtual_folder_dto_library_options.g.dart';
 /// * [subtitleDownloadLanguages]
 /// * [requirePerfectSubtitleMatch]
 /// * [saveSubtitlesWithMedia]
+/// * [saveLyricsWithMedia]
 /// * [automaticallyAddToCollection]
 /// * [allowEmbeddedSubtitles] - An enum representing the options to disable embedded subs.
 /// * [typeOptions]
@@ -56,7 +62,8 @@ abstract class AddVirtualFolderDtoLibraryOptions
       _$AddVirtualFolderDtoLibraryOptions;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(AddVirtualFolderDtoLibraryOptionsBuilder b) => b;
+  static void _defaults(AddVirtualFolderDtoLibraryOptionsBuilder b) =>
+      b..saveLyricsWithMedia = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<AddVirtualFolderDtoLibraryOptions> get serializer =>
@@ -118,6 +125,20 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
       yield r'ExtractChapterImagesDuringLibraryScan';
       yield serializers.serialize(
         object.extractChapterImagesDuringLibraryScan,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableEmbeddedExtrasTitles != null) {
+      yield r'EnableEmbeddedExtrasTitles';
+      yield serializers.serialize(
+        object.enableEmbeddedExtrasTitles,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enabled != null) {
+      yield r'Enabled';
+      yield serializers.serialize(
+        object.enabled,
         specifiedType: const FullType(bool),
       );
     }
@@ -219,11 +240,25 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
         specifiedType: const FullType(bool),
       );
     }
+    if (object.enableLUFSScan != null) {
+      yield r'EnableLUFSScan';
+      yield serializers.serialize(
+        object.enableLUFSScan,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.preferredMetadataLanguage != null) {
       yield r'PreferredMetadataLanguage';
       yield serializers.serialize(
         object.preferredMetadataLanguage,
         specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.extractTrickplayImagesDuringLibraryScan != null) {
+      yield r'ExtractTrickplayImagesDuringLibraryScan';
+      yield serializers.serialize(
+        object.extractTrickplayImagesDuringLibraryScan,
+        specifiedType: const FullType(bool),
       );
     }
     if (object.disabledLocalMetadataReaders != null) {
@@ -237,6 +272,13 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
       yield r'SaveLocalMetadata';
       yield serializers.serialize(
         object.saveLocalMetadata,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableTrickplayImageExtraction != null) {
+      yield r'EnableTrickplayImageExtraction';
+      yield serializers.serialize(
+        object.enableTrickplayImageExtraction,
         specifiedType: const FullType(bool),
       );
     }
@@ -258,6 +300,13 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
       yield r'RequirePerfectSubtitleMatch';
       yield serializers.serialize(
         object.requirePerfectSubtitleMatch,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.saveLyricsWithMedia != null) {
+      yield r'SaveLyricsWithMedia';
+      yield serializers.serialize(
+        object.saveLyricsWithMedia,
         specifiedType: const FullType(bool),
       );
     }
@@ -336,6 +385,20 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.extractChapterImagesDuringLibraryScan = valueDes;
+          break;
+        case r'EnableEmbeddedExtrasTitles':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableEmbeddedExtrasTitles = valueDes;
+          break;
+        case r'Enabled':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enabled = valueDes;
           break;
         case r'EnableChapterImageExtraction':
           final valueDes = serializers.deserialize(
@@ -440,6 +503,13 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
           ) as bool;
           result.enableRealtimeMonitor = valueDes;
           break;
+        case r'EnableLUFSScan':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableLUFSScan = valueDes;
+          break;
         case r'PreferredMetadataLanguage':
           final valueDes = serializers.deserialize(
             value,
@@ -447,6 +517,13 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
           ) as String?;
           if (valueDes == null) continue;
           result.preferredMetadataLanguage = valueDes;
+          break;
+        case r'ExtractTrickplayImagesDuringLibraryScan':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.extractTrickplayImagesDuringLibraryScan = valueDes;
           break;
         case r'DisabledLocalMetadataReaders':
           final valueDes = serializers.deserialize(
@@ -461,6 +538,13 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.saveLocalMetadata = valueDes;
+          break;
+        case r'EnableTrickplayImageExtraction':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableTrickplayImageExtraction = valueDes;
           break;
         case r'EnableInternetProviders':
           final valueDes = serializers.deserialize(
@@ -482,6 +566,13 @@ class _$AddVirtualFolderDtoLibraryOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.requirePerfectSubtitleMatch = valueDes;
+          break;
+        case r'SaveLyricsWithMedia':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.saveLyricsWithMedia = valueDes;
           break;
         case r'EnableEmbeddedEpisodeInfos':
           final valueDes = serializers.deserialize(

@@ -14,6 +14,8 @@ import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/sort_order.dart';
 
@@ -155,8 +157,8 @@ class YearsApi {
     BuiltList<ItemFields>? fields,
     BuiltList<BaseItemKind>? excludeItemTypes,
     BuiltList<BaseItemKind>? includeItemTypes,
-    BuiltList<String>? mediaTypes,
-    BuiltList<String>? sortBy,
+    BuiltList<MediaType>? mediaTypes,
+    BuiltList<ItemSortBy>? sortBy,
     bool? enableUserData,
     int? imageTypeLimit,
     BuiltList<ImageType>? enableImageTypes,
@@ -229,17 +231,17 @@ class YearsApi {
           format: ListFormat.multi,
         ),
       if (mediaTypes != null)
-        r'mediaTypes': encodeCollectionQueryParameter<String>(
+        r'mediaTypes': encodeCollectionQueryParameter<MediaType>(
           _serializers,
           mediaTypes,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(MediaType)]),
           format: ListFormat.multi,
         ),
       if (sortBy != null)
-        r'sortBy': encodeCollectionQueryParameter<String>(
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
           _serializers,
           sortBy,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
           format: ListFormat.multi,
         ),
       if (enableUserData != null)

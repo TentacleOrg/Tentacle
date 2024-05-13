@@ -33,6 +33,10 @@ class _$LiveTvOptions extends LiveTvOptions {
   final String? recordingPostProcessor;
   @override
   final String? recordingPostProcessorArguments;
+  @override
+  final bool? saveRecordingNFO;
+  @override
+  final bool? saveRecordingImages;
 
   factory _$LiveTvOptions([void Function(LiveTvOptionsBuilder)? updates]) =>
       (new LiveTvOptionsBuilder()..update(updates))._build();
@@ -50,7 +54,9 @@ class _$LiveTvOptions extends LiveTvOptions {
       this.postPaddingSeconds,
       this.mediaLocationsCreated,
       this.recordingPostProcessor,
-      this.recordingPostProcessorArguments})
+      this.recordingPostProcessorArguments,
+      this.saveRecordingNFO,
+      this.saveRecordingImages})
       : super._();
 
   @override
@@ -78,7 +84,9 @@ class _$LiveTvOptions extends LiveTvOptions {
         mediaLocationsCreated == other.mediaLocationsCreated &&
         recordingPostProcessor == other.recordingPostProcessor &&
         recordingPostProcessorArguments ==
-            other.recordingPostProcessorArguments;
+            other.recordingPostProcessorArguments &&
+        saveRecordingNFO == other.saveRecordingNFO &&
+        saveRecordingImages == other.saveRecordingImages;
   }
 
   @override
@@ -97,6 +105,8 @@ class _$LiveTvOptions extends LiveTvOptions {
     _$hash = $jc(_$hash, mediaLocationsCreated.hashCode);
     _$hash = $jc(_$hash, recordingPostProcessor.hashCode);
     _$hash = $jc(_$hash, recordingPostProcessorArguments.hashCode);
+    _$hash = $jc(_$hash, saveRecordingNFO.hashCode);
+    _$hash = $jc(_$hash, saveRecordingImages.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -118,7 +128,9 @@ class _$LiveTvOptions extends LiveTvOptions {
           ..add('mediaLocationsCreated', mediaLocationsCreated)
           ..add('recordingPostProcessor', recordingPostProcessor)
           ..add('recordingPostProcessorArguments',
-              recordingPostProcessorArguments))
+              recordingPostProcessorArguments)
+          ..add('saveRecordingNFO', saveRecordingNFO)
+          ..add('saveRecordingImages', saveRecordingImages))
         .toString();
   }
 }
@@ -199,6 +211,16 @@ class LiveTvOptionsBuilder
           String? recordingPostProcessorArguments) =>
       _$this._recordingPostProcessorArguments = recordingPostProcessorArguments;
 
+  bool? _saveRecordingNFO;
+  bool? get saveRecordingNFO => _$this._saveRecordingNFO;
+  set saveRecordingNFO(bool? saveRecordingNFO) =>
+      _$this._saveRecordingNFO = saveRecordingNFO;
+
+  bool? _saveRecordingImages;
+  bool? get saveRecordingImages => _$this._saveRecordingImages;
+  set saveRecordingImages(bool? saveRecordingImages) =>
+      _$this._saveRecordingImages = saveRecordingImages;
+
   LiveTvOptionsBuilder() {
     LiveTvOptions._defaults(this);
   }
@@ -220,6 +242,8 @@ class LiveTvOptionsBuilder
       _mediaLocationsCreated = $v.mediaLocationsCreated?.toBuilder();
       _recordingPostProcessor = $v.recordingPostProcessor;
       _recordingPostProcessorArguments = $v.recordingPostProcessorArguments;
+      _saveRecordingNFO = $v.saveRecordingNFO;
+      _saveRecordingImages = $v.saveRecordingImages;
       _$v = null;
     }
     return this;
@@ -257,7 +281,9 @@ class LiveTvOptionsBuilder
               postPaddingSeconds: postPaddingSeconds,
               mediaLocationsCreated: _mediaLocationsCreated?.build(),
               recordingPostProcessor: recordingPostProcessor,
-              recordingPostProcessorArguments: recordingPostProcessorArguments);
+              recordingPostProcessorArguments: recordingPostProcessorArguments,
+              saveRecordingNFO: saveRecordingNFO,
+              saveRecordingImages: saveRecordingImages);
     } catch (_) {
       late String _$failedField;
       try {

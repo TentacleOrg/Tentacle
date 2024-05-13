@@ -16,27 +16,18 @@ part 'general_command.g.dart';
 /// * [name] - This exists simply to identify a set of known commands.
 /// * [controllingUserId]
 /// * [arguments]
-@BuiltValue()
-abstract class GeneralCommand
-    implements Built<GeneralCommand, GeneralCommandBuilder> {
+@BuiltValue(instantiable: false)
+abstract class GeneralCommand {
   /// This exists simply to identify a set of known commands.
   @BuiltValueField(wireName: r'Name')
   GeneralCommandType? get name;
-  // enum nameEnum {  MoveUp,  MoveDown,  MoveLeft,  MoveRight,  PageUp,  PageDown,  PreviousLetter,  NextLetter,  ToggleOsd,  ToggleContextMenu,  Select,  Back,  TakeScreenshot,  SendKey,  SendString,  GoHome,  GoToSettings,  VolumeUp,  VolumeDown,  Mute,  Unmute,  ToggleMute,  SetVolume,  SetAudioStreamIndex,  SetSubtitleStreamIndex,  ToggleFullscreen,  DisplayContent,  GoToSearch,  DisplayMessage,  SetRepeatMode,  ChannelUp,  ChannelDown,  Guide,  ToggleStats,  PlayMediaSource,  PlayTrailers,  SetShuffleQueue,  PlayState,  PlayNext,  ToggleOsdMenu,  Play,  SetMaxStreamingBitrate,  };
+  // enum nameEnum {  MoveUp,  MoveDown,  MoveLeft,  MoveRight,  PageUp,  PageDown,  PreviousLetter,  NextLetter,  ToggleOsd,  ToggleContextMenu,  Select,  Back,  TakeScreenshot,  SendKey,  SendString,  GoHome,  GoToSettings,  VolumeUp,  VolumeDown,  Mute,  Unmute,  ToggleMute,  SetVolume,  SetAudioStreamIndex,  SetSubtitleStreamIndex,  ToggleFullscreen,  DisplayContent,  GoToSearch,  DisplayMessage,  SetRepeatMode,  ChannelUp,  ChannelDown,  Guide,  ToggleStats,  PlayMediaSource,  PlayTrailers,  SetShuffleQueue,  PlayState,  PlayNext,  ToggleOsdMenu,  Play,  SetMaxStreamingBitrate,  SetPlaybackOrder,  };
 
   @BuiltValueField(wireName: r'ControllingUserId')
   String? get controllingUserId;
 
   @BuiltValueField(wireName: r'Arguments')
   BuiltMap<String, String?>? get arguments;
-
-  GeneralCommand._();
-
-  factory GeneralCommand([void updates(GeneralCommandBuilder b)]) =
-      _$GeneralCommand;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GeneralCommandBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GeneralCommand> get serializer =>
@@ -46,7 +37,7 @@ abstract class GeneralCommand
 class _$GeneralCommandSerializer
     implements PrimitiveSerializer<GeneralCommand> {
   @override
-  final Iterable<Type> types = const [GeneralCommand, _$GeneralCommand];
+  final Iterable<Type> types = const [GeneralCommand];
 
   @override
   final String wireName = r'GeneralCommand';
@@ -89,6 +80,52 @@ class _$GeneralCommandSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
+  }
+
+  @override
+  GeneralCommand deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($GeneralCommand)) as $GeneralCommand;
+  }
+}
+
+/// a concrete implementation of [GeneralCommand], since [GeneralCommand] is not instantiable
+@BuiltValue(instantiable: true)
+abstract class $GeneralCommand
+    implements GeneralCommand, Built<$GeneralCommand, $GeneralCommandBuilder> {
+  $GeneralCommand._();
+
+  factory $GeneralCommand([void Function($GeneralCommandBuilder)? updates]) =
+      _$$GeneralCommand;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($GeneralCommandBuilder b) => b;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<$GeneralCommand> get serializer =>
+      _$$GeneralCommandSerializer();
+}
+
+class _$$GeneralCommandSerializer
+    implements PrimitiveSerializer<$GeneralCommand> {
+  @override
+  final Iterable<Type> types = const [$GeneralCommand, _$$GeneralCommand];
+
+  @override
+  final String wireName = r'$GeneralCommand';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    $GeneralCommand object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return serializers.serialize(object,
+        specifiedType: FullType(GeneralCommand))!;
   }
 
   void _deserializeProperties(
@@ -134,12 +171,12 @@ class _$GeneralCommandSerializer
   }
 
   @override
-  GeneralCommand deserialize(
+  $GeneralCommand deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = GeneralCommandBuilder();
+    final result = $GeneralCommandBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

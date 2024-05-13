@@ -65,10 +65,11 @@ abstract class TranscodingInfo
 
   @BuiltValueField(wireName: r'HardwareAccelerationType')
   HardwareEncodingType? get hardwareAccelerationType;
-  // enum hardwareAccelerationTypeEnum {  AMF,  QSV,  NVENC,  V4L2M2M,  VAAPI,  VideoToolBox,  };
+  // enum hardwareAccelerationTypeEnum {  AMF,  QSV,  NVENC,  V4L2M2M,  VAAPI,  VideoToolBox,  RKMPP,  };
 
   @BuiltValueField(wireName: r'TranscodeReasons')
-  BuiltList<TranscodeReason>? get transcodeReasons;
+  BuiltList<TranscodingInfoTranscodeReasonsEnum>? get transcodeReasons;
+  // enum transcodeReasonsEnum {  ContainerNotSupported,  VideoCodecNotSupported,  AudioCodecNotSupported,  SubtitleCodecNotSupported,  AudioIsExternal,  SecondaryAudioNotSupported,  VideoProfileNotSupported,  VideoLevelNotSupported,  VideoResolutionNotSupported,  VideoBitDepthNotSupported,  VideoFramerateNotSupported,  RefFramesNotSupported,  AnamorphicVideoNotSupported,  InterlacedVideoNotSupported,  AudioChannelsNotSupported,  AudioProfileNotSupported,  AudioSampleRateNotSupported,  AudioBitDepthNotSupported,  ContainerBitrateExceedsLimit,  VideoBitrateNotSupported,  AudioBitrateNotSupported,  UnknownVideoStreamInfo,  UnknownAudioStreamInfo,  DirectPlayError,  VideoRangeTypeNotSupported,  };
 
   TranscodingInfo._();
 
@@ -184,7 +185,8 @@ class _$TranscodingInfoSerializer
       yield r'TranscodeReasons';
       yield serializers.serialize(
         object.transcodeReasons,
-        specifiedType: const FullType(BuiltList, [FullType(TranscodeReason)]),
+        specifiedType: const FullType(
+            BuiltList, [FullType(TranscodingInfoTranscodeReasonsEnum)]),
       );
     }
   }
@@ -309,9 +311,9 @@ class _$TranscodingInfoSerializer
         case r'TranscodeReasons':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType(BuiltList, [FullType(TranscodeReason)]),
-          ) as BuiltList<TranscodeReason>;
+            specifiedType: const FullType(
+                BuiltList, [FullType(TranscodingInfoTranscodeReasonsEnum)]),
+          ) as BuiltList<TranscodingInfoTranscodeReasonsEnum>;
           result.transcodeReasons.replace(valueDes);
           break;
         default:
@@ -341,4 +343,93 @@ class _$TranscodingInfoSerializer
     );
     return result.build();
   }
+}
+
+class TranscodingInfoTranscodeReasonsEnum extends EnumClass {
+  @BuiltValueEnumConst(wireName: r'ContainerNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum containerNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_containerNotSupported;
+  @BuiltValueEnumConst(wireName: r'VideoCodecNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoCodecNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoCodecNotSupported;
+  @BuiltValueEnumConst(wireName: r'AudioCodecNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum audioCodecNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_audioCodecNotSupported;
+  @BuiltValueEnumConst(wireName: r'SubtitleCodecNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum subtitleCodecNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_subtitleCodecNotSupported;
+  @BuiltValueEnumConst(wireName: r'AudioIsExternal')
+  static const TranscodingInfoTranscodeReasonsEnum audioIsExternal =
+      _$transcodingInfoTranscodeReasonsEnum_audioIsExternal;
+  @BuiltValueEnumConst(wireName: r'SecondaryAudioNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum secondaryAudioNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_secondaryAudioNotSupported;
+  @BuiltValueEnumConst(wireName: r'VideoProfileNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoProfileNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoProfileNotSupported;
+  @BuiltValueEnumConst(wireName: r'VideoLevelNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoLevelNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoLevelNotSupported;
+  @BuiltValueEnumConst(wireName: r'VideoResolutionNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoResolutionNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoResolutionNotSupported;
+  @BuiltValueEnumConst(wireName: r'VideoBitDepthNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoBitDepthNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoBitDepthNotSupported;
+  @BuiltValueEnumConst(wireName: r'VideoFramerateNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoFramerateNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoFramerateNotSupported;
+  @BuiltValueEnumConst(wireName: r'RefFramesNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum refFramesNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_refFramesNotSupported;
+  @BuiltValueEnumConst(wireName: r'AnamorphicVideoNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum anamorphicVideoNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_anamorphicVideoNotSupported;
+  @BuiltValueEnumConst(wireName: r'InterlacedVideoNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum interlacedVideoNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_interlacedVideoNotSupported;
+  @BuiltValueEnumConst(wireName: r'AudioChannelsNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum audioChannelsNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_audioChannelsNotSupported;
+  @BuiltValueEnumConst(wireName: r'AudioProfileNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum audioProfileNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_audioProfileNotSupported;
+  @BuiltValueEnumConst(wireName: r'AudioSampleRateNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum audioSampleRateNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_audioSampleRateNotSupported;
+  @BuiltValueEnumConst(wireName: r'AudioBitDepthNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum audioBitDepthNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_audioBitDepthNotSupported;
+  @BuiltValueEnumConst(wireName: r'ContainerBitrateExceedsLimit')
+  static const TranscodingInfoTranscodeReasonsEnum
+      containerBitrateExceedsLimit =
+      _$transcodingInfoTranscodeReasonsEnum_containerBitrateExceedsLimit;
+  @BuiltValueEnumConst(wireName: r'VideoBitrateNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoBitrateNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoBitrateNotSupported;
+  @BuiltValueEnumConst(wireName: r'AudioBitrateNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum audioBitrateNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_audioBitrateNotSupported;
+  @BuiltValueEnumConst(wireName: r'UnknownVideoStreamInfo')
+  static const TranscodingInfoTranscodeReasonsEnum unknownVideoStreamInfo =
+      _$transcodingInfoTranscodeReasonsEnum_unknownVideoStreamInfo;
+  @BuiltValueEnumConst(wireName: r'UnknownAudioStreamInfo')
+  static const TranscodingInfoTranscodeReasonsEnum unknownAudioStreamInfo =
+      _$transcodingInfoTranscodeReasonsEnum_unknownAudioStreamInfo;
+  @BuiltValueEnumConst(wireName: r'DirectPlayError')
+  static const TranscodingInfoTranscodeReasonsEnum directPlayError =
+      _$transcodingInfoTranscodeReasonsEnum_directPlayError;
+  @BuiltValueEnumConst(wireName: r'VideoRangeTypeNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoRangeTypeNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoRangeTypeNotSupported;
+
+  static Serializer<TranscodingInfoTranscodeReasonsEnum> get serializer =>
+      _$transcodingInfoTranscodeReasonsEnumSerializer;
+
+  const TranscodingInfoTranscodeReasonsEnum._(String name) : super(name);
+
+  static BuiltSet<TranscodingInfoTranscodeReasonsEnum> get values =>
+      _$transcodingInfoTranscodeReasonsEnumValues;
+  static TranscodingInfoTranscodeReasonsEnum valueOf(String name) =>
+      _$transcodingInfoTranscodeReasonsEnumValueOf(name);
 }

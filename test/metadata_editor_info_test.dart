@@ -27,7 +27,7 @@ void main() {
       // TODO
     });
 
-    // String contentType
+    // CollectionType contentType
     test('to test the property `contentType`', () async {
       // TODO
     });

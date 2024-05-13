@@ -54,11 +54,13 @@ class _$SystemInfo extends SystemInfo {
   @override
   final String? transcodingTempPath;
   @override
+  final BuiltList<CastReceiverApplication>? castReceiverApplications;
+  @override
   final bool? hasUpdateAvailable;
   @override
-  final FFmpegLocation? encoderLocation;
+  final String? encoderLocation;
   @override
-  final Architecture? systemArchitecture;
+  final String? systemArchitecture;
 
   factory _$SystemInfo([void Function(SystemInfoBuilder)? updates]) =>
       (new SystemInfoBuilder()..update(updates))._build();
@@ -87,6 +89,7 @@ class _$SystemInfo extends SystemInfo {
       this.logPath,
       this.internalMetadataPath,
       this.transcodingTempPath,
+      this.castReceiverApplications,
       this.hasUpdateAvailable,
       this.encoderLocation,
       this.systemArchitecture})
@@ -126,6 +129,7 @@ class _$SystemInfo extends SystemInfo {
         logPath == other.logPath &&
         internalMetadataPath == other.internalMetadataPath &&
         transcodingTempPath == other.transcodingTempPath &&
+        castReceiverApplications == other.castReceiverApplications &&
         hasUpdateAvailable == other.hasUpdateAvailable &&
         encoderLocation == other.encoderLocation &&
         systemArchitecture == other.systemArchitecture;
@@ -157,6 +161,7 @@ class _$SystemInfo extends SystemInfo {
     _$hash = $jc(_$hash, logPath.hashCode);
     _$hash = $jc(_$hash, internalMetadataPath.hashCode);
     _$hash = $jc(_$hash, transcodingTempPath.hashCode);
+    _$hash = $jc(_$hash, castReceiverApplications.hashCode);
     _$hash = $jc(_$hash, hasUpdateAvailable.hashCode);
     _$hash = $jc(_$hash, encoderLocation.hashCode);
     _$hash = $jc(_$hash, systemArchitecture.hashCode);
@@ -190,6 +195,7 @@ class _$SystemInfo extends SystemInfo {
           ..add('logPath', logPath)
           ..add('internalMetadataPath', internalMetadataPath)
           ..add('transcodingTempPath', transcodingTempPath)
+          ..add('castReceiverApplications', castReceiverApplications)
           ..add('hasUpdateAvailable', hasUpdateAvailable)
           ..add('encoderLocation', encoderLocation)
           ..add('systemArchitecture', systemArchitecture))
@@ -308,19 +314,27 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
   set transcodingTempPath(String? transcodingTempPath) =>
       _$this._transcodingTempPath = transcodingTempPath;
 
+  ListBuilder<CastReceiverApplication>? _castReceiverApplications;
+  ListBuilder<CastReceiverApplication> get castReceiverApplications =>
+      _$this._castReceiverApplications ??=
+          new ListBuilder<CastReceiverApplication>();
+  set castReceiverApplications(
+          ListBuilder<CastReceiverApplication>? castReceiverApplications) =>
+      _$this._castReceiverApplications = castReceiverApplications;
+
   bool? _hasUpdateAvailable;
   bool? get hasUpdateAvailable => _$this._hasUpdateAvailable;
   set hasUpdateAvailable(bool? hasUpdateAvailable) =>
       _$this._hasUpdateAvailable = hasUpdateAvailable;
 
-  FFmpegLocation? _encoderLocation;
-  FFmpegLocation? get encoderLocation => _$this._encoderLocation;
-  set encoderLocation(FFmpegLocation? encoderLocation) =>
+  String? _encoderLocation;
+  String? get encoderLocation => _$this._encoderLocation;
+  set encoderLocation(String? encoderLocation) =>
       _$this._encoderLocation = encoderLocation;
 
-  Architecture? _systemArchitecture;
-  Architecture? get systemArchitecture => _$this._systemArchitecture;
-  set systemArchitecture(Architecture? systemArchitecture) =>
+  String? _systemArchitecture;
+  String? get systemArchitecture => _$this._systemArchitecture;
+  set systemArchitecture(String? systemArchitecture) =>
       _$this._systemArchitecture = systemArchitecture;
 
   SystemInfoBuilder() {
@@ -353,6 +367,7 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
       _logPath = $v.logPath;
       _internalMetadataPath = $v.internalMetadataPath;
       _transcodingTempPath = $v.transcodingTempPath;
+      _castReceiverApplications = $v.castReceiverApplications?.toBuilder();
       _hasUpdateAvailable = $v.hasUpdateAvailable;
       _encoderLocation = $v.encoderLocation;
       _systemArchitecture = $v.systemArchitecture;
@@ -403,6 +418,7 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
               logPath: logPath,
               internalMetadataPath: internalMetadataPath,
               transcodingTempPath: transcodingTempPath,
+              castReceiverApplications: _castReceiverApplications?.build(),
               hasUpdateAvailable: hasUpdateAvailable,
               encoderLocation: encoderLocation,
               systemArchitecture: systemArchitecture);
@@ -411,6 +427,9 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
       try {
         _$failedField = 'completedInstallations';
         _completedInstallations?.build();
+
+        _$failedField = 'castReceiverApplications';
+        _castReceiverApplications?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'SystemInfo', _$failedField, e.toString());

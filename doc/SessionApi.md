@@ -88,7 +88,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getSessionApi();
 final String sessionId = sessionId_example; // String | The session Id.
-final BaseItemKind itemType = ; // BaseItemKind | The type of item to browse to.
+final BaseItemKind itemType = itemType_example; // BaseItemKind | The type of item to browse to.
 final String itemId = itemId_example; // String | The Id of the item.
 final String itemName = itemName_example; // String | The name of the item.
 
@@ -104,7 +104,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sessionId** | **String**| The session Id. | 
- **itemType** | [**BaseItemKind**](.md)| The type of item to browse to. | 
+ **itemType** | **BaseItemKind**| The type of item to browse to. | 
  **itemId** | **String**| The Id of the item. | 
  **itemName** | **String**| The name of the item. | 
 
@@ -269,7 +269,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getSessionApi();
 final String sessionId = sessionId_example; // String | The session id.
-final PlayCommand playCommand = ; // PlayCommand | The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.
+final PlayCommand playCommand = playCommand_example; // PlayCommand | The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now.
 final BuiltList<String> itemIds = ; // BuiltList<String> | The ids of the items to play, comma delimited.
 final int startPositionTicks = 789; // int | The starting position of the first item.
 final String mediaSourceId = mediaSourceId_example; // String | Optional. The media source id.
@@ -289,7 +289,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sessionId** | **String**| The session id. | 
- **playCommand** | [**PlayCommand**](.md)| The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now. | 
+ **playCommand** | **PlayCommand**| The type of play command to issue (PlayNow, PlayNext, PlayLast). Clients who have not yet implemented play next and play last may play now. | 
  **itemIds** | [**BuiltList&lt;String&gt;**](String.md)| The ids of the items to play, comma delimited. | 
  **startPositionTicks** | **int**| The starting position of the first item. | [optional] 
  **mediaSourceId** | **String**| Optional. The media source id. | [optional] 
@@ -313,7 +313,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **postCapabilities**
-> postCapabilities(id, playableMediaTypes, supportedCommands, supportsMediaControl, supportsSync, supportsPersistentIdentifier)
+> postCapabilities(id, playableMediaTypes, supportedCommands, supportsMediaControl, supportsPersistentIdentifier)
 
 Updates capabilities for a device.
 
@@ -327,14 +327,13 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getSessionApi();
 final String id = id_example; // String | The session id.
-final BuiltList<String> playableMediaTypes = ; // BuiltList<String> | A list of playable media types, comma delimited. Audio, Video, Book, Photo.
+final BuiltList<MediaType> playableMediaTypes = ; // BuiltList<MediaType> | A list of playable media types, comma delimited. Audio, Video, Book, Photo.
 final BuiltList<GeneralCommandType> supportedCommands = ; // BuiltList<GeneralCommandType> | A list of supported remote control commands, comma delimited.
 final bool supportsMediaControl = true; // bool | Determines whether media can be played remotely..
-final bool supportsSync = true; // bool | Determines whether sync is supported.
 final bool supportsPersistentIdentifier = true; // bool | Determines whether the device supports a unique identifier.
 
 try {
-    api.postCapabilities(id, playableMediaTypes, supportedCommands, supportsMediaControl, supportsSync, supportsPersistentIdentifier);
+    api.postCapabilities(id, playableMediaTypes, supportedCommands, supportsMediaControl, supportsPersistentIdentifier);
 } catch on DioException (e) {
     print('Exception when calling SessionApi->postCapabilities: $e\n');
 }
@@ -345,10 +344,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The session id. | [optional] 
- **playableMediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| A list of playable media types, comma delimited. Audio, Video, Book, Photo. | [optional] 
+ **playableMediaTypes** | [**BuiltList&lt;MediaType&gt;**](MediaType.md)| A list of playable media types, comma delimited. Audio, Video, Book, Photo. | [optional] 
  **supportedCommands** | [**BuiltList&lt;GeneralCommandType&gt;**](GeneralCommandType.md)| A list of supported remote control commands, comma delimited. | [optional] 
  **supportsMediaControl** | **bool**| Determines whether media can be played remotely.. | [optional] [default to false]
- **supportsSync** | **bool**| Determines whether sync is supported. | [optional] [default to false]
  **supportsPersistentIdentifier** | **bool**| Determines whether the device supports a unique identifier. | [optional] [default to true]
 
 ### Return type
@@ -605,7 +603,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getSessionApi();
 final String sessionId = sessionId_example; // String | The session id.
-final GeneralCommandType command = ; // GeneralCommandType | The command to send.
+final GeneralCommandType command = command_example; // GeneralCommandType | The command to send.
 
 try {
     api.sendGeneralCommand(sessionId, command);
@@ -619,7 +617,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sessionId** | **String**| The session id. | 
- **command** | [**GeneralCommandType**](.md)| The command to send. | 
+ **command** | **GeneralCommandType**| The command to send. | 
 
 ### Return type
 
@@ -697,7 +695,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getSessionApi();
 final String sessionId = sessionId_example; // String | The session id.
-final PlaystateCommand command = ; // PlaystateCommand | The MediaBrowser.Model.Session.PlaystateCommand.
+final PlaystateCommand command = command_example; // PlaystateCommand | The MediaBrowser.Model.Session.PlaystateCommand.
 final int seekPositionTicks = 789; // int | The optional position ticks.
 final String controllingUserId = controllingUserId_example; // String | The optional controlling user id.
 
@@ -713,7 +711,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sessionId** | **String**| The session id. | 
- **command** | [**PlaystateCommand**](.md)| The MediaBrowser.Model.Session.PlaystateCommand. | 
+ **command** | **PlaystateCommand**| The MediaBrowser.Model.Session.PlaystateCommand. | 
  **seekPositionTicks** | **int**| The optional position ticks. | [optional] 
  **controllingUserId** | **String**| The optional controlling user id. | [optional] 
 
@@ -747,7 +745,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getSessionApi();
 final String sessionId = sessionId_example; // String | The session id.
-final GeneralCommandType command = ; // GeneralCommandType | The command to send.
+final GeneralCommandType command = command_example; // GeneralCommandType | The command to send.
 
 try {
     api.sendSystemCommand(sessionId, command);
@@ -761,7 +759,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sessionId** | **String**| The session id. | 
- **command** | [**GeneralCommandType**](.md)| The command to send. | 
+ **command** | **GeneralCommandType**| The command to send. | 
 
 ### Return type
 

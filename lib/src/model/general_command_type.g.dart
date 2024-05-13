@@ -70,6 +70,8 @@ const GeneralCommandType _$toggleOsdMenu =
 const GeneralCommandType _$play = const GeneralCommandType._('play');
 const GeneralCommandType _$setMaxStreamingBitrate =
     const GeneralCommandType._('setMaxStreamingBitrate');
+const GeneralCommandType _$setPlaybackOrder =
+    const GeneralCommandType._('setPlaybackOrder');
 
 GeneralCommandType _$valueOf(String name) {
   switch (name) {
@@ -157,6 +159,8 @@ GeneralCommandType _$valueOf(String name) {
       return _$play;
     case 'setMaxStreamingBitrate':
       return _$setMaxStreamingBitrate;
+    case 'setPlaybackOrder':
+      return _$setPlaybackOrder;
     default:
       throw new ArgumentError(name);
   }
@@ -206,6 +210,7 @@ final BuiltSet<GeneralCommandType> _$values =
   _$toggleOsdMenu,
   _$play,
   _$setMaxStreamingBitrate,
+  _$setPlaybackOrder,
 ]);
 
 class _$GeneralCommandTypeMeta {
@@ -252,6 +257,7 @@ class _$GeneralCommandTypeMeta {
   GeneralCommandType get toggleOsdMenu => _$toggleOsdMenu;
   GeneralCommandType get play => _$play;
   GeneralCommandType get setMaxStreamingBitrate => _$setMaxStreamingBitrate;
+  GeneralCommandType get setPlaybackOrder => _$setPlaybackOrder;
   GeneralCommandType valueOf(String name) => _$valueOf(name);
   BuiltSet<GeneralCommandType> get values => _$values;
 }
@@ -310,6 +316,7 @@ class _$GeneralCommandTypeSerializer
     'toggleOsdMenu': 'ToggleOsdMenu',
     'play': 'Play',
     'setMaxStreamingBitrate': 'SetMaxStreamingBitrate',
+    'setPlaybackOrder': 'SetPlaybackOrder',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'MoveUp': 'moveUp',
@@ -354,6 +361,7 @@ class _$GeneralCommandTypeSerializer
     'ToggleOsdMenu': 'toggleOsdMenu',
     'Play': 'play',
     'SetMaxStreamingBitrate': 'setMaxStreamingBitrate',
+    'SetPlaybackOrder': 'setPlaybackOrder',
   };
 
   @override

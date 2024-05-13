@@ -3,10 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/architecture.dart';
 import 'package:tentacle/src/model/installation_info.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/f_fmpeg_location.dart';
+import 'package:tentacle/src/model/cast_receiver_application.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -38,8 +37,9 @@ part 'system_info.g.dart';
 /// * [logPath] - Gets or sets the log path.
 /// * [internalMetadataPath] - Gets or sets the internal metadata path.
 /// * [transcodingTempPath] - Gets or sets the transcode path.
+/// * [castReceiverApplications] - Gets or sets the list of cast receiver applications.
 /// * [hasUpdateAvailable] - Gets or sets a value indicating whether this instance has update available.
-/// * [encoderLocation] - Enum describing the location of the FFmpeg tool.
+/// * [encoderLocation]
 /// * [systemArchitecture]
 @BuiltValue()
 abstract class SystemInfo implements Built<SystemInfo, SystemInfoBuilder> {
@@ -60,6 +60,7 @@ abstract class SystemInfo implements Built<SystemInfo, SystemInfoBuilder> {
   String? get productName;
 
   /// Gets or sets the operating system.
+  @Deprecated('operatingSystem has been deprecated')
   @BuiltValueField(wireName: r'OperatingSystem')
   String? get operatingSystem;
 
@@ -72,6 +73,7 @@ abstract class SystemInfo implements Built<SystemInfo, SystemInfoBuilder> {
   bool? get startupWizardCompleted;
 
   /// Gets or sets the display name of the operating system.
+  @Deprecated('operatingSystemDisplayName has been deprecated')
   @BuiltValueField(wireName: r'OperatingSystemDisplayName')
   String? get operatingSystemDisplayName;
 
@@ -99,9 +101,11 @@ abstract class SystemInfo implements Built<SystemInfo, SystemInfoBuilder> {
   BuiltList<InstallationInfo>? get completedInstallations;
 
   /// Gets or sets a value indicating whether this instance can self restart.
+  @Deprecated('canSelfRestart has been deprecated')
   @BuiltValueField(wireName: r'CanSelfRestart')
   bool? get canSelfRestart;
 
+  @Deprecated('canLaunchWebBrowser has been deprecated')
   @BuiltValueField(wireName: r'CanLaunchWebBrowser')
   bool? get canLaunchWebBrowser;
 
@@ -133,27 +137,34 @@ abstract class SystemInfo implements Built<SystemInfo, SystemInfoBuilder> {
   @BuiltValueField(wireName: r'TranscodingTempPath')
   String? get transcodingTempPath;
 
+  /// Gets or sets the list of cast receiver applications.
+  @BuiltValueField(wireName: r'CastReceiverApplications')
+  BuiltList<CastReceiverApplication>? get castReceiverApplications;
+
   /// Gets or sets a value indicating whether this instance has update available.
   @Deprecated('hasUpdateAvailable has been deprecated')
   @BuiltValueField(wireName: r'HasUpdateAvailable')
   bool? get hasUpdateAvailable;
 
-  /// Enum describing the location of the FFmpeg tool.
   @Deprecated('encoderLocation has been deprecated')
   @BuiltValueField(wireName: r'EncoderLocation')
-  FFmpegLocation? get encoderLocation;
-  // enum encoderLocationEnum {  NotFound,  SetByArgument,  Custom,  System,  };
+  String? get encoderLocation;
 
+  @Deprecated('systemArchitecture has been deprecated')
   @BuiltValueField(wireName: r'SystemArchitecture')
-  Architecture? get systemArchitecture;
-  // enum systemArchitectureEnum {  X86,  X64,  Arm,  Arm64,  Wasm,  S390x,  };
+  String? get systemArchitecture;
 
   SystemInfo._();
 
   factory SystemInfo([void updates(SystemInfoBuilder b)]) = _$SystemInfo;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SystemInfoBuilder b) => b;
+  static void _defaults(SystemInfoBuilder b) => b
+    ..canSelfRestart = true
+    ..canLaunchWebBrowser = false
+    ..hasUpdateAvailable = false
+    ..encoderLocation = 'System'
+    ..systemArchitecture = 'X64';
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SystemInfo> get serializer => _$SystemInfoSerializer();
@@ -333,6 +344,14 @@ class _$SystemInfoSerializer implements PrimitiveSerializer<SystemInfo> {
         specifiedType: const FullType.nullable(String),
       );
     }
+    if (object.castReceiverApplications != null) {
+      yield r'CastReceiverApplications';
+      yield serializers.serialize(
+        object.castReceiverApplications,
+        specifiedType: const FullType.nullable(
+            BuiltList, [FullType(CastReceiverApplication)]),
+      );
+    }
     if (object.hasUpdateAvailable != null) {
       yield r'HasUpdateAvailable';
       yield serializers.serialize(
@@ -344,14 +363,14 @@ class _$SystemInfoSerializer implements PrimitiveSerializer<SystemInfo> {
       yield r'EncoderLocation';
       yield serializers.serialize(
         object.encoderLocation,
-        specifiedType: const FullType(FFmpegLocation),
+        specifiedType: const FullType.nullable(String),
       );
     }
     if (object.systemArchitecture != null) {
       yield r'SystemArchitecture';
       yield serializers.serialize(
         object.systemArchitecture,
-        specifiedType: const FullType(Architecture),
+        specifiedType: const FullType.nullable(String),
       );
     }
   }
@@ -558,6 +577,15 @@ class _$SystemInfoSerializer implements PrimitiveSerializer<SystemInfo> {
           if (valueDes == null) continue;
           result.transcodingTempPath = valueDes;
           break;
+        case r'CastReceiverApplications':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(
+                BuiltList, [FullType(CastReceiverApplication)]),
+          ) as BuiltList<CastReceiverApplication>?;
+          if (valueDes == null) continue;
+          result.castReceiverApplications.replace(valueDes);
+          break;
         case r'HasUpdateAvailable':
           final valueDes = serializers.deserialize(
             value,
@@ -568,15 +596,17 @@ class _$SystemInfoSerializer implements PrimitiveSerializer<SystemInfo> {
         case r'EncoderLocation':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(FFmpegLocation),
-          ) as FFmpegLocation;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.encoderLocation = valueDes;
           break;
         case r'SystemArchitecture':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(Architecture),
-          ) as Architecture;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.systemArchitecture = valueDes;
           break;
         default:

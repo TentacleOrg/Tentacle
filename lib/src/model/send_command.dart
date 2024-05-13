@@ -18,8 +18,8 @@ part 'send_command.g.dart';
 /// * [positionTicks] - Gets the position ticks.
 /// * [command] - Gets the command.
 /// * [emittedAt] - Gets the UTC time when this command has been emitted.
-@BuiltValue()
-abstract class SendCommand implements Built<SendCommand, SendCommandBuilder> {
+@BuiltValue(instantiable: false)
+abstract class SendCommand {
   /// Gets the group identifier.
   @BuiltValueField(wireName: r'GroupId')
   String? get groupId;
@@ -45,20 +45,13 @@ abstract class SendCommand implements Built<SendCommand, SendCommandBuilder> {
   @BuiltValueField(wireName: r'EmittedAt')
   DateTime? get emittedAt;
 
-  SendCommand._();
-
-  factory SendCommand([void updates(SendCommandBuilder b)]) = _$SendCommand;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SendCommandBuilder b) => b;
-
   @BuiltValueSerializer(custom: true)
   static Serializer<SendCommand> get serializer => _$SendCommandSerializer();
 }
 
 class _$SendCommandSerializer implements PrimitiveSerializer<SendCommand> {
   @override
-  final Iterable<Type> types = const [SendCommand, _$SendCommand];
+  final Iterable<Type> types = const [SendCommand];
 
   @override
   final String wireName = r'SendCommand';
@@ -121,6 +114,49 @@ class _$SendCommandSerializer implements PrimitiveSerializer<SendCommand> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
+  }
+
+  @override
+  SendCommand deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($SendCommand)) as $SendCommand;
+  }
+}
+
+/// a concrete implementation of [SendCommand], since [SendCommand] is not instantiable
+@BuiltValue(instantiable: true)
+abstract class $SendCommand
+    implements SendCommand, Built<$SendCommand, $SendCommandBuilder> {
+  $SendCommand._();
+
+  factory $SendCommand([void Function($SendCommandBuilder)? updates]) =
+      _$$SendCommand;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($SendCommandBuilder b) => b;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<$SendCommand> get serializer => _$$SendCommandSerializer();
+}
+
+class _$$SendCommandSerializer implements PrimitiveSerializer<$SendCommand> {
+  @override
+  final Iterable<Type> types = const [$SendCommand, _$$SendCommand];
+
+  @override
+  final String wireName = r'$SendCommand';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    $SendCommand object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return serializers.serialize(object, specifiedType: FullType(SendCommand))!;
   }
 
   void _deserializeProperties(
@@ -187,12 +223,12 @@ class _$SendCommandSerializer implements PrimitiveSerializer<SendCommand> {
   }
 
   @override
-  SendCommand deserialize(
+  $SendCommand deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = SendCommandBuilder();
+    final result = $SendCommandBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -4,6 +4,8 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/media_type.dart';
+import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,7 +15,7 @@ part 'search_hint.g.dart';
 ///
 /// Properties:
 /// * [itemId] - Gets or sets the item id.
-/// * [id]
+/// * [id] - Gets or sets the item id.
 /// * [name] - Gets or sets the name.
 /// * [matchedTerm] - Gets or sets the matched term.
 /// * [indexNumber] - Gets or sets the index number.
@@ -25,15 +27,15 @@ part 'search_hint.g.dart';
 /// * [backdropImageTag] - Gets or sets the backdrop image tag.
 /// * [backdropImageItemId] - Gets or sets the backdrop image item identifier.
 /// * [type] - Gets or sets the type.
-/// * [isFolder]
+/// * [isFolder] - Gets or sets a value indicating whether this instance is folder.
 /// * [runTimeTicks] - Gets or sets the run time ticks.
 /// * [mediaType] - Gets or sets the type of the media.
-/// * [startDate]
-/// * [endDate]
+/// * [startDate] - Gets or sets the start date.
+/// * [endDate] - Gets or sets the end date.
 /// * [series] - Gets or sets the series.
-/// * [status]
+/// * [status] - Gets or sets the status.
 /// * [album] - Gets or sets the album.
-/// * [albumId]
+/// * [albumId] - Gets or sets the album id.
 /// * [albumArtist] - Gets or sets the album artist.
 /// * [artists] - Gets or sets the artists.
 /// * [songCount] - Gets or sets the song count.
@@ -44,9 +46,11 @@ part 'search_hint.g.dart';
 @BuiltValue()
 abstract class SearchHint implements Built<SearchHint, SearchHintBuilder> {
   /// Gets or sets the item id.
+  @Deprecated('itemId has been deprecated')
   @BuiltValueField(wireName: r'ItemId')
   String? get itemId;
 
+  /// Gets or sets the item id.
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
@@ -92,8 +96,10 @@ abstract class SearchHint implements Built<SearchHint, SearchHintBuilder> {
 
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
-  String? get type;
+  BaseItemKind? get type;
+  // enum typeEnum {  AggregateFolder,  Audio,  AudioBook,  BasePluginFolder,  Book,  BoxSet,  Channel,  ChannelFolderItem,  CollectionFolder,  Episode,  Folder,  Genre,  ManualPlaylistsFolder,  Movie,  LiveTvChannel,  LiveTvProgram,  MusicAlbum,  MusicArtist,  MusicGenre,  MusicVideo,  Person,  Photo,  PhotoAlbum,  Playlist,  PlaylistsFolder,  Program,  Recording,  Season,  Series,  Studio,  Trailer,  TvChannel,  TvProgram,  UserRootFolder,  UserView,  Video,  Year,  };
 
+  /// Gets or sets a value indicating whether this instance is folder.
   @BuiltValueField(wireName: r'IsFolder')
   bool? get isFolder;
 
@@ -103,11 +109,14 @@ abstract class SearchHint implements Built<SearchHint, SearchHintBuilder> {
 
   /// Gets or sets the type of the media.
   @BuiltValueField(wireName: r'MediaType')
-  String? get mediaType;
+  MediaType? get mediaType;
+  // enum mediaTypeEnum {  Unknown,  Video,  Audio,  Photo,  Book,  };
 
+  /// Gets or sets the start date.
   @BuiltValueField(wireName: r'StartDate')
   DateTime? get startDate;
 
+  /// Gets or sets the end date.
   @BuiltValueField(wireName: r'EndDate')
   DateTime? get endDate;
 
@@ -115,6 +124,7 @@ abstract class SearchHint implements Built<SearchHint, SearchHintBuilder> {
   @BuiltValueField(wireName: r'Series')
   String? get series;
 
+  /// Gets or sets the status.
   @BuiltValueField(wireName: r'Status')
   String? get status;
 
@@ -122,6 +132,7 @@ abstract class SearchHint implements Built<SearchHint, SearchHintBuilder> {
   @BuiltValueField(wireName: r'Album')
   String? get album;
 
+  /// Gets or sets the album id.
   @BuiltValueField(wireName: r'AlbumId')
   String? get albumId;
 
@@ -194,14 +205,14 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
       yield r'Name';
       yield serializers.serialize(
         object.name,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
     if (object.matchedTerm != null) {
       yield r'MatchedTerm';
       yield serializers.serialize(
         object.matchedTerm,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
     if (object.indexNumber != null) {
@@ -264,7 +275,7 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
       yield r'Type';
       yield serializers.serialize(
         object.type,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(BaseItemKind),
       );
     }
     if (object.isFolder != null) {
@@ -285,7 +296,7 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
       yield r'MediaType';
       yield serializers.serialize(
         object.mediaType,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(MediaType),
       );
     }
     if (object.startDate != null) {
@@ -327,7 +338,7 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
       yield r'AlbumId';
       yield serializers.serialize(
         object.albumId,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
       );
     }
     if (object.albumArtist != null) {
@@ -341,7 +352,7 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
       yield r'Artists';
       yield serializers.serialize(
         object.artists,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
       );
     }
     if (object.songCount != null) {
@@ -362,7 +373,7 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
       yield r'ChannelId';
       yield serializers.serialize(
         object.channelId,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
       );
     }
     if (object.channelName != null) {
@@ -421,17 +432,15 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
         case r'Name':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.name = valueDes;
           break;
         case r'MatchedTerm':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.matchedTerm = valueDes;
           break;
         case r'IndexNumber':
@@ -501,9 +510,8 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
         case r'Type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(BaseItemKind),
+          ) as BaseItemKind;
           result.type = valueDes;
           break;
         case r'IsFolder':
@@ -525,9 +533,8 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
         case r'MediaType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(MediaType),
+          ) as MediaType;
           result.mediaType = valueDes;
           break;
         case r'StartDate':
@@ -573,8 +580,9 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
         case r'AlbumId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.albumId = valueDes;
           break;
         case r'AlbumArtist':
@@ -588,10 +596,8 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
         case r'Artists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
           result.artists.replace(valueDes);
           break;
         case r'SongCount':
@@ -613,8 +619,9 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
         case r'ChannelId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.channelId = valueDes;
           break;
         case r'ChannelName':

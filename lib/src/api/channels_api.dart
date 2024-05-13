@@ -13,6 +13,7 @@ import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/channel_features.dart';
 import 'package:tentacle/src/model/item_fields.dart';
 import 'package:tentacle/src/model/item_filter.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
 import 'package:tentacle/src/model/sort_order.dart';
 
 class ChannelsApi {
@@ -220,7 +221,7 @@ class ChannelsApi {
     int? limit,
     BuiltList<SortOrder>? sortOrder,
     BuiltList<ItemFilter>? filters,
-    BuiltList<String>? sortBy,
+    BuiltList<ItemSortBy>? sortBy,
     BuiltList<ItemFields>? fields,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -280,10 +281,10 @@ class ChannelsApi {
           format: ListFormat.multi,
         ),
       if (sortBy != null)
-        r'sortBy': encodeCollectionQueryParameter<String>(
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
           _serializers,
           sortBy,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
           format: ListFormat.multi,
         ),
       if (fields != null)

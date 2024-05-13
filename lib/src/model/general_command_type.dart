@@ -180,6 +180,10 @@ class GeneralCommandType extends EnumClass {
   static const GeneralCommandType setMaxStreamingBitrate =
       _$setMaxStreamingBitrate;
 
+  /// This exists simply to identify a set of known commands.
+  @BuiltValueEnumConst(wireName: r'SetPlaybackOrder')
+  static const GeneralCommandType setPlaybackOrder = _$setPlaybackOrder;
+
   static Serializer<GeneralCommandType> get serializer =>
       _$generalCommandTypeSerializer;
 

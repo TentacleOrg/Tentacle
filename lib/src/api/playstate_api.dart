@@ -12,6 +12,7 @@ import 'package:tentacle/src/model/play_method.dart';
 import 'package:tentacle/src/model/playback_progress_info.dart';
 import 'package:tentacle/src/model/playback_start_info.dart';
 import 'package:tentacle/src/model/playback_stop_info.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/repeat_mode.dart';
 import 'package:tentacle/src/model/user_item_data_dto.dart';
 
@@ -26,8 +27,8 @@ class PlaystateApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [datePlayed] - Optional. The date the item was played.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -39,8 +40,8 @@ class PlaystateApi {
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> markPlayedItem({
-    required String userId,
     required String itemId,
+    String? userId,
     DateTime? datePlayed,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -49,15 +50,10 @@ class PlaystateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/PlayedItems/{itemId}'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/UserPlayedItems/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -78,6 +74,9 @@ class PlaystateApi {
     );
 
     final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       if (datePlayed != null)
         r'datePlayed': encodeQueryParameter(
             _serializers, datePlayed, const FullType(DateTime)),
@@ -128,8 +127,8 @@ class PlaystateApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -140,8 +139,8 @@ class PlaystateApi {
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> markUnplayedItem({
-    required String userId,
     required String itemId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -149,15 +148,10 @@ class PlaystateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/PlayedItems/{itemId}'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/UserPlayedItems/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -177,9 +171,16 @@ class PlaystateApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -217,11 +218,10 @@ class PlaystateApi {
     );
   }
 
-  /// Reports a user&#39;s playback progress.
+  /// Reports a session&#39;s playback progress.
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
   /// * [mediaSourceId] - The id of the MediaSource.
   /// * [positionTicks] - Optional. The current position, in ticks. 1 tick = 10000 ms.
@@ -244,7 +244,6 @@ class PlaystateApi {
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> onPlaybackProgress({
-    required String userId,
     required String itemId,
     String? mediaSourceId,
     int? positionTicks,
@@ -264,15 +263,10 @@ class PlaystateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/PlayingItems/{itemId}/Progress'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/PlayingItems/{itemId}/Progress'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -340,11 +334,10 @@ class PlaystateApi {
     return _response;
   }
 
-  /// Reports that a user has begun playing an item.
+  /// Reports that a session has begun playing an item.
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
   /// * [mediaSourceId] - The id of the MediaSource.
   /// * [audioStreamIndex] - The audio stream index.
@@ -363,7 +356,6 @@ class PlaystateApi {
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> onPlaybackStart({
-    required String userId,
     required String itemId,
     String? mediaSourceId,
     int? audioStreamIndex,
@@ -379,15 +371,10 @@ class PlaystateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/PlayingItems/{itemId}'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/PlayingItems/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -443,11 +430,10 @@ class PlaystateApi {
     return _response;
   }
 
-  /// Reports that a user has stopped playing an item.
+  /// Reports that a session has stopped playing an item.
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
   /// * [mediaSourceId] - The id of the MediaSource.
   /// * [nextMediaType] - The next media type that will play.
@@ -464,7 +450,6 @@ class PlaystateApi {
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> onPlaybackStopped({
-    required String userId,
     required String itemId,
     String? mediaSourceId,
     String? nextMediaType,
@@ -478,15 +463,10 @@ class PlaystateApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/PlayingItems/{itemId}'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/PlayingItems/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{

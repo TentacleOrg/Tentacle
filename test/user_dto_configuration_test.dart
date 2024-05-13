@@ -85,5 +85,11 @@ void main() {
     test('to test the property `enableNextEpisodeAutoPlay`', () async {
       // TODO
     });
+
+    // Gets or sets the id of the selected cast receiver.
+    // String castReceiverId
+    test('to test the property `castReceiverId`', () async {
+      // TODO
+    });
   });
 }

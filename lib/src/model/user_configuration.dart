@@ -28,6 +28,7 @@ part 'user_configuration.g.dart';
 /// * [rememberAudioSelections]
 /// * [rememberSubtitleSelections]
 /// * [enableNextEpisodeAutoPlay]
+/// * [castReceiverId] - Gets or sets the id of the selected cast receiver.
 @BuiltValue(instantiable: false)
 abstract class UserConfiguration {
   /// Gets or sets the audio language preference.
@@ -79,6 +80,10 @@ abstract class UserConfiguration {
 
   @BuiltValueField(wireName: r'EnableNextEpisodeAutoPlay')
   bool? get enableNextEpisodeAutoPlay;
+
+  /// Gets or sets the id of the selected cast receiver.
+  @BuiltValueField(wireName: r'CastReceiverId')
+  String? get castReceiverId;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserConfiguration> get serializer =>
@@ -201,6 +206,13 @@ class _$UserConfigurationSerializer
       yield serializers.serialize(
         object.enableNextEpisodeAutoPlay,
         specifiedType: const FullType(bool),
+      );
+    }
+    if (object.castReceiverId != null) {
+      yield r'CastReceiverId';
+      yield serializers.serialize(
+        object.castReceiverId,
+        specifiedType: const FullType.nullable(String),
       );
     }
   }
@@ -383,6 +395,14 @@ class _$$UserConfigurationSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.enableNextEpisodeAutoPlay = valueDes;
+          break;
+        case r'CastReceiverId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.castReceiverId = valueDes;
           break;
         default:
           unhandled.add(key);

@@ -72,5 +72,15 @@ void main() {
     test('to test the property `recordingPostProcessorArguments`', () async {
       // TODO
     });
+
+    // bool saveRecordingNFO
+    test('to test the property `saveRecordingNFO`', () async {
+      // TODO
+    });
+
+    // bool saveRecordingImages
+    test('to test the property `saveRecordingImages`', () async {
+      // TODO
+    });
   });
 }

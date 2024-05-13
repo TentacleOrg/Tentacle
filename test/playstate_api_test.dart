@@ -8,35 +8,35 @@ void main() {
   group(PlaystateApi, () {
     // Marks an item as played for user.
     //
-    //Future<UserItemDataDto> markPlayedItem(String userId, String itemId, { DateTime datePlayed }) async
+    //Future<UserItemDataDto> markPlayedItem(String itemId, { String userId, DateTime datePlayed }) async
     test('test markPlayedItem', () async {
       // TODO
     });
 
     // Marks an item as unplayed for user.
     //
-    //Future<UserItemDataDto> markUnplayedItem(String userId, String itemId) async
+    //Future<UserItemDataDto> markUnplayedItem(String itemId, { String userId }) async
     test('test markUnplayedItem', () async {
       // TODO
     });
 
-    // Reports a user's playback progress.
+    // Reports a session's playback progress.
     //
-    //Future onPlaybackProgress(String userId, String itemId, { String mediaSourceId, int positionTicks, int audioStreamIndex, int subtitleStreamIndex, int volumeLevel, PlayMethod playMethod, String liveStreamId, String playSessionId, RepeatMode repeatMode, bool isPaused, bool isMuted }) async
+    //Future onPlaybackProgress(String itemId, { String mediaSourceId, int positionTicks, int audioStreamIndex, int subtitleStreamIndex, int volumeLevel, PlayMethod playMethod, String liveStreamId, String playSessionId, RepeatMode repeatMode, bool isPaused, bool isMuted }) async
     test('test onPlaybackProgress', () async {
       // TODO
     });
 
-    // Reports that a user has begun playing an item.
+    // Reports that a session has begun playing an item.
     //
-    //Future onPlaybackStart(String userId, String itemId, { String mediaSourceId, int audioStreamIndex, int subtitleStreamIndex, PlayMethod playMethod, String liveStreamId, String playSessionId, bool canSeek }) async
+    //Future onPlaybackStart(String itemId, { String mediaSourceId, int audioStreamIndex, int subtitleStreamIndex, PlayMethod playMethod, String liveStreamId, String playSessionId, bool canSeek }) async
     test('test onPlaybackStart', () async {
       // TODO
     });
 
-    // Reports that a user has stopped playing an item.
+    // Reports that a session has stopped playing an item.
     //
-    //Future onPlaybackStopped(String userId, String itemId, { String mediaSourceId, String nextMediaType, int positionTicks, String liveStreamId, String playSessionId }) async
+    //Future onPlaybackStopped(String itemId, { String mediaSourceId, String nextMediaType, int positionTicks, String liveStreamId, String playSessionId }) async
     test('test onPlaybackStopped', () async {
       // TODO
     });

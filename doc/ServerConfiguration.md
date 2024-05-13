@@ -31,7 +31,9 @@ Name | Type | Description | Notes
 **minResumeDurationSeconds** | **int** | Gets or sets the minimum duration that an item must have in order to be eligible for playstate updates.. | [optional] 
 **minAudiobookResume** | **int** | Gets or sets the minimum minutes of a book that must be played in order for playstate to be updated. | [optional] 
 **maxAudiobookResume** | **int** | Gets or sets the remaining minutes of a book that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched. | [optional] 
+**inactiveSessionThreshold** | **int** | Gets or sets the threshold in minutes after a inactive session gets closed automatically.  If set to 0 the check for inactive sessions gets disabled. | [optional] 
 **libraryMonitorDelay** | **int** | Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files. | [optional] 
+**libraryUpdateDuration** | **int** | Gets or sets the duration in seconds that we will wait after a library updated event before executing the library changed notification. | [optional] 
 **imageSavingConvention** | [**ImageSavingConvention**](ImageSavingConvention.md) | Gets or sets the image saving convention. | [optional] 
 **metadataOptions** | [**BuiltList&lt;MetadataOptions&gt;**](MetadataOptions.md) |  | [optional] 
 **skipDeserializationForBasicTypes** | **bool** |  | [optional] 
@@ -56,6 +58,11 @@ Name | Type | Description | Notes
 **libraryMetadataRefreshConcurrency** | **int** | Gets or sets the how many metadata refreshes can run concurrently. | [optional] 
 **removeOldPlugins** | **bool** | Gets or sets a value indicating whether older plugins should automatically be deleted from the plugin folder. | [optional] 
 **allowClientLogUpload** | **bool** | Gets or sets a value indicating whether clients should be allowed to upload logs. | [optional] 
+**dummyChapterDuration** | **int** | Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation alltogether. | [optional] 
+**chapterImageResolution** | [**ImageResolution**](ImageResolution.md) | Gets or sets the chapter image resolution. | [optional] 
+**parallelImageEncodingLimit** | **int** | Gets or sets the limit for parallel image encoding. | [optional] 
+**castReceiverApplications** | [**BuiltList&lt;CastReceiverApplication&gt;**](CastReceiverApplication.md) | Gets or sets the list of cast receiver applications. | [optional] 
+**trickplayOptions** | [**TrickplayOptions**](TrickplayOptions.md) | Gets or sets the trickplay options. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

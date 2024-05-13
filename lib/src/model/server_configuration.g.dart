@@ -54,7 +54,11 @@ class _$ServerConfiguration extends ServerConfiguration {
   @override
   final int? maxAudiobookResume;
   @override
+  final int? inactiveSessionThreshold;
+  @override
   final int? libraryMonitorDelay;
+  @override
+  final int? libraryUpdateDuration;
   @override
   final ImageSavingConvention? imageSavingConvention;
   @override
@@ -103,6 +107,16 @@ class _$ServerConfiguration extends ServerConfiguration {
   final bool? removeOldPlugins;
   @override
   final bool? allowClientLogUpload;
+  @override
+  final int? dummyChapterDuration;
+  @override
+  final ImageResolution? chapterImageResolution;
+  @override
+  final int? parallelImageEncodingLimit;
+  @override
+  final BuiltList<CastReceiverApplication>? castReceiverApplications;
+  @override
+  final TrickplayOptions? trickplayOptions;
 
   factory _$ServerConfiguration(
           [void Function(ServerConfigurationBuilder)? updates]) =>
@@ -132,7 +146,9 @@ class _$ServerConfiguration extends ServerConfiguration {
       this.minResumeDurationSeconds,
       this.minAudiobookResume,
       this.maxAudiobookResume,
+      this.inactiveSessionThreshold,
       this.libraryMonitorDelay,
+      this.libraryUpdateDuration,
       this.imageSavingConvention,
       this.metadataOptions,
       this.skipDeserializationForBasicTypes,
@@ -156,7 +172,12 @@ class _$ServerConfiguration extends ServerConfiguration {
       this.libraryScanFanoutConcurrency,
       this.libraryMetadataRefreshConcurrency,
       this.removeOldPlugins,
-      this.allowClientLogUpload})
+      this.allowClientLogUpload,
+      this.dummyChapterDuration,
+      this.chapterImageResolution,
+      this.parallelImageEncodingLimit,
+      this.castReceiverApplications,
+      this.trickplayOptions})
       : super._();
 
   @override
@@ -196,7 +217,9 @@ class _$ServerConfiguration extends ServerConfiguration {
         minResumeDurationSeconds == other.minResumeDurationSeconds &&
         minAudiobookResume == other.minAudiobookResume &&
         maxAudiobookResume == other.maxAudiobookResume &&
+        inactiveSessionThreshold == other.inactiveSessionThreshold &&
         libraryMonitorDelay == other.libraryMonitorDelay &&
+        libraryUpdateDuration == other.libraryUpdateDuration &&
         imageSavingConvention == other.imageSavingConvention &&
         metadataOptions == other.metadataOptions &&
         skipDeserializationForBasicTypes ==
@@ -223,7 +246,12 @@ class _$ServerConfiguration extends ServerConfiguration {
         libraryMetadataRefreshConcurrency ==
             other.libraryMetadataRefreshConcurrency &&
         removeOldPlugins == other.removeOldPlugins &&
-        allowClientLogUpload == other.allowClientLogUpload;
+        allowClientLogUpload == other.allowClientLogUpload &&
+        dummyChapterDuration == other.dummyChapterDuration &&
+        chapterImageResolution == other.chapterImageResolution &&
+        parallelImageEncodingLimit == other.parallelImageEncodingLimit &&
+        castReceiverApplications == other.castReceiverApplications &&
+        trickplayOptions == other.trickplayOptions;
   }
 
   @override
@@ -252,7 +280,9 @@ class _$ServerConfiguration extends ServerConfiguration {
     _$hash = $jc(_$hash, minResumeDurationSeconds.hashCode);
     _$hash = $jc(_$hash, minAudiobookResume.hashCode);
     _$hash = $jc(_$hash, maxAudiobookResume.hashCode);
+    _$hash = $jc(_$hash, inactiveSessionThreshold.hashCode);
     _$hash = $jc(_$hash, libraryMonitorDelay.hashCode);
+    _$hash = $jc(_$hash, libraryUpdateDuration.hashCode);
     _$hash = $jc(_$hash, imageSavingConvention.hashCode);
     _$hash = $jc(_$hash, metadataOptions.hashCode);
     _$hash = $jc(_$hash, skipDeserializationForBasicTypes.hashCode);
@@ -277,6 +307,11 @@ class _$ServerConfiguration extends ServerConfiguration {
     _$hash = $jc(_$hash, libraryMetadataRefreshConcurrency.hashCode);
     _$hash = $jc(_$hash, removeOldPlugins.hashCode);
     _$hash = $jc(_$hash, allowClientLogUpload.hashCode);
+    _$hash = $jc(_$hash, dummyChapterDuration.hashCode);
+    _$hash = $jc(_$hash, chapterImageResolution.hashCode);
+    _$hash = $jc(_$hash, parallelImageEncodingLimit.hashCode);
+    _$hash = $jc(_$hash, castReceiverApplications.hashCode);
+    _$hash = $jc(_$hash, trickplayOptions.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -308,7 +343,9 @@ class _$ServerConfiguration extends ServerConfiguration {
           ..add('minResumeDurationSeconds', minResumeDurationSeconds)
           ..add('minAudiobookResume', minAudiobookResume)
           ..add('maxAudiobookResume', maxAudiobookResume)
+          ..add('inactiveSessionThreshold', inactiveSessionThreshold)
           ..add('libraryMonitorDelay', libraryMonitorDelay)
+          ..add('libraryUpdateDuration', libraryUpdateDuration)
           ..add('imageSavingConvention', imageSavingConvention)
           ..add('metadataOptions', metadataOptions)
           ..add('skipDeserializationForBasicTypes',
@@ -335,7 +372,12 @@ class _$ServerConfiguration extends ServerConfiguration {
           ..add('libraryMetadataRefreshConcurrency',
               libraryMetadataRefreshConcurrency)
           ..add('removeOldPlugins', removeOldPlugins)
-          ..add('allowClientLogUpload', allowClientLogUpload))
+          ..add('allowClientLogUpload', allowClientLogUpload)
+          ..add('dummyChapterDuration', dummyChapterDuration)
+          ..add('chapterImageResolution', chapterImageResolution)
+          ..add('parallelImageEncodingLimit', parallelImageEncodingLimit)
+          ..add('castReceiverApplications', castReceiverApplications)
+          ..add('trickplayOptions', trickplayOptions))
         .toString();
   }
 }
@@ -462,10 +504,20 @@ class ServerConfigurationBuilder
   set maxAudiobookResume(int? maxAudiobookResume) =>
       _$this._maxAudiobookResume = maxAudiobookResume;
 
+  int? _inactiveSessionThreshold;
+  int? get inactiveSessionThreshold => _$this._inactiveSessionThreshold;
+  set inactiveSessionThreshold(int? inactiveSessionThreshold) =>
+      _$this._inactiveSessionThreshold = inactiveSessionThreshold;
+
   int? _libraryMonitorDelay;
   int? get libraryMonitorDelay => _$this._libraryMonitorDelay;
   set libraryMonitorDelay(int? libraryMonitorDelay) =>
       _$this._libraryMonitorDelay = libraryMonitorDelay;
+
+  int? _libraryUpdateDuration;
+  int? get libraryUpdateDuration => _$this._libraryUpdateDuration;
+  set libraryUpdateDuration(int? libraryUpdateDuration) =>
+      _$this._libraryUpdateDuration = libraryUpdateDuration;
 
   ImageSavingConvention? _imageSavingConvention;
   ImageSavingConvention? get imageSavingConvention =>
@@ -603,6 +655,35 @@ class ServerConfigurationBuilder
   set allowClientLogUpload(bool? allowClientLogUpload) =>
       _$this._allowClientLogUpload = allowClientLogUpload;
 
+  int? _dummyChapterDuration;
+  int? get dummyChapterDuration => _$this._dummyChapterDuration;
+  set dummyChapterDuration(int? dummyChapterDuration) =>
+      _$this._dummyChapterDuration = dummyChapterDuration;
+
+  ImageResolution? _chapterImageResolution;
+  ImageResolution? get chapterImageResolution => _$this._chapterImageResolution;
+  set chapterImageResolution(ImageResolution? chapterImageResolution) =>
+      _$this._chapterImageResolution = chapterImageResolution;
+
+  int? _parallelImageEncodingLimit;
+  int? get parallelImageEncodingLimit => _$this._parallelImageEncodingLimit;
+  set parallelImageEncodingLimit(int? parallelImageEncodingLimit) =>
+      _$this._parallelImageEncodingLimit = parallelImageEncodingLimit;
+
+  ListBuilder<CastReceiverApplication>? _castReceiverApplications;
+  ListBuilder<CastReceiverApplication> get castReceiverApplications =>
+      _$this._castReceiverApplications ??=
+          new ListBuilder<CastReceiverApplication>();
+  set castReceiverApplications(
+          ListBuilder<CastReceiverApplication>? castReceiverApplications) =>
+      _$this._castReceiverApplications = castReceiverApplications;
+
+  TrickplayOptionsBuilder? _trickplayOptions;
+  TrickplayOptionsBuilder get trickplayOptions =>
+      _$this._trickplayOptions ??= new TrickplayOptionsBuilder();
+  set trickplayOptions(TrickplayOptionsBuilder? trickplayOptions) =>
+      _$this._trickplayOptions = trickplayOptions;
+
   ServerConfigurationBuilder() {
     ServerConfiguration._defaults(this);
   }
@@ -633,7 +714,9 @@ class ServerConfigurationBuilder
       _minResumeDurationSeconds = $v.minResumeDurationSeconds;
       _minAudiobookResume = $v.minAudiobookResume;
       _maxAudiobookResume = $v.maxAudiobookResume;
+      _inactiveSessionThreshold = $v.inactiveSessionThreshold;
       _libraryMonitorDelay = $v.libraryMonitorDelay;
+      _libraryUpdateDuration = $v.libraryUpdateDuration;
       _imageSavingConvention = $v.imageSavingConvention;
       _metadataOptions = $v.metadataOptions?.toBuilder();
       _skipDeserializationForBasicTypes = $v.skipDeserializationForBasicTypes;
@@ -659,6 +742,11 @@ class ServerConfigurationBuilder
       _libraryMetadataRefreshConcurrency = $v.libraryMetadataRefreshConcurrency;
       _removeOldPlugins = $v.removeOldPlugins;
       _allowClientLogUpload = $v.allowClientLogUpload;
+      _dummyChapterDuration = $v.dummyChapterDuration;
+      _chapterImageResolution = $v.chapterImageResolution;
+      _parallelImageEncodingLimit = $v.parallelImageEncodingLimit;
+      _castReceiverApplications = $v.castReceiverApplications?.toBuilder();
+      _trickplayOptions = $v.trickplayOptions?.toBuilder();
       _$v = null;
     }
     return this;
@@ -707,7 +795,9 @@ class ServerConfigurationBuilder
               minResumeDurationSeconds: minResumeDurationSeconds,
               minAudiobookResume: minAudiobookResume,
               maxAudiobookResume: maxAudiobookResume,
+              inactiveSessionThreshold: inactiveSessionThreshold,
               libraryMonitorDelay: libraryMonitorDelay,
+              libraryUpdateDuration: libraryUpdateDuration,
               imageSavingConvention: imageSavingConvention,
               metadataOptions: _metadataOptions?.build(),
               skipDeserializationForBasicTypes:
@@ -734,7 +824,12 @@ class ServerConfigurationBuilder
               libraryMetadataRefreshConcurrency:
                   libraryMetadataRefreshConcurrency,
               removeOldPlugins: removeOldPlugins,
-              allowClientLogUpload: allowClientLogUpload);
+              allowClientLogUpload: allowClientLogUpload,
+              dummyChapterDuration: dummyChapterDuration,
+              chapterImageResolution: chapterImageResolution,
+              parallelImageEncodingLimit: parallelImageEncodingLimit,
+              castReceiverApplications: _castReceiverApplications?.build(),
+              trickplayOptions: _trickplayOptions?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -761,6 +856,11 @@ class ServerConfigurationBuilder
 
         _$failedField = 'corsHosts';
         _corsHosts?.build();
+
+        _$failedField = 'castReceiverApplications';
+        _castReceiverApplications?.build();
+        _$failedField = 'trickplayOptions';
+        _trickplayOptions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'ServerConfiguration', _$failedField, e.toString());

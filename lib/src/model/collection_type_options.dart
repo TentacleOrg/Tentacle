@@ -10,21 +10,36 @@ import 'package:built_value/serializer.dart';
 part 'collection_type_options.g.dart';
 
 class CollectionTypeOptions extends EnumClass {
-  @BuiltValueEnumConst(wireName: r'Movies')
+  /// The collection type options.
+  @BuiltValueEnumConst(wireName: r'movies')
   static const CollectionTypeOptions movies = _$movies;
-  @BuiltValueEnumConst(wireName: r'TvShows')
-  static const CollectionTypeOptions tvShows = _$tvShows;
-  @BuiltValueEnumConst(wireName: r'Music')
+
+  /// The collection type options.
+  @BuiltValueEnumConst(wireName: r'tvshows')
+  static const CollectionTypeOptions tvshows = _$tvshows;
+
+  /// The collection type options.
+  @BuiltValueEnumConst(wireName: r'music')
   static const CollectionTypeOptions music = _$music;
-  @BuiltValueEnumConst(wireName: r'MusicVideos')
-  static const CollectionTypeOptions musicVideos = _$musicVideos;
-  @BuiltValueEnumConst(wireName: r'HomeVideos')
-  static const CollectionTypeOptions homeVideos = _$homeVideos;
-  @BuiltValueEnumConst(wireName: r'BoxSets')
-  static const CollectionTypeOptions boxSets = _$boxSets;
-  @BuiltValueEnumConst(wireName: r'Books')
+
+  /// The collection type options.
+  @BuiltValueEnumConst(wireName: r'musicvideos')
+  static const CollectionTypeOptions musicvideos = _$musicvideos;
+
+  /// The collection type options.
+  @BuiltValueEnumConst(wireName: r'homevideos')
+  static const CollectionTypeOptions homevideos = _$homevideos;
+
+  /// The collection type options.
+  @BuiltValueEnumConst(wireName: r'boxsets')
+  static const CollectionTypeOptions boxsets = _$boxsets;
+
+  /// The collection type options.
+  @BuiltValueEnumConst(wireName: r'books')
   static const CollectionTypeOptions books = _$books;
-  @BuiltValueEnumConst(wireName: r'Mixed')
+
+  /// The collection type options.
+  @BuiltValueEnumConst(wireName: r'mixed')
   static const CollectionTypeOptions mixed = _$mixed;
 
   static Serializer<CollectionTypeOptions> get serializer =>

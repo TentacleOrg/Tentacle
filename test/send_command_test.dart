@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SendCommand
 void main() {
-  final instance = SendCommandBuilder();
+  //final instance = SendCommandBuilder();
   // TODO add properties to the builder and call build()
 
   group(SendCommand, () {

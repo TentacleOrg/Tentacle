@@ -123,7 +123,7 @@ final int startIndex = 56; // int | Optional. The record index to start at. All 
 final int limit = 56; // int | Optional. The maximum number of records to return.
 final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Optional. Sort Order - Ascending,Descending.
 final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
 final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
 
 try {
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
  **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Optional. Sort Order - Ascending,Descending. | [optional] 
  **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
  **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
 
 ### Return type

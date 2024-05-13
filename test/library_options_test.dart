@@ -7,6 +7,11 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(LibraryOptions, () {
+    // bool enabled
+    test('to test the property `enabled`', () async {
+      // TODO
+    });
+
     // bool enablePhotos
     test('to test the property `enablePhotos`', () async {
       // TODO
@@ -17,6 +22,11 @@ void main() {
       // TODO
     });
 
+    // bool enableLUFSScan
+    test('to test the property `enableLUFSScan`', () async {
+      // TODO
+    });
+
     // bool enableChapterImageExtraction
     test('to test the property `enableChapterImageExtraction`', () async {
       // TODO
@@ -24,6 +34,17 @@ void main() {
 
     // bool extractChapterImagesDuringLibraryScan
     test('to test the property `extractChapterImagesDuringLibraryScan`',
+        () async {
+      // TODO
+    });
+
+    // bool enableTrickplayImageExtraction
+    test('to test the property `enableTrickplayImageExtraction`', () async {
+      // TODO
+    });
+
+    // bool extractTrickplayImagesDuringLibraryScan
+    test('to test the property `extractTrickplayImagesDuringLibraryScan`',
         () async {
       // TODO
     });
@@ -50,6 +71,11 @@ void main() {
 
     // bool enableEmbeddedTitles
     test('to test the property `enableEmbeddedTitles`', () async {
+      // TODO
+    });
+
+    // bool enableEmbeddedExtrasTitles
+    test('to test the property `enableEmbeddedExtrasTitles`', () async {
       // TODO
     });
 
@@ -128,6 +154,11 @@ void main() {
 
     // bool saveSubtitlesWithMedia
     test('to test the property `saveSubtitlesWithMedia`', () async {
+      // TODO
+    });
+
+    // bool saveLyricsWithMedia (default value: false)
+    test('to test the property `saveLyricsWithMedia`', () async {
       // TODO
     });
 

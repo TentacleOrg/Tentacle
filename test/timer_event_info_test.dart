@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TimerEventInfo
 void main() {
-  final instance = TimerEventInfoBuilder();
+  //final instance = TimerEventInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(TimerEventInfo, () {

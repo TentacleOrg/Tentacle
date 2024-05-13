@@ -914,7 +914,7 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getLiveTvApi();
-final ChannelType type = ; // ChannelType | Optional. Filter by channel type.
+final ChannelType type = type_example; // ChannelType | Optional. Filter by channel type.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final bool isMovie = true; // bool | Optional. Filter for movies.
@@ -931,8 +931,8 @@ final int imageTypeLimit = 56; // int | Optional. The max number of images to re
 final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | \"Optional. The image types to include in the output.
 final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
 final bool enableUserData = true; // bool | Optional. Include user data.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Key to sort by.
-final SortOrder sortOrder = ; // SortOrder | Optional. Sort order.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Key to sort by.
+final SortOrder sortOrder = sortOrder_example; // SortOrder | Optional. Sort order.
 final bool enableFavoriteSorting = true; // bool | Optional. Incorporate favorite and like status into channel sorting.
 final bool addCurrentProgram = true; // bool | Optional. Adds current program info to each channel.
 
@@ -948,7 +948,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | [**ChannelType**](.md)| Optional. Filter by channel type. | [optional] 
+ **type** | **ChannelType**| Optional. Filter by channel type. | [optional] 
  **userId** | **String**| Optional. Filter by user and attach user data. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **isMovie** | **bool**| Optional. Filter for movies. | [optional] 
@@ -965,8 +965,8 @@ Name | Type | Description  | Notes
  **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| \"Optional. The image types to include in the output. | [optional] 
  **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
  **enableUserData** | **bool**| Optional. Include user data. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Key to sort by. | [optional] 
- **sortOrder** | [**SortOrder**](.md)| Optional. Sort order. | [optional] 
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Key to sort by. | [optional] 
+ **sortOrder** | **SortOrder**| Optional. Sort order. | [optional] 
  **enableFavoriteSorting** | **bool**| Optional. Incorporate favorite and like status into channel sorting. | [optional] [default to false]
  **addCurrentProgram** | **bool**| Optional. Adds current program info to each channel. | [optional] [default to true]
 
@@ -1055,7 +1055,7 @@ final bool isKids = true; // bool | Optional. Filter for kids.
 final bool isSports = true; // bool | Optional. Filter for sports.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate.
 final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
 final BuiltList<String> genres = ; // BuiltList<String> | The genres to return guide information for.
 final BuiltList<String> genreIds = ; // BuiltList<String> | The genre ids to return guide information for.
@@ -1095,7 +1095,7 @@ Name | Type | Description  | Notes
  **isSports** | **bool**| Optional. Filter for sports. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate. | [optional] 
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. Options: Name, StartDate. | [optional] 
  **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
  **genres** | [**BuiltList&lt;String&gt;**](String.md)| The genres to return guide information for. | [optional] 
  **genreIds** | [**BuiltList&lt;String&gt;**](String.md)| The genre ids to return guide information for. | [optional] 
@@ -1489,7 +1489,7 @@ final String channelId = channelId_example; // String | Optional. Filter by chan
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
-final RecordingStatus status = ; // RecordingStatus | Optional. Filter by recording status.
+final RecordingStatus status = status_example; // RecordingStatus | Optional. Filter by recording status.
 final bool isInProgress = true; // bool | Optional. Filter by recordings that are in progress, or not.
 final String seriesTimerId = seriesTimerId_example; // String | Optional. Filter by recordings belonging to a series timer.
 final bool enableImages = true; // bool | Optional. Include image information in output.
@@ -1521,7 +1521,7 @@ Name | Type | Description  | Notes
  **userId** | **String**| Optional. Filter by user and attach user data. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **status** | [**RecordingStatus**](.md)| Optional. Filter by recording status. | [optional] 
+ **status** | **RecordingStatus**| Optional. Filter by recording status. | [optional] 
  **isInProgress** | **bool**| Optional. Filter by recordings that are in progress, or not. | [optional] 
  **seriesTimerId** | **String**| Optional. Filter by recordings belonging to a series timer. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
@@ -1571,7 +1571,7 @@ final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional
 final String groupId = groupId_example; // String | Optional. Filter by recording group.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
-final RecordingStatus status = ; // RecordingStatus | Optional. Filter by recording status.
+final RecordingStatus status = status_example; // RecordingStatus | Optional. Filter by recording status.
 final bool isInProgress = true; // bool | Optional. Filter by recordings that are in progress, or not.
 final String seriesTimerId = seriesTimerId_example; // String | Optional. Filter by recordings belonging to a series timer.
 final bool enableImages = true; // bool | Optional. Include image information in output.
@@ -1598,7 +1598,7 @@ Name | Type | Description  | Notes
  **groupId** | **String**| Optional. Filter by recording group. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **status** | [**RecordingStatus**](.md)| Optional. Filter by recording status. | [optional] 
+ **status** | **RecordingStatus**| Optional. Filter by recording status. | [optional] 
  **isInProgress** | **bool**| Optional. Filter by recordings that are in progress, or not. | [optional] 
  **seriesTimerId** | **String**| Optional. Filter by recordings belonging to a series timer. | [optional] 
  **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
@@ -1724,7 +1724,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getLiveTvApi();
 final String sortBy = sortBy_example; // String | Optional. Sort by SortName or Priority.
-final SortOrder sortOrder = ; // SortOrder | Optional. Sort in Ascending or Descending order.
+final SortOrder sortOrder = sortOrder_example; // SortOrder | Optional. Sort in Ascending or Descending order.
 
 try {
     final response = api.getSeriesTimers(sortBy, sortOrder);
@@ -1739,7 +1739,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sortBy** | **String**| Optional. Sort by SortName or Priority. | [optional] 
- **sortOrder** | [**SortOrder**](.md)| Optional. Sort in Ascending or Descending order. | [optional] 
+ **sortOrder** | **SortOrder**| Optional. Sort in Ascending or Descending order. | [optional] 
 
 ### Return type
 

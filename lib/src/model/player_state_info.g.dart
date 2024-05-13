@@ -28,6 +28,8 @@ class _$PlayerStateInfo extends PlayerStateInfo {
   @override
   final RepeatMode? repeatMode;
   @override
+  final PlaybackOrder? playbackOrder;
+  @override
   final String? liveStreamId;
 
   factory _$PlayerStateInfo([void Function(PlayerStateInfoBuilder)? updates]) =>
@@ -44,6 +46,7 @@ class _$PlayerStateInfo extends PlayerStateInfo {
       this.mediaSourceId,
       this.playMethod,
       this.repeatMode,
+      this.playbackOrder,
       this.liveStreamId})
       : super._();
 
@@ -69,6 +72,7 @@ class _$PlayerStateInfo extends PlayerStateInfo {
         mediaSourceId == other.mediaSourceId &&
         playMethod == other.playMethod &&
         repeatMode == other.repeatMode &&
+        playbackOrder == other.playbackOrder &&
         liveStreamId == other.liveStreamId;
   }
 
@@ -85,6 +89,7 @@ class _$PlayerStateInfo extends PlayerStateInfo {
     _$hash = $jc(_$hash, mediaSourceId.hashCode);
     _$hash = $jc(_$hash, playMethod.hashCode);
     _$hash = $jc(_$hash, repeatMode.hashCode);
+    _$hash = $jc(_$hash, playbackOrder.hashCode);
     _$hash = $jc(_$hash, liveStreamId.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -103,6 +108,7 @@ class _$PlayerStateInfo extends PlayerStateInfo {
           ..add('mediaSourceId', mediaSourceId)
           ..add('playMethod', playMethod)
           ..add('repeatMode', repeatMode)
+          ..add('playbackOrder', playbackOrder)
           ..add('liveStreamId', liveStreamId))
         .toString();
   }
@@ -156,6 +162,11 @@ class PlayerStateInfoBuilder
   RepeatMode? get repeatMode => _$this._repeatMode;
   set repeatMode(RepeatMode? repeatMode) => _$this._repeatMode = repeatMode;
 
+  PlaybackOrder? _playbackOrder;
+  PlaybackOrder? get playbackOrder => _$this._playbackOrder;
+  set playbackOrder(PlaybackOrder? playbackOrder) =>
+      _$this._playbackOrder = playbackOrder;
+
   String? _liveStreamId;
   String? get liveStreamId => _$this._liveStreamId;
   set liveStreamId(String? liveStreamId) => _$this._liveStreamId = liveStreamId;
@@ -177,6 +188,7 @@ class PlayerStateInfoBuilder
       _mediaSourceId = $v.mediaSourceId;
       _playMethod = $v.playMethod;
       _repeatMode = $v.repeatMode;
+      _playbackOrder = $v.playbackOrder;
       _liveStreamId = $v.liveStreamId;
       _$v = null;
     }
@@ -210,6 +222,7 @@ class PlayerStateInfoBuilder
             mediaSourceId: mediaSourceId,
             playMethod: playMethod,
             repeatMode: repeatMode,
+            playbackOrder: playbackOrder,
             liveStreamId: liveStreamId);
     replace(_$result);
     return _$result;

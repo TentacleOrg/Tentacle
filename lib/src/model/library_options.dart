@@ -15,15 +15,20 @@ part 'library_options.g.dart';
 /// LibraryOptions
 ///
 /// Properties:
+/// * [enabled]
 /// * [enablePhotos]
 /// * [enableRealtimeMonitor]
+/// * [enableLUFSScan]
 /// * [enableChapterImageExtraction]
 /// * [extractChapterImagesDuringLibraryScan]
+/// * [enableTrickplayImageExtraction]
+/// * [extractTrickplayImagesDuringLibraryScan]
 /// * [pathInfos]
 /// * [saveLocalMetadata]
 /// * [enableInternetProviders]
 /// * [enableAutomaticSeriesGrouping]
 /// * [enableEmbeddedTitles]
+/// * [enableEmbeddedExtrasTitles]
 /// * [enableEmbeddedEpisodeInfos]
 /// * [automaticRefreshIntervalDays]
 /// * [preferredMetadataLanguage] - Gets or sets the preferred metadata language.
@@ -39,22 +44,35 @@ part 'library_options.g.dart';
 /// * [subtitleDownloadLanguages]
 /// * [requirePerfectSubtitleMatch]
 /// * [saveSubtitlesWithMedia]
+/// * [saveLyricsWithMedia]
 /// * [automaticallyAddToCollection]
 /// * [allowEmbeddedSubtitles] - An enum representing the options to disable embedded subs.
 /// * [typeOptions]
 @BuiltValue(instantiable: false)
 abstract class LibraryOptions {
+  @BuiltValueField(wireName: r'Enabled')
+  bool? get enabled;
+
   @BuiltValueField(wireName: r'EnablePhotos')
   bool? get enablePhotos;
 
   @BuiltValueField(wireName: r'EnableRealtimeMonitor')
   bool? get enableRealtimeMonitor;
 
+  @BuiltValueField(wireName: r'EnableLUFSScan')
+  bool? get enableLUFSScan;
+
   @BuiltValueField(wireName: r'EnableChapterImageExtraction')
   bool? get enableChapterImageExtraction;
 
   @BuiltValueField(wireName: r'ExtractChapterImagesDuringLibraryScan')
   bool? get extractChapterImagesDuringLibraryScan;
+
+  @BuiltValueField(wireName: r'EnableTrickplayImageExtraction')
+  bool? get enableTrickplayImageExtraction;
+
+  @BuiltValueField(wireName: r'ExtractTrickplayImagesDuringLibraryScan')
+  bool? get extractTrickplayImagesDuringLibraryScan;
 
   @BuiltValueField(wireName: r'PathInfos')
   BuiltList<MediaPathInfo>? get pathInfos;
@@ -71,6 +89,9 @@ abstract class LibraryOptions {
 
   @BuiltValueField(wireName: r'EnableEmbeddedTitles')
   bool? get enableEmbeddedTitles;
+
+  @BuiltValueField(wireName: r'EnableEmbeddedExtrasTitles')
+  bool? get enableEmbeddedExtrasTitles;
 
   @BuiltValueField(wireName: r'EnableEmbeddedEpisodeInfos')
   bool? get enableEmbeddedEpisodeInfos;
@@ -119,6 +140,9 @@ abstract class LibraryOptions {
   @BuiltValueField(wireName: r'SaveSubtitlesWithMedia')
   bool? get saveSubtitlesWithMedia;
 
+  @BuiltValueField(wireName: r'SaveLyricsWithMedia')
+  bool? get saveLyricsWithMedia;
+
   @BuiltValueField(wireName: r'AutomaticallyAddToCollection')
   bool? get automaticallyAddToCollection;
 
@@ -148,6 +172,13 @@ class _$LibraryOptionsSerializer
     LibraryOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.enabled != null) {
+      yield r'Enabled';
+      yield serializers.serialize(
+        object.enabled,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.enablePhotos != null) {
       yield r'EnablePhotos';
       yield serializers.serialize(
@@ -162,6 +193,13 @@ class _$LibraryOptionsSerializer
         specifiedType: const FullType(bool),
       );
     }
+    if (object.enableLUFSScan != null) {
+      yield r'EnableLUFSScan';
+      yield serializers.serialize(
+        object.enableLUFSScan,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.enableChapterImageExtraction != null) {
       yield r'EnableChapterImageExtraction';
       yield serializers.serialize(
@@ -173,6 +211,20 @@ class _$LibraryOptionsSerializer
       yield r'ExtractChapterImagesDuringLibraryScan';
       yield serializers.serialize(
         object.extractChapterImagesDuringLibraryScan,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableTrickplayImageExtraction != null) {
+      yield r'EnableTrickplayImageExtraction';
+      yield serializers.serialize(
+        object.enableTrickplayImageExtraction,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.extractTrickplayImagesDuringLibraryScan != null) {
+      yield r'ExtractTrickplayImagesDuringLibraryScan';
+      yield serializers.serialize(
+        object.extractTrickplayImagesDuringLibraryScan,
         specifiedType: const FullType(bool),
       );
     }
@@ -208,6 +260,13 @@ class _$LibraryOptionsSerializer
       yield r'EnableEmbeddedTitles';
       yield serializers.serialize(
         object.enableEmbeddedTitles,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableEmbeddedExtrasTitles != null) {
+      yield r'EnableEmbeddedExtrasTitles';
+      yield serializers.serialize(
+        object.enableEmbeddedExtrasTitles,
         specifiedType: const FullType(bool),
       );
     }
@@ -316,6 +375,13 @@ class _$LibraryOptionsSerializer
         specifiedType: const FullType(bool),
       );
     }
+    if (object.saveLyricsWithMedia != null) {
+      yield r'SaveLyricsWithMedia';
+      yield serializers.serialize(
+        object.saveLyricsWithMedia,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.automaticallyAddToCollection != null) {
       yield r'AutomaticallyAddToCollection';
       yield serializers.serialize(
@@ -408,6 +474,13 @@ class _$$LibraryOptionsSerializer
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'Enabled':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enabled = valueDes;
+          break;
         case r'EnablePhotos':
           final valueDes = serializers.deserialize(
             value,
@@ -422,6 +495,13 @@ class _$$LibraryOptionsSerializer
           ) as bool;
           result.enableRealtimeMonitor = valueDes;
           break;
+        case r'EnableLUFSScan':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableLUFSScan = valueDes;
+          break;
         case r'EnableChapterImageExtraction':
           final valueDes = serializers.deserialize(
             value,
@@ -435,6 +515,20 @@ class _$$LibraryOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.extractChapterImagesDuringLibraryScan = valueDes;
+          break;
+        case r'EnableTrickplayImageExtraction':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableTrickplayImageExtraction = valueDes;
+          break;
+        case r'ExtractTrickplayImagesDuringLibraryScan':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.extractTrickplayImagesDuringLibraryScan = valueDes;
           break;
         case r'PathInfos':
           final valueDes = serializers.deserialize(
@@ -470,6 +564,13 @@ class _$$LibraryOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.enableEmbeddedTitles = valueDes;
+          break;
+        case r'EnableEmbeddedExtrasTitles':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableEmbeddedExtrasTitles = valueDes;
           break;
         case r'EnableEmbeddedEpisodeInfos':
           final valueDes = serializers.deserialize(
@@ -583,6 +684,13 @@ class _$$LibraryOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.saveSubtitlesWithMedia = valueDes;
+          break;
+        case r'SaveLyricsWithMedia':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.saveLyricsWithMedia = valueDes;
           break;
         case r'AutomaticallyAddToCollection':
           final valueDes = serializers.deserialize(

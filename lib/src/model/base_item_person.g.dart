@@ -14,7 +14,7 @@ class _$BaseItemPerson extends BaseItemPerson {
   @override
   final String? role;
   @override
-  final String? type;
+  final PersonKind? type;
   @override
   final String? primaryImageTag;
   @override
@@ -94,9 +94,9 @@ class BaseItemPersonBuilder
   String? get role => _$this._role;
   set role(String? role) => _$this._role = role;
 
-  String? _type;
-  String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  PersonKind? _type;
+  PersonKind? get type => _$this._type;
+  set type(PersonKind? type) => _$this._type = type;
 
   String? _primaryImageTag;
   String? get primaryImageTag => _$this._primaryImageTag;

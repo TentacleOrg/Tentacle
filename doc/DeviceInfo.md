@@ -9,6 +9,7 @@ import 'package:tentacle/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
+**customName** | **String** |  | [optional] 
 **accessToken** | **String** | Gets or sets the access token. | [optional] 
 **id** | **String** | Gets or sets the identifier. | [optional] 
 **lastUserName** | **String** | Gets or sets the last name of the user. | [optional] 

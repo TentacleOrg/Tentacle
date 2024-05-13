@@ -25,6 +25,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets a value indicating whether the subtitle is for hearing impaired.
+    // bool isHearingImpaired
+    test('to test the property `isHearingImpaired`', () async {
+      // TODO
+    });
+
     // Gets or sets the subtitle data.
     // String data
     test('to test the property `data`', () async {

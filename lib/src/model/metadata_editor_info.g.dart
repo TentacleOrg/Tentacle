@@ -16,7 +16,7 @@ class _$MetadataEditorInfo extends MetadataEditorInfo {
   @override
   final BuiltList<ExternalIdInfo>? externalIdInfos;
   @override
-  final String? contentType;
+  final CollectionType? contentType;
   @override
   final BuiltList<NameValuePair>? contentTypeOptions;
 
@@ -109,9 +109,10 @@ class MetadataEditorInfoBuilder
   set externalIdInfos(ListBuilder<ExternalIdInfo>? externalIdInfos) =>
       _$this._externalIdInfos = externalIdInfos;
 
-  String? _contentType;
-  String? get contentType => _$this._contentType;
-  set contentType(String? contentType) => _$this._contentType = contentType;
+  CollectionType? _contentType;
+  CollectionType? get contentType => _$this._contentType;
+  set contentType(CollectionType? contentType) =>
+      _$this._contentType = contentType;
 
   ListBuilder<NameValuePair>? _contentTypeOptions;
   ListBuilder<NameValuePair> get contentTypeOptions =>

@@ -19,6 +19,24 @@ void main() {
       // TODO
     });
 
+    // Gets or sets a value indicating whether this instance can manage collections.
+    // bool enableCollectionManagement (default value: false)
+    test('to test the property `enableCollectionManagement`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether this instance can manage subtitles.
+    // bool enableSubtitleManagement (default value: false)
+    test('to test the property `enableSubtitleManagement`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether this user can manage lyrics.
+    // bool enableLyricManagement (default value: false)
+    test('to test the property `enableLyricManagement`', () async {
+      // TODO
+    });
+
     // Gets or sets a value indicating whether this instance is disabled.
     // bool isDisabled
     test('to test the property `isDisabled`', () async {
@@ -33,6 +51,11 @@ void main() {
 
     // BuiltList<String> blockedTags
     test('to test the property `blockedTags`', () async {
+      // TODO
+    });
+
+    // BuiltList<String> allowedTags
+    test('to test the property `allowedTags`', () async {
       // TODO
     });
 

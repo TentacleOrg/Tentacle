@@ -26,14 +26,14 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getTrailersApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id supplied as query parameter; this is required when not using an API key.
 final String maxOfficialRating = maxOfficialRating_example; // String | Optional filter by maximum official rating (PG, PG-13, TV-MA, etc).
 final bool hasThemeSong = true; // bool | Optional filter by items with theme songs.
 final bool hasThemeVideo = true; // bool | Optional filter by items with theme videos.
 final bool hasSubtitles = true; // bool | Optional filter by items with subtitles.
 final bool hasSpecialFeature = true; // bool | Optional filter by items with special features.
 final bool hasTrailer = true; // bool | Optional filter by items with trailers.
-final String adjacentTo = adjacentTo_example; // String | Optional. Return items that are siblings of a supplied item.
+final String adjacentTo = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Return items that are siblings of a supplied item.
 final int parentIndexNumber = 56; // int | Optional filter by parent index number.
 final bool hasParentalRating = true; // bool | Optional filter by items that have or do not have a parental rating.
 final bool isHd = true; // bool | Optional filter by items that are HD or not.
@@ -49,9 +49,9 @@ final DateTime minDateLastSaved = 2013-10-20T19:20:30+01:00; // DateTime | Optio
 final DateTime minDateLastSavedForUser = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The minimum last saved date for the current user. Format = ISO.
 final DateTime maxPremiereDate = 2013-10-20T19:20:30+01:00; // DateTime | Optional. The maximum premiere date. Format = ISO.
 final bool hasOverview = true; // bool | Optional filter by items that have an overview or not.
-final bool hasImdbId = true; // bool | Optional filter by items that have an imdb id or not.
-final bool hasTmdbId = true; // bool | Optional filter by items that have a tmdb id or not.
-final bool hasTvdbId = true; // bool | Optional filter by items that have a tvdb id or not.
+final bool hasImdbId = true; // bool | Optional filter by items that have an IMDb id or not.
+final bool hasTmdbId = true; // bool | Optional filter by items that have a TMDb id or not.
+final bool hasTvdbId = true; // bool | Optional filter by items that have a TVDb id or not.
 final bool isMovie = true; // bool | Optional filter for live tv movies.
 final bool isSeries = true; // bool | Optional filter for live tv series.
 final bool isNews = true; // bool | Optional filter for live tv news.
@@ -62,15 +62,15 @@ final int startIndex = 56; // int | Optional. The record index to start at. All 
 final int limit = 56; // int | Optional. The maximum number of records to return.
 final bool recursive = true; // bool | When searching within folders, this determines whether or not the search will be recursive. true/false.
 final String searchTerm = searchTerm_example; // String | Optional. Filter based on a search term.
-final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
+final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending, Descending.
 final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Specify this to localize the search to a specific item or folder. Omit to use the root.
 final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines.
 final BuiltList<BaseItemKind> excludeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
 final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply. This allows multiple, comma delimited. Options: IsFolder, IsNotFolder, IsUnplayed, IsPlayed, IsFavorite, IsResumable, Likes, Dislikes.
 final bool isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
-final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional filter by MediaType. Allows multiple, comma delimited.
+final BuiltList<MediaType> mediaTypes = ; // BuiltList<MediaType> | Optional filter by MediaType. Allows multiple, comma delimited.
 final BuiltList<ImageType> imageTypes = ; // BuiltList<ImageType> | Optional. If specified, results will be filtered based on those containing image types. This allows multiple, comma delimited.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
 final bool isPlayed = true; // bool | Optional filter by items that are played, or not.
 final BuiltList<String> genres = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited.
 final BuiltList<String> officialRatings = ; // BuiltList<String> | Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited.
@@ -123,7 +123,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The user id. | [optional] 
+ **userId** | **String**| The user id supplied as query parameter; this is required when not using an API key. | [optional] 
  **maxOfficialRating** | **String**| Optional filter by maximum official rating (PG, PG-13, TV-MA, etc). | [optional] 
  **hasThemeSong** | **bool**| Optional filter by items with theme songs. | [optional] 
  **hasThemeVideo** | **bool**| Optional filter by items with theme videos. | [optional] 
@@ -146,9 +146,9 @@ Name | Type | Description  | Notes
  **minDateLastSavedForUser** | **DateTime**| Optional. The minimum last saved date for the current user. Format = ISO. | [optional] 
  **maxPremiereDate** | **DateTime**| Optional. The maximum premiere date. Format = ISO. | [optional] 
  **hasOverview** | **bool**| Optional filter by items that have an overview or not. | [optional] 
- **hasImdbId** | **bool**| Optional filter by items that have an imdb id or not. | [optional] 
- **hasTmdbId** | **bool**| Optional filter by items that have a tmdb id or not. | [optional] 
- **hasTvdbId** | **bool**| Optional filter by items that have a tvdb id or not. | [optional] 
+ **hasImdbId** | **bool**| Optional filter by items that have an IMDb id or not. | [optional] 
+ **hasTmdbId** | **bool**| Optional filter by items that have a TMDb id or not. | [optional] 
+ **hasTvdbId** | **bool**| Optional filter by items that have a TVDb id or not. | [optional] 
  **isMovie** | **bool**| Optional filter for live tv movies. | [optional] 
  **isSeries** | **bool**| Optional filter for live tv series. | [optional] 
  **isNews** | **bool**| Optional filter for live tv news. | [optional] 
@@ -159,15 +159,15 @@ Name | Type | Description  | Notes
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
  **recursive** | **bool**| When searching within folders, this determines whether or not the search will be recursive. true/false. | [optional] 
  **searchTerm** | **String**| Optional. Filter based on a search term. | [optional] 
- **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
+ **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending, Descending. | [optional] 
  **parentId** | **String**| Specify this to localize the search to a specific item or folder. Omit to use the root. | [optional] 
  **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines. | [optional] 
  **excludeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
  **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. This allows multiple, comma delimited. Options: IsFolder, IsNotFolder, IsUnplayed, IsPlayed, IsFavorite, IsResumable, Likes, Dislikes. | [optional] 
  **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] 
- **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] 
+ **mediaTypes** | [**BuiltList&lt;MediaType&gt;**](MediaType.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] 
  **imageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. If specified, results will be filtered based on those containing image types. This allows multiple, comma delimited. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
  **isPlayed** | **bool**| Optional filter by items that are played, or not. | [optional] 
  **genres** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. | [optional] 
  **officialRatings** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. | [optional] 

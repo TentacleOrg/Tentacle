@@ -11,6 +11,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/media_type.dart';
 
 class SuggestionsApi {
   final Dio _dio;
@@ -39,8 +40,8 @@ class SuggestionsApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getSuggestions({
-    required String userId,
-    BuiltList<String>? mediaType,
+    String? userId,
+    BuiltList<MediaType>? mediaType,
     BuiltList<BaseItemKind>? type,
     int? startIndex,
     int? limit,
@@ -52,10 +53,7 @@ class SuggestionsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Suggestions'.replaceAll(
-        '{' r'userId' '}',
-        encodeQueryParameter(_serializers, userId, const FullType(String))
-            .toString());
+    final _path = r'/Items/Suggestions';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -76,11 +74,14 @@ class SuggestionsApi {
     );
 
     final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       if (mediaType != null)
-        r'mediaType': encodeCollectionQueryParameter<String>(
+        r'mediaType': encodeCollectionQueryParameter<MediaType>(
           _serializers,
           mediaType,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(MediaType)]),
           format: ListFormat.multi,
         ),
       if (type != null)

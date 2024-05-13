@@ -13,6 +13,7 @@ import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/client_capabilities_dto.dart';
 import 'package:tentacle/src/model/general_command.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/message_command.dart';
 import 'package:tentacle/src/model/name_id_pair.dart';
 import 'package:tentacle/src/model/play_command.dart';
@@ -532,7 +533,6 @@ class SessionApi {
   /// * [playableMediaTypes] - A list of playable media types, comma delimited. Audio, Video, Book, Photo.
   /// * [supportedCommands] - A list of supported remote control commands, comma delimited.
   /// * [supportsMediaControl] - Determines whether media can be played remotely..
-  /// * [supportsSync] - Determines whether sync is supported.
   /// * [supportsPersistentIdentifier] - Determines whether the device supports a unique identifier.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -545,10 +545,9 @@ class SessionApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> postCapabilities({
     String? id,
-    BuiltList<String>? playableMediaTypes,
+    BuiltList<MediaType>? playableMediaTypes,
     BuiltList<GeneralCommandType>? supportedCommands,
     bool? supportsMediaControl = false,
-    bool? supportsSync = false,
     bool? supportsPersistentIdentifier = true,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -581,10 +580,10 @@ class SessionApi {
       if (id != null)
         r'id': encodeQueryParameter(_serializers, id, const FullType(String)),
       if (playableMediaTypes != null)
-        r'playableMediaTypes': encodeCollectionQueryParameter<String>(
+        r'playableMediaTypes': encodeCollectionQueryParameter<MediaType>(
           _serializers,
           playableMediaTypes,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(MediaType)]),
           format: ListFormat.multi,
         ),
       if (supportedCommands != null)
@@ -598,9 +597,6 @@ class SessionApi {
       if (supportsMediaControl != null)
         r'supportsMediaControl': encodeQueryParameter(
             _serializers, supportsMediaControl, const FullType(bool)),
-      if (supportsSync != null)
-        r'supportsSync': encodeQueryParameter(
-            _serializers, supportsSync, const FullType(bool)),
       if (supportsPersistentIdentifier != null)
         r'supportsPersistentIdentifier': encodeQueryParameter(
             _serializers, supportsPersistentIdentifier, const FullType(bool)),

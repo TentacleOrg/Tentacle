@@ -6,6 +6,7 @@
 import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,19 +18,18 @@ part 'client_capabilities_dto.g.dart';
 /// * [playableMediaTypes] - Gets or sets the list of playable media types.
 /// * [supportedCommands] - Gets or sets the list of supported commands.
 /// * [supportsMediaControl] - Gets or sets a value indicating whether session supports media control.
-/// * [supportsContentUploading] - Gets or sets a value indicating whether session supports content uploading.
-/// * [messageCallbackUrl] - Gets or sets the message callback url.
 /// * [supportsPersistentIdentifier] - Gets or sets a value indicating whether session supports a persistent identifier.
-/// * [supportsSync] - Gets or sets a value indicating whether session supports sync.
 /// * [deviceProfile]
 /// * [appStoreUrl] - Gets or sets the app store url.
 /// * [iconUrl] - Gets or sets the icon url.
+/// * [supportsContentUploading]
+/// * [supportsSync]
 @BuiltValue()
 abstract class ClientCapabilitiesDto
     implements Built<ClientCapabilitiesDto, ClientCapabilitiesDtoBuilder> {
   /// Gets or sets the list of playable media types.
   @BuiltValueField(wireName: r'PlayableMediaTypes')
-  BuiltList<String>? get playableMediaTypes;
+  BuiltList<MediaType>? get playableMediaTypes;
 
   /// Gets or sets the list of supported commands.
   @BuiltValueField(wireName: r'SupportedCommands')
@@ -39,21 +39,9 @@ abstract class ClientCapabilitiesDto
   @BuiltValueField(wireName: r'SupportsMediaControl')
   bool? get supportsMediaControl;
 
-  /// Gets or sets a value indicating whether session supports content uploading.
-  @BuiltValueField(wireName: r'SupportsContentUploading')
-  bool? get supportsContentUploading;
-
-  /// Gets or sets the message callback url.
-  @BuiltValueField(wireName: r'MessageCallbackUrl')
-  String? get messageCallbackUrl;
-
   /// Gets or sets a value indicating whether session supports a persistent identifier.
   @BuiltValueField(wireName: r'SupportsPersistentIdentifier')
   bool? get supportsPersistentIdentifier;
-
-  /// Gets or sets a value indicating whether session supports sync.
-  @BuiltValueField(wireName: r'SupportsSync')
-  bool? get supportsSync;
 
   @BuiltValueField(wireName: r'DeviceProfile')
   ClientCapabilitiesDeviceProfile? get deviceProfile;
@@ -66,13 +54,23 @@ abstract class ClientCapabilitiesDto
   @BuiltValueField(wireName: r'IconUrl')
   String? get iconUrl;
 
+  @Deprecated('supportsContentUploading has been deprecated')
+  @BuiltValueField(wireName: r'SupportsContentUploading')
+  bool? get supportsContentUploading;
+
+  @Deprecated('supportsSync has been deprecated')
+  @BuiltValueField(wireName: r'SupportsSync')
+  bool? get supportsSync;
+
   ClientCapabilitiesDto._();
 
   factory ClientCapabilitiesDto(
       [void updates(ClientCapabilitiesDtoBuilder b)]) = _$ClientCapabilitiesDto;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ClientCapabilitiesDtoBuilder b) => b;
+  static void _defaults(ClientCapabilitiesDtoBuilder b) => b
+    ..supportsContentUploading = false
+    ..supportsSync = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ClientCapabilitiesDto> get serializer =>
@@ -99,7 +97,7 @@ class _$ClientCapabilitiesDtoSerializer
       yield r'PlayableMediaTypes';
       yield serializers.serialize(
         object.playableMediaTypes,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
+        specifiedType: const FullType(BuiltList, [FullType(MediaType)]),
       );
     }
     if (object.supportedCommands != null) {
@@ -117,31 +115,10 @@ class _$ClientCapabilitiesDtoSerializer
         specifiedType: const FullType(bool),
       );
     }
-    if (object.supportsContentUploading != null) {
-      yield r'SupportsContentUploading';
-      yield serializers.serialize(
-        object.supportsContentUploading,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.messageCallbackUrl != null) {
-      yield r'MessageCallbackUrl';
-      yield serializers.serialize(
-        object.messageCallbackUrl,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
     if (object.supportsPersistentIdentifier != null) {
       yield r'SupportsPersistentIdentifier';
       yield serializers.serialize(
         object.supportsPersistentIdentifier,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.supportsSync != null) {
-      yield r'SupportsSync';
-      yield serializers.serialize(
-        object.supportsSync,
         specifiedType: const FullType(bool),
       );
     }
@@ -164,6 +141,20 @@ class _$ClientCapabilitiesDtoSerializer
       yield serializers.serialize(
         object.iconUrl,
         specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.supportsContentUploading != null) {
+      yield r'SupportsContentUploading';
+      yield serializers.serialize(
+        object.supportsContentUploading,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.supportsSync != null) {
+      yield r'SupportsSync';
+      yield serializers.serialize(
+        object.supportsSync,
+        specifiedType: const FullType.nullable(bool),
       );
     }
   }
@@ -194,8 +185,8 @@ class _$ClientCapabilitiesDtoSerializer
         case r'PlayableMediaTypes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
+            specifiedType: const FullType(BuiltList, [FullType(MediaType)]),
+          ) as BuiltList<MediaType>;
           result.playableMediaTypes.replace(valueDes);
           break;
         case r'SupportedCommands':
@@ -213,34 +204,12 @@ class _$ClientCapabilitiesDtoSerializer
           ) as bool;
           result.supportsMediaControl = valueDes;
           break;
-        case r'SupportsContentUploading':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.supportsContentUploading = valueDes;
-          break;
-        case r'MessageCallbackUrl':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.messageCallbackUrl = valueDes;
-          break;
         case r'SupportsPersistentIdentifier':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(bool),
           ) as bool;
           result.supportsPersistentIdentifier = valueDes;
-          break;
-        case r'SupportsSync':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.supportsSync = valueDes;
           break;
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
@@ -266,6 +235,22 @@ class _$ClientCapabilitiesDtoSerializer
           ) as String?;
           if (valueDes == null) continue;
           result.iconUrl = valueDes;
+          break;
+        case r'SupportsContentUploading':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.supportsContentUploading = valueDes;
+          break;
+        case r'SupportsSync':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.supportsSync = valueDes;
           break;
         default:
           unhandled.add(key);

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for LibraryUpdateInfo
 void main() {
-  final instance = LibraryUpdateInfoBuilder();
+  //final instance = LibraryUpdateInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(LibraryUpdateInfo, () {

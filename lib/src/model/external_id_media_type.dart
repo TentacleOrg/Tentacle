@@ -58,6 +58,10 @@ class ExternalIdMediaType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Track')
   static const ExternalIdMediaType track = _$track;
 
+  /// The specific media type of an MediaBrowser.Model.Providers.ExternalIdInfo.
+  @BuiltValueEnumConst(wireName: r'Book')
+  static const ExternalIdMediaType book = _$book;
+
   static Serializer<ExternalIdMediaType> get serializer =>
       _$externalIdMediaTypeSerializer;
 

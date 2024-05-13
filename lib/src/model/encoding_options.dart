@@ -3,80 +3,113 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/down_mix_stereo_algorithms.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'encoding_options.g.dart';
 
-/// EncodingOptions
+/// Class EncodingOptions.
 ///
 /// Properties:
-/// * [encodingThreadCount]
-/// * [transcodingTempPath]
-/// * [fallbackFontPath]
-/// * [enableFallbackFont]
-/// * [downMixAudioBoost]
-/// * [maxMuxingQueueSize]
-/// * [enableThrottling]
-/// * [throttleDelaySeconds]
-/// * [hardwareAccelerationType]
+/// * [encodingThreadCount] - Gets or sets the thread count used for encoding.
+/// * [transcodingTempPath] - Gets or sets the temporary transcoding path.
+/// * [fallbackFontPath] - Gets or sets the path to the fallback font.
+/// * [enableFallbackFont] - Gets or sets a value indicating whether to use the fallback font.
+/// * [enableAudioVbr] - Gets or sets a value indicating whether audio VBR is enabled.
+/// * [downMixAudioBoost] - Gets or sets the audio boost applied when downmixing audio.
+/// * [downMixStereoAlgorithm] - Gets or sets the algorithm used for downmixing audio to stereo.
+/// * [maxMuxingQueueSize] - Gets or sets the maximum size of the muxing queue.
+/// * [enableThrottling] - Gets or sets a value indicating whether throttling is enabled.
+/// * [throttleDelaySeconds] - Gets or sets the delay after which throttling happens.
+/// * [enableSegmentDeletion] - Gets or sets a value indicating whether segment deletion is enabled.
+/// * [segmentKeepSeconds] - Gets or sets seconds for which segments should be kept before being deleted.
+/// * [hardwareAccelerationType] - Gets or sets the hardware acceleration type.
 /// * [encoderAppPath] - Gets or sets the FFmpeg path as set by the user via the UI.
 /// * [encoderAppPathDisplay] - Gets or sets the current FFmpeg path being used by the system and displayed on the transcode page.
-/// * [vaapiDevice]
-/// * [enableTonemapping]
-/// * [enableVppTonemapping]
-/// * [tonemappingAlgorithm]
-/// * [tonemappingMode]
-/// * [tonemappingRange]
-/// * [tonemappingDesat]
-/// * [tonemappingPeak]
-/// * [tonemappingParam]
-/// * [vppTonemappingBrightness]
-/// * [vppTonemappingContrast]
-/// * [h264Crf]
-/// * [h265Crf]
-/// * [encoderPreset]
-/// * [deinterlaceDoubleRate]
-/// * [deinterlaceMethod]
-/// * [enableDecodingColorDepth10Hevc]
-/// * [enableDecodingColorDepth10Vp9]
-/// * [enableEnhancedNvdecDecoder]
-/// * [preferSystemNativeHwDecoder]
-/// * [enableIntelLowPowerH264HwEncoder]
-/// * [enableIntelLowPowerHevcHwEncoder]
-/// * [enableHardwareEncoding]
-/// * [allowHevcEncoding]
-/// * [enableSubtitleExtraction]
-/// * [hardwareDecodingCodecs]
-/// * [allowOnDemandMetadataBasedKeyframeExtractionForExtensions]
+/// * [vaapiDevice] - Gets or sets the VA-API device.
+/// * [enableTonemapping] - Gets or sets a value indicating whether tonemapping is enabled.
+/// * [enableVppTonemapping] - Gets or sets a value indicating whether VPP tonemapping is enabled.
+/// * [enableVideoToolboxTonemapping] - Gets or sets a value indicating whether videotoolbox tonemapping is enabled.
+/// * [tonemappingAlgorithm] - Gets or sets the tone-mapping algorithm.
+/// * [tonemappingMode] - Gets or sets the tone-mapping mode.
+/// * [tonemappingRange] - Gets or sets the tone-mapping range.
+/// * [tonemappingDesat] - Gets or sets the tone-mapping desaturation.
+/// * [tonemappingPeak] - Gets or sets the tone-mapping peak.
+/// * [tonemappingParam] - Gets or sets the tone-mapping parameters.
+/// * [vppTonemappingBrightness] - Gets or sets the VPP tone-mapping brightness.
+/// * [vppTonemappingContrast] - Gets or sets the VPP tone-mapping contrast.
+/// * [h264Crf] - Gets or sets the H264 CRF.
+/// * [h265Crf] - Gets or sets the H265 CRF.
+/// * [encoderPreset] - Gets or sets the encoder preset.
+/// * [deinterlaceDoubleRate] - Gets or sets a value indicating whether the framerate is doubled when deinterlacing.
+/// * [deinterlaceMethod] - Gets or sets the deinterlace method.
+/// * [enableDecodingColorDepth10Hevc] - Gets or sets a value indicating whether 10bit HEVC decoding is enabled.
+/// * [enableDecodingColorDepth10Vp9] - Gets or sets a value indicating whether 10bit VP9 decoding is enabled.
+/// * [enableEnhancedNvdecDecoder] - Gets or sets a value indicating whether the enhanced NVDEC is enabled.
+/// * [preferSystemNativeHwDecoder] - Gets or sets a value indicating whether the system native hardware decoder should be used.
+/// * [enableIntelLowPowerH264HwEncoder] - Gets or sets a value indicating whether the Intel H264 low-power hardware encoder should be used.
+/// * [enableIntelLowPowerHevcHwEncoder] - Gets or sets a value indicating whether the Intel HEVC low-power hardware encoder should be used.
+/// * [enableHardwareEncoding] - Gets or sets a value indicating whether hardware encoding is enabled.
+/// * [allowHevcEncoding] - Gets or sets a value indicating whether HEVC encoding is enabled.
+/// * [allowAv1Encoding] - Gets or sets a value indicating whether AV1 encoding is enabled.
+/// * [enableSubtitleExtraction] - Gets or sets a value indicating whether subtitle extraction is enabled.
+/// * [hardwareDecodingCodecs] - Gets or sets the codecs hardware encoding is used for.
+/// * [allowOnDemandMetadataBasedKeyframeExtractionForExtensions] - Gets or sets the file extensions on-demand metadata based keyframe extraction is enabled for.
 @BuiltValue()
 abstract class EncodingOptions
     implements Built<EncodingOptions, EncodingOptionsBuilder> {
+  /// Gets or sets the thread count used for encoding.
   @BuiltValueField(wireName: r'EncodingThreadCount')
   int? get encodingThreadCount;
 
+  /// Gets or sets the temporary transcoding path.
   @BuiltValueField(wireName: r'TranscodingTempPath')
   String? get transcodingTempPath;
 
+  /// Gets or sets the path to the fallback font.
   @BuiltValueField(wireName: r'FallbackFontPath')
   String? get fallbackFontPath;
 
+  /// Gets or sets a value indicating whether to use the fallback font.
   @BuiltValueField(wireName: r'EnableFallbackFont')
   bool? get enableFallbackFont;
 
+  /// Gets or sets a value indicating whether audio VBR is enabled.
+  @BuiltValueField(wireName: r'EnableAudioVbr')
+  bool? get enableAudioVbr;
+
+  /// Gets or sets the audio boost applied when downmixing audio.
   @BuiltValueField(wireName: r'DownMixAudioBoost')
   double? get downMixAudioBoost;
 
+  /// Gets or sets the algorithm used for downmixing audio to stereo.
+  @BuiltValueField(wireName: r'DownMixStereoAlgorithm')
+  DownMixStereoAlgorithms? get downMixStereoAlgorithm;
+  // enum downMixStereoAlgorithmEnum {  None,  Dave750,  NightmodeDialogue,  };
+
+  /// Gets or sets the maximum size of the muxing queue.
   @BuiltValueField(wireName: r'MaxMuxingQueueSize')
   int? get maxMuxingQueueSize;
 
+  /// Gets or sets a value indicating whether throttling is enabled.
   @BuiltValueField(wireName: r'EnableThrottling')
   bool? get enableThrottling;
 
+  /// Gets or sets the delay after which throttling happens.
   @BuiltValueField(wireName: r'ThrottleDelaySeconds')
   int? get throttleDelaySeconds;
 
+  /// Gets or sets a value indicating whether segment deletion is enabled.
+  @BuiltValueField(wireName: r'EnableSegmentDeletion')
+  bool? get enableSegmentDeletion;
+
+  /// Gets or sets seconds for which segments should be kept before being deleted.
+  @BuiltValueField(wireName: r'SegmentKeepSeconds')
+  int? get segmentKeepSeconds;
+
+  /// Gets or sets the hardware acceleration type.
   @BuiltValueField(wireName: r'HardwareAccelerationType')
   String? get hardwareAccelerationType;
 
@@ -88,84 +121,119 @@ abstract class EncodingOptions
   @BuiltValueField(wireName: r'EncoderAppPathDisplay')
   String? get encoderAppPathDisplay;
 
+  /// Gets or sets the VA-API device.
   @BuiltValueField(wireName: r'VaapiDevice')
   String? get vaapiDevice;
 
+  /// Gets or sets a value indicating whether tonemapping is enabled.
   @BuiltValueField(wireName: r'EnableTonemapping')
   bool? get enableTonemapping;
 
+  /// Gets or sets a value indicating whether VPP tonemapping is enabled.
   @BuiltValueField(wireName: r'EnableVppTonemapping')
   bool? get enableVppTonemapping;
 
+  /// Gets or sets a value indicating whether videotoolbox tonemapping is enabled.
+  @BuiltValueField(wireName: r'EnableVideoToolboxTonemapping')
+  bool? get enableVideoToolboxTonemapping;
+
+  /// Gets or sets the tone-mapping algorithm.
   @BuiltValueField(wireName: r'TonemappingAlgorithm')
   String? get tonemappingAlgorithm;
 
+  /// Gets or sets the tone-mapping mode.
   @BuiltValueField(wireName: r'TonemappingMode')
   String? get tonemappingMode;
 
+  /// Gets or sets the tone-mapping range.
   @BuiltValueField(wireName: r'TonemappingRange')
   String? get tonemappingRange;
 
+  /// Gets or sets the tone-mapping desaturation.
   @BuiltValueField(wireName: r'TonemappingDesat')
   double? get tonemappingDesat;
 
+  /// Gets or sets the tone-mapping peak.
   @BuiltValueField(wireName: r'TonemappingPeak')
   double? get tonemappingPeak;
 
+  /// Gets or sets the tone-mapping parameters.
   @BuiltValueField(wireName: r'TonemappingParam')
   double? get tonemappingParam;
 
+  /// Gets or sets the VPP tone-mapping brightness.
   @BuiltValueField(wireName: r'VppTonemappingBrightness')
   double? get vppTonemappingBrightness;
 
+  /// Gets or sets the VPP tone-mapping contrast.
   @BuiltValueField(wireName: r'VppTonemappingContrast')
   double? get vppTonemappingContrast;
 
+  /// Gets or sets the H264 CRF.
   @BuiltValueField(wireName: r'H264Crf')
   int? get h264Crf;
 
+  /// Gets or sets the H265 CRF.
   @BuiltValueField(wireName: r'H265Crf')
   int? get h265Crf;
 
+  /// Gets or sets the encoder preset.
   @BuiltValueField(wireName: r'EncoderPreset')
   String? get encoderPreset;
 
+  /// Gets or sets a value indicating whether the framerate is doubled when deinterlacing.
   @BuiltValueField(wireName: r'DeinterlaceDoubleRate')
   bool? get deinterlaceDoubleRate;
 
+  /// Gets or sets the deinterlace method.
   @BuiltValueField(wireName: r'DeinterlaceMethod')
   String? get deinterlaceMethod;
 
+  /// Gets or sets a value indicating whether 10bit HEVC decoding is enabled.
   @BuiltValueField(wireName: r'EnableDecodingColorDepth10Hevc')
   bool? get enableDecodingColorDepth10Hevc;
 
+  /// Gets or sets a value indicating whether 10bit VP9 decoding is enabled.
   @BuiltValueField(wireName: r'EnableDecodingColorDepth10Vp9')
   bool? get enableDecodingColorDepth10Vp9;
 
+  /// Gets or sets a value indicating whether the enhanced NVDEC is enabled.
   @BuiltValueField(wireName: r'EnableEnhancedNvdecDecoder')
   bool? get enableEnhancedNvdecDecoder;
 
+  /// Gets or sets a value indicating whether the system native hardware decoder should be used.
   @BuiltValueField(wireName: r'PreferSystemNativeHwDecoder')
   bool? get preferSystemNativeHwDecoder;
 
+  /// Gets or sets a value indicating whether the Intel H264 low-power hardware encoder should be used.
   @BuiltValueField(wireName: r'EnableIntelLowPowerH264HwEncoder')
   bool? get enableIntelLowPowerH264HwEncoder;
 
+  /// Gets or sets a value indicating whether the Intel HEVC low-power hardware encoder should be used.
   @BuiltValueField(wireName: r'EnableIntelLowPowerHevcHwEncoder')
   bool? get enableIntelLowPowerHevcHwEncoder;
 
+  /// Gets or sets a value indicating whether hardware encoding is enabled.
   @BuiltValueField(wireName: r'EnableHardwareEncoding')
   bool? get enableHardwareEncoding;
 
+  /// Gets or sets a value indicating whether HEVC encoding is enabled.
   @BuiltValueField(wireName: r'AllowHevcEncoding')
   bool? get allowHevcEncoding;
 
+  /// Gets or sets a value indicating whether AV1 encoding is enabled.
+  @BuiltValueField(wireName: r'AllowAv1Encoding')
+  bool? get allowAv1Encoding;
+
+  /// Gets or sets a value indicating whether subtitle extraction is enabled.
   @BuiltValueField(wireName: r'EnableSubtitleExtraction')
   bool? get enableSubtitleExtraction;
 
+  /// Gets or sets the codecs hardware encoding is used for.
   @BuiltValueField(wireName: r'HardwareDecodingCodecs')
   BuiltList<String>? get hardwareDecodingCodecs;
 
+  /// Gets or sets the file extensions on-demand metadata based keyframe extraction is enabled for.
   @BuiltValueField(
       wireName: r'AllowOnDemandMetadataBasedKeyframeExtractionForExtensions')
   BuiltList<String>?
@@ -225,11 +293,25 @@ class _$EncodingOptionsSerializer
         specifiedType: const FullType(bool),
       );
     }
+    if (object.enableAudioVbr != null) {
+      yield r'EnableAudioVbr';
+      yield serializers.serialize(
+        object.enableAudioVbr,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.downMixAudioBoost != null) {
       yield r'DownMixAudioBoost';
       yield serializers.serialize(
         object.downMixAudioBoost,
         specifiedType: const FullType(double),
+      );
+    }
+    if (object.downMixStereoAlgorithm != null) {
+      yield r'DownMixStereoAlgorithm';
+      yield serializers.serialize(
+        object.downMixStereoAlgorithm,
+        specifiedType: const FullType(DownMixStereoAlgorithms),
       );
     }
     if (object.maxMuxingQueueSize != null) {
@@ -250,6 +332,20 @@ class _$EncodingOptionsSerializer
       yield r'ThrottleDelaySeconds';
       yield serializers.serialize(
         object.throttleDelaySeconds,
+        specifiedType: const FullType(int),
+      );
+    }
+    if (object.enableSegmentDeletion != null) {
+      yield r'EnableSegmentDeletion';
+      yield serializers.serialize(
+        object.enableSegmentDeletion,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.segmentKeepSeconds != null) {
+      yield r'SegmentKeepSeconds';
+      yield serializers.serialize(
+        object.segmentKeepSeconds,
         specifiedType: const FullType(int),
       );
     }
@@ -292,6 +388,13 @@ class _$EncodingOptionsSerializer
       yield r'EnableVppTonemapping';
       yield serializers.serialize(
         object.enableVppTonemapping,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableVideoToolboxTonemapping != null) {
+      yield r'EnableVideoToolboxTonemapping';
+      yield serializers.serialize(
+        object.enableVideoToolboxTonemapping,
         specifiedType: const FullType(bool),
       );
     }
@@ -442,6 +545,13 @@ class _$EncodingOptionsSerializer
         specifiedType: const FullType(bool),
       );
     }
+    if (object.allowAv1Encoding != null) {
+      yield r'AllowAv1Encoding';
+      yield serializers.serialize(
+        object.allowAv1Encoding,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.enableSubtitleExtraction != null) {
       yield r'EnableSubtitleExtraction';
       yield serializers.serialize(
@@ -519,12 +629,26 @@ class _$EncodingOptionsSerializer
           ) as bool;
           result.enableFallbackFont = valueDes;
           break;
+        case r'EnableAudioVbr':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableAudioVbr = valueDes;
+          break;
         case r'DownMixAudioBoost':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(double),
           ) as double;
           result.downMixAudioBoost = valueDes;
+          break;
+        case r'DownMixStereoAlgorithm':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(DownMixStereoAlgorithms),
+          ) as DownMixStereoAlgorithms;
+          result.downMixStereoAlgorithm = valueDes;
           break;
         case r'MaxMuxingQueueSize':
           final valueDes = serializers.deserialize(
@@ -546,6 +670,20 @@ class _$EncodingOptionsSerializer
             specifiedType: const FullType(int),
           ) as int;
           result.throttleDelaySeconds = valueDes;
+          break;
+        case r'EnableSegmentDeletion':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableSegmentDeletion = valueDes;
+          break;
+        case r'SegmentKeepSeconds':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.segmentKeepSeconds = valueDes;
           break;
         case r'HardwareAccelerationType':
           final valueDes = serializers.deserialize(
@@ -592,6 +730,13 @@ class _$EncodingOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.enableVppTonemapping = valueDes;
+          break;
+        case r'EnableVideoToolboxTonemapping':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableVideoToolboxTonemapping = valueDes;
           break;
         case r'TonemappingAlgorithm':
           final valueDes = serializers.deserialize(
@@ -744,6 +889,13 @@ class _$EncodingOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.allowHevcEncoding = valueDes;
+          break;
+        case r'AllowAv1Encoding':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.allowAv1Encoding = valueDes;
           break;
         case r'EnableSubtitleExtraction':
           final valueDes = serializers.deserialize(

@@ -30,7 +30,7 @@ abstract class DirectPlayProfile
 
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
-  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  };
+  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  Lyric,  };
 
   DirectPlayProfile._();
 

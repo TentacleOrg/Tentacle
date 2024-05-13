@@ -11,15 +11,12 @@ class _$AuthenticateUserByName extends AuthenticateUserByName {
   final String? username;
   @override
   final String? pw;
-  @override
-  final String? password;
 
   factory _$AuthenticateUserByName(
           [void Function(AuthenticateUserByNameBuilder)? updates]) =>
       (new AuthenticateUserByNameBuilder()..update(updates))._build();
 
-  _$AuthenticateUserByName._({this.username, this.pw, this.password})
-      : super._();
+  _$AuthenticateUserByName._({this.username, this.pw}) : super._();
 
   @override
   AuthenticateUserByName rebuild(
@@ -35,8 +32,7 @@ class _$AuthenticateUserByName extends AuthenticateUserByName {
     if (identical(other, this)) return true;
     return other is AuthenticateUserByName &&
         username == other.username &&
-        pw == other.pw &&
-        password == other.password;
+        pw == other.pw;
   }
 
   @override
@@ -44,7 +40,6 @@ class _$AuthenticateUserByName extends AuthenticateUserByName {
     var _$hash = 0;
     _$hash = $jc(_$hash, username.hashCode);
     _$hash = $jc(_$hash, pw.hashCode);
-    _$hash = $jc(_$hash, password.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -53,8 +48,7 @@ class _$AuthenticateUserByName extends AuthenticateUserByName {
   String toString() {
     return (newBuiltValueToStringHelper(r'AuthenticateUserByName')
           ..add('username', username)
-          ..add('pw', pw)
-          ..add('password', password))
+          ..add('pw', pw))
         .toString();
   }
 }
@@ -71,10 +65,6 @@ class AuthenticateUserByNameBuilder
   String? get pw => _$this._pw;
   set pw(String? pw) => _$this._pw = pw;
 
-  String? _password;
-  String? get password => _$this._password;
-  set password(String? password) => _$this._password = password;
-
   AuthenticateUserByNameBuilder() {
     AuthenticateUserByName._defaults(this);
   }
@@ -84,7 +74,6 @@ class AuthenticateUserByNameBuilder
     if ($v != null) {
       _username = $v.username;
       _pw = $v.pw;
-      _password = $v.password;
       _$v = null;
     }
     return this;
@@ -105,9 +94,8 @@ class AuthenticateUserByNameBuilder
   AuthenticateUserByName build() => _build();
 
   _$AuthenticateUserByName _build() {
-    final _$result = _$v ??
-        new _$AuthenticateUserByName._(
-            username: username, pw: pw, password: password);
+    final _$result =
+        _$v ?? new _$AuthenticateUserByName._(username: username, pw: pw);
     replace(_$result);
     return _$result;
   }

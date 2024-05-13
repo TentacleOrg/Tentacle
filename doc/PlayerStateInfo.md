@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **mediaSourceId** | **String** | Gets or sets the now playing media version identifier. | [optional] 
 **playMethod** | [**PlayMethod**](PlayMethod.md) | Gets or sets the play method. | [optional] 
 **repeatMode** | [**RepeatMode**](RepeatMode.md) | Gets or sets the repeat mode. | [optional] 
+**playbackOrder** | [**PlaybackOrder**](PlaybackOrder.md) | Gets or sets the playback order. | [optional] 
 **liveStreamId** | **String** | Gets or sets the now playing live stream identifier. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

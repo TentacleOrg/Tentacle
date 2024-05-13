@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for InstallationInfo
 void main() {
-  final instance = InstallationInfoBuilder();
+  //final instance = InstallationInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(InstallationInfo, () {

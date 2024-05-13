@@ -12,6 +12,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/end_point_info.dart';
 import 'package:tentacle/src/model/log_file.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/public_system_info.dart';
 import 'package:tentacle/src/model/system_info.dart';
 import 'package:tentacle/src/model/wake_on_lan_info.dart';

@@ -93,7 +93,7 @@ final api = Tentacle().getFilterApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. User id.
 final String parentId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Parent id.
 final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
-final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional. Filter by MediaType. Allows multiple, comma delimited.
+final BuiltList<MediaType> mediaTypes = ; // BuiltList<MediaType> | Optional. Filter by MediaType. Allows multiple, comma delimited.
 
 try {
     final response = api.getQueryFiltersLegacy(userId, parentId, includeItemTypes, mediaTypes);
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
  **userId** | **String**| Optional. User id. | [optional] 
  **parentId** | **String**| Optional. Parent id. | [optional] 
  **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
- **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Filter by MediaType. Allows multiple, comma delimited. | [optional] 
+ **mediaTypes** | [**BuiltList&lt;MediaType&gt;**](MediaType.md)| Optional. Filter by MediaType. Allows multiple, comma delimited. | [optional] 
 
 ### Return type
 

@@ -38,6 +38,7 @@ abstract class PublicSystemInfo
   String? get productName;
 
   /// Gets or sets the operating system.
+  @Deprecated('operatingSystem has been deprecated')
   @BuiltValueField(wireName: r'OperatingSystem')
   String? get operatingSystem;
 

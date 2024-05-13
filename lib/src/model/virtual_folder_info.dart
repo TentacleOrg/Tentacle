@@ -36,7 +36,7 @@ abstract class VirtualFolderInfo
   /// Gets or sets the type of the collection.
   @BuiltValueField(wireName: r'CollectionType')
   CollectionTypeOptions? get collectionType;
-  // enum collectionTypeEnum {  Movies,  TvShows,  Music,  MusicVideos,  HomeVideos,  BoxSets,  Books,  Mixed,  };
+  // enum collectionTypeEnum {  movies,  tvshows,  music,  musicvideos,  homevideos,  boxsets,  books,  mixed,  };
 
   @BuiltValueField(wireName: r'LibraryOptions')
   LibraryOptions? get libraryOptions;

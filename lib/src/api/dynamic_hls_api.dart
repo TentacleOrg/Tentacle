@@ -97,7 +97,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -455,7 +455,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -751,7 +751,7 @@ class DynamicHlsApi {
   /// * [deviceProfileId] - Optional. The dlna device profile id to utilize.
   /// * [playSessionId] - The play session id.
   /// * [segmentContainer] - The segment container.
-  /// * [segmentLength] - The segment lenght.
+  /// * [segmentLength] - The segment length.
   /// * [minSegments] - The minimum number of segments.
   /// * [mediaSourceId] - The media version id, if playing an alternate version.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
@@ -810,7 +810,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -1151,7 +1151,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -1469,6 +1469,7 @@ class DynamicHlsApi {
   /// * [context] - Optional. The MediaBrowser.Model.Dlna.EncodingContext.
   /// * [streamOptions] - Optional. The streaming options.
   /// * [enableAdaptiveBitrateStreaming] - Enable adaptive bitrate streaming.
+  /// * [enableTrickplay] - Enable trickplay image playlists being added to master playlist.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1484,7 +1485,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -1530,6 +1531,7 @@ class DynamicHlsApi {
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
     bool? enableAdaptiveBitrateStreaming = true,
+    bool? enableTrickplay = true,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1713,6 +1715,9 @@ class DynamicHlsApi {
       if (enableAdaptiveBitrateStreaming != null)
         r'enableAdaptiveBitrateStreaming': encodeQueryParameter(
             _serializers, enableAdaptiveBitrateStreaming, const FullType(bool)),
+      if (enableTrickplay != null)
+        r'enableTrickplay': encodeQueryParameter(
+            _serializers, enableTrickplay, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1818,7 +1823,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -2147,7 +2152,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -2481,7 +2486,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -2799,6 +2804,7 @@ class DynamicHlsApi {
   /// * [context] - Optional. The MediaBrowser.Model.Dlna.EncodingContext.
   /// * [streamOptions] - Optional. The streaming options.
   /// * [enableAdaptiveBitrateStreaming] - Enable adaptive bitrate streaming.
+  /// * [enableTrickplay] - Enable trickplay image playlists being added to master playlist.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2814,7 +2820,7 @@ class DynamicHlsApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -2860,6 +2866,7 @@ class DynamicHlsApi {
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
     bool? enableAdaptiveBitrateStreaming = true,
+    bool? enableTrickplay = true,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -3043,6 +3050,9 @@ class DynamicHlsApi {
       if (enableAdaptiveBitrateStreaming != null)
         r'enableAdaptiveBitrateStreaming': encodeQueryParameter(
             _serializers, enableAdaptiveBitrateStreaming, const FullType(bool)),
+      if (enableTrickplay != null)
+        r'enableTrickplay': encodeQueryParameter(
+            _serializers, enableTrickplay, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(

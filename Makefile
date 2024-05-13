@@ -65,6 +65,10 @@ fixErrors:
 	@sed $(SED_INPLACE) 's/= None/ = MetadataRefreshMode.none/' jellyfin/lib/src/api/item_refresh_api.dart
 	@echo "Fixing jellyseerr error in lib/src/model/request_get_request_seasons.dart"
 	@sed $(SED_INPLACE) 's/OneOf1Enum/OneOf1/' jellyseerr/lib/src/model/request_post_request_seasons.dart
+	@echo "Fixing Jellyfin errors on messageTypes being strings"
+	@find ./jellyfin/lib -type f -name '*.dart' -exec perl -pi -e "s/\.\.messageType = const \._\(\'([^'])([^']*)\'\)/\.\.messageType = SessionMessageType.\L\1\E\2/g" {} \;
+	@echo "Fixing Jellyfin errors on messageTypes being strings"
+	@find ./jellyfin/lib -type f -name '*.dart' -exec sed $(SED_INPLACE) -E "s/\._\('([^']*)'\)/\('\1',\)/g" {} \;
 
 .PHONY: test
 test:

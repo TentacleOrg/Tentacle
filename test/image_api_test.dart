@@ -29,56 +29,49 @@ void main() {
 
     // Delete the user's image.
     //
-    //Future deleteUserImage(String userId, ImageType imageType, { int index }) async
+    //Future deleteUserImage({ String userId }) async
     test('test deleteUserImage', () async {
-      // TODO
-    });
-
-    // Delete the user's image.
-    //
-    //Future deleteUserImageByIndex(String userId, ImageType imageType, int index) async
-    test('test deleteUserImageByIndex', () async {
       // TODO
     });
 
     // Get artist image by name.
     //
-    //Future<Uint8List> getArtistImage(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> getArtistImage(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test getArtistImage', () async {
       // TODO
     });
 
     // Get genre image by name.
     //
-    //Future<Uint8List> getGenreImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> getGenreImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test getGenreImage', () async {
       // TODO
     });
 
     // Get genre image by name.
     //
-    //Future<Uint8List> getGenreImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> getGenreImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test getGenreImageByIndex', () async {
       // TODO
     });
 
     // Gets the item's image.
     //
-    //Future<Uint8List> getItemImage(String itemId, ImageType imageType, { int maxWidth, int maxHeight, int width, int height, int quality, int fillWidth, int fillHeight, String tag, bool cropWhitespace, ImageFormat format, bool addPlayedIndicator, double percentPlayed, int unplayedCount, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> getItemImage(String itemId, ImageType imageType, { int maxWidth, int maxHeight, int width, int height, int quality, int fillWidth, int fillHeight, String tag, ImageFormat format, double percentPlayed, int unplayedCount, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test getItemImage', () async {
       // TODO
     });
 
     // Gets the item's image.
     //
-    //Future<Uint8List> getItemImage2(String itemId, ImageType imageType, int maxWidth, int maxHeight, String tag, ImageFormat format, double percentPlayed, int unplayedCount, int imageIndex, { int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> getItemImage2(String itemId, ImageType imageType, int maxWidth, int maxHeight, String tag, ImageFormat format, double percentPlayed, int unplayedCount, int imageIndex, { int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test getItemImage2', () async {
       // TODO
     });
 
     // Gets the item's image.
     //
-    //Future<Uint8List> getItemImageByIndex(String itemId, ImageType imageType, int imageIndex, { int maxWidth, int maxHeight, int width, int height, int quality, int fillWidth, int fillHeight, String tag, bool cropWhitespace, ImageFormat format, bool addPlayedIndicator, double percentPlayed, int unplayedCount, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> getItemImageByIndex(String itemId, ImageType imageType, int imageIndex, { int maxWidth, int maxHeight, int width, int height, int quality, int fillWidth, int fillHeight, String tag, ImageFormat format, double percentPlayed, int unplayedCount, int blur, String backgroundColor, String foregroundLayer }) async
     test('test getItemImageByIndex', () async {
       // TODO
     });
@@ -92,28 +85,28 @@ void main() {
 
     // Get music genre image by name.
     //
-    //Future<Uint8List> getMusicGenreImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> getMusicGenreImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test getMusicGenreImage', () async {
       // TODO
     });
 
     // Get music genre image by name.
     //
-    //Future<Uint8List> getMusicGenreImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> getMusicGenreImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test getMusicGenreImageByIndex', () async {
       // TODO
     });
 
     // Get person image by name.
     //
-    //Future<Uint8List> getPersonImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> getPersonImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test getPersonImage', () async {
       // TODO
     });
 
     // Get person image by name.
     //
-    //Future<Uint8List> getPersonImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> getPersonImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test getPersonImageByIndex', () async {
       // TODO
     });
@@ -127,141 +120,120 @@ void main() {
 
     // Get studio image by name.
     //
-    //Future<Uint8List> getStudioImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> getStudioImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test getStudioImage', () async {
       // TODO
     });
 
     // Get studio image by name.
     //
-    //Future<Uint8List> getStudioImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> getStudioImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test getStudioImageByIndex', () async {
       // TODO
     });
 
     // Get user profile image.
     //
-    //Future<Uint8List> getUserImage(String userId, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> getUserImage({ String userId, String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test getUserImage', () async {
-      // TODO
-    });
-
-    // Get user profile image.
-    //
-    //Future<Uint8List> getUserImageByIndex(String userId, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
-    test('test getUserImageByIndex', () async {
       // TODO
     });
 
     // Get artist image by name.
     //
-    //Future<Uint8List> headArtistImage(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> headArtistImage(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test headArtistImage', () async {
       // TODO
     });
 
     // Get genre image by name.
     //
-    //Future<Uint8List> headGenreImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> headGenreImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test headGenreImage', () async {
       // TODO
     });
 
     // Get genre image by name.
     //
-    //Future<Uint8List> headGenreImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> headGenreImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test headGenreImageByIndex', () async {
       // TODO
     });
 
     // Gets the item's image.
     //
-    //Future<Uint8List> headItemImage(String itemId, ImageType imageType, { int maxWidth, int maxHeight, int width, int height, int quality, int fillWidth, int fillHeight, String tag, bool cropWhitespace, ImageFormat format, bool addPlayedIndicator, double percentPlayed, int unplayedCount, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> headItemImage(String itemId, ImageType imageType, { int maxWidth, int maxHeight, int width, int height, int quality, int fillWidth, int fillHeight, String tag, ImageFormat format, double percentPlayed, int unplayedCount, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test headItemImage', () async {
       // TODO
     });
 
     // Gets the item's image.
     //
-    //Future<Uint8List> headItemImage2(String itemId, ImageType imageType, int maxWidth, int maxHeight, String tag, ImageFormat format, double percentPlayed, int unplayedCount, int imageIndex, { int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> headItemImage2(String itemId, ImageType imageType, int maxWidth, int maxHeight, String tag, ImageFormat format, double percentPlayed, int unplayedCount, int imageIndex, { int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test headItemImage2', () async {
       // TODO
     });
 
     // Gets the item's image.
     //
-    //Future<Uint8List> headItemImageByIndex(String itemId, ImageType imageType, int imageIndex, { int maxWidth, int maxHeight, int width, int height, int quality, int fillWidth, int fillHeight, String tag, bool cropWhitespace, ImageFormat format, bool addPlayedIndicator, double percentPlayed, int unplayedCount, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> headItemImageByIndex(String itemId, ImageType imageType, int imageIndex, { int maxWidth, int maxHeight, int width, int height, int quality, int fillWidth, int fillHeight, String tag, ImageFormat format, double percentPlayed, int unplayedCount, int blur, String backgroundColor, String foregroundLayer }) async
     test('test headItemImageByIndex', () async {
       // TODO
     });
 
     // Get music genre image by name.
     //
-    //Future<Uint8List> headMusicGenreImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> headMusicGenreImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test headMusicGenreImage', () async {
       // TODO
     });
 
     // Get music genre image by name.
     //
-    //Future<Uint8List> headMusicGenreImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> headMusicGenreImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test headMusicGenreImageByIndex', () async {
       // TODO
     });
 
     // Get person image by name.
     //
-    //Future<Uint8List> headPersonImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> headPersonImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test headPersonImage', () async {
       // TODO
     });
 
     // Get person image by name.
     //
-    //Future<Uint8List> headPersonImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> headPersonImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test headPersonImageByIndex', () async {
       // TODO
     });
 
     // Get studio image by name.
     //
-    //Future<Uint8List> headStudioImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> headStudioImage(String name, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test headStudioImage', () async {
       // TODO
     });
 
     // Get studio image by name.
     //
-    //Future<Uint8List> headStudioImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
+    //Future<Uint8List> headStudioImageByIndex(String name, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer }) async
     test('test headStudioImageByIndex', () async {
       // TODO
     });
 
     // Get user profile image.
     //
-    //Future<Uint8List> headUserImage(String userId, ImageType imageType, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> headUserImage({ String userId, String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
     test('test headUserImage', () async {
       // TODO
     });
 
-    // Get user profile image.
-    //
-    //Future<Uint8List> headUserImageByIndex(String userId, ImageType imageType, int imageIndex, { String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, bool cropWhitespace, bool addPlayedIndicator, int blur, String backgroundColor, String foregroundLayer }) async
-    test('test headUserImageByIndex', () async {
-      // TODO
-    });
-
     // Sets the user image.
     //
-    //Future postUserImage(String userId, ImageType imageType, { int index, MultipartFile body }) async
+    //Future postUserImage({ String userId, MultipartFile body }) async
     test('test postUserImage', () async {
-      // TODO
-    });
-
-    // Sets the user image.
-    //
-    //Future postUserImageByIndex(String userId, ImageType imageType, int index, { MultipartFile body }) async
-    test('test postUserImageByIndex', () async {
       // TODO
     });
 

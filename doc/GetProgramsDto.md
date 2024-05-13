@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **isSports** | **bool** | Gets or sets filter for sports.  Optional. | [optional] 
 **startIndex** | **int** | Gets or sets the record index to start at. All items with a lower index will be dropped from the results.  Optional. | [optional] 
 **limit** | **int** | Gets or sets the maximum number of records to return.  Optional. | [optional] 
-**sortBy** | **BuiltList&lt;String&gt;** | Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.  Optional. | [optional] 
+**sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md) | Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.  Optional. | [optional] 
 **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md) | Gets or sets sort Order - Ascending,Descending. | [optional] 
 **genres** | **BuiltList&lt;String&gt;** | Gets or sets the genres to return guide information for. | [optional] 
 **genreIds** | **BuiltList&lt;String&gt;** | Gets or sets the genre ids to return guide information for. | [optional] 

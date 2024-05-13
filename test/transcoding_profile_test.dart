@@ -27,7 +27,8 @@ void main() {
       // TODO
     });
 
-    // String protocol
+    // Media streaming protocol.  Lowercase for backwards compatibility.
+    // MediaStreamProtocol protocol
     test('to test the property `protocol`', () async {
       // TODO
     });
@@ -42,7 +43,7 @@ void main() {
       // TODO
     });
 
-    // TranscodeSeekInfo transcodeSeekInfo (default value: TranscodeSeekInfo.auto)
+    // TranscodeSeekInfo transcodeSeekInfo (default value: 'Auto')
     test('to test the property `transcodeSeekInfo`', () async {
       // TODO
     });
@@ -52,7 +53,7 @@ void main() {
       // TODO
     });
 
-    // EncodingContext context (default value: EncodingContext.streaming)
+    // EncodingContext context (default value: 'Streaming')
     test('to test the property `context`', () async {
       // TODO
     });

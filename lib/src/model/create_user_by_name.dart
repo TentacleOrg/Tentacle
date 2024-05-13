@@ -18,7 +18,7 @@ abstract class CreateUserByName
     implements Built<CreateUserByName, CreateUserByNameBuilder> {
   /// Gets or sets the username.
   @BuiltValueField(wireName: r'Name')
-  String? get name;
+  String get name;
 
   /// Gets or sets the password.
   @BuiltValueField(wireName: r'Password')
@@ -50,13 +50,11 @@ class _$CreateUserByNameSerializer
     CreateUserByName object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.name != null) {
-      yield r'Name';
-      yield serializers.serialize(
-        object.name,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
+    yield r'Name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
     if (object.password != null) {
       yield r'Password';
       yield serializers.serialize(
@@ -92,9 +90,8 @@ class _$CreateUserByNameSerializer
         case r'Name':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.name = valueDes;
           break;
         case r'Password':

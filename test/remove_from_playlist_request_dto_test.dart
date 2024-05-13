@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(RemoveFromPlaylistRequestDto, () {
-    // Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist.
+    // Gets or sets the playlist identifiers of the items. Ignored when clearing the playlist.
     // BuiltList<String> playlistItemIds
     test('to test the property `playlistItemIds`', () async {
       // TODO

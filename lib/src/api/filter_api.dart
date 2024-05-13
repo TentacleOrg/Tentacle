@@ -10,6 +10,7 @@ import 'package:dio/dio.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/query_filters.dart';
 import 'package:tentacle/src/model/query_filters_legacy.dart';
 
@@ -180,7 +181,7 @@ class FilterApi {
     String? userId,
     String? parentId,
     BuiltList<BaseItemKind>? includeItemTypes,
-    BuiltList<String>? mediaTypes,
+    BuiltList<MediaType>? mediaTypes,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -223,10 +224,10 @@ class FilterApi {
           format: ListFormat.multi,
         ),
       if (mediaTypes != null)
-        r'mediaTypes': encodeCollectionQueryParameter<String>(
+        r'mediaTypes': encodeCollectionQueryParameter<MediaType>(
           _serializers,
           mediaTypes,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(MediaType)]),
           format: ListFormat.multi,
         ),
     };

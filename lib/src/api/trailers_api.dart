@@ -14,7 +14,9 @@ import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
 import 'package:tentacle/src/model/item_filter.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
 import 'package:tentacle/src/model/location_type.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/series_status.dart';
 import 'package:tentacle/src/model/sort_order.dart';
 import 'package:tentacle/src/model/video_type.dart';
@@ -30,7 +32,7 @@ class TrailersApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - The user id.
+  /// * [userId] - The user id supplied as query parameter; this is required when not using an API key.
   /// * [maxOfficialRating] - Optional filter by maximum official rating (PG, PG-13, TV-MA, etc).
   /// * [hasThemeSong] - Optional filter by items with theme songs.
   /// * [hasThemeVideo] - Optional filter by items with theme videos.
@@ -53,9 +55,9 @@ class TrailersApi {
   /// * [minDateLastSavedForUser] - Optional. The minimum last saved date for the current user. Format = ISO.
   /// * [maxPremiereDate] - Optional. The maximum premiere date. Format = ISO.
   /// * [hasOverview] - Optional filter by items that have an overview or not.
-  /// * [hasImdbId] - Optional filter by items that have an imdb id or not.
-  /// * [hasTmdbId] - Optional filter by items that have a tmdb id or not.
-  /// * [hasTvdbId] - Optional filter by items that have a tvdb id or not.
+  /// * [hasImdbId] - Optional filter by items that have an IMDb id or not.
+  /// * [hasTmdbId] - Optional filter by items that have a TMDb id or not.
+  /// * [hasTvdbId] - Optional filter by items that have a TVDb id or not.
   /// * [isMovie] - Optional filter for live tv movies.
   /// * [isSeries] - Optional filter for live tv series.
   /// * [isNews] - Optional filter for live tv news.
@@ -66,7 +68,7 @@ class TrailersApi {
   /// * [limit] - Optional. The maximum number of records to return.
   /// * [recursive] - When searching within folders, this determines whether or not the search will be recursive. true/false.
   /// * [searchTerm] - Optional. Filter based on a search term.
-  /// * [sortOrder] - Sort Order - Ascending,Descending.
+  /// * [sortOrder] - Sort Order - Ascending, Descending.
   /// * [parentId] - Specify this to localize the search to a specific item or folder. Omit to use the root.
   /// * [fields] - Optional. Specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines.
   /// * [excludeItemTypes] - Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
@@ -166,9 +168,9 @@ class TrailersApi {
     BuiltList<BaseItemKind>? excludeItemTypes,
     BuiltList<ItemFilter>? filters,
     bool? isFavorite,
-    BuiltList<String>? mediaTypes,
+    BuiltList<MediaType>? mediaTypes,
     BuiltList<ImageType>? imageTypes,
-    BuiltList<String>? sortBy,
+    BuiltList<ItemSortBy>? sortBy,
     bool? isPlayed,
     BuiltList<String>? genres,
     BuiltList<String>? officialRatings,
@@ -389,10 +391,10 @@ class TrailersApi {
         r'isFavorite': encodeQueryParameter(
             _serializers, isFavorite, const FullType(bool)),
       if (mediaTypes != null)
-        r'mediaTypes': encodeCollectionQueryParameter<String>(
+        r'mediaTypes': encodeCollectionQueryParameter<MediaType>(
           _serializers,
           mediaTypes,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(MediaType)]),
           format: ListFormat.multi,
         ),
       if (imageTypes != null)
@@ -403,10 +405,10 @@ class TrailersApi {
           format: ListFormat.multi,
         ),
       if (sortBy != null)
-        r'sortBy': encodeCollectionQueryParameter<String>(
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
           _serializers,
           sortBy,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
           format: ListFormat.multi,
         ),
       if (isPlayed != null)

@@ -18,9 +18,13 @@ part 'user_dto_policy.g.dart';
 /// Properties:
 /// * [isAdministrator] - Gets or sets a value indicating whether this instance is administrator.
 /// * [isHidden] - Gets or sets a value indicating whether this instance is hidden.
+/// * [enableCollectionManagement] - Gets or sets a value indicating whether this instance can manage collections.
+/// * [enableSubtitleManagement] - Gets or sets a value indicating whether this instance can manage subtitles.
+/// * [enableLyricManagement] - Gets or sets a value indicating whether this user can manage lyrics.
 /// * [isDisabled] - Gets or sets a value indicating whether this instance is disabled.
 /// * [maxParentalRating] - Gets or sets the max parental rating.
 /// * [blockedTags]
+/// * [allowedTags]
 /// * [enableUserPreferenceAccess]
 /// * [accessSchedules]
 /// * [blockUnratedItems]
@@ -64,7 +68,10 @@ abstract class UserDtoPolicy
       _$UserDtoPolicy;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserDtoPolicyBuilder b) => b;
+  static void _defaults(UserDtoPolicyBuilder b) => b
+    ..enableLyricManagement = false
+    ..enableCollectionManagement = false
+    ..enableSubtitleManagement = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserDtoPolicy> get serializer =>
@@ -104,13 +111,11 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
         specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
       );
     }
-    if (object.passwordResetProviderId != null) {
-      yield r'PasswordResetProviderId';
-      yield serializers.serialize(
-        object.passwordResetProviderId,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
+    yield r'PasswordResetProviderId';
+    yield serializers.serialize(
+      object.passwordResetProviderId,
+      specifiedType: const FullType(String),
+    );
     if (object.loginAttemptsBeforeLockout != null) {
       yield r'LoginAttemptsBeforeLockout';
       yield serializers.serialize(
@@ -123,6 +128,13 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
       yield serializers.serialize(
         object.invalidLoginAttemptCount,
         specifiedType: const FullType(int),
+      );
+    }
+    if (object.allowedTags != null) {
+      yield r'AllowedTags';
+      yield serializers.serialize(
+        object.allowedTags,
+        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
       );
     }
     if (object.forceRemoteSourceTranscoding != null) {
@@ -153,6 +165,13 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
         specifiedType: const FullType(bool),
       );
     }
+    if (object.enableLyricManagement != null) {
+      yield r'EnableLyricManagement';
+      yield serializers.serialize(
+        object.enableLyricManagement,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.enableLiveTvManagement != null) {
       yield r'EnableLiveTvManagement';
       yield serializers.serialize(
@@ -164,6 +183,13 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
       yield r'EnableMediaConversion';
       yield serializers.serialize(
         object.enableMediaConversion,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableCollectionManagement != null) {
+      yield r'EnableCollectionManagement';
+      yield serializers.serialize(
+        object.enableCollectionManagement,
         specifiedType: const FullType(bool),
       );
     }
@@ -286,13 +312,11 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
         specifiedType: const FullType(bool),
       );
     }
-    if (object.authenticationProviderId != null) {
-      yield r'AuthenticationProviderId';
-      yield serializers.serialize(
-        object.authenticationProviderId,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
+    yield r'AuthenticationProviderId';
+    yield serializers.serialize(
+      object.authenticationProviderId,
+      specifiedType: const FullType(String),
+    );
     if (object.enableAllFolders != null) {
       yield r'EnableAllFolders';
       yield serializers.serialize(
@@ -347,6 +371,13 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
       yield r'EnableSyncTranscoding';
       yield serializers.serialize(
         object.enableSyncTranscoding,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableSubtitleManagement != null) {
+      yield r'EnableSubtitleManagement';
+      yield serializers.serialize(
+        object.enableSubtitleManagement,
         specifiedType: const FullType(bool),
       );
     }
@@ -411,9 +442,8 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
         case r'PasswordResetProviderId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.passwordResetProviderId = valueDes;
           break;
         case r'LoginAttemptsBeforeLockout':
@@ -429,6 +459,15 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
             specifiedType: const FullType(int),
           ) as int;
           result.invalidLoginAttemptCount = valueDes;
+          break;
+        case r'AllowedTags':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>?;
+          if (valueDes == null) continue;
+          result.allowedTags.replace(valueDes);
           break;
         case r'ForceRemoteSourceTranscoding':
           final valueDes = serializers.deserialize(
@@ -460,6 +499,13 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
           ) as bool;
           result.enablePublicSharing = valueDes;
           break;
+        case r'EnableLyricManagement':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableLyricManagement = valueDes;
+          break;
         case r'EnableLiveTvManagement':
           final valueDes = serializers.deserialize(
             value,
@@ -473,6 +519,13 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.enableMediaConversion = valueDes;
+          break;
+        case r'EnableCollectionManagement':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableCollectionManagement = valueDes;
           break;
         case r'IsDisabled':
           final valueDes = serializers.deserialize(
@@ -603,9 +656,8 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
         case r'AuthenticationProviderId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.authenticationProviderId = valueDes;
           break;
         case r'EnableAllFolders':
@@ -667,6 +719,13 @@ class _$UserDtoPolicySerializer implements PrimitiveSerializer<UserDtoPolicy> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.enableSyncTranscoding = valueDes;
+          break;
+        case r'EnableSubtitleManagement':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableSubtitleManagement = valueDes;
           break;
         case r'BlockUnratedItems':
           final valueDes = serializers.deserialize(

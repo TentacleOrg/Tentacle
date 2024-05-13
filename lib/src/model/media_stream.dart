@@ -3,8 +3,11 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/video_range_type.dart';
 import 'package:tentacle/src/model/media_stream_type.dart';
+import 'package:tentacle/src/model/video_range.dart';
 import 'package:tentacle/src/model/subtitle_delivery_method.dart';
+import 'package:tentacle/src/model/audio_spatial_format.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -35,10 +38,12 @@ part 'media_stream.g.dart';
 /// * [videoRange] - Gets the video range.
 /// * [videoRangeType] - Gets the video range type.
 /// * [videoDoViTitle] - Gets the video dovi title.
+/// * [audioSpatialFormat] - Gets the audio spatial format.
 /// * [localizedUndefined]
 /// * [localizedDefault]
 /// * [localizedForced]
 /// * [localizedExternal]
+/// * [localizedHearingImpaired]
 /// * [displayTitle]
 /// * [nalLengthSize]
 /// * [isInterlaced] - Gets or sets a value indicating whether this instance is interlaced.
@@ -52,6 +57,7 @@ part 'media_stream.g.dart';
 /// * [sampleRate] - Gets or sets the sample rate.
 /// * [isDefault] - Gets or sets a value indicating whether this instance is default.
 /// * [isForced] - Gets or sets a value indicating whether this instance is forced.
+/// * [isHearingImpaired] - Gets or sets a value indicating whether this instance is for the hearing impaired.
 /// * [height] - Gets or sets the height.
 /// * [width] - Gets or sets the width.
 /// * [averageFrameRate] - Gets or sets the average frame rate.
@@ -151,15 +157,22 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
 
   /// Gets the video range.
   @BuiltValueField(wireName: r'VideoRange')
-  String? get videoRange;
+  VideoRange? get videoRange;
+  // enum videoRangeEnum {  Unknown,  SDR,  HDR,  };
 
   /// Gets the video range type.
   @BuiltValueField(wireName: r'VideoRangeType')
-  String? get videoRangeType;
+  VideoRangeType? get videoRangeType;
+  // enum videoRangeTypeEnum {  Unknown,  SDR,  HDR10,  HLG,  DOVI,  DOVIWithHDR10,  DOVIWithHLG,  DOVIWithSDR,  HDR10Plus,  };
 
   /// Gets the video dovi title.
   @BuiltValueField(wireName: r'VideoDoViTitle')
   String? get videoDoViTitle;
+
+  /// Gets the audio spatial format.
+  @BuiltValueField(wireName: r'AudioSpatialFormat')
+  AudioSpatialFormat? get audioSpatialFormat;
+  // enum audioSpatialFormatEnum {  None,  DolbyAtmos,  DTSX,  };
 
   @BuiltValueField(wireName: r'LocalizedUndefined')
   String? get localizedUndefined;
@@ -172,6 +185,9 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
 
   @BuiltValueField(wireName: r'LocalizedExternal')
   String? get localizedExternal;
+
+  @BuiltValueField(wireName: r'LocalizedHearingImpaired')
+  String? get localizedHearingImpaired;
 
   @BuiltValueField(wireName: r'DisplayTitle')
   String? get displayTitle;
@@ -222,6 +238,10 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   @BuiltValueField(wireName: r'IsForced')
   bool? get isForced;
 
+  /// Gets or sets a value indicating whether this instance is for the hearing impaired.
+  @BuiltValueField(wireName: r'IsHearingImpaired')
+  bool? get isHearingImpaired;
+
   /// Gets or sets the height.
   @BuiltValueField(wireName: r'Height')
   int? get height;
@@ -245,7 +265,7 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   MediaStreamType? get type;
-  // enum typeEnum {  Audio,  Video,  Subtitle,  EmbeddedImage,  Data,  };
+  // enum typeEnum {  Audio,  Video,  Subtitle,  EmbeddedImage,  Data,  Lyric,  };
 
   /// Gets or sets the aspect ratio.
   @BuiltValueField(wireName: r'AspectRatio')
@@ -304,7 +324,8 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   factory MediaStream([void updates(MediaStreamBuilder b)]) = _$MediaStream;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MediaStreamBuilder b) => b;
+  static void _defaults(MediaStreamBuilder b) =>
+      b..audioSpatialFormat = AudioSpatialFormat.none;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MediaStream> get serializer => _$MediaStreamSerializer();
@@ -459,14 +480,14 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
       yield r'VideoRange';
       yield serializers.serialize(
         object.videoRange,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(VideoRange),
       );
     }
     if (object.videoRangeType != null) {
       yield r'VideoRangeType';
       yield serializers.serialize(
         object.videoRangeType,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(VideoRangeType),
       );
     }
     if (object.videoDoViTitle != null) {
@@ -474,6 +495,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
       yield serializers.serialize(
         object.videoDoViTitle,
         specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.audioSpatialFormat != null) {
+      yield r'AudioSpatialFormat';
+      yield serializers.serialize(
+        object.audioSpatialFormat,
+        specifiedType: const FullType(AudioSpatialFormat),
       );
     }
     if (object.localizedUndefined != null) {
@@ -501,6 +529,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
       yield r'LocalizedExternal';
       yield serializers.serialize(
         object.localizedExternal,
+        specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.localizedHearingImpaired != null) {
+      yield r'LocalizedHearingImpaired';
+      yield serializers.serialize(
+        object.localizedHearingImpaired,
         specifiedType: const FullType.nullable(String),
       );
     }
@@ -592,6 +627,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
       yield r'IsForced';
       yield serializers.serialize(
         object.isForced,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.isHearingImpaired != null) {
+      yield r'IsHearingImpaired';
+      yield serializers.serialize(
+        object.isHearingImpaired,
         specifiedType: const FullType(bool),
       );
     }
@@ -908,17 +950,15 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
         case r'VideoRange':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(VideoRange),
+          ) as VideoRange;
           result.videoRange = valueDes;
           break;
         case r'VideoRangeType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(VideoRangeType),
+          ) as VideoRangeType;
           result.videoRangeType = valueDes;
           break;
         case r'VideoDoViTitle':
@@ -928,6 +968,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
           ) as String?;
           if (valueDes == null) continue;
           result.videoDoViTitle = valueDes;
+          break;
+        case r'AudioSpatialFormat':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(AudioSpatialFormat),
+          ) as AudioSpatialFormat;
+          result.audioSpatialFormat = valueDes;
           break;
         case r'LocalizedUndefined':
           final valueDes = serializers.deserialize(
@@ -960,6 +1007,14 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
           ) as String?;
           if (valueDes == null) continue;
           result.localizedExternal = valueDes;
+          break;
+        case r'LocalizedHearingImpaired':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.localizedHearingImpaired = valueDes;
           break;
         case r'DisplayTitle':
           final valueDes = serializers.deserialize(
@@ -1061,6 +1116,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.isForced = valueDes;
+          break;
+        case r'IsHearingImpaired':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isHearingImpaired = valueDes;
           break;
         case r'Height':
           final valueDes = serializers.deserialize(

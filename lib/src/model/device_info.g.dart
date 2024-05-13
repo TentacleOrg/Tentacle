@@ -10,6 +10,8 @@ class _$DeviceInfo extends DeviceInfo {
   @override
   final String? name;
   @override
+  final String? customName;
+  @override
   final String? accessToken;
   @override
   final String? id;
@@ -33,6 +35,7 @@ class _$DeviceInfo extends DeviceInfo {
 
   _$DeviceInfo._(
       {this.name,
+      this.customName,
       this.accessToken,
       this.id,
       this.lastUserName,
@@ -56,6 +59,7 @@ class _$DeviceInfo extends DeviceInfo {
     if (identical(other, this)) return true;
     return other is DeviceInfo &&
         name == other.name &&
+        customName == other.customName &&
         accessToken == other.accessToken &&
         id == other.id &&
         lastUserName == other.lastUserName &&
@@ -71,6 +75,7 @@ class _$DeviceInfo extends DeviceInfo {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, customName.hashCode);
     _$hash = $jc(_$hash, accessToken.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, lastUserName.hashCode);
@@ -88,6 +93,7 @@ class _$DeviceInfo extends DeviceInfo {
   String toString() {
     return (newBuiltValueToStringHelper(r'DeviceInfo')
           ..add('name', name)
+          ..add('customName', customName)
           ..add('accessToken', accessToken)
           ..add('id', id)
           ..add('lastUserName', lastUserName)
@@ -107,6 +113,10 @@ class DeviceInfoBuilder implements Builder<DeviceInfo, DeviceInfoBuilder> {
   String? _name;
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
+
+  String? _customName;
+  String? get customName => _$this._customName;
+  set customName(String? customName) => _$this._customName = customName;
 
   String? _accessToken;
   String? get accessToken => _$this._accessToken;
@@ -155,6 +165,7 @@ class DeviceInfoBuilder implements Builder<DeviceInfo, DeviceInfoBuilder> {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
+      _customName = $v.customName;
       _accessToken = $v.accessToken;
       _id = $v.id;
       _lastUserName = $v.lastUserName;
@@ -189,6 +200,7 @@ class DeviceInfoBuilder implements Builder<DeviceInfo, DeviceInfoBuilder> {
       _$result = _$v ??
           new _$DeviceInfo._(
               name: name,
+              customName: customName,
               accessToken: accessToken,
               id: id,
               lastUserName: lastUserName,

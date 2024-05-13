@@ -29,7 +29,7 @@ void main() {
     });
 
     // Gets the playable media types.
-    // BuiltList<String> playableMediaTypes
+    // BuiltList<MediaType> playableMediaTypes
     test('to test the property `playableMediaTypes`', () async {
       // TODO
     });
@@ -70,6 +70,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the last paused date.
+    // DateTime lastPausedDate
+    test('to test the property `lastPausedDate`', () async {
+      // TODO
+    });
+
     // Gets or sets the name of the device.
     // String deviceName
     test('to test the property `deviceName`', () async {
@@ -87,12 +93,7 @@ void main() {
       // TODO
     });
 
-    // SessionInfoFullNowPlayingItem fullNowPlayingItem
-    test('to test the property `fullNowPlayingItem`', () async {
-      // TODO
-    });
-
-    // SessionInfoNowViewingItem nowViewingItem
+    // SessionInfoNowPlayingItem nowViewingItem
     test('to test the property `nowViewingItem`', () async {
       // TODO
     });

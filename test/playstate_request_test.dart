@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlaystateRequest
 void main() {
-  final instance = PlaystateRequestBuilder();
+  //final instance = PlaystateRequestBuilder();
   // TODO add properties to the builder and call build()
 
   group(PlaystateRequest, () {

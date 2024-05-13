@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/play_method.dart';
+import 'package:tentacle/src/model/playback_order.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/queue_item.dart';
 import 'package:tentacle/src/model/repeat_mode.dart';
@@ -34,6 +35,7 @@ part 'playback_progress_info.g.dart';
 /// * [liveStreamId] - Gets or sets the live stream identifier.
 /// * [playSessionId] - Gets or sets the play session identifier.
 /// * [repeatMode] - Gets or sets the repeat mode.
+/// * [playbackOrder] - Gets or sets the playback order.
 /// * [nowPlayingQueue]
 /// * [playlistItemId]
 @BuiltValue()
@@ -108,6 +110,11 @@ abstract class PlaybackProgressInfo
   @BuiltValueField(wireName: r'RepeatMode')
   RepeatMode? get repeatMode;
   // enum repeatModeEnum {  RepeatNone,  RepeatAll,  RepeatOne,  };
+
+  /// Gets or sets the playback order.
+  @BuiltValueField(wireName: r'PlaybackOrder')
+  PlaybackOrder? get playbackOrder;
+  // enum playbackOrderEnum {  Default,  Shuffle,  };
 
   @BuiltValueField(wireName: r'NowPlayingQueue')
   BuiltList<QueueItem>? get nowPlayingQueue;
@@ -268,6 +275,13 @@ class _$PlaybackProgressInfoSerializer
       yield serializers.serialize(
         object.repeatMode,
         specifiedType: const FullType(RepeatMode),
+      );
+    }
+    if (object.playbackOrder != null) {
+      yield r'PlaybackOrder';
+      yield serializers.serialize(
+        object.playbackOrder,
+        specifiedType: const FullType(PlaybackOrder),
       );
     }
     if (object.nowPlayingQueue != null) {
@@ -447,6 +461,13 @@ class _$PlaybackProgressInfoSerializer
             specifiedType: const FullType(RepeatMode),
           ) as RepeatMode;
           result.repeatMode = valueDes;
+          break;
+        case r'PlaybackOrder':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(PlaybackOrder),
+          ) as PlaybackOrder;
+          result.playbackOrder = valueDes;
           break;
         case r'NowPlayingQueue':
           final valueDes = serializers.deserialize(

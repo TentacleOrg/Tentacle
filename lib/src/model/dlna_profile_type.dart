@@ -18,6 +18,8 @@ class DlnaProfileType extends EnumClass {
   static const DlnaProfileType photo = _$photo;
   @BuiltValueEnumConst(wireName: r'Subtitle')
   static const DlnaProfileType subtitle = _$subtitle;
+  @BuiltValueEnumConst(wireName: r'Lyric')
+  static const DlnaProfileType lyric = _$lyric;
 
   static Serializer<DlnaProfileType> get serializer =>
       _$dlnaProfileTypeSerializer;

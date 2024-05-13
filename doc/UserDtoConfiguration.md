@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **rememberAudioSelections** | **bool** |  | [optional] 
 **rememberSubtitleSelections** | **bool** |  | [optional] 
 **enableNextEpisodeAutoPlay** | **bool** |  | [optional] 
+**castReceiverId** | **String** | Gets or sets the id of the selected cast receiver. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

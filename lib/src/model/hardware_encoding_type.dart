@@ -34,6 +34,10 @@ class HardwareEncodingType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'VideoToolBox')
   static const HardwareEncodingType videoToolBox = _$videoToolBox;
 
+  /// Enum HardwareEncodingType.
+  @BuiltValueEnumConst(wireName: r'RKMPP')
+  static const HardwareEncodingType RKMPP = _$RKMPP;
+
   static Serializer<HardwareEncodingType> get serializer =>
       _$hardwareEncodingTypeSerializer;
 

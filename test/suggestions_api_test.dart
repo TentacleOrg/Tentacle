@@ -8,7 +8,7 @@ void main() {
   group(SuggestionsApi, () {
     // Gets suggestions.
     //
-    //Future<BaseItemDtoQueryResult> getSuggestions(String userId, { BuiltList<String> mediaType, BuiltList<BaseItemKind> type, int startIndex, int limit, bool enableTotalRecordCount }) async
+    //Future<BaseItemDtoQueryResult> getSuggestions({ String userId, BuiltList<MediaType> mediaType, BuiltList<BaseItemKind> type, int startIndex, int limit, bool enableTotalRecordCount }) async
     test('test getSuggestions', () async {
       // TODO
     });

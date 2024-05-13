@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **countries** | [**BuiltList&lt;CountryInfo&gt;**](CountryInfo.md) |  | [optional] 
 **cultures** | [**BuiltList&lt;CultureDto&gt;**](CultureDto.md) |  | [optional] 
 **externalIdInfos** | [**BuiltList&lt;ExternalIdInfo&gt;**](ExternalIdInfo.md) |  | [optional] 
-**contentType** | **String** |  | [optional] 
+**contentType** | [**CollectionType**](CollectionType.md) |  | [optional] 
 **contentTypeOptions** | [**BuiltList&lt;NameValuePair&gt;**](NameValuePair.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

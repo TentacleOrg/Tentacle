@@ -61,7 +61,7 @@ class _$ParentalRatingSerializer
       yield r'Value';
       yield serializers.serialize(
         object.value,
-        specifiedType: const FullType(int),
+        specifiedType: const FullType.nullable(int),
       );
     }
   }
@@ -100,8 +100,9 @@ class _$ParentalRatingSerializer
         case r'Value':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(int),
-          ) as int;
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
           result.value = valueDes;
           break;
         default:

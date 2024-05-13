@@ -39,7 +39,7 @@ final int maxStreamingBitrate = 56; // int | Optional. The maximum streaming bit
 final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
 final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
 final String transcodingContainer = transcodingContainer_example; // String | Optional. The container to transcode to.
-final String transcodingProtocol = transcodingProtocol_example; // String | Optional. The transcoding protocol.
+final MediaStreamProtocol transcodingProtocol = transcodingProtocol_example; // MediaStreamProtocol | Optional. The transcoding protocol.
 final int maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
 final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
 final bool enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
  **audioBitRate** | **int**| Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. | [optional] 
  **startTimeTicks** | **int**| Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. | [optional] 
  **transcodingContainer** | **String**| Optional. The container to transcode to. | [optional] 
- **transcodingProtocol** | **String**| Optional. The transcoding protocol. | [optional] 
+ **transcodingProtocol** | **MediaStreamProtocol**| Optional. The transcoding protocol. | [optional] 
  **maxAudioSampleRate** | **int**| Optional. The maximum audio sample rate. | [optional] 
  **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
  **enableRemoteMedia** | **bool**| Optional. Whether to enable remote media. | [optional] 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: audio/*
+ - **Accept**: audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -118,7 +118,7 @@ final int maxStreamingBitrate = 56; // int | Optional. The maximum streaming bit
 final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
 final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
 final String transcodingContainer = transcodingContainer_example; // String | Optional. The container to transcode to.
-final String transcodingProtocol = transcodingProtocol_example; // String | Optional. The transcoding protocol.
+final MediaStreamProtocol transcodingProtocol = transcodingProtocol_example; // MediaStreamProtocol | Optional. The transcoding protocol.
 final int maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
 final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
 final bool enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
  **audioBitRate** | **int**| Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. | [optional] 
  **startTimeTicks** | **int**| Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. | [optional] 
  **transcodingContainer** | **String**| Optional. The container to transcode to. | [optional] 
- **transcodingProtocol** | **String**| Optional. The transcoding protocol. | [optional] 
+ **transcodingProtocol** | **MediaStreamProtocol**| Optional. The transcoding protocol. | [optional] 
  **maxAudioSampleRate** | **int**| Optional. The maximum audio sample rate. | [optional] 
  **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
  **enableRemoteMedia** | **bool**| Optional. Whether to enable remote media. | [optional] 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: audio/*
+ - **Accept**: audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

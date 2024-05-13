@@ -111,6 +111,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the playback order.
+    // PlaybackOrder playbackOrder
+    test('to test the property `playbackOrder`', () async {
+      // TODO
+    });
+
     // BuiltList<QueueItem> nowPlayingQueue
     test('to test the property `nowPlayingQueue`', () async {
       // TODO

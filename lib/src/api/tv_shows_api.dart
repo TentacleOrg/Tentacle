@@ -12,6 +12,7 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 
 class TvShowsApi {
@@ -64,7 +65,7 @@ class TvShowsApi {
     int? imageTypeLimit,
     BuiltList<ImageType>? enableImageTypes,
     bool? enableUserData,
-    String? sortBy,
+    ItemSortBy? sortBy,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -144,8 +145,8 @@ class TvShowsApi {
         r'enableUserData': encodeQueryParameter(
             _serializers, enableUserData, const FullType(bool)),
       if (sortBy != null)
-        r'sortBy':
-            encodeQueryParameter(_serializers, sortBy, const FullType(String)),
+        r'sortBy': encodeQueryParameter(
+            _serializers, sortBy, const FullType(ItemSortBy)),
     };
 
     final _response = await _dio.request<Object>(
@@ -206,7 +207,8 @@ class TvShowsApi {
   /// * [nextUpDateCutoff] - Optional. Starting date of shows to show in Next Up section.
   /// * [enableTotalRecordCount] - Whether to enable the total records count. Defaults to true.
   /// * [disableFirstEpisode] - Whether to disable sending the first episode in a series as next up.
-  /// * [enableRewatching] - Whether to include watched episode in next up results.
+  /// * [enableResumable] - Whether to include resumable episodes in next up results.
+  /// * [enableRewatching] - Whether to include watched episodes in next up results.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -230,6 +232,7 @@ class TvShowsApi {
     DateTime? nextUpDateCutoff,
     bool? enableTotalRecordCount = true,
     bool? disableFirstEpisode = false,
+    bool? enableResumable = true,
     bool? enableRewatching = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -306,6 +309,9 @@ class TvShowsApi {
       if (disableFirstEpisode != null)
         r'disableFirstEpisode': encodeQueryParameter(
             _serializers, disableFirstEpisode, const FullType(bool)),
+      if (enableResumable != null)
+        r'enableResumable': encodeQueryParameter(
+            _serializers, enableResumable, const FullType(bool)),
       if (enableRewatching != null)
         r'enableRewatching': encodeQueryParameter(
             _serializers, enableRewatching, const FullType(bool)),

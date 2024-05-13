@@ -14,6 +14,7 @@ part 'upload_subtitle_dto.g.dart';
 /// * [language] - Gets or sets the subtitle language.
 /// * [format] - Gets or sets the subtitle format.
 /// * [isForced] - Gets or sets a value indicating whether the subtitle is forced.
+/// * [isHearingImpaired] - Gets or sets a value indicating whether the subtitle is for hearing impaired.
 /// * [data] - Gets or sets the subtitle data.
 @BuiltValue()
 abstract class UploadSubtitleDto
@@ -29,6 +30,10 @@ abstract class UploadSubtitleDto
   /// Gets or sets a value indicating whether the subtitle is forced.
   @BuiltValueField(wireName: r'IsForced')
   bool get isForced;
+
+  /// Gets or sets a value indicating whether the subtitle is for hearing impaired.
+  @BuiltValueField(wireName: r'IsHearingImpaired')
+  bool get isHearingImpaired;
 
   /// Gets or sets the subtitle data.
   @BuiltValueField(wireName: r'Data')
@@ -73,6 +78,11 @@ class _$UploadSubtitleDtoSerializer
     yield r'IsForced';
     yield serializers.serialize(
       object.isForced,
+      specifiedType: const FullType(bool),
+    );
+    yield r'IsHearingImpaired';
+    yield serializers.serialize(
+      object.isHearingImpaired,
       specifiedType: const FullType(bool),
     );
     yield r'Data';
@@ -125,6 +135,13 @@ class _$UploadSubtitleDtoSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.isForced = valueDes;
+          break;
+        case r'IsHearingImpaired':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isHearingImpaired = valueDes;
           break;
         case r'Data':
           final valueDes = serializers.deserialize(

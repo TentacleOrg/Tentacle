@@ -13,6 +13,7 @@ import 'package:tentacle/src/model/live_stream_response.dart';
 import 'package:tentacle/src/model/open_live_stream_dto.dart';
 import 'package:tentacle/src/model/playback_info_dto.dart';
 import 'package:tentacle/src/model/playback_info_response.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 
 class MediaInfoApi {
   final Dio _dio;
@@ -183,7 +184,7 @@ class MediaInfoApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<PlaybackInfoResponse>> getPlaybackInfo({
     required String itemId,
-    required String userId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -215,8 +216,9 @@ class MediaInfoApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'userId':
-          encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
     };
 
     final _response = await _dio.request<Object>(

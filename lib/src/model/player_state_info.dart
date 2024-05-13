@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/play_method.dart';
+import 'package:tentacle/src/model/playback_order.dart';
 import 'package:tentacle/src/model/repeat_mode.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -23,6 +24,7 @@ part 'player_state_info.g.dart';
 /// * [mediaSourceId] - Gets or sets the now playing media version identifier.
 /// * [playMethod] - Gets or sets the play method.
 /// * [repeatMode] - Gets or sets the repeat mode.
+/// * [playbackOrder] - Gets or sets the playback order.
 /// * [liveStreamId] - Gets or sets the now playing live stream identifier.
 @BuiltValue()
 abstract class PlayerStateInfo
@@ -68,6 +70,11 @@ abstract class PlayerStateInfo
   @BuiltValueField(wireName: r'RepeatMode')
   RepeatMode? get repeatMode;
   // enum repeatModeEnum {  RepeatNone,  RepeatAll,  RepeatOne,  };
+
+  /// Gets or sets the playback order.
+  @BuiltValueField(wireName: r'PlaybackOrder')
+  PlaybackOrder? get playbackOrder;
+  // enum playbackOrderEnum {  Default,  Shuffle,  };
 
   /// Gets or sets the now playing live stream identifier.
   @BuiltValueField(wireName: r'LiveStreamId')
@@ -167,6 +174,13 @@ class _$PlayerStateInfoSerializer
       yield serializers.serialize(
         object.repeatMode,
         specifiedType: const FullType(RepeatMode),
+      );
+    }
+    if (object.playbackOrder != null) {
+      yield r'PlaybackOrder';
+      yield serializers.serialize(
+        object.playbackOrder,
+        specifiedType: const FullType(PlaybackOrder),
       );
     }
     if (object.liveStreamId != null) {
@@ -276,6 +290,13 @@ class _$PlayerStateInfoSerializer
             specifiedType: const FullType(RepeatMode),
           ) as RepeatMode;
           result.repeatMode = valueDes;
+          break;
+        case r'PlaybackOrder':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(PlaybackOrder),
+          ) as PlaybackOrder;
+          result.playbackOrder = valueDes;
           break;
         case r'LiveStreamId':
           final valueDes = serializers.deserialize(

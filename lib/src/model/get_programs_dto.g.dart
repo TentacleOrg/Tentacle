@@ -38,7 +38,7 @@ class _$GetProgramsDto extends GetProgramsDto {
   @override
   final int? limit;
   @override
-  final BuiltList<String>? sortBy;
+  final BuiltList<ItemSortBy>? sortBy;
   @override
   final BuiltList<SortOrder>? sortOrder;
   @override
@@ -272,10 +272,10 @@ class GetProgramsDtoBuilder
   int? get limit => _$this._limit;
   set limit(int? limit) => _$this._limit = limit;
 
-  ListBuilder<String>? _sortBy;
-  ListBuilder<String> get sortBy =>
-      _$this._sortBy ??= new ListBuilder<String>();
-  set sortBy(ListBuilder<String>? sortBy) => _$this._sortBy = sortBy;
+  ListBuilder<ItemSortBy>? _sortBy;
+  ListBuilder<ItemSortBy> get sortBy =>
+      _$this._sortBy ??= new ListBuilder<ItemSortBy>();
+  set sortBy(ListBuilder<ItemSortBy>? sortBy) => _$this._sortBy = sortBy;
 
   ListBuilder<SortOrder>? _sortOrder;
   ListBuilder<SortOrder> get sortOrder =>

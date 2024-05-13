@@ -318,7 +318,7 @@ class SubtitleApi {
   ///
   ///
   /// Parameters:
-  /// * [id] - The item id.
+  /// * [subtitleId] - The item id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -329,7 +329,7 @@ class SubtitleApi {
   /// Returns a [Future] containing a [Response] with a [Uint8List] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<Uint8List>> getRemoteSubtitles({
-    required String id,
+    required String subtitleId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -337,9 +337,9 @@ class SubtitleApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Providers/Subtitles/Subtitles/{id}'.replaceAll(
-        '{' r'id' '}',
-        encodeQueryParameter(_serializers, id, const FullType(String))
+    final _path = r'/Providers/Subtitles/Subtitles/{subtitleId}'.replaceAll(
+        '{' r'subtitleId' '}',
+        encodeQueryParameter(_serializers, subtitleId, const FullType(String))
             .toString());
     final _options = Options(
       method: r'GET',

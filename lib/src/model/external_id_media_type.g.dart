@@ -21,6 +21,7 @@ const ExternalIdMediaType _$releaseGroup =
 const ExternalIdMediaType _$season = const ExternalIdMediaType._('season');
 const ExternalIdMediaType _$series = const ExternalIdMediaType._('series');
 const ExternalIdMediaType _$track = const ExternalIdMediaType._('track');
+const ExternalIdMediaType _$book = const ExternalIdMediaType._('book');
 
 ExternalIdMediaType _$valueOf(String name) {
   switch (name) {
@@ -48,6 +49,8 @@ ExternalIdMediaType _$valueOf(String name) {
       return _$series;
     case 'track':
       return _$track;
+    case 'book':
+      return _$book;
     default:
       throw new ArgumentError(name);
   }
@@ -67,6 +70,7 @@ final BuiltSet<ExternalIdMediaType> _$values =
   _$season,
   _$series,
   _$track,
+  _$book,
 ]);
 
 class _$ExternalIdMediaTypeMeta {
@@ -83,6 +87,7 @@ class _$ExternalIdMediaTypeMeta {
   ExternalIdMediaType get season => _$season;
   ExternalIdMediaType get series => _$series;
   ExternalIdMediaType get track => _$track;
+  ExternalIdMediaType get book => _$book;
   ExternalIdMediaType valueOf(String name) => _$valueOf(name);
   BuiltSet<ExternalIdMediaType> get values => _$values;
 }
@@ -111,6 +116,7 @@ class _$ExternalIdMediaTypeSerializer
     'season': 'Season',
     'series': 'Series',
     'track': 'Track',
+    'book': 'Book',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Album': 'album',
@@ -125,6 +131,7 @@ class _$ExternalIdMediaTypeSerializer
     'Season': 'season',
     'Series': 'series',
     'Track': 'track',
+    'Book': 'book',
   };
 
   @override

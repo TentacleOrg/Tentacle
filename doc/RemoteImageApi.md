@@ -29,7 +29,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getRemoteImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
-final ImageType type = ; // ImageType | The image type.
+final ImageType type = type_example; // ImageType | The image type.
 final String imageUrl = imageUrl_example; // String | The image url.
 
 try {
@@ -44,7 +44,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item Id. | 
- **type** | [**ImageType**](.md)| The image type. | 
+ **type** | **ImageType**| The image type. | 
  **imageUrl** | **String**| The image url. | [optional] 
 
 ### Return type
@@ -122,7 +122,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getRemoteImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item Id.
-final ImageType type = ; // ImageType | The image type.
+final ImageType type = type_example; // ImageType | The image type.
 final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
 final int limit = 56; // int | Optional. The maximum number of records to return.
 final String providerName = providerName_example; // String | Optional. The image provider to use.
@@ -141,7 +141,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item Id. | 
- **type** | [**ImageType**](.md)| The image type. | [optional] 
+ **type** | **ImageType**| The image type. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
  **providerName** | **String**| Optional. The image provider to use. | [optional] 

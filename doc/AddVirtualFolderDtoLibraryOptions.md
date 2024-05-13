@@ -8,15 +8,20 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**enabled** | **bool** |  | [optional] 
 **enablePhotos** | **bool** |  | [optional] 
 **enableRealtimeMonitor** | **bool** |  | [optional] 
+**enableLUFSScan** | **bool** |  | [optional] 
 **enableChapterImageExtraction** | **bool** |  | [optional] 
 **extractChapterImagesDuringLibraryScan** | **bool** |  | [optional] 
+**enableTrickplayImageExtraction** | **bool** |  | [optional] 
+**extractTrickplayImagesDuringLibraryScan** | **bool** |  | [optional] 
 **pathInfos** | [**BuiltList&lt;MediaPathInfo&gt;**](MediaPathInfo.md) |  | [optional] 
 **saveLocalMetadata** | **bool** |  | [optional] 
 **enableInternetProviders** | **bool** |  | [optional] 
 **enableAutomaticSeriesGrouping** | **bool** |  | [optional] 
 **enableEmbeddedTitles** | **bool** |  | [optional] 
+**enableEmbeddedExtrasTitles** | **bool** |  | [optional] 
 **enableEmbeddedEpisodeInfos** | **bool** |  | [optional] 
 **automaticRefreshIntervalDays** | **int** |  | [optional] 
 **preferredMetadataLanguage** | **String** | Gets or sets the preferred metadata language. | [optional] 
@@ -32,6 +37,7 @@ Name | Type | Description | Notes
 **subtitleDownloadLanguages** | **BuiltList&lt;String&gt;** |  | [optional] 
 **requirePerfectSubtitleMatch** | **bool** |  | [optional] 
 **saveSubtitlesWithMedia** | **bool** |  | [optional] 
+**saveLyricsWithMedia** | **bool** |  | [optional] [default to false]
 **automaticallyAddToCollection** | **bool** |  | [optional] 
 **allowEmbeddedSubtitles** | [**EmbeddedSubtitleOptions**](EmbeddedSubtitleOptions.md) | An enum representing the options to disable embedded subs. | [optional] 
 **typeOptions** | [**BuiltList&lt;TypeOptions&gt;**](TypeOptions.md) |  | [optional] 

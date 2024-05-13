@@ -26,7 +26,7 @@ void main() {
     });
 
     // Gets or sets the type.
-    // String type
+    // PersonKind type
     test('to test the property `type`', () async {
       // TODO
     });

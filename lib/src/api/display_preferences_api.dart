@@ -22,8 +22,8 @@ class DisplayPreferencesApi {
   ///
   /// Parameters:
   /// * [displayPreferencesId] - Display preferences id.
-  /// * [userId] - User id.
   /// * [client] - Client.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -35,8 +35,8 @@ class DisplayPreferencesApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<DisplayPreferencesDto>> getDisplayPreferences({
     required String displayPreferencesId,
-    required String userId,
     required String client,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -69,8 +69,9 @@ class DisplayPreferencesApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'userId':
-          encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       r'client':
           encodeQueryParameter(_serializers, client, const FullType(String)),
     };
@@ -121,9 +122,9 @@ class DisplayPreferencesApi {
   ///
   /// Parameters:
   /// * [displayPreferencesId] - Display preferences id.
-  /// * [userId] - User Id.
   /// * [client] - Client.
   /// * [displayPreferencesDto] - New Display Preferences object.
+  /// * [userId] - User Id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -135,9 +136,9 @@ class DisplayPreferencesApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> updateDisplayPreferences({
     required String displayPreferencesId,
-    required String userId,
     required String client,
     required DisplayPreferencesDto displayPreferencesDto,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -171,8 +172,9 @@ class DisplayPreferencesApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'userId':
-          encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       r'client':
           encodeQueryParameter(_serializers, client, const FullType(String)),
     };

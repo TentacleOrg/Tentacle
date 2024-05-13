@@ -9,14 +9,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**authorize**](QuickConnectApi.md#authorize) | **POST** /QuickConnect/Authorize | Authorizes a pending quick connect request.
-[**connect**](QuickConnectApi.md#connect) | **GET** /QuickConnect/Connect | Attempts to retrieve authentication information.
-[**getEnabled**](QuickConnectApi.md#getenabled) | **GET** /QuickConnect/Enabled | Gets the current quick connect state.
-[**initiate**](QuickConnectApi.md#initiate) | **GET** /QuickConnect/Initiate | Initiate a new quick connect request.
+[**authorizeQuickConnect**](QuickConnectApi.md#authorizequickconnect) | **POST** /QuickConnect/Authorize | Authorizes a pending quick connect request.
+[**getQuickConnectEnabled**](QuickConnectApi.md#getquickconnectenabled) | **GET** /QuickConnect/Enabled | Gets the current quick connect state.
+[**getQuickConnectState**](QuickConnectApi.md#getquickconnectstate) | **GET** /QuickConnect/Connect | Attempts to retrieve authentication information.
+[**initiateQuickConnect**](QuickConnectApi.md#initiatequickconnect) | **POST** /QuickConnect/Initiate | Initiate a new quick connect request.
 
 
-# **authorize**
-> bool authorize(code)
+# **authorizeQuickConnect**
+> bool authorizeQuickConnect(code, userId)
 
 Authorizes a pending quick connect request.
 
@@ -30,12 +30,13 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getQuickConnectApi();
 final String code = code_example; // String | Quick connect code to authorize.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user the authorize. Access to the requested user is required.
 
 try {
-    final response = api.authorize(code);
+    final response = api.authorizeQuickConnect(code, userId);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling QuickConnectApi->authorize: $e\n');
+    print('Exception when calling QuickConnectApi->authorizeQuickConnect: $e\n');
 }
 ```
 
@@ -44,6 +45,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **String**| Quick connect code to authorize. | 
+ **userId** | **String**| The user the authorize. Access to the requested user is required. | [optional] 
 
 ### Return type
 
@@ -60,8 +62,45 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **connect**
-> QuickConnectResult connect(secret)
+# **getQuickConnectEnabled**
+> bool getQuickConnectEnabled()
+
+Gets the current quick connect state.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+
+final api = Tentacle().getQuickConnectApi();
+
+try {
+    final response = api.getQuickConnectEnabled();
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling QuickConnectApi->getQuickConnectEnabled: $e\n');
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**bool**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getQuickConnectState**
+> QuickConnectResult getQuickConnectState(secret)
 
 Attempts to retrieve authentication information.
 
@@ -73,10 +112,10 @@ final api = Tentacle().getQuickConnectApi();
 final String secret = secret_example; // String | Secret previously returned from the Initiate endpoint.
 
 try {
-    final response = api.connect(secret);
+    final response = api.getQuickConnectState(secret);
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling QuickConnectApi->connect: $e\n');
+    print('Exception when calling QuickConnectApi->getQuickConnectState: $e\n');
 }
 ```
 
@@ -101,45 +140,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getEnabled**
-> bool getEnabled()
-
-Gets the current quick connect state.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-
-final api = Tentacle().getQuickConnectApi();
-
-try {
-    final response = api.getEnabled();
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling QuickConnectApi->getEnabled: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-**bool**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **initiate**
-> QuickConnectResult initiate()
+# **initiateQuickConnect**
+> QuickConnectResult initiateQuickConnect()
 
 Initiate a new quick connect request.
 
@@ -150,10 +152,10 @@ import 'package:tentacle/api.dart';
 final api = Tentacle().getQuickConnectApi();
 
 try {
-    final response = api.initiate();
+    final response = api.initiateQuickConnect();
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling QuickConnectApi->initiate: $e\n');
+    print('Exception when calling QuickConnectApi->initiateQuickConnect: $e\n');
 }
 ```
 

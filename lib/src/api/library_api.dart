@@ -13,6 +13,7 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/all_theme_media_result.dart';
 import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:tentacle/src/model/base_item_dto_query_result.dart';
+import 'package:tentacle/src/model/collection_type.dart';
 import 'package:tentacle/src/model/item_counts.dart';
 import 'package:tentacle/src/model/item_fields.dart';
 import 'package:tentacle/src/model/library_options_result_dto.dart';
@@ -606,7 +607,7 @@ class LibraryApi {
   /// Returns a [Future] containing a [Response] with a [LibraryOptionsResultDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<LibraryOptionsResultDto>> getLibraryOptionsInfo({
-    String? libraryContentType,
+    CollectionType? libraryContentType,
     bool? isNewLibrary = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -638,7 +639,7 @@ class LibraryApi {
     final _queryParameters = <String, dynamic>{
       if (libraryContentType != null)
         r'libraryContentType': encodeQueryParameter(
-            _serializers, libraryContentType, const FullType(String)),
+            _serializers, libraryContentType, const FullType(CollectionType)),
       if (isNewLibrary != null)
         r'isNewLibrary': encodeQueryParameter(
             _serializers, isNewLibrary, const FullType(bool)),

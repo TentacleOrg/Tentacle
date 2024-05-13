@@ -367,7 +367,7 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getLibraryApi();
-final String libraryContentType = libraryContentType_example; // String | Library content type.
+final CollectionType libraryContentType = libraryContentType_example; // CollectionType | Library content type.
 final bool isNewLibrary = true; // bool | Whether this is a new library.
 
 try {
@@ -382,7 +382,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **libraryContentType** | **String**| Library content type. | [optional] 
+ **libraryContentType** | **CollectionType**| Library content type. | [optional] 
  **isNewLibrary** | **bool**| Whether this is a new library. | [optional] [default to false]
 
 ### Return type

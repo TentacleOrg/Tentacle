@@ -9,13 +9,21 @@ part of 'add_virtual_folder_dto_library_options.dart';
 class _$AddVirtualFolderDtoLibraryOptions
     extends AddVirtualFolderDtoLibraryOptions {
   @override
+  final bool? enabled;
+  @override
   final bool? enablePhotos;
   @override
   final bool? enableRealtimeMonitor;
   @override
+  final bool? enableLUFSScan;
+  @override
   final bool? enableChapterImageExtraction;
   @override
   final bool? extractChapterImagesDuringLibraryScan;
+  @override
+  final bool? enableTrickplayImageExtraction;
+  @override
+  final bool? extractTrickplayImagesDuringLibraryScan;
   @override
   final BuiltList<MediaPathInfo>? pathInfos;
   @override
@@ -26,6 +34,8 @@ class _$AddVirtualFolderDtoLibraryOptions
   final bool? enableAutomaticSeriesGrouping;
   @override
   final bool? enableEmbeddedTitles;
+  @override
+  final bool? enableEmbeddedExtrasTitles;
   @override
   final bool? enableEmbeddedEpisodeInfos;
   @override
@@ -57,6 +67,8 @@ class _$AddVirtualFolderDtoLibraryOptions
   @override
   final bool? saveSubtitlesWithMedia;
   @override
+  final bool? saveLyricsWithMedia;
+  @override
   final bool? automaticallyAddToCollection;
   @override
   final EmbeddedSubtitleOptions? allowEmbeddedSubtitles;
@@ -69,15 +81,20 @@ class _$AddVirtualFolderDtoLibraryOptions
           ._build();
 
   _$AddVirtualFolderDtoLibraryOptions._(
-      {this.enablePhotos,
+      {this.enabled,
+      this.enablePhotos,
       this.enableRealtimeMonitor,
+      this.enableLUFSScan,
       this.enableChapterImageExtraction,
       this.extractChapterImagesDuringLibraryScan,
+      this.enableTrickplayImageExtraction,
+      this.extractTrickplayImagesDuringLibraryScan,
       this.pathInfos,
       this.saveLocalMetadata,
       this.enableInternetProviders,
       this.enableAutomaticSeriesGrouping,
       this.enableEmbeddedTitles,
+      this.enableEmbeddedExtrasTitles,
       this.enableEmbeddedEpisodeInfos,
       this.automaticRefreshIntervalDays,
       this.preferredMetadataLanguage,
@@ -93,6 +110,7 @@ class _$AddVirtualFolderDtoLibraryOptions
       this.subtitleDownloadLanguages,
       this.requirePerfectSubtitleMatch,
       this.saveSubtitlesWithMedia,
+      this.saveLyricsWithMedia,
       this.automaticallyAddToCollection,
       this.allowEmbeddedSubtitles,
       this.typeOptions})
@@ -111,16 +129,23 @@ class _$AddVirtualFolderDtoLibraryOptions
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is AddVirtualFolderDtoLibraryOptions &&
+        enabled == other.enabled &&
         enablePhotos == other.enablePhotos &&
         enableRealtimeMonitor == other.enableRealtimeMonitor &&
+        enableLUFSScan == other.enableLUFSScan &&
         enableChapterImageExtraction == other.enableChapterImageExtraction &&
         extractChapterImagesDuringLibraryScan ==
             other.extractChapterImagesDuringLibraryScan &&
+        enableTrickplayImageExtraction ==
+            other.enableTrickplayImageExtraction &&
+        extractTrickplayImagesDuringLibraryScan ==
+            other.extractTrickplayImagesDuringLibraryScan &&
         pathInfos == other.pathInfos &&
         saveLocalMetadata == other.saveLocalMetadata &&
         enableInternetProviders == other.enableInternetProviders &&
         enableAutomaticSeriesGrouping == other.enableAutomaticSeriesGrouping &&
         enableEmbeddedTitles == other.enableEmbeddedTitles &&
+        enableEmbeddedExtrasTitles == other.enableEmbeddedExtrasTitles &&
         enableEmbeddedEpisodeInfos == other.enableEmbeddedEpisodeInfos &&
         automaticRefreshIntervalDays == other.automaticRefreshIntervalDays &&
         preferredMetadataLanguage == other.preferredMetadataLanguage &&
@@ -138,6 +163,7 @@ class _$AddVirtualFolderDtoLibraryOptions
         subtitleDownloadLanguages == other.subtitleDownloadLanguages &&
         requirePerfectSubtitleMatch == other.requirePerfectSubtitleMatch &&
         saveSubtitlesWithMedia == other.saveSubtitlesWithMedia &&
+        saveLyricsWithMedia == other.saveLyricsWithMedia &&
         automaticallyAddToCollection == other.automaticallyAddToCollection &&
         allowEmbeddedSubtitles == other.allowEmbeddedSubtitles &&
         typeOptions == other.typeOptions;
@@ -146,15 +172,20 @@ class _$AddVirtualFolderDtoLibraryOptions
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
     _$hash = $jc(_$hash, enablePhotos.hashCode);
     _$hash = $jc(_$hash, enableRealtimeMonitor.hashCode);
+    _$hash = $jc(_$hash, enableLUFSScan.hashCode);
     _$hash = $jc(_$hash, enableChapterImageExtraction.hashCode);
     _$hash = $jc(_$hash, extractChapterImagesDuringLibraryScan.hashCode);
+    _$hash = $jc(_$hash, enableTrickplayImageExtraction.hashCode);
+    _$hash = $jc(_$hash, extractTrickplayImagesDuringLibraryScan.hashCode);
     _$hash = $jc(_$hash, pathInfos.hashCode);
     _$hash = $jc(_$hash, saveLocalMetadata.hashCode);
     _$hash = $jc(_$hash, enableInternetProviders.hashCode);
     _$hash = $jc(_$hash, enableAutomaticSeriesGrouping.hashCode);
     _$hash = $jc(_$hash, enableEmbeddedTitles.hashCode);
+    _$hash = $jc(_$hash, enableEmbeddedExtrasTitles.hashCode);
     _$hash = $jc(_$hash, enableEmbeddedEpisodeInfos.hashCode);
     _$hash = $jc(_$hash, automaticRefreshIntervalDays.hashCode);
     _$hash = $jc(_$hash, preferredMetadataLanguage.hashCode);
@@ -170,6 +201,7 @@ class _$AddVirtualFolderDtoLibraryOptions
     _$hash = $jc(_$hash, subtitleDownloadLanguages.hashCode);
     _$hash = $jc(_$hash, requirePerfectSubtitleMatch.hashCode);
     _$hash = $jc(_$hash, saveSubtitlesWithMedia.hashCode);
+    _$hash = $jc(_$hash, saveLyricsWithMedia.hashCode);
     _$hash = $jc(_$hash, automaticallyAddToCollection.hashCode);
     _$hash = $jc(_$hash, allowEmbeddedSubtitles.hashCode);
     _$hash = $jc(_$hash, typeOptions.hashCode);
@@ -180,16 +212,23 @@ class _$AddVirtualFolderDtoLibraryOptions
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'AddVirtualFolderDtoLibraryOptions')
+          ..add('enabled', enabled)
           ..add('enablePhotos', enablePhotos)
           ..add('enableRealtimeMonitor', enableRealtimeMonitor)
+          ..add('enableLUFSScan', enableLUFSScan)
           ..add('enableChapterImageExtraction', enableChapterImageExtraction)
           ..add('extractChapterImagesDuringLibraryScan',
               extractChapterImagesDuringLibraryScan)
+          ..add(
+              'enableTrickplayImageExtraction', enableTrickplayImageExtraction)
+          ..add('extractTrickplayImagesDuringLibraryScan',
+              extractTrickplayImagesDuringLibraryScan)
           ..add('pathInfos', pathInfos)
           ..add('saveLocalMetadata', saveLocalMetadata)
           ..add('enableInternetProviders', enableInternetProviders)
           ..add('enableAutomaticSeriesGrouping', enableAutomaticSeriesGrouping)
           ..add('enableEmbeddedTitles', enableEmbeddedTitles)
+          ..add('enableEmbeddedExtrasTitles', enableEmbeddedExtrasTitles)
           ..add('enableEmbeddedEpisodeInfos', enableEmbeddedEpisodeInfos)
           ..add('automaticRefreshIntervalDays', automaticRefreshIntervalDays)
           ..add('preferredMetadataLanguage', preferredMetadataLanguage)
@@ -207,6 +246,7 @@ class _$AddVirtualFolderDtoLibraryOptions
           ..add('subtitleDownloadLanguages', subtitleDownloadLanguages)
           ..add('requirePerfectSubtitleMatch', requirePerfectSubtitleMatch)
           ..add('saveSubtitlesWithMedia', saveSubtitlesWithMedia)
+          ..add('saveLyricsWithMedia', saveLyricsWithMedia)
           ..add('automaticallyAddToCollection', automaticallyAddToCollection)
           ..add('allowEmbeddedSubtitles', allowEmbeddedSubtitles)
           ..add('typeOptions', typeOptions))
@@ -221,6 +261,10 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
         LibraryOptionsBuilder {
   _$AddVirtualFolderDtoLibraryOptions? _$v;
 
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
+
   bool? _enablePhotos;
   bool? get enablePhotos => _$this._enablePhotos;
   set enablePhotos(covariant bool? enablePhotos) =>
@@ -230,6 +274,11 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
   bool? get enableRealtimeMonitor => _$this._enableRealtimeMonitor;
   set enableRealtimeMonitor(covariant bool? enableRealtimeMonitor) =>
       _$this._enableRealtimeMonitor = enableRealtimeMonitor;
+
+  bool? _enableLUFSScan;
+  bool? get enableLUFSScan => _$this._enableLUFSScan;
+  set enableLUFSScan(covariant bool? enableLUFSScan) =>
+      _$this._enableLUFSScan = enableLUFSScan;
 
   bool? _enableChapterImageExtraction;
   bool? get enableChapterImageExtraction =>
@@ -245,6 +294,21 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
           covariant bool? extractChapterImagesDuringLibraryScan) =>
       _$this._extractChapterImagesDuringLibraryScan =
           extractChapterImagesDuringLibraryScan;
+
+  bool? _enableTrickplayImageExtraction;
+  bool? get enableTrickplayImageExtraction =>
+      _$this._enableTrickplayImageExtraction;
+  set enableTrickplayImageExtraction(
+          covariant bool? enableTrickplayImageExtraction) =>
+      _$this._enableTrickplayImageExtraction = enableTrickplayImageExtraction;
+
+  bool? _extractTrickplayImagesDuringLibraryScan;
+  bool? get extractTrickplayImagesDuringLibraryScan =>
+      _$this._extractTrickplayImagesDuringLibraryScan;
+  set extractTrickplayImagesDuringLibraryScan(
+          covariant bool? extractTrickplayImagesDuringLibraryScan) =>
+      _$this._extractTrickplayImagesDuringLibraryScan =
+          extractTrickplayImagesDuringLibraryScan;
 
   ListBuilder<MediaPathInfo>? _pathInfos;
   ListBuilder<MediaPathInfo> get pathInfos =>
@@ -273,6 +337,11 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
   bool? get enableEmbeddedTitles => _$this._enableEmbeddedTitles;
   set enableEmbeddedTitles(covariant bool? enableEmbeddedTitles) =>
       _$this._enableEmbeddedTitles = enableEmbeddedTitles;
+
+  bool? _enableEmbeddedExtrasTitles;
+  bool? get enableEmbeddedExtrasTitles => _$this._enableEmbeddedExtrasTitles;
+  set enableEmbeddedExtrasTitles(covariant bool? enableEmbeddedExtrasTitles) =>
+      _$this._enableEmbeddedExtrasTitles = enableEmbeddedExtrasTitles;
 
   bool? _enableEmbeddedEpisodeInfos;
   bool? get enableEmbeddedEpisodeInfos => _$this._enableEmbeddedEpisodeInfos;
@@ -368,6 +437,11 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
   set saveSubtitlesWithMedia(covariant bool? saveSubtitlesWithMedia) =>
       _$this._saveSubtitlesWithMedia = saveSubtitlesWithMedia;
 
+  bool? _saveLyricsWithMedia;
+  bool? get saveLyricsWithMedia => _$this._saveLyricsWithMedia;
+  set saveLyricsWithMedia(covariant bool? saveLyricsWithMedia) =>
+      _$this._saveLyricsWithMedia = saveLyricsWithMedia;
+
   bool? _automaticallyAddToCollection;
   bool? get automaticallyAddToCollection =>
       _$this._automaticallyAddToCollection;
@@ -395,16 +469,22 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
   AddVirtualFolderDtoLibraryOptionsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _enabled = $v.enabled;
       _enablePhotos = $v.enablePhotos;
       _enableRealtimeMonitor = $v.enableRealtimeMonitor;
+      _enableLUFSScan = $v.enableLUFSScan;
       _enableChapterImageExtraction = $v.enableChapterImageExtraction;
       _extractChapterImagesDuringLibraryScan =
           $v.extractChapterImagesDuringLibraryScan;
+      _enableTrickplayImageExtraction = $v.enableTrickplayImageExtraction;
+      _extractTrickplayImagesDuringLibraryScan =
+          $v.extractTrickplayImagesDuringLibraryScan;
       _pathInfos = $v.pathInfos?.toBuilder();
       _saveLocalMetadata = $v.saveLocalMetadata;
       _enableInternetProviders = $v.enableInternetProviders;
       _enableAutomaticSeriesGrouping = $v.enableAutomaticSeriesGrouping;
       _enableEmbeddedTitles = $v.enableEmbeddedTitles;
+      _enableEmbeddedExtrasTitles = $v.enableEmbeddedExtrasTitles;
       _enableEmbeddedEpisodeInfos = $v.enableEmbeddedEpisodeInfos;
       _automaticRefreshIntervalDays = $v.automaticRefreshIntervalDays;
       _preferredMetadataLanguage = $v.preferredMetadataLanguage;
@@ -422,6 +502,7 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
       _subtitleDownloadLanguages = $v.subtitleDownloadLanguages?.toBuilder();
       _requirePerfectSubtitleMatch = $v.requirePerfectSubtitleMatch;
       _saveSubtitlesWithMedia = $v.saveSubtitlesWithMedia;
+      _saveLyricsWithMedia = $v.saveLyricsWithMedia;
       _automaticallyAddToCollection = $v.automaticallyAddToCollection;
       _allowEmbeddedSubtitles = $v.allowEmbeddedSubtitles;
       _typeOptions = $v.typeOptions?.toBuilder();
@@ -450,16 +531,22 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
     try {
       _$result = _$v ??
           new _$AddVirtualFolderDtoLibraryOptions._(
+              enabled: enabled,
               enablePhotos: enablePhotos,
               enableRealtimeMonitor: enableRealtimeMonitor,
+              enableLUFSScan: enableLUFSScan,
               enableChapterImageExtraction: enableChapterImageExtraction,
               extractChapterImagesDuringLibraryScan:
                   extractChapterImagesDuringLibraryScan,
+              enableTrickplayImageExtraction: enableTrickplayImageExtraction,
+              extractTrickplayImagesDuringLibraryScan:
+                  extractTrickplayImagesDuringLibraryScan,
               pathInfos: _pathInfos?.build(),
               saveLocalMetadata: saveLocalMetadata,
               enableInternetProviders: enableInternetProviders,
               enableAutomaticSeriesGrouping: enableAutomaticSeriesGrouping,
               enableEmbeddedTitles: enableEmbeddedTitles,
+              enableEmbeddedExtrasTitles: enableEmbeddedExtrasTitles,
               enableEmbeddedEpisodeInfos: enableEmbeddedEpisodeInfos,
               automaticRefreshIntervalDays: automaticRefreshIntervalDays,
               preferredMetadataLanguage: preferredMetadataLanguage,
@@ -478,6 +565,7 @@ class AddVirtualFolderDtoLibraryOptionsBuilder
               subtitleDownloadLanguages: _subtitleDownloadLanguages?.build(),
               requirePerfectSubtitleMatch: requirePerfectSubtitleMatch,
               saveSubtitlesWithMedia: saveSubtitlesWithMedia,
+              saveLyricsWithMedia: saveLyricsWithMedia,
               automaticallyAddToCollection: automaticallyAddToCollection,
               allowEmbeddedSubtitles: allowEmbeddedSubtitles,
               typeOptions: _typeOptions?.build());

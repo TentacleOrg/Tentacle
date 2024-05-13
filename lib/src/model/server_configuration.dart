@@ -5,10 +5,13 @@
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/path_substitution.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/cast_receiver_application.dart';
 import 'package:tentacle/src/model/repository_info.dart';
 import 'package:tentacle/src/model/metadata_options.dart';
 import 'package:tentacle/src/model/name_value_pair.dart';
 import 'package:tentacle/src/model/image_saving_convention.dart';
+import 'package:tentacle/src/model/trickplay_options.dart';
+import 'package:tentacle/src/model/image_resolution.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -40,7 +43,9 @@ part 'server_configuration.g.dart';
 /// * [minResumeDurationSeconds] - Gets or sets the minimum duration that an item must have in order to be eligible for playstate updates..
 /// * [minAudiobookResume] - Gets or sets the minimum minutes of a book that must be played in order for playstate to be updated.
 /// * [maxAudiobookResume] - Gets or sets the remaining minutes of a book that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
+/// * [inactiveSessionThreshold] - Gets or sets the threshold in minutes after a inactive session gets closed automatically.  If set to 0 the check for inactive sessions gets disabled.
 /// * [libraryMonitorDelay] - Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files.
+/// * [libraryUpdateDuration] - Gets or sets the duration in seconds that we will wait after a library updated event before executing the library changed notification.
 /// * [imageSavingConvention] - Gets or sets the image saving convention.
 /// * [metadataOptions]
 /// * [skipDeserializationForBasicTypes]
@@ -65,6 +70,11 @@ part 'server_configuration.g.dart';
 /// * [libraryMetadataRefreshConcurrency] - Gets or sets the how many metadata refreshes can run concurrently.
 /// * [removeOldPlugins] - Gets or sets a value indicating whether older plugins should automatically be deleted from the plugin folder.
 /// * [allowClientLogUpload] - Gets or sets a value indicating whether clients should be allowed to upload logs.
+/// * [dummyChapterDuration] - Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation alltogether.
+/// * [chapterImageResolution] - Gets or sets the chapter image resolution.
+/// * [parallelImageEncodingLimit] - Gets or sets the limit for parallel image encoding.
+/// * [castReceiverApplications] - Gets or sets the list of cast receiver applications.
+/// * [trickplayOptions] - Gets or sets the trickplay options.
 @BuiltValue()
 abstract class ServerConfiguration
     implements Built<ServerConfiguration, ServerConfigurationBuilder> {
@@ -157,9 +167,17 @@ abstract class ServerConfiguration
   @BuiltValueField(wireName: r'MaxAudiobookResume')
   int? get maxAudiobookResume;
 
+  /// Gets or sets the threshold in minutes after a inactive session gets closed automatically.  If set to 0 the check for inactive sessions gets disabled.
+  @BuiltValueField(wireName: r'InactiveSessionThreshold')
+  int? get inactiveSessionThreshold;
+
   /// Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files.
   @BuiltValueField(wireName: r'LibraryMonitorDelay')
   int? get libraryMonitorDelay;
+
+  /// Gets or sets the duration in seconds that we will wait after a library updated event before executing the library changed notification.
+  @BuiltValueField(wireName: r'LibraryUpdateDuration')
+  int? get libraryUpdateDuration;
 
   /// Gets or sets the image saving convention.
   @BuiltValueField(wireName: r'ImageSavingConvention')
@@ -242,6 +260,27 @@ abstract class ServerConfiguration
   /// Gets or sets a value indicating whether clients should be allowed to upload logs.
   @BuiltValueField(wireName: r'AllowClientLogUpload')
   bool? get allowClientLogUpload;
+
+  /// Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation alltogether.
+  @BuiltValueField(wireName: r'DummyChapterDuration')
+  int? get dummyChapterDuration;
+
+  /// Gets or sets the chapter image resolution.
+  @BuiltValueField(wireName: r'ChapterImageResolution')
+  ImageResolution? get chapterImageResolution;
+  // enum chapterImageResolutionEnum {  MatchSource,  P144,  P240,  P360,  P480,  P720,  P1080,  P1440,  P2160,  };
+
+  /// Gets or sets the limit for parallel image encoding.
+  @BuiltValueField(wireName: r'ParallelImageEncodingLimit')
+  int? get parallelImageEncodingLimit;
+
+  /// Gets or sets the list of cast receiver applications.
+  @BuiltValueField(wireName: r'CastReceiverApplications')
+  BuiltList<CastReceiverApplication>? get castReceiverApplications;
+
+  /// Gets or sets the trickplay options.
+  @BuiltValueField(wireName: r'TrickplayOptions')
+  TrickplayOptions? get trickplayOptions;
 
   ServerConfiguration._();
 
@@ -433,10 +472,24 @@ class _$ServerConfigurationSerializer
         specifiedType: const FullType(int),
       );
     }
+    if (object.inactiveSessionThreshold != null) {
+      yield r'InactiveSessionThreshold';
+      yield serializers.serialize(
+        object.inactiveSessionThreshold,
+        specifiedType: const FullType(int),
+      );
+    }
     if (object.libraryMonitorDelay != null) {
       yield r'LibraryMonitorDelay';
       yield serializers.serialize(
         object.libraryMonitorDelay,
+        specifiedType: const FullType(int),
+      );
+    }
+    if (object.libraryUpdateDuration != null) {
+      yield r'LibraryUpdateDuration';
+      yield serializers.serialize(
+        object.libraryUpdateDuration,
         specifiedType: const FullType(int),
       );
     }
@@ -606,6 +659,42 @@ class _$ServerConfigurationSerializer
       yield serializers.serialize(
         object.allowClientLogUpload,
         specifiedType: const FullType(bool),
+      );
+    }
+    if (object.dummyChapterDuration != null) {
+      yield r'DummyChapterDuration';
+      yield serializers.serialize(
+        object.dummyChapterDuration,
+        specifiedType: const FullType(int),
+      );
+    }
+    if (object.chapterImageResolution != null) {
+      yield r'ChapterImageResolution';
+      yield serializers.serialize(
+        object.chapterImageResolution,
+        specifiedType: const FullType(ImageResolution),
+      );
+    }
+    if (object.parallelImageEncodingLimit != null) {
+      yield r'ParallelImageEncodingLimit';
+      yield serializers.serialize(
+        object.parallelImageEncodingLimit,
+        specifiedType: const FullType(int),
+      );
+    }
+    if (object.castReceiverApplications != null) {
+      yield r'CastReceiverApplications';
+      yield serializers.serialize(
+        object.castReceiverApplications,
+        specifiedType:
+            const FullType(BuiltList, [FullType(CastReceiverApplication)]),
+      );
+    }
+    if (object.trickplayOptions != null) {
+      yield r'TrickplayOptions';
+      yield serializers.serialize(
+        object.trickplayOptions,
+        specifiedType: const FullType(TrickplayOptions),
       );
     }
   }
@@ -797,12 +886,26 @@ class _$ServerConfigurationSerializer
           ) as int;
           result.maxAudiobookResume = valueDes;
           break;
+        case r'InactiveSessionThreshold':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.inactiveSessionThreshold = valueDes;
+          break;
         case r'LibraryMonitorDelay':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(int),
           ) as int;
           result.libraryMonitorDelay = valueDes;
+          break;
+        case r'LibraryUpdateDuration':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.libraryUpdateDuration = valueDes;
           break;
         case r'ImageSavingConvention':
           final valueDes = serializers.deserialize(
@@ -975,6 +1078,42 @@ class _$ServerConfigurationSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.allowClientLogUpload = valueDes;
+          break;
+        case r'DummyChapterDuration':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.dummyChapterDuration = valueDes;
+          break;
+        case r'ChapterImageResolution':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(ImageResolution),
+          ) as ImageResolution;
+          result.chapterImageResolution = valueDes;
+          break;
+        case r'ParallelImageEncodingLimit':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.parallelImageEncodingLimit = valueDes;
+          break;
+        case r'CastReceiverApplications':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType(BuiltList, [FullType(CastReceiverApplication)]),
+          ) as BuiltList<CastReceiverApplication>;
+          result.castReceiverApplications.replace(valueDes);
+          break;
+        case r'TrickplayOptions':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(TrickplayOptions),
+          ) as TrickplayOptions;
+          result.trickplayOptions.replace(valueDes);
           break;
         default:
           unhandled.add(key);

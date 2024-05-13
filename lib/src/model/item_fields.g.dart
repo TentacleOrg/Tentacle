@@ -11,6 +11,7 @@ const ItemFields _$canDelete = const ItemFields._('canDelete');
 const ItemFields _$canDownload = const ItemFields._('canDownload');
 const ItemFields _$channelInfo = const ItemFields._('channelInfo');
 const ItemFields _$chapters = const ItemFields._('chapters');
+const ItemFields _$trickplay = const ItemFields._('trickplay');
 const ItemFields _$childCount = const ItemFields._('childCount');
 const ItemFields _$cumulativeRunTimeTicks =
     const ItemFields._('cumulativeRunTimeTicks');
@@ -50,8 +51,6 @@ const ItemFields _$sortName = const ItemFields._('sortName');
 const ItemFields _$specialEpisodeNumbers =
     const ItemFields._('specialEpisodeNumbers');
 const ItemFields _$studios = const ItemFields._('studios');
-const ItemFields _$basicSyncInfo = const ItemFields._('basicSyncInfo');
-const ItemFields _$syncInfo = const ItemFields._('syncInfo');
 const ItemFields _$taglines = const ItemFields._('taglines');
 const ItemFields _$tags = const ItemFields._('tags');
 const ItemFields _$remoteTrailers = const ItemFields._('remoteTrailers');
@@ -94,6 +93,8 @@ ItemFields _$valueOf(String name) {
       return _$channelInfo;
     case 'chapters':
       return _$chapters;
+    case 'trickplay':
+      return _$trickplay;
     case 'childCount':
       return _$childCount;
     case 'cumulativeRunTimeTicks':
@@ -154,10 +155,6 @@ ItemFields _$valueOf(String name) {
       return _$specialEpisodeNumbers;
     case 'studios':
       return _$studios;
-    case 'basicSyncInfo':
-      return _$basicSyncInfo;
-    case 'syncInfo':
-      return _$syncInfo;
     case 'taglines':
       return _$taglines;
     case 'tags':
@@ -218,6 +215,7 @@ final BuiltSet<ItemFields> _$values =
   _$canDownload,
   _$channelInfo,
   _$chapters,
+  _$trickplay,
   _$childCount,
   _$cumulativeRunTimeTicks,
   _$customRating,
@@ -248,8 +246,6 @@ final BuiltSet<ItemFields> _$values =
   _$sortName,
   _$specialEpisodeNumbers,
   _$studios,
-  _$basicSyncInfo,
-  _$syncInfo,
   _$taglines,
   _$tags,
   _$remoteTrailers,
@@ -283,6 +279,7 @@ class _$ItemFieldsMeta {
   ItemFields get canDownload => _$canDownload;
   ItemFields get channelInfo => _$channelInfo;
   ItemFields get chapters => _$chapters;
+  ItemFields get trickplay => _$trickplay;
   ItemFields get childCount => _$childCount;
   ItemFields get cumulativeRunTimeTicks => _$cumulativeRunTimeTicks;
   ItemFields get customRating => _$customRating;
@@ -313,8 +310,6 @@ class _$ItemFieldsMeta {
   ItemFields get sortName => _$sortName;
   ItemFields get specialEpisodeNumbers => _$specialEpisodeNumbers;
   ItemFields get studios => _$studios;
-  ItemFields get basicSyncInfo => _$basicSyncInfo;
-  ItemFields get syncInfo => _$syncInfo;
   ItemFields get taglines => _$taglines;
   ItemFields get tags => _$tags;
   ItemFields get remoteTrailers => _$remoteTrailers;
@@ -357,6 +352,7 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'canDownload': 'CanDownload',
     'channelInfo': 'ChannelInfo',
     'chapters': 'Chapters',
+    'trickplay': 'Trickplay',
     'childCount': 'ChildCount',
     'cumulativeRunTimeTicks': 'CumulativeRunTimeTicks',
     'customRating': 'CustomRating',
@@ -387,8 +383,6 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'sortName': 'SortName',
     'specialEpisodeNumbers': 'SpecialEpisodeNumbers',
     'studios': 'Studios',
-    'basicSyncInfo': 'BasicSyncInfo',
-    'syncInfo': 'SyncInfo',
     'taglines': 'Taglines',
     'tags': 'Tags',
     'remoteTrailers': 'RemoteTrailers',
@@ -420,6 +414,7 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'CanDownload': 'canDownload',
     'ChannelInfo': 'channelInfo',
     'Chapters': 'chapters',
+    'Trickplay': 'trickplay',
     'ChildCount': 'childCount',
     'CumulativeRunTimeTicks': 'cumulativeRunTimeTicks',
     'CustomRating': 'customRating',
@@ -450,8 +445,6 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'SortName': 'sortName',
     'SpecialEpisodeNumbers': 'specialEpisodeNumbers',
     'Studios': 'studios',
-    'BasicSyncInfo': 'basicSyncInfo',
-    'SyncInfo': 'syncInfo',
     'Taglines': 'taglines',
     'Tags': 'tags',
     'RemoteTrailers': 'remoteTrailers',

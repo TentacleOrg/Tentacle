@@ -17,8 +17,13 @@ Name | Type | Description | Notes
 **comment** | **String** |  | [optional] 
 **dateCreated** | [**DateTime**](DateTime.md) |  | [optional] 
 **communityRating** | **double** |  | [optional] 
+**frameRate** | **double** |  | [optional] 
 **downloadCount** | **int** |  | [optional] 
 **isHashMatch** | **bool** |  | [optional] 
+**aiTranslated** | **bool** |  | [optional] 
+**machineTranslated** | **bool** |  | [optional] 
+**forced** | **bool** |  | [optional] 
+**hearingImpaired** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -6,7 +6,29 @@ part of 'send_command.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$SendCommand extends SendCommand {
+abstract mixin class SendCommandBuilder {
+  void replace(SendCommand other);
+  void update(void Function(SendCommandBuilder) updates);
+  String? get groupId;
+  set groupId(String? groupId);
+
+  String? get playlistItemId;
+  set playlistItemId(String? playlistItemId);
+
+  DateTime? get when;
+  set when(DateTime? when);
+
+  int? get positionTicks;
+  set positionTicks(int? positionTicks);
+
+  SendCommandType? get command;
+  set command(SendCommandType? command);
+
+  DateTime? get emittedAt;
+  set emittedAt(DateTime? emittedAt);
+}
+
+class _$$SendCommand extends $SendCommand {
   @override
   final String? groupId;
   @override
@@ -20,10 +42,10 @@ class _$SendCommand extends SendCommand {
   @override
   final DateTime? emittedAt;
 
-  factory _$SendCommand([void Function(SendCommandBuilder)? updates]) =>
-      (new SendCommandBuilder()..update(updates))._build();
+  factory _$$SendCommand([void Function($SendCommandBuilder)? updates]) =>
+      (new $SendCommandBuilder()..update(updates))._build();
 
-  _$SendCommand._(
+  _$$SendCommand._(
       {this.groupId,
       this.playlistItemId,
       this.when,
@@ -33,16 +55,16 @@ class _$SendCommand extends SendCommand {
       : super._();
 
   @override
-  SendCommand rebuild(void Function(SendCommandBuilder) updates) =>
+  $SendCommand rebuild(void Function($SendCommandBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SendCommandBuilder toBuilder() => new SendCommandBuilder()..replace(this);
+  $SendCommandBuilder toBuilder() => new $SendCommandBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SendCommand &&
+    return other is $SendCommand &&
         groupId == other.groupId &&
         playlistItemId == other.playlistItemId &&
         when == other.when &&
@@ -66,7 +88,7 @@ class _$SendCommand extends SendCommand {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SendCommand')
+    return (newBuiltValueToStringHelper(r'$SendCommand')
           ..add('groupId', groupId)
           ..add('playlistItemId', playlistItemId)
           ..add('when', when)
@@ -77,40 +99,41 @@ class _$SendCommand extends SendCommand {
   }
 }
 
-class SendCommandBuilder implements Builder<SendCommand, SendCommandBuilder> {
-  _$SendCommand? _$v;
+class $SendCommandBuilder
+    implements Builder<$SendCommand, $SendCommandBuilder>, SendCommandBuilder {
+  _$$SendCommand? _$v;
 
   String? _groupId;
   String? get groupId => _$this._groupId;
-  set groupId(String? groupId) => _$this._groupId = groupId;
+  set groupId(covariant String? groupId) => _$this._groupId = groupId;
 
   String? _playlistItemId;
   String? get playlistItemId => _$this._playlistItemId;
-  set playlistItemId(String? playlistItemId) =>
+  set playlistItemId(covariant String? playlistItemId) =>
       _$this._playlistItemId = playlistItemId;
 
   DateTime? _when;
   DateTime? get when => _$this._when;
-  set when(DateTime? when) => _$this._when = when;
+  set when(covariant DateTime? when) => _$this._when = when;
 
   int? _positionTicks;
   int? get positionTicks => _$this._positionTicks;
-  set positionTicks(int? positionTicks) =>
+  set positionTicks(covariant int? positionTicks) =>
       _$this._positionTicks = positionTicks;
 
   SendCommandType? _command;
   SendCommandType? get command => _$this._command;
-  set command(SendCommandType? command) => _$this._command = command;
+  set command(covariant SendCommandType? command) => _$this._command = command;
 
   DateTime? _emittedAt;
   DateTime? get emittedAt => _$this._emittedAt;
-  set emittedAt(DateTime? emittedAt) => _$this._emittedAt = emittedAt;
+  set emittedAt(covariant DateTime? emittedAt) => _$this._emittedAt = emittedAt;
 
-  SendCommandBuilder() {
-    SendCommand._defaults(this);
+  $SendCommandBuilder() {
+    $SendCommand._defaults(this);
   }
 
-  SendCommandBuilder get _$this {
+  $SendCommandBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _groupId = $v.groupId;
@@ -125,22 +148,22 @@ class SendCommandBuilder implements Builder<SendCommand, SendCommandBuilder> {
   }
 
   @override
-  void replace(SendCommand other) {
+  void replace(covariant $SendCommand other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SendCommand;
+    _$v = other as _$$SendCommand;
   }
 
   @override
-  void update(void Function(SendCommandBuilder)? updates) {
+  void update(void Function($SendCommandBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SendCommand build() => _build();
+  $SendCommand build() => _build();
 
-  _$SendCommand _build() {
+  _$$SendCommand _build() {
     final _$result = _$v ??
-        new _$SendCommand._(
+        new _$$SendCommand._(
             groupId: groupId,
             playlistItemId: playlistItemId,
             when: when,

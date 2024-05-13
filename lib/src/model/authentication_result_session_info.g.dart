@@ -17,7 +17,7 @@ class _$AuthenticationResultSessionInfo
   @override
   final String? remoteEndPoint;
   @override
-  final BuiltList<String>? playableMediaTypes;
+  final BuiltList<MediaType>? playableMediaTypes;
   @override
   final String? id;
   @override
@@ -31,15 +31,15 @@ class _$AuthenticationResultSessionInfo
   @override
   final DateTime? lastPlaybackCheckIn;
   @override
+  final DateTime? lastPausedDate;
+  @override
   final String? deviceName;
   @override
   final String? deviceType;
   @override
   final SessionInfoNowPlayingItem? nowPlayingItem;
   @override
-  final SessionInfoFullNowPlayingItem? fullNowPlayingItem;
-  @override
-  final SessionInfoNowViewingItem? nowViewingItem;
+  final SessionInfoNowPlayingItem? nowViewingItem;
   @override
   final String? deviceId;
   @override
@@ -83,10 +83,10 @@ class _$AuthenticationResultSessionInfo
       this.client,
       this.lastActivityDate,
       this.lastPlaybackCheckIn,
+      this.lastPausedDate,
       this.deviceName,
       this.deviceType,
       this.nowPlayingItem,
-      this.fullNowPlayingItem,
       this.nowViewingItem,
       this.deviceId,
       this.applicationVersion,
@@ -127,10 +127,10 @@ class _$AuthenticationResultSessionInfo
         client == other.client &&
         lastActivityDate == other.lastActivityDate &&
         lastPlaybackCheckIn == other.lastPlaybackCheckIn &&
+        lastPausedDate == other.lastPausedDate &&
         deviceName == other.deviceName &&
         deviceType == other.deviceType &&
         nowPlayingItem == other.nowPlayingItem &&
-        fullNowPlayingItem == other.fullNowPlayingItem &&
         nowViewingItem == other.nowViewingItem &&
         deviceId == other.deviceId &&
         applicationVersion == other.applicationVersion &&
@@ -161,10 +161,10 @@ class _$AuthenticationResultSessionInfo
     _$hash = $jc(_$hash, client.hashCode);
     _$hash = $jc(_$hash, lastActivityDate.hashCode);
     _$hash = $jc(_$hash, lastPlaybackCheckIn.hashCode);
+    _$hash = $jc(_$hash, lastPausedDate.hashCode);
     _$hash = $jc(_$hash, deviceName.hashCode);
     _$hash = $jc(_$hash, deviceType.hashCode);
     _$hash = $jc(_$hash, nowPlayingItem.hashCode);
-    _$hash = $jc(_$hash, fullNowPlayingItem.hashCode);
     _$hash = $jc(_$hash, nowViewingItem.hashCode);
     _$hash = $jc(_$hash, deviceId.hashCode);
     _$hash = $jc(_$hash, applicationVersion.hashCode);
@@ -197,10 +197,10 @@ class _$AuthenticationResultSessionInfo
           ..add('client', client)
           ..add('lastActivityDate', lastActivityDate)
           ..add('lastPlaybackCheckIn', lastPlaybackCheckIn)
+          ..add('lastPausedDate', lastPausedDate)
           ..add('deviceName', deviceName)
           ..add('deviceType', deviceType)
           ..add('nowPlayingItem', nowPlayingItem)
-          ..add('fullNowPlayingItem', fullNowPlayingItem)
           ..add('nowViewingItem', nowViewingItem)
           ..add('deviceId', deviceId)
           ..add('applicationVersion', applicationVersion)
@@ -249,10 +249,11 @@ class AuthenticationResultSessionInfoBuilder
   set remoteEndPoint(covariant String? remoteEndPoint) =>
       _$this._remoteEndPoint = remoteEndPoint;
 
-  ListBuilder<String>? _playableMediaTypes;
-  ListBuilder<String> get playableMediaTypes =>
-      _$this._playableMediaTypes ??= new ListBuilder<String>();
-  set playableMediaTypes(covariant ListBuilder<String>? playableMediaTypes) =>
+  ListBuilder<MediaType>? _playableMediaTypes;
+  ListBuilder<MediaType> get playableMediaTypes =>
+      _$this._playableMediaTypes ??= new ListBuilder<MediaType>();
+  set playableMediaTypes(
+          covariant ListBuilder<MediaType>? playableMediaTypes) =>
       _$this._playableMediaTypes = playableMediaTypes;
 
   String? _id;
@@ -281,6 +282,11 @@ class AuthenticationResultSessionInfoBuilder
   set lastPlaybackCheckIn(covariant DateTime? lastPlaybackCheckIn) =>
       _$this._lastPlaybackCheckIn = lastPlaybackCheckIn;
 
+  DateTime? _lastPausedDate;
+  DateTime? get lastPausedDate => _$this._lastPausedDate;
+  set lastPausedDate(covariant DateTime? lastPausedDate) =>
+      _$this._lastPausedDate = lastPausedDate;
+
   String? _deviceName;
   String? get deviceName => _$this._deviceName;
   set deviceName(covariant String? deviceName) =>
@@ -298,18 +304,11 @@ class AuthenticationResultSessionInfoBuilder
           covariant SessionInfoNowPlayingItemBuilder? nowPlayingItem) =>
       _$this._nowPlayingItem = nowPlayingItem;
 
-  SessionInfoFullNowPlayingItemBuilder? _fullNowPlayingItem;
-  SessionInfoFullNowPlayingItemBuilder get fullNowPlayingItem =>
-      _$this._fullNowPlayingItem ??= new SessionInfoFullNowPlayingItemBuilder();
-  set fullNowPlayingItem(
-          covariant SessionInfoFullNowPlayingItemBuilder? fullNowPlayingItem) =>
-      _$this._fullNowPlayingItem = fullNowPlayingItem;
-
-  SessionInfoNowViewingItemBuilder? _nowViewingItem;
-  SessionInfoNowViewingItemBuilder get nowViewingItem =>
-      _$this._nowViewingItem ??= new SessionInfoNowViewingItemBuilder();
+  SessionInfoNowPlayingItemBuilder? _nowViewingItem;
+  SessionInfoNowPlayingItemBuilder get nowViewingItem =>
+      _$this._nowViewingItem ??= new SessionInfoNowPlayingItemBuilder();
   set nowViewingItem(
-          covariant SessionInfoNowViewingItemBuilder? nowViewingItem) =>
+          covariant SessionInfoNowPlayingItemBuilder? nowViewingItem) =>
       _$this._nowViewingItem = nowViewingItem;
 
   String? _deviceId;
@@ -398,10 +397,10 @@ class AuthenticationResultSessionInfoBuilder
       _client = $v.client;
       _lastActivityDate = $v.lastActivityDate;
       _lastPlaybackCheckIn = $v.lastPlaybackCheckIn;
+      _lastPausedDate = $v.lastPausedDate;
       _deviceName = $v.deviceName;
       _deviceType = $v.deviceType;
       _nowPlayingItem = $v.nowPlayingItem?.toBuilder();
-      _fullNowPlayingItem = $v.fullNowPlayingItem?.toBuilder();
       _nowViewingItem = $v.nowViewingItem?.toBuilder();
       _deviceId = $v.deviceId;
       _applicationVersion = $v.applicationVersion;
@@ -451,10 +450,10 @@ class AuthenticationResultSessionInfoBuilder
               client: client,
               lastActivityDate: lastActivityDate,
               lastPlaybackCheckIn: lastPlaybackCheckIn,
+              lastPausedDate: lastPausedDate,
               deviceName: deviceName,
               deviceType: deviceType,
               nowPlayingItem: _nowPlayingItem?.build(),
-              fullNowPlayingItem: _fullNowPlayingItem?.build(),
               nowViewingItem: _nowViewingItem?.build(),
               deviceId: deviceId,
               applicationVersion: applicationVersion,
@@ -482,8 +481,6 @@ class AuthenticationResultSessionInfoBuilder
 
         _$failedField = 'nowPlayingItem';
         _nowPlayingItem?.build();
-        _$failedField = 'fullNowPlayingItem';
-        _fullNowPlayingItem?.build();
         _$failedField = 'nowViewingItem';
         _nowViewingItem?.build();
 

@@ -122,13 +122,13 @@ void main() {
     });
 
     // Gets the video range.
-    // String videoRange
+    // VideoRange videoRange
     test('to test the property `videoRange`', () async {
       // TODO
     });
 
     // Gets the video range type.
-    // String videoRangeType
+    // VideoRangeType videoRangeType
     test('to test the property `videoRangeType`', () async {
       // TODO
     });
@@ -136,6 +136,12 @@ void main() {
     // Gets the video dovi title.
     // String videoDoViTitle
     test('to test the property `videoDoViTitle`', () async {
+      // TODO
+    });
+
+    // Gets the audio spatial format.
+    // AudioSpatialFormat audioSpatialFormat (default value: 'None')
+    test('to test the property `audioSpatialFormat`', () async {
       // TODO
     });
 
@@ -156,6 +162,11 @@ void main() {
 
     // String localizedExternal
     test('to test the property `localizedExternal`', () async {
+      // TODO
+    });
+
+    // String localizedHearingImpaired
+    test('to test the property `localizedHearingImpaired`', () async {
       // TODO
     });
 
@@ -231,6 +242,12 @@ void main() {
     // Gets or sets a value indicating whether this instance is forced.
     // bool isForced
     test('to test the property `isForced`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether this instance is for the hearing impaired.
+    // bool isHearingImpaired
+    test('to test the property `isHearingImpaired`', () async {
       // TODO
     });
 

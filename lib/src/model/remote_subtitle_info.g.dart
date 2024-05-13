@@ -26,9 +26,19 @@ class _$RemoteSubtitleInfo extends RemoteSubtitleInfo {
   @override
   final double? communityRating;
   @override
+  final double? frameRate;
+  @override
   final int? downloadCount;
   @override
   final bool? isHashMatch;
+  @override
+  final bool? aiTranslated;
+  @override
+  final bool? machineTranslated;
+  @override
+  final bool? forced;
+  @override
+  final bool? hearingImpaired;
 
   factory _$RemoteSubtitleInfo(
           [void Function(RemoteSubtitleInfoBuilder)? updates]) =>
@@ -44,8 +54,13 @@ class _$RemoteSubtitleInfo extends RemoteSubtitleInfo {
       this.comment,
       this.dateCreated,
       this.communityRating,
+      this.frameRate,
       this.downloadCount,
-      this.isHashMatch})
+      this.isHashMatch,
+      this.aiTranslated,
+      this.machineTranslated,
+      this.forced,
+      this.hearingImpaired})
       : super._();
 
   @override
@@ -70,8 +85,13 @@ class _$RemoteSubtitleInfo extends RemoteSubtitleInfo {
         comment == other.comment &&
         dateCreated == other.dateCreated &&
         communityRating == other.communityRating &&
+        frameRate == other.frameRate &&
         downloadCount == other.downloadCount &&
-        isHashMatch == other.isHashMatch;
+        isHashMatch == other.isHashMatch &&
+        aiTranslated == other.aiTranslated &&
+        machineTranslated == other.machineTranslated &&
+        forced == other.forced &&
+        hearingImpaired == other.hearingImpaired;
   }
 
   @override
@@ -86,8 +106,13 @@ class _$RemoteSubtitleInfo extends RemoteSubtitleInfo {
     _$hash = $jc(_$hash, comment.hashCode);
     _$hash = $jc(_$hash, dateCreated.hashCode);
     _$hash = $jc(_$hash, communityRating.hashCode);
+    _$hash = $jc(_$hash, frameRate.hashCode);
     _$hash = $jc(_$hash, downloadCount.hashCode);
     _$hash = $jc(_$hash, isHashMatch.hashCode);
+    _$hash = $jc(_$hash, aiTranslated.hashCode);
+    _$hash = $jc(_$hash, machineTranslated.hashCode);
+    _$hash = $jc(_$hash, forced.hashCode);
+    _$hash = $jc(_$hash, hearingImpaired.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -104,8 +129,13 @@ class _$RemoteSubtitleInfo extends RemoteSubtitleInfo {
           ..add('comment', comment)
           ..add('dateCreated', dateCreated)
           ..add('communityRating', communityRating)
+          ..add('frameRate', frameRate)
           ..add('downloadCount', downloadCount)
-          ..add('isHashMatch', isHashMatch))
+          ..add('isHashMatch', isHashMatch)
+          ..add('aiTranslated', aiTranslated)
+          ..add('machineTranslated', machineTranslated)
+          ..add('forced', forced)
+          ..add('hearingImpaired', hearingImpaired))
         .toString();
   }
 }
@@ -152,6 +182,10 @@ class RemoteSubtitleInfoBuilder
   set communityRating(double? communityRating) =>
       _$this._communityRating = communityRating;
 
+  double? _frameRate;
+  double? get frameRate => _$this._frameRate;
+  set frameRate(double? frameRate) => _$this._frameRate = frameRate;
+
   int? _downloadCount;
   int? get downloadCount => _$this._downloadCount;
   set downloadCount(int? downloadCount) =>
@@ -160,6 +194,24 @@ class RemoteSubtitleInfoBuilder
   bool? _isHashMatch;
   bool? get isHashMatch => _$this._isHashMatch;
   set isHashMatch(bool? isHashMatch) => _$this._isHashMatch = isHashMatch;
+
+  bool? _aiTranslated;
+  bool? get aiTranslated => _$this._aiTranslated;
+  set aiTranslated(bool? aiTranslated) => _$this._aiTranslated = aiTranslated;
+
+  bool? _machineTranslated;
+  bool? get machineTranslated => _$this._machineTranslated;
+  set machineTranslated(bool? machineTranslated) =>
+      _$this._machineTranslated = machineTranslated;
+
+  bool? _forced;
+  bool? get forced => _$this._forced;
+  set forced(bool? forced) => _$this._forced = forced;
+
+  bool? _hearingImpaired;
+  bool? get hearingImpaired => _$this._hearingImpaired;
+  set hearingImpaired(bool? hearingImpaired) =>
+      _$this._hearingImpaired = hearingImpaired;
 
   RemoteSubtitleInfoBuilder() {
     RemoteSubtitleInfo._defaults(this);
@@ -177,8 +229,13 @@ class RemoteSubtitleInfoBuilder
       _comment = $v.comment;
       _dateCreated = $v.dateCreated;
       _communityRating = $v.communityRating;
+      _frameRate = $v.frameRate;
       _downloadCount = $v.downloadCount;
       _isHashMatch = $v.isHashMatch;
+      _aiTranslated = $v.aiTranslated;
+      _machineTranslated = $v.machineTranslated;
+      _forced = $v.forced;
+      _hearingImpaired = $v.hearingImpaired;
       _$v = null;
     }
     return this;
@@ -210,8 +267,13 @@ class RemoteSubtitleInfoBuilder
             comment: comment,
             dateCreated: dateCreated,
             communityRating: communityRating,
+            frameRate: frameRate,
             downloadCount: downloadCount,
-            isHashMatch: isHashMatch);
+            isHashMatch: isHashMatch,
+            aiTranslated: aiTranslated,
+            machineTranslated: machineTranslated,
+            forced: forced,
+            hearingImpaired: hearingImpaired);
     replace(_$result);
     return _$result;
   }

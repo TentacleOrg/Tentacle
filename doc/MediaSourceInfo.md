@@ -45,7 +45,7 @@ Name | Type | Description | Notes
 **timestamp** | [**TransportStreamTimestamp**](TransportStreamTimestamp.md) |  | [optional] 
 **requiredHttpHeaders** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
 **transcodingUrl** | **String** |  | [optional] 
-**transcodingSubProtocol** | **String** |  | [optional] 
+**transcodingSubProtocol** | [**MediaStreamProtocol**](MediaStreamProtocol.md) | Media streaming protocol.  Lowercase for backwards compatibility. | [optional] 
 **transcodingContainer** | **String** |  | [optional] 
 **analyzeDurationMs** | **int** |  | [optional] 
 **defaultAudioStreamIndex** | **int** |  | [optional] 

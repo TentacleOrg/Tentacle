@@ -15,7 +15,7 @@ void main() {
 
     // Gets legacy query filters.
     //
-    //Future<QueryFiltersLegacy> getQueryFiltersLegacy({ String userId, String parentId, BuiltList<BaseItemKind> includeItemTypes, BuiltList<String> mediaTypes }) async
+    //Future<QueryFiltersLegacy> getQueryFiltersLegacy({ String userId, String parentId, BuiltList<BaseItemKind> includeItemTypes, BuiltList<MediaType> mediaTypes }) async
     test('test getQueryFiltersLegacy', () async {
       // TODO
     });

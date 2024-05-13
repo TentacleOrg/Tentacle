@@ -30,6 +30,10 @@ class MediaStreamType extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Data')
   static const MediaStreamType data = _$data;
 
+  /// Enum MediaStreamType.
+  @BuiltValueEnumConst(wireName: r'Lyric')
+  static const MediaStreamType lyric = _$lyric;
+
   static Serializer<MediaStreamType> get serializer =>
       _$mediaStreamTypeSerializer;
 

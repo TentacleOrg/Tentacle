@@ -30,6 +30,10 @@ class ImageFormat extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Webp')
   static const ImageFormat webp = _$webp;
 
+  /// Enum ImageOutputFormat.
+  @BuiltValueEnumConst(wireName: r'Svg')
+  static const ImageFormat svg = _$svg;
+
   static Serializer<ImageFormat> get serializer => _$imageFormatSerializer;
 
   const ImageFormat._(String name) : super(name);

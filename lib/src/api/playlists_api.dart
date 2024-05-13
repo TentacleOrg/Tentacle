@@ -13,7 +13,12 @@ import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/create_playlist_dto.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/playlist_creation_result.dart';
+import 'package:tentacle/src/model/playlist_user_permissions.dart';
+import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/update_playlist_dto.dart';
+import 'package:tentacle/src/model/update_playlist_user_dto.dart';
 
 class PlaylistsApi {
   final Dio _dio;
@@ -38,7 +43,7 @@ class PlaylistsApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<void>> addToPlaylist({
+  Future<Response<void>> addItemToPlaylist({
     required String playlistId,
     BuiltList<String>? ids,
     String? userId,
@@ -119,7 +124,7 @@ class PlaylistsApi {
     @Deprecated('name is deprecated') String? name,
     @Deprecated('ids is deprecated') BuiltList<String>? ids,
     @Deprecated('userId is deprecated') String? userId,
-    @Deprecated('mediaType is deprecated') String? mediaType,
+    @Deprecated('mediaType is deprecated') MediaType? mediaType,
     CreatePlaylistDto? createPlaylistDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -165,7 +170,7 @@ class PlaylistsApi {
             encodeQueryParameter(_serializers, userId, const FullType(String)),
       if (mediaType != null)
         r'mediaType': encodeQueryParameter(
-            _serializers, mediaType, const FullType(String)),
+            _serializers, mediaType, const FullType(MediaType)),
     };
 
     dynamic _bodyData;
@@ -254,7 +259,7 @@ class PlaylistsApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getPlaylistItems({
     required String playlistId,
-    required String userId,
+    String? userId,
     int? startIndex,
     int? limit,
     BuiltList<ItemFields>? fields,
@@ -293,8 +298,9 @@ class PlaylistsApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      r'userId':
-          encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       if (startIndex != null)
         r'startIndex':
             encodeQueryParameter(_serializers, startIndex, const FullType(int)),
@@ -356,6 +362,187 @@ class PlaylistsApi {
     }
 
     return Response<BaseItemDtoQueryResult>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Get a playlist user.
+  ///
+  ///
+  /// Parameters:
+  /// * [playlistId] - The playlist id.
+  /// * [userId] - The user id.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [PlaylistUserPermissions] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<PlaylistUserPermissions>> getPlaylistUser({
+    required String playlistId,
+    required String userId,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/Playlists/{playlistId}/Users/{userId}'
+        .replaceAll(
+            '{' r'playlistId' '}',
+            encodeQueryParameter(
+                    _serializers, playlistId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString());
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'CustomAuthentication',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    PlaylistUserPermissions? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(PlaylistUserPermissions),
+            ) as PlaylistUserPermissions;
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<PlaylistUserPermissions>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Get a playlist&#39;s users.
+  ///
+  ///
+  /// Parameters:
+  /// * [playlistId] - The playlist id.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [BuiltList<PlaylistUserPermissions>] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<BuiltList<PlaylistUserPermissions>>> getPlaylistUsers({
+    required String playlistId,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/Playlists/{playlistId}/Users'.replaceAll(
+        '{' r'playlistId' '}',
+        encodeQueryParameter(_serializers, playlistId, const FullType(String))
+            .toString());
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'CustomAuthentication',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    BuiltList<PlaylistUserPermissions>? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(
+                  BuiltList, [FullType(PlaylistUserPermissions)]),
+            ) as BuiltList<PlaylistUserPermissions>;
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<BuiltList<PlaylistUserPermissions>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -453,7 +640,7 @@ class PlaylistsApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<void>> removeFromPlaylist({
+  Future<Response<void>> removeItemFromPlaylist({
     required String playlistId,
     BuiltList<String>? entryIds,
     CancelToken? cancelToken,
@@ -500,6 +687,237 @@ class PlaylistsApi {
       _path,
       options: _options,
       queryParameters: _queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// Remove a user from a playlist&#39;s users.
+  ///
+  ///
+  /// Parameters:
+  /// * [playlistId] - The playlist id.
+  /// * [userId] - The user id.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> removeUserFromPlaylist({
+    required String playlistId,
+    required String userId,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/Playlists/{playlistId}/Users/{userId}'
+        .replaceAll(
+            '{' r'playlistId' '}',
+            encodeQueryParameter(
+                    _serializers, playlistId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString());
+    final _options = Options(
+      method: r'DELETE',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'CustomAuthentication',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// Updates a playlist.
+  ///
+  ///
+  /// Parameters:
+  /// * [playlistId] - The playlist id.
+  /// * [updatePlaylistDto] - The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistDto id.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updatePlaylist({
+    required String playlistId,
+    required UpdatePlaylistDto updatePlaylistDto,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/Playlists/{playlistId}'.replaceAll(
+        '{' r'playlistId' '}',
+        encodeQueryParameter(_serializers, playlistId, const FullType(String))
+            .toString());
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'CustomAuthentication',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(UpdatePlaylistDto);
+      _bodyData =
+          _serializers.serialize(updatePlaylistDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// Modify a user of a playlist&#39;s users.
+  ///
+  ///
+  /// Parameters:
+  /// * [playlistId] - The playlist id.
+  /// * [userId] - The user id.
+  /// * [updatePlaylistUserDto] - The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistUserDto.
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> updatePlaylistUser({
+    required String playlistId,
+    required String userId,
+    required UpdatePlaylistUserDto updatePlaylistUserDto,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/Playlists/{playlistId}/Users/{userId}'
+        .replaceAll(
+            '{' r'playlistId' '}',
+            encodeQueryParameter(
+                    _serializers, playlistId, const FullType(String))
+                .toString())
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(String))
+                .toString());
+    final _options = Options(
+      method: r'POST',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'CustomAuthentication',
+            'keyName': 'Authorization',
+            'where': 'header',
+          },
+        ],
+        ...?extra,
+      },
+      contentType: 'application/json',
+      validateStatus: validateStatus,
+    );
+
+    dynamic _bodyData;
+
+    try {
+      const _type = FullType(UpdatePlaylistUserDto);
+      _bodyData =
+          _serializers.serialize(updatePlaylistUserDto, specifiedType: _type);
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _options.compose(
+          _dio.options,
+          _path,
+        ),
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    final _response = await _dio.request<Object>(
+      _path,
+      data: _bodyData,
+      options: _options,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,

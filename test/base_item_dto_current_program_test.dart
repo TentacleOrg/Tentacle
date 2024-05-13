@@ -59,7 +59,7 @@ void main() {
       // TODO
     });
 
-    // String extraType
+    // ExtraType extraType
     test('to test the property `extraType`', () async {
       // TODO
     });
@@ -89,6 +89,11 @@ void main() {
       // TODO
     });
 
+    // bool hasLyrics
+    test('to test the property `hasLyrics`', () async {
+      // TODO
+    });
+
     // bool hasSubtitles
     test('to test the property `hasSubtitles`', () async {
       // TODO
@@ -101,12 +106,6 @@ void main() {
 
     // String preferredMetadataCountryCode
     test('to test the property `preferredMetadataCountryCode`', () async {
-      // TODO
-    });
-
-    // Gets or sets a value indicating whether [supports synchronize].
-    // bool supportsSync
-    test('to test the property `supportsSync`', () async {
       // TODO
     });
 
@@ -337,13 +336,13 @@ void main() {
       // TODO
     });
 
-    // Gets or sets wether the item has a logo, this will hold the Id of the Parent that has one.
+    // Gets or sets whether the item has a logo, this will hold the Id of the Parent that has one.
     // String parentLogoItemId
     test('to test the property `parentLogoItemId`', () async {
       // TODO
     });
 
-    // Gets or sets wether the item has any backdrops, this will hold the Id of the Parent that has one.
+    // Gets or sets whether the item has any backdrops, this will hold the Id of the Parent that has one.
     // String parentBackdropItemId
     test('to test the property `parentBackdropItemId`', () async {
       // TODO
@@ -457,7 +456,7 @@ void main() {
     });
 
     // Gets or sets the type of the collection.
-    // String collectionType
+    // CollectionType collectionType
     test('to test the property `collectionType`', () async {
       // TODO
     });
@@ -551,7 +550,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets wether the item has fan art, this will hold the Id of the Parent that has one.
+    // Gets or sets whether the item has fan art, this will hold the Id of the Parent that has one.
     // String parentArtItemId
     test('to test the property `parentArtItemId`', () async {
       // TODO
@@ -610,6 +609,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the trickplay manifest.
+    // BuiltMap<String, BuiltMap<String, TrickplayInfo>> trickplay
+    test('to test the property `trickplay`', () async {
+      // TODO
+    });
+
     // Gets or sets the type of the location.
     // LocationType locationType
     test('to test the property `locationType`', () async {
@@ -623,7 +628,7 @@ void main() {
     });
 
     // Gets or sets the type of the media.
-    // String mediaType
+    // MediaType mediaType
     test('to test the property `mediaType`', () async {
       // TODO
     });
@@ -867,6 +872,12 @@ void main() {
     // Gets or sets the timer identifier.
     // String timerId
     test('to test the property `timerId`', () async {
+      // TODO
+    });
+
+    // Gets or sets the gain required for audio normalization.
+    // double normalizationGain
+    test('to test the property `normalizationGain`', () async {
       // TODO
     });
 

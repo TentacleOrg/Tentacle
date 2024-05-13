@@ -22,7 +22,7 @@ void main() {
 
     // Gets live playback media info for an item.
     //
-    //Future<PlaybackInfoResponse> getPlaybackInfo(String itemId, String userId) async
+    //Future<PlaybackInfoResponse> getPlaybackInfo(String itemId, { String userId }) async
     test('test getPlaybackInfo', () async {
       // TODO
     });

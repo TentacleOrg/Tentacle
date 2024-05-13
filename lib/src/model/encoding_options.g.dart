@@ -16,13 +16,21 @@ class _$EncodingOptions extends EncodingOptions {
   @override
   final bool? enableFallbackFont;
   @override
+  final bool? enableAudioVbr;
+  @override
   final double? downMixAudioBoost;
+  @override
+  final DownMixStereoAlgorithms? downMixStereoAlgorithm;
   @override
   final int? maxMuxingQueueSize;
   @override
   final bool? enableThrottling;
   @override
   final int? throttleDelaySeconds;
+  @override
+  final bool? enableSegmentDeletion;
+  @override
+  final int? segmentKeepSeconds;
   @override
   final String? hardwareAccelerationType;
   @override
@@ -35,6 +43,8 @@ class _$EncodingOptions extends EncodingOptions {
   final bool? enableTonemapping;
   @override
   final bool? enableVppTonemapping;
+  @override
+  final bool? enableVideoToolboxTonemapping;
   @override
   final String? tonemappingAlgorithm;
   @override
@@ -78,6 +88,8 @@ class _$EncodingOptions extends EncodingOptions {
   @override
   final bool? allowHevcEncoding;
   @override
+  final bool? allowAv1Encoding;
+  @override
   final bool? enableSubtitleExtraction;
   @override
   final BuiltList<String>? hardwareDecodingCodecs;
@@ -93,16 +105,21 @@ class _$EncodingOptions extends EncodingOptions {
       this.transcodingTempPath,
       this.fallbackFontPath,
       this.enableFallbackFont,
+      this.enableAudioVbr,
       this.downMixAudioBoost,
+      this.downMixStereoAlgorithm,
       this.maxMuxingQueueSize,
       this.enableThrottling,
       this.throttleDelaySeconds,
+      this.enableSegmentDeletion,
+      this.segmentKeepSeconds,
       this.hardwareAccelerationType,
       this.encoderAppPath,
       this.encoderAppPathDisplay,
       this.vaapiDevice,
       this.enableTonemapping,
       this.enableVppTonemapping,
+      this.enableVideoToolboxTonemapping,
       this.tonemappingAlgorithm,
       this.tonemappingMode,
       this.tonemappingRange,
@@ -124,6 +141,7 @@ class _$EncodingOptions extends EncodingOptions {
       this.enableIntelLowPowerHevcHwEncoder,
       this.enableHardwareEncoding,
       this.allowHevcEncoding,
+      this.allowAv1Encoding,
       this.enableSubtitleExtraction,
       this.hardwareDecodingCodecs,
       this.allowOnDemandMetadataBasedKeyframeExtractionForExtensions})
@@ -145,16 +163,21 @@ class _$EncodingOptions extends EncodingOptions {
         transcodingTempPath == other.transcodingTempPath &&
         fallbackFontPath == other.fallbackFontPath &&
         enableFallbackFont == other.enableFallbackFont &&
+        enableAudioVbr == other.enableAudioVbr &&
         downMixAudioBoost == other.downMixAudioBoost &&
+        downMixStereoAlgorithm == other.downMixStereoAlgorithm &&
         maxMuxingQueueSize == other.maxMuxingQueueSize &&
         enableThrottling == other.enableThrottling &&
         throttleDelaySeconds == other.throttleDelaySeconds &&
+        enableSegmentDeletion == other.enableSegmentDeletion &&
+        segmentKeepSeconds == other.segmentKeepSeconds &&
         hardwareAccelerationType == other.hardwareAccelerationType &&
         encoderAppPath == other.encoderAppPath &&
         encoderAppPathDisplay == other.encoderAppPathDisplay &&
         vaapiDevice == other.vaapiDevice &&
         enableTonemapping == other.enableTonemapping &&
         enableVppTonemapping == other.enableVppTonemapping &&
+        enableVideoToolboxTonemapping == other.enableVideoToolboxTonemapping &&
         tonemappingAlgorithm == other.tonemappingAlgorithm &&
         tonemappingMode == other.tonemappingMode &&
         tonemappingRange == other.tonemappingRange &&
@@ -179,6 +202,7 @@ class _$EncodingOptions extends EncodingOptions {
             other.enableIntelLowPowerHevcHwEncoder &&
         enableHardwareEncoding == other.enableHardwareEncoding &&
         allowHevcEncoding == other.allowHevcEncoding &&
+        allowAv1Encoding == other.allowAv1Encoding &&
         enableSubtitleExtraction == other.enableSubtitleExtraction &&
         hardwareDecodingCodecs == other.hardwareDecodingCodecs &&
         allowOnDemandMetadataBasedKeyframeExtractionForExtensions ==
@@ -192,16 +216,21 @@ class _$EncodingOptions extends EncodingOptions {
     _$hash = $jc(_$hash, transcodingTempPath.hashCode);
     _$hash = $jc(_$hash, fallbackFontPath.hashCode);
     _$hash = $jc(_$hash, enableFallbackFont.hashCode);
+    _$hash = $jc(_$hash, enableAudioVbr.hashCode);
     _$hash = $jc(_$hash, downMixAudioBoost.hashCode);
+    _$hash = $jc(_$hash, downMixStereoAlgorithm.hashCode);
     _$hash = $jc(_$hash, maxMuxingQueueSize.hashCode);
     _$hash = $jc(_$hash, enableThrottling.hashCode);
     _$hash = $jc(_$hash, throttleDelaySeconds.hashCode);
+    _$hash = $jc(_$hash, enableSegmentDeletion.hashCode);
+    _$hash = $jc(_$hash, segmentKeepSeconds.hashCode);
     _$hash = $jc(_$hash, hardwareAccelerationType.hashCode);
     _$hash = $jc(_$hash, encoderAppPath.hashCode);
     _$hash = $jc(_$hash, encoderAppPathDisplay.hashCode);
     _$hash = $jc(_$hash, vaapiDevice.hashCode);
     _$hash = $jc(_$hash, enableTonemapping.hashCode);
     _$hash = $jc(_$hash, enableVppTonemapping.hashCode);
+    _$hash = $jc(_$hash, enableVideoToolboxTonemapping.hashCode);
     _$hash = $jc(_$hash, tonemappingAlgorithm.hashCode);
     _$hash = $jc(_$hash, tonemappingMode.hashCode);
     _$hash = $jc(_$hash, tonemappingRange.hashCode);
@@ -223,6 +252,7 @@ class _$EncodingOptions extends EncodingOptions {
     _$hash = $jc(_$hash, enableIntelLowPowerHevcHwEncoder.hashCode);
     _$hash = $jc(_$hash, enableHardwareEncoding.hashCode);
     _$hash = $jc(_$hash, allowHevcEncoding.hashCode);
+    _$hash = $jc(_$hash, allowAv1Encoding.hashCode);
     _$hash = $jc(_$hash, enableSubtitleExtraction.hashCode);
     _$hash = $jc(_$hash, hardwareDecodingCodecs.hashCode);
     _$hash = $jc(_$hash,
@@ -238,16 +268,21 @@ class _$EncodingOptions extends EncodingOptions {
           ..add('transcodingTempPath', transcodingTempPath)
           ..add('fallbackFontPath', fallbackFontPath)
           ..add('enableFallbackFont', enableFallbackFont)
+          ..add('enableAudioVbr', enableAudioVbr)
           ..add('downMixAudioBoost', downMixAudioBoost)
+          ..add('downMixStereoAlgorithm', downMixStereoAlgorithm)
           ..add('maxMuxingQueueSize', maxMuxingQueueSize)
           ..add('enableThrottling', enableThrottling)
           ..add('throttleDelaySeconds', throttleDelaySeconds)
+          ..add('enableSegmentDeletion', enableSegmentDeletion)
+          ..add('segmentKeepSeconds', segmentKeepSeconds)
           ..add('hardwareAccelerationType', hardwareAccelerationType)
           ..add('encoderAppPath', encoderAppPath)
           ..add('encoderAppPathDisplay', encoderAppPathDisplay)
           ..add('vaapiDevice', vaapiDevice)
           ..add('enableTonemapping', enableTonemapping)
           ..add('enableVppTonemapping', enableVppTonemapping)
+          ..add('enableVideoToolboxTonemapping', enableVideoToolboxTonemapping)
           ..add('tonemappingAlgorithm', tonemappingAlgorithm)
           ..add('tonemappingMode', tonemappingMode)
           ..add('tonemappingRange', tonemappingRange)
@@ -272,6 +307,7 @@ class _$EncodingOptions extends EncodingOptions {
               enableIntelLowPowerHevcHwEncoder)
           ..add('enableHardwareEncoding', enableHardwareEncoding)
           ..add('allowHevcEncoding', allowHevcEncoding)
+          ..add('allowAv1Encoding', allowAv1Encoding)
           ..add('enableSubtitleExtraction', enableSubtitleExtraction)
           ..add('hardwareDecodingCodecs', hardwareDecodingCodecs)
           ..add('allowOnDemandMetadataBasedKeyframeExtractionForExtensions',
@@ -304,10 +340,21 @@ class EncodingOptionsBuilder
   set enableFallbackFont(bool? enableFallbackFont) =>
       _$this._enableFallbackFont = enableFallbackFont;
 
+  bool? _enableAudioVbr;
+  bool? get enableAudioVbr => _$this._enableAudioVbr;
+  set enableAudioVbr(bool? enableAudioVbr) =>
+      _$this._enableAudioVbr = enableAudioVbr;
+
   double? _downMixAudioBoost;
   double? get downMixAudioBoost => _$this._downMixAudioBoost;
   set downMixAudioBoost(double? downMixAudioBoost) =>
       _$this._downMixAudioBoost = downMixAudioBoost;
+
+  DownMixStereoAlgorithms? _downMixStereoAlgorithm;
+  DownMixStereoAlgorithms? get downMixStereoAlgorithm =>
+      _$this._downMixStereoAlgorithm;
+  set downMixStereoAlgorithm(DownMixStereoAlgorithms? downMixStereoAlgorithm) =>
+      _$this._downMixStereoAlgorithm = downMixStereoAlgorithm;
 
   int? _maxMuxingQueueSize;
   int? get maxMuxingQueueSize => _$this._maxMuxingQueueSize;
@@ -323,6 +370,16 @@ class EncodingOptionsBuilder
   int? get throttleDelaySeconds => _$this._throttleDelaySeconds;
   set throttleDelaySeconds(int? throttleDelaySeconds) =>
       _$this._throttleDelaySeconds = throttleDelaySeconds;
+
+  bool? _enableSegmentDeletion;
+  bool? get enableSegmentDeletion => _$this._enableSegmentDeletion;
+  set enableSegmentDeletion(bool? enableSegmentDeletion) =>
+      _$this._enableSegmentDeletion = enableSegmentDeletion;
+
+  int? _segmentKeepSeconds;
+  int? get segmentKeepSeconds => _$this._segmentKeepSeconds;
+  set segmentKeepSeconds(int? segmentKeepSeconds) =>
+      _$this._segmentKeepSeconds = segmentKeepSeconds;
 
   String? _hardwareAccelerationType;
   String? get hardwareAccelerationType => _$this._hardwareAccelerationType;
@@ -352,6 +409,12 @@ class EncodingOptionsBuilder
   bool? get enableVppTonemapping => _$this._enableVppTonemapping;
   set enableVppTonemapping(bool? enableVppTonemapping) =>
       _$this._enableVppTonemapping = enableVppTonemapping;
+
+  bool? _enableVideoToolboxTonemapping;
+  bool? get enableVideoToolboxTonemapping =>
+      _$this._enableVideoToolboxTonemapping;
+  set enableVideoToolboxTonemapping(bool? enableVideoToolboxTonemapping) =>
+      _$this._enableVideoToolboxTonemapping = enableVideoToolboxTonemapping;
 
   String? _tonemappingAlgorithm;
   String? get tonemappingAlgorithm => _$this._tonemappingAlgorithm;
@@ -464,6 +527,11 @@ class EncodingOptionsBuilder
   set allowHevcEncoding(bool? allowHevcEncoding) =>
       _$this._allowHevcEncoding = allowHevcEncoding;
 
+  bool? _allowAv1Encoding;
+  bool? get allowAv1Encoding => _$this._allowAv1Encoding;
+  set allowAv1Encoding(bool? allowAv1Encoding) =>
+      _$this._allowAv1Encoding = allowAv1Encoding;
+
   bool? _enableSubtitleExtraction;
   bool? get enableSubtitleExtraction => _$this._enableSubtitleExtraction;
   set enableSubtitleExtraction(bool? enableSubtitleExtraction) =>
@@ -498,16 +566,21 @@ class EncodingOptionsBuilder
       _transcodingTempPath = $v.transcodingTempPath;
       _fallbackFontPath = $v.fallbackFontPath;
       _enableFallbackFont = $v.enableFallbackFont;
+      _enableAudioVbr = $v.enableAudioVbr;
       _downMixAudioBoost = $v.downMixAudioBoost;
+      _downMixStereoAlgorithm = $v.downMixStereoAlgorithm;
       _maxMuxingQueueSize = $v.maxMuxingQueueSize;
       _enableThrottling = $v.enableThrottling;
       _throttleDelaySeconds = $v.throttleDelaySeconds;
+      _enableSegmentDeletion = $v.enableSegmentDeletion;
+      _segmentKeepSeconds = $v.segmentKeepSeconds;
       _hardwareAccelerationType = $v.hardwareAccelerationType;
       _encoderAppPath = $v.encoderAppPath;
       _encoderAppPathDisplay = $v.encoderAppPathDisplay;
       _vaapiDevice = $v.vaapiDevice;
       _enableTonemapping = $v.enableTonemapping;
       _enableVppTonemapping = $v.enableVppTonemapping;
+      _enableVideoToolboxTonemapping = $v.enableVideoToolboxTonemapping;
       _tonemappingAlgorithm = $v.tonemappingAlgorithm;
       _tonemappingMode = $v.tonemappingMode;
       _tonemappingRange = $v.tonemappingRange;
@@ -529,6 +602,7 @@ class EncodingOptionsBuilder
       _enableIntelLowPowerHevcHwEncoder = $v.enableIntelLowPowerHevcHwEncoder;
       _enableHardwareEncoding = $v.enableHardwareEncoding;
       _allowHevcEncoding = $v.allowHevcEncoding;
+      _allowAv1Encoding = $v.allowAv1Encoding;
       _enableSubtitleExtraction = $v.enableSubtitleExtraction;
       _hardwareDecodingCodecs = $v.hardwareDecodingCodecs?.toBuilder();
       _allowOnDemandMetadataBasedKeyframeExtractionForExtensions = $v
@@ -562,16 +636,21 @@ class EncodingOptionsBuilder
               transcodingTempPath: transcodingTempPath,
               fallbackFontPath: fallbackFontPath,
               enableFallbackFont: enableFallbackFont,
+              enableAudioVbr: enableAudioVbr,
               downMixAudioBoost: downMixAudioBoost,
+              downMixStereoAlgorithm: downMixStereoAlgorithm,
               maxMuxingQueueSize: maxMuxingQueueSize,
               enableThrottling: enableThrottling,
               throttleDelaySeconds: throttleDelaySeconds,
+              enableSegmentDeletion: enableSegmentDeletion,
+              segmentKeepSeconds: segmentKeepSeconds,
               hardwareAccelerationType: hardwareAccelerationType,
               encoderAppPath: encoderAppPath,
               encoderAppPathDisplay: encoderAppPathDisplay,
               vaapiDevice: vaapiDevice,
               enableTonemapping: enableTonemapping,
               enableVppTonemapping: enableVppTonemapping,
+              enableVideoToolboxTonemapping: enableVideoToolboxTonemapping,
               tonemappingAlgorithm: tonemappingAlgorithm,
               tonemappingMode: tonemappingMode,
               tonemappingRange: tonemappingRange,
@@ -595,6 +674,7 @@ class EncodingOptionsBuilder
                   enableIntelLowPowerHevcHwEncoder,
               enableHardwareEncoding: enableHardwareEncoding,
               allowHevcEncoding: allowHevcEncoding,
+              allowAv1Encoding: allowAv1Encoding,
               enableSubtitleExtraction: enableSubtitleExtraction,
               hardwareDecodingCodecs: _hardwareDecodingCodecs?.build(),
               allowOnDemandMetadataBasedKeyframeExtractionForExtensions:
