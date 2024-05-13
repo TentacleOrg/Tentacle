@@ -4,13 +4,12 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/player_state_info.dart';
-import 'package:tentacle/src/model/session_info_now_viewing_item.dart';
 import 'package:tentacle/src/model/session_user_info.dart';
 import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/session_info_full_now_playing_item.dart';
 import 'package:tentacle/src/model/queue_item.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/session_info_now_playing_item.dart';
 import 'package:tentacle/src/model/transcoding_info.dart';
 import 'package:tentacle/src/model/client_capabilities.dart';
@@ -33,10 +32,10 @@ part 'session_info.g.dart';
 /// * [client] - Gets or sets the type of the client.
 /// * [lastActivityDate] - Gets or sets the last activity date.
 /// * [lastPlaybackCheckIn] - Gets or sets the last playback check in.
+/// * [lastPausedDate] - Gets or sets the last paused date.
 /// * [deviceName] - Gets or sets the name of the device.
 /// * [deviceType] - Gets or sets the type of the device.
 /// * [nowPlayingItem]
-/// * [fullNowPlayingItem]
 /// * [nowViewingItem]
 /// * [deviceId] - Gets or sets the device id.
 /// * [applicationVersion] - Gets or sets the application version.
@@ -68,7 +67,7 @@ abstract class SessionInfo {
 
   /// Gets the playable media types.
   @BuiltValueField(wireName: r'PlayableMediaTypes')
-  BuiltList<String>? get playableMediaTypes;
+  BuiltList<MediaType>? get playableMediaTypes;
 
   /// Gets or sets the id.
   @BuiltValueField(wireName: r'Id')
@@ -94,6 +93,10 @@ abstract class SessionInfo {
   @BuiltValueField(wireName: r'LastPlaybackCheckIn')
   DateTime? get lastPlaybackCheckIn;
 
+  /// Gets or sets the last paused date.
+  @BuiltValueField(wireName: r'LastPausedDate')
+  DateTime? get lastPausedDate;
+
   /// Gets or sets the name of the device.
   @BuiltValueField(wireName: r'DeviceName')
   String? get deviceName;
@@ -105,11 +108,8 @@ abstract class SessionInfo {
   @BuiltValueField(wireName: r'NowPlayingItem')
   SessionInfoNowPlayingItem? get nowPlayingItem;
 
-  @BuiltValueField(wireName: r'FullNowPlayingItem')
-  SessionInfoFullNowPlayingItem? get fullNowPlayingItem;
-
   @BuiltValueField(wireName: r'NowViewingItem')
-  SessionInfoNowViewingItem? get nowViewingItem;
+  SessionInfoNowPlayingItem? get nowViewingItem;
 
   /// Gets or sets the device id.
   @BuiltValueField(wireName: r'DeviceId')
@@ -203,7 +203,8 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
       yield r'PlayableMediaTypes';
       yield serializers.serialize(
         object.playableMediaTypes,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaType)]),
       );
     }
     if (object.id != null) {
@@ -248,6 +249,13 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
         specifiedType: const FullType(DateTime),
       );
     }
+    if (object.lastPausedDate != null) {
+      yield r'LastPausedDate';
+      yield serializers.serialize(
+        object.lastPausedDate,
+        specifiedType: const FullType.nullable(DateTime),
+      );
+    }
     if (object.deviceName != null) {
       yield r'DeviceName';
       yield serializers.serialize(
@@ -269,18 +277,11 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
         specifiedType: const FullType.nullable(SessionInfoNowPlayingItem),
       );
     }
-    if (object.fullNowPlayingItem != null) {
-      yield r'FullNowPlayingItem';
-      yield serializers.serialize(
-        object.fullNowPlayingItem,
-        specifiedType: const FullType.nullable(SessionInfoFullNowPlayingItem),
-      );
-    }
     if (object.nowViewingItem != null) {
       yield r'NowViewingItem';
       yield serializers.serialize(
         object.nowViewingItem,
-        specifiedType: const FullType.nullable(SessionInfoNowViewingItem),
+        specifiedType: const FullType.nullable(SessionInfoNowPlayingItem),
       );
     }
     if (object.deviceId != null) {
@@ -482,8 +483,8 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
           final valueDes = serializers.deserialize(
             value,
             specifiedType:
-                const FullType.nullable(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>?;
+                const FullType.nullable(BuiltList, [FullType(MediaType)]),
+          ) as BuiltList<MediaType>?;
           if (valueDes == null) continue;
           result.playableMediaTypes.replace(valueDes);
           break;
@@ -532,6 +533,14 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
           ) as DateTime;
           result.lastPlaybackCheckIn = valueDes;
           break;
+        case r'LastPausedDate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(DateTime),
+          ) as DateTime?;
+          if (valueDes == null) continue;
+          result.lastPausedDate = valueDes;
+          break;
         case r'DeviceName':
           final valueDes = serializers.deserialize(
             value,
@@ -556,20 +565,11 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
           if (valueDes == null) continue;
           result.nowPlayingItem.replace(valueDes);
           break;
-        case r'FullNowPlayingItem':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType:
-                const FullType.nullable(SessionInfoFullNowPlayingItem),
-          ) as SessionInfoFullNowPlayingItem?;
-          if (valueDes == null) continue;
-          result.fullNowPlayingItem.replace(valueDes);
-          break;
         case r'NowViewingItem':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SessionInfoNowViewingItem),
-          ) as SessionInfoNowViewingItem?;
+            specifiedType: const FullType.nullable(SessionInfoNowPlayingItem),
+          ) as SessionInfoNowPlayingItem?;
           if (valueDes == null) continue;
           result.nowViewingItem.replace(valueDes);
           break;

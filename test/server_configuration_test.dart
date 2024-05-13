@@ -142,9 +142,21 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the threshold in minutes after a inactive session gets closed automatically.  If set to 0 the check for inactive sessions gets disabled.
+    // int inactiveSessionThreshold
+    test('to test the property `inactiveSessionThreshold`', () async {
+      // TODO
+    });
+
     // Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files.
     // int libraryMonitorDelay
     test('to test the property `libraryMonitorDelay`', () async {
+      // TODO
+    });
+
+    // Gets or sets the duration in seconds that we will wait after a library updated event before executing the library changed notification.
+    // int libraryUpdateDuration
+    test('to test the property `libraryUpdateDuration`', () async {
       // TODO
     });
 
@@ -274,6 +286,36 @@ void main() {
     // Gets or sets a value indicating whether clients should be allowed to upload logs.
     // bool allowClientLogUpload
     test('to test the property `allowClientLogUpload`', () async {
+      // TODO
+    });
+
+    // Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation alltogether.
+    // int dummyChapterDuration
+    test('to test the property `dummyChapterDuration`', () async {
+      // TODO
+    });
+
+    // Gets or sets the chapter image resolution.
+    // ImageResolution chapterImageResolution
+    test('to test the property `chapterImageResolution`', () async {
+      // TODO
+    });
+
+    // Gets or sets the limit for parallel image encoding.
+    // int parallelImageEncodingLimit
+    test('to test the property `parallelImageEncodingLimit`', () async {
+      // TODO
+    });
+
+    // Gets or sets the list of cast receiver applications.
+    // BuiltList<CastReceiverApplication> castReceiverApplications
+    test('to test the property `castReceiverApplications`', () async {
+      // TODO
+    });
+
+    // Gets or sets the trickplay options.
+    // TrickplayOptions trickplayOptions
+    test('to test the property `trickplayOptions`', () async {
       // TODO
     });
   });

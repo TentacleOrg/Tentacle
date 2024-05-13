@@ -27,6 +27,8 @@ part 'live_tv_options.g.dart';
 /// * [mediaLocationsCreated]
 /// * [recordingPostProcessor]
 /// * [recordingPostProcessorArguments]
+/// * [saveRecordingNFO]
+/// * [saveRecordingImages]
 @BuiltValue()
 abstract class LiveTvOptions
     implements Built<LiveTvOptions, LiveTvOptionsBuilder> {
@@ -68,6 +70,12 @@ abstract class LiveTvOptions
 
   @BuiltValueField(wireName: r'RecordingPostProcessorArguments')
   String? get recordingPostProcessorArguments;
+
+  @BuiltValueField(wireName: r'SaveRecordingNFO')
+  bool? get saveRecordingNFO;
+
+  @BuiltValueField(wireName: r'SaveRecordingImages')
+  bool? get saveRecordingImages;
 
   LiveTvOptions._();
 
@@ -185,6 +193,20 @@ class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
       yield serializers.serialize(
         object.recordingPostProcessorArguments,
         specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.saveRecordingNFO != null) {
+      yield r'SaveRecordingNFO';
+      yield serializers.serialize(
+        object.saveRecordingNFO,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.saveRecordingImages != null) {
+      yield r'SaveRecordingImages';
+      yield serializers.serialize(
+        object.saveRecordingImages,
+        specifiedType: const FullType(bool),
       );
     }
   }
@@ -314,6 +336,20 @@ class _$LiveTvOptionsSerializer implements PrimitiveSerializer<LiveTvOptions> {
           ) as String?;
           if (valueDes == null) continue;
           result.recordingPostProcessorArguments = valueDes;
+          break;
+        case r'SaveRecordingNFO':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.saveRecordingNFO = valueDes;
+          break;
+        case r'SaveRecordingImages':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.saveRecordingImages = valueDes;
           break;
         default:
           unhandled.add(key);

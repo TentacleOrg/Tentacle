@@ -29,6 +29,7 @@ part 'user_dto_configuration.g.dart';
 /// * [rememberAudioSelections]
 /// * [rememberSubtitleSelections]
 /// * [enableNextEpisodeAutoPlay]
+/// * [castReceiverId] - Gets or sets the id of the selected cast receiver.
 @BuiltValue()
 abstract class UserDtoConfiguration
     implements
@@ -89,6 +90,13 @@ class _$UserDtoConfigurationSerializer
       yield serializers.serialize(
         object.displayMissingEpisodes,
         specifiedType: const FullType(bool),
+      );
+    }
+    if (object.castReceiverId != null) {
+      yield r'CastReceiverId';
+      yield serializers.serialize(
+        object.castReceiverId,
+        specifiedType: const FullType.nullable(String),
       );
     }
     if (object.hidePlayedInLatest != null) {
@@ -220,6 +228,14 @@ class _$UserDtoConfigurationSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.displayMissingEpisodes = valueDes;
+          break;
+        case r'CastReceiverId':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.castReceiverId = valueDes;
           break;
         case r'HidePlayedInLatest':
           final valueDes = serializers.deserialize(

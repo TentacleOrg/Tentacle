@@ -8,29 +8,29 @@ void main() {
   group(QuickConnectApi, () {
     // Authorizes a pending quick connect request.
     //
-    //Future<bool> authorize(String code) async
-    test('test authorize', () async {
-      // TODO
-    });
-
-    // Attempts to retrieve authentication information.
-    //
-    //Future<QuickConnectResult> connect(String secret) async
-    test('test connect', () async {
+    //Future<bool> authorizeQuickConnect(String code, { String userId }) async
+    test('test authorizeQuickConnect', () async {
       // TODO
     });
 
     // Gets the current quick connect state.
     //
-    //Future<bool> getEnabled() async
-    test('test getEnabled', () async {
+    //Future<bool> getQuickConnectEnabled() async
+    test('test getQuickConnectEnabled', () async {
+      // TODO
+    });
+
+    // Attempts to retrieve authentication information.
+    //
+    //Future<QuickConnectResult> getQuickConnectState(String secret) async
+    test('test getQuickConnectState', () async {
       // TODO
     });
 
     // Initiate a new quick connect request.
     //
-    //Future<QuickConnectResult> initiate() async
-    test('test initiate', () async {
+    //Future<QuickConnectResult> initiateQuickConnect() async
+    test('test initiateQuickConnect', () async {
       // TODO
     });
   });

@@ -135,7 +135,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| The item id. | 
- **userId** | **String**| The user id. | 
+ **userId** | **String**| The user id. | [optional] 
 
 ### Return type
 

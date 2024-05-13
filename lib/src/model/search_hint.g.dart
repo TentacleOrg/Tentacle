@@ -32,13 +32,13 @@ class _$SearchHint extends SearchHint {
   @override
   final String? backdropImageItemId;
   @override
-  final String? type;
+  final BaseItemKind? type;
   @override
   final bool? isFolder;
   @override
   final int? runTimeTicks;
   @override
-  final String? mediaType;
+  final MediaType? mediaType;
   @override
   final DateTime? startDate;
   @override
@@ -273,9 +273,9 @@ class SearchHintBuilder implements Builder<SearchHint, SearchHintBuilder> {
   set backdropImageItemId(String? backdropImageItemId) =>
       _$this._backdropImageItemId = backdropImageItemId;
 
-  String? _type;
-  String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  BaseItemKind? _type;
+  BaseItemKind? get type => _$this._type;
+  set type(BaseItemKind? type) => _$this._type = type;
 
   bool? _isFolder;
   bool? get isFolder => _$this._isFolder;
@@ -285,9 +285,9 @@ class SearchHintBuilder implements Builder<SearchHint, SearchHintBuilder> {
   int? get runTimeTicks => _$this._runTimeTicks;
   set runTimeTicks(int? runTimeTicks) => _$this._runTimeTicks = runTimeTicks;
 
-  String? _mediaType;
-  String? get mediaType => _$this._mediaType;
-  set mediaType(String? mediaType) => _$this._mediaType = mediaType;
+  MediaType? _mediaType;
+  MediaType? get mediaType => _$this._mediaType;
+  set mediaType(MediaType? mediaType) => _$this._mediaType = mediaType;
 
   DateTime? _startDate;
   DateTime? get startDate => _$this._startDate;

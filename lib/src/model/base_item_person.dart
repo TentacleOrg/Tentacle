@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/person_kind.dart';
 import 'package:tentacle/src/model/base_item_person_image_blur_hashes.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -35,7 +36,8 @@ abstract class BaseItemPerson
 
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
-  String? get type;
+  PersonKind? get type;
+  // enum typeEnum {  Unknown,  Actor,  Director,  Composer,  Writer,  GuestStar,  Producer,  Conductor,  Lyricist,  Arranger,  Engineer,  Mixer,  Remixer,  Creator,  Artist,  AlbumArtist,  Author,  Illustrator,  Penciller,  Inker,  Colorist,  Letterer,  CoverArtist,  Editor,  Translator,  };
 
   /// Gets or sets the primary image tag.
   @BuiltValueField(wireName: r'PrimaryImageTag')
@@ -95,7 +97,7 @@ class _$BaseItemPersonSerializer
       yield r'Type';
       yield serializers.serialize(
         object.type,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(PersonKind),
       );
     }
     if (object.primaryImageTag != null) {
@@ -163,9 +165,8 @@ class _$BaseItemPersonSerializer
         case r'Type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(PersonKind),
+          ) as PersonKind;
           result.type = valueDes;
           break;
         case r'PrimaryImageTag':

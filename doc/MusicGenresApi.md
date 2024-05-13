@@ -88,7 +88,7 @@ final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
 final String nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
 final String nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited.
 final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
 final bool enableImages = true; // bool | Optional, include image information in output.
 final bool enableTotalRecordCount = true; // bool | Optional. Include total record count.
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
  **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] 
  **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] 
  **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
  **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
  **enableImages** | **bool**| Optional, include image information in output. | [optional] [default to true]
  **enableTotalRecordCount** | **bool**| Optional. Include total record count. | [optional] [default to true]

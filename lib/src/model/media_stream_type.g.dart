@@ -12,6 +12,7 @@ const MediaStreamType _$subtitle = const MediaStreamType._('subtitle');
 const MediaStreamType _$embeddedImage =
     const MediaStreamType._('embeddedImage');
 const MediaStreamType _$data = const MediaStreamType._('data');
+const MediaStreamType _$lyric = const MediaStreamType._('lyric');
 
 MediaStreamType _$valueOf(String name) {
   switch (name) {
@@ -25,6 +26,8 @@ MediaStreamType _$valueOf(String name) {
       return _$embeddedImage;
     case 'data':
       return _$data;
+    case 'lyric':
+      return _$lyric;
     default:
       throw new ArgumentError(name);
   }
@@ -37,6 +40,7 @@ final BuiltSet<MediaStreamType> _$values =
   _$subtitle,
   _$embeddedImage,
   _$data,
+  _$lyric,
 ]);
 
 class _$MediaStreamTypeMeta {
@@ -46,6 +50,7 @@ class _$MediaStreamTypeMeta {
   MediaStreamType get subtitle => _$subtitle;
   MediaStreamType get embeddedImage => _$embeddedImage;
   MediaStreamType get data => _$data;
+  MediaStreamType get lyric => _$lyric;
   MediaStreamType valueOf(String name) => _$valueOf(name);
   BuiltSet<MediaStreamType> get values => _$values;
 }
@@ -66,6 +71,7 @@ class _$MediaStreamTypeSerializer
     'subtitle': 'Subtitle',
     'embeddedImage': 'EmbeddedImage',
     'data': 'Data',
+    'lyric': 'Lyric',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Audio': 'audio',
@@ -73,6 +79,7 @@ class _$MediaStreamTypeSerializer
     'Subtitle': 'subtitle',
     'EmbeddedImage': 'embeddedImage',
     'Data': 'data',
+    'Lyric': 'lyric',
   };
 
   @override

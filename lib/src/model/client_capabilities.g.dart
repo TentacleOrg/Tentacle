@@ -9,8 +9,8 @@ part of 'client_capabilities.dart';
 abstract mixin class ClientCapabilitiesBuilder {
   void replace(ClientCapabilities other);
   void update(void Function(ClientCapabilitiesBuilder) updates);
-  ListBuilder<String> get playableMediaTypes;
-  set playableMediaTypes(ListBuilder<String>? playableMediaTypes);
+  ListBuilder<MediaType> get playableMediaTypes;
+  set playableMediaTypes(ListBuilder<MediaType>? playableMediaTypes);
 
   ListBuilder<GeneralCommandType> get supportedCommands;
   set supportedCommands(ListBuilder<GeneralCommandType>? supportedCommands);
@@ -18,17 +18,8 @@ abstract mixin class ClientCapabilitiesBuilder {
   bool? get supportsMediaControl;
   set supportsMediaControl(bool? supportsMediaControl);
 
-  bool? get supportsContentUploading;
-  set supportsContentUploading(bool? supportsContentUploading);
-
-  String? get messageCallbackUrl;
-  set messageCallbackUrl(String? messageCallbackUrl);
-
   bool? get supportsPersistentIdentifier;
   set supportsPersistentIdentifier(bool? supportsPersistentIdentifier);
-
-  bool? get supportsSync;
-  set supportsSync(bool? supportsSync);
 
   ClientCapabilitiesDeviceProfileBuilder get deviceProfile;
   set deviceProfile(ClientCapabilitiesDeviceProfileBuilder? deviceProfile);
@@ -38,29 +29,33 @@ abstract mixin class ClientCapabilitiesBuilder {
 
   String? get iconUrl;
   set iconUrl(String? iconUrl);
+
+  bool? get supportsContentUploading;
+  set supportsContentUploading(bool? supportsContentUploading);
+
+  bool? get supportsSync;
+  set supportsSync(bool? supportsSync);
 }
 
 class _$$ClientCapabilities extends $ClientCapabilities {
   @override
-  final BuiltList<String>? playableMediaTypes;
+  final BuiltList<MediaType>? playableMediaTypes;
   @override
   final BuiltList<GeneralCommandType>? supportedCommands;
   @override
   final bool? supportsMediaControl;
   @override
-  final bool? supportsContentUploading;
-  @override
-  final String? messageCallbackUrl;
-  @override
   final bool? supportsPersistentIdentifier;
-  @override
-  final bool? supportsSync;
   @override
   final ClientCapabilitiesDeviceProfile? deviceProfile;
   @override
   final String? appStoreUrl;
   @override
   final String? iconUrl;
+  @override
+  final bool? supportsContentUploading;
+  @override
+  final bool? supportsSync;
 
   factory _$$ClientCapabilities(
           [void Function($ClientCapabilitiesBuilder)? updates]) =>
@@ -70,13 +65,12 @@ class _$$ClientCapabilities extends $ClientCapabilities {
       {this.playableMediaTypes,
       this.supportedCommands,
       this.supportsMediaControl,
-      this.supportsContentUploading,
-      this.messageCallbackUrl,
       this.supportsPersistentIdentifier,
-      this.supportsSync,
       this.deviceProfile,
       this.appStoreUrl,
-      this.iconUrl})
+      this.iconUrl,
+      this.supportsContentUploading,
+      this.supportsSync})
       : super._();
 
   @override
@@ -95,13 +89,12 @@ class _$$ClientCapabilities extends $ClientCapabilities {
         playableMediaTypes == other.playableMediaTypes &&
         supportedCommands == other.supportedCommands &&
         supportsMediaControl == other.supportsMediaControl &&
-        supportsContentUploading == other.supportsContentUploading &&
-        messageCallbackUrl == other.messageCallbackUrl &&
         supportsPersistentIdentifier == other.supportsPersistentIdentifier &&
-        supportsSync == other.supportsSync &&
         deviceProfile == other.deviceProfile &&
         appStoreUrl == other.appStoreUrl &&
-        iconUrl == other.iconUrl;
+        iconUrl == other.iconUrl &&
+        supportsContentUploading == other.supportsContentUploading &&
+        supportsSync == other.supportsSync;
   }
 
   @override
@@ -110,13 +103,12 @@ class _$$ClientCapabilities extends $ClientCapabilities {
     _$hash = $jc(_$hash, playableMediaTypes.hashCode);
     _$hash = $jc(_$hash, supportedCommands.hashCode);
     _$hash = $jc(_$hash, supportsMediaControl.hashCode);
-    _$hash = $jc(_$hash, supportsContentUploading.hashCode);
-    _$hash = $jc(_$hash, messageCallbackUrl.hashCode);
     _$hash = $jc(_$hash, supportsPersistentIdentifier.hashCode);
-    _$hash = $jc(_$hash, supportsSync.hashCode);
     _$hash = $jc(_$hash, deviceProfile.hashCode);
     _$hash = $jc(_$hash, appStoreUrl.hashCode);
     _$hash = $jc(_$hash, iconUrl.hashCode);
+    _$hash = $jc(_$hash, supportsContentUploading.hashCode);
+    _$hash = $jc(_$hash, supportsSync.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -127,13 +119,12 @@ class _$$ClientCapabilities extends $ClientCapabilities {
           ..add('playableMediaTypes', playableMediaTypes)
           ..add('supportedCommands', supportedCommands)
           ..add('supportsMediaControl', supportsMediaControl)
-          ..add('supportsContentUploading', supportsContentUploading)
-          ..add('messageCallbackUrl', messageCallbackUrl)
           ..add('supportsPersistentIdentifier', supportsPersistentIdentifier)
-          ..add('supportsSync', supportsSync)
           ..add('deviceProfile', deviceProfile)
           ..add('appStoreUrl', appStoreUrl)
-          ..add('iconUrl', iconUrl))
+          ..add('iconUrl', iconUrl)
+          ..add('supportsContentUploading', supportsContentUploading)
+          ..add('supportsSync', supportsSync))
         .toString();
   }
 }
@@ -144,10 +135,11 @@ class $ClientCapabilitiesBuilder
         ClientCapabilitiesBuilder {
   _$$ClientCapabilities? _$v;
 
-  ListBuilder<String>? _playableMediaTypes;
-  ListBuilder<String> get playableMediaTypes =>
-      _$this._playableMediaTypes ??= new ListBuilder<String>();
-  set playableMediaTypes(covariant ListBuilder<String>? playableMediaTypes) =>
+  ListBuilder<MediaType>? _playableMediaTypes;
+  ListBuilder<MediaType> get playableMediaTypes =>
+      _$this._playableMediaTypes ??= new ListBuilder<MediaType>();
+  set playableMediaTypes(
+          covariant ListBuilder<MediaType>? playableMediaTypes) =>
       _$this._playableMediaTypes = playableMediaTypes;
 
   ListBuilder<GeneralCommandType>? _supportedCommands;
@@ -162,27 +154,12 @@ class $ClientCapabilitiesBuilder
   set supportsMediaControl(covariant bool? supportsMediaControl) =>
       _$this._supportsMediaControl = supportsMediaControl;
 
-  bool? _supportsContentUploading;
-  bool? get supportsContentUploading => _$this._supportsContentUploading;
-  set supportsContentUploading(covariant bool? supportsContentUploading) =>
-      _$this._supportsContentUploading = supportsContentUploading;
-
-  String? _messageCallbackUrl;
-  String? get messageCallbackUrl => _$this._messageCallbackUrl;
-  set messageCallbackUrl(covariant String? messageCallbackUrl) =>
-      _$this._messageCallbackUrl = messageCallbackUrl;
-
   bool? _supportsPersistentIdentifier;
   bool? get supportsPersistentIdentifier =>
       _$this._supportsPersistentIdentifier;
   set supportsPersistentIdentifier(
           covariant bool? supportsPersistentIdentifier) =>
       _$this._supportsPersistentIdentifier = supportsPersistentIdentifier;
-
-  bool? _supportsSync;
-  bool? get supportsSync => _$this._supportsSync;
-  set supportsSync(covariant bool? supportsSync) =>
-      _$this._supportsSync = supportsSync;
 
   ClientCapabilitiesDeviceProfileBuilder? _deviceProfile;
   ClientCapabilitiesDeviceProfileBuilder get deviceProfile =>
@@ -200,6 +177,16 @@ class $ClientCapabilitiesBuilder
   String? get iconUrl => _$this._iconUrl;
   set iconUrl(covariant String? iconUrl) => _$this._iconUrl = iconUrl;
 
+  bool? _supportsContentUploading;
+  bool? get supportsContentUploading => _$this._supportsContentUploading;
+  set supportsContentUploading(covariant bool? supportsContentUploading) =>
+      _$this._supportsContentUploading = supportsContentUploading;
+
+  bool? _supportsSync;
+  bool? get supportsSync => _$this._supportsSync;
+  set supportsSync(covariant bool? supportsSync) =>
+      _$this._supportsSync = supportsSync;
+
   $ClientCapabilitiesBuilder() {
     $ClientCapabilities._defaults(this);
   }
@@ -210,13 +197,12 @@ class $ClientCapabilitiesBuilder
       _playableMediaTypes = $v.playableMediaTypes?.toBuilder();
       _supportedCommands = $v.supportedCommands?.toBuilder();
       _supportsMediaControl = $v.supportsMediaControl;
-      _supportsContentUploading = $v.supportsContentUploading;
-      _messageCallbackUrl = $v.messageCallbackUrl;
       _supportsPersistentIdentifier = $v.supportsPersistentIdentifier;
-      _supportsSync = $v.supportsSync;
       _deviceProfile = $v.deviceProfile?.toBuilder();
       _appStoreUrl = $v.appStoreUrl;
       _iconUrl = $v.iconUrl;
+      _supportsContentUploading = $v.supportsContentUploading;
+      _supportsSync = $v.supportsSync;
       _$v = null;
     }
     return this;
@@ -244,13 +230,12 @@ class $ClientCapabilitiesBuilder
               playableMediaTypes: _playableMediaTypes?.build(),
               supportedCommands: _supportedCommands?.build(),
               supportsMediaControl: supportsMediaControl,
-              supportsContentUploading: supportsContentUploading,
-              messageCallbackUrl: messageCallbackUrl,
               supportsPersistentIdentifier: supportsPersistentIdentifier,
-              supportsSync: supportsSync,
               deviceProfile: _deviceProfile?.build(),
               appStoreUrl: appStoreUrl,
-              iconUrl: iconUrl);
+              iconUrl: iconUrl,
+              supportsContentUploading: supportsContentUploading,
+              supportsSync: supportsSync);
     } catch (_) {
       late String _$failedField;
       try {

@@ -6,13 +6,6 @@ void main() {
   final instance = Tentacle().getUserApi();
 
   group(UserApi, () {
-    // Authenticates a user.
-    //
-    //Future<AuthenticationResult> authenticateUser(String userId, String pw, { String password }) async
-    test('test authenticateUser', () async {
-      // TODO
-    });
-
     // Authenticates a user by name.
     //
     //Future<AuthenticationResult> authenticateUserByName(AuthenticateUserByName authenticateUserByName) async
@@ -85,28 +78,21 @@ void main() {
 
     // Updates a user.
     //
-    //Future updateUser(String userId, UserDto userDto) async
+    //Future updateUser(UserDto userDto, { String userId }) async
     test('test updateUser', () async {
       // TODO
     });
 
     // Updates a user configuration.
     //
-    //Future updateUserConfiguration(String userId, UserConfiguration userConfiguration) async
+    //Future updateUserConfiguration(UserConfiguration userConfiguration, { String userId }) async
     test('test updateUserConfiguration', () async {
-      // TODO
-    });
-
-    // Updates a user's easy password.
-    //
-    //Future updateUserEasyPassword(String userId, UpdateUserEasyPassword updateUserEasyPassword) async
-    test('test updateUserEasyPassword', () async {
       // TODO
     });
 
     // Updates a user's password.
     //
-    //Future updateUserPassword(String userId, UpdateUserPassword updateUserPassword) async
+    //Future updateUserPassword(UpdateUserPassword updateUserPassword, { String userId }) async
     test('test updateUserPassword', () async {
       // TODO
     });

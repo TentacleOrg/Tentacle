@@ -8,7 +8,7 @@ void main() {
 
   group(ClientCapabilitiesDto, () {
     // Gets or sets the list of playable media types.
-    // BuiltList<String> playableMediaTypes
+    // BuiltList<MediaType> playableMediaTypes
     test('to test the property `playableMediaTypes`', () async {
       // TODO
     });
@@ -25,27 +25,9 @@ void main() {
       // TODO
     });
 
-    // Gets or sets a value indicating whether session supports content uploading.
-    // bool supportsContentUploading
-    test('to test the property `supportsContentUploading`', () async {
-      // TODO
-    });
-
-    // Gets or sets the message callback url.
-    // String messageCallbackUrl
-    test('to test the property `messageCallbackUrl`', () async {
-      // TODO
-    });
-
     // Gets or sets a value indicating whether session supports a persistent identifier.
     // bool supportsPersistentIdentifier
     test('to test the property `supportsPersistentIdentifier`', () async {
-      // TODO
-    });
-
-    // Gets or sets a value indicating whether session supports sync.
-    // bool supportsSync
-    test('to test the property `supportsSync`', () async {
       // TODO
     });
 
@@ -63,6 +45,16 @@ void main() {
     // Gets or sets the icon url.
     // String iconUrl
     test('to test the property `iconUrl`', () async {
+      // TODO
+    });
+
+    // bool supportsContentUploading (default value: false)
+    test('to test the property `supportsContentUploading`', () async {
+      // TODO
+    });
+
+    // bool supportsSync (default value: false)
+    test('to test the property `supportsSync`', () async {
       // TODO
     });
   });

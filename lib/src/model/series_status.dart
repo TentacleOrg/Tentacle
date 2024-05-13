@@ -10,13 +10,17 @@ import 'package:built_value/serializer.dart';
 part 'series_status.g.dart';
 
 class SeriesStatus extends EnumClass {
-  /// Enum SeriesStatus.
+  /// The status of a series.
   @BuiltValueEnumConst(wireName: r'Continuing')
   static const SeriesStatus continuing = _$continuing;
 
-  /// Enum SeriesStatus.
+  /// The status of a series.
   @BuiltValueEnumConst(wireName: r'Ended')
   static const SeriesStatus ended = _$ended;
+
+  /// The status of a series.
+  @BuiltValueEnumConst(wireName: r'Unreleased')
+  static const SeriesStatus unreleased = _$unreleased;
 
   static Serializer<SeriesStatus> get serializer => _$seriesStatusSerializer;
 

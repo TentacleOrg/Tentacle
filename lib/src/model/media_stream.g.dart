@@ -46,11 +46,13 @@ class _$MediaStream extends MediaStream {
   @override
   final String? title;
   @override
-  final String? videoRange;
+  final VideoRange? videoRange;
   @override
-  final String? videoRangeType;
+  final VideoRangeType? videoRangeType;
   @override
   final String? videoDoViTitle;
+  @override
+  final AudioSpatialFormat? audioSpatialFormat;
   @override
   final String? localizedUndefined;
   @override
@@ -59,6 +61,8 @@ class _$MediaStream extends MediaStream {
   final String? localizedForced;
   @override
   final String? localizedExternal;
+  @override
+  final String? localizedHearingImpaired;
   @override
   final String? displayTitle;
   @override
@@ -85,6 +89,8 @@ class _$MediaStream extends MediaStream {
   final bool? isDefault;
   @override
   final bool? isForced;
+  @override
+  final bool? isHearingImpaired;
   @override
   final int? height;
   @override
@@ -150,10 +156,12 @@ class _$MediaStream extends MediaStream {
       this.videoRange,
       this.videoRangeType,
       this.videoDoViTitle,
+      this.audioSpatialFormat,
       this.localizedUndefined,
       this.localizedDefault,
       this.localizedForced,
       this.localizedExternal,
+      this.localizedHearingImpaired,
       this.displayTitle,
       this.nalLengthSize,
       this.isInterlaced,
@@ -167,6 +175,7 @@ class _$MediaStream extends MediaStream {
       this.sampleRate,
       this.isDefault,
       this.isForced,
+      this.isHearingImpaired,
       this.height,
       this.width,
       this.averageFrameRate,
@@ -221,10 +230,12 @@ class _$MediaStream extends MediaStream {
         videoRange == other.videoRange &&
         videoRangeType == other.videoRangeType &&
         videoDoViTitle == other.videoDoViTitle &&
+        audioSpatialFormat == other.audioSpatialFormat &&
         localizedUndefined == other.localizedUndefined &&
         localizedDefault == other.localizedDefault &&
         localizedForced == other.localizedForced &&
         localizedExternal == other.localizedExternal &&
+        localizedHearingImpaired == other.localizedHearingImpaired &&
         displayTitle == other.displayTitle &&
         nalLengthSize == other.nalLengthSize &&
         isInterlaced == other.isInterlaced &&
@@ -238,6 +249,7 @@ class _$MediaStream extends MediaStream {
         sampleRate == other.sampleRate &&
         isDefault == other.isDefault &&
         isForced == other.isForced &&
+        isHearingImpaired == other.isHearingImpaired &&
         height == other.height &&
         width == other.width &&
         averageFrameRate == other.averageFrameRate &&
@@ -284,10 +296,12 @@ class _$MediaStream extends MediaStream {
     _$hash = $jc(_$hash, videoRange.hashCode);
     _$hash = $jc(_$hash, videoRangeType.hashCode);
     _$hash = $jc(_$hash, videoDoViTitle.hashCode);
+    _$hash = $jc(_$hash, audioSpatialFormat.hashCode);
     _$hash = $jc(_$hash, localizedUndefined.hashCode);
     _$hash = $jc(_$hash, localizedDefault.hashCode);
     _$hash = $jc(_$hash, localizedForced.hashCode);
     _$hash = $jc(_$hash, localizedExternal.hashCode);
+    _$hash = $jc(_$hash, localizedHearingImpaired.hashCode);
     _$hash = $jc(_$hash, displayTitle.hashCode);
     _$hash = $jc(_$hash, nalLengthSize.hashCode);
     _$hash = $jc(_$hash, isInterlaced.hashCode);
@@ -301,6 +315,7 @@ class _$MediaStream extends MediaStream {
     _$hash = $jc(_$hash, sampleRate.hashCode);
     _$hash = $jc(_$hash, isDefault.hashCode);
     _$hash = $jc(_$hash, isForced.hashCode);
+    _$hash = $jc(_$hash, isHearingImpaired.hashCode);
     _$hash = $jc(_$hash, height.hashCode);
     _$hash = $jc(_$hash, width.hashCode);
     _$hash = $jc(_$hash, averageFrameRate.hashCode);
@@ -349,10 +364,12 @@ class _$MediaStream extends MediaStream {
           ..add('videoRange', videoRange)
           ..add('videoRangeType', videoRangeType)
           ..add('videoDoViTitle', videoDoViTitle)
+          ..add('audioSpatialFormat', audioSpatialFormat)
           ..add('localizedUndefined', localizedUndefined)
           ..add('localizedDefault', localizedDefault)
           ..add('localizedForced', localizedForced)
           ..add('localizedExternal', localizedExternal)
+          ..add('localizedHearingImpaired', localizedHearingImpaired)
           ..add('displayTitle', displayTitle)
           ..add('nalLengthSize', nalLengthSize)
           ..add('isInterlaced', isInterlaced)
@@ -366,6 +383,7 @@ class _$MediaStream extends MediaStream {
           ..add('sampleRate', sampleRate)
           ..add('isDefault', isDefault)
           ..add('isForced', isForced)
+          ..add('isHearingImpaired', isHearingImpaired)
           ..add('height', height)
           ..add('width', width)
           ..add('averageFrameRate', averageFrameRate)
@@ -477,19 +495,24 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
   String? get title => _$this._title;
   set title(String? title) => _$this._title = title;
 
-  String? _videoRange;
-  String? get videoRange => _$this._videoRange;
-  set videoRange(String? videoRange) => _$this._videoRange = videoRange;
+  VideoRange? _videoRange;
+  VideoRange? get videoRange => _$this._videoRange;
+  set videoRange(VideoRange? videoRange) => _$this._videoRange = videoRange;
 
-  String? _videoRangeType;
-  String? get videoRangeType => _$this._videoRangeType;
-  set videoRangeType(String? videoRangeType) =>
+  VideoRangeType? _videoRangeType;
+  VideoRangeType? get videoRangeType => _$this._videoRangeType;
+  set videoRangeType(VideoRangeType? videoRangeType) =>
       _$this._videoRangeType = videoRangeType;
 
   String? _videoDoViTitle;
   String? get videoDoViTitle => _$this._videoDoViTitle;
   set videoDoViTitle(String? videoDoViTitle) =>
       _$this._videoDoViTitle = videoDoViTitle;
+
+  AudioSpatialFormat? _audioSpatialFormat;
+  AudioSpatialFormat? get audioSpatialFormat => _$this._audioSpatialFormat;
+  set audioSpatialFormat(AudioSpatialFormat? audioSpatialFormat) =>
+      _$this._audioSpatialFormat = audioSpatialFormat;
 
   String? _localizedUndefined;
   String? get localizedUndefined => _$this._localizedUndefined;
@@ -510,6 +533,11 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
   String? get localizedExternal => _$this._localizedExternal;
   set localizedExternal(String? localizedExternal) =>
       _$this._localizedExternal = localizedExternal;
+
+  String? _localizedHearingImpaired;
+  String? get localizedHearingImpaired => _$this._localizedHearingImpaired;
+  set localizedHearingImpaired(String? localizedHearingImpaired) =>
+      _$this._localizedHearingImpaired = localizedHearingImpaired;
 
   String? _displayTitle;
   String? get displayTitle => _$this._displayTitle;
@@ -564,6 +592,11 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
   bool? _isForced;
   bool? get isForced => _$this._isForced;
   set isForced(bool? isForced) => _$this._isForced = isForced;
+
+  bool? _isHearingImpaired;
+  bool? get isHearingImpaired => _$this._isHearingImpaired;
+  set isHearingImpaired(bool? isHearingImpaired) =>
+      _$this._isHearingImpaired = isHearingImpaired;
 
   int? _height;
   int? get height => _$this._height;
@@ -676,10 +709,12 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
       _videoRange = $v.videoRange;
       _videoRangeType = $v.videoRangeType;
       _videoDoViTitle = $v.videoDoViTitle;
+      _audioSpatialFormat = $v.audioSpatialFormat;
       _localizedUndefined = $v.localizedUndefined;
       _localizedDefault = $v.localizedDefault;
       _localizedForced = $v.localizedForced;
       _localizedExternal = $v.localizedExternal;
+      _localizedHearingImpaired = $v.localizedHearingImpaired;
       _displayTitle = $v.displayTitle;
       _nalLengthSize = $v.nalLengthSize;
       _isInterlaced = $v.isInterlaced;
@@ -693,6 +728,7 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
       _sampleRate = $v.sampleRate;
       _isDefault = $v.isDefault;
       _isForced = $v.isForced;
+      _isHearingImpaired = $v.isHearingImpaired;
       _height = $v.height;
       _width = $v.width;
       _averageFrameRate = $v.averageFrameRate;
@@ -756,10 +792,12 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
             videoRange: videoRange,
             videoRangeType: videoRangeType,
             videoDoViTitle: videoDoViTitle,
+            audioSpatialFormat: audioSpatialFormat,
             localizedUndefined: localizedUndefined,
             localizedDefault: localizedDefault,
             localizedForced: localizedForced,
             localizedExternal: localizedExternal,
+            localizedHearingImpaired: localizedHearingImpaired,
             displayTitle: displayTitle,
             nalLengthSize: nalLengthSize,
             isInterlaced: isInterlaced,
@@ -773,6 +811,7 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
             sampleRate: sampleRate,
             isDefault: isDefault,
             isForced: isForced,
+            isHearingImpaired: isHearingImpaired,
             height: height,
             width: width,
             averageFrameRate: averageFrameRate,

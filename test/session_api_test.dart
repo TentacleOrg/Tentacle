@@ -50,7 +50,7 @@ void main() {
 
     // Updates capabilities for a device.
     //
-    //Future postCapabilities({ String id, BuiltList<String> playableMediaTypes, BuiltList<GeneralCommandType> supportedCommands, bool supportsMediaControl, bool supportsSync, bool supportsPersistentIdentifier }) async
+    //Future postCapabilities({ String id, BuiltList<MediaType> playableMediaTypes, BuiltList<GeneralCommandType> supportedCommands, bool supportsMediaControl, bool supportsPersistentIdentifier }) async
     test('test postCapabilities', () async {
       // TODO
     });

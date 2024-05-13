@@ -38,7 +38,7 @@ final BuiltList<BaseItemKind> excludeItemTypes = ; // BuiltList<BaseItemKind> | 
 final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
 final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
 final bool isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
-final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional filter by MediaType. Allows multiple, comma delimited.
+final BuiltList<MediaType> mediaTypes = ; // BuiltList<MediaType> | Optional filter by MediaType. Allows multiple, comma delimited.
 final BuiltList<String> genres = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited.
 final BuiltList<String> genreIds = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited.
 final BuiltList<String> officialRatings = ; // BuiltList<String> | Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited.
@@ -56,7 +56,7 @@ final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
 final String nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
 final String nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited.
 final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
 final bool enableImages = true; // bool | Optional, include image information in output.
 final bool enableTotalRecordCount = true; // bool | Total record count.
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
  **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
  **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
  **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] 
- **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] 
+ **mediaTypes** | [**BuiltList&lt;MediaType&gt;**](MediaType.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] 
  **genres** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. | [optional] 
  **genreIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. | [optional] 
  **officialRatings** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. | [optional] 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
  **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] 
  **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] 
  **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
  **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
  **enableImages** | **bool**| Optional, include image information in output. | [optional] [default to true]
  **enableTotalRecordCount** | **bool**| Total record count. | [optional] [default to true]
@@ -192,7 +192,7 @@ final BuiltList<BaseItemKind> excludeItemTypes = ; // BuiltList<BaseItemKind> | 
 final BuiltList<BaseItemKind> includeItemTypes = ; // BuiltList<BaseItemKind> | Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited.
 final BuiltList<ItemFilter> filters = ; // BuiltList<ItemFilter> | Optional. Specify additional filters to apply.
 final bool isFavorite = true; // bool | Optional filter by items that are marked as favorite, or not.
-final BuiltList<String> mediaTypes = ; // BuiltList<String> | Optional filter by MediaType. Allows multiple, comma delimited.
+final BuiltList<MediaType> mediaTypes = ; // BuiltList<MediaType> | Optional filter by MediaType. Allows multiple, comma delimited.
 final BuiltList<String> genres = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited.
 final BuiltList<String> genreIds = ; // BuiltList<String> | Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited.
 final BuiltList<String> officialRatings = ; // BuiltList<String> | Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited.
@@ -210,7 +210,7 @@ final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String nameStartsWithOrGreater = nameStartsWithOrGreater_example; // String | Optional filter by items whose name is sorted equally or greater than a given input string.
 final String nameStartsWith = nameStartsWith_example; // String | Optional filter by items whose name is sorted equally than a given input string.
 final String nameLessThan = nameLessThan_example; // String | Optional filter by items whose name is equally or lesser than a given input string.
-final BuiltList<String> sortBy = ; // BuiltList<String> | Optional. Specify one or more sort orders, comma delimited.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited.
 final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Sort Order - Ascending,Descending.
 final bool enableImages = true; // bool | Optional, include image information in output.
 final bool enableTotalRecordCount = true; // bool | Total record count.
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
  **includeItemTypes** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| Optional. If specified, results will be filtered based on item type. This allows multiple, comma delimited. | [optional] 
  **filters** | [**BuiltList&lt;ItemFilter&gt;**](ItemFilter.md)| Optional. Specify additional filters to apply. | [optional] 
  **isFavorite** | **bool**| Optional filter by items that are marked as favorite, or not. | [optional] 
- **mediaTypes** | [**BuiltList&lt;String&gt;**](String.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] 
+ **mediaTypes** | [**BuiltList&lt;MediaType&gt;**](MediaType.md)| Optional filter by MediaType. Allows multiple, comma delimited. | [optional] 
  **genres** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre. This allows multiple, pipe delimited. | [optional] 
  **genreIds** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on genre id. This allows multiple, pipe delimited. | [optional] 
  **officialRatings** | [**BuiltList&lt;String&gt;**](String.md)| Optional. If specified, results will be filtered based on OfficialRating. This allows multiple, pipe delimited. | [optional] 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
  **nameStartsWithOrGreater** | **String**| Optional filter by items whose name is sorted equally or greater than a given input string. | [optional] 
  **nameStartsWith** | **String**| Optional filter by items whose name is sorted equally than a given input string. | [optional] 
  **nameLessThan** | **String**| Optional filter by items whose name is equally or lesser than a given input string. | [optional] 
- **sortBy** | [**BuiltList&lt;String&gt;**](String.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. | [optional] 
  **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Sort Order - Ascending,Descending. | [optional] 
  **enableImages** | **bool**| Optional, include image information in output. | [optional] [default to true]
  **enableTotalRecordCount** | **bool**| Total record count. | [optional] [default to true]

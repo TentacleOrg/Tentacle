@@ -10,6 +10,7 @@ import 'package:dio/dio.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/base_item_dto_query_result.dart';
+import 'package:tentacle/src/model/collection_type.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/special_view_option_dto.dart';
 
@@ -35,7 +36,7 @@ class UserViewsApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<SpecialViewOptionDto>] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BuiltList<SpecialViewOptionDto>>> getGroupingOptions({
-    required String userId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -43,10 +44,7 @@ class UserViewsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/GroupingOptions'.replaceAll(
-        '{' r'userId' '}',
-        encodeQueryParameter(_serializers, userId, const FullType(String))
-            .toString());
+    final _path = r'/UserViews/GroupingOptions';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -66,9 +64,16 @@ class UserViewsApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -125,9 +130,9 @@ class UserViewsApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getUserViews({
-    required String userId,
+    String? userId,
     bool? includeExternalContent,
-    BuiltList<String>? presetViews,
+    BuiltList<CollectionType>? presetViews,
     bool? includeHidden = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -136,10 +141,7 @@ class UserViewsApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Views'.replaceAll(
-        '{' r'userId' '}',
-        encodeQueryParameter(_serializers, userId, const FullType(String))
-            .toString());
+    final _path = r'/UserViews';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -160,14 +162,17 @@ class UserViewsApi {
     );
 
     final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       if (includeExternalContent != null)
         r'includeExternalContent': encodeQueryParameter(
             _serializers, includeExternalContent, const FullType(bool)),
       if (presetViews != null)
-        r'presetViews': encodeCollectionQueryParameter<String>(
+        r'presetViews': encodeCollectionQueryParameter<CollectionType>(
           _serializers,
           presetViews,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(CollectionType)]),
           format: ListFormat.multi,
         ),
       if (includeHidden != null)

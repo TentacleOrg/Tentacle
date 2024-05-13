@@ -260,7 +260,6 @@ class DevicesApi {
   ///
   ///
   /// Parameters:
-  /// * [supportsSync] - Gets or sets a value indicating whether [supports synchronize].
   /// * [userId] - Gets or sets the user identifier.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -272,7 +271,6 @@ class DevicesApi {
   /// Returns a [Future] containing a [Response] with a [DeviceInfoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<DeviceInfoQueryResult>> getDevices({
-    bool? supportsSync,
     String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -302,9 +300,6 @@ class DevicesApi {
     );
 
     final _queryParameters = <String, dynamic>{
-      if (supportsSync != null)
-        r'supportsSync': encodeQueryParameter(
-            _serializers, supportsSync, const FullType(bool)),
       if (userId != null)
         r'userId':
             encodeQueryParameter(_serializers, userId, const FullType(String)),

@@ -10,6 +10,8 @@ import 'package:dio/dio.dart';
 import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
+import 'package:tentacle/src/model/media_stream_protocol.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 
 class UniversalAudioApi {
   final Dio _dio;
@@ -62,7 +64,7 @@ class UniversalAudioApi {
     int? audioBitRate,
     int? startTimeTicks,
     String? transcodingContainer,
-    String? transcodingProtocol,
+    MediaStreamProtocol? transcodingProtocol,
     int? maxAudioSampleRate,
     int? maxAudioBitDepth,
     bool? enableRemoteMedia,
@@ -138,8 +140,8 @@ class UniversalAudioApi {
         r'transcodingContainer': encodeQueryParameter(
             _serializers, transcodingContainer, const FullType(String)),
       if (transcodingProtocol != null)
-        r'transcodingProtocol': encodeQueryParameter(
-            _serializers, transcodingProtocol, const FullType(String)),
+        r'transcodingProtocol': encodeQueryParameter(_serializers,
+            transcodingProtocol, const FullType(MediaStreamProtocol)),
       if (maxAudioSampleRate != null)
         r'maxAudioSampleRate': encodeQueryParameter(
             _serializers, maxAudioSampleRate, const FullType(int)),
@@ -237,7 +239,7 @@ class UniversalAudioApi {
     int? audioBitRate,
     int? startTimeTicks,
     String? transcodingContainer,
-    String? transcodingProtocol,
+    MediaStreamProtocol? transcodingProtocol,
     int? maxAudioSampleRate,
     int? maxAudioBitDepth,
     bool? enableRemoteMedia,
@@ -313,8 +315,8 @@ class UniversalAudioApi {
         r'transcodingContainer': encodeQueryParameter(
             _serializers, transcodingContainer, const FullType(String)),
       if (transcodingProtocol != null)
-        r'transcodingProtocol': encodeQueryParameter(
-            _serializers, transcodingProtocol, const FullType(String)),
+        r'transcodingProtocol': encodeQueryParameter(_serializers,
+            transcodingProtocol, const FullType(MediaStreamProtocol)),
       if (maxAudioSampleRate != null)
         r'maxAudioSampleRate': encodeQueryParameter(
             _serializers, maxAudioSampleRate, const FullType(int)),

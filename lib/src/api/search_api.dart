@@ -10,6 +10,7 @@ import 'package:dio/dio.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/search_hint_result.dart';
 
 class SearchApi {
@@ -27,9 +28,9 @@ class SearchApi {
   /// * [startIndex] - Optional. The record index to start at. All items with a lower index will be dropped from the results.
   /// * [limit] - Optional. The maximum number of records to return.
   /// * [userId] - Optional. Supply a user id to search within a user's library or omit to search all.
-  /// * [includeItemTypes] - If specified, only results with the specified item types are returned. This allows multiple, comma delimeted.
-  /// * [excludeItemTypes] - If specified, results with these item types are filtered out. This allows multiple, comma delimeted.
-  /// * [mediaTypes] - If specified, only results with the specified media types are returned. This allows multiple, comma delimeted.
+  /// * [includeItemTypes] - If specified, only results with the specified item types are returned. This allows multiple, comma delimited.
+  /// * [excludeItemTypes] - If specified, results with these item types are filtered out. This allows multiple, comma delimited.
+  /// * [mediaTypes] - If specified, only results with the specified media types are returned. This allows multiple, comma delimited.
   /// * [parentId] - If specified, only children of the parent are returned.
   /// * [isMovie] - Optional filter for movies.
   /// * [isSeries] - Optional filter for series.
@@ -50,14 +51,14 @@ class SearchApi {
   ///
   /// Returns a [Future] containing a [Response] with a [SearchHintResult] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<SearchHintResult>> callGet({
+  Future<Response<SearchHintResult>> getSearchHints({
     required String searchTerm,
     int? startIndex,
     int? limit,
     String? userId,
     BuiltList<BaseItemKind>? includeItemTypes,
     BuiltList<BaseItemKind>? excludeItemTypes,
-    BuiltList<String>? mediaTypes,
+    BuiltList<MediaType>? mediaTypes,
     String? parentId,
     bool? isMovie,
     bool? isSeries,
@@ -123,10 +124,10 @@ class SearchApi {
           format: ListFormat.multi,
         ),
       if (mediaTypes != null)
-        r'mediaTypes': encodeCollectionQueryParameter<String>(
+        r'mediaTypes': encodeCollectionQueryParameter<MediaType>(
           _serializers,
           mediaTypes,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(MediaType)]),
           format: ListFormat.multi,
         ),
       if (parentId != null)

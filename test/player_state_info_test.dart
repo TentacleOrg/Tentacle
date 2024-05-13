@@ -67,6 +67,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the playback order.
+    // PlaybackOrder playbackOrder
+    test('to test the property `playbackOrder`', () async {
+      // TODO
+    });
+
     // Gets or sets the now playing live stream identifier.
     // String liveStreamId
     test('to test the property `liveStreamId`', () async {

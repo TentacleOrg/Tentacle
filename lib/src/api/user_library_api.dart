@@ -27,8 +27,8 @@ class UserLibraryApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -39,8 +39,8 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> deleteUserItemRating({
-    required String userId,
     required String itemId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -48,15 +48,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/Rating'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/UserItems/{itemId}/Rating'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -76,9 +71,16 @@ class UserLibraryApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -120,8 +122,8 @@ class UserLibraryApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -132,8 +134,8 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getIntros({
-    required String userId,
     required String itemId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -141,15 +143,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/Intros'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/Items/{itemId}/Intros'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -169,9 +166,16 @@ class UserLibraryApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -213,8 +217,8 @@ class UserLibraryApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -225,8 +229,8 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDto>> getItem({
-    required String userId,
     required String itemId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -234,15 +238,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/Items/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -262,9 +261,16 @@ class UserLibraryApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -327,7 +333,7 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BuiltList<BaseItemDto>>> getLatestMedia({
-    required String userId,
+    String? userId,
     String? parentId,
     BuiltList<ItemFields>? fields,
     BuiltList<BaseItemKind>? includeItemTypes,
@@ -345,10 +351,7 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/Latest'.replaceAll(
-        '{' r'userId' '}',
-        encodeQueryParameter(_serializers, userId, const FullType(String))
-            .toString());
+    final _path = r'/Items/Latest';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -369,6 +372,9 @@ class UserLibraryApi {
     );
 
     final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       if (parentId != null)
         r'parentId': encodeQueryParameter(
             _serializers, parentId, const FullType(String)),
@@ -458,8 +464,8 @@ class UserLibraryApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -470,8 +476,8 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BuiltList<BaseItemDto>>> getLocalTrailers({
-    required String userId,
     required String itemId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -479,15 +485,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/LocalTrailers'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/Items/{itemId}/LocalTrailers'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -507,9 +508,16 @@ class UserLibraryApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -562,7 +570,7 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDto>> getRootFolder({
-    required String userId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -570,10 +578,7 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/Root'.replaceAll(
-        '{' r'userId' '}',
-        encodeQueryParameter(_serializers, userId, const FullType(String))
-            .toString());
+    final _path = r'/Items/Root';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -593,9 +598,16 @@ class UserLibraryApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -637,8 +649,8 @@ class UserLibraryApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -649,8 +661,8 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [BuiltList<BaseItemDto>] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BuiltList<BaseItemDto>>> getSpecialFeatures({
-    required String userId,
     required String itemId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -658,15 +670,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/SpecialFeatures'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/Items/{itemId}/SpecialFeatures'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -686,9 +693,16 @@ class UserLibraryApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -730,8 +744,8 @@ class UserLibraryApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -742,8 +756,8 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> markFavoriteItem({
-    required String userId,
     required String itemId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -751,15 +765,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/FavoriteItems/{itemId}'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/UserFavoriteItems/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -779,9 +788,16 @@ class UserLibraryApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -823,8 +839,8 @@ class UserLibraryApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
+  /// * [userId] - User id.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -835,8 +851,8 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> unmarkFavoriteItem({
-    required String userId,
     required String itemId,
+    String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -844,15 +860,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/FavoriteItems/{itemId}'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/UserFavoriteItems/{itemId}'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'DELETE',
       headers: <String, dynamic>{
@@ -872,9 +883,16 @@ class UserLibraryApi {
       validateStatus: validateStatus,
     );
 
+    final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
+    };
+
     final _response = await _dio.request<Object>(
       _path,
       options: _options,
+      queryParameters: _queryParameters,
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
@@ -916,9 +934,9 @@ class UserLibraryApi {
   ///
   ///
   /// Parameters:
-  /// * [userId] - User id.
   /// * [itemId] - Item id.
-  /// * [likes] - Whether this M:Jellyfin.Api.Controllers.UserLibraryController.UpdateUserItemRating(System.Guid,System.Guid,System.Nullable{System.Boolean}) is likes.
+  /// * [userId] - User id.
+  /// * [likes] - Whether this M:Jellyfin.Api.Controllers.UserLibraryController.UpdateUserItemRating(System.Nullable{System.Guid},System.Guid,System.Nullable{System.Boolean}) is likes.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -929,8 +947,8 @@ class UserLibraryApi {
   /// Returns a [Future] containing a [Response] with a [UserItemDataDto] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<UserItemDataDto>> updateUserItemRating({
-    required String userId,
     required String itemId,
+    String? userId,
     bool? likes,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -939,15 +957,10 @@ class UserLibraryApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Users/{userId}/Items/{itemId}/Rating'
-        .replaceAll(
-            '{' r'userId' '}',
-            encodeQueryParameter(_serializers, userId, const FullType(String))
-                .toString())
-        .replaceAll(
-            '{' r'itemId' '}',
-            encodeQueryParameter(_serializers, itemId, const FullType(String))
-                .toString());
+    final _path = r'/UserItems/{itemId}/Rating'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
+            .toString());
     final _options = Options(
       method: r'POST',
       headers: <String, dynamic>{
@@ -968,6 +981,9 @@ class UserLibraryApi {
     );
 
     final _queryParameters = <String, dynamic>{
+      if (userId != null)
+        r'userId':
+            encodeQueryParameter(_serializers, userId, const FullType(String)),
       if (likes != null)
         r'likes':
             encodeQueryParameter(_serializers, likes, const FullType(bool)),

@@ -57,7 +57,7 @@ final int width = 56; // int | Optional. The fixed horizontal resolution of the 
 final int height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
 final int videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
 final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
-final SubtitleDeliveryMethod subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
+final SubtitleDeliveryMethod subtitleMethod = subtitleMethod_example; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
 final int maxRefFrames = 56; // int | Optional.
 final int maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
 final bool requireAvc = true; // bool | Optional. Whether to require avc.
@@ -72,7 +72,7 @@ final String subtitleCodec = subtitleCodec_example; // String | Optional. Specif
 final String transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
 final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
 final int videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
-final EncodingContext context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
+final EncodingContext context = context_example; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
 final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | Optional. The streaming options.
 
 try {
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
  **height** | **int**| Optional. The fixed vertical resolution of the encoded video. | [optional] 
  **videoBitRate** | **int**| Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. | [optional] 
  **subtitleStreamIndex** | **int**| Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. | [optional] 
- **subtitleMethod** | [**SubtitleDeliveryMethod**](.md)| Optional. Specify the subtitle delivery method. | [optional] 
+ **subtitleMethod** | **SubtitleDeliveryMethod**| Optional. Specify the subtitle delivery method. | [optional] 
  **maxRefFrames** | **int**| Optional. | [optional] 
  **maxVideoBitDepth** | **int**| Optional. The maximum video bit depth. | [optional] 
  **requireAvc** | **bool**| Optional. Whether to require avc. | [optional] 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
  **transcodeReasons** | **String**| Optional. The transcoding reason. | [optional] 
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to use. If omitted the first audio stream will be used. | [optional] 
  **videoStreamIndex** | **int**| Optional. The index of the video stream to use. If omitted the first video stream will be used. | [optional] 
- **context** | [**EncodingContext**](.md)| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
+ **context** | **EncodingContext**| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
  **streamOptions** | [**BuiltMap&lt;String, String&gt;**](String.md)| Optional. The streaming options. | [optional] 
 
 ### Return type
@@ -170,7 +170,7 @@ final String tag = tag_example; // String | The tag.
 final String deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
 final String playSessionId = playSessionId_example; // String | The play session id.
 final String segmentContainer = segmentContainer_example; // String | The segment container.
-final int segmentLength = 56; // int | The segment lenght.
+final int segmentLength = 56; // int | The segment length.
 final int minSegments = 56; // int | The minimum number of segments.
 final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
 final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
@@ -194,7 +194,7 @@ final int width = 56; // int | Optional. The fixed horizontal resolution of the 
 final int height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
 final int videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
 final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
-final SubtitleDeliveryMethod subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
+final SubtitleDeliveryMethod subtitleMethod = subtitleMethod_example; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
 final int maxRefFrames = 56; // int | Optional.
 final int maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
 final bool requireAvc = true; // bool | Optional. Whether to require avc.
@@ -209,7 +209,7 @@ final String subtitleCodec = subtitleCodec_example; // String | Optional. Specif
 final String transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
 final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
 final int videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
-final EncodingContext context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
+final EncodingContext context = context_example; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
 final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | Optional. The streaming options.
 
 try {
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
  **deviceProfileId** | **String**| Optional. The dlna device profile id to utilize. | [optional] 
  **playSessionId** | **String**| The play session id. | [optional] 
  **segmentContainer** | **String**| The segment container. | [optional] 
- **segmentLength** | **int**| The segment lenght. | [optional] 
+ **segmentLength** | **int**| The segment length. | [optional] 
  **minSegments** | **int**| The minimum number of segments. | [optional] 
  **mediaSourceId** | **String**| The media version id, if playing an alternate version. | [optional] 
  **deviceId** | **String**| The device id of the client requesting. Used to stop encoding processes when needed. | [optional] 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
  **height** | **int**| Optional. The fixed vertical resolution of the encoded video. | [optional] 
  **videoBitRate** | **int**| Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. | [optional] 
  **subtitleStreamIndex** | **int**| Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. | [optional] 
- **subtitleMethod** | [**SubtitleDeliveryMethod**](.md)| Optional. Specify the subtitle delivery method. | [optional] 
+ **subtitleMethod** | **SubtitleDeliveryMethod**| Optional. Specify the subtitle delivery method. | [optional] 
  **maxRefFrames** | **int**| Optional. | [optional] 
  **maxVideoBitDepth** | **int**| Optional. The maximum video bit depth. | [optional] 
  **requireAvc** | **bool**| Optional. Whether to require avc. | [optional] 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
  **transcodeReasons** | **String**| Optional. The transcoding reason. | [optional] 
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to use. If omitted the first audio stream will be used. | [optional] 
  **videoStreamIndex** | **int**| Optional. The index of the video stream to use. If omitted the first video stream will be used. | [optional] 
- **context** | [**EncodingContext**](.md)| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
+ **context** | **EncodingContext**| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
  **streamOptions** | [**BuiltMap&lt;String, String&gt;**](String.md)| Optional. The streaming options. | [optional] 
 
 ### Return type
@@ -331,7 +331,7 @@ final int width = 56; // int | Optional. The fixed horizontal resolution of the 
 final int height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
 final int videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
 final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
-final SubtitleDeliveryMethod subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
+final SubtitleDeliveryMethod subtitleMethod = subtitleMethod_example; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
 final int maxRefFrames = 56; // int | Optional.
 final int maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
 final bool requireAvc = true; // bool | Optional. Whether to require avc.
@@ -346,7 +346,7 @@ final String subtitleCodec = subtitleCodec_example; // String | Optional. Specif
 final String transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
 final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
 final int videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
-final EncodingContext context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
+final EncodingContext context = context_example; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
 final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | Optional. The streaming options.
 
 try {
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
  **height** | **int**| Optional. The fixed vertical resolution of the encoded video. | [optional] 
  **videoBitRate** | **int**| Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. | [optional] 
  **subtitleStreamIndex** | **int**| Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. | [optional] 
- **subtitleMethod** | [**SubtitleDeliveryMethod**](.md)| Optional. Specify the subtitle delivery method. | [optional] 
+ **subtitleMethod** | **SubtitleDeliveryMethod**| Optional. Specify the subtitle delivery method. | [optional] 
  **maxRefFrames** | **int**| Optional. | [optional] 
  **maxVideoBitDepth** | **int**| Optional. The maximum video bit depth. | [optional] 
  **requireAvc** | **bool**| Optional. Whether to require avc. | [optional] 
@@ -408,7 +408,7 @@ Name | Type | Description  | Notes
  **transcodeReasons** | **String**| Optional. The transcoding reason. | [optional] 
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to use. If omitted the first audio stream will be used. | [optional] 
  **videoStreamIndex** | **int**| Optional. The index of the video stream to use. If omitted the first video stream will be used. | [optional] 
- **context** | [**EncodingContext**](.md)| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
+ **context** | **EncodingContext**| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
  **streamOptions** | [**BuiltMap&lt;String, String&gt;**](String.md)| Optional. The streaming options. | [optional] 
 
 ### Return type
@@ -444,7 +444,7 @@ final String tag = tag_example; // String | The tag.
 final String deviceProfileId = deviceProfileId_example; // String | Optional. The dlna device profile id to utilize.
 final String playSessionId = playSessionId_example; // String | The play session id.
 final String segmentContainer = segmentContainer_example; // String | The segment container.
-final int segmentLength = 56; // int | The segment lenght.
+final int segmentLength = 56; // int | The segment length.
 final int minSegments = 56; // int | The minimum number of segments.
 final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
 final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
@@ -468,7 +468,7 @@ final int width = 56; // int | Optional. The fixed horizontal resolution of the 
 final int height = 56; // int | Optional. The fixed vertical resolution of the encoded video.
 final int videoBitRate = 56; // int | Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults.
 final int subtitleStreamIndex = 56; // int | Optional. The index of the subtitle stream to use. If omitted no subtitles will be used.
-final SubtitleDeliveryMethod subtitleMethod = ; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
+final SubtitleDeliveryMethod subtitleMethod = subtitleMethod_example; // SubtitleDeliveryMethod | Optional. Specify the subtitle delivery method.
 final int maxRefFrames = 56; // int | Optional.
 final int maxVideoBitDepth = 56; // int | Optional. The maximum video bit depth.
 final bool requireAvc = true; // bool | Optional. Whether to require avc.
@@ -483,7 +483,7 @@ final String subtitleCodec = subtitleCodec_example; // String | Optional. Specif
 final String transcodeReasons = transcodeReasons_example; // String | Optional. The transcoding reason.
 final int audioStreamIndex = 56; // int | Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
 final int videoStreamIndex = 56; // int | Optional. The index of the video stream to use. If omitted the first video stream will be used.
-final EncodingContext context = ; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
+final EncodingContext context = context_example; // EncodingContext | Optional. The MediaBrowser.Model.Dlna.EncodingContext.
 final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | Optional. The streaming options.
 
 try {
@@ -506,7 +506,7 @@ Name | Type | Description  | Notes
  **deviceProfileId** | **String**| Optional. The dlna device profile id to utilize. | [optional] 
  **playSessionId** | **String**| The play session id. | [optional] 
  **segmentContainer** | **String**| The segment container. | [optional] 
- **segmentLength** | **int**| The segment lenght. | [optional] 
+ **segmentLength** | **int**| The segment length. | [optional] 
  **minSegments** | **int**| The minimum number of segments. | [optional] 
  **mediaSourceId** | **String**| The media version id, if playing an alternate version. | [optional] 
  **deviceId** | **String**| The device id of the client requesting. Used to stop encoding processes when needed. | [optional] 
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
  **height** | **int**| Optional. The fixed vertical resolution of the encoded video. | [optional] 
  **videoBitRate** | **int**| Optional. Specify a video bitrate to encode to, e.g. 500000. If omitted this will be left to encoder defaults. | [optional] 
  **subtitleStreamIndex** | **int**| Optional. The index of the subtitle stream to use. If omitted no subtitles will be used. | [optional] 
- **subtitleMethod** | [**SubtitleDeliveryMethod**](.md)| Optional. Specify the subtitle delivery method. | [optional] 
+ **subtitleMethod** | **SubtitleDeliveryMethod**| Optional. Specify the subtitle delivery method. | [optional] 
  **maxRefFrames** | **int**| Optional. | [optional] 
  **maxVideoBitDepth** | **int**| Optional. The maximum video bit depth. | [optional] 
  **requireAvc** | **bool**| Optional. Whether to require avc. | [optional] 
@@ -545,7 +545,7 @@ Name | Type | Description  | Notes
  **transcodeReasons** | **String**| Optional. The transcoding reason. | [optional] 
  **audioStreamIndex** | **int**| Optional. The index of the audio stream to use. If omitted the first audio stream will be used. | [optional] 
  **videoStreamIndex** | **int**| Optional. The index of the video stream to use. If omitted the first video stream will be used. | [optional] 
- **context** | [**EncodingContext**](.md)| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
+ **context** | **EncodingContext**| Optional. The MediaBrowser.Model.Dlna.EncodingContext. | [optional] 
  **streamOptions** | [**BuiltMap&lt;String, String&gt;**](String.md)| Optional. The streaming options. | [optional] 
 
 ### Return type

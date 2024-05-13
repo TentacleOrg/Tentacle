@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**getDefaultMetadataOptions**](ConfigurationApi.md#getdefaultmetadataoptions) | **GET** /System/Configuration/MetadataOptions/Default | Gets a default MetadataOptions object.
 [**getNamedConfiguration**](ConfigurationApi.md#getnamedconfiguration) | **GET** /System/Configuration/{key} | Gets a named configuration.
 [**updateConfiguration**](ConfigurationApi.md#updateconfiguration) | **POST** /System/Configuration | Updates application configuration.
-[**updateMediaEncoderPath**](ConfigurationApi.md#updatemediaencoderpath) | **POST** /System/MediaEncoder/Path | Updates the path to the media encoder.
 [**updateNamedConfiguration**](ConfigurationApi.md#updatenamedconfiguration) | **POST** /System/Configuration/{key} | Updates named configuration.
 
 
@@ -172,50 +171,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **serverConfiguration** | [**ServerConfiguration**](ServerConfiguration.md)| Configuration. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **updateMediaEncoderPath**
-> updateMediaEncoderPath(mediaEncoderPathDto)
-
-Updates the path to the media encoder.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getConfigurationApi();
-final MediaEncoderPathDto mediaEncoderPathDto = ; // MediaEncoderPathDto | Media encoder path form body.
-
-try {
-    api.updateMediaEncoderPath(mediaEncoderPathDto);
-} catch on DioException (e) {
-    print('Exception when calling ConfigurationApi->updateMediaEncoderPath: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **mediaEncoderPathDto** | [**MediaEncoderPathDto**](MediaEncoderPathDto.md)| Media encoder path form body. | 
 
 ### Return type
 

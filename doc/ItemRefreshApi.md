@@ -27,8 +27,8 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getItemRefreshApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final MetadataRefreshMode metadataRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the metadata refresh mode.
-final MetadataRefreshMode imageRefreshMode = ; // MetadataRefreshMode | (Optional) Specifies the image refresh mode.
+final MetadataRefreshMode metadataRefreshMode = metadataRefreshMode_example; // MetadataRefreshMode | (Optional) Specifies the metadata refresh mode.
+final MetadataRefreshMode imageRefreshMode = imageRefreshMode_example; // MetadataRefreshMode | (Optional) Specifies the image refresh mode.
 final bool replaceAllMetadata = true; // bool | (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh.
 final bool replaceAllImages = true; // bool | (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh.
 
@@ -44,8 +44,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **metadataRefreshMode** | [**MetadataRefreshMode**](.md)| (Optional) Specifies the metadata refresh mode. | [optional] [default to None]
- **imageRefreshMode** | [**MetadataRefreshMode**](.md)| (Optional) Specifies the image refresh mode. | [optional] [default to None]
+ **metadataRefreshMode** | **MetadataRefreshMode**| (Optional) Specifies the metadata refresh mode. | [optional] [default to 'None']
+ **imageRefreshMode** | **MetadataRefreshMode**| (Optional) Specifies the image refresh mode. | [optional] [default to 'None']
  **replaceAllMetadata** | **bool**| (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh. | [optional] [default to false]
  **replaceAllImages** | **bool**| (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh. | [optional] [default to false]
 

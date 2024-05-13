@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/collection_type.dart';
 import 'package:tentacle/src/model/external_id_info.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/parental_rating.dart';
@@ -39,7 +40,8 @@ abstract class MetadataEditorInfo
   BuiltList<ExternalIdInfo>? get externalIdInfos;
 
   @BuiltValueField(wireName: r'ContentType')
-  String? get contentType;
+  CollectionType? get contentType;
+  // enum contentTypeEnum {  unknown,  movies,  tvshows,  music,  musicvideos,  trailers,  homevideos,  boxsets,  books,  photos,  livetv,  playlists,  folders,  };
 
   @BuiltValueField(wireName: r'ContentTypeOptions')
   BuiltList<NameValuePair>? get contentTypeOptions;
@@ -102,7 +104,7 @@ class _$MetadataEditorInfoSerializer
       yield r'ContentType';
       yield serializers.serialize(
         object.contentType,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType.nullable(CollectionType),
       );
     }
     if (object.contentTypeOptions != null) {
@@ -170,8 +172,8 @@ class _$MetadataEditorInfoSerializer
         case r'ContentType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
+            specifiedType: const FullType.nullable(CollectionType),
+          ) as CollectionType?;
           if (valueDes == null) continue;
           result.contentType = valueDes;
           break;

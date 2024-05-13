@@ -10,6 +10,7 @@ const DlnaProfileType _$audio = const DlnaProfileType._('audio');
 const DlnaProfileType _$video = const DlnaProfileType._('video');
 const DlnaProfileType _$photo = const DlnaProfileType._('photo');
 const DlnaProfileType _$subtitle = const DlnaProfileType._('subtitle');
+const DlnaProfileType _$lyric = const DlnaProfileType._('lyric');
 
 DlnaProfileType _$valueOf(String name) {
   switch (name) {
@@ -21,6 +22,8 @@ DlnaProfileType _$valueOf(String name) {
       return _$photo;
     case 'subtitle':
       return _$subtitle;
+    case 'lyric':
+      return _$lyric;
     default:
       throw new ArgumentError(name);
   }
@@ -32,6 +35,7 @@ final BuiltSet<DlnaProfileType> _$values =
   _$video,
   _$photo,
   _$subtitle,
+  _$lyric,
 ]);
 
 class _$DlnaProfileTypeMeta {
@@ -40,6 +44,7 @@ class _$DlnaProfileTypeMeta {
   DlnaProfileType get video => _$video;
   DlnaProfileType get photo => _$photo;
   DlnaProfileType get subtitle => _$subtitle;
+  DlnaProfileType get lyric => _$lyric;
   DlnaProfileType valueOf(String name) => _$valueOf(name);
   BuiltSet<DlnaProfileType> get values => _$values;
 }
@@ -59,12 +64,14 @@ class _$DlnaProfileTypeSerializer
     'video': 'Video',
     'photo': 'Photo',
     'subtitle': 'Subtitle',
+    'lyric': 'Lyric',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Audio': 'audio',
     'Video': 'video',
     'Photo': 'photo',
     'Subtitle': 'subtitle',
+    'Lyric': 'lyric',
   };
 
   @override

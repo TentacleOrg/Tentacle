@@ -19,9 +19,8 @@ part 'installation_info.g.dart';
 /// * [sourceUrl] - Gets or sets the source URL.
 /// * [checksum] - Gets or sets a checksum for the binary.
 /// * [packageInfo]
-@BuiltValue()
-abstract class InstallationInfo
-    implements Built<InstallationInfo, InstallationInfoBuilder> {
+@BuiltValue(instantiable: false)
+abstract class InstallationInfo {
   /// Gets or sets the Id.
   @BuiltValueField(wireName: r'Guid')
   String? get guid;
@@ -49,14 +48,6 @@ abstract class InstallationInfo
   @BuiltValueField(wireName: r'PackageInfo')
   InstallationInfoPackageInfo? get packageInfo;
 
-  InstallationInfo._();
-
-  factory InstallationInfo([void updates(InstallationInfoBuilder b)]) =
-      _$InstallationInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(InstallationInfoBuilder b) => b;
-
   @BuiltValueSerializer(custom: true)
   static Serializer<InstallationInfo> get serializer =>
       _$InstallationInfoSerializer();
@@ -65,7 +56,7 @@ abstract class InstallationInfo
 class _$InstallationInfoSerializer
     implements PrimitiveSerializer<InstallationInfo> {
   @override
-  final Iterable<Type> types = const [InstallationInfo, _$InstallationInfo];
+  final Iterable<Type> types = const [InstallationInfo];
 
   @override
   final String wireName = r'InstallationInfo';
@@ -135,6 +126,54 @@ class _$InstallationInfoSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
+  }
+
+  @override
+  InstallationInfo deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($InstallationInfo)) as $InstallationInfo;
+  }
+}
+
+/// a concrete implementation of [InstallationInfo], since [InstallationInfo] is not instantiable
+@BuiltValue(instantiable: true)
+abstract class $InstallationInfo
+    implements
+        InstallationInfo,
+        Built<$InstallationInfo, $InstallationInfoBuilder> {
+  $InstallationInfo._();
+
+  factory $InstallationInfo(
+      [void Function($InstallationInfoBuilder)? updates]) = _$$InstallationInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($InstallationInfoBuilder b) => b;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<$InstallationInfo> get serializer =>
+      _$$InstallationInfoSerializer();
+}
+
+class _$$InstallationInfoSerializer
+    implements PrimitiveSerializer<$InstallationInfo> {
+  @override
+  final Iterable<Type> types = const [$InstallationInfo, _$$InstallationInfo];
+
+  @override
+  final String wireName = r'$InstallationInfo';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    $InstallationInfo object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return serializers.serialize(object,
+        specifiedType: FullType(InstallationInfo))!;
   }
 
   void _deserializeProperties(
@@ -213,12 +252,12 @@ class _$InstallationInfoSerializer
   }
 
   @override
-  InstallationInfo deserialize(
+  $InstallationInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = InstallationInfoBuilder();
+    final result = $InstallationInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

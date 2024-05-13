@@ -14,6 +14,8 @@ class _$UploadSubtitleDto extends UploadSubtitleDto {
   @override
   final bool isForced;
   @override
+  final bool isHearingImpaired;
+  @override
   final String data;
 
   factory _$UploadSubtitleDto(
@@ -24,6 +26,7 @@ class _$UploadSubtitleDto extends UploadSubtitleDto {
       {required this.language,
       required this.format,
       required this.isForced,
+      required this.isHearingImpaired,
       required this.data})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
@@ -32,6 +35,8 @@ class _$UploadSubtitleDto extends UploadSubtitleDto {
         format, r'UploadSubtitleDto', 'format');
     BuiltValueNullFieldError.checkNotNull(
         isForced, r'UploadSubtitleDto', 'isForced');
+    BuiltValueNullFieldError.checkNotNull(
+        isHearingImpaired, r'UploadSubtitleDto', 'isHearingImpaired');
     BuiltValueNullFieldError.checkNotNull(data, r'UploadSubtitleDto', 'data');
   }
 
@@ -50,6 +55,7 @@ class _$UploadSubtitleDto extends UploadSubtitleDto {
         language == other.language &&
         format == other.format &&
         isForced == other.isForced &&
+        isHearingImpaired == other.isHearingImpaired &&
         data == other.data;
   }
 
@@ -59,6 +65,7 @@ class _$UploadSubtitleDto extends UploadSubtitleDto {
     _$hash = $jc(_$hash, language.hashCode);
     _$hash = $jc(_$hash, format.hashCode);
     _$hash = $jc(_$hash, isForced.hashCode);
+    _$hash = $jc(_$hash, isHearingImpaired.hashCode);
     _$hash = $jc(_$hash, data.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -70,6 +77,7 @@ class _$UploadSubtitleDto extends UploadSubtitleDto {
           ..add('language', language)
           ..add('format', format)
           ..add('isForced', isForced)
+          ..add('isHearingImpaired', isHearingImpaired)
           ..add('data', data))
         .toString();
   }
@@ -91,6 +99,11 @@ class UploadSubtitleDtoBuilder
   bool? get isForced => _$this._isForced;
   set isForced(bool? isForced) => _$this._isForced = isForced;
 
+  bool? _isHearingImpaired;
+  bool? get isHearingImpaired => _$this._isHearingImpaired;
+  set isHearingImpaired(bool? isHearingImpaired) =>
+      _$this._isHearingImpaired = isHearingImpaired;
+
   String? _data;
   String? get data => _$this._data;
   set data(String? data) => _$this._data = data;
@@ -105,6 +118,7 @@ class UploadSubtitleDtoBuilder
       _language = $v.language;
       _format = $v.format;
       _isForced = $v.isForced;
+      _isHearingImpaired = $v.isHearingImpaired;
       _data = $v.data;
       _$v = null;
     }
@@ -134,6 +148,8 @@ class UploadSubtitleDtoBuilder
                 format, r'UploadSubtitleDto', 'format'),
             isForced: BuiltValueNullFieldError.checkNotNull(
                 isForced, r'UploadSubtitleDto', 'isForced'),
+            isHearingImpaired: BuiltValueNullFieldError.checkNotNull(
+                isHearingImpaired, r'UploadSubtitleDto', 'isHearingImpaired'),
             data: BuiltValueNullFieldError.checkNotNull(
                 data, r'UploadSubtitleDto', 'data'));
     replace(_$result);

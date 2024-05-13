@@ -8,7 +8,7 @@ part of 'create_user_by_name.dart';
 
 class _$CreateUserByName extends CreateUserByName {
   @override
-  final String? name;
+  final String name;
   @override
   final String? password;
 
@@ -16,7 +16,9 @@ class _$CreateUserByName extends CreateUserByName {
           [void Function(CreateUserByNameBuilder)? updates]) =>
       (new CreateUserByNameBuilder()..update(updates))._build();
 
-  _$CreateUserByName._({this.name, this.password}) : super._();
+  _$CreateUserByName._({required this.name, this.password}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(name, r'CreateUserByName', 'name');
+  }
 
   @override
   CreateUserByName rebuild(void Function(CreateUserByNameBuilder) updates) =>
@@ -93,8 +95,11 @@ class CreateUserByNameBuilder
   CreateUserByName build() => _build();
 
   _$CreateUserByName _build() {
-    final _$result =
-        _$v ?? new _$CreateUserByName._(name: name, password: password);
+    final _$result = _$v ??
+        new _$CreateUserByName._(
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'CreateUserByName', 'name'),
+            password: password);
     replace(_$result);
     return _$result;
   }

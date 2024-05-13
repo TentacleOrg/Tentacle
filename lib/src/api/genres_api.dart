@@ -14,6 +14,7 @@ import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
 import 'package:tentacle/src/model/sort_order.dart';
 
 class GenresApi {
@@ -164,7 +165,7 @@ class GenresApi {
     String? nameStartsWithOrGreater,
     String? nameStartsWith,
     String? nameLessThan,
-    BuiltList<String>? sortBy,
+    BuiltList<ItemSortBy>? sortBy,
     BuiltList<SortOrder>? sortOrder,
     bool? enableImages = true,
     bool? enableTotalRecordCount = true,
@@ -255,10 +256,10 @@ class GenresApi {
         r'nameLessThan': encodeQueryParameter(
             _serializers, nameLessThan, const FullType(String)),
       if (sortBy != null)
-        r'sortBy': encodeCollectionQueryParameter<String>(
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
           _serializers,
           sortBy,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
           format: ListFormat.multi,
         ),
       if (sortOrder != null)

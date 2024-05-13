@@ -6,6 +6,7 @@
 import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/client_capabilities.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -18,13 +19,12 @@ part 'device_info_capabilities.g.dart';
 /// * [playableMediaTypes]
 /// * [supportedCommands]
 /// * [supportsMediaControl]
-/// * [supportsContentUploading]
-/// * [messageCallbackUrl]
 /// * [supportsPersistentIdentifier]
-/// * [supportsSync]
 /// * [deviceProfile]
 /// * [appStoreUrl]
 /// * [iconUrl]
+/// * [supportsContentUploading]
+/// * [supportsSync]
 @BuiltValue()
 abstract class DeviceInfoCapabilities
     implements
@@ -37,7 +37,9 @@ abstract class DeviceInfoCapabilities
       _$DeviceInfoCapabilities;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(DeviceInfoCapabilitiesBuilder b) => b;
+  static void _defaults(DeviceInfoCapabilitiesBuilder b) => b
+    ..supportsSync = false
+    ..supportsContentUploading = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<DeviceInfoCapabilities> get serializer =>
@@ -78,7 +80,7 @@ class _$DeviceInfoCapabilitiesSerializer
       yield r'SupportsSync';
       yield serializers.serialize(
         object.supportsSync,
-        specifiedType: const FullType(bool),
+        specifiedType: const FullType.nullable(bool),
       );
     }
     if (object.supportsPersistentIdentifier != null) {
@@ -100,14 +102,7 @@ class _$DeviceInfoCapabilitiesSerializer
       yield r'SupportsContentUploading';
       yield serializers.serialize(
         object.supportsContentUploading,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.messageCallbackUrl != null) {
-      yield r'MessageCallbackUrl';
-      yield serializers.serialize(
-        object.messageCallbackUrl,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType.nullable(bool),
       );
     }
     if (object.iconUrl != null) {
@@ -121,7 +116,8 @@ class _$DeviceInfoCapabilitiesSerializer
       yield r'PlayableMediaTypes';
       yield serializers.serialize(
         object.playableMediaTypes,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaType)]),
       );
     }
     if (object.supportsMediaControl != null) {
@@ -176,8 +172,9 @@ class _$DeviceInfoCapabilitiesSerializer
         case r'SupportsSync':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.supportsSync = valueDes;
           break;
         case r'SupportsPersistentIdentifier':
@@ -199,17 +196,10 @@ class _$DeviceInfoCapabilitiesSerializer
         case r'SupportsContentUploading':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.supportsContentUploading = valueDes;
-          break;
-        case r'MessageCallbackUrl':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
           if (valueDes == null) continue;
-          result.messageCallbackUrl = valueDes;
+          result.supportsContentUploading = valueDes;
           break;
         case r'IconUrl':
           final valueDes = serializers.deserialize(
@@ -223,8 +213,8 @@ class _$DeviceInfoCapabilitiesSerializer
           final valueDes = serializers.deserialize(
             value,
             specifiedType:
-                const FullType.nullable(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>?;
+                const FullType.nullable(BuiltList, [FullType(MediaType)]),
+          ) as BuiltList<MediaType>?;
           if (valueDes == null) continue;
           result.playableMediaTypes.replace(valueDes);
           break;

@@ -21,15 +21,12 @@ import 'package:tentacle/src/api/configuration_api.dart';
 import 'package:tentacle/src/api/dashboard_api.dart';
 import 'package:tentacle/src/api/devices_api.dart';
 import 'package:tentacle/src/api/display_preferences_api.dart';
-import 'package:tentacle/src/api/dlna_api.dart';
-import 'package:tentacle/src/api/dlna_server_api.dart';
 import 'package:tentacle/src/api/dynamic_hls_api.dart';
 import 'package:tentacle/src/api/environment_api.dart';
 import 'package:tentacle/src/api/filter_api.dart';
 import 'package:tentacle/src/api/genres_api.dart';
 import 'package:tentacle/src/api/hls_segment_api.dart';
 import 'package:tentacle/src/api/image_api.dart';
-import 'package:tentacle/src/api/image_by_name_api.dart';
 import 'package:tentacle/src/api/instant_mix_api.dart';
 import 'package:tentacle/src/api/item_lookup_api.dart';
 import 'package:tentacle/src/api/item_refresh_api.dart';
@@ -39,10 +36,10 @@ import 'package:tentacle/src/api/library_api.dart';
 import 'package:tentacle/src/api/library_structure_api.dart';
 import 'package:tentacle/src/api/live_tv_api.dart';
 import 'package:tentacle/src/api/localization_api.dart';
+import 'package:tentacle/src/api/lyrics_api.dart';
 import 'package:tentacle/src/api/media_info_api.dart';
 import 'package:tentacle/src/api/movies_api.dart';
 import 'package:tentacle/src/api/music_genres_api.dart';
-import 'package:tentacle/src/api/notifications_api.dart';
 import 'package:tentacle/src/api/package_api.dart';
 import 'package:tentacle/src/api/persons_api.dart';
 import 'package:tentacle/src/api/playlists_api.dart';
@@ -62,6 +59,7 @@ import 'package:tentacle/src/api/system_api.dart';
 import 'package:tentacle/src/api/time_sync_api.dart';
 import 'package:tentacle/src/api/tmdb_api.dart';
 import 'package:tentacle/src/api/trailers_api.dart';
+import 'package:tentacle/src/api/trickplay_api.dart';
 import 'package:tentacle/src/api/tv_shows_api.dart';
 import 'package:tentacle/src/api/universal_audio_api.dart';
 import 'package:tentacle/src/api/user_api.dart';
@@ -208,18 +206,6 @@ class Tentacle {
     return DisplayPreferencesApi(dio, serializers);
   }
 
-  /// Get DlnaApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  DlnaApi getDlnaApi() {
-    return DlnaApi(dio, serializers);
-  }
-
-  /// Get DlnaServerApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  DlnaServerApi getDlnaServerApi() {
-    return DlnaServerApi(dio, serializers);
-  }
-
   /// Get DynamicHlsApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   DynamicHlsApi getDynamicHlsApi() {
@@ -254,12 +240,6 @@ class Tentacle {
   /// by doing that all interceptors will not be executed
   ImageApi getImageApi() {
     return ImageApi(dio, serializers);
-  }
-
-  /// Get ImageByNameApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  ImageByNameApi getImageByNameApi() {
-    return ImageByNameApi(dio, serializers);
   }
 
   /// Get InstantMixApi instance, base route and serializer can be overridden by a given but be careful,
@@ -316,6 +296,12 @@ class Tentacle {
     return LocalizationApi(dio, serializers);
   }
 
+  /// Get LyricsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  LyricsApi getLyricsApi() {
+    return LyricsApi(dio, serializers);
+  }
+
   /// Get MediaInfoApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   MediaInfoApi getMediaInfoApi() {
@@ -332,12 +318,6 @@ class Tentacle {
   /// by doing that all interceptors will not be executed
   MusicGenresApi getMusicGenresApi() {
     return MusicGenresApi(dio, serializers);
-  }
-
-  /// Get NotificationsApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  NotificationsApi getNotificationsApi() {
-    return NotificationsApi(dio, serializers);
   }
 
   /// Get PackageApi instance, base route and serializer can be overridden by a given but be careful,
@@ -452,6 +432,12 @@ class Tentacle {
   /// by doing that all interceptors will not be executed
   TrailersApi getTrailersApi() {
     return TrailersApi(dio, serializers);
+  }
+
+  /// Get TrickplayApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  TrickplayApi getTrickplayApi() {
+    return TrickplayApi(dio, serializers);
   }
 
   /// Get TvShowsApi instance, base route and serializer can be overridden by a given but be careful,

@@ -18,11 +18,5 @@ void main() {
     test('to test the property `pw`', () async {
       // TODO
     });
-
-    // Gets or sets the sha1-hashed password.
-    // String password
-    test('to test the property `password`', () async {
-      // TODO
-    });
   });
 }

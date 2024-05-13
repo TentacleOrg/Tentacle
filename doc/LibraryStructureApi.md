@@ -80,7 +80,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getLibraryStructureApi();
 final String name = name_example; // String | The name of the virtual folder.
-final CollectionTypeOptions collectionType = ; // CollectionTypeOptions | The type of the collection.
+final CollectionTypeOptions collectionType = collectionType_example; // CollectionTypeOptions | The type of the collection.
 final BuiltList<String> paths = ; // BuiltList<String> | The paths of the virtual folder.
 final bool refreshLibrary = true; // bool | Whether to refresh the library.
 final AddVirtualFolderDto addVirtualFolderDto = ; // AddVirtualFolderDto | The library options.
@@ -97,7 +97,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| The name of the virtual folder. | [optional] 
- **collectionType** | [**CollectionTypeOptions**](.md)| The type of the collection. | [optional] 
+ **collectionType** | **CollectionTypeOptions**| The type of the collection. | [optional] 
  **paths** | [**BuiltList&lt;String&gt;**](String.md)| The paths of the virtual folder. | [optional] 
  **refreshLibrary** | **bool**| Whether to refresh the library. | [optional] [default to false]
  **addVirtualFolderDto** | [**AddVirtualFolderDto**](AddVirtualFolderDto.md)| The library options. | [optional] 
@@ -340,7 +340,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -91,12 +91,12 @@ void main() {
     });
 
     // Gets or sets a value indicating whether this instance can self restart.
-    // bool canSelfRestart
+    // bool canSelfRestart (default value: true)
     test('to test the property `canSelfRestart`', () async {
       // TODO
     });
 
-    // bool canLaunchWebBrowser
+    // bool canLaunchWebBrowser (default value: false)
     test('to test the property `canLaunchWebBrowser`', () async {
       // TODO
     });
@@ -143,19 +143,24 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the list of cast receiver applications.
+    // BuiltList<CastReceiverApplication> castReceiverApplications
+    test('to test the property `castReceiverApplications`', () async {
+      // TODO
+    });
+
     // Gets or sets a value indicating whether this instance has update available.
-    // bool hasUpdateAvailable
+    // bool hasUpdateAvailable (default value: false)
     test('to test the property `hasUpdateAvailable`', () async {
       // TODO
     });
 
-    // Enum describing the location of the FFmpeg tool.
-    // FFmpegLocation encoderLocation
+    // String encoderLocation (default value: 'System')
     test('to test the property `encoderLocation`', () async {
       // TODO
     });
 
-    // Architecture systemArchitecture
+    // String systemArchitecture (default value: 'X64')
     test('to test the property `systemArchitecture`', () async {
       // TODO
     });

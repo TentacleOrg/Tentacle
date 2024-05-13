@@ -31,6 +31,10 @@ class ItemFields extends EnumClass {
   static const ItemFields chapters = _$chapters;
 
   /// Used to control the data that gets attached to DtoBaseItems.
+  @BuiltValueEnumConst(wireName: r'Trickplay')
+  static const ItemFields trickplay = _$trickplay;
+
+  /// Used to control the data that gets attached to DtoBaseItems.
   @BuiltValueEnumConst(wireName: r'ChildCount')
   static const ItemFields childCount = _$childCount;
 
@@ -149,14 +153,6 @@ class ItemFields extends EnumClass {
   /// Used to control the data that gets attached to DtoBaseItems.
   @BuiltValueEnumConst(wireName: r'Studios')
   static const ItemFields studios = _$studios;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'BasicSyncInfo')
-  static const ItemFields basicSyncInfo = _$basicSyncInfo;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'SyncInfo')
-  static const ItemFields syncInfo = _$syncInfo;
 
   /// Used to control the data that gets attached to DtoBaseItems.
   @BuiltValueEnumConst(wireName: r'Taglines')

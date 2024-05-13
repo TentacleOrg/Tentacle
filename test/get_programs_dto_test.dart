@@ -98,7 +98,7 @@ void main() {
     });
 
     // Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.  Optional.
-    // BuiltList<String> sortBy
+    // BuiltList<ItemSortBy> sortBy
     test('to test the property `sortBy`', () async {
       // TODO
     });

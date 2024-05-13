@@ -13,6 +13,7 @@ part 'device_info.g.dart';
 ///
 /// Properties:
 /// * [name]
+/// * [customName]
 /// * [accessToken] - Gets or sets the access token.
 /// * [id] - Gets or sets the identifier.
 /// * [lastUserName] - Gets or sets the last name of the user.
@@ -26,6 +27,9 @@ part 'device_info.g.dart';
 abstract class DeviceInfo implements Built<DeviceInfo, DeviceInfoBuilder> {
   @BuiltValueField(wireName: r'Name')
   String? get name;
+
+  @BuiltValueField(wireName: r'CustomName')
+  String? get customName;
 
   /// Gets or sets the access token.
   @BuiltValueField(wireName: r'AccessToken')
@@ -88,6 +92,13 @@ class _$DeviceInfoSerializer implements PrimitiveSerializer<DeviceInfo> {
       yield r'Name';
       yield serializers.serialize(
         object.name,
+        specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.customName != null) {
+      yield r'CustomName';
+      yield serializers.serialize(
+        object.customName,
         specifiedType: const FullType.nullable(String),
       );
     }
@@ -186,6 +197,14 @@ class _$DeviceInfoSerializer implements PrimitiveSerializer<DeviceInfo> {
           ) as String?;
           if (valueDes == null) continue;
           result.name = valueDes;
+          break;
+        case r'CustomName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.customName = valueDes;
           break;
         case r'AccessToken':
           final valueDes = serializers.deserialize(

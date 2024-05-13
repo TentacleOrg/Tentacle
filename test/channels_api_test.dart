@@ -22,7 +22,7 @@ void main() {
 
     // Get channel items.
     //
-    //Future<BaseItemDtoQueryResult> getChannelItems(String channelId, { String folderId, String userId, int startIndex, int limit, BuiltList<SortOrder> sortOrder, BuiltList<ItemFilter> filters, BuiltList<String> sortBy, BuiltList<ItemFields> fields }) async
+    //Future<BaseItemDtoQueryResult> getChannelItems(String channelId, { String folderId, String userId, int startIndex, int limit, BuiltList<SortOrder> sortOrder, BuiltList<ItemFilter> filters, BuiltList<ItemSortBy> sortBy, BuiltList<ItemFields> fields }) async
     test('test getChannelItems', () async {
       // TODO
     });

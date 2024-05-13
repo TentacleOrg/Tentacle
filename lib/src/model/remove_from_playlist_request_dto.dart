@@ -12,7 +12,7 @@ part 'remove_from_playlist_request_dto.g.dart';
 /// Class RemoveFromPlaylistRequestDto.
 ///
 /// Properties:
-/// * [playlistItemIds] - Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist.
+/// * [playlistItemIds] - Gets or sets the playlist identifiers of the items. Ignored when clearing the playlist.
 /// * [clearPlaylist] - Gets or sets a value indicating whether the entire playlist should be cleared.
 /// * [clearPlayingItem] - Gets or sets a value indicating whether the playing item should be removed as well. Used only when clearing the playlist.
 @BuiltValue()
@@ -20,7 +20,7 @@ abstract class RemoveFromPlaylistRequestDto
     implements
         Built<RemoveFromPlaylistRequestDto,
             RemoveFromPlaylistRequestDtoBuilder> {
-  /// Gets or sets the playlist identifiers ot the items. Ignored when clearing the playlist.
+  /// Gets or sets the playlist identifiers of the items. Ignored when clearing the playlist.
   @BuiltValueField(wireName: r'PlaylistItemIds')
   BuiltList<String>? get playlistItemIds;
 

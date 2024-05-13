@@ -22,7 +22,7 @@ abstract class ContainerProfile
     implements Built<ContainerProfile, ContainerProfileBuilder> {
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
-  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  };
+  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  Lyric,  };
 
   @BuiltValueField(wireName: r'Conditions')
   BuiltList<ProfileCondition>? get conditions;
@@ -67,8 +67,7 @@ class _$ContainerProfileSerializer
       yield r'Conditions';
       yield serializers.serialize(
         object.conditions,
-        specifiedType:
-            const FullType.nullable(BuiltList, [FullType(ProfileCondition)]),
+        specifiedType: const FullType(BuiltList, [FullType(ProfileCondition)]),
       );
     }
     if (object.container != null) {
@@ -113,10 +112,9 @@ class _$ContainerProfileSerializer
         case r'Conditions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(
-                BuiltList, [FullType(ProfileCondition)]),
-          ) as BuiltList<ProfileCondition>?;
-          if (valueDes == null) continue;
+            specifiedType:
+                const FullType(BuiltList, [FullType(ProfileCondition)]),
+          ) as BuiltList<ProfileCondition>;
           result.conditions.replace(valueDes);
           break;
         case r'Container':

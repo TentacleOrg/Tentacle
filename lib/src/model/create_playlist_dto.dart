@@ -4,6 +4,8 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/playlist_user_permissions.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,6 +18,8 @@ part 'create_playlist_dto.g.dart';
 /// * [ids] - Gets or sets item ids to add to the playlist.
 /// * [userId] - Gets or sets the user id.
 /// * [mediaType] - Gets or sets the media type.
+/// * [users] - Gets or sets the playlist users.
+/// * [isPublic] - Gets or sets a value indicating whether the playlist is public.
 @BuiltValue()
 abstract class CreatePlaylistDto
     implements Built<CreatePlaylistDto, CreatePlaylistDtoBuilder> {
@@ -33,7 +37,16 @@ abstract class CreatePlaylistDto
 
   /// Gets or sets the media type.
   @BuiltValueField(wireName: r'MediaType')
-  String? get mediaType;
+  MediaType? get mediaType;
+  // enum mediaTypeEnum {  Unknown,  Video,  Audio,  Photo,  Book,  };
+
+  /// Gets or sets the playlist users.
+  @BuiltValueField(wireName: r'Users')
+  BuiltList<PlaylistUserPermissions>? get users;
+
+  /// Gets or sets a value indicating whether the playlist is public.
+  @BuiltValueField(wireName: r'IsPublic')
+  bool? get isPublic;
 
   CreatePlaylistDto._();
 
@@ -65,7 +78,7 @@ class _$CreatePlaylistDtoSerializer
       yield r'Name';
       yield serializers.serialize(
         object.name,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
     if (object.ids != null) {
@@ -86,7 +99,22 @@ class _$CreatePlaylistDtoSerializer
       yield r'MediaType';
       yield serializers.serialize(
         object.mediaType,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType.nullable(MediaType),
+      );
+    }
+    if (object.users != null) {
+      yield r'Users';
+      yield serializers.serialize(
+        object.users,
+        specifiedType:
+            const FullType(BuiltList, [FullType(PlaylistUserPermissions)]),
+      );
+    }
+    if (object.isPublic != null) {
+      yield r'IsPublic';
+      yield serializers.serialize(
+        object.isPublic,
+        specifiedType: const FullType(bool),
       );
     }
   }
@@ -117,9 +145,8 @@ class _$CreatePlaylistDtoSerializer
         case r'Name':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.name = valueDes;
           break;
         case r'Ids':
@@ -140,10 +167,25 @@ class _$CreatePlaylistDtoSerializer
         case r'MediaType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
+            specifiedType: const FullType.nullable(MediaType),
+          ) as MediaType?;
           if (valueDes == null) continue;
           result.mediaType = valueDes;
+          break;
+        case r'Users':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType(BuiltList, [FullType(PlaylistUserPermissions)]),
+          ) as BuiltList<PlaylistUserPermissions>;
+          result.users.replace(valueDes);
+          break;
+        case r'IsPublic':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isPublic = valueDes;
           break;
         default:
           unhandled.add(key);

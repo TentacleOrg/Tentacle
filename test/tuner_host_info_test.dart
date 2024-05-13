@@ -61,5 +61,10 @@ void main() {
     test('to test the property `userAgent`', () async {
       // TODO
     });
+
+    // bool ignoreDts
+    test('to test the property `ignoreDts`', () async {
+      // TODO
+    });
   });
 }

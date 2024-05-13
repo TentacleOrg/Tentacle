@@ -12,6 +12,7 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/problem_details.dart';
 
 class InstantMixApi {
   final Dio _dio;
@@ -24,7 +25,7 @@ class InstantMixApi {
   ///
   ///
   /// Parameters:
-  /// * [id] - The item id.
+  /// * [itemId] - The item id.
   /// * [userId] - Optional. Filter by user id, and attach user data.
   /// * [limit] - Optional. The maximum number of records to return.
   /// * [fields] - Optional. Specify additional fields of information to return in the output.
@@ -42,7 +43,7 @@ class InstantMixApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getInstantMixFromAlbum({
-    required String id,
+    required String itemId,
     String? userId,
     int? limit,
     BuiltList<ItemFields>? fields,
@@ -57,9 +58,9 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Albums/{id}/InstantMix'.replaceAll(
-        '{' r'id' '}',
-        encodeQueryParameter(_serializers, id, const FullType(String))
+    final _path = r'/Albums/{itemId}/InstantMix'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
             .toString());
     final _options = Options(
       method: r'GET',
@@ -157,7 +158,7 @@ class InstantMixApi {
   ///
   ///
   /// Parameters:
-  /// * [id] - The item id.
+  /// * [itemId] - The item id.
   /// * [userId] - Optional. Filter by user id, and attach user data.
   /// * [limit] - Optional. The maximum number of records to return.
   /// * [fields] - Optional. Specify additional fields of information to return in the output.
@@ -175,7 +176,7 @@ class InstantMixApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getInstantMixFromArtists({
-    required String id,
+    required String itemId,
     String? userId,
     int? limit,
     BuiltList<ItemFields>? fields,
@@ -190,9 +191,9 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Artists/{id}/InstantMix'.replaceAll(
-        '{' r'id' '}',
-        encodeQueryParameter(_serializers, id, const FullType(String))
+    final _path = r'/Artists/{itemId}/InstantMix'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
             .toString());
     final _options = Options(
       method: r'GET',
@@ -422,7 +423,7 @@ class InstantMixApi {
   ///
   ///
   /// Parameters:
-  /// * [id] - The item id.
+  /// * [itemId] - The item id.
   /// * [userId] - Optional. Filter by user id, and attach user data.
   /// * [limit] - Optional. The maximum number of records to return.
   /// * [fields] - Optional. Specify additional fields of information to return in the output.
@@ -440,7 +441,7 @@ class InstantMixApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getInstantMixFromItem({
-    required String id,
+    required String itemId,
     String? userId,
     int? limit,
     BuiltList<ItemFields>? fields,
@@ -455,9 +456,9 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Items/{id}/InstantMix'.replaceAll(
-        '{' r'id' '}',
-        encodeQueryParameter(_serializers, id, const FullType(String))
+    final _path = r'/Items/{itemId}/InstantMix'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
             .toString());
     final _options = Options(
       method: r'GET',
@@ -819,7 +820,7 @@ class InstantMixApi {
   ///
   ///
   /// Parameters:
-  /// * [id] - The item id.
+  /// * [itemId] - The item id.
   /// * [userId] - Optional. Filter by user id, and attach user data.
   /// * [limit] - Optional. The maximum number of records to return.
   /// * [fields] - Optional. Specify additional fields of information to return in the output.
@@ -837,7 +838,7 @@ class InstantMixApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getInstantMixFromPlaylist({
-    required String id,
+    required String itemId,
     String? userId,
     int? limit,
     BuiltList<ItemFields>? fields,
@@ -852,9 +853,9 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Playlists/{id}/InstantMix'.replaceAll(
-        '{' r'id' '}',
-        encodeQueryParameter(_serializers, id, const FullType(String))
+    final _path = r'/Playlists/{itemId}/InstantMix'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
             .toString());
     final _options = Options(
       method: r'GET',
@@ -952,7 +953,7 @@ class InstantMixApi {
   ///
   ///
   /// Parameters:
-  /// * [id] - The item id.
+  /// * [itemId] - The item id.
   /// * [userId] - Optional. Filter by user id, and attach user data.
   /// * [limit] - Optional. The maximum number of records to return.
   /// * [fields] - Optional. Specify additional fields of information to return in the output.
@@ -970,7 +971,7 @@ class InstantMixApi {
   /// Returns a [Future] containing a [Response] with a [BaseItemDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getInstantMixFromSong({
-    required String id,
+    required String itemId,
     String? userId,
     int? limit,
     BuiltList<ItemFields>? fields,
@@ -985,9 +986,9 @@ class InstantMixApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/Songs/{id}/InstantMix'.replaceAll(
-        '{' r'id' '}',
-        encodeQueryParameter(_serializers, id, const FullType(String))
+    final _path = r'/Songs/{itemId}/InstantMix'.replaceAll(
+        '{' r'itemId' '}',
+        encodeQueryParameter(_serializers, itemId, const FullType(String))
             .toString());
     final _options = Options(
       method: r'GET',

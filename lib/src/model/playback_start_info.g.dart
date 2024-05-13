@@ -44,6 +44,8 @@ class _$PlaybackStartInfo extends PlaybackStartInfo {
   @override
   final RepeatMode? repeatMode;
   @override
+  final PlaybackOrder? playbackOrder;
+  @override
   final BuiltList<QueueItem>? nowPlayingQueue;
   @override
   final String? playlistItemId;
@@ -71,6 +73,7 @@ class _$PlaybackStartInfo extends PlaybackStartInfo {
       this.liveStreamId,
       this.playSessionId,
       this.repeatMode,
+      this.playbackOrder,
       this.nowPlayingQueue,
       this.playlistItemId})
       : super._();
@@ -105,6 +108,7 @@ class _$PlaybackStartInfo extends PlaybackStartInfo {
         liveStreamId == other.liveStreamId &&
         playSessionId == other.playSessionId &&
         repeatMode == other.repeatMode &&
+        playbackOrder == other.playbackOrder &&
         nowPlayingQueue == other.nowPlayingQueue &&
         playlistItemId == other.playlistItemId;
   }
@@ -130,6 +134,7 @@ class _$PlaybackStartInfo extends PlaybackStartInfo {
     _$hash = $jc(_$hash, liveStreamId.hashCode);
     _$hash = $jc(_$hash, playSessionId.hashCode);
     _$hash = $jc(_$hash, repeatMode.hashCode);
+    _$hash = $jc(_$hash, playbackOrder.hashCode);
     _$hash = $jc(_$hash, nowPlayingQueue.hashCode);
     _$hash = $jc(_$hash, playlistItemId.hashCode);
     _$hash = $jf(_$hash);
@@ -157,6 +162,7 @@ class _$PlaybackStartInfo extends PlaybackStartInfo {
           ..add('liveStreamId', liveStreamId)
           ..add('playSessionId', playSessionId)
           ..add('repeatMode', repeatMode)
+          ..add('playbackOrder', playbackOrder)
           ..add('nowPlayingQueue', nowPlayingQueue)
           ..add('playlistItemId', playlistItemId))
         .toString();
@@ -246,6 +252,11 @@ class PlaybackStartInfoBuilder
   RepeatMode? get repeatMode => _$this._repeatMode;
   set repeatMode(RepeatMode? repeatMode) => _$this._repeatMode = repeatMode;
 
+  PlaybackOrder? _playbackOrder;
+  PlaybackOrder? get playbackOrder => _$this._playbackOrder;
+  set playbackOrder(PlaybackOrder? playbackOrder) =>
+      _$this._playbackOrder = playbackOrder;
+
   ListBuilder<QueueItem>? _nowPlayingQueue;
   ListBuilder<QueueItem> get nowPlayingQueue =>
       _$this._nowPlayingQueue ??= new ListBuilder<QueueItem>();
@@ -282,6 +293,7 @@ class PlaybackStartInfoBuilder
       _liveStreamId = $v.liveStreamId;
       _playSessionId = $v.playSessionId;
       _repeatMode = $v.repeatMode;
+      _playbackOrder = $v.playbackOrder;
       _nowPlayingQueue = $v.nowPlayingQueue?.toBuilder();
       _playlistItemId = $v.playlistItemId;
       _$v = null;
@@ -326,6 +338,7 @@ class PlaybackStartInfoBuilder
               liveStreamId: liveStreamId,
               playSessionId: playSessionId,
               repeatMode: repeatMode,
+              playbackOrder: playbackOrder,
               nowPlayingQueue: _nowPlayingQueue?.build(),
               playlistItemId: playlistItemId);
     } catch (_) {

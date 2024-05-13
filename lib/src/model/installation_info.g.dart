@@ -6,7 +6,32 @@ part of 'installation_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$InstallationInfo extends InstallationInfo {
+abstract mixin class InstallationInfoBuilder {
+  void replace(InstallationInfo other);
+  void update(void Function(InstallationInfoBuilder) updates);
+  String? get guid;
+  set guid(String? guid);
+
+  String? get name;
+  set name(String? name);
+
+  String? get version;
+  set version(String? version);
+
+  String? get changelog;
+  set changelog(String? changelog);
+
+  String? get sourceUrl;
+  set sourceUrl(String? sourceUrl);
+
+  String? get checksum;
+  set checksum(String? checksum);
+
+  InstallationInfoPackageInfoBuilder get packageInfo;
+  set packageInfo(InstallationInfoPackageInfoBuilder? packageInfo);
+}
+
+class _$$InstallationInfo extends $InstallationInfo {
   @override
   final String? guid;
   @override
@@ -22,11 +47,11 @@ class _$InstallationInfo extends InstallationInfo {
   @override
   final InstallationInfoPackageInfo? packageInfo;
 
-  factory _$InstallationInfo(
-          [void Function(InstallationInfoBuilder)? updates]) =>
-      (new InstallationInfoBuilder()..update(updates))._build();
+  factory _$$InstallationInfo(
+          [void Function($InstallationInfoBuilder)? updates]) =>
+      (new $InstallationInfoBuilder()..update(updates))._build();
 
-  _$InstallationInfo._(
+  _$$InstallationInfo._(
       {this.guid,
       this.name,
       this.version,
@@ -37,17 +62,17 @@ class _$InstallationInfo extends InstallationInfo {
       : super._();
 
   @override
-  InstallationInfo rebuild(void Function(InstallationInfoBuilder) updates) =>
+  $InstallationInfo rebuild(void Function($InstallationInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  InstallationInfoBuilder toBuilder() =>
-      new InstallationInfoBuilder()..replace(this);
+  $InstallationInfoBuilder toBuilder() =>
+      new $InstallationInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is InstallationInfo &&
+    return other is $InstallationInfo &&
         guid == other.guid &&
         name == other.name &&
         version == other.version &&
@@ -73,7 +98,7 @@ class _$InstallationInfo extends InstallationInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'InstallationInfo')
+    return (newBuiltValueToStringHelper(r'$InstallationInfo')
           ..add('guid', guid)
           ..add('name', name)
           ..add('version', version)
@@ -85,45 +110,47 @@ class _$InstallationInfo extends InstallationInfo {
   }
 }
 
-class InstallationInfoBuilder
-    implements Builder<InstallationInfo, InstallationInfoBuilder> {
-  _$InstallationInfo? _$v;
+class $InstallationInfoBuilder
+    implements
+        Builder<$InstallationInfo, $InstallationInfoBuilder>,
+        InstallationInfoBuilder {
+  _$$InstallationInfo? _$v;
 
   String? _guid;
   String? get guid => _$this._guid;
-  set guid(String? guid) => _$this._guid = guid;
+  set guid(covariant String? guid) => _$this._guid = guid;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   String? _changelog;
   String? get changelog => _$this._changelog;
-  set changelog(String? changelog) => _$this._changelog = changelog;
+  set changelog(covariant String? changelog) => _$this._changelog = changelog;
 
   String? _sourceUrl;
   String? get sourceUrl => _$this._sourceUrl;
-  set sourceUrl(String? sourceUrl) => _$this._sourceUrl = sourceUrl;
+  set sourceUrl(covariant String? sourceUrl) => _$this._sourceUrl = sourceUrl;
 
   String? _checksum;
   String? get checksum => _$this._checksum;
-  set checksum(String? checksum) => _$this._checksum = checksum;
+  set checksum(covariant String? checksum) => _$this._checksum = checksum;
 
   InstallationInfoPackageInfoBuilder? _packageInfo;
   InstallationInfoPackageInfoBuilder get packageInfo =>
       _$this._packageInfo ??= new InstallationInfoPackageInfoBuilder();
-  set packageInfo(InstallationInfoPackageInfoBuilder? packageInfo) =>
+  set packageInfo(covariant InstallationInfoPackageInfoBuilder? packageInfo) =>
       _$this._packageInfo = packageInfo;
 
-  InstallationInfoBuilder() {
-    InstallationInfo._defaults(this);
+  $InstallationInfoBuilder() {
+    $InstallationInfo._defaults(this);
   }
 
-  InstallationInfoBuilder get _$this {
+  $InstallationInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _guid = $v.guid;
@@ -139,24 +166,24 @@ class InstallationInfoBuilder
   }
 
   @override
-  void replace(InstallationInfo other) {
+  void replace(covariant $InstallationInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$InstallationInfo;
+    _$v = other as _$$InstallationInfo;
   }
 
   @override
-  void update(void Function(InstallationInfoBuilder)? updates) {
+  void update(void Function($InstallationInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  InstallationInfo build() => _build();
+  $InstallationInfo build() => _build();
 
-  _$InstallationInfo _build() {
-    _$InstallationInfo _$result;
+  _$$InstallationInfo _build() {
+    _$$InstallationInfo _$result;
     try {
       _$result = _$v ??
-          new _$InstallationInfo._(
+          new _$$InstallationInfo._(
               guid: guid,
               name: name,
               version: version,
@@ -171,7 +198,7 @@ class InstallationInfoBuilder
         _packageInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'InstallationInfo', _$failedField, e.toString());
+            r'$InstallationInfo', _$failedField, e.toString());
       }
       rethrow;
     }

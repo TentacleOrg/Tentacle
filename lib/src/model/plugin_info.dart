@@ -20,8 +20,8 @@ part 'plugin_info.g.dart';
 /// * [canUninstall] - Gets or sets a value indicating whether the plugin can be uninstalled.
 /// * [hasImage] - Gets or sets a value indicating whether this plugin has a valid image.
 /// * [status] - Gets or sets a value indicating the status of the plugin.
-@BuiltValue()
-abstract class PluginInfo implements Built<PluginInfo, PluginInfoBuilder> {
+@BuiltValue(instantiable: false)
+abstract class PluginInfo {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -55,20 +55,13 @@ abstract class PluginInfo implements Built<PluginInfo, PluginInfoBuilder> {
   PluginStatus? get status;
   // enum statusEnum {  Active,  Restart,  Deleted,  Superceded,  Malfunctioned,  NotSupported,  Disabled,  };
 
-  PluginInfo._();
-
-  factory PluginInfo([void updates(PluginInfoBuilder b)]) = _$PluginInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PluginInfoBuilder b) => b;
-
   @BuiltValueSerializer(custom: true)
   static Serializer<PluginInfo> get serializer => _$PluginInfoSerializer();
 }
 
 class _$PluginInfoSerializer implements PrimitiveSerializer<PluginInfo> {
   @override
-  final Iterable<Type> types = const [PluginInfo, _$PluginInfo];
+  final Iterable<Type> types = const [PluginInfo];
 
   @override
   final String wireName = r'PluginInfo';
@@ -145,6 +138,49 @@ class _$PluginInfoSerializer implements PrimitiveSerializer<PluginInfo> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
+  }
+
+  @override
+  PluginInfo deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return serializers.deserialize(serialized,
+        specifiedType: FullType($PluginInfo)) as $PluginInfo;
+  }
+}
+
+/// a concrete implementation of [PluginInfo], since [PluginInfo] is not instantiable
+@BuiltValue(instantiable: true)
+abstract class $PluginInfo
+    implements PluginInfo, Built<$PluginInfo, $PluginInfoBuilder> {
+  $PluginInfo._();
+
+  factory $PluginInfo([void Function($PluginInfoBuilder)? updates]) =
+      _$$PluginInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults($PluginInfoBuilder b) => b;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<$PluginInfo> get serializer => _$$PluginInfoSerializer();
+}
+
+class _$$PluginInfoSerializer implements PrimitiveSerializer<$PluginInfo> {
+  @override
+  final Iterable<Type> types = const [$PluginInfo, _$$PluginInfo];
+
+  @override
+  final String wireName = r'$PluginInfo';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    $PluginInfo object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    return serializers.serialize(object, specifiedType: FullType(PluginInfo))!;
   }
 
   void _deserializeProperties(
@@ -225,12 +261,12 @@ class _$PluginInfoSerializer implements PrimitiveSerializer<PluginInfo> {
   }
 
   @override
-  PluginInfo deserialize(
+  $PluginInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = PluginInfoBuilder();
+    final result = $PluginInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

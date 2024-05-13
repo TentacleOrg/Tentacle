@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getSuggestions**](SuggestionsApi.md#getsuggestions) | **GET** /Users/{userId}/Suggestions | Gets suggestions.
+[**getSuggestions**](SuggestionsApi.md#getsuggestions) | **GET** /Items/Suggestions | Gets suggestions.
 
 
 # **getSuggestions**
@@ -27,7 +27,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getSuggestionsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final BuiltList<String> mediaType = ; // BuiltList<String> | The media types.
+final BuiltList<MediaType> mediaType = ; // BuiltList<MediaType> | The media types.
 final BuiltList<BaseItemKind> type = ; // BuiltList<BaseItemKind> | The type.
 final int startIndex = 56; // int | Optional. The start index.
 final int limit = 56; // int | Optional. The limit.
@@ -45,8 +45,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The user id. | 
- **mediaType** | [**BuiltList&lt;String&gt;**](String.md)| The media types. | [optional] 
+ **userId** | **String**| The user id. | [optional] 
+ **mediaType** | [**BuiltList&lt;MediaType&gt;**](MediaType.md)| The media types. | [optional] 
  **type** | [**BuiltList&lt;BaseItemKind&gt;**](BaseItemKind.md)| The type. | [optional] 
  **startIndex** | **int**| Optional. The start index. | [optional] 
  **limit** | **int**| Optional. The limit. | [optional] 

@@ -15,6 +15,8 @@ import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
 import 'package:tentacle/src/model/item_filter.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/sort_order.dart';
 
 class ArtistsApi {
@@ -80,7 +82,7 @@ class ArtistsApi {
     BuiltList<BaseItemKind>? includeItemTypes,
     BuiltList<ItemFilter>? filters,
     bool? isFavorite,
-    BuiltList<String>? mediaTypes,
+    BuiltList<MediaType>? mediaTypes,
     BuiltList<String>? genres,
     BuiltList<String>? genreIds,
     BuiltList<String>? officialRatings,
@@ -98,7 +100,7 @@ class ArtistsApi {
     String? nameStartsWithOrGreater,
     String? nameStartsWith,
     String? nameLessThan,
-    BuiltList<String>? sortBy,
+    BuiltList<ItemSortBy>? sortBy,
     BuiltList<SortOrder>? sortOrder,
     bool? enableImages = true,
     bool? enableTotalRecordCount = true,
@@ -177,10 +179,10 @@ class ArtistsApi {
         r'isFavorite': encodeQueryParameter(
             _serializers, isFavorite, const FullType(bool)),
       if (mediaTypes != null)
-        r'mediaTypes': encodeCollectionQueryParameter<String>(
+        r'mediaTypes': encodeCollectionQueryParameter<MediaType>(
           _serializers,
           mediaTypes,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(MediaType)]),
           format: ListFormat.multi,
         ),
       if (genres != null)
@@ -275,10 +277,10 @@ class ArtistsApi {
         r'nameLessThan': encodeQueryParameter(
             _serializers, nameLessThan, const FullType(String)),
       if (sortBy != null)
-        r'sortBy': encodeCollectionQueryParameter<String>(
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
           _serializers,
           sortBy,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
           format: ListFormat.multi,
         ),
       if (sortOrder != null)
@@ -488,7 +490,7 @@ class ArtistsApi {
     BuiltList<BaseItemKind>? includeItemTypes,
     BuiltList<ItemFilter>? filters,
     bool? isFavorite,
-    BuiltList<String>? mediaTypes,
+    BuiltList<MediaType>? mediaTypes,
     BuiltList<String>? genres,
     BuiltList<String>? genreIds,
     BuiltList<String>? officialRatings,
@@ -506,7 +508,7 @@ class ArtistsApi {
     String? nameStartsWithOrGreater,
     String? nameStartsWith,
     String? nameLessThan,
-    BuiltList<String>? sortBy,
+    BuiltList<ItemSortBy>? sortBy,
     BuiltList<SortOrder>? sortOrder,
     bool? enableImages = true,
     bool? enableTotalRecordCount = true,
@@ -585,10 +587,10 @@ class ArtistsApi {
         r'isFavorite': encodeQueryParameter(
             _serializers, isFavorite, const FullType(bool)),
       if (mediaTypes != null)
-        r'mediaTypes': encodeCollectionQueryParameter<String>(
+        r'mediaTypes': encodeCollectionQueryParameter<MediaType>(
           _serializers,
           mediaTypes,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(MediaType)]),
           format: ListFormat.multi,
         ),
       if (genres != null)
@@ -683,10 +685,10 @@ class ArtistsApi {
         r'nameLessThan': encodeQueryParameter(
             _serializers, nameLessThan, const FullType(String)),
       if (sortBy != null)
-        r'sortBy': encodeCollectionQueryParameter<String>(
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
           _serializers,
           sortBy,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
           format: ListFormat.multi,
         ),
       if (sortOrder != null)

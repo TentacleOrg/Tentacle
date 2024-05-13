@@ -26,8 +26,20 @@ void main() {
     });
 
     // Gets or sets the media type.
-    // String mediaType
+    // MediaType mediaType
     test('to test the property `mediaType`', () async {
+      // TODO
+    });
+
+    // Gets or sets the playlist users.
+    // BuiltList<PlaylistUserPermissions> users
+    test('to test the property `users`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether the playlist is public.
+    // bool isPublic
+    test('to test the property `isPublic`', () async {
       // TODO
     });
   });

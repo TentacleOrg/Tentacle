@@ -12,6 +12,7 @@ import 'package:tentacle/src/model/media_stream.dart';
 import 'package:tentacle/src/model/video3_d_format.dart';
 import 'package:tentacle/src/model/video_type.dart';
 import 'package:tentacle/src/model/media_protocol.dart';
+import 'package:tentacle/src/model/media_stream_protocol.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -57,7 +58,7 @@ part 'media_source_info.g.dart';
 /// * [timestamp]
 /// * [requiredHttpHeaders]
 /// * [transcodingUrl]
-/// * [transcodingSubProtocol]
+/// * [transcodingSubProtocol] - Media streaming protocol.  Lowercase for backwards compatibility.
 /// * [transcodingContainer]
 /// * [analyzeDurationMs]
 /// * [defaultAudioStreamIndex]
@@ -184,8 +185,10 @@ abstract class MediaSourceInfo
   @BuiltValueField(wireName: r'TranscodingUrl')
   String? get transcodingUrl;
 
+  /// Media streaming protocol.  Lowercase for backwards compatibility.
   @BuiltValueField(wireName: r'TranscodingSubProtocol')
-  String? get transcodingSubProtocol;
+  MediaStreamProtocol? get transcodingSubProtocol;
+  // enum transcodingSubProtocolEnum {  http,  hls,  };
 
   @BuiltValueField(wireName: r'TranscodingContainer')
   String? get transcodingContainer;
@@ -491,7 +494,7 @@ class _$MediaSourceInfoSerializer
       yield r'TranscodingSubProtocol';
       yield serializers.serialize(
         object.transcodingSubProtocol,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(MediaStreamProtocol),
       );
     }
     if (object.transcodingContainer != null) {
@@ -835,9 +838,8 @@ class _$MediaSourceInfoSerializer
         case r'TranscodingSubProtocol':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(MediaStreamProtocol),
+          ) as MediaStreamProtocol;
           result.transcodingSubProtocol = valueDes;
           break;
         case r'TranscodingContainer':

@@ -53,6 +53,9 @@ abstract mixin class UserConfigurationBuilder {
 
   bool? get enableNextEpisodeAutoPlay;
   set enableNextEpisodeAutoPlay(bool? enableNextEpisodeAutoPlay);
+
+  String? get castReceiverId;
+  set castReceiverId(String? castReceiverId);
 }
 
 class _$$UserConfiguration extends $UserConfiguration {
@@ -86,6 +89,8 @@ class _$$UserConfiguration extends $UserConfiguration {
   final bool? rememberSubtitleSelections;
   @override
   final bool? enableNextEpisodeAutoPlay;
+  @override
+  final String? castReceiverId;
 
   factory _$$UserConfiguration(
           [void Function($UserConfigurationBuilder)? updates]) =>
@@ -106,7 +111,8 @@ class _$$UserConfiguration extends $UserConfiguration {
       this.hidePlayedInLatest,
       this.rememberAudioSelections,
       this.rememberSubtitleSelections,
-      this.enableNextEpisodeAutoPlay})
+      this.enableNextEpisodeAutoPlay,
+      this.castReceiverId})
       : super._();
 
   @override
@@ -136,7 +142,8 @@ class _$$UserConfiguration extends $UserConfiguration {
         hidePlayedInLatest == other.hidePlayedInLatest &&
         rememberAudioSelections == other.rememberAudioSelections &&
         rememberSubtitleSelections == other.rememberSubtitleSelections &&
-        enableNextEpisodeAutoPlay == other.enableNextEpisodeAutoPlay;
+        enableNextEpisodeAutoPlay == other.enableNextEpisodeAutoPlay &&
+        castReceiverId == other.castReceiverId;
   }
 
   @override
@@ -157,6 +164,7 @@ class _$$UserConfiguration extends $UserConfiguration {
     _$hash = $jc(_$hash, rememberAudioSelections.hashCode);
     _$hash = $jc(_$hash, rememberSubtitleSelections.hashCode);
     _$hash = $jc(_$hash, enableNextEpisodeAutoPlay.hashCode);
+    _$hash = $jc(_$hash, castReceiverId.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -178,7 +186,8 @@ class _$$UserConfiguration extends $UserConfiguration {
           ..add('hidePlayedInLatest', hidePlayedInLatest)
           ..add('rememberAudioSelections', rememberAudioSelections)
           ..add('rememberSubtitleSelections', rememberSubtitleSelections)
-          ..add('enableNextEpisodeAutoPlay', enableNextEpisodeAutoPlay))
+          ..add('enableNextEpisodeAutoPlay', enableNextEpisodeAutoPlay)
+          ..add('castReceiverId', castReceiverId))
         .toString();
   }
 }
@@ -269,6 +278,11 @@ class $UserConfigurationBuilder
   set enableNextEpisodeAutoPlay(covariant bool? enableNextEpisodeAutoPlay) =>
       _$this._enableNextEpisodeAutoPlay = enableNextEpisodeAutoPlay;
 
+  String? _castReceiverId;
+  String? get castReceiverId => _$this._castReceiverId;
+  set castReceiverId(covariant String? castReceiverId) =>
+      _$this._castReceiverId = castReceiverId;
+
   $UserConfigurationBuilder() {
     $UserConfiguration._defaults(this);
   }
@@ -291,6 +305,7 @@ class $UserConfigurationBuilder
       _rememberAudioSelections = $v.rememberAudioSelections;
       _rememberSubtitleSelections = $v.rememberSubtitleSelections;
       _enableNextEpisodeAutoPlay = $v.enableNextEpisodeAutoPlay;
+      _castReceiverId = $v.castReceiverId;
       _$v = null;
     }
     return this;
@@ -329,7 +344,8 @@ class $UserConfigurationBuilder
               hidePlayedInLatest: hidePlayedInLatest,
               rememberAudioSelections: rememberAudioSelections,
               rememberSubtitleSelections: rememberSubtitleSelections,
-              enableNextEpisodeAutoPlay: enableNextEpisodeAutoPlay);
+              enableNextEpisodeAutoPlay: enableNextEpisodeAutoPlay,
+              castReceiverId: castReceiverId);
     } catch (_) {
       late String _$failedField;
       try {

@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getDevices**
-> DeviceInfoQueryResult getDevices(supportsSync, userId)
+> DeviceInfoQueryResult getDevices(userId)
 
 Get Devices.
 
@@ -164,11 +164,10 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getDevicesApi();
-final bool supportsSync = true; // bool | Gets or sets a value indicating whether [supports synchronize].
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Gets or sets the user identifier.
 
 try {
-    final response = api.getDevices(supportsSync, userId);
+    final response = api.getDevices(userId);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling DevicesApi->getDevices: $e\n');
@@ -179,7 +178,6 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **supportsSync** | **bool**| Gets or sets a value indicating whether [supports synchronize]. | [optional] 
  **userId** | **String**| Gets or sets the user identifier. | [optional] 
 
 ### Return type

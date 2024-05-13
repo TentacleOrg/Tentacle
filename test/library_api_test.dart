@@ -57,7 +57,7 @@ void main() {
 
     // Gets the library options info.
     //
-    //Future<LibraryOptionsResultDto> getLibraryOptionsInfo({ String libraryContentType, bool isNewLibrary }) async
+    //Future<LibraryOptionsResultDto> getLibraryOptionsInfo({ CollectionType libraryContentType, bool isNewLibrary }) async
     test('test getLibraryOptionsInfo', () async {
       // TODO
     });

@@ -14,13 +14,23 @@ class _$CreatePlaylistDto extends CreatePlaylistDto {
   @override
   final String? userId;
   @override
-  final String? mediaType;
+  final MediaType? mediaType;
+  @override
+  final BuiltList<PlaylistUserPermissions>? users;
+  @override
+  final bool? isPublic;
 
   factory _$CreatePlaylistDto(
           [void Function(CreatePlaylistDtoBuilder)? updates]) =>
       (new CreatePlaylistDtoBuilder()..update(updates))._build();
 
-  _$CreatePlaylistDto._({this.name, this.ids, this.userId, this.mediaType})
+  _$CreatePlaylistDto._(
+      {this.name,
+      this.ids,
+      this.userId,
+      this.mediaType,
+      this.users,
+      this.isPublic})
       : super._();
 
   @override
@@ -38,7 +48,9 @@ class _$CreatePlaylistDto extends CreatePlaylistDto {
         name == other.name &&
         ids == other.ids &&
         userId == other.userId &&
-        mediaType == other.mediaType;
+        mediaType == other.mediaType &&
+        users == other.users &&
+        isPublic == other.isPublic;
   }
 
   @override
@@ -48,6 +60,8 @@ class _$CreatePlaylistDto extends CreatePlaylistDto {
     _$hash = $jc(_$hash, ids.hashCode);
     _$hash = $jc(_$hash, userId.hashCode);
     _$hash = $jc(_$hash, mediaType.hashCode);
+    _$hash = $jc(_$hash, users.hashCode);
+    _$hash = $jc(_$hash, isPublic.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -58,7 +72,9 @@ class _$CreatePlaylistDto extends CreatePlaylistDto {
           ..add('name', name)
           ..add('ids', ids)
           ..add('userId', userId)
-          ..add('mediaType', mediaType))
+          ..add('mediaType', mediaType)
+          ..add('users', users)
+          ..add('isPublic', isPublic))
         .toString();
   }
 }
@@ -79,9 +95,19 @@ class CreatePlaylistDtoBuilder
   String? get userId => _$this._userId;
   set userId(String? userId) => _$this._userId = userId;
 
-  String? _mediaType;
-  String? get mediaType => _$this._mediaType;
-  set mediaType(String? mediaType) => _$this._mediaType = mediaType;
+  MediaType? _mediaType;
+  MediaType? get mediaType => _$this._mediaType;
+  set mediaType(MediaType? mediaType) => _$this._mediaType = mediaType;
+
+  ListBuilder<PlaylistUserPermissions>? _users;
+  ListBuilder<PlaylistUserPermissions> get users =>
+      _$this._users ??= new ListBuilder<PlaylistUserPermissions>();
+  set users(ListBuilder<PlaylistUserPermissions>? users) =>
+      _$this._users = users;
+
+  bool? _isPublic;
+  bool? get isPublic => _$this._isPublic;
+  set isPublic(bool? isPublic) => _$this._isPublic = isPublic;
 
   CreatePlaylistDtoBuilder() {
     CreatePlaylistDto._defaults(this);
@@ -94,6 +120,8 @@ class CreatePlaylistDtoBuilder
       _ids = $v.ids?.toBuilder();
       _userId = $v.userId;
       _mediaType = $v.mediaType;
+      _users = $v.users?.toBuilder();
+      _isPublic = $v.isPublic;
       _$v = null;
     }
     return this;
@@ -121,12 +149,17 @@ class CreatePlaylistDtoBuilder
               name: name,
               ids: _ids?.build(),
               userId: userId,
-              mediaType: mediaType);
+              mediaType: mediaType,
+              users: _users?.build(),
+              isPublic: isPublic);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ids';
         _ids?.build();
+
+        _$failedField = 'users';
+        _users?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'CreatePlaylistDto', _$failedField, e.toString());

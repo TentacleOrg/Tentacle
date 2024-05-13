@@ -20,8 +20,13 @@ part 'remote_subtitle_info.g.dart';
 /// * [comment]
 /// * [dateCreated]
 /// * [communityRating]
+/// * [frameRate]
 /// * [downloadCount]
 /// * [isHashMatch]
+/// * [aiTranslated]
+/// * [machineTranslated]
+/// * [forced]
+/// * [hearingImpaired]
 @BuiltValue()
 abstract class RemoteSubtitleInfo
     implements Built<RemoteSubtitleInfo, RemoteSubtitleInfoBuilder> {
@@ -52,11 +57,26 @@ abstract class RemoteSubtitleInfo
   @BuiltValueField(wireName: r'CommunityRating')
   double? get communityRating;
 
+  @BuiltValueField(wireName: r'FrameRate')
+  double? get frameRate;
+
   @BuiltValueField(wireName: r'DownloadCount')
   int? get downloadCount;
 
   @BuiltValueField(wireName: r'IsHashMatch')
   bool? get isHashMatch;
+
+  @BuiltValueField(wireName: r'AiTranslated')
+  bool? get aiTranslated;
+
+  @BuiltValueField(wireName: r'MachineTranslated')
+  bool? get machineTranslated;
+
+  @BuiltValueField(wireName: r'Forced')
+  bool? get forced;
+
+  @BuiltValueField(wireName: r'HearingImpaired')
+  bool? get hearingImpaired;
 
   RemoteSubtitleInfo._();
 
@@ -147,6 +167,13 @@ class _$RemoteSubtitleInfoSerializer
         specifiedType: const FullType.nullable(double),
       );
     }
+    if (object.frameRate != null) {
+      yield r'FrameRate';
+      yield serializers.serialize(
+        object.frameRate,
+        specifiedType: const FullType.nullable(double),
+      );
+    }
     if (object.downloadCount != null) {
       yield r'DownloadCount';
       yield serializers.serialize(
@@ -158,6 +185,34 @@ class _$RemoteSubtitleInfoSerializer
       yield r'IsHashMatch';
       yield serializers.serialize(
         object.isHashMatch,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.aiTranslated != null) {
+      yield r'AiTranslated';
+      yield serializers.serialize(
+        object.aiTranslated,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.machineTranslated != null) {
+      yield r'MachineTranslated';
+      yield serializers.serialize(
+        object.machineTranslated,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.forced != null) {
+      yield r'Forced';
+      yield serializers.serialize(
+        object.forced,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.hearingImpaired != null) {
+      yield r'HearingImpaired';
+      yield serializers.serialize(
+        object.hearingImpaired,
         specifiedType: const FullType.nullable(bool),
       );
     }
@@ -258,6 +313,14 @@ class _$RemoteSubtitleInfoSerializer
           if (valueDes == null) continue;
           result.communityRating = valueDes;
           break;
+        case r'FrameRate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(double),
+          ) as double?;
+          if (valueDes == null) continue;
+          result.frameRate = valueDes;
+          break;
         case r'DownloadCount':
           final valueDes = serializers.deserialize(
             value,
@@ -273,6 +336,38 @@ class _$RemoteSubtitleInfoSerializer
           ) as bool?;
           if (valueDes == null) continue;
           result.isHashMatch = valueDes;
+          break;
+        case r'AiTranslated':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.aiTranslated = valueDes;
+          break;
+        case r'MachineTranslated':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.machineTranslated = valueDes;
+          break;
+        case r'Forced':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.forced = valueDes;
+          break;
+        case r'HearingImpaired':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.hearingImpaired = valueDes;
           break;
         default:
           unhandled.add(key);

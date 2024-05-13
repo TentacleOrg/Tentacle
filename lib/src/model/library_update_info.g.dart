@@ -6,7 +6,32 @@ part of 'library_update_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$LibraryUpdateInfo extends LibraryUpdateInfo {
+abstract mixin class LibraryUpdateInfoBuilder {
+  void replace(LibraryUpdateInfo other);
+  void update(void Function(LibraryUpdateInfoBuilder) updates);
+  ListBuilder<String> get foldersAddedTo;
+  set foldersAddedTo(ListBuilder<String>? foldersAddedTo);
+
+  ListBuilder<String> get foldersRemovedFrom;
+  set foldersRemovedFrom(ListBuilder<String>? foldersRemovedFrom);
+
+  ListBuilder<String> get itemsAdded;
+  set itemsAdded(ListBuilder<String>? itemsAdded);
+
+  ListBuilder<String> get itemsRemoved;
+  set itemsRemoved(ListBuilder<String>? itemsRemoved);
+
+  ListBuilder<String> get itemsUpdated;
+  set itemsUpdated(ListBuilder<String>? itemsUpdated);
+
+  ListBuilder<String> get collectionFolders;
+  set collectionFolders(ListBuilder<String>? collectionFolders);
+
+  bool? get isEmpty;
+  set isEmpty(bool? isEmpty);
+}
+
+class _$$LibraryUpdateInfo extends $LibraryUpdateInfo {
   @override
   final BuiltList<String>? foldersAddedTo;
   @override
@@ -22,11 +47,11 @@ class _$LibraryUpdateInfo extends LibraryUpdateInfo {
   @override
   final bool? isEmpty;
 
-  factory _$LibraryUpdateInfo(
-          [void Function(LibraryUpdateInfoBuilder)? updates]) =>
-      (new LibraryUpdateInfoBuilder()..update(updates))._build();
+  factory _$$LibraryUpdateInfo(
+          [void Function($LibraryUpdateInfoBuilder)? updates]) =>
+      (new $LibraryUpdateInfoBuilder()..update(updates))._build();
 
-  _$LibraryUpdateInfo._(
+  _$$LibraryUpdateInfo._(
       {this.foldersAddedTo,
       this.foldersRemovedFrom,
       this.itemsAdded,
@@ -37,17 +62,18 @@ class _$LibraryUpdateInfo extends LibraryUpdateInfo {
       : super._();
 
   @override
-  LibraryUpdateInfo rebuild(void Function(LibraryUpdateInfoBuilder) updates) =>
+  $LibraryUpdateInfo rebuild(
+          void Function($LibraryUpdateInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LibraryUpdateInfoBuilder toBuilder() =>
-      new LibraryUpdateInfoBuilder()..replace(this);
+  $LibraryUpdateInfoBuilder toBuilder() =>
+      new $LibraryUpdateInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is LibraryUpdateInfo &&
+    return other is $LibraryUpdateInfo &&
         foldersAddedTo == other.foldersAddedTo &&
         foldersRemovedFrom == other.foldersRemovedFrom &&
         itemsAdded == other.itemsAdded &&
@@ -73,7 +99,7 @@ class _$LibraryUpdateInfo extends LibraryUpdateInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'LibraryUpdateInfo')
+    return (newBuiltValueToStringHelper(r'$LibraryUpdateInfo')
           ..add('foldersAddedTo', foldersAddedTo)
           ..add('foldersRemovedFrom', foldersRemovedFrom)
           ..add('itemsAdded', itemsAdded)
@@ -85,55 +111,57 @@ class _$LibraryUpdateInfo extends LibraryUpdateInfo {
   }
 }
 
-class LibraryUpdateInfoBuilder
-    implements Builder<LibraryUpdateInfo, LibraryUpdateInfoBuilder> {
-  _$LibraryUpdateInfo? _$v;
+class $LibraryUpdateInfoBuilder
+    implements
+        Builder<$LibraryUpdateInfo, $LibraryUpdateInfoBuilder>,
+        LibraryUpdateInfoBuilder {
+  _$$LibraryUpdateInfo? _$v;
 
   ListBuilder<String>? _foldersAddedTo;
   ListBuilder<String> get foldersAddedTo =>
       _$this._foldersAddedTo ??= new ListBuilder<String>();
-  set foldersAddedTo(ListBuilder<String>? foldersAddedTo) =>
+  set foldersAddedTo(covariant ListBuilder<String>? foldersAddedTo) =>
       _$this._foldersAddedTo = foldersAddedTo;
 
   ListBuilder<String>? _foldersRemovedFrom;
   ListBuilder<String> get foldersRemovedFrom =>
       _$this._foldersRemovedFrom ??= new ListBuilder<String>();
-  set foldersRemovedFrom(ListBuilder<String>? foldersRemovedFrom) =>
+  set foldersRemovedFrom(covariant ListBuilder<String>? foldersRemovedFrom) =>
       _$this._foldersRemovedFrom = foldersRemovedFrom;
 
   ListBuilder<String>? _itemsAdded;
   ListBuilder<String> get itemsAdded =>
       _$this._itemsAdded ??= new ListBuilder<String>();
-  set itemsAdded(ListBuilder<String>? itemsAdded) =>
+  set itemsAdded(covariant ListBuilder<String>? itemsAdded) =>
       _$this._itemsAdded = itemsAdded;
 
   ListBuilder<String>? _itemsRemoved;
   ListBuilder<String> get itemsRemoved =>
       _$this._itemsRemoved ??= new ListBuilder<String>();
-  set itemsRemoved(ListBuilder<String>? itemsRemoved) =>
+  set itemsRemoved(covariant ListBuilder<String>? itemsRemoved) =>
       _$this._itemsRemoved = itemsRemoved;
 
   ListBuilder<String>? _itemsUpdated;
   ListBuilder<String> get itemsUpdated =>
       _$this._itemsUpdated ??= new ListBuilder<String>();
-  set itemsUpdated(ListBuilder<String>? itemsUpdated) =>
+  set itemsUpdated(covariant ListBuilder<String>? itemsUpdated) =>
       _$this._itemsUpdated = itemsUpdated;
 
   ListBuilder<String>? _collectionFolders;
   ListBuilder<String> get collectionFolders =>
       _$this._collectionFolders ??= new ListBuilder<String>();
-  set collectionFolders(ListBuilder<String>? collectionFolders) =>
+  set collectionFolders(covariant ListBuilder<String>? collectionFolders) =>
       _$this._collectionFolders = collectionFolders;
 
   bool? _isEmpty;
   bool? get isEmpty => _$this._isEmpty;
-  set isEmpty(bool? isEmpty) => _$this._isEmpty = isEmpty;
+  set isEmpty(covariant bool? isEmpty) => _$this._isEmpty = isEmpty;
 
-  LibraryUpdateInfoBuilder() {
-    LibraryUpdateInfo._defaults(this);
+  $LibraryUpdateInfoBuilder() {
+    $LibraryUpdateInfo._defaults(this);
   }
 
-  LibraryUpdateInfoBuilder get _$this {
+  $LibraryUpdateInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _foldersAddedTo = $v.foldersAddedTo?.toBuilder();
@@ -149,24 +177,24 @@ class LibraryUpdateInfoBuilder
   }
 
   @override
-  void replace(LibraryUpdateInfo other) {
+  void replace(covariant $LibraryUpdateInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$LibraryUpdateInfo;
+    _$v = other as _$$LibraryUpdateInfo;
   }
 
   @override
-  void update(void Function(LibraryUpdateInfoBuilder)? updates) {
+  void update(void Function($LibraryUpdateInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  LibraryUpdateInfo build() => _build();
+  $LibraryUpdateInfo build() => _build();
 
-  _$LibraryUpdateInfo _build() {
-    _$LibraryUpdateInfo _$result;
+  _$$LibraryUpdateInfo _build() {
+    _$$LibraryUpdateInfo _$result;
     try {
       _$result = _$v ??
-          new _$LibraryUpdateInfo._(
+          new _$$LibraryUpdateInfo._(
               foldersAddedTo: _foldersAddedTo?.build(),
               foldersRemovedFrom: _foldersRemovedFrom?.build(),
               itemsAdded: _itemsAdded?.build(),
@@ -191,7 +219,7 @@ class LibraryUpdateInfoBuilder
         _collectionFolders?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'LibraryUpdateInfo', _$failedField, e.toString());
+            r'$LibraryUpdateInfo', _$failedField, e.toString());
       }
       rethrow;
     }

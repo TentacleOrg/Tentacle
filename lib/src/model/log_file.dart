@@ -81,7 +81,7 @@ class _$LogFileSerializer implements PrimitiveSerializer<LogFile> {
       yield r'Name';
       yield serializers.serialize(
         object.name,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
   }
@@ -133,9 +133,8 @@ class _$LogFileSerializer implements PrimitiveSerializer<LogFile> {
         case r'Name':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.name = valueDes;
           break;
         default:

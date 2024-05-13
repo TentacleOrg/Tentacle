@@ -29,7 +29,7 @@ void main() {
 
     // Get Devices.
     //
-    //Future<DeviceInfoQueryResult> getDevices({ bool supportsSync, String userId }) async
+    //Future<DeviceInfoQueryResult> getDevices({ String userId }) async
     test('test getDevices', () async {
       // TODO
     });

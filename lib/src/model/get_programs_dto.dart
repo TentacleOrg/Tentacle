@@ -6,6 +6,7 @@
 import 'package:tentacle/src/model/sort_order.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -107,7 +108,7 @@ abstract class GetProgramsDto
 
   /// Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.  Optional.
   @BuiltValueField(wireName: r'SortBy')
-  BuiltList<String>? get sortBy;
+  BuiltList<ItemSortBy>? get sortBy;
 
   /// Gets or sets sort Order - Ascending,Descending.
   @BuiltValueField(wireName: r'SortOrder')
@@ -190,7 +191,7 @@ class _$GetProgramsDtoSerializer
       yield r'UserId';
       yield serializers.serialize(
         object.userId,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
       );
     }
     if (object.minStartDate != null) {
@@ -288,7 +289,7 @@ class _$GetProgramsDtoSerializer
       yield r'SortBy';
       yield serializers.serialize(
         object.sortBy,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
+        specifiedType: const FullType(BuiltList, [FullType(ItemSortBy)]),
       );
     }
     if (object.sortOrder != null) {
@@ -403,8 +404,9 @@ class _$GetProgramsDtoSerializer
         case r'UserId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.userId = valueDes;
           break;
         case r'MinStartDate':
@@ -514,8 +516,8 @@ class _$GetProgramsDtoSerializer
         case r'SortBy':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
+            specifiedType: const FullType(BuiltList, [FullType(ItemSortBy)]),
+          ) as BuiltList<ItemSortBy>;
           result.sortBy.replace(valueDes);
           break;
         case r'SortOrder':

@@ -26,7 +26,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
   @override
   final DateTime? dateLastMediaAdded;
   @override
-  final String? extraType;
+  final ExtraType? extraType;
   @override
   final int? airsBeforeSeasonNumber;
   @override
@@ -38,13 +38,13 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
   @override
   final bool? canDownload;
   @override
+  final bool? hasLyrics;
+  @override
   final bool? hasSubtitles;
   @override
   final String? preferredMetadataLanguage;
   @override
   final String? preferredMetadataCountryCode;
-  @override
-  final bool? supportsSync;
   @override
   final String? container;
   @override
@@ -164,7 +164,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
   @override
   final String? album;
   @override
-  final String? collectionType;
+  final CollectionType? collectionType;
   @override
   final String? displayOrder;
   @override
@@ -216,11 +216,13 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
   @override
   final BuiltList<ChapterInfo>? chapters;
   @override
+  final BuiltMap<String, BuiltMap<String, TrickplayInfo>>? trickplay;
+  @override
   final LocationType? locationType;
   @override
   final IsoType? isoType;
   @override
-  final String? mediaType;
+  final MediaType? mediaType;
   @override
   final DateTime? endDate;
   @override
@@ -308,6 +310,8 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
   @override
   final String? timerId;
   @override
+  final double? normalizationGain;
+  @override
   final BaseItemDtoCurrentProgram? currentProgram;
 
   factory _$SessionInfoNowPlayingItem(
@@ -330,10 +334,10 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
       this.airsBeforeEpisodeNumber,
       this.canDelete,
       this.canDownload,
+      this.hasLyrics,
       this.hasSubtitles,
       this.preferredMetadataLanguage,
       this.preferredMetadataCountryCode,
-      this.supportsSync,
       this.container,
       this.sortName,
       this.forcedSortName,
@@ -419,6 +423,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
       this.parentPrimaryImageItemId,
       this.parentPrimaryImageTag,
       this.chapters,
+      this.trickplay,
       this.locationType,
       this.isoType,
       this.mediaType,
@@ -465,6 +470,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
       this.isKids,
       this.isPremiere,
       this.timerId,
+      this.normalizationGain,
       this.currentProgram})
       : super._();
 
@@ -496,10 +502,10 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
         airsBeforeEpisodeNumber == other.airsBeforeEpisodeNumber &&
         canDelete == other.canDelete &&
         canDownload == other.canDownload &&
+        hasLyrics == other.hasLyrics &&
         hasSubtitles == other.hasSubtitles &&
         preferredMetadataLanguage == other.preferredMetadataLanguage &&
         preferredMetadataCountryCode == other.preferredMetadataCountryCode &&
-        supportsSync == other.supportsSync &&
         container == other.container &&
         sortName == other.sortName &&
         forcedSortName == other.forcedSortName &&
@@ -585,6 +591,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
         parentPrimaryImageItemId == other.parentPrimaryImageItemId &&
         parentPrimaryImageTag == other.parentPrimaryImageTag &&
         chapters == other.chapters &&
+        trickplay == other.trickplay &&
         locationType == other.locationType &&
         isoType == other.isoType &&
         mediaType == other.mediaType &&
@@ -631,6 +638,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
         isKids == other.isKids &&
         isPremiere == other.isPremiere &&
         timerId == other.timerId &&
+        normalizationGain == other.normalizationGain &&
         currentProgram == other.currentProgram;
   }
 
@@ -652,10 +660,10 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
     _$hash = $jc(_$hash, airsBeforeEpisodeNumber.hashCode);
     _$hash = $jc(_$hash, canDelete.hashCode);
     _$hash = $jc(_$hash, canDownload.hashCode);
+    _$hash = $jc(_$hash, hasLyrics.hashCode);
     _$hash = $jc(_$hash, hasSubtitles.hashCode);
     _$hash = $jc(_$hash, preferredMetadataLanguage.hashCode);
     _$hash = $jc(_$hash, preferredMetadataCountryCode.hashCode);
-    _$hash = $jc(_$hash, supportsSync.hashCode);
     _$hash = $jc(_$hash, container.hashCode);
     _$hash = $jc(_$hash, sortName.hashCode);
     _$hash = $jc(_$hash, forcedSortName.hashCode);
@@ -741,6 +749,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
     _$hash = $jc(_$hash, parentPrimaryImageItemId.hashCode);
     _$hash = $jc(_$hash, parentPrimaryImageTag.hashCode);
     _$hash = $jc(_$hash, chapters.hashCode);
+    _$hash = $jc(_$hash, trickplay.hashCode);
     _$hash = $jc(_$hash, locationType.hashCode);
     _$hash = $jc(_$hash, isoType.hashCode);
     _$hash = $jc(_$hash, mediaType.hashCode);
@@ -787,6 +796,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
     _$hash = $jc(_$hash, isKids.hashCode);
     _$hash = $jc(_$hash, isPremiere.hashCode);
     _$hash = $jc(_$hash, timerId.hashCode);
+    _$hash = $jc(_$hash, normalizationGain.hashCode);
     _$hash = $jc(_$hash, currentProgram.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -810,10 +820,10 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
           ..add('airsBeforeEpisodeNumber', airsBeforeEpisodeNumber)
           ..add('canDelete', canDelete)
           ..add('canDownload', canDownload)
+          ..add('hasLyrics', hasLyrics)
           ..add('hasSubtitles', hasSubtitles)
           ..add('preferredMetadataLanguage', preferredMetadataLanguage)
           ..add('preferredMetadataCountryCode', preferredMetadataCountryCode)
-          ..add('supportsSync', supportsSync)
           ..add('container', container)
           ..add('sortName', sortName)
           ..add('forcedSortName', forcedSortName)
@@ -899,6 +909,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
           ..add('parentPrimaryImageItemId', parentPrimaryImageItemId)
           ..add('parentPrimaryImageTag', parentPrimaryImageTag)
           ..add('chapters', chapters)
+          ..add('trickplay', trickplay)
           ..add('locationType', locationType)
           ..add('isoType', isoType)
           ..add('mediaType', mediaType)
@@ -945,6 +956,7 @@ class _$SessionInfoNowPlayingItem extends SessionInfoNowPlayingItem {
           ..add('isKids', isKids)
           ..add('isPremiere', isPremiere)
           ..add('timerId', timerId)
+          ..add('normalizationGain', normalizationGain)
           ..add('currentProgram', currentProgram))
         .toString();
   }
@@ -997,9 +1009,10 @@ class SessionInfoNowPlayingItemBuilder
   set dateLastMediaAdded(covariant DateTime? dateLastMediaAdded) =>
       _$this._dateLastMediaAdded = dateLastMediaAdded;
 
-  String? _extraType;
-  String? get extraType => _$this._extraType;
-  set extraType(covariant String? extraType) => _$this._extraType = extraType;
+  ExtraType? _extraType;
+  ExtraType? get extraType => _$this._extraType;
+  set extraType(covariant ExtraType? extraType) =>
+      _$this._extraType = extraType;
 
   int? _airsBeforeSeasonNumber;
   int? get airsBeforeSeasonNumber => _$this._airsBeforeSeasonNumber;
@@ -1025,6 +1038,10 @@ class SessionInfoNowPlayingItemBuilder
   set canDownload(covariant bool? canDownload) =>
       _$this._canDownload = canDownload;
 
+  bool? _hasLyrics;
+  bool? get hasLyrics => _$this._hasLyrics;
+  set hasLyrics(covariant bool? hasLyrics) => _$this._hasLyrics = hasLyrics;
+
   bool? _hasSubtitles;
   bool? get hasSubtitles => _$this._hasSubtitles;
   set hasSubtitles(covariant bool? hasSubtitles) =>
@@ -1041,11 +1058,6 @@ class SessionInfoNowPlayingItemBuilder
   set preferredMetadataCountryCode(
           covariant String? preferredMetadataCountryCode) =>
       _$this._preferredMetadataCountryCode = preferredMetadataCountryCode;
-
-  bool? _supportsSync;
-  bool? get supportsSync => _$this._supportsSync;
-  set supportsSync(covariant bool? supportsSync) =>
-      _$this._supportsSync = supportsSync;
 
   String? _container;
   String? get container => _$this._container;
@@ -1340,9 +1352,9 @@ class SessionInfoNowPlayingItemBuilder
   String? get album => _$this._album;
   set album(covariant String? album) => _$this._album = album;
 
-  String? _collectionType;
-  String? get collectionType => _$this._collectionType;
-  set collectionType(covariant String? collectionType) =>
+  CollectionType? _collectionType;
+  CollectionType? get collectionType => _$this._collectionType;
+  set collectionType(covariant CollectionType? collectionType) =>
       _$this._collectionType = collectionType;
 
   String? _displayOrder;
@@ -1476,6 +1488,15 @@ class SessionInfoNowPlayingItemBuilder
   set chapters(covariant ListBuilder<ChapterInfo>? chapters) =>
       _$this._chapters = chapters;
 
+  MapBuilder<String, BuiltMap<String, TrickplayInfo>>? _trickplay;
+  MapBuilder<String, BuiltMap<String, TrickplayInfo>> get trickplay =>
+      _$this._trickplay ??=
+          new MapBuilder<String, BuiltMap<String, TrickplayInfo>>();
+  set trickplay(
+          covariant MapBuilder<String, BuiltMap<String, TrickplayInfo>>?
+              trickplay) =>
+      _$this._trickplay = trickplay;
+
   LocationType? _locationType;
   LocationType? get locationType => _$this._locationType;
   set locationType(covariant LocationType? locationType) =>
@@ -1485,9 +1506,10 @@ class SessionInfoNowPlayingItemBuilder
   IsoType? get isoType => _$this._isoType;
   set isoType(covariant IsoType? isoType) => _$this._isoType = isoType;
 
-  String? _mediaType;
-  String? get mediaType => _$this._mediaType;
-  set mediaType(covariant String? mediaType) => _$this._mediaType = mediaType;
+  MediaType? _mediaType;
+  MediaType? get mediaType => _$this._mediaType;
+  set mediaType(covariant MediaType? mediaType) =>
+      _$this._mediaType = mediaType;
 
   DateTime? _endDate;
   DateTime? get endDate => _$this._endDate;
@@ -1681,6 +1703,11 @@ class SessionInfoNowPlayingItemBuilder
   String? get timerId => _$this._timerId;
   set timerId(covariant String? timerId) => _$this._timerId = timerId;
 
+  double? _normalizationGain;
+  double? get normalizationGain => _$this._normalizationGain;
+  set normalizationGain(covariant double? normalizationGain) =>
+      _$this._normalizationGain = normalizationGain;
+
   BaseItemDtoCurrentProgramBuilder? _currentProgram;
   BaseItemDtoCurrentProgramBuilder get currentProgram =>
       _$this._currentProgram ??= new BaseItemDtoCurrentProgramBuilder();
@@ -1710,10 +1737,10 @@ class SessionInfoNowPlayingItemBuilder
       _airsBeforeEpisodeNumber = $v.airsBeforeEpisodeNumber;
       _canDelete = $v.canDelete;
       _canDownload = $v.canDownload;
+      _hasLyrics = $v.hasLyrics;
       _hasSubtitles = $v.hasSubtitles;
       _preferredMetadataLanguage = $v.preferredMetadataLanguage;
       _preferredMetadataCountryCode = $v.preferredMetadataCountryCode;
-      _supportsSync = $v.supportsSync;
       _container = $v.container;
       _sortName = $v.sortName;
       _forcedSortName = $v.forcedSortName;
@@ -1799,6 +1826,7 @@ class SessionInfoNowPlayingItemBuilder
       _parentPrimaryImageItemId = $v.parentPrimaryImageItemId;
       _parentPrimaryImageTag = $v.parentPrimaryImageTag;
       _chapters = $v.chapters?.toBuilder();
+      _trickplay = $v.trickplay?.toBuilder();
       _locationType = $v.locationType;
       _isoType = $v.isoType;
       _mediaType = $v.mediaType;
@@ -1845,6 +1873,7 @@ class SessionInfoNowPlayingItemBuilder
       _isKids = $v.isKids;
       _isPremiere = $v.isPremiere;
       _timerId = $v.timerId;
+      _normalizationGain = $v.normalizationGain;
       _currentProgram = $v.currentProgram?.toBuilder();
       _$v = null;
     }
@@ -1885,10 +1914,10 @@ class SessionInfoNowPlayingItemBuilder
               airsBeforeEpisodeNumber: airsBeforeEpisodeNumber,
               canDelete: canDelete,
               canDownload: canDownload,
+              hasLyrics: hasLyrics,
               hasSubtitles: hasSubtitles,
               preferredMetadataLanguage: preferredMetadataLanguage,
               preferredMetadataCountryCode: preferredMetadataCountryCode,
-              supportsSync: supportsSync,
               container: container,
               sortName: sortName,
               forcedSortName: forcedSortName,
@@ -1974,6 +2003,7 @@ class SessionInfoNowPlayingItemBuilder
               parentPrimaryImageItemId: parentPrimaryImageItemId,
               parentPrimaryImageTag: parentPrimaryImageTag,
               chapters: _chapters?.build(),
+              trickplay: _trickplay?.build(),
               locationType: locationType,
               isoType: isoType,
               mediaType: mediaType,
@@ -2020,6 +2050,7 @@ class SessionInfoNowPlayingItemBuilder
               isKids: isKids,
               isPremiere: isPremiere,
               timerId: timerId,
+              normalizationGain: normalizationGain,
               currentProgram: _currentProgram?.build());
     } catch (_) {
       late String _$failedField;
@@ -2083,6 +2114,8 @@ class SessionInfoNowPlayingItemBuilder
 
         _$failedField = 'chapters';
         _chapters?.build();
+        _$failedField = 'trickplay';
+        _trickplay?.build();
 
         _$failedField = 'lockedFields';
         _lockedFields?.build();

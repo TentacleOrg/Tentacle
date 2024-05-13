@@ -52,6 +52,11 @@ void main() {
       // TODO
     });
 
+    // double frameRate
+    test('to test the property `frameRate`', () async {
+      // TODO
+    });
+
     // int downloadCount
     test('to test the property `downloadCount`', () async {
       // TODO
@@ -59,6 +64,26 @@ void main() {
 
     // bool isHashMatch
     test('to test the property `isHashMatch`', () async {
+      // TODO
+    });
+
+    // bool aiTranslated
+    test('to test the property `aiTranslated`', () async {
+      // TODO
+    });
+
+    // bool machineTranslated
+    test('to test the property `machineTranslated`', () async {
+      // TODO
+    });
+
+    // bool forced
+    test('to test the property `forced`', () async {
+      // TODO
+    });
+
+    // bool hearingImpaired
+    test('to test the property `hearingImpaired`', () async {
       // TODO
     });
   });

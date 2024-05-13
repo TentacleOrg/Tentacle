@@ -11,6 +11,7 @@ const ImageFormat _$gif = const ImageFormat._('gif');
 const ImageFormat _$jpg = const ImageFormat._('jpg');
 const ImageFormat _$png = const ImageFormat._('png');
 const ImageFormat _$webp = const ImageFormat._('webp');
+const ImageFormat _$svg = const ImageFormat._('svg');
 
 ImageFormat _$valueOf(String name) {
   switch (name) {
@@ -24,6 +25,8 @@ ImageFormat _$valueOf(String name) {
       return _$png;
     case 'webp':
       return _$webp;
+    case 'svg':
+      return _$svg;
     default:
       throw new ArgumentError(name);
   }
@@ -36,6 +39,7 @@ final BuiltSet<ImageFormat> _$values =
   _$jpg,
   _$png,
   _$webp,
+  _$svg,
 ]);
 
 class _$ImageFormatMeta {
@@ -45,6 +49,7 @@ class _$ImageFormatMeta {
   ImageFormat get jpg => _$jpg;
   ImageFormat get png => _$png;
   ImageFormat get webp => _$webp;
+  ImageFormat get svg => _$svg;
   ImageFormat valueOf(String name) => _$valueOf(name);
   BuiltSet<ImageFormat> get values => _$values;
 }
@@ -63,6 +68,7 @@ class _$ImageFormatSerializer implements PrimitiveSerializer<ImageFormat> {
     'jpg': 'Jpg',
     'png': 'Png',
     'webp': 'Webp',
+    'svg': 'Svg',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Bmp': 'bmp',
@@ -70,6 +76,7 @@ class _$ImageFormatSerializer implements PrimitiveSerializer<ImageFormat> {
     'Jpg': 'jpg',
     'Png': 'png',
     'Webp': 'webp',
+    'Svg': 'svg',
   };
 
   @override

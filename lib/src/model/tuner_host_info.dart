@@ -22,6 +22,7 @@ part 'tuner_host_info.g.dart';
 /// * [source_]
 /// * [tunerCount]
 /// * [userAgent]
+/// * [ignoreDts]
 @BuiltValue()
 abstract class TunerHostInfo
     implements Built<TunerHostInfo, TunerHostInfoBuilder> {
@@ -57,6 +58,9 @@ abstract class TunerHostInfo
 
   @BuiltValueField(wireName: r'UserAgent')
   String? get userAgent;
+
+  @BuiltValueField(wireName: r'IgnoreDts')
+  bool? get ignoreDts;
 
   TunerHostInfo._();
 
@@ -158,6 +162,13 @@ class _$TunerHostInfoSerializer implements PrimitiveSerializer<TunerHostInfo> {
       yield serializers.serialize(
         object.userAgent,
         specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.ignoreDts != null) {
+      yield r'IgnoreDts';
+      yield serializers.serialize(
+        object.ignoreDts,
+        specifiedType: const FullType(bool),
       );
     }
   }
@@ -268,6 +279,13 @@ class _$TunerHostInfoSerializer implements PrimitiveSerializer<TunerHostInfo> {
           ) as String?;
           if (valueDes == null) continue;
           result.userAgent = valueDes;
+          break;
+        case r'IgnoreDts':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.ignoreDts = valueDes;
           break;
         default:
           unhandled.add(key);

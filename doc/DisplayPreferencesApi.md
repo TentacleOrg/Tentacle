@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getDisplayPreferences**
-> DisplayPreferencesDto getDisplayPreferences(displayPreferencesId, userId, client)
+> DisplayPreferencesDto getDisplayPreferences(displayPreferencesId, client, userId)
 
 Get Display Preferences.
 
@@ -28,11 +28,11 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getDisplayPreferencesApi();
 final String displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String client = client_example; // String | Client.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 
 try {
-    final response = api.getDisplayPreferences(displayPreferencesId, userId, client);
+    final response = api.getDisplayPreferences(displayPreferencesId, client, userId);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling DisplayPreferencesApi->getDisplayPreferences: $e\n');
@@ -44,8 +44,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **displayPreferencesId** | **String**| Display preferences id. | 
- **userId** | **String**| User id. | 
  **client** | **String**| Client. | 
+ **userId** | **String**| User id. | [optional] 
 
 ### Return type
 
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateDisplayPreferences**
-> updateDisplayPreferences(displayPreferencesId, userId, client, displayPreferencesDto)
+> updateDisplayPreferences(displayPreferencesId, client, displayPreferencesDto, userId)
 
 Update Display Preferences.
 
@@ -77,12 +77,12 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getDisplayPreferencesApi();
 final String displayPreferencesId = displayPreferencesId_example; // String | Display preferences id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
 final String client = client_example; // String | Client.
 final DisplayPreferencesDto displayPreferencesDto = ; // DisplayPreferencesDto | New Display Preferences object.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
 
 try {
-    api.updateDisplayPreferences(displayPreferencesId, userId, client, displayPreferencesDto);
+    api.updateDisplayPreferences(displayPreferencesId, client, displayPreferencesDto, userId);
 } catch on DioException (e) {
     print('Exception when calling DisplayPreferencesApi->updateDisplayPreferences: $e\n');
 }
@@ -93,9 +93,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **displayPreferencesId** | **String**| Display preferences id. | 
- **userId** | **String**| User Id. | 
  **client** | **String**| Client. | 
  **displayPreferencesDto** | [**DisplayPreferencesDto**](DisplayPreferencesDto.md)| New Display Preferences object. | 
+ **userId** | **String**| User Id. | [optional] 
 
 ### Return type
 

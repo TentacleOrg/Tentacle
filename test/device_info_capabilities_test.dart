@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(DeviceInfoCapabilities, () {
-    // BuiltList<String> playableMediaTypes
+    // BuiltList<MediaType> playableMediaTypes
     test('to test the property `playableMediaTypes`', () async {
       // TODO
     });
@@ -22,23 +22,8 @@ void main() {
       // TODO
     });
 
-    // bool supportsContentUploading
-    test('to test the property `supportsContentUploading`', () async {
-      // TODO
-    });
-
-    // String messageCallbackUrl
-    test('to test the property `messageCallbackUrl`', () async {
-      // TODO
-    });
-
     // bool supportsPersistentIdentifier
     test('to test the property `supportsPersistentIdentifier`', () async {
-      // TODO
-    });
-
-    // bool supportsSync
-    test('to test the property `supportsSync`', () async {
       // TODO
     });
 
@@ -54,6 +39,16 @@ void main() {
 
     // String iconUrl
     test('to test the property `iconUrl`', () async {
+      // TODO
+    });
+
+    // bool supportsContentUploading (default value: false)
+    test('to test the property `supportsContentUploading`', () async {
+      // TODO
+    });
+
+    // bool supportsSync (default value: false)
+    test('to test the property `supportsSync`', () async {
       // TODO
     });
   });

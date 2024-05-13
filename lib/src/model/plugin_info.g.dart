@@ -6,7 +6,35 @@ part of 'plugin_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$PluginInfo extends PluginInfo {
+abstract mixin class PluginInfoBuilder {
+  void replace(PluginInfo other);
+  void update(void Function(PluginInfoBuilder) updates);
+  String? get name;
+  set name(String? name);
+
+  String? get version;
+  set version(String? version);
+
+  String? get configurationFileName;
+  set configurationFileName(String? configurationFileName);
+
+  String? get description;
+  set description(String? description);
+
+  String? get id;
+  set id(String? id);
+
+  bool? get canUninstall;
+  set canUninstall(bool? canUninstall);
+
+  bool? get hasImage;
+  set hasImage(bool? hasImage);
+
+  PluginStatus? get status;
+  set status(PluginStatus? status);
+}
+
+class _$$PluginInfo extends $PluginInfo {
   @override
   final String? name;
   @override
@@ -24,10 +52,10 @@ class _$PluginInfo extends PluginInfo {
   @override
   final PluginStatus? status;
 
-  factory _$PluginInfo([void Function(PluginInfoBuilder)? updates]) =>
-      (new PluginInfoBuilder()..update(updates))._build();
+  factory _$$PluginInfo([void Function($PluginInfoBuilder)? updates]) =>
+      (new $PluginInfoBuilder()..update(updates))._build();
 
-  _$PluginInfo._(
+  _$$PluginInfo._(
       {this.name,
       this.version,
       this.configurationFileName,
@@ -39,16 +67,16 @@ class _$PluginInfo extends PluginInfo {
       : super._();
 
   @override
-  PluginInfo rebuild(void Function(PluginInfoBuilder) updates) =>
+  $PluginInfo rebuild(void Function($PluginInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PluginInfoBuilder toBuilder() => new PluginInfoBuilder()..replace(this);
+  $PluginInfoBuilder toBuilder() => new $PluginInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is PluginInfo &&
+    return other is $PluginInfo &&
         name == other.name &&
         version == other.version &&
         configurationFileName == other.configurationFileName &&
@@ -76,7 +104,7 @@ class _$PluginInfo extends PluginInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'PluginInfo')
+    return (newBuiltValueToStringHelper(r'$PluginInfo')
           ..add('name', name)
           ..add('version', version)
           ..add('configurationFileName', configurationFileName)
@@ -89,47 +117,50 @@ class _$PluginInfo extends PluginInfo {
   }
 }
 
-class PluginInfoBuilder implements Builder<PluginInfo, PluginInfoBuilder> {
-  _$PluginInfo? _$v;
+class $PluginInfoBuilder
+    implements Builder<$PluginInfo, $PluginInfoBuilder>, PluginInfoBuilder {
+  _$$PluginInfo? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(String? name) => _$this._name = name;
+  set name(covariant String? name) => _$this._name = name;
 
   String? _version;
   String? get version => _$this._version;
-  set version(String? version) => _$this._version = version;
+  set version(covariant String? version) => _$this._version = version;
 
   String? _configurationFileName;
   String? get configurationFileName => _$this._configurationFileName;
-  set configurationFileName(String? configurationFileName) =>
+  set configurationFileName(covariant String? configurationFileName) =>
       _$this._configurationFileName = configurationFileName;
 
   String? _description;
   String? get description => _$this._description;
-  set description(String? description) => _$this._description = description;
+  set description(covariant String? description) =>
+      _$this._description = description;
 
   String? _id;
   String? get id => _$this._id;
-  set id(String? id) => _$this._id = id;
+  set id(covariant String? id) => _$this._id = id;
 
   bool? _canUninstall;
   bool? get canUninstall => _$this._canUninstall;
-  set canUninstall(bool? canUninstall) => _$this._canUninstall = canUninstall;
+  set canUninstall(covariant bool? canUninstall) =>
+      _$this._canUninstall = canUninstall;
 
   bool? _hasImage;
   bool? get hasImage => _$this._hasImage;
-  set hasImage(bool? hasImage) => _$this._hasImage = hasImage;
+  set hasImage(covariant bool? hasImage) => _$this._hasImage = hasImage;
 
   PluginStatus? _status;
   PluginStatus? get status => _$this._status;
-  set status(PluginStatus? status) => _$this._status = status;
+  set status(covariant PluginStatus? status) => _$this._status = status;
 
-  PluginInfoBuilder() {
-    PluginInfo._defaults(this);
+  $PluginInfoBuilder() {
+    $PluginInfo._defaults(this);
   }
 
-  PluginInfoBuilder get _$this {
+  $PluginInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -146,22 +177,22 @@ class PluginInfoBuilder implements Builder<PluginInfo, PluginInfoBuilder> {
   }
 
   @override
-  void replace(PluginInfo other) {
+  void replace(covariant $PluginInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$PluginInfo;
+    _$v = other as _$$PluginInfo;
   }
 
   @override
-  void update(void Function(PluginInfoBuilder)? updates) {
+  void update(void Function($PluginInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  PluginInfo build() => _build();
+  $PluginInfo build() => _build();
 
-  _$PluginInfo _build() {
+  _$$PluginInfo _build() {
     final _$result = _$v ??
-        new _$PluginInfo._(
+        new _$$PluginInfo._(
             name: name,
             version: version,
             configurationFileName: configurationFileName,

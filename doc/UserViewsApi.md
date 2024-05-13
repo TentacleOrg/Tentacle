@@ -9,8 +9,8 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getGroupingOptions**](UserViewsApi.md#getgroupingoptions) | **GET** /Users/{userId}/GroupingOptions | Get user view grouping options.
-[**getUserViews**](UserViewsApi.md#getuserviews) | **GET** /Users/{userId}/Views | Get user views.
+[**getGroupingOptions**](UserViewsApi.md#getgroupingoptions) | **GET** /UserViews/GroupingOptions | Get user view grouping options.
+[**getUserViews**](UserViewsApi.md#getuserviews) | **GET** /UserViews | Get user views.
 
 
 # **getGroupingOptions**
@@ -41,7 +41,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
+ **userId** | **String**| User id. | [optional] 
 
 ### Return type
 
@@ -74,7 +74,7 @@ import 'package:tentacle/api.dart';
 final api = Tentacle().getUserViewsApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final bool includeExternalContent = true; // bool | Whether or not to include external views such as channels or live tv.
-final BuiltList<String> presetViews = ; // BuiltList<String> | Preset views.
+final BuiltList<CollectionType> presetViews = ; // BuiltList<CollectionType> | Preset views.
 final bool includeHidden = true; // bool | Whether or not to include hidden content.
 
 try {
@@ -89,9 +89,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
+ **userId** | **String**| User id. | [optional] 
  **includeExternalContent** | **bool**| Whether or not to include external views such as channels or live tv. | [optional] 
- **presetViews** | [**BuiltList&lt;String&gt;**](String.md)| Preset views. | [optional] 
+ **presetViews** | [**BuiltList&lt;CollectionType&gt;**](CollectionType.md)| Preset views. | [optional] 
  **includeHidden** | **bool**| Whether or not to include hidden content. | [optional] [default to false]
 
 ### Return type

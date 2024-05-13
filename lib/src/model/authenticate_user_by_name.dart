@@ -13,7 +13,6 @@ part 'authenticate_user_by_name.g.dart';
 /// Properties:
 /// * [username] - Gets or sets the username.
 /// * [pw] - Gets or sets the plain text password.
-/// * [password] - Gets or sets the sha1-hashed password.
 @BuiltValue()
 abstract class AuthenticateUserByName
     implements Built<AuthenticateUserByName, AuthenticateUserByNameBuilder> {
@@ -24,11 +23,6 @@ abstract class AuthenticateUserByName
   /// Gets or sets the plain text password.
   @BuiltValueField(wireName: r'Pw')
   String? get pw;
-
-  /// Gets or sets the sha1-hashed password.
-  @Deprecated('password has been deprecated')
-  @BuiltValueField(wireName: r'Password')
-  String? get password;
 
   AuthenticateUserByName._();
 
@@ -74,13 +68,6 @@ class _$AuthenticateUserByNameSerializer
         specifiedType: const FullType.nullable(String),
       );
     }
-    if (object.password != null) {
-      yield r'Password';
-      yield serializers.serialize(
-        object.password,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
   }
 
   @override
@@ -121,14 +108,6 @@ class _$AuthenticateUserByNameSerializer
           ) as String?;
           if (valueDes == null) continue;
           result.pw = valueDes;
-          break;
-        case r'Password':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.password = valueDes;
           break;
         default:
           unhandled.add(key);

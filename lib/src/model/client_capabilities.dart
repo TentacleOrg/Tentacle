@@ -6,6 +6,7 @@
 import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,17 +18,16 @@ part 'client_capabilities.g.dart';
 /// * [playableMediaTypes]
 /// * [supportedCommands]
 /// * [supportsMediaControl]
-/// * [supportsContentUploading]
-/// * [messageCallbackUrl]
 /// * [supportsPersistentIdentifier]
-/// * [supportsSync]
 /// * [deviceProfile]
 /// * [appStoreUrl]
 /// * [iconUrl]
+/// * [supportsContentUploading]
+/// * [supportsSync]
 @BuiltValue(instantiable: false)
 abstract class ClientCapabilities {
   @BuiltValueField(wireName: r'PlayableMediaTypes')
-  BuiltList<String>? get playableMediaTypes;
+  BuiltList<MediaType>? get playableMediaTypes;
 
   @BuiltValueField(wireName: r'SupportedCommands')
   BuiltList<GeneralCommandType>? get supportedCommands;
@@ -35,17 +35,8 @@ abstract class ClientCapabilities {
   @BuiltValueField(wireName: r'SupportsMediaControl')
   bool? get supportsMediaControl;
 
-  @BuiltValueField(wireName: r'SupportsContentUploading')
-  bool? get supportsContentUploading;
-
-  @BuiltValueField(wireName: r'MessageCallbackUrl')
-  String? get messageCallbackUrl;
-
   @BuiltValueField(wireName: r'SupportsPersistentIdentifier')
   bool? get supportsPersistentIdentifier;
-
-  @BuiltValueField(wireName: r'SupportsSync')
-  bool? get supportsSync;
 
   @BuiltValueField(wireName: r'DeviceProfile')
   ClientCapabilitiesDeviceProfile? get deviceProfile;
@@ -55,6 +46,14 @@ abstract class ClientCapabilities {
 
   @BuiltValueField(wireName: r'IconUrl')
   String? get iconUrl;
+
+  @Deprecated('supportsContentUploading has been deprecated')
+  @BuiltValueField(wireName: r'SupportsContentUploading')
+  bool? get supportsContentUploading;
+
+  @Deprecated('supportsSync has been deprecated')
+  @BuiltValueField(wireName: r'SupportsSync')
+  bool? get supportsSync;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ClientCapabilities> get serializer =>
@@ -78,7 +77,8 @@ class _$ClientCapabilitiesSerializer
       yield r'PlayableMediaTypes';
       yield serializers.serialize(
         object.playableMediaTypes,
-        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(MediaType)]),
       );
     }
     if (object.supportedCommands != null) {
@@ -96,31 +96,10 @@ class _$ClientCapabilitiesSerializer
         specifiedType: const FullType(bool),
       );
     }
-    if (object.supportsContentUploading != null) {
-      yield r'SupportsContentUploading';
-      yield serializers.serialize(
-        object.supportsContentUploading,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.messageCallbackUrl != null) {
-      yield r'MessageCallbackUrl';
-      yield serializers.serialize(
-        object.messageCallbackUrl,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
     if (object.supportsPersistentIdentifier != null) {
       yield r'SupportsPersistentIdentifier';
       yield serializers.serialize(
         object.supportsPersistentIdentifier,
-        specifiedType: const FullType(bool),
-      );
-    }
-    if (object.supportsSync != null) {
-      yield r'SupportsSync';
-      yield serializers.serialize(
-        object.supportsSync,
         specifiedType: const FullType(bool),
       );
     }
@@ -143,6 +122,20 @@ class _$ClientCapabilitiesSerializer
       yield serializers.serialize(
         object.iconUrl,
         specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.supportsContentUploading != null) {
+      yield r'SupportsContentUploading';
+      yield serializers.serialize(
+        object.supportsContentUploading,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.supportsSync != null) {
+      yield r'SupportsSync';
+      yield serializers.serialize(
+        object.supportsSync,
+        specifiedType: const FullType.nullable(bool),
       );
     }
   }
@@ -226,8 +219,8 @@ class _$$ClientCapabilitiesSerializer
           final valueDes = serializers.deserialize(
             value,
             specifiedType:
-                const FullType.nullable(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>?;
+                const FullType.nullable(BuiltList, [FullType(MediaType)]),
+          ) as BuiltList<MediaType>?;
           if (valueDes == null) continue;
           result.playableMediaTypes.replace(valueDes);
           break;
@@ -247,34 +240,12 @@ class _$$ClientCapabilitiesSerializer
           ) as bool;
           result.supportsMediaControl = valueDes;
           break;
-        case r'SupportsContentUploading':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.supportsContentUploading = valueDes;
-          break;
-        case r'MessageCallbackUrl':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.messageCallbackUrl = valueDes;
-          break;
         case r'SupportsPersistentIdentifier':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(bool),
           ) as bool;
           result.supportsPersistentIdentifier = valueDes;
-          break;
-        case r'SupportsSync':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.supportsSync = valueDes;
           break;
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
@@ -300,6 +271,22 @@ class _$$ClientCapabilitiesSerializer
           ) as String?;
           if (valueDes == null) continue;
           result.iconUrl = valueDes;
+          break;
+        case r'SupportsContentUploading':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.supportsContentUploading = valueDes;
+          break;
+        case r'SupportsSync':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.supportsSync = valueDes;
           break;
         default:
           unhandled.add(key);

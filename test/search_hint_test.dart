@@ -13,6 +13,7 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the item id.
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -79,11 +80,12 @@ void main() {
     });
 
     // Gets or sets the type.
-    // String type
+    // BaseItemKind type
     test('to test the property `type`', () async {
       // TODO
     });
 
+    // Gets or sets a value indicating whether this instance is folder.
     // bool isFolder
     test('to test the property `isFolder`', () async {
       // TODO
@@ -96,16 +98,18 @@ void main() {
     });
 
     // Gets or sets the type of the media.
-    // String mediaType
+    // MediaType mediaType
     test('to test the property `mediaType`', () async {
       // TODO
     });
 
+    // Gets or sets the start date.
     // DateTime startDate
     test('to test the property `startDate`', () async {
       // TODO
     });
 
+    // Gets or sets the end date.
     // DateTime endDate
     test('to test the property `endDate`', () async {
       // TODO
@@ -117,6 +121,7 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the status.
     // String status
     test('to test the property `status`', () async {
       // TODO
@@ -128,6 +133,7 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the album id.
     // String albumId
     test('to test the property `albumId`', () async {
       // TODO

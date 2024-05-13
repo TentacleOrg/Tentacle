@@ -8,6 +8,7 @@ import 'package:tentacle/src/model/encoding_context.dart';
 import 'package:tentacle/src/model/transcode_seek_info.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/profile_condition.dart';
+import 'package:tentacle/src/model/media_stream_protocol.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -20,7 +21,7 @@ part 'transcoding_profile.g.dart';
 /// * [type]
 /// * [videoCodec]
 /// * [audioCodec]
-/// * [protocol]
+/// * [protocol] - Media streaming protocol.  Lowercase for backwards compatibility.
 /// * [estimateContentLength]
 /// * [enableMpegtsM2TsMode]
 /// * [transcodeSeekInfo]
@@ -40,7 +41,7 @@ abstract class TranscodingProfile
 
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
-  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  };
+  // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  Lyric,  };
 
   @BuiltValueField(wireName: r'VideoCodec')
   String? get videoCodec;
@@ -48,8 +49,10 @@ abstract class TranscodingProfile
   @BuiltValueField(wireName: r'AudioCodec')
   String? get audioCodec;
 
+  /// Media streaming protocol.  Lowercase for backwards compatibility.
   @BuiltValueField(wireName: r'Protocol')
-  String? get protocol;
+  MediaStreamProtocol? get protocol;
+  // enum protocolEnum {  http,  hls,  };
 
   @BuiltValueField(wireName: r'EstimateContentLength')
   bool? get estimateContentLength;
@@ -153,7 +156,7 @@ class _$TranscodingProfileSerializer
       yield r'Protocol';
       yield serializers.serialize(
         object.protocol,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType(MediaStreamProtocol),
       );
     }
     if (object.estimateContentLength != null) {
@@ -289,8 +292,8 @@ class _$TranscodingProfileSerializer
         case r'Protocol':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType(MediaStreamProtocol),
+          ) as MediaStreamProtocol;
           result.protocol = valueDes;
           break;
         case r'EstimateContentLength':

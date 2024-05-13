@@ -17,9 +17,13 @@ part 'user_policy.g.dart';
 /// Properties:
 /// * [isAdministrator] - Gets or sets a value indicating whether this instance is administrator.
 /// * [isHidden] - Gets or sets a value indicating whether this instance is hidden.
+/// * [enableCollectionManagement] - Gets or sets a value indicating whether this instance can manage collections.
+/// * [enableSubtitleManagement] - Gets or sets a value indicating whether this instance can manage subtitles.
+/// * [enableLyricManagement] - Gets or sets a value indicating whether this user can manage lyrics.
 /// * [isDisabled] - Gets or sets a value indicating whether this instance is disabled.
 /// * [maxParentalRating] - Gets or sets the max parental rating.
 /// * [blockedTags]
+/// * [allowedTags]
 /// * [enableUserPreferenceAccess]
 /// * [accessSchedules]
 /// * [blockUnratedItems]
@@ -64,6 +68,18 @@ abstract class UserPolicy {
   @BuiltValueField(wireName: r'IsHidden')
   bool? get isHidden;
 
+  /// Gets or sets a value indicating whether this instance can manage collections.
+  @BuiltValueField(wireName: r'EnableCollectionManagement')
+  bool? get enableCollectionManagement;
+
+  /// Gets or sets a value indicating whether this instance can manage subtitles.
+  @BuiltValueField(wireName: r'EnableSubtitleManagement')
+  bool? get enableSubtitleManagement;
+
+  /// Gets or sets a value indicating whether this user can manage lyrics.
+  @BuiltValueField(wireName: r'EnableLyricManagement')
+  bool? get enableLyricManagement;
+
   /// Gets or sets a value indicating whether this instance is disabled.
   @BuiltValueField(wireName: r'IsDisabled')
   bool? get isDisabled;
@@ -74,6 +90,9 @@ abstract class UserPolicy {
 
   @BuiltValueField(wireName: r'BlockedTags')
   BuiltList<String>? get blockedTags;
+
+  @BuiltValueField(wireName: r'AllowedTags')
+  BuiltList<String>? get allowedTags;
 
   @BuiltValueField(wireName: r'EnableUserPreferenceAccess')
   bool? get enableUserPreferenceAccess;
@@ -170,10 +189,10 @@ abstract class UserPolicy {
   int? get remoteClientBitrateLimit;
 
   @BuiltValueField(wireName: r'AuthenticationProviderId')
-  String? get authenticationProviderId;
+  String get authenticationProviderId;
 
   @BuiltValueField(wireName: r'PasswordResetProviderId')
-  String? get passwordResetProviderId;
+  String get passwordResetProviderId;
 
   /// Gets or sets a value indicating what SyncPlay features the user can access.
   @BuiltValueField(wireName: r'SyncPlayAccess')
@@ -210,6 +229,27 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
         specifiedType: const FullType(bool),
       );
     }
+    if (object.enableCollectionManagement != null) {
+      yield r'EnableCollectionManagement';
+      yield serializers.serialize(
+        object.enableCollectionManagement,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableSubtitleManagement != null) {
+      yield r'EnableSubtitleManagement';
+      yield serializers.serialize(
+        object.enableSubtitleManagement,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableLyricManagement != null) {
+      yield r'EnableLyricManagement';
+      yield serializers.serialize(
+        object.enableLyricManagement,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.isDisabled != null) {
       yield r'IsDisabled';
       yield serializers.serialize(
@@ -228,6 +268,13 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
       yield r'BlockedTags';
       yield serializers.serialize(
         object.blockedTags,
+        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+      );
+    }
+    if (object.allowedTags != null) {
+      yield r'AllowedTags';
+      yield serializers.serialize(
+        object.allowedTags,
         specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
       );
     }
@@ -450,20 +497,16 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
         specifiedType: const FullType(int),
       );
     }
-    if (object.authenticationProviderId != null) {
-      yield r'AuthenticationProviderId';
-      yield serializers.serialize(
-        object.authenticationProviderId,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
-    if (object.passwordResetProviderId != null) {
-      yield r'PasswordResetProviderId';
-      yield serializers.serialize(
-        object.passwordResetProviderId,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
+    yield r'AuthenticationProviderId';
+    yield serializers.serialize(
+      object.authenticationProviderId,
+      specifiedType: const FullType(String),
+    );
+    yield r'PasswordResetProviderId';
+    yield serializers.serialize(
+      object.passwordResetProviderId,
+      specifiedType: const FullType(String),
+    );
     if (object.syncPlayAccess != null) {
       yield r'SyncPlayAccess';
       yield serializers.serialize(
@@ -553,6 +596,27 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
           ) as bool;
           result.isHidden = valueDes;
           break;
+        case r'EnableCollectionManagement':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableCollectionManagement = valueDes;
+          break;
+        case r'EnableSubtitleManagement':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableSubtitleManagement = valueDes;
+          break;
+        case r'EnableLyricManagement':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableLyricManagement = valueDes;
+          break;
         case r'IsDisabled':
           final valueDes = serializers.deserialize(
             value,
@@ -576,6 +640,15 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.blockedTags.replace(valueDes);
+          break;
+        case r'AllowedTags':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>?;
+          if (valueDes == null) continue;
+          result.allowedTags.replace(valueDes);
           break;
         case r'EnableUserPreferenceAccess':
           final valueDes = serializers.deserialize(
@@ -813,17 +886,15 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
         case r'AuthenticationProviderId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.authenticationProviderId = valueDes;
           break;
         case r'PasswordResetProviderId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.passwordResetProviderId = valueDes;
           break;
         case r'SyncPlayAccess':

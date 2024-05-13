@@ -18,6 +18,7 @@ import 'package:tentacle/src/model/get_programs_dto.dart';
 import 'package:tentacle/src/model/guide_info.dart';
 import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
 import 'package:tentacle/src/model/listings_provider_info.dart';
 import 'package:tentacle/src/model/live_tv_info.dart';
 import 'package:tentacle/src/model/name_id_pair.dart';
@@ -1640,7 +1641,7 @@ class LiveTvApi {
     BuiltList<ImageType>? enableImageTypes,
     BuiltList<ItemFields>? fields,
     bool? enableUserData,
-    BuiltList<String>? sortBy,
+    BuiltList<ItemSortBy>? sortBy,
     SortOrder? sortOrder,
     bool? enableFavoriteSorting = false,
     bool? addCurrentProgram = true,
@@ -1732,10 +1733,10 @@ class LiveTvApi {
         r'enableUserData': encodeQueryParameter(
             _serializers, enableUserData, const FullType(bool)),
       if (sortBy != null)
-        r'sortBy': encodeCollectionQueryParameter<String>(
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
           _serializers,
           sortBy,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
           format: ListFormat.multi,
         ),
       if (sortOrder != null)
@@ -1927,7 +1928,7 @@ class LiveTvApi {
     bool? isSports,
     int? startIndex,
     int? limit,
-    BuiltList<String>? sortBy,
+    BuiltList<ItemSortBy>? sortBy,
     BuiltList<SortOrder>? sortOrder,
     BuiltList<String>? genres,
     BuiltList<String>? genreIds,
@@ -2017,10 +2018,10 @@ class LiveTvApi {
         r'limit':
             encodeQueryParameter(_serializers, limit, const FullType(int)),
       if (sortBy != null)
-        r'sortBy': encodeCollectionQueryParameter<String>(
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
           _serializers,
           sortBy,
-          const FullType(BuiltList, [FullType(String)]),
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
           format: ListFormat.multi,
         ),
       if (sortOrder != null)

@@ -12,8 +12,7 @@ Method | HTTP request | Description
 [**deleteCustomSplashscreen**](ImageApi.md#deletecustomsplashscreen) | **DELETE** /Branding/Splashscreen | Delete a custom splashscreen.
 [**deleteItemImage**](ImageApi.md#deleteitemimage) | **DELETE** /Items/{itemId}/Images/{imageType} | Delete an item&#39;s image.
 [**deleteItemImageByIndex**](ImageApi.md#deleteitemimagebyindex) | **DELETE** /Items/{itemId}/Images/{imageType}/{imageIndex} | Delete an item&#39;s image.
-[**deleteUserImage**](ImageApi.md#deleteuserimage) | **DELETE** /Users/{userId}/Images/{imageType} | Delete the user&#39;s image.
-[**deleteUserImageByIndex**](ImageApi.md#deleteuserimagebyindex) | **DELETE** /Users/{userId}/Images/{imageType}/{index} | Delete the user&#39;s image.
+[**deleteUserImage**](ImageApi.md#deleteuserimage) | **DELETE** /UserImage | Delete the user&#39;s image.
 [**getArtistImage**](ImageApi.md#getartistimage) | **GET** /Artists/{name}/Images/{imageType}/{imageIndex} | Get artist image by name.
 [**getGenreImage**](ImageApi.md#getgenreimage) | **GET** /Genres/{name}/Images/{imageType} | Get genre image by name.
 [**getGenreImageByIndex**](ImageApi.md#getgenreimagebyindex) | **GET** /Genres/{name}/Images/{imageType}/{imageIndex} | Get genre image by name.
@@ -28,8 +27,7 @@ Method | HTTP request | Description
 [**getSplashscreen**](ImageApi.md#getsplashscreen) | **GET** /Branding/Splashscreen | Generates or gets the splashscreen.
 [**getStudioImage**](ImageApi.md#getstudioimage) | **GET** /Studios/{name}/Images/{imageType} | Get studio image by name.
 [**getStudioImageByIndex**](ImageApi.md#getstudioimagebyindex) | **GET** /Studios/{name}/Images/{imageType}/{imageIndex} | Get studio image by name.
-[**getUserImage**](ImageApi.md#getuserimage) | **GET** /Users/{userId}/Images/{imageType} | Get user profile image.
-[**getUserImageByIndex**](ImageApi.md#getuserimagebyindex) | **GET** /Users/{userId}/Images/{imageType}/{imageIndex} | Get user profile image.
+[**getUserImage**](ImageApi.md#getuserimage) | **GET** /UserImage | Get user profile image.
 [**headArtistImage**](ImageApi.md#headartistimage) | **HEAD** /Artists/{name}/Images/{imageType}/{imageIndex} | Get artist image by name.
 [**headGenreImage**](ImageApi.md#headgenreimage) | **HEAD** /Genres/{name}/Images/{imageType} | Get genre image by name.
 [**headGenreImageByIndex**](ImageApi.md#headgenreimagebyindex) | **HEAD** /Genres/{name}/Images/{imageType}/{imageIndex} | Get genre image by name.
@@ -42,10 +40,8 @@ Method | HTTP request | Description
 [**headPersonImageByIndex**](ImageApi.md#headpersonimagebyindex) | **HEAD** /Persons/{name}/Images/{imageType}/{imageIndex} | Get person image by name.
 [**headStudioImage**](ImageApi.md#headstudioimage) | **HEAD** /Studios/{name}/Images/{imageType} | Get studio image by name.
 [**headStudioImageByIndex**](ImageApi.md#headstudioimagebyindex) | **HEAD** /Studios/{name}/Images/{imageType}/{imageIndex} | Get studio image by name.
-[**headUserImage**](ImageApi.md#headuserimage) | **HEAD** /Users/{userId}/Images/{imageType} | Get user profile image.
-[**headUserImageByIndex**](ImageApi.md#headuserimagebyindex) | **HEAD** /Users/{userId}/Images/{imageType}/{imageIndex} | Get user profile image.
-[**postUserImage**](ImageApi.md#postuserimage) | **POST** /Users/{userId}/Images/{imageType} | Sets the user image.
-[**postUserImageByIndex**](ImageApi.md#postuserimagebyindex) | **POST** /Users/{userId}/Images/{imageType}/{index} | Sets the user image.
+[**headUserImage**](ImageApi.md#headuserimage) | **HEAD** /UserImage | Get user profile image.
+[**postUserImage**](ImageApi.md#postuserimage) | **POST** /UserImage | Sets the user image.
 [**setItemImage**](ImageApi.md#setitemimage) | **POST** /Items/{itemId}/Images/{imageType} | Set item image.
 [**setItemImageByIndex**](ImageApi.md#setitemimagebyindex) | **POST** /Items/{itemId}/Images/{imageType}/{imageIndex} | Set item image.
 [**updateItemImageIndex**](ImageApi.md#updateitemimageindex) | **POST** /Items/{itemId}/Images/{imageType}/{imageIndex}/Index | Updates the index for an item image.
@@ -107,7 +103,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | The image index.
 
 try {
@@ -122,7 +118,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| The image index. | [optional] 
 
 ### Return type
@@ -155,7 +151,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | The image index.
 
 try {
@@ -170,7 +166,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| The image index. | 
 
 ### Return type
@@ -189,7 +185,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **deleteUserImage**
-> deleteUserImage(userId, imageType, index)
+> deleteUserImage(userId)
 
 Delete the user's image.
 
@@ -203,11 +199,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final ImageType imageType = ; // ImageType | (Unused) Image type.
-final int index = 56; // int | (Unused) Image index.
 
 try {
-    api.deleteUserImage(userId, imageType, index);
+    api.deleteUserImage(userId);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->deleteUserImage: $e\n');
 }
@@ -217,57 +211,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User Id. | 
- **imageType** | [**ImageType**](.md)| (Unused) Image type. | 
- **index** | **int**| (Unused) Image index. | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **deleteUserImageByIndex**
-> deleteUserImageByIndex(userId, imageType, index)
-
-Delete the user's image.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final ImageType imageType = ; // ImageType | (Unused) Image type.
-final int index = 56; // int | (Unused) Image index.
-
-try {
-    api.deleteUserImageByIndex(userId, imageType, index);
-} catch on DioException (e) {
-    print('Exception when calling ImageApi->deleteUserImageByIndex: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| User Id. | 
- **imageType** | [**ImageType**](.md)| (Unused) Image type. | 
- **index** | **int**| (Unused) Image index. | 
+ **userId** | **String**| User Id. | [optional] 
 
 ### Return type
 
@@ -285,7 +229,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getArtistImage**
-> Uint8List getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get artist image by name.
 
@@ -295,10 +239,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Artist name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -308,14 +252,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.getArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getArtistImage: $e\n');
@@ -327,10 +269,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Artist name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -340,8 +282,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -362,7 +302,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGenreImage**
-> Uint8List getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get genre image by name.
 
@@ -372,9 +312,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Genre name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -384,15 +324,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.getGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getGenreImage: $e\n');
@@ -404,9 +342,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -416,8 +354,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -439,7 +375,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGenreImageByIndex**
-> Uint8List getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get genre image by name.
 
@@ -449,10 +385,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Genre name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -462,14 +398,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.getGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getGenreImageByIndex: $e\n');
@@ -481,10 +415,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -494,8 +428,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -516,7 +448,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemImage**
-> Uint8List getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, format, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Gets the item's image.
 
@@ -526,7 +458,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final int width = 56; // int | The fixed image width to return.
@@ -535,9 +467,7 @@ final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final ImageFormat format = format_example; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
 final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
 final int blur = 56; // int | Optional. Blur image.
@@ -546,7 +476,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.getItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, format, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getItemImage: $e\n');
@@ -558,7 +488,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **width** | **int**| The fixed image width to return. | [optional] 
@@ -567,9 +497,7 @@ Name | Type | Description  | Notes
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
+ **format** | **ImageFormat**| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
  **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
@@ -593,7 +521,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemImage2**
-> Uint8List getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Gets the item's image.
 
@@ -603,11 +531,11 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
 final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
 final int imageIndex = 56; // int | Image index.
@@ -616,14 +544,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.getItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getItemImage2: $e\n');
@@ -635,11 +561,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **maxWidth** | **int**| The maximum image width to return. | 
  **maxHeight** | **int**| The maximum image height to return. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | 
  **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | 
  **imageIndex** | **int**| Image index. | 
@@ -648,8 +574,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -670,7 +594,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getItemImageByIndex**
-> Uint8List getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer)
+> Uint8List getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, format, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer)
 
 Gets the item's image.
 
@@ -680,7 +604,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
@@ -690,9 +614,7 @@ final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final ImageFormat format = format_example; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
 final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
 final int blur = 56; // int | Optional. Blur image.
@@ -700,7 +622,7 @@ final String backgroundColor = backgroundColor_example; // String | Optional. Ap
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
+    final response = api.getItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, format, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getItemImageByIndex: $e\n');
@@ -712,7 +634,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
@@ -722,9 +644,7 @@ Name | Type | Description  | Notes
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
+ **format** | **ImageFormat**| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
  **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
@@ -792,7 +712,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMusicGenreImage**
-> Uint8List getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get music genre image by name.
 
@@ -802,9 +722,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Music genre name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -814,15 +734,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.getMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getMusicGenreImage: $e\n');
@@ -834,9 +752,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Music genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -846,8 +764,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -869,7 +785,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getMusicGenreImageByIndex**
-> Uint8List getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get music genre image by name.
 
@@ -879,10 +795,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Music genre name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -892,14 +808,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.getMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getMusicGenreImageByIndex: $e\n');
@@ -911,10 +825,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Music genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -924,8 +838,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -946,7 +858,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPersonImage**
-> Uint8List getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get person image by name.
 
@@ -956,9 +868,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Person name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -968,15 +880,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.getPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getPersonImage: $e\n');
@@ -988,9 +898,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Person name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1000,8 +910,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1023,7 +931,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPersonImageByIndex**
-> Uint8List getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get person image by name.
 
@@ -1033,10 +941,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Person name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -1046,14 +954,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.getPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getPersonImageByIndex: $e\n');
@@ -1065,10 +971,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Person name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1078,8 +984,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1110,7 +1014,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String tag = tag_example; // String | Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final int width = 56; // int | The fixed image width to return.
@@ -1135,7 +1039,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tag** | **String**| Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **width** | **int**| The fixed image width to return. | [optional] 
@@ -1163,7 +1067,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getStudioImage**
-> Uint8List getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get studio image by name.
 
@@ -1173,9 +1077,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Studio name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -1185,15 +1089,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.getStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getStudioImage: $e\n');
@@ -1205,9 +1107,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Studio name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1217,8 +1119,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1240,7 +1140,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getStudioImageByIndex**
-> Uint8List getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get studio image by name.
 
@@ -1250,10 +1150,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Studio name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -1263,14 +1163,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.getStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getStudioImageByIndex: $e\n');
@@ -1282,10 +1180,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Studio name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1295,8 +1193,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1317,7 +1213,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserImage**
-> Uint8List getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getUserImage(userId, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get user profile image.
 
@@ -1327,9 +1223,8 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -1339,15 +1234,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.getUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.getUserImage(userId, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getUserImage: $e\n');
@@ -1358,10 +1251,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **userId** | **String**| User id. | [optional] 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1371,8 +1263,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1393,85 +1283,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getUserImageByIndex**
-> Uint8List getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
-
-Get user profile image.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-
-final api = Tentacle().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-
-try {
-    final response = api.getUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling ImageApi->getUserImageByIndex: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
-
-### Return type
-
-[**Uint8List**](Uint8List.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **headArtistImage**
-> Uint8List headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get artist image by name.
 
@@ -1481,10 +1294,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Artist name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -1494,14 +1307,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.headArtistImage(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headArtistImage: $e\n');
@@ -1513,10 +1324,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Artist name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1526,8 +1337,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1548,7 +1357,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headGenreImage**
-> Uint8List headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get genre image by name.
 
@@ -1558,9 +1367,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Genre name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -1570,15 +1379,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.headGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headGenreImage: $e\n');
@@ -1590,9 +1397,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1602,8 +1409,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1625,7 +1430,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headGenreImageByIndex**
-> Uint8List headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get genre image by name.
 
@@ -1635,10 +1440,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Genre name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -1648,14 +1453,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.headGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headGenreImageByIndex: $e\n');
@@ -1667,10 +1470,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1680,8 +1483,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1702,7 +1503,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headItemImage**
-> Uint8List headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, format, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Gets the item's image.
 
@@ -1712,7 +1513,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final int width = 56; // int | The fixed image width to return.
@@ -1721,9 +1522,7 @@ final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final ImageFormat format = format_example; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
 final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
 final int blur = 56; // int | Optional. Blur image.
@@ -1732,7 +1531,7 @@ final String foregroundLayer = foregroundLayer_example; // String | Optional. Ap
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.headItemImage(itemId, imageType, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, format, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headItemImage: $e\n');
@@ -1744,7 +1543,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **width** | **int**| The fixed image width to return. | [optional] 
@@ -1753,9 +1552,7 @@ Name | Type | Description  | Notes
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
+ **format** | **ImageFormat**| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
  **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
@@ -1779,7 +1576,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headItemImage2**
-> Uint8List headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Gets the item's image.
 
@@ -1789,11 +1586,11 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
 final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
 final int imageIndex = 56; // int | Image index.
@@ -1802,14 +1599,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.headItemImage2(itemId, imageType, maxWidth, maxHeight, tag, format, percentPlayed, unplayedCount, imageIndex, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headItemImage2: $e\n');
@@ -1821,11 +1616,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **maxWidth** | **int**| The maximum image width to return. | 
  **maxHeight** | **int**| The maximum image height to return. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | 
  **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | 
  **imageIndex** | **int**| Image index. | 
@@ -1834,8 +1629,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -1856,7 +1649,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headItemImageByIndex**
-> Uint8List headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer)
+> Uint8List headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, format, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer)
 
 Gets the item's image.
 
@@ -1866,7 +1659,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
@@ -1876,9 +1669,7 @@ final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final ImageFormat format = ; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
+final ImageFormat format = format_example; // ImageFormat | Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
 final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
 final int blur = 56; // int | Optional. Blur image.
@@ -1886,7 +1677,7 @@ final String backgroundColor = backgroundColor_example; // String | Optional. Ap
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, cropWhitespace, format, addPlayedIndicator, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
+    final response = api.headItemImageByIndex(itemId, imageType, imageIndex, maxWidth, maxHeight, width, height, quality, fillWidth, fillHeight, tag, format, percentPlayed, unplayedCount, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headItemImageByIndex: $e\n');
@@ -1898,7 +1689,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
@@ -1908,9 +1699,7 @@ Name | Type | Description  | Notes
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **format** | [**ImageFormat**](.md)| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
+ **format** | **ImageFormat**| Optional. The MediaBrowser.Model.Drawing.ImageFormat of the returned image. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
  **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
@@ -1933,7 +1722,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headMusicGenreImage**
-> Uint8List headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get music genre image by name.
 
@@ -1943,9 +1732,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Music genre name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -1955,15 +1744,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.headMusicGenreImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headMusicGenreImage: $e\n');
@@ -1975,9 +1762,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Music genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -1987,8 +1774,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -2010,7 +1795,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headMusicGenreImageByIndex**
-> Uint8List headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get music genre image by name.
 
@@ -2020,10 +1805,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Music genre name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -2033,14 +1818,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.headMusicGenreImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headMusicGenreImageByIndex: $e\n');
@@ -2052,10 +1835,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Music genre name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -2065,8 +1848,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -2087,7 +1868,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headPersonImage**
-> Uint8List headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get person image by name.
 
@@ -2097,9 +1878,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Person name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -2109,15 +1890,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.headPersonImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headPersonImage: $e\n');
@@ -2129,9 +1908,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Person name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -2141,8 +1920,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -2164,7 +1941,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headPersonImageByIndex**
-> Uint8List headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get person image by name.
 
@@ -2174,10 +1951,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Person name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -2187,14 +1964,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.headPersonImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headPersonImageByIndex: $e\n');
@@ -2206,10 +1981,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Person name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -2219,8 +1994,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -2241,7 +2014,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headStudioImage**
-> Uint8List headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get studio image by name.
 
@@ -2251,9 +2024,9 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Studio name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -2263,15 +2036,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.headStudioImage(name, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headStudioImage: $e\n');
@@ -2283,9 +2054,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Studio name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -2295,8 +2066,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -2318,7 +2087,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headStudioImageByIndex**
-> Uint8List headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
+> Uint8List headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer)
 
 Get studio image by name.
 
@@ -2328,10 +2097,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String name = name_example; // String | Studio name.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Image index.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -2341,14 +2110,12 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 
 try {
-    final response = api.headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
+    final response = api.headStudioImageByIndex(name, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headStudioImageByIndex: $e\n');
@@ -2360,10 +2127,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Studio name. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Image index. | 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -2373,8 +2140,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -2395,7 +2160,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headUserImage**
-> Uint8List headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headUserImage(userId, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
 
 Get user profile image.
 
@@ -2405,9 +2170,8 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final ImageType imageType = ; // ImageType | Image type.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
+final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
 final int maxWidth = 56; // int | The maximum image width to return.
 final int maxHeight = 56; // int | The maximum image height to return.
 final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
@@ -2417,15 +2181,13 @@ final int height = 56; // int | The fixed image height to return.
 final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
 final int fillWidth = 56; // int | Width of box to fill.
 final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
 final int blur = 56; // int | Optional. Blur image.
 final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
 final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
 final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.headUserImage(userId, imageType, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.headUserImage(userId, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headUserImage: $e\n');
@@ -2436,10 +2198,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **userId** | **String**| User id. | [optional] 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
+ **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
  **maxWidth** | **int**| The maximum image width to return. | [optional] 
  **maxHeight** | **int**| The maximum image height to return. | [optional] 
  **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
@@ -2449,8 +2210,6 @@ Name | Type | Description  | Notes
  **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
  **fillWidth** | **int**| Width of box to fill. | [optional] 
  **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
  **blur** | **int**| Optional. Blur image. | [optional] 
  **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
  **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
@@ -2471,85 +2230,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **headUserImageByIndex**
-> Uint8List headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer)
-
-Get user profile image.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-
-final api = Tentacle().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
-final ImageType imageType = ; // ImageType | Image type.
-final int imageIndex = 56; // int | Image index.
-final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
-final ImageFormat format = ; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final bool cropWhitespace = true; // bool | Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art.
-final bool addPlayedIndicator = true; // bool | Optional. Add a played indicator.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-
-try {
-    final response = api.headUserImageByIndex(userId, imageType, imageIndex, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, cropWhitespace, addPlayedIndicator, blur, backgroundColor, foregroundLayer);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling ImageApi->headUserImageByIndex: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| User id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
- **imageIndex** | **int**| Image index. | 
- **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
- **format** | [**ImageFormat**](.md)| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **cropWhitespace** | **bool**| Optional. Specify if whitespace should be cropped out of the image. True/False. If unspecified, whitespace will be cropped from logos and clear art. | [optional] 
- **addPlayedIndicator** | **bool**| Optional. Add a played indicator. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
-
-### Return type
-
-[**Uint8List**](Uint8List.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **postUserImage**
-> postUserImage(userId, imageType, index, body)
+> postUserImage(userId, body)
 
 Sets the user image.
 
@@ -2563,12 +2245,10 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final ImageType imageType = ; // ImageType | (Unused) Image type.
-final int index = 56; // int | (Unused) Image index.
 final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
-    api.postUserImage(userId, imageType, index, body);
+    api.postUserImage(userId, body);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->postUserImage: $e\n');
 }
@@ -2578,59 +2258,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| User Id. | 
- **imageType** | [**ImageType**](.md)| (Unused) Image type. | 
- **index** | **int**| (Unused) Image index. | [optional] 
- **body** | **MultipartFile**|  | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: image/*
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **postUserImageByIndex**
-> postUserImageByIndex(userId, imageType, index, body)
-
-Sets the user image.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getImageApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User Id.
-final ImageType imageType = ; // ImageType | (Unused) Image type.
-final int index = 56; // int | (Unused) Image index.
-final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
-
-try {
-    api.postUserImageByIndex(userId, imageType, index, body);
-} catch on DioException (e) {
-    print('Exception when calling ImageApi->postUserImageByIndex: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| User Id. | 
- **imageType** | [**ImageType**](.md)| (Unused) Image type. | 
- **index** | **int**| (Unused) Image index. | 
+ **userId** | **String**| User Id. | [optional] 
  **body** | **MultipartFile**|  | [optional] 
 
 ### Return type
@@ -2663,7 +2291,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
 try {
@@ -2678,7 +2306,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **body** | **MultipartFile**|  | [optional] 
 
 ### Return type
@@ -2711,7 +2339,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | (Unused) Image index.
 final MultipartFile body = BINARY_DATA_HERE; // MultipartFile | 
 
@@ -2727,7 +2355,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| (Unused) Image index. | 
  **body** | **MultipartFile**|  | [optional] 
 
@@ -2761,7 +2389,7 @@ import 'package:tentacle/api.dart';
 
 final api = Tentacle().getImageApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Item id.
-final ImageType imageType = ; // ImageType | Image type.
+final ImageType imageType = imageType_example; // ImageType | Image type.
 final int imageIndex = 56; // int | Old image index.
 final int newIndex = 56; // int | New image index.
 
@@ -2777,7 +2405,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **itemId** | **String**| Item id. | 
- **imageType** | [**ImageType**](.md)| Image type. | 
+ **imageType** | **ImageType**| Image type. | 
  **imageIndex** | **int**| Old image index. | 
  **newIndex** | **int**| New image index. | 
 

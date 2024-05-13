@@ -13,6 +13,7 @@ const HardwareEncodingType _$v4L2M2M = const HardwareEncodingType._('v4L2M2M');
 const HardwareEncodingType _$VAAPI = const HardwareEncodingType._('VAAPI');
 const HardwareEncodingType _$videoToolBox =
     const HardwareEncodingType._('videoToolBox');
+const HardwareEncodingType _$RKMPP = const HardwareEncodingType._('RKMPP');
 
 HardwareEncodingType _$valueOf(String name) {
   switch (name) {
@@ -28,6 +29,8 @@ HardwareEncodingType _$valueOf(String name) {
       return _$VAAPI;
     case 'videoToolBox':
       return _$videoToolBox;
+    case 'RKMPP':
+      return _$RKMPP;
     default:
       throw new ArgumentError(name);
   }
@@ -41,6 +44,7 @@ final BuiltSet<HardwareEncodingType> _$values =
   _$v4L2M2M,
   _$VAAPI,
   _$videoToolBox,
+  _$RKMPP,
 ]);
 
 class _$HardwareEncodingTypeMeta {
@@ -51,6 +55,7 @@ class _$HardwareEncodingTypeMeta {
   HardwareEncodingType get v4L2M2M => _$v4L2M2M;
   HardwareEncodingType get VAAPI => _$VAAPI;
   HardwareEncodingType get videoToolBox => _$videoToolBox;
+  HardwareEncodingType get RKMPP => _$RKMPP;
   HardwareEncodingType valueOf(String name) => _$valueOf(name);
   BuiltSet<HardwareEncodingType> get values => _$values;
 }
@@ -73,6 +78,7 @@ class _$HardwareEncodingTypeSerializer
     'v4L2M2M': 'V4L2M2M',
     'VAAPI': 'VAAPI',
     'videoToolBox': 'VideoToolBox',
+    'RKMPP': 'RKMPP',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'AMF': 'AMF',
@@ -81,6 +87,7 @@ class _$HardwareEncodingTypeSerializer
     'V4L2M2M': 'v4L2M2M',
     'VAAPI': 'VAAPI',
     'VideoToolBox': 'videoToolBox',
+    'RKMPP': 'RKMPP',
   };
 
   @override

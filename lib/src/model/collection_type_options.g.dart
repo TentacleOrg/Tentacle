@@ -7,15 +7,15 @@ part of 'collection_type_options.dart';
 // **************************************************************************
 
 const CollectionTypeOptions _$movies = const CollectionTypeOptions._('movies');
-const CollectionTypeOptions _$tvShows =
-    const CollectionTypeOptions._('tvShows');
+const CollectionTypeOptions _$tvshows =
+    const CollectionTypeOptions._('tvshows');
 const CollectionTypeOptions _$music = const CollectionTypeOptions._('music');
-const CollectionTypeOptions _$musicVideos =
-    const CollectionTypeOptions._('musicVideos');
-const CollectionTypeOptions _$homeVideos =
-    const CollectionTypeOptions._('homeVideos');
-const CollectionTypeOptions _$boxSets =
-    const CollectionTypeOptions._('boxSets');
+const CollectionTypeOptions _$musicvideos =
+    const CollectionTypeOptions._('musicvideos');
+const CollectionTypeOptions _$homevideos =
+    const CollectionTypeOptions._('homevideos');
+const CollectionTypeOptions _$boxsets =
+    const CollectionTypeOptions._('boxsets');
 const CollectionTypeOptions _$books = const CollectionTypeOptions._('books');
 const CollectionTypeOptions _$mixed = const CollectionTypeOptions._('mixed');
 
@@ -23,16 +23,16 @@ CollectionTypeOptions _$valueOf(String name) {
   switch (name) {
     case 'movies':
       return _$movies;
-    case 'tvShows':
-      return _$tvShows;
+    case 'tvshows':
+      return _$tvshows;
     case 'music':
       return _$music;
-    case 'musicVideos':
-      return _$musicVideos;
-    case 'homeVideos':
-      return _$homeVideos;
-    case 'boxSets':
-      return _$boxSets;
+    case 'musicvideos':
+      return _$musicvideos;
+    case 'homevideos':
+      return _$homevideos;
+    case 'boxsets':
+      return _$boxsets;
     case 'books':
       return _$books;
     case 'mixed':
@@ -45,11 +45,11 @@ CollectionTypeOptions _$valueOf(String name) {
 final BuiltSet<CollectionTypeOptions> _$values =
     new BuiltSet<CollectionTypeOptions>(const <CollectionTypeOptions>[
   _$movies,
-  _$tvShows,
+  _$tvshows,
   _$music,
-  _$musicVideos,
-  _$homeVideos,
-  _$boxSets,
+  _$musicvideos,
+  _$homevideos,
+  _$boxsets,
   _$books,
   _$mixed,
 ]);
@@ -57,11 +57,11 @@ final BuiltSet<CollectionTypeOptions> _$values =
 class _$CollectionTypeOptionsMeta {
   const _$CollectionTypeOptionsMeta();
   CollectionTypeOptions get movies => _$movies;
-  CollectionTypeOptions get tvShows => _$tvShows;
+  CollectionTypeOptions get tvshows => _$tvshows;
   CollectionTypeOptions get music => _$music;
-  CollectionTypeOptions get musicVideos => _$musicVideos;
-  CollectionTypeOptions get homeVideos => _$homeVideos;
-  CollectionTypeOptions get boxSets => _$boxSets;
+  CollectionTypeOptions get musicvideos => _$musicvideos;
+  CollectionTypeOptions get homevideos => _$homevideos;
+  CollectionTypeOptions get boxsets => _$boxsets;
   CollectionTypeOptions get books => _$books;
   CollectionTypeOptions get mixed => _$mixed;
   CollectionTypeOptions valueOf(String name) => _$valueOf(name);
@@ -80,24 +80,24 @@ Serializer<CollectionTypeOptions> _$collectionTypeOptionsSerializer =
 class _$CollectionTypeOptionsSerializer
     implements PrimitiveSerializer<CollectionTypeOptions> {
   static const Map<String, Object> _toWire = const <String, Object>{
-    'movies': 'Movies',
-    'tvShows': 'TvShows',
-    'music': 'Music',
-    'musicVideos': 'MusicVideos',
-    'homeVideos': 'HomeVideos',
-    'boxSets': 'BoxSets',
-    'books': 'Books',
-    'mixed': 'Mixed',
+    'movies': 'movies',
+    'tvshows': 'tvshows',
+    'music': 'music',
+    'musicvideos': 'musicvideos',
+    'homevideos': 'homevideos',
+    'boxsets': 'boxsets',
+    'books': 'books',
+    'mixed': 'mixed',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
-    'Movies': 'movies',
-    'TvShows': 'tvShows',
-    'Music': 'music',
-    'MusicVideos': 'musicVideos',
-    'HomeVideos': 'homeVideos',
-    'BoxSets': 'boxSets',
-    'Books': 'books',
-    'Mixed': 'mixed',
+    'movies': 'movies',
+    'tvshows': 'tvshows',
+    'music': 'music',
+    'musicvideos': 'musicvideos',
+    'homevideos': 'homevideos',
+    'boxsets': 'boxsets',
+    'books': 'books',
+    'mixed': 'mixed',
   };
 
   @override

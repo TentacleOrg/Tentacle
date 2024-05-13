@@ -9,15 +9,20 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addToPlaylist**](PlaylistsApi.md#addtoplaylist) | **POST** /Playlists/{playlistId}/Items | Adds items to a playlist.
+[**addItemToPlaylist**](PlaylistsApi.md#additemtoplaylist) | **POST** /Playlists/{playlistId}/Items | Adds items to a playlist.
 [**createPlaylist**](PlaylistsApi.md#createplaylist) | **POST** /Playlists | Creates a new playlist.
 [**getPlaylistItems**](PlaylistsApi.md#getplaylistitems) | **GET** /Playlists/{playlistId}/Items | Gets the original items of a playlist.
+[**getPlaylistUser**](PlaylistsApi.md#getplaylistuser) | **GET** /Playlists/{playlistId}/Users/{userId} | Get a playlist user.
+[**getPlaylistUsers**](PlaylistsApi.md#getplaylistusers) | **GET** /Playlists/{playlistId}/Users | Get a playlist&#39;s users.
 [**moveItem**](PlaylistsApi.md#moveitem) | **POST** /Playlists/{playlistId}/Items/{itemId}/Move/{newIndex} | Moves a playlist item.
-[**removeFromPlaylist**](PlaylistsApi.md#removefromplaylist) | **DELETE** /Playlists/{playlistId}/Items | Removes items from a playlist.
+[**removeItemFromPlaylist**](PlaylistsApi.md#removeitemfromplaylist) | **DELETE** /Playlists/{playlistId}/Items | Removes items from a playlist.
+[**removeUserFromPlaylist**](PlaylistsApi.md#removeuserfromplaylist) | **DELETE** /Playlists/{playlistId}/Users/{userId} | Remove a user from a playlist&#39;s users.
+[**updatePlaylist**](PlaylistsApi.md#updateplaylist) | **POST** /Playlists/{playlistId} | Updates a playlist.
+[**updatePlaylistUser**](PlaylistsApi.md#updateplaylistuser) | **POST** /Playlists/{playlistId}/Users/{userId} | Modify a user of a playlist&#39;s users.
 
 
-# **addToPlaylist**
-> addToPlaylist(playlistId, ids, userId)
+# **addItemToPlaylist**
+> addItemToPlaylist(playlistId, ids, userId)
 
 Adds items to a playlist.
 
@@ -35,9 +40,9 @@ final BuiltList<String> ids = ; // BuiltList<String> | Item id, comma delimited.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The userId.
 
 try {
-    api.addToPlaylist(playlistId, ids, userId);
+    api.addItemToPlaylist(playlistId, ids, userId);
 } catch on DioException (e) {
-    print('Exception when calling PlaylistsApi->addToPlaylist: $e\n');
+    print('Exception when calling PlaylistsApi->addItemToPlaylist: $e\n');
 }
 ```
 
@@ -60,7 +65,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -83,7 +88,7 @@ final api = Tentacle().getPlaylistsApi();
 final String name = name_example; // String | The playlist name.
 final BuiltList<String> ids = ; // BuiltList<String> | The item ids.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
-final String mediaType = mediaType_example; // String | The media type.
+final MediaType mediaType = mediaType_example; // MediaType | The media type.
 final CreatePlaylistDto createPlaylistDto = ; // CreatePlaylistDto | The create playlist payload.
 
 try {
@@ -101,7 +106,7 @@ Name | Type | Description  | Notes
  **name** | **String**| The playlist name. | [optional] 
  **ids** | [**BuiltList&lt;String&gt;**](String.md)| The item ids. | [optional] 
  **userId** | **String**| The user id. | [optional] 
- **mediaType** | **String**| The media type. | [optional] 
+ **mediaType** | **MediaType**| The media type. | [optional] 
  **createPlaylistDto** | [**CreatePlaylistDto**](CreatePlaylistDto.md)| The create playlist payload. | [optional] 
 
 ### Return type
@@ -156,7 +161,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **playlistId** | **String**| The playlist id. | 
- **userId** | **String**| User id. | 
+ **userId** | **String**| User id. | [optional] 
  **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
  **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
  **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
@@ -168,6 +173,98 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BaseItemDtoQueryResult**](BaseItemDtoQueryResult.md)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPlaylistUser**
+> PlaylistUserPermissions getPlaylistUser(playlistId, userId)
+
+Get a playlist user.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getPlaylistsApi();
+final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+
+try {
+    final response = api.getPlaylistUser(playlistId, userId);
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling PlaylistsApi->getPlaylistUser: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playlistId** | **String**| The playlist id. | 
+ **userId** | **String**| The user id. | 
+
+### Return type
+
+[**PlaylistUserPermissions**](PlaylistUserPermissions.md)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPlaylistUsers**
+> BuiltList<PlaylistUserPermissions> getPlaylistUsers(playlistId)
+
+Get a playlist's users.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getPlaylistsApi();
+final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
+
+try {
+    final response = api.getPlaylistUsers(playlistId);
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling PlaylistsApi->getPlaylistUsers: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playlistId** | **String**| The playlist id. | 
+
+### Return type
+
+[**BuiltList&lt;PlaylistUserPermissions&gt;**](PlaylistUserPermissions.md)
 
 ### Authorization
 
@@ -224,12 +321,12 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **removeFromPlaylist**
-> removeFromPlaylist(playlistId, entryIds)
+# **removeItemFromPlaylist**
+> removeItemFromPlaylist(playlistId, entryIds)
 
 Removes items from a playlist.
 
@@ -246,9 +343,9 @@ final String playlistId = playlistId_example; // String | The playlist id.
 final BuiltList<String> entryIds = ; // BuiltList<String> | The item ids, comma delimited.
 
 try {
-    api.removeFromPlaylist(playlistId, entryIds);
+    api.removeItemFromPlaylist(playlistId, entryIds);
 } catch on DioException (e) {
-    print('Exception when calling PlaylistsApi->removeFromPlaylist: $e\n');
+    print('Exception when calling PlaylistsApi->removeItemFromPlaylist: $e\n');
 }
 ```
 
@@ -270,7 +367,147 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **removeUserFromPlaylist**
+> removeUserFromPlaylist(playlistId, userId)
+
+Remove a user from a playlist's users.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getPlaylistsApi();
+final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+
+try {
+    api.removeUserFromPlaylist(playlistId, userId);
+} catch on DioException (e) {
+    print('Exception when calling PlaylistsApi->removeUserFromPlaylist: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playlistId** | **String**| The playlist id. | 
+ **userId** | **String**| The user id. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updatePlaylist**
+> updatePlaylist(playlistId, updatePlaylistDto)
+
+Updates a playlist.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getPlaylistsApi();
+final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
+final UpdatePlaylistDto updatePlaylistDto = ; // UpdatePlaylistDto | The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistDto id.
+
+try {
+    api.updatePlaylist(playlistId, updatePlaylistDto);
+} catch on DioException (e) {
+    print('Exception when calling PlaylistsApi->updatePlaylist: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playlistId** | **String**| The playlist id. | 
+ **updatePlaylistDto** | [**UpdatePlaylistDto**](UpdatePlaylistDto.md)| The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistDto id. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updatePlaylistUser**
+> updatePlaylistUser(playlistId, userId, updatePlaylistUserDto)
+
+Modify a user of a playlist's users.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getPlaylistsApi();
+final String playlistId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The playlist id.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The user id.
+final UpdatePlaylistUserDto updatePlaylistUserDto = ; // UpdatePlaylistUserDto | The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistUserDto.
+
+try {
+    api.updatePlaylistUser(playlistId, userId, updatePlaylistUserDto);
+} catch on DioException (e) {
+    print('Exception when calling PlaylistsApi->updatePlaylistUser: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playlistId** | **String**| The playlist id. | 
+ **userId** | **String**| The user id. | 
+ **updatePlaylistUserDto** | [**UpdatePlaylistUserDto**](UpdatePlaylistUserDto.md)| The Jellyfin.Api.Models.PlaylistDtos.UpdatePlaylistUserDto. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

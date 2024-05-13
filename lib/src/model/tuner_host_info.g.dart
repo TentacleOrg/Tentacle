@@ -29,6 +29,8 @@ class _$TunerHostInfo extends TunerHostInfo {
   final int? tunerCount;
   @override
   final String? userAgent;
+  @override
+  final bool? ignoreDts;
 
   factory _$TunerHostInfo([void Function(TunerHostInfoBuilder)? updates]) =>
       (new TunerHostInfoBuilder()..update(updates))._build();
@@ -44,7 +46,8 @@ class _$TunerHostInfo extends TunerHostInfo {
       this.enableStreamLooping,
       this.source_,
       this.tunerCount,
-      this.userAgent})
+      this.userAgent,
+      this.ignoreDts})
       : super._();
 
   @override
@@ -68,7 +71,8 @@ class _$TunerHostInfo extends TunerHostInfo {
         enableStreamLooping == other.enableStreamLooping &&
         source_ == other.source_ &&
         tunerCount == other.tunerCount &&
-        userAgent == other.userAgent;
+        userAgent == other.userAgent &&
+        ignoreDts == other.ignoreDts;
   }
 
   @override
@@ -85,6 +89,7 @@ class _$TunerHostInfo extends TunerHostInfo {
     _$hash = $jc(_$hash, source_.hashCode);
     _$hash = $jc(_$hash, tunerCount.hashCode);
     _$hash = $jc(_$hash, userAgent.hashCode);
+    _$hash = $jc(_$hash, ignoreDts.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -102,7 +107,8 @@ class _$TunerHostInfo extends TunerHostInfo {
           ..add('enableStreamLooping', enableStreamLooping)
           ..add('source_', source_)
           ..add('tunerCount', tunerCount)
-          ..add('userAgent', userAgent))
+          ..add('userAgent', userAgent)
+          ..add('ignoreDts', ignoreDts))
         .toString();
   }
 }
@@ -158,6 +164,10 @@ class TunerHostInfoBuilder
   String? get userAgent => _$this._userAgent;
   set userAgent(String? userAgent) => _$this._userAgent = userAgent;
 
+  bool? _ignoreDts;
+  bool? get ignoreDts => _$this._ignoreDts;
+  set ignoreDts(bool? ignoreDts) => _$this._ignoreDts = ignoreDts;
+
   TunerHostInfoBuilder() {
     TunerHostInfo._defaults(this);
   }
@@ -176,6 +186,7 @@ class TunerHostInfoBuilder
       _source_ = $v.source_;
       _tunerCount = $v.tunerCount;
       _userAgent = $v.userAgent;
+      _ignoreDts = $v.ignoreDts;
       _$v = null;
     }
     return this;
@@ -208,7 +219,8 @@ class TunerHostInfoBuilder
             enableStreamLooping: enableStreamLooping,
             source_: source_,
             tunerCount: tunerCount,
-            userAgent: userAgent);
+            userAgent: userAgent,
+            ignoreDts: ignoreDts);
     replace(_$result);
     return _$result;
   }

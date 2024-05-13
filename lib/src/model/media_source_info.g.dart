@@ -82,7 +82,7 @@ class _$MediaSourceInfo extends MediaSourceInfo {
   @override
   final String? transcodingUrl;
   @override
-  final String? transcodingSubProtocol;
+  final MediaStreamProtocol? transcodingSubProtocol;
   @override
   final String? transcodingContainer;
   @override
@@ -466,9 +466,10 @@ class MediaSourceInfoBuilder
   set transcodingUrl(String? transcodingUrl) =>
       _$this._transcodingUrl = transcodingUrl;
 
-  String? _transcodingSubProtocol;
-  String? get transcodingSubProtocol => _$this._transcodingSubProtocol;
-  set transcodingSubProtocol(String? transcodingSubProtocol) =>
+  MediaStreamProtocol? _transcodingSubProtocol;
+  MediaStreamProtocol? get transcodingSubProtocol =>
+      _$this._transcodingSubProtocol;
+  set transcodingSubProtocol(MediaStreamProtocol? transcodingSubProtocol) =>
       _$this._transcodingSubProtocol = transcodingSubProtocol;
 
   String? _transcodingContainer;

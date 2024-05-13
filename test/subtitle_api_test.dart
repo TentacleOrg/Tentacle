@@ -36,7 +36,7 @@ void main() {
 
     // Gets the remote subtitles.
     //
-    //Future<Uint8List> getRemoteSubtitles(String id) async
+    //Future<Uint8List> getRemoteSubtitles(String subtitleId) async
     test('test getRemoteSubtitles', () async {
       // TODO
     });

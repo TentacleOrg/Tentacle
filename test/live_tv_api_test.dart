@@ -141,7 +141,7 @@ void main() {
 
     // Gets available live tv channels.
     //
-    //Future<BaseItemDtoQueryResult> getLiveTvChannels({ ChannelType type, String userId, int startIndex, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, int limit, bool isFavorite, bool isLiked, bool isDisliked, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<ItemFields> fields, bool enableUserData, BuiltList<String> sortBy, SortOrder sortOrder, bool enableFavoriteSorting, bool addCurrentProgram }) async
+    //Future<BaseItemDtoQueryResult> getLiveTvChannels({ ChannelType type, String userId, int startIndex, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, int limit, bool isFavorite, bool isLiked, bool isDisliked, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<ItemFields> fields, bool enableUserData, BuiltList<ItemSortBy> sortBy, SortOrder sortOrder, bool enableFavoriteSorting, bool addCurrentProgram }) async
     test('test getLiveTvChannels', () async {
       // TODO
     });
@@ -155,7 +155,7 @@ void main() {
 
     // Gets available live tv epgs.
     //
-    //Future<BaseItemDtoQueryResult> getLiveTvPrograms({ BuiltList<String> channelIds, String userId, DateTime minStartDate, bool hasAired, bool isAiring, DateTime maxStartDate, DateTime minEndDate, DateTime maxEndDate, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, int startIndex, int limit, BuiltList<String> sortBy, BuiltList<SortOrder> sortOrder, BuiltList<String> genres, BuiltList<String> genreIds, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, bool enableUserData, String seriesTimerId, String librarySeriesId, BuiltList<ItemFields> fields, bool enableTotalRecordCount }) async
+    //Future<BaseItemDtoQueryResult> getLiveTvPrograms({ BuiltList<String> channelIds, String userId, DateTime minStartDate, bool hasAired, bool isAiring, DateTime maxStartDate, DateTime minEndDate, DateTime maxEndDate, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, int startIndex, int limit, BuiltList<ItemSortBy> sortBy, BuiltList<SortOrder> sortOrder, BuiltList<String> genres, BuiltList<String> genreIds, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, bool enableUserData, String seriesTimerId, String librarySeriesId, BuiltList<ItemFields> fields, bool enableTotalRecordCount }) async
     test('test getLiveTvPrograms', () async {
       // TODO
     });

@@ -88,7 +88,7 @@ class AudioApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -353,7 +353,7 @@ class AudioApi {
   /// * [deviceProfileId] - Optional. The dlna device profile id to utilize.
   /// * [playSessionId] - The play session id.
   /// * [segmentContainer] - The segment container.
-  /// * [segmentLength] - The segment lenght.
+  /// * [segmentLength] - The segment length.
   /// * [minSegments] - The minimum number of segments.
   /// * [mediaSourceId] - The media version id, if playing an alternate version.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
@@ -409,7 +409,7 @@ class AudioApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -733,7 +733,7 @@ class AudioApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,
@@ -998,7 +998,7 @@ class AudioApi {
   /// * [deviceProfileId] - Optional. The dlna device profile id to utilize.
   /// * [playSessionId] - The play session id.
   /// * [segmentContainer] - The segment container.
-  /// * [segmentLength] - The segment lenght.
+  /// * [segmentLength] - The segment length.
   /// * [minSegments] - The minimum number of segments.
   /// * [mediaSourceId] - The media version id, if playing an alternate version.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
@@ -1054,7 +1054,7 @@ class AudioApi {
     bool? static_,
     String? params,
     String? tag,
-    String? deviceProfileId,
+    @Deprecated('deviceProfileId is deprecated') String? deviceProfileId,
     String? playSessionId,
     String? segmentContainer,
     int? segmentLength,

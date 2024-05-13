@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **liveStreamId** | **String** | Gets or sets the live stream identifier. | [optional] 
 **playSessionId** | **String** | Gets or sets the play session identifier. | [optional] 
 **repeatMode** | [**RepeatMode**](RepeatMode.md) | Gets or sets the repeat mode. | [optional] 
+**playbackOrder** | [**PlaybackOrder**](PlaybackOrder.md) | Gets or sets the playback order. | [optional] 
 **nowPlayingQueue** | [**BuiltList&lt;QueueItem&gt;**](QueueItem.md) |  | [optional] 
 **playlistItemId** | **String** |  | [optional] 
 

@@ -4,34 +4,38 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/base_item_dto_image_blur_hashes.dart';
-import 'package:tentacle/src/model/name_guid_pair.dart';
-import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:tentacle/src/model/media_url.dart';
 import 'package:tentacle/src/model/media_stream.dart';
-import 'package:tentacle/src/model/video3_d_format.dart';
 import 'package:tentacle/src/model/program_audio.dart';
-import 'package:tentacle/src/model/play_access.dart';
+import 'package:tentacle/src/model/trickplay_info.dart';
 import 'package:tentacle/src/model/base_item_dto_user_data.dart';
-import 'package:tentacle/src/model/base_item_dto_current_program.dart';
 import 'package:tentacle/src/model/base_item_person.dart';
-import 'package:tentacle/src/model/iso_type.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/chapter_info.dart';
 import 'package:tentacle/src/model/media_source_info.dart';
+import 'package:tentacle/src/model/channel_type.dart';
+import 'package:tentacle/src/model/base_item_kind.dart';
+import 'package:tentacle/src/model/day_of_week.dart';
+import 'package:tentacle/src/model/collection_type.dart';
+import 'package:tentacle/src/model/name_guid_pair.dart';
+import 'package:tentacle/src/model/extra_type.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
+import 'package:tentacle/src/model/video3_d_format.dart';
+import 'package:tentacle/src/model/play_access.dart';
+import 'package:tentacle/src/model/base_item_dto_current_program.dart';
+import 'package:tentacle/src/model/iso_type.dart';
+import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/image_orientation.dart';
 import 'package:tentacle/src/model/video_type.dart';
-import 'package:tentacle/src/model/channel_type.dart';
+import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/external_url.dart';
 import 'package:tentacle/src/model/location_type.dart';
 import 'package:tentacle/src/model/metadata_field.dart';
-import 'package:tentacle/src/model/base_item_kind.dart';
-import 'package:tentacle/src/model/day_of_week.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'session_info_now_playing_item.g.dart';
 
-/// Gets or sets the now playing item.
+/// This is strictly used as a data transfer object from the api layer.  This holds information about a BaseItem in a format that is convenient for the client.
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.
@@ -49,10 +53,10 @@ part 'session_info_now_playing_item.g.dart';
 /// * [airsBeforeEpisodeNumber]
 /// * [canDelete]
 /// * [canDownload]
+/// * [hasLyrics]
 /// * [hasSubtitles]
 /// * [preferredMetadataLanguage]
 /// * [preferredMetadataCountryCode]
-/// * [supportsSync] - Gets or sets a value indicating whether [supports synchronize].
 /// * [container]
 /// * [sortName] - Gets or sets the name of the sort.
 /// * [forcedSortName]
@@ -92,8 +96,8 @@ part 'session_info_now_playing_item.g.dart';
 /// * [people] - Gets or sets the people.
 /// * [studios] - Gets or sets the studios.
 /// * [genreItems]
-/// * [parentLogoItemId] - Gets or sets wether the item has a logo, this will hold the Id of the Parent that has one.
-/// * [parentBackdropItemId] - Gets or sets wether the item has any backdrops, this will hold the Id of the Parent that has one.
+/// * [parentLogoItemId] - Gets or sets whether the item has a logo, this will hold the Id of the Parent that has one.
+/// * [parentBackdropItemId] - Gets or sets whether the item has any backdrops, this will hold the Id of the Parent that has one.
 /// * [parentBackdropImageTags] - Gets or sets the parent backdrop image tags.
 /// * [localTrailerCount] - Gets or sets the local trailer count.
 /// * [userData]
@@ -128,7 +132,7 @@ part 'session_info_now_playing_item.g.dart';
 /// * [backdropImageTags] - Gets or sets the backdrop image tags.
 /// * [screenshotImageTags] - Gets or sets the screenshot image tags.
 /// * [parentLogoImageTag] - Gets or sets the parent logo image tag.
-/// * [parentArtItemId] - Gets or sets wether the item has fan art, this will hold the Id of the Parent that has one.
+/// * [parentArtItemId] - Gets or sets whether the item has fan art, this will hold the Id of the Parent that has one.
 /// * [parentArtImageTag] - Gets or sets the parent art image tag.
 /// * [seriesThumbImageTag] - Gets or sets the series thumb image tag.
 /// * [imageBlurHashes]
@@ -138,6 +142,7 @@ part 'session_info_now_playing_item.g.dart';
 /// * [parentPrimaryImageItemId] - Gets or sets the parent primary image item identifier.
 /// * [parentPrimaryImageTag] - Gets or sets the parent primary image tag.
 /// * [chapters] - Gets or sets the chapters.
+/// * [trickplay] - Gets or sets the trickplay manifest.
 /// * [locationType] - Gets or sets the type of the location.
 /// * [isoType] - Gets or sets the type of the iso.
 /// * [mediaType] - Gets or sets the type of the media.
@@ -184,6 +189,7 @@ part 'session_info_now_playing_item.g.dart';
 /// * [isKids] - Gets or sets a value indicating whether this instance is kids.
 /// * [isPremiere] - Gets or sets a value indicating whether this instance is premiere.
 /// * [timerId] - Gets or sets the timer identifier.
+/// * [normalizationGain] - Gets or sets the gain required for audio normalization.
 /// * [currentProgram]
 @BuiltValue()
 abstract class SessionInfoNowPlayingItem
@@ -525,6 +531,13 @@ class _$SessionInfoNowPlayingItemSerializer
         specifiedType: const FullType.nullable(String),
       );
     }
+    if (object.hasLyrics != null) {
+      yield r'HasLyrics';
+      yield serializers.serialize(
+        object.hasLyrics,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
     if (object.sourceType != null) {
       yield r'SourceType';
       yield serializers.serialize(
@@ -756,7 +769,7 @@ class _$SessionInfoNowPlayingItemSerializer
       yield r'CollectionType';
       yield serializers.serialize(
         object.collectionType,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType.nullable(CollectionType),
       );
     }
     if (object.aperture != null) {
@@ -829,6 +842,13 @@ class _$SessionInfoNowPlayingItemSerializer
         specifiedType: const FullType.nullable(String),
       );
     }
+    if (object.normalizationGain != null) {
+      yield r'NormalizationGain';
+      yield serializers.serialize(
+        object.normalizationGain,
+        specifiedType: const FullType.nullable(double),
+      );
+    }
     if (object.preferredMetadataCountryCode != null) {
       yield r'PreferredMetadataCountryCode';
       yield serializers.serialize(
@@ -868,7 +888,7 @@ class _$SessionInfoNowPlayingItemSerializer
       yield r'ExtraType';
       yield serializers.serialize(
         object.extraType,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType.nullable(ExtraType),
       );
     }
     if (object.taglines != null) {
@@ -991,7 +1011,7 @@ class _$SessionInfoNowPlayingItemSerializer
       yield r'MediaType';
       yield serializers.serialize(
         object.mediaType,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(MediaType),
       );
     }
     if (object.isoType != null) {
@@ -1041,6 +1061,16 @@ class _$SessionInfoNowPlayingItemSerializer
       yield serializers.serialize(
         object.cameraModel,
         specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.trickplay != null) {
+      yield r'Trickplay';
+      yield serializers.serialize(
+        object.trickplay,
+        specifiedType: const FullType.nullable(BuiltMap, [
+          FullType(String),
+          FullType(BuiltMap, [FullType(String), FullType(TrickplayInfo)])
+        ]),
       );
     }
     if (object.criticRating != null) {
@@ -1098,13 +1128,6 @@ class _$SessionInfoNowPlayingItemSerializer
       yield serializers.serialize(
         object.altitude,
         specifiedType: const FullType.nullable(double),
-      );
-    }
-    if (object.supportsSync != null) {
-      yield r'SupportsSync';
-      yield serializers.serialize(
-        object.supportsSync,
-        specifiedType: const FullType.nullable(bool),
       );
     }
     if (object.exposureTime != null) {
@@ -1663,6 +1686,14 @@ class _$SessionInfoNowPlayingItemSerializer
           if (valueDes == null) continue;
           result.customRating = valueDes;
           break;
+        case r'HasLyrics':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.hasLyrics = valueDes;
+          break;
         case r'SourceType':
           final valueDes = serializers.deserialize(
             value,
@@ -1926,8 +1957,8 @@ class _$SessionInfoNowPlayingItemSerializer
         case r'CollectionType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
+            specifiedType: const FullType.nullable(CollectionType),
+          ) as CollectionType?;
           if (valueDes == null) continue;
           result.collectionType = valueDes;
           break;
@@ -2012,6 +2043,14 @@ class _$SessionInfoNowPlayingItemSerializer
           if (valueDes == null) continue;
           result.channelName = valueDes;
           break;
+        case r'NormalizationGain':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(double),
+          ) as double?;
+          if (valueDes == null) continue;
+          result.normalizationGain = valueDes;
+          break;
         case r'PreferredMetadataCountryCode':
           final valueDes = serializers.deserialize(
             value,
@@ -2055,8 +2094,8 @@ class _$SessionInfoNowPlayingItemSerializer
         case r'ExtraType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
+            specifiedType: const FullType.nullable(ExtraType),
+          ) as ExtraType?;
           if (valueDes == null) continue;
           result.extraType = valueDes;
           break;
@@ -2197,9 +2236,8 @@ class _$SessionInfoNowPlayingItemSerializer
         case r'MediaType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(MediaType),
+          ) as MediaType;
           result.mediaType = valueDes;
           break;
         case r'IsoType':
@@ -2257,6 +2295,17 @@ class _$SessionInfoNowPlayingItemSerializer
           ) as String?;
           if (valueDes == null) continue;
           result.cameraModel = valueDes;
+          break;
+        case r'Trickplay':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(BuiltMap, [
+              FullType(String),
+              FullType(BuiltMap, [FullType(String), FullType(TrickplayInfo)])
+            ]),
+          ) as BuiltMap<String, BuiltMap<String, TrickplayInfo>>?;
+          if (valueDes == null) continue;
+          result.trickplay.replace(valueDes);
           break;
         case r'CriticRating':
           final valueDes = serializers.deserialize(
@@ -2322,14 +2371,6 @@ class _$SessionInfoNowPlayingItemSerializer
           ) as double?;
           if (valueDes == null) continue;
           result.altitude = valueDes;
-          break;
-        case r'SupportsSync':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(bool),
-          ) as bool?;
-          if (valueDes == null) continue;
-          result.supportsSync = valueDes;
           break;
         case r'ExposureTime':
           final valueDes = serializers.deserialize(

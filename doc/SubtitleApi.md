@@ -13,7 +13,7 @@ Method | HTTP request | Description
 [**downloadRemoteSubtitles**](SubtitleApi.md#downloadremotesubtitles) | **POST** /Items/{itemId}/RemoteSearch/Subtitles/{subtitleId} | Downloads a remote subtitle.
 [**getFallbackFont**](SubtitleApi.md#getfallbackfont) | **GET** /FallbackFont/Fonts/{name} | Gets a fallback font file.
 [**getFallbackFontList**](SubtitleApi.md#getfallbackfontlist) | **GET** /FallbackFont/Fonts | Gets a list of available fallback font files.
-[**getRemoteSubtitles**](SubtitleApi.md#getremotesubtitles) | **GET** /Providers/Subtitles/Subtitles/{id} | Gets the remote subtitles.
+[**getRemoteSubtitles**](SubtitleApi.md#getremotesubtitles) | **GET** /Providers/Subtitles/Subtitles/{subtitleId} | Gets the remote subtitles.
 [**getSubtitle**](SubtitleApi.md#getsubtitle) | **GET** /Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/Stream.{routeFormat} | Gets subtitles in a specified format.
 [**getSubtitlePlaylist**](SubtitleApi.md#getsubtitleplaylist) | **GET** /Videos/{itemId}/{mediaSourceId}/Subtitles/{index}/subtitles.m3u8 | Gets an HLS subtitle playlist.
 [**getSubtitleWithTicks**](SubtitleApi.md#getsubtitlewithticks) | **GET** /Videos/{routeItemId}/{routeMediaSourceId}/Subtitles/{routeIndex}/{routeStartPositionTicks}/Stream.{routeFormat} | Gets subtitles in a specified format.
@@ -109,7 +109,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -200,7 +200,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRemoteSubtitles**
-> Uint8List getRemoteSubtitles(id)
+> Uint8List getRemoteSubtitles(subtitleId)
 
 Gets the remote subtitles.
 
@@ -213,10 +213,10 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getSubtitleApi();
-final String id = id_example; // String | The item id.
+final String subtitleId = subtitleId_example; // String | The item id.
 
 try {
-    final response = api.getRemoteSubtitles(id);
+    final response = api.getRemoteSubtitles(subtitleId);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling SubtitleApi->getRemoteSubtitles: $e\n');
@@ -227,7 +227,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The item id. | 
+ **subtitleId** | **String**| The item id. | 
 
 ### Return type
 
@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/x-mpegURL
+ - **Accept**: application/x-mpegURL, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -514,7 +514,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: Not defined
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

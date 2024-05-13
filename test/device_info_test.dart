@@ -12,6 +12,11 @@ void main() {
       // TODO
     });
 
+    // String customName
+    test('to test the property `customName`', () async {
+      // TODO
+    });
+
     // Gets or sets the access token.
     // String accessToken
     test('to test the property `accessToken`', () async {

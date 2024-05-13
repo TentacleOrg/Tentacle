@@ -34,13 +34,6 @@ void main() {
       // TODO
     });
 
-    // Updates the path to the media encoder.
-    //
-    //Future updateMediaEncoderPath(MediaEncoderPathDto mediaEncoderPathDto) async
-    test('test updateMediaEncoderPath', () async {
-      // TODO
-    });
-
     // Updates named configuration.
     //
     //Future updateNamedConfiguration(String key, JsonObject body) async

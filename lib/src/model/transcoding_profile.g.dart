@@ -16,7 +16,7 @@ class _$TranscodingProfile extends TranscodingProfile {
   @override
   final String? audioCodec;
   @override
-  final String? protocol;
+  final MediaStreamProtocol? protocol;
   @override
   final bool? estimateContentLength;
   @override
@@ -160,9 +160,9 @@ class TranscodingProfileBuilder
   String? get audioCodec => _$this._audioCodec;
   set audioCodec(String? audioCodec) => _$this._audioCodec = audioCodec;
 
-  String? _protocol;
-  String? get protocol => _$this._protocol;
-  set protocol(String? protocol) => _$this._protocol = protocol;
+  MediaStreamProtocol? _protocol;
+  MediaStreamProtocol? get protocol => _$this._protocol;
+  set protocol(MediaStreamProtocol? protocol) => _$this._protocol = protocol;
 
   bool? _estimateContentLength;
   bool? get estimateContentLength => _$this._estimateContentLength;

@@ -193,7 +193,8 @@ void main() {
       // TODO
     });
 
-    // String transcodingSubProtocol
+    // Media streaming protocol.  Lowercase for backwards compatibility.
+    // MediaStreamProtocol transcodingSubProtocol
     test('to test the property `transcodingSubProtocol`', () async {
       // TODO
     });
