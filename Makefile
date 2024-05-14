@@ -35,7 +35,7 @@ generateApis:
 			-i jellyseerr/jellyseerr-openapi-stable.yml \
 			-g dart-dio \
 			-o jellyseerr \
-			--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubLibarary="jellyseer.api.jellyfin",pubVersion=$(shell yq eval '.openapi' jellyseerr/jellyseerr-openapi-stable.yml),allowUnicodeIdentifiers=false \
+			--additional-properties=pubName=jellyseerr,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubLibarary="jellyseer.api.jellyfin",pubVersion=$(shell yq eval '.openapi' jellyseerr/jellyseerr-openapi-stable.yml),allowUnicodeIdentifiers=false \
 			--enable-post-process-file
 
 .PHONY: changePubspecDartVersion
