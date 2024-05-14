@@ -41,5 +41,6 @@ void main() {
     test('to test the property `imageBlurHashes`', () async {
       // TODO
     });
+
   });
 }

@@ -69,5 +69,6 @@ void main() {
     test('to test the property `artists`', () async {
       // TODO
     });
+
   });
 }

@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for GroupRepeatMode
 void main() {
-  group(GroupRepeatMode, () {});
+
+  group(GroupRepeatMode, () {
+  });
 }

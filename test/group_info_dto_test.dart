@@ -36,5 +36,6 @@ void main() {
     test('to test the property `lastUpdatedAt`', () async {
       // TODO
     });
+
   });
 }

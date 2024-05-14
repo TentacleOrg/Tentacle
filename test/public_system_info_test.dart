@@ -48,5 +48,6 @@ void main() {
     test('to test the property `startupWizardCompleted`', () async {
       // TODO
     });
+
   });
 }

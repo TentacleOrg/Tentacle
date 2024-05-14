@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for LocalizationApi
 void main() {
   final instance = Tentacle().getLocalizationApi();
@@ -33,5 +34,6 @@ void main() {
     test('test getParentalRatings', () async {
       // TODO
     });
+
   });
 }

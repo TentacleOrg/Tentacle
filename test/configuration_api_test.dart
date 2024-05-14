@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for ConfigurationApi
 void main() {
   final instance = Tentacle().getConfigurationApi();
@@ -40,5 +41,6 @@ void main() {
     test('test updateNamedConfiguration', () async {
       // TODO
     });
+
   });
 }

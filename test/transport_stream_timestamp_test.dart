@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TransportStreamTimestamp
 void main() {
-  group(TransportStreamTimestamp, () {});
+
+  group(TransportStreamTimestamp, () {
+  });
 }

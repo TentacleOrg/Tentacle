@@ -95,8 +95,15 @@ moveToPosition:
 	@rm -rf jellyfin
 	@rm -rf jellyseerr
 
+.PHONY: fixJellyseerrPaths
+fixJellyseerrPaths:
+	@rm -rf lib/src/plugins/jellyseerr/doc lib/src/plugins/jellyseerr/test lib/src/plugins/jellyseerr/pubspec.yaml lib/src/plugins/jellyseerr/pubspec.lock
+	@mv lib/src/plugins/jellyseerr/lib/src/* lib/src/plugins/jellyseerr/
+	@rm -rf lib/src/plugins/jellyseerr/lib
+	@find ./lib/src/plugins/jellyseerr -type f -name '*.dart' -exec sed $(SED_INPLACE) -E "s/import 'package:jellyseerr\/src\//import 'package:tentacle\/src\/plugins\/jellyseerr\//g" {} \;
+
 .PHONY: all
-all: downloadApis generateApis changePubspecDartVersion fixErrors buildRunner test format moveToPosition
+all: downloadApis generateApis changePubspecDartVersion fixErrors buildRunner test format moveToPosition fixJellyseerrPaths
 
 .PHONY: help
 help:

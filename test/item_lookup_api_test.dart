@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for ItemLookupApi
 void main() {
   final instance = Tentacle().getItemLookupApi();
@@ -82,5 +83,6 @@ void main() {
     test('test getTrailerRemoteSearchResults', () async {
       // TODO
     });
+
   });
 }

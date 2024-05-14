@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for PlaystateApi
 void main() {
   final instance = Tentacle().getPlaystateApi();
@@ -68,5 +69,6 @@ void main() {
     test('test reportPlaybackStopped', () async {
       // TODO
     });
+
   });
 }

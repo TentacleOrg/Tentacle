@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ExternalIdMediaType
 void main() {
-  group(ExternalIdMediaType, () {});
+
+  group(ExternalIdMediaType, () {
+  });
 }

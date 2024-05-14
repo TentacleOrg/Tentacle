@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlaybackRequestType
 void main() {
-  group(PlaybackRequestType, () {});
+
+  group(PlaybackRequestType, () {
+  });
 }

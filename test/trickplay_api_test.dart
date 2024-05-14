@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for TrickplayApi
 void main() {
   final instance = Tentacle().getTrickplayApi();
@@ -19,5 +20,6 @@ void main() {
     test('test getTrickplayTileImage', () async {
       // TODO
     });
+
   });
 }

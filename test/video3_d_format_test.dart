@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for Video3DFormat
 void main() {
-  group(Video3DFormat, () {});
+
+  group(Video3DFormat, () {
+  });
 }

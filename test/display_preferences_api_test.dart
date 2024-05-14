@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for DisplayPreferencesApi
 void main() {
   final instance = Tentacle().getDisplayPreferencesApi();
@@ -19,5 +20,6 @@ void main() {
     test('test updateDisplayPreferences', () async {
       // TODO
     });
+
   });
 }

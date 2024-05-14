@@ -31,5 +31,6 @@ void main() {
     test('to test the property `enableExtraThumbsDuplication`', () async {
       // TODO
     });
+
   });
 }

@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlayAccess
 void main() {
-  group(PlayAccess, () {});
+
+  group(PlayAccess, () {
+  });
 }

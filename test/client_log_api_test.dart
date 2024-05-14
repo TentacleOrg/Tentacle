@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for ClientLogApi
 void main() {
   final instance = Tentacle().getClientLogApi();
@@ -12,5 +13,6 @@ void main() {
     test('test logFile', () async {
       // TODO
     });
+
   });
 }

@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SubtitlePlaybackMode
 void main() {
-  group(SubtitlePlaybackMode, () {});
+
+  group(SubtitlePlaybackMode, () {
+  });
 }

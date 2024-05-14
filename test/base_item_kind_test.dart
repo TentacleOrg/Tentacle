@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for BaseItemKind
 void main() {
-  group(BaseItemKind, () {});
+
+  group(BaseItemKind, () {
+  });
 }

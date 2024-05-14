@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for UserApi
 void main() {
   final instance = Tentacle().getUserApi();
@@ -103,5 +104,6 @@ void main() {
     test('test updateUserPolicy', () async {
       // TODO
     });
+
   });
 }

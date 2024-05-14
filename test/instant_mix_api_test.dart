@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for InstantMixApi
 void main() {
   final instance = Tentacle().getInstantMixApi();
@@ -61,5 +62,6 @@ void main() {
     test('test getInstantMixFromSong', () async {
       // TODO
     });
+
   });
 }

@@ -53,7 +53,29 @@ class _$SyncPlayGroupUpdateCommandMessageDataSerializer
     Serializers serializers,
     SyncPlayGroupUpdateCommandMessageData object, {
     FullType specifiedType = FullType.unspecified,
-  }) sync* {}
+  }) sync* {
+    if (object.oneOf != null) {
+      yield r'Data';
+      yield serializers.serialize(
+        object.oneOf,
+        specifiedType: const FullType(PlayQueueUpdate),
+      );
+    }
+    if (object.runtimeType != null) {
+      yield r'Type';
+      yield serializers.serialize(
+        object.runtimeType,
+        specifiedType: const FullType(GroupUpdateType),
+      );
+    }
+    if (object.discriminatorValue != null) {
+      yield r'GroupId';
+      yield serializers.serialize(
+        object.discriminatorValue,
+        specifiedType: const FullType(String),
+      );
+    }
+  }
 
   @override
   Object serialize(

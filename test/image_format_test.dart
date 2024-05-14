@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ImageFormat
 void main() {
-  group(ImageFormat, () {});
+
+  group(ImageFormat, () {
+  });
 }

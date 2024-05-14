@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ExtraType
 void main() {
-  group(ExtraType, () {});
+
+  group(ExtraType, () {
+  });
 }

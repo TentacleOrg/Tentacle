@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for SearchApi
 void main() {
   final instance = Tentacle().getSearchApi();
@@ -12,5 +13,6 @@ void main() {
     test('test getSearchHints', () async {
       // TODO
     });
+
   });
 }

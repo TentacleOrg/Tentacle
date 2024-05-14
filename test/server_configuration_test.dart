@@ -318,5 +318,6 @@ void main() {
     test('to test the property `trickplayOptions`', () async {
       // TODO
     });
+
   });
 }

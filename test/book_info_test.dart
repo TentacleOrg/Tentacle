@@ -73,5 +73,6 @@ void main() {
     test('to test the property `seriesName`', () async {
       // TODO
     });
+
   });
 }

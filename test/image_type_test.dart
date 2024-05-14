@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ImageType
 void main() {
-  group(ImageType, () {});
+
+  group(ImageType, () {
+  });
 }

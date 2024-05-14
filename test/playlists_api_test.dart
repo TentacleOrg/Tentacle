@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for PlaylistsApi
 void main() {
   final instance = Tentacle().getPlaylistsApi();
@@ -77,5 +78,6 @@ void main() {
     test('test updatePlaylistUser', () async {
       // TODO
     });
+
   });
 }

@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for AudioSpatialFormat
 void main() {
-  group(AudioSpatialFormat, () {});
+
+  group(AudioSpatialFormat, () {
+  });
 }

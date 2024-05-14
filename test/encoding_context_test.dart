@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for EncodingContext
 void main() {
-  group(EncodingContext, () {});
+
+  group(EncodingContext, () {
+  });
 }

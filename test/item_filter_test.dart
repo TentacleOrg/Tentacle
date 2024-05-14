@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ItemFilter
 void main() {
-  group(ItemFilter, () {});
+
+  group(ItemFilter, () {
+  });
 }

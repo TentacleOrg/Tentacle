@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ChannelType
 void main() {
-  group(ChannelType, () {});
+
+  group(ChannelType, () {
+  });
 }

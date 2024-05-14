@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for SubtitleApi
 void main() {
   final instance = Tentacle().getSubtitleApi();
@@ -75,5 +76,6 @@ void main() {
     test('test uploadSubtitle', () async {
       // TODO
     });
+
   });
 }

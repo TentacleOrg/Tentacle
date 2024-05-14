@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ChannelItemSortField
 void main() {
-  group(ChannelItemSortField, () {});
+
+  group(ChannelItemSortField, () {
+  });
 }

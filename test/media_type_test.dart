@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MediaType
 void main() {
-  group(MediaType, () {});
+
+  group(MediaType, () {
+  });
 }

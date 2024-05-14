@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for LyricsApi
 void main() {
   final instance = Tentacle().getLyricsApi();
@@ -47,5 +48,6 @@ void main() {
     test('test uploadLyrics', () async {
       // TODO
     });
+
   });
 }

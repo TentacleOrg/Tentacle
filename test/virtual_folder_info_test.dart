@@ -51,5 +51,6 @@ void main() {
     test('to test the property `refreshStatus`', () async {
       // TODO
     });
+
   });
 }

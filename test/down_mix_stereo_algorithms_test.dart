@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for DownMixStereoAlgorithms
 void main() {
-  group(DownMixStereoAlgorithms, () {});
+
+  group(DownMixStereoAlgorithms, () {
+  });
 }

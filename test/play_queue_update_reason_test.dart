@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PlayQueueUpdateReason
 void main() {
-  group(PlayQueueUpdateReason, () {});
+
+  group(PlayQueueUpdateReason, () {
+  });
 }

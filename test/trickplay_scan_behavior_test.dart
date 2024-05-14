@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TrickplayScanBehavior
 void main() {
-  group(TrickplayScanBehavior, () {});
+
+  group(TrickplayScanBehavior, () {
+  });
 }

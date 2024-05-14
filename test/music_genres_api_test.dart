@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for MusicGenresApi
 void main() {
   final instance = Tentacle().getMusicGenresApi();
@@ -19,5 +20,6 @@ void main() {
     test('test getMusicGenres', () async {
       // TODO
     });
+
   });
 }

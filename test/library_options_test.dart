@@ -33,8 +33,7 @@ void main() {
     });
 
     // bool extractChapterImagesDuringLibraryScan
-    test('to test the property `extractChapterImagesDuringLibraryScan`',
-        () async {
+    test('to test the property `extractChapterImagesDuringLibraryScan`', () async {
       // TODO
     });
 
@@ -44,8 +43,7 @@ void main() {
     });
 
     // bool extractTrickplayImagesDuringLibraryScan
-    test('to test the property `extractTrickplayImagesDuringLibraryScan`',
-        () async {
+    test('to test the property `extractTrickplayImagesDuringLibraryScan`', () async {
       // TODO
     });
 
@@ -132,8 +130,7 @@ void main() {
     });
 
     // bool skipSubtitlesIfEmbeddedSubtitlesPresent
-    test('to test the property `skipSubtitlesIfEmbeddedSubtitlesPresent`',
-        () async {
+    test('to test the property `skipSubtitlesIfEmbeddedSubtitlesPresent`', () async {
       // TODO
     });
 
@@ -177,5 +174,6 @@ void main() {
     test('to test the property `typeOptions`', () async {
       // TODO
     });
+
   });
 }

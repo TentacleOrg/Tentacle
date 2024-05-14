@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for SyncPlayApi
 void main() {
   final instance = Tentacle().getSyncPlayApi();
@@ -152,5 +153,6 @@ void main() {
     test('test syncPlayUnpause', () async {
       // TODO
     });
+
   });
 }

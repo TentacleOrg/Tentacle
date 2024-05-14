@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SyncPlayUserAccessType
 void main() {
-  group(SyncPlayUserAccessType, () {});
+
+  group(SyncPlayUserAccessType, () {
+  });
 }

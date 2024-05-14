@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ItemSortBy
 void main() {
-  group(ItemSortBy, () {});
+
+  group(ItemSortBy, () {
+  });
 }

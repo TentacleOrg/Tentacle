@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ProcessPriorityClass
 void main() {
-  group(ProcessPriorityClass, () {});
+
+  group(ProcessPriorityClass, () {
+  });
 }

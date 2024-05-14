@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ChannelMediaType
 void main() {
-  group(ChannelMediaType, () {});
+
+  group(ChannelMediaType, () {
+  });
 }

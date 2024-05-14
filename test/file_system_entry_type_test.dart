@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for FileSystemEntryType
 void main() {
-  group(FileSystemEntryType, () {});
+
+  group(FileSystemEntryType, () {
+  });
 }

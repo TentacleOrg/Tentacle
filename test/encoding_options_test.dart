@@ -267,10 +267,9 @@ void main() {
 
     // Gets or sets the file extensions on-demand metadata based keyframe extraction is enabled for.
     // BuiltList<String> allowOnDemandMetadataBasedKeyframeExtractionForExtensions
-    test(
-        'to test the property `allowOnDemandMetadataBasedKeyframeExtractionForExtensions`',
-        () async {
+    test('to test the property `allowOnDemandMetadataBasedKeyframeExtractionForExtensions`', () async {
       // TODO
     });
+
   });
 }

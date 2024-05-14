@@ -66,5 +66,6 @@ void main() {
     test('to test the property `severity`', () async {
       // TODO
     });
+
   });
 }

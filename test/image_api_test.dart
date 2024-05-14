@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for ImageApi
 void main() {
   final instance = Tentacle().getImageApi();
@@ -264,5 +265,6 @@ void main() {
     test('test uploadCustomSplashscreen', () async {
       // TODO
     });
+
   });
 }

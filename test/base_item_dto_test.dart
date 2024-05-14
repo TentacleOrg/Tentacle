@@ -885,5 +885,6 @@ void main() {
     test('to test the property `currentProgram`', () async {
       // TODO
     });
+
   });
 }

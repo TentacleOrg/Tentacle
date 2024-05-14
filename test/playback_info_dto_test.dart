@@ -95,5 +95,6 @@ void main() {
     test('to test the property `autoOpenLiveStream`', () async {
       // TODO
     });
+
   });
 }

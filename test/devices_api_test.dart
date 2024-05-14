@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for DevicesApi
 void main() {
   final instance = Tentacle().getDevicesApi();
@@ -40,5 +41,6 @@ void main() {
     test('test updateDeviceOptions', () async {
       // TODO
     });
+
   });
 }

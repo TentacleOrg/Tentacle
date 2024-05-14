@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for VideosApi
 void main() {
   final instance = Tentacle().getVideosApi();
@@ -54,5 +55,6 @@ void main() {
     test('test mergeVersions', () async {
       // TODO
     });
+
   });
 }

@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for TrailersApi
 void main() {
   final instance = Tentacle().getTrailersApi();
@@ -12,5 +13,6 @@ void main() {
     test('test getTrailers', () async {
       // TODO
     });
+
   });
 }

@@ -1,6 +1,7 @@
 import 'package:test/test.dart';
 import 'package:tentacle/tentacle.dart';
 
+
 /// tests for MediaInfoApi
 void main() {
   final instance = Tentacle().getMediaInfoApi();
@@ -42,5 +43,6 @@ void main() {
     test('test openLiveStream', () async {
       // TODO
     });
+
   });
 }

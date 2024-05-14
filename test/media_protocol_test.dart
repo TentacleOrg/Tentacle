@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MediaProtocol
 void main() {
-  group(MediaProtocol, () {});
+
+  group(MediaProtocol, () {
+  });
 }

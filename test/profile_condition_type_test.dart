@@ -3,5 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ProfileConditionType
 void main() {
-  group(ProfileConditionType, () {});
+
+  group(ProfileConditionType, () {
+  });
 }
