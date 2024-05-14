@@ -17,7 +17,7 @@ const ItemSortBy _$datePlayed = const ItemSortBy._('datePlayed');
 const ItemSortBy _$premiereDate = const ItemSortBy._('premiereDate');
 const ItemSortBy _$startDate = const ItemSortBy._('startDate');
 const ItemSortBy _$sortName = const ItemSortBy._('sortName');
-const ItemSortBy _$name = const ItemSortBy._('name');
+const ItemSortBy _$name = const ItemSortBy._('_name');
 const ItemSortBy _$random = const ItemSortBy._('random');
 const ItemSortBy _$runtime = const ItemSortBy._('runtime');
 const ItemSortBy _$communityRating = const ItemSortBy._('communityRating');
@@ -64,7 +64,7 @@ ItemSortBy _$valueOf(String name) {
       return _$startDate;
     case 'sortName':
       return _$sortName;
-    case 'name':
+    case '_name':
       return _$name;
     case 'random':
       return _$random;
@@ -160,7 +160,7 @@ class _$ItemSortByMeta {
   ItemSortBy get premiereDate => _$premiereDate;
   ItemSortBy get startDate => _$startDate;
   ItemSortBy get sortName => _$sortName;
-  ItemSortBy get name => _$name;
+  ItemSortBy get _name => _$name;
   ItemSortBy get random => _$random;
   ItemSortBy get runtime => _$runtime;
   ItemSortBy get communityRating => _$communityRating;
@@ -205,7 +205,7 @@ class _$ItemSortBySerializer implements PrimitiveSerializer<ItemSortBy> {
     'premiereDate': 'PremiereDate',
     'startDate': 'StartDate',
     'sortName': 'SortName',
-    'name': 'Name',
+    '_name': 'Name',
     'random': 'Random',
     'runtime': 'Runtime',
     'communityRating': 'CommunityRating',
@@ -239,7 +239,7 @@ class _$ItemSortBySerializer implements PrimitiveSerializer<ItemSortBy> {
     'PremiereDate': 'premiereDate',
     'StartDate': 'startDate',
     'SortName': 'sortName',
-    'Name': 'name',
+    'Name': '_name',
     'Random': 'random',
     'Runtime': 'runtime',
     'CommunityRating': 'communityRating',

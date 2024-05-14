@@ -9,7 +9,6 @@ import 'package:tentacle/src/auth/api_key_auth.dart';
 import 'package:tentacle/src/auth/basic_auth.dart';
 import 'package:tentacle/src/auth/bearer_auth.dart';
 import 'package:tentacle/src/auth/oauth.dart';
-import 'package:tentacle/src/api/auth_api.dart';
 import 'package:tentacle/src/api/collection_api.dart';
 import 'package:tentacle/src/api/issue_api.dart';
 import 'package:tentacle/src/api/media_api.dart';
