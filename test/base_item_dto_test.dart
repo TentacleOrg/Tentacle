@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for BaseItemDto
 void main() {
-  //final instance = BaseItemDtoBuilder();
+  final instance = BaseItemDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(BaseItemDto, () {
@@ -360,7 +360,8 @@ void main() {
       // TODO
     });
 
-    // BaseItemDtoUserData userData
+    // Gets or sets the user data for this item based on the user it's being requested for.
+    // UserItemDataDto userData
     test('to test the property `userData`', () async {
       // TODO
     });
@@ -881,7 +882,8 @@ void main() {
       // TODO
     });
 
-    // BaseItemDtoCurrentProgram currentProgram
+    // Gets or sets the current program.
+    // BaseItemDto currentProgram
     test('to test the property `currentProgram`', () async {
       // TODO
     });

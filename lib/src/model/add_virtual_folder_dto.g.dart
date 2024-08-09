@@ -8,7 +8,7 @@ part of 'add_virtual_folder_dto.dart';
 
 class _$AddVirtualFolderDto extends AddVirtualFolderDto {
   @override
-  final AddVirtualFolderDtoLibraryOptions? libraryOptions;
+  final LibraryOptions? libraryOptions;
 
   factory _$AddVirtualFolderDto(
           [void Function(AddVirtualFolderDtoBuilder)? updates]) =>
@@ -52,11 +52,10 @@ class AddVirtualFolderDtoBuilder
     implements Builder<AddVirtualFolderDto, AddVirtualFolderDtoBuilder> {
   _$AddVirtualFolderDto? _$v;
 
-  AddVirtualFolderDtoLibraryOptionsBuilder? _libraryOptions;
-  AddVirtualFolderDtoLibraryOptionsBuilder get libraryOptions =>
-      _$this._libraryOptions ??= new AddVirtualFolderDtoLibraryOptionsBuilder();
-  set libraryOptions(
-          AddVirtualFolderDtoLibraryOptionsBuilder? libraryOptions) =>
+  LibraryOptionsBuilder? _libraryOptions;
+  LibraryOptionsBuilder get libraryOptions =>
+      _$this._libraryOptions ??= new LibraryOptionsBuilder();
+  set libraryOptions(LibraryOptionsBuilder? libraryOptions) =>
       _$this._libraryOptions = libraryOptions;
 
   AddVirtualFolderDtoBuilder() {

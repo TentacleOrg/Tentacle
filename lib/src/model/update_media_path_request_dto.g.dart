@@ -68,9 +68,10 @@ class UpdateMediaPathRequestDtoBuilder
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
-  MediaPathInfo? _pathInfo;
-  MediaPathInfo? get pathInfo => _$this._pathInfo;
-  set pathInfo(MediaPathInfo? pathInfo) => _$this._pathInfo = pathInfo;
+  MediaPathInfoBuilder? _pathInfo;
+  MediaPathInfoBuilder get pathInfo =>
+      _$this._pathInfo ??= new MediaPathInfoBuilder();
+  set pathInfo(MediaPathInfoBuilder? pathInfo) => _$this._pathInfo = pathInfo;
 
   UpdateMediaPathRequestDtoBuilder() {
     UpdateMediaPathRequestDto._defaults(this);
@@ -80,7 +81,7 @@ class UpdateMediaPathRequestDtoBuilder
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
-      _pathInfo = $v.pathInfo;
+      _pathInfo = $v.pathInfo.toBuilder();
       _$v = null;
     }
     return this;
@@ -101,12 +102,24 @@ class UpdateMediaPathRequestDtoBuilder
   UpdateMediaPathRequestDto build() => _build();
 
   _$UpdateMediaPathRequestDto _build() {
-    final _$result = _$v ??
-        new _$UpdateMediaPathRequestDto._(
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'UpdateMediaPathRequestDto', 'name'),
-            pathInfo: BuiltValueNullFieldError.checkNotNull(
-                pathInfo, r'UpdateMediaPathRequestDto', 'pathInfo'));
+    _$UpdateMediaPathRequestDto _$result;
+    try {
+      _$result = _$v ??
+          new _$UpdateMediaPathRequestDto._(
+              name: BuiltValueNullFieldError.checkNotNull(
+                  name, r'UpdateMediaPathRequestDto', 'name'),
+              pathInfo: pathInfo.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'pathInfo';
+        pathInfo.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            r'UpdateMediaPathRequestDto', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

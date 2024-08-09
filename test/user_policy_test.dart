@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UserPolicy
 void main() {
-  //final instance = UserPolicyBuilder();
+  final instance = UserPolicyBuilder();
   // TODO add properties to the builder and call build()
 
   group(UserPolicy, () {

@@ -6,20 +6,7 @@ part of 'general_command.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class GeneralCommandBuilder {
-  void replace(GeneralCommand other);
-  void update(void Function(GeneralCommandBuilder) updates);
-  GeneralCommandType? get name;
-  set name(GeneralCommandType? name);
-
-  String? get controllingUserId;
-  set controllingUserId(String? controllingUserId);
-
-  MapBuilder<String, String?> get arguments;
-  set arguments(MapBuilder<String, String?>? arguments);
-}
-
-class _$$GeneralCommand extends $GeneralCommand {
+class _$GeneralCommand extends GeneralCommand {
   @override
   final GeneralCommandType? name;
   @override
@@ -27,24 +14,24 @@ class _$$GeneralCommand extends $GeneralCommand {
   @override
   final BuiltMap<String, String?>? arguments;
 
-  factory _$$GeneralCommand([void Function($GeneralCommandBuilder)? updates]) =>
-      (new $GeneralCommandBuilder()..update(updates))._build();
+  factory _$GeneralCommand([void Function(GeneralCommandBuilder)? updates]) =>
+      (new GeneralCommandBuilder()..update(updates))._build();
 
-  _$$GeneralCommand._({this.name, this.controllingUserId, this.arguments})
+  _$GeneralCommand._({this.name, this.controllingUserId, this.arguments})
       : super._();
 
   @override
-  $GeneralCommand rebuild(void Function($GeneralCommandBuilder) updates) =>
+  GeneralCommand rebuild(void Function(GeneralCommandBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $GeneralCommandBuilder toBuilder() =>
-      new $GeneralCommandBuilder()..replace(this);
+  GeneralCommandBuilder toBuilder() =>
+      new GeneralCommandBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $GeneralCommand &&
+    return other is GeneralCommand &&
         name == other.name &&
         controllingUserId == other.controllingUserId &&
         arguments == other.arguments;
@@ -62,7 +49,7 @@ class _$$GeneralCommand extends $GeneralCommand {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$GeneralCommand')
+    return (newBuiltValueToStringHelper(r'GeneralCommand')
           ..add('name', name)
           ..add('controllingUserId', controllingUserId)
           ..add('arguments', arguments))
@@ -70,32 +57,30 @@ class _$$GeneralCommand extends $GeneralCommand {
   }
 }
 
-class $GeneralCommandBuilder
-    implements
-        Builder<$GeneralCommand, $GeneralCommandBuilder>,
-        GeneralCommandBuilder {
-  _$$GeneralCommand? _$v;
+class GeneralCommandBuilder
+    implements Builder<GeneralCommand, GeneralCommandBuilder> {
+  _$GeneralCommand? _$v;
 
   GeneralCommandType? _name;
   GeneralCommandType? get name => _$this._name;
-  set name(covariant GeneralCommandType? name) => _$this._name = name;
+  set name(GeneralCommandType? name) => _$this._name = name;
 
   String? _controllingUserId;
   String? get controllingUserId => _$this._controllingUserId;
-  set controllingUserId(covariant String? controllingUserId) =>
+  set controllingUserId(String? controllingUserId) =>
       _$this._controllingUserId = controllingUserId;
 
   MapBuilder<String, String?>? _arguments;
   MapBuilder<String, String?> get arguments =>
       _$this._arguments ??= new MapBuilder<String, String?>();
-  set arguments(covariant MapBuilder<String, String?>? arguments) =>
+  set arguments(MapBuilder<String, String?>? arguments) =>
       _$this._arguments = arguments;
 
-  $GeneralCommandBuilder() {
-    $GeneralCommand._defaults(this);
+  GeneralCommandBuilder() {
+    GeneralCommand._defaults(this);
   }
 
-  $GeneralCommandBuilder get _$this {
+  GeneralCommandBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -107,24 +92,24 @@ class $GeneralCommandBuilder
   }
 
   @override
-  void replace(covariant $GeneralCommand other) {
+  void replace(GeneralCommand other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$GeneralCommand;
+    _$v = other as _$GeneralCommand;
   }
 
   @override
-  void update(void Function($GeneralCommandBuilder)? updates) {
+  void update(void Function(GeneralCommandBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $GeneralCommand build() => _build();
+  GeneralCommand build() => _build();
 
-  _$$GeneralCommand _build() {
-    _$$GeneralCommand _$result;
+  _$GeneralCommand _build() {
+    _$GeneralCommand _$result;
     try {
       _$result = _$v ??
-          new _$$GeneralCommand._(
+          new _$GeneralCommand._(
               name: name,
               controllingUserId: controllingUserId,
               arguments: _arguments?.build());
@@ -135,7 +120,7 @@ class $GeneralCommandBuilder
         _arguments?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$GeneralCommand', _$failedField, e.toString());
+            r'GeneralCommand', _$failedField, e.toString());
       }
       rethrow;
     }

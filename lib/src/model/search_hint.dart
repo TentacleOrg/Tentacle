@@ -212,7 +212,7 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
       yield r'MatchedTerm';
       yield serializers.serialize(
         object.matchedTerm,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
       );
     }
     if (object.indexNumber != null) {
@@ -439,8 +439,9 @@ class _$SearchHintSerializer implements PrimitiveSerializer<SearchHint> {
         case r'MatchedTerm':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.matchedTerm = valueDes;
           break;
         case r'IndexNumber':

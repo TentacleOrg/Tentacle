@@ -8,8 +8,8 @@ void main() {
 
   group(BufferRequestDto, () {
     // Gets or sets when the request has been made by the client.
-    // DateTime when
-    test('to test the property `when`', () async {
+    // DateTime when_
+    test('to test the property `when_`', () async {
       // TODO
     });
 

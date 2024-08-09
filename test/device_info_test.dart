@@ -59,7 +59,8 @@ void main() {
       // TODO
     });
 
-    // DeviceInfoCapabilities capabilities
+    // Gets or sets the capabilities.
+    // ClientCapabilities capabilities
     test('to test the property `capabilities`', () async {
       // TODO
     });

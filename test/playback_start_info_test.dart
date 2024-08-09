@@ -13,7 +13,8 @@ void main() {
       // TODO
     });
 
-    // PlaybackProgressInfoItem item
+    // Gets or sets the item.
+    // BaseItemDto item
     test('to test the property `item`', () async {
       // TODO
     });

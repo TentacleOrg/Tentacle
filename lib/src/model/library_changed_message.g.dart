@@ -8,7 +8,7 @@ part of 'library_changed_message.dart';
 
 class _$LibraryChangedMessage extends LibraryChangedMessage {
   @override
-  final LibraryChangedMessageData? data;
+  final LibraryUpdateInfo? data;
   @override
   final String? messageId;
   @override
@@ -63,10 +63,10 @@ class LibraryChangedMessageBuilder
     implements Builder<LibraryChangedMessage, LibraryChangedMessageBuilder> {
   _$LibraryChangedMessage? _$v;
 
-  LibraryChangedMessageDataBuilder? _data;
-  LibraryChangedMessageDataBuilder get data =>
-      _$this._data ??= new LibraryChangedMessageDataBuilder();
-  set data(LibraryChangedMessageDataBuilder? data) => _$this._data = data;
+  LibraryUpdateInfoBuilder? _data;
+  LibraryUpdateInfoBuilder get data =>
+      _$this._data ??= new LibraryUpdateInfoBuilder();
+  set data(LibraryUpdateInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SessionInfo
 void main() {
-  //final instance = SessionInfoBuilder();
+  final instance = SessionInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(SessionInfo, () {
@@ -88,12 +88,14 @@ void main() {
       // TODO
     });
 
-    // SessionInfoNowPlayingItem nowPlayingItem
+    // Gets or sets the now playing item.
+    // BaseItemDto nowPlayingItem
     test('to test the property `nowPlayingItem`', () async {
       // TODO
     });
 
-    // SessionInfoNowPlayingItem nowViewingItem
+    // This is strictly used as a data transfer object from the api layer.  This holds information about a BaseItem in a format that is convenient for the client.
+    // BaseItemDto nowViewingItem
     test('to test the property `nowViewingItem`', () async {
       // TODO
     });

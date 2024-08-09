@@ -8,7 +8,7 @@ part of 'general_command_message.dart';
 
 class _$GeneralCommandMessage extends GeneralCommandMessage {
   @override
-  final GeneralCommandMessageData? data;
+  final GeneralCommand? data;
   @override
   final String? messageId;
   @override
@@ -63,10 +63,10 @@ class GeneralCommandMessageBuilder
     implements Builder<GeneralCommandMessage, GeneralCommandMessageBuilder> {
   _$GeneralCommandMessage? _$v;
 
-  GeneralCommandMessageDataBuilder? _data;
-  GeneralCommandMessageDataBuilder get data =>
-      _$this._data ??= new GeneralCommandMessageDataBuilder();
-  set data(GeneralCommandMessageDataBuilder? data) => _$this._data = data;
+  GeneralCommandBuilder? _data;
+  GeneralCommandBuilder get data =>
+      _$this._data ??= new GeneralCommandBuilder();
+  set data(GeneralCommandBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

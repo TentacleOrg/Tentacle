@@ -166,7 +166,8 @@ void main() {
       // TODO
     });
 
-    // TimerInfoDtoProgramInfo programInfo
+    // Gets or sets the program information.
+    // BaseItemDto programInfo
     test('to test the property `programInfo`', () async {
       // TODO
     });

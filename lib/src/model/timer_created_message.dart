@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/timer_event_info.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
-import 'package:tentacle/src/model/series_timer_cancelled_message_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,14 +13,15 @@ part 'timer_created_message.g.dart';
 /// Timer created message.
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class TimerCreatedMessage
     implements Built<TimerCreatedMessage, TimerCreatedMessageBuilder> {
+  /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  SeriesTimerCancelledMessageData? get data;
+  TimerEventInfo? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -65,7 +66,7 @@ class _$TimerCreatedMessageSerializer
       yield r'Data';
       yield serializers.serialize(
         object.data,
-        specifiedType: const FullType.nullable(SeriesTimerCancelledMessageData),
+        specifiedType: const FullType.nullable(TimerEventInfo),
       );
     }
     if (object.messageId != null) {
@@ -110,9 +111,8 @@ class _$TimerCreatedMessageSerializer
         case r'Data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(SeriesTimerCancelledMessageData),
-          ) as SeriesTimerCancelledMessageData?;
+            specifiedType: const FullType.nullable(TimerEventInfo),
+          ) as TimerEventInfo?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 **seriesTimerId** | **String** | Gets or sets the series timer identifier. | [optional] 
 **externalSeriesTimerId** | **String** | Gets or sets the external series timer identifier. | [optional] 
 **runTimeTicks** | **int** | Gets or sets the run time ticks. | [optional] 
-**programInfo** | [**TimerInfoDtoProgramInfo**](TimerInfoDtoProgramInfo.md) |  | [optional] 
+**programInfo** | [**BaseItemDto**](BaseItemDto.md) | Gets or sets the program information. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

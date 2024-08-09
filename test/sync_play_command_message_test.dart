@@ -7,7 +7,8 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(SyncPlayCommandMessage, () {
-    // SyncPlayCommandMessageData data
+    // Gets or sets the data.
+    // SendCommand data
     test('to test the property `data`', () async {
       // TODO
     });

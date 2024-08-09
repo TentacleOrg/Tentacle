@@ -10,6 +10,7 @@ import 'package:dio/dio.dart';
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/metadata_refresh_mode.dart';
 import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/tentacle.dart';
 
 class ItemRefreshApi {
   final Dio _dio;

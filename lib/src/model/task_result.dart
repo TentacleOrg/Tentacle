@@ -20,8 +20,8 @@ part 'task_result.g.dart';
 /// * [id] - Gets or sets the id.
 /// * [errorMessage] - Gets or sets the error message.
 /// * [longErrorMessage] - Gets or sets the long error message.
-@BuiltValue(instantiable: false)
-abstract class TaskResult {
+@BuiltValue()
+abstract class TaskResult implements Built<TaskResult, TaskResultBuilder> {
   /// Gets or sets the start time UTC.
   @BuiltValueField(wireName: r'StartTimeUtc')
   DateTime? get startTimeUtc;
@@ -55,13 +55,20 @@ abstract class TaskResult {
   @BuiltValueField(wireName: r'LongErrorMessage')
   String? get longErrorMessage;
 
+  TaskResult._();
+
+  factory TaskResult([void updates(TaskResultBuilder b)]) = _$TaskResult;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(TaskResultBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<TaskResult> get serializer => _$TaskResultSerializer();
 }
 
 class _$TaskResultSerializer implements PrimitiveSerializer<TaskResult> {
   @override
-  final Iterable<Type> types = const [TaskResult];
+  final Iterable<Type> types = const [TaskResult, _$TaskResult];
 
   @override
   final String wireName = r'TaskResult';
@@ -138,49 +145,6 @@ class _$TaskResultSerializer implements PrimitiveSerializer<TaskResult> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  TaskResult deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($TaskResult)) as $TaskResult;
-  }
-}
-
-/// a concrete implementation of [TaskResult], since [TaskResult] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $TaskResult
-    implements TaskResult, Built<$TaskResult, $TaskResultBuilder> {
-  $TaskResult._();
-
-  factory $TaskResult([void Function($TaskResultBuilder)? updates]) =
-      _$$TaskResult;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($TaskResultBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$TaskResult> get serializer => _$$TaskResultSerializer();
-}
-
-class _$$TaskResultSerializer implements PrimitiveSerializer<$TaskResult> {
-  @override
-  final Iterable<Type> types = const [$TaskResult, _$$TaskResult];
-
-  @override
-  final String wireName = r'$TaskResult';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $TaskResult object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(TaskResult))!;
   }
 
   void _deserializeProperties(
@@ -265,12 +229,12 @@ class _$$TaskResultSerializer implements PrimitiveSerializer<$TaskResult> {
   }
 
   @override
-  $TaskResult deserialize(
+  TaskResult deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $TaskResultBuilder();
+    final result = TaskResultBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

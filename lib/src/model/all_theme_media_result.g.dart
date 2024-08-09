@@ -8,11 +8,11 @@ part of 'all_theme_media_result.dart';
 
 class _$AllThemeMediaResult extends AllThemeMediaResult {
   @override
-  final AllThemeMediaResultThemeVideosResult? themeVideosResult;
+  final ThemeMediaResult? themeVideosResult;
   @override
-  final AllThemeMediaResultThemeVideosResult? themeSongsResult;
+  final ThemeMediaResult? themeSongsResult;
   @override
-  final AllThemeMediaResultThemeVideosResult? soundtrackSongsResult;
+  final ThemeMediaResult? soundtrackSongsResult;
 
   factory _$AllThemeMediaResult(
           [void Function(AllThemeMediaResultBuilder)? updates]) =>
@@ -66,28 +66,22 @@ class AllThemeMediaResultBuilder
     implements Builder<AllThemeMediaResult, AllThemeMediaResultBuilder> {
   _$AllThemeMediaResult? _$v;
 
-  AllThemeMediaResultThemeVideosResultBuilder? _themeVideosResult;
-  AllThemeMediaResultThemeVideosResultBuilder get themeVideosResult =>
-      _$this._themeVideosResult ??=
-          new AllThemeMediaResultThemeVideosResultBuilder();
-  set themeVideosResult(
-          AllThemeMediaResultThemeVideosResultBuilder? themeVideosResult) =>
+  ThemeMediaResultBuilder? _themeVideosResult;
+  ThemeMediaResultBuilder get themeVideosResult =>
+      _$this._themeVideosResult ??= new ThemeMediaResultBuilder();
+  set themeVideosResult(ThemeMediaResultBuilder? themeVideosResult) =>
       _$this._themeVideosResult = themeVideosResult;
 
-  AllThemeMediaResultThemeVideosResultBuilder? _themeSongsResult;
-  AllThemeMediaResultThemeVideosResultBuilder get themeSongsResult =>
-      _$this._themeSongsResult ??=
-          new AllThemeMediaResultThemeVideosResultBuilder();
-  set themeSongsResult(
-          AllThemeMediaResultThemeVideosResultBuilder? themeSongsResult) =>
+  ThemeMediaResultBuilder? _themeSongsResult;
+  ThemeMediaResultBuilder get themeSongsResult =>
+      _$this._themeSongsResult ??= new ThemeMediaResultBuilder();
+  set themeSongsResult(ThemeMediaResultBuilder? themeSongsResult) =>
       _$this._themeSongsResult = themeSongsResult;
 
-  AllThemeMediaResultThemeVideosResultBuilder? _soundtrackSongsResult;
-  AllThemeMediaResultThemeVideosResultBuilder get soundtrackSongsResult =>
-      _$this._soundtrackSongsResult ??=
-          new AllThemeMediaResultThemeVideosResultBuilder();
-  set soundtrackSongsResult(
-          AllThemeMediaResultThemeVideosResultBuilder? soundtrackSongsResult) =>
+  ThemeMediaResultBuilder? _soundtrackSongsResult;
+  ThemeMediaResultBuilder get soundtrackSongsResult =>
+      _$this._soundtrackSongsResult ??= new ThemeMediaResultBuilder();
+  set soundtrackSongsResult(ThemeMediaResultBuilder? soundtrackSongsResult) =>
       _$this._soundtrackSongsResult = soundtrackSongsResult;
 
   AllThemeMediaResultBuilder() {

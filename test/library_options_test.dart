@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for LibraryOptions
 void main() {
-  //final instance = LibraryOptionsBuilder();
+  final instance = LibraryOptionsBuilder();
   // TODO add properties to the builder and call build()
 
   group(LibraryOptions, () {

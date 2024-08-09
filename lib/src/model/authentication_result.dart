@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/authentication_result_session_info.dart';
-import 'package:tentacle/src/model/authentication_result_user.dart';
+import 'package:tentacle/src/model/user_dto.dart';
+import 'package:tentacle/src/model/session_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,18 +13,20 @@ part 'authentication_result.g.dart';
 /// AuthenticationResult
 ///
 /// Properties:
-/// * [user]
-/// * [sessionInfo]
+/// * [user] - Class UserDto.
+/// * [sessionInfo] - Class SessionInfo.
 /// * [accessToken]
 /// * [serverId]
 @BuiltValue()
 abstract class AuthenticationResult
     implements Built<AuthenticationResult, AuthenticationResultBuilder> {
+  /// Class UserDto.
   @BuiltValueField(wireName: r'User')
-  AuthenticationResultUser? get user;
+  UserDto? get user;
 
+  /// Class SessionInfo.
   @BuiltValueField(wireName: r'SessionInfo')
-  AuthenticationResultSessionInfo? get sessionInfo;
+  SessionInfo? get sessionInfo;
 
   @BuiltValueField(wireName: r'AccessToken')
   String? get accessToken;
@@ -65,14 +67,14 @@ class _$AuthenticationResultSerializer
       yield r'User';
       yield serializers.serialize(
         object.user,
-        specifiedType: const FullType.nullable(AuthenticationResultUser),
+        specifiedType: const FullType.nullable(UserDto),
       );
     }
     if (object.sessionInfo != null) {
       yield r'SessionInfo';
       yield serializers.serialize(
         object.sessionInfo,
-        specifiedType: const FullType.nullable(AuthenticationResultSessionInfo),
+        specifiedType: const FullType.nullable(SessionInfo),
       );
     }
     if (object.accessToken != null) {
@@ -117,17 +119,16 @@ class _$AuthenticationResultSerializer
         case r'User':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AuthenticationResultUser),
-          ) as AuthenticationResultUser?;
+            specifiedType: const FullType.nullable(UserDto),
+          ) as UserDto?;
           if (valueDes == null) continue;
           result.user.replace(valueDes);
           break;
         case r'SessionInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(AuthenticationResultSessionInfo),
-          ) as AuthenticationResultSessionInfo?;
+            specifiedType: const FullType.nullable(SessionInfo),
+          ) as SessionInfo?;
           if (valueDes == null) continue;
           result.sessionInfo.replace(valueDes);
           break;

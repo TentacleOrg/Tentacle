@@ -24,7 +24,7 @@ class _$PlaybackInfoDto extends PlaybackInfoDto {
   @override
   final String? liveStreamId;
   @override
-  final ClientCapabilitiesDeviceProfile? deviceProfile;
+  final DeviceProfile? deviceProfile;
   @override
   final bool? enableDirectPlay;
   @override
@@ -174,10 +174,10 @@ class PlaybackInfoDtoBuilder
   String? get liveStreamId => _$this._liveStreamId;
   set liveStreamId(String? liveStreamId) => _$this._liveStreamId = liveStreamId;
 
-  ClientCapabilitiesDeviceProfileBuilder? _deviceProfile;
-  ClientCapabilitiesDeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new ClientCapabilitiesDeviceProfileBuilder();
-  set deviceProfile(ClientCapabilitiesDeviceProfileBuilder? deviceProfile) =>
+  DeviceProfileBuilder? _deviceProfile;
+  DeviceProfileBuilder get deviceProfile =>
+      _$this._deviceProfile ??= new DeviceProfileBuilder();
+  set deviceProfile(DeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
   bool? _enableDirectPlay;

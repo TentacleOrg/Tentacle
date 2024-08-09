@@ -6,35 +6,7 @@ part of 'play_request.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class PlayRequestBuilder {
-  void replace(PlayRequest other);
-  void update(void Function(PlayRequestBuilder) updates);
-  ListBuilder<String> get itemIds;
-  set itemIds(ListBuilder<String>? itemIds);
-
-  int? get startPositionTicks;
-  set startPositionTicks(int? startPositionTicks);
-
-  PlayCommand? get playCommand;
-  set playCommand(PlayCommand? playCommand);
-
-  String? get controllingUserId;
-  set controllingUserId(String? controllingUserId);
-
-  int? get subtitleStreamIndex;
-  set subtitleStreamIndex(int? subtitleStreamIndex);
-
-  int? get audioStreamIndex;
-  set audioStreamIndex(int? audioStreamIndex);
-
-  String? get mediaSourceId;
-  set mediaSourceId(String? mediaSourceId);
-
-  int? get startIndex;
-  set startIndex(int? startIndex);
-}
-
-class _$$PlayRequest extends $PlayRequest {
+class _$PlayRequest extends PlayRequest {
   @override
   final BuiltList<String>? itemIds;
   @override
@@ -52,10 +24,10 @@ class _$$PlayRequest extends $PlayRequest {
   @override
   final int? startIndex;
 
-  factory _$$PlayRequest([void Function($PlayRequestBuilder)? updates]) =>
-      (new $PlayRequestBuilder()..update(updates))._build();
+  factory _$PlayRequest([void Function(PlayRequestBuilder)? updates]) =>
+      (new PlayRequestBuilder()..update(updates))._build();
 
-  _$$PlayRequest._(
+  _$PlayRequest._(
       {this.itemIds,
       this.startPositionTicks,
       this.playCommand,
@@ -67,16 +39,16 @@ class _$$PlayRequest extends $PlayRequest {
       : super._();
 
   @override
-  $PlayRequest rebuild(void Function($PlayRequestBuilder) updates) =>
+  PlayRequest rebuild(void Function(PlayRequestBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $PlayRequestBuilder toBuilder() => new $PlayRequestBuilder()..replace(this);
+  PlayRequestBuilder toBuilder() => new PlayRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $PlayRequest &&
+    return other is PlayRequest &&
         itemIds == other.itemIds &&
         startPositionTicks == other.startPositionTicks &&
         playCommand == other.playCommand &&
@@ -104,7 +76,7 @@ class _$$PlayRequest extends $PlayRequest {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$PlayRequest')
+    return (newBuiltValueToStringHelper(r'PlayRequest')
           ..add('itemIds', itemIds)
           ..add('startPositionTicks', startPositionTicks)
           ..add('playCommand', playCommand)
@@ -117,55 +89,53 @@ class _$$PlayRequest extends $PlayRequest {
   }
 }
 
-class $PlayRequestBuilder
-    implements Builder<$PlayRequest, $PlayRequestBuilder>, PlayRequestBuilder {
-  _$$PlayRequest? _$v;
+class PlayRequestBuilder implements Builder<PlayRequest, PlayRequestBuilder> {
+  _$PlayRequest? _$v;
 
   ListBuilder<String>? _itemIds;
   ListBuilder<String> get itemIds =>
       _$this._itemIds ??= new ListBuilder<String>();
-  set itemIds(covariant ListBuilder<String>? itemIds) =>
-      _$this._itemIds = itemIds;
+  set itemIds(ListBuilder<String>? itemIds) => _$this._itemIds = itemIds;
 
   int? _startPositionTicks;
   int? get startPositionTicks => _$this._startPositionTicks;
-  set startPositionTicks(covariant int? startPositionTicks) =>
+  set startPositionTicks(int? startPositionTicks) =>
       _$this._startPositionTicks = startPositionTicks;
 
   PlayCommand? _playCommand;
   PlayCommand? get playCommand => _$this._playCommand;
-  set playCommand(covariant PlayCommand? playCommand) =>
+  set playCommand(PlayCommand? playCommand) =>
       _$this._playCommand = playCommand;
 
   String? _controllingUserId;
   String? get controllingUserId => _$this._controllingUserId;
-  set controllingUserId(covariant String? controllingUserId) =>
+  set controllingUserId(String? controllingUserId) =>
       _$this._controllingUserId = controllingUserId;
 
   int? _subtitleStreamIndex;
   int? get subtitleStreamIndex => _$this._subtitleStreamIndex;
-  set subtitleStreamIndex(covariant int? subtitleStreamIndex) =>
+  set subtitleStreamIndex(int? subtitleStreamIndex) =>
       _$this._subtitleStreamIndex = subtitleStreamIndex;
 
   int? _audioStreamIndex;
   int? get audioStreamIndex => _$this._audioStreamIndex;
-  set audioStreamIndex(covariant int? audioStreamIndex) =>
+  set audioStreamIndex(int? audioStreamIndex) =>
       _$this._audioStreamIndex = audioStreamIndex;
 
   String? _mediaSourceId;
   String? get mediaSourceId => _$this._mediaSourceId;
-  set mediaSourceId(covariant String? mediaSourceId) =>
+  set mediaSourceId(String? mediaSourceId) =>
       _$this._mediaSourceId = mediaSourceId;
 
   int? _startIndex;
   int? get startIndex => _$this._startIndex;
-  set startIndex(covariant int? startIndex) => _$this._startIndex = startIndex;
+  set startIndex(int? startIndex) => _$this._startIndex = startIndex;
 
-  $PlayRequestBuilder() {
-    $PlayRequest._defaults(this);
+  PlayRequestBuilder() {
+    PlayRequest._defaults(this);
   }
 
-  $PlayRequestBuilder get _$this {
+  PlayRequestBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _itemIds = $v.itemIds?.toBuilder();
@@ -182,24 +152,24 @@ class $PlayRequestBuilder
   }
 
   @override
-  void replace(covariant $PlayRequest other) {
+  void replace(PlayRequest other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$PlayRequest;
+    _$v = other as _$PlayRequest;
   }
 
   @override
-  void update(void Function($PlayRequestBuilder)? updates) {
+  void update(void Function(PlayRequestBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $PlayRequest build() => _build();
+  PlayRequest build() => _build();
 
-  _$$PlayRequest _build() {
-    _$$PlayRequest _$result;
+  _$PlayRequest _build() {
+    _$PlayRequest _$result;
     try {
       _$result = _$v ??
-          new _$$PlayRequest._(
+          new _$PlayRequest._(
               itemIds: _itemIds?.build(),
               startPositionTicks: startPositionTicks,
               playCommand: playCommand,
@@ -215,7 +185,7 @@ class $PlayRequestBuilder
         _itemIds?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$PlayRequest', _$failedField, e.toString());
+            r'PlayRequest', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -6,35 +6,7 @@ part of 'package_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class PackageInfoBuilder {
-  void replace(PackageInfo other);
-  void update(void Function(PackageInfoBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  String? get description;
-  set description(String? description);
-
-  String? get overview;
-  set overview(String? overview);
-
-  String? get owner;
-  set owner(String? owner);
-
-  String? get category;
-  set category(String? category);
-
-  String? get guid;
-  set guid(String? guid);
-
-  ListBuilder<VersionInfo> get versions;
-  set versions(ListBuilder<VersionInfo>? versions);
-
-  String? get imageUrl;
-  set imageUrl(String? imageUrl);
-}
-
-class _$$PackageInfo extends $PackageInfo {
+class _$PackageInfo extends PackageInfo {
   @override
   final String? name;
   @override
@@ -52,10 +24,10 @@ class _$$PackageInfo extends $PackageInfo {
   @override
   final String? imageUrl;
 
-  factory _$$PackageInfo([void Function($PackageInfoBuilder)? updates]) =>
-      (new $PackageInfoBuilder()..update(updates))._build();
+  factory _$PackageInfo([void Function(PackageInfoBuilder)? updates]) =>
+      (new PackageInfoBuilder()..update(updates))._build();
 
-  _$$PackageInfo._(
+  _$PackageInfo._(
       {this.name,
       this.description,
       this.overview,
@@ -67,16 +39,16 @@ class _$$PackageInfo extends $PackageInfo {
       : super._();
 
   @override
-  $PackageInfo rebuild(void Function($PackageInfoBuilder) updates) =>
+  PackageInfo rebuild(void Function(PackageInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $PackageInfoBuilder toBuilder() => new $PackageInfoBuilder()..replace(this);
+  PackageInfoBuilder toBuilder() => new PackageInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $PackageInfo &&
+    return other is PackageInfo &&
         name == other.name &&
         description == other.description &&
         overview == other.overview &&
@@ -104,7 +76,7 @@ class _$$PackageInfo extends $PackageInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$PackageInfo')
+    return (newBuiltValueToStringHelper(r'PackageInfo')
           ..add('name', name)
           ..add('description', description)
           ..add('overview', overview)
@@ -117,50 +89,48 @@ class _$$PackageInfo extends $PackageInfo {
   }
 }
 
-class $PackageInfoBuilder
-    implements Builder<$PackageInfo, $PackageInfoBuilder>, PackageInfoBuilder {
-  _$$PackageInfo? _$v;
+class PackageInfoBuilder implements Builder<PackageInfo, PackageInfoBuilder> {
+  _$PackageInfo? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _description;
   String? get description => _$this._description;
-  set description(covariant String? description) =>
-      _$this._description = description;
+  set description(String? description) => _$this._description = description;
 
   String? _overview;
   String? get overview => _$this._overview;
-  set overview(covariant String? overview) => _$this._overview = overview;
+  set overview(String? overview) => _$this._overview = overview;
 
   String? _owner;
   String? get owner => _$this._owner;
-  set owner(covariant String? owner) => _$this._owner = owner;
+  set owner(String? owner) => _$this._owner = owner;
 
   String? _category;
   String? get category => _$this._category;
-  set category(covariant String? category) => _$this._category = category;
+  set category(String? category) => _$this._category = category;
 
   String? _guid;
   String? get guid => _$this._guid;
-  set guid(covariant String? guid) => _$this._guid = guid;
+  set guid(String? guid) => _$this._guid = guid;
 
   ListBuilder<VersionInfo>? _versions;
   ListBuilder<VersionInfo> get versions =>
       _$this._versions ??= new ListBuilder<VersionInfo>();
-  set versions(covariant ListBuilder<VersionInfo>? versions) =>
+  set versions(ListBuilder<VersionInfo>? versions) =>
       _$this._versions = versions;
 
   String? _imageUrl;
   String? get imageUrl => _$this._imageUrl;
-  set imageUrl(covariant String? imageUrl) => _$this._imageUrl = imageUrl;
+  set imageUrl(String? imageUrl) => _$this._imageUrl = imageUrl;
 
-  $PackageInfoBuilder() {
-    $PackageInfo._defaults(this);
+  PackageInfoBuilder() {
+    PackageInfo._defaults(this);
   }
 
-  $PackageInfoBuilder get _$this {
+  PackageInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -177,24 +147,24 @@ class $PackageInfoBuilder
   }
 
   @override
-  void replace(covariant $PackageInfo other) {
+  void replace(PackageInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$PackageInfo;
+    _$v = other as _$PackageInfo;
   }
 
   @override
-  void update(void Function($PackageInfoBuilder)? updates) {
+  void update(void Function(PackageInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $PackageInfo build() => _build();
+  PackageInfo build() => _build();
 
-  _$$PackageInfo _build() {
-    _$$PackageInfo _$result;
+  _$PackageInfo _build() {
+    _$PackageInfo _$result;
     try {
       _$result = _$v ??
-          new _$$PackageInfo._(
+          new _$PackageInfo._(
               name: name,
               description: description,
               overview: overview,
@@ -210,7 +180,7 @@ class $PackageInfoBuilder
         _versions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$PackageInfo', _$failedField, e.toString());
+            r'PackageInfo', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for GroupUpdate
 void main() {
-  //final instance = GroupUpdateBuilder();
+  final instance = GroupUpdateBuilder();
   // TODO add properties to the builder and call build()
 
   group(GroupUpdate, () {

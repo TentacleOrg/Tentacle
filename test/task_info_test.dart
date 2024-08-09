@@ -31,7 +31,8 @@ void main() {
       // TODO
     });
 
-    // TaskInfoLastExecutionResult lastExecutionResult
+    // Gets or sets the last execution result.
+    // TaskResult lastExecutionResult
     test('to test the property `lastExecutionResult`', () async {
       // TODO
     });

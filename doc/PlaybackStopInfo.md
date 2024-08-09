@@ -8,7 +8,7 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**item** | [**PlaybackProgressInfoItem**](PlaybackProgressInfoItem.md) |  | [optional] 
+**item** | [**BaseItemDto**](BaseItemDto.md) | Gets or sets the item. | [optional] 
 **itemId** | **String** | Gets or sets the item identifier. | [optional] 
 **sessionId** | **String** | Gets or sets the session id. | [optional] 
 **mediaSourceId** | **String** | Gets or sets the media version identifier. | [optional] 

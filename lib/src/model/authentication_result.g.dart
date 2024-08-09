@@ -8,9 +8,9 @@ part of 'authentication_result.dart';
 
 class _$AuthenticationResult extends AuthenticationResult {
   @override
-  final AuthenticationResultUser? user;
+  final UserDto? user;
   @override
-  final AuthenticationResultSessionInfo? sessionInfo;
+  final SessionInfo? sessionInfo;
   @override
   final String? accessToken;
   @override
@@ -69,15 +69,14 @@ class AuthenticationResultBuilder
     implements Builder<AuthenticationResult, AuthenticationResultBuilder> {
   _$AuthenticationResult? _$v;
 
-  AuthenticationResultUserBuilder? _user;
-  AuthenticationResultUserBuilder get user =>
-      _$this._user ??= new AuthenticationResultUserBuilder();
-  set user(AuthenticationResultUserBuilder? user) => _$this._user = user;
+  UserDtoBuilder? _user;
+  UserDtoBuilder get user => _$this._user ??= new UserDtoBuilder();
+  set user(UserDtoBuilder? user) => _$this._user = user;
 
-  AuthenticationResultSessionInfoBuilder? _sessionInfo;
-  AuthenticationResultSessionInfoBuilder get sessionInfo =>
-      _$this._sessionInfo ??= new AuthenticationResultSessionInfoBuilder();
-  set sessionInfo(AuthenticationResultSessionInfoBuilder? sessionInfo) =>
+  SessionInfoBuilder? _sessionInfo;
+  SessionInfoBuilder get sessionInfo =>
+      _$this._sessionInfo ??= new SessionInfoBuilder();
+  set sessionInfo(SessionInfoBuilder? sessionInfo) =>
       _$this._sessionInfo = sessionInfo;
 
   String? _accessToken;

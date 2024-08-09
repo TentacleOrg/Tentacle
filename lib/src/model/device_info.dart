@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/device_info_capabilities.dart';
+import 'package:tentacle/src/model/client_capabilities.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -21,7 +21,7 @@ part 'device_info.g.dart';
 /// * [appVersion] - Gets or sets the application version.
 /// * [lastUserId] - Gets or sets the last user identifier.
 /// * [dateLastActivity] - Gets or sets the date last modified.
-/// * [capabilities]
+/// * [capabilities] - Gets or sets the capabilities.
 /// * [iconUrl]
 @BuiltValue()
 abstract class DeviceInfo implements Built<DeviceInfo, DeviceInfoBuilder> {
@@ -59,8 +59,9 @@ abstract class DeviceInfo implements Built<DeviceInfo, DeviceInfoBuilder> {
   @BuiltValueField(wireName: r'DateLastActivity')
   DateTime? get dateLastActivity;
 
+  /// Gets or sets the capabilities.
   @BuiltValueField(wireName: r'Capabilities')
-  DeviceInfoCapabilities? get capabilities;
+  ClientCapabilities? get capabilities;
 
   @BuiltValueField(wireName: r'IconUrl')
   String? get iconUrl;
@@ -155,7 +156,7 @@ class _$DeviceInfoSerializer implements PrimitiveSerializer<DeviceInfo> {
       yield r'Capabilities';
       yield serializers.serialize(
         object.capabilities,
-        specifiedType: const FullType.nullable(DeviceInfoCapabilities),
+        specifiedType: const FullType.nullable(ClientCapabilities),
       );
     }
     if (object.iconUrl != null) {
@@ -263,8 +264,8 @@ class _$DeviceInfoSerializer implements PrimitiveSerializer<DeviceInfo> {
         case r'Capabilities':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(DeviceInfoCapabilities),
-          ) as DeviceInfoCapabilities?;
+            specifiedType: const FullType.nullable(ClientCapabilities),
+          ) as ClientCapabilities?;
           if (valueDes == null) continue;
           result.capabilities.replace(valueDes);
           break;

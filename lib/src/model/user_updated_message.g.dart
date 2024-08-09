@@ -8,7 +8,7 @@ part of 'user_updated_message.dart';
 
 class _$UserUpdatedMessage extends UserUpdatedMessage {
   @override
-  final AuthenticationResultUser? data;
+  final UserDto? data;
   @override
   final String? messageId;
   @override
@@ -63,10 +63,9 @@ class UserUpdatedMessageBuilder
     implements Builder<UserUpdatedMessage, UserUpdatedMessageBuilder> {
   _$UserUpdatedMessage? _$v;
 
-  AuthenticationResultUserBuilder? _data;
-  AuthenticationResultUserBuilder get data =>
-      _$this._data ??= new AuthenticationResultUserBuilder();
-  set data(AuthenticationResultUserBuilder? data) => _$this._data = data;
+  UserDtoBuilder? _data;
+  UserDtoBuilder get data => _$this._data ??= new UserDtoBuilder();
+  set data(UserDtoBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

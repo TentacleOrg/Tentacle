@@ -6,7 +6,6 @@
 import 'package:tentacle/src/model/general_command_message.dart';
 import 'package:tentacle/src/model/outbound_keep_alive_message.dart';
 import 'package:tentacle/src/model/plugin_installation_completed_message.dart';
-import 'package:tentacle/src/model/authentication_result_user.dart';
 import 'package:tentacle/src/model/plugin_installation_cancelled_message.dart';
 import 'package:tentacle/src/model/user_deleted_message.dart';
 import 'package:tentacle/src/model/sync_play_command_message.dart';
@@ -20,6 +19,7 @@ import 'package:tentacle/src/model/series_timer_cancelled_message.dart';
 import 'package:tentacle/src/model/server_restarting_message.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:tentacle/src/model/activity_log_entry_message.dart';
+import 'package:tentacle/src/model/user_dto.dart';
 import 'package:tentacle/src/model/scheduled_tasks_info_message.dart';
 import 'package:tentacle/src/model/restart_required_message.dart';
 import 'package:tentacle/src/model/scheduled_task_ended_message.dart';
@@ -42,7 +42,7 @@ part 'outbound_web_socket_message.g.dart';
 /// Represents the list of possible outbound websocket types
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()

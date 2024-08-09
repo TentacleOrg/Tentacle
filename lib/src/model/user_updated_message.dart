@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/authentication_result_user.dart';
+import 'package:tentacle/src/model/user_dto.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -13,14 +13,15 @@ part 'user_updated_message.g.dart';
 /// User updated message.
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class UserUpdatedMessage
     implements Built<UserUpdatedMessage, UserUpdatedMessageBuilder> {
+  /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  AuthenticationResultUser? get data;
+  UserDto? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -62,7 +63,7 @@ class _$UserUpdatedMessageSerializer
       yield r'Data';
       yield serializers.serialize(
         object.data,
-        specifiedType: const FullType.nullable(AuthenticationResultUser),
+        specifiedType: const FullType.nullable(UserDto),
       );
     }
     if (object.messageId != null) {
@@ -107,8 +108,8 @@ class _$UserUpdatedMessageSerializer
         case r'Data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(AuthenticationResultUser),
-          ) as AuthenticationResultUser?;
+            specifiedType: const FullType.nullable(UserDto),
+          ) as UserDto?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

@@ -16,7 +16,7 @@ class _$TaskInfo extends TaskInfo {
   @override
   final String? id;
   @override
-  final TaskInfoLastExecutionResult? lastExecutionResult;
+  final TaskResult? lastExecutionResult;
   @override
   final BuiltList<TaskTriggerInfo>? triggers;
   @override
@@ -121,11 +121,10 @@ class TaskInfoBuilder implements Builder<TaskInfo, TaskInfoBuilder> {
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  TaskInfoLastExecutionResultBuilder? _lastExecutionResult;
-  TaskInfoLastExecutionResultBuilder get lastExecutionResult =>
-      _$this._lastExecutionResult ??= new TaskInfoLastExecutionResultBuilder();
-  set lastExecutionResult(
-          TaskInfoLastExecutionResultBuilder? lastExecutionResult) =>
+  TaskResultBuilder? _lastExecutionResult;
+  TaskResultBuilder get lastExecutionResult =>
+      _$this._lastExecutionResult ??= new TaskResultBuilder();
+  set lastExecutionResult(TaskResultBuilder? lastExecutionResult) =>
       _$this._lastExecutionResult = lastExecutionResult;
 
   ListBuilder<TaskTriggerInfo>? _triggers;

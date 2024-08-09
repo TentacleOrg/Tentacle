@@ -8,7 +8,7 @@ part of 'play_message.dart';
 
 class _$PlayMessage extends PlayMessage {
   @override
-  final PlayMessageData? data;
+  final PlayRequest? data;
   @override
   final String? messageId;
   @override
@@ -58,10 +58,9 @@ class _$PlayMessage extends PlayMessage {
 class PlayMessageBuilder implements Builder<PlayMessage, PlayMessageBuilder> {
   _$PlayMessage? _$v;
 
-  PlayMessageDataBuilder? _data;
-  PlayMessageDataBuilder get data =>
-      _$this._data ??= new PlayMessageDataBuilder();
-  set data(PlayMessageDataBuilder? data) => _$this._data = data;
+  PlayRequestBuilder? _data;
+  PlayRequestBuilder get data => _$this._data ??= new PlayRequestBuilder();
+  set data(PlayRequestBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

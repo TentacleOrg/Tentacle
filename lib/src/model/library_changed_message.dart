@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/library_update_info.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
-import 'package:tentacle/src/model/library_changed_message_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,14 +13,15 @@ part 'library_changed_message.g.dart';
 /// Library changed message.
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class LibraryChangedMessage
     implements Built<LibraryChangedMessage, LibraryChangedMessageBuilder> {
+  /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  LibraryChangedMessageData? get data;
+  LibraryUpdateInfo? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -65,7 +66,7 @@ class _$LibraryChangedMessageSerializer
       yield r'Data';
       yield serializers.serialize(
         object.data,
-        specifiedType: const FullType.nullable(LibraryChangedMessageData),
+        specifiedType: const FullType.nullable(LibraryUpdateInfo),
       );
     }
     if (object.messageId != null) {
@@ -110,8 +111,8 @@ class _$LibraryChangedMessageSerializer
         case r'Data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(LibraryChangedMessageData),
-          ) as LibraryChangedMessageData?;
+            specifiedType: const FullType.nullable(LibraryUpdateInfo),
+          ) as LibraryUpdateInfo?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

@@ -13,7 +13,8 @@ void main() {
       // TODO
     });
 
-    // AddVirtualFolderDtoLibraryOptions libraryOptions
+    // Gets or sets library options.
+    // LibraryOptions libraryOptions
     test('to test the property `libraryOptions`', () async {
       // TODO
     });

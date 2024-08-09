@@ -21,8 +21,8 @@ part 'group_update.g.dart';
 /// * [groupId] - Gets the group identifier.
 /// * [type] - Gets the update type.
 /// * [data] - Gets the update data.
-@BuiltValue(instantiable: false)
-abstract class GroupUpdate {
+@BuiltValue()
+abstract class GroupUpdate implements Built<GroupUpdate, GroupUpdateBuilder> {
   /// One Of [GroupInfoDtoGroupUpdate], [GroupStateUpdateGroupUpdate], [PlayQueueUpdateGroupUpdate], [StringGroupUpdate]
   OneOf get oneOf;
 
@@ -39,6 +39,13 @@ abstract class GroupUpdate {
     r'UserJoined': StringGroupUpdate,
     r'UserLeft': StringGroupUpdate,
   };
+
+  GroupUpdate._();
+
+  factory GroupUpdate([void updates(GroupUpdateBuilder b)]) = _$GroupUpdate;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(GroupUpdateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GroupUpdate> get serializer => _$GroupUpdateSerializer();
@@ -112,7 +119,7 @@ extension GroupUpdateBuilderDiscriminatorExt on GroupUpdateBuilder {
 
 class _$GroupUpdateSerializer implements PrimitiveSerializer<GroupUpdate> {
   @override
-  final Iterable<Type> types = const [GroupUpdate];
+  final Iterable<Type> types = const [GroupUpdate, _$GroupUpdate];
 
   @override
   final String wireName = r'GroupUpdate';
@@ -140,7 +147,7 @@ class _$GroupUpdateSerializer implements PrimitiveSerializer<GroupUpdate> {
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $GroupUpdateBuilder();
+    final result = GroupUpdateBuilder();
     Object? oneOfDataSrc;
     final serializedList = (serialized as Iterable<Object?>).toList();
     final discIndex =
@@ -233,49 +240,6 @@ class _$GroupUpdateSerializer implements PrimitiveSerializer<GroupUpdate> {
         typeIndex: oneOfTypes.indexOf(oneOfType),
         types: oneOfTypes,
         value: oneOfResult);
-    return result.build();
-  }
-}
-
-/// a concrete implementation of [GroupUpdate], since [GroupUpdate] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $GroupUpdate
-    implements GroupUpdate, Built<$GroupUpdate, $GroupUpdateBuilder> {
-  $GroupUpdate._();
-
-  factory $GroupUpdate([void Function($GroupUpdateBuilder)? updates]) =
-      _$$GroupUpdate;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($GroupUpdateBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$GroupUpdate> get serializer => _$$GroupUpdateSerializer();
-}
-
-class _$$GroupUpdateSerializer implements PrimitiveSerializer<$GroupUpdate> {
-  @override
-  final Iterable<Type> types = const [$GroupUpdate, _$$GroupUpdate];
-
-  @override
-  final String wireName = r'$GroupUpdate';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $GroupUpdate object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(GroupUpdate))!;
-  }
-
-  @override
-  $GroupUpdate deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = $GroupUpdateBuilder();
     return result.build();
   }
 }

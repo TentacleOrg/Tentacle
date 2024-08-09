@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/timer_info_dto_program_info.dart';
 import 'package:tentacle/src/model/recording_status.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/keep_until.dart';
 import 'package:built_value/built_value.dart';
@@ -42,7 +42,7 @@ part 'timer_info_dto.g.dart';
 /// * [seriesTimerId] - Gets or sets the series timer identifier.
 /// * [externalSeriesTimerId] - Gets or sets the external series timer identifier.
 /// * [runTimeTicks] - Gets or sets the run time ticks.
-/// * [programInfo]
+/// * [programInfo] - Gets or sets the program information.
 @BuiltValue()
 abstract class TimerInfoDto
     implements Built<TimerInfoDto, TimerInfoDtoBuilder> {
@@ -153,8 +153,9 @@ abstract class TimerInfoDto
   @BuiltValueField(wireName: r'RunTimeTicks')
   int? get runTimeTicks;
 
+  /// Gets or sets the program information.
   @BuiltValueField(wireName: r'ProgramInfo')
-  TimerInfoDtoProgramInfo? get programInfo;
+  BaseItemDto? get programInfo;
 
   TimerInfoDto._();
 
@@ -372,7 +373,7 @@ class _$TimerInfoDtoSerializer implements PrimitiveSerializer<TimerInfoDto> {
       yield r'ProgramInfo';
       yield serializers.serialize(
         object.programInfo,
-        specifiedType: const FullType.nullable(TimerInfoDtoProgramInfo),
+        specifiedType: const FullType.nullable(BaseItemDto),
       );
     }
   }
@@ -610,8 +611,8 @@ class _$TimerInfoDtoSerializer implements PrimitiveSerializer<TimerInfoDto> {
         case r'ProgramInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(TimerInfoDtoProgramInfo),
-          ) as TimerInfoDtoProgramInfo?;
+            specifiedType: const FullType.nullable(BaseItemDto),
+          ) as BaseItemDto?;
           if (valueDes == null) continue;
           result.programInfo.replace(valueDes);
           break;

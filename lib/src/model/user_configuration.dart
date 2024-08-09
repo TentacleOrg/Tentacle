@@ -29,8 +29,9 @@ part 'user_configuration.g.dart';
 /// * [rememberSubtitleSelections]
 /// * [enableNextEpisodeAutoPlay]
 /// * [castReceiverId] - Gets or sets the id of the selected cast receiver.
-@BuiltValue(instantiable: false)
-abstract class UserConfiguration {
+@BuiltValue()
+abstract class UserConfiguration
+    implements Built<UserConfiguration, UserConfigurationBuilder> {
   /// Gets or sets the audio language preference.
   @BuiltValueField(wireName: r'AudioLanguagePreference')
   String? get audioLanguagePreference;
@@ -85,6 +86,14 @@ abstract class UserConfiguration {
   @BuiltValueField(wireName: r'CastReceiverId')
   String? get castReceiverId;
 
+  UserConfiguration._();
+
+  factory UserConfiguration([void updates(UserConfigurationBuilder b)]) =
+      _$UserConfiguration;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserConfigurationBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<UserConfiguration> get serializer =>
       _$UserConfigurationSerializer();
@@ -93,7 +102,7 @@ abstract class UserConfiguration {
 class _$UserConfigurationSerializer
     implements PrimitiveSerializer<UserConfiguration> {
   @override
-  final Iterable<Type> types = const [UserConfiguration];
+  final Iterable<Type> types = const [UserConfiguration, _$UserConfiguration];
 
   @override
   final String wireName = r'UserConfiguration';
@@ -226,55 +235,6 @@ class _$UserConfigurationSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  UserConfiguration deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($UserConfiguration)) as $UserConfiguration;
-  }
-}
-
-/// a concrete implementation of [UserConfiguration], since [UserConfiguration] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $UserConfiguration
-    implements
-        UserConfiguration,
-        Built<$UserConfiguration, $UserConfigurationBuilder> {
-  $UserConfiguration._();
-
-  factory $UserConfiguration(
-          [void Function($UserConfigurationBuilder)? updates]) =
-      _$$UserConfiguration;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UserConfigurationBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$UserConfiguration> get serializer =>
-      _$$UserConfigurationSerializer();
-}
-
-class _$$UserConfigurationSerializer
-    implements PrimitiveSerializer<$UserConfiguration> {
-  @override
-  final Iterable<Type> types = const [$UserConfiguration, _$$UserConfiguration];
-
-  @override
-  final String wireName = r'$UserConfiguration';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $UserConfiguration object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object,
-        specifiedType: FullType(UserConfiguration))!;
   }
 
   void _deserializeProperties(
@@ -413,12 +373,12 @@ class _$$UserConfigurationSerializer
   }
 
   @override
-  $UserConfiguration deserialize(
+  UserConfiguration deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $UserConfigurationBuilder();
+    final result = UserConfigurationBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

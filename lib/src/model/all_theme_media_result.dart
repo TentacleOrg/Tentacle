@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/all_theme_media_result_theme_videos_result.dart';
+import 'package:tentacle/src/model/theme_media_result.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,20 +12,23 @@ part 'all_theme_media_result.g.dart';
 /// AllThemeMediaResult
 ///
 /// Properties:
-/// * [themeVideosResult]
-/// * [themeSongsResult]
-/// * [soundtrackSongsResult]
+/// * [themeVideosResult] - Class ThemeMediaResult.
+/// * [themeSongsResult] - Class ThemeMediaResult.
+/// * [soundtrackSongsResult] - Class ThemeMediaResult.
 @BuiltValue()
 abstract class AllThemeMediaResult
     implements Built<AllThemeMediaResult, AllThemeMediaResultBuilder> {
+  /// Class ThemeMediaResult.
   @BuiltValueField(wireName: r'ThemeVideosResult')
-  AllThemeMediaResultThemeVideosResult? get themeVideosResult;
+  ThemeMediaResult? get themeVideosResult;
 
+  /// Class ThemeMediaResult.
   @BuiltValueField(wireName: r'ThemeSongsResult')
-  AllThemeMediaResultThemeVideosResult? get themeSongsResult;
+  ThemeMediaResult? get themeSongsResult;
 
+  /// Class ThemeMediaResult.
   @BuiltValueField(wireName: r'SoundtrackSongsResult')
-  AllThemeMediaResultThemeVideosResult? get soundtrackSongsResult;
+  ThemeMediaResult? get soundtrackSongsResult;
 
   AllThemeMediaResult._();
 
@@ -60,24 +63,21 @@ class _$AllThemeMediaResultSerializer
       yield r'ThemeVideosResult';
       yield serializers.serialize(
         object.themeVideosResult,
-        specifiedType:
-            const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+        specifiedType: const FullType.nullable(ThemeMediaResult),
       );
     }
     if (object.themeSongsResult != null) {
       yield r'ThemeSongsResult';
       yield serializers.serialize(
         object.themeSongsResult,
-        specifiedType:
-            const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+        specifiedType: const FullType.nullable(ThemeMediaResult),
       );
     }
     if (object.soundtrackSongsResult != null) {
       yield r'SoundtrackSongsResult';
       yield serializers.serialize(
         object.soundtrackSongsResult,
-        specifiedType:
-            const FullType.nullable(AllThemeMediaResultThemeVideosResult),
+        specifiedType: const FullType.nullable(ThemeMediaResult),
       );
     }
   }
@@ -108,27 +108,24 @@ class _$AllThemeMediaResultSerializer
         case r'ThemeVideosResult':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(AllThemeMediaResultThemeVideosResult),
-          ) as AllThemeMediaResultThemeVideosResult?;
+            specifiedType: const FullType.nullable(ThemeMediaResult),
+          ) as ThemeMediaResult?;
           if (valueDes == null) continue;
           result.themeVideosResult.replace(valueDes);
           break;
         case r'ThemeSongsResult':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(AllThemeMediaResultThemeVideosResult),
-          ) as AllThemeMediaResultThemeVideosResult?;
+            specifiedType: const FullType.nullable(ThemeMediaResult),
+          ) as ThemeMediaResult?;
           if (valueDes == null) continue;
           result.themeSongsResult.replace(valueDes);
           break;
         case r'SoundtrackSongsResult':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(AllThemeMediaResultThemeVideosResult),
-          ) as AllThemeMediaResultThemeVideosResult?;
+            specifiedType: const FullType.nullable(ThemeMediaResult),
+          ) as ThemeMediaResult?;
           if (valueDes == null) continue;
           result.soundtrackSongsResult.replace(valueDes);
           break;

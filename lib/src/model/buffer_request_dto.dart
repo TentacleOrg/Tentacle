@@ -11,7 +11,7 @@ part 'buffer_request_dto.g.dart';
 /// Class BufferRequestDto.
 ///
 /// Properties:
-/// * [when] - Gets or sets when the request has been made by the client.
+/// * [when_] - Gets or sets when the request has been made by the client.
 /// * [positionTicks] - Gets or sets the position ticks.
 /// * [isPlaying] - Gets or sets a value indicating whether the client playback is unpaused.
 /// * [playlistItemId] - Gets or sets the playlist item identifier of the playing item.
@@ -20,7 +20,7 @@ abstract class BufferRequestDto
     implements Built<BufferRequestDto, BufferRequestDtoBuilder> {
   /// Gets or sets when the request has been made by the client.
   @BuiltValueField(wireName: r'When')
-  DateTime? get when;
+  DateTime? get when_;
 
   /// Gets or sets the position ticks.
   @BuiltValueField(wireName: r'PositionTicks')
@@ -60,10 +60,10 @@ class _$BufferRequestDtoSerializer
     BufferRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.when != null) {
+    if (object.when_ != null) {
       yield r'When';
       yield serializers.serialize(
-        object.when,
+        object.when_,
         specifiedType: const FullType(DateTime),
       );
     }
@@ -118,7 +118,7 @@ class _$BufferRequestDtoSerializer
             value,
             specifiedType: const FullType(DateTime),
           ) as DateTime;
-          result.when = valueDes;
+          result.when_ = valueDes;
           break;
         case r'PositionTicks':
           final valueDes = serializers.deserialize(

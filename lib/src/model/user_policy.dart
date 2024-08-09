@@ -58,8 +58,8 @@ part 'user_policy.g.dart';
 /// * [authenticationProviderId]
 /// * [passwordResetProviderId]
 /// * [syncPlayAccess] - Gets or sets a value indicating what SyncPlay features the user can access.
-@BuiltValue(instantiable: false)
-abstract class UserPolicy {
+@BuiltValue()
+abstract class UserPolicy implements Built<UserPolicy, UserPolicyBuilder> {
   /// Gets or sets a value indicating whether this instance is administrator.
   @BuiltValueField(wireName: r'IsAdministrator')
   bool? get isAdministrator;
@@ -199,13 +199,23 @@ abstract class UserPolicy {
   SyncPlayUserAccessType? get syncPlayAccess;
   // enum syncPlayAccessEnum {  CreateAndJoinGroups,  JoinGroups,  None,  };
 
+  UserPolicy._();
+
+  factory UserPolicy([void updates(UserPolicyBuilder b)]) = _$UserPolicy;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserPolicyBuilder b) => b
+    ..enableCollectionManagement = false
+    ..enableSubtitleManagement = false
+    ..enableLyricManagement = false;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<UserPolicy> get serializer => _$UserPolicySerializer();
 }
 
 class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
   @override
-  final Iterable<Type> types = const [UserPolicy];
+  final Iterable<Type> types = const [UserPolicy, _$UserPolicy];
 
   @override
   final String wireName = r'UserPolicy';
@@ -525,49 +535,6 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  UserPolicy deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($UserPolicy)) as $UserPolicy;
-  }
-}
-
-/// a concrete implementation of [UserPolicy], since [UserPolicy] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $UserPolicy
-    implements UserPolicy, Built<$UserPolicy, $UserPolicyBuilder> {
-  $UserPolicy._();
-
-  factory $UserPolicy([void Function($UserPolicyBuilder)? updates]) =
-      _$$UserPolicy;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UserPolicyBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$UserPolicy> get serializer => _$$UserPolicySerializer();
-}
-
-class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
-  @override
-  final Iterable<Type> types = const [$UserPolicy, _$$UserPolicy];
-
-  @override
-  final String wireName = r'$UserPolicy';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $UserPolicy object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(UserPolicy))!;
   }
 
   void _deserializeProperties(
@@ -913,12 +880,12 @@ class _$$UserPolicySerializer implements PrimitiveSerializer<$UserPolicy> {
   }
 
   @override
-  $UserPolicy deserialize(
+  UserPolicy deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $UserPolicyBuilder();
+    final result = UserPolicyBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UserDto
 void main() {
-  //final instance = UserDtoBuilder();
+  final instance = UserDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(UserDto, () {
@@ -73,12 +73,14 @@ void main() {
       // TODO
     });
 
-    // UserDtoConfiguration configuration
+    // Gets or sets the configuration.
+    // UserConfiguration configuration
     test('to test the property `configuration`', () async {
       // TODO
     });
 
-    // UserDtoPolicy policy
+    // Gets or sets the policy.
+    // UserPolicy policy
     test('to test the property `policy`', () async {
       // TODO
     });

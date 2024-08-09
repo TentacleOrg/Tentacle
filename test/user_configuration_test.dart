@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UserConfiguration
 void main() {
-  //final instance = UserConfigurationBuilder();
+  final instance = UserConfigurationBuilder();
   // TODO add properties to the builder and call build()
 
   group(UserConfiguration, () {

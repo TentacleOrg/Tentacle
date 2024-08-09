@@ -7,7 +7,8 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(PlaybackStopInfo, () {
-    // PlaybackProgressInfoItem item
+    // Gets or sets the item.
+    // BaseItemDto item
     test('to test the property `item`', () async {
       // TODO
     });

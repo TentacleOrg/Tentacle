@@ -8,7 +8,6 @@ import 'package:tentacle/src/model/media_url.dart';
 import 'package:tentacle/src/model/media_stream.dart';
 import 'package:tentacle/src/model/program_audio.dart';
 import 'package:tentacle/src/model/trickplay_info.dart';
-import 'package:tentacle/src/model/base_item_dto_user_data.dart';
 import 'package:tentacle/src/model/base_item_person.dart';
 import 'package:tentacle/src/model/chapter_info.dart';
 import 'package:tentacle/src/model/media_source_info.dart';
@@ -20,7 +19,7 @@ import 'package:tentacle/src/model/name_guid_pair.dart';
 import 'package:tentacle/src/model/extra_type.dart';
 import 'package:tentacle/src/model/video3_d_format.dart';
 import 'package:tentacle/src/model/play_access.dart';
-import 'package:tentacle/src/model/base_item_dto_current_program.dart';
+import 'package:tentacle/src/model/user_item_data_dto.dart';
 import 'package:tentacle/src/model/iso_type.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/image_orientation.dart';
@@ -99,7 +98,7 @@ part 'base_item_dto.g.dart';
 /// * [parentBackdropItemId] - Gets or sets whether the item has any backdrops, this will hold the Id of the Parent that has one.
 /// * [parentBackdropImageTags] - Gets or sets the parent backdrop image tags.
 /// * [localTrailerCount] - Gets or sets the local trailer count.
-/// * [userData]
+/// * [userData] - Gets or sets the user data for this item based on the user it's being requested for.
 /// * [recursiveItemCount] - Gets or sets the recursive item count.
 /// * [childCount] - Gets or sets the child count.
 /// * [seriesName] - Gets or sets the name of the series.
@@ -189,9 +188,9 @@ part 'base_item_dto.g.dart';
 /// * [isPremiere] - Gets or sets a value indicating whether this instance is premiere.
 /// * [timerId] - Gets or sets the timer identifier.
 /// * [normalizationGain] - Gets or sets the gain required for audio normalization.
-/// * [currentProgram]
-@BuiltValue(instantiable: false)
-abstract class BaseItemDto {
+/// * [currentProgram] - Gets or sets the current program.
+@BuiltValue()
+abstract class BaseItemDto implements Built<BaseItemDto, BaseItemDtoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -425,8 +424,9 @@ abstract class BaseItemDto {
   @BuiltValueField(wireName: r'LocalTrailerCount')
   int? get localTrailerCount;
 
+  /// Gets or sets the user data for this item based on the user it's being requested for.
   @BuiltValueField(wireName: r'UserData')
-  BaseItemDtoUserData? get userData;
+  UserItemDataDto? get userData;
 
   /// Gets or sets the recursive item count.
   @BuiltValueField(wireName: r'RecursiveItemCount')
@@ -774,8 +774,16 @@ abstract class BaseItemDto {
   @BuiltValueField(wireName: r'NormalizationGain')
   double? get normalizationGain;
 
+  /// Gets or sets the current program.
   @BuiltValueField(wireName: r'CurrentProgram')
-  BaseItemDtoCurrentProgram? get currentProgram;
+  BaseItemDto? get currentProgram;
+
+  BaseItemDto._();
+
+  factory BaseItemDto([void updates(BaseItemDtoBuilder b)]) = _$BaseItemDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(BaseItemDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<BaseItemDto> get serializer => _$BaseItemDtoSerializer();
@@ -783,7 +791,7 @@ abstract class BaseItemDto {
 
 class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
   @override
-  final Iterable<Type> types = const [BaseItemDto];
+  final Iterable<Type> types = const [BaseItemDto, _$BaseItemDto];
 
   @override
   final String wireName = r'BaseItemDto';
@@ -1237,7 +1245,7 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'UserData';
       yield serializers.serialize(
         object.userData,
-        specifiedType: const FullType.nullable(BaseItemDtoUserData),
+        specifiedType: const FullType.nullable(UserItemDataDto),
       );
     }
     if (object.recursiveItemCount != null) {
@@ -1877,7 +1885,7 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield r'CurrentProgram';
       yield serializers.serialize(
         object.currentProgram,
-        specifiedType: const FullType.nullable(BaseItemDtoCurrentProgram),
+        specifiedType: const FullType.nullable(BaseItemDto),
       );
     }
   }
@@ -1891,49 +1899,6 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  BaseItemDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($BaseItemDto)) as $BaseItemDto;
-  }
-}
-
-/// a concrete implementation of [BaseItemDto], since [BaseItemDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $BaseItemDto
-    implements BaseItemDto, Built<$BaseItemDto, $BaseItemDtoBuilder> {
-  $BaseItemDto._();
-
-  factory $BaseItemDto([void Function($BaseItemDtoBuilder)? updates]) =
-      _$$BaseItemDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($BaseItemDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$BaseItemDto> get serializer => _$$BaseItemDtoSerializer();
-}
-
-class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
-  @override
-  final Iterable<Type> types = const [$BaseItemDto, _$$BaseItemDto];
-
-  @override
-  final String wireName = r'$BaseItemDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $BaseItemDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(BaseItemDto))!;
   }
 
   void _deserializeProperties(
@@ -2456,8 +2421,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'UserData':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BaseItemDtoUserData),
-          ) as BaseItemDtoUserData?;
+            specifiedType: const FullType.nullable(UserItemDataDto),
+          ) as UserItemDataDto?;
           if (valueDes == null) continue;
           result.userData.replace(valueDes);
           break;
@@ -3189,8 +3154,8 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
         case r'CurrentProgram':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(BaseItemDtoCurrentProgram),
-          ) as BaseItemDtoCurrentProgram?;
+            specifiedType: const FullType.nullable(BaseItemDto),
+          ) as BaseItemDto?;
           if (valueDes == null) continue;
           result.currentProgram.replace(valueDes);
           break;
@@ -3203,12 +3168,12 @@ class _$$BaseItemDtoSerializer implements PrimitiveSerializer<$BaseItemDto> {
   }
 
   @override
-  $BaseItemDto deserialize(
+  BaseItemDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $BaseItemDtoBuilder();
+    final result = BaseItemDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

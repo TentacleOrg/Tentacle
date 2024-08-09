@@ -9,7 +9,7 @@ part of 'plugin_installation_completed_message.dart';
 class _$PluginInstallationCompletedMessage
     extends PluginInstallationCompletedMessage {
   @override
-  final PluginInstallationCancelledMessageData? data;
+  final InstallationInfo? data;
   @override
   final String? messageId;
   @override
@@ -69,11 +69,10 @@ class PluginInstallationCompletedMessageBuilder
             PluginInstallationCompletedMessageBuilder> {
   _$PluginInstallationCompletedMessage? _$v;
 
-  PluginInstallationCancelledMessageDataBuilder? _data;
-  PluginInstallationCancelledMessageDataBuilder get data =>
-      _$this._data ??= new PluginInstallationCancelledMessageDataBuilder();
-  set data(PluginInstallationCancelledMessageDataBuilder? data) =>
-      _$this._data = data;
+  InstallationInfoBuilder? _data;
+  InstallationInfoBuilder get data =>
+      _$this._data ??= new InstallationInfoBuilder();
+  set data(InstallationInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

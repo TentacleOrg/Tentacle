@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for DeviceProfile
 void main() {
-  //final instance = DeviceProfileBuilder();
+  final instance = DeviceProfileBuilder();
   // TODO add properties to the builder and call build()
 
   group(DeviceProfile, () {

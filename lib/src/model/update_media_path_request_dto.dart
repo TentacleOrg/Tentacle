@@ -103,7 +103,7 @@ class _$UpdateMediaPathRequestDtoSerializer
             value,
             specifiedType: const FullType(MediaPathInfo),
           ) as MediaPathInfo;
-          result.pathInfo = valueDes;
+          result.pathInfo.replace(valueDes);
           break;
         default:
           unhandled.add(key);

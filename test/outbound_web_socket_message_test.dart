@@ -7,7 +7,8 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(OutboundWebSocketMessage, () {
-    // AuthenticationResultUser data
+    // Gets or sets the data.
+    // UserDto data
     test('to test the property `data`', () async {
       // TODO
     });

@@ -8,7 +8,7 @@ part of 'buffer_request_dto.dart';
 
 class _$BufferRequestDto extends BufferRequestDto {
   @override
-  final DateTime? when;
+  final DateTime? when_;
   @override
   final int? positionTicks;
   @override
@@ -21,7 +21,7 @@ class _$BufferRequestDto extends BufferRequestDto {
       (new BufferRequestDtoBuilder()..update(updates))._build();
 
   _$BufferRequestDto._(
-      {this.when, this.positionTicks, this.isPlaying, this.playlistItemId})
+      {this.when_, this.positionTicks, this.isPlaying, this.playlistItemId})
       : super._();
 
   @override
@@ -36,7 +36,7 @@ class _$BufferRequestDto extends BufferRequestDto {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is BufferRequestDto &&
-        when == other.when &&
+        when_ == other.when_ &&
         positionTicks == other.positionTicks &&
         isPlaying == other.isPlaying &&
         playlistItemId == other.playlistItemId;
@@ -45,7 +45,7 @@ class _$BufferRequestDto extends BufferRequestDto {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, when.hashCode);
+    _$hash = $jc(_$hash, when_.hashCode);
     _$hash = $jc(_$hash, positionTicks.hashCode);
     _$hash = $jc(_$hash, isPlaying.hashCode);
     _$hash = $jc(_$hash, playlistItemId.hashCode);
@@ -56,7 +56,7 @@ class _$BufferRequestDto extends BufferRequestDto {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'BufferRequestDto')
-          ..add('when', when)
+          ..add('when_', when_)
           ..add('positionTicks', positionTicks)
           ..add('isPlaying', isPlaying)
           ..add('playlistItemId', playlistItemId))
@@ -68,9 +68,9 @@ class BufferRequestDtoBuilder
     implements Builder<BufferRequestDto, BufferRequestDtoBuilder> {
   _$BufferRequestDto? _$v;
 
-  DateTime? _when;
-  DateTime? get when => _$this._when;
-  set when(DateTime? when) => _$this._when = when;
+  DateTime? _when_;
+  DateTime? get when_ => _$this._when_;
+  set when_(DateTime? when_) => _$this._when_ = when_;
 
   int? _positionTicks;
   int? get positionTicks => _$this._positionTicks;
@@ -93,7 +93,7 @@ class BufferRequestDtoBuilder
   BufferRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _when = $v.when;
+      _when_ = $v.when_;
       _positionTicks = $v.positionTicks;
       _isPlaying = $v.isPlaying;
       _playlistItemId = $v.playlistItemId;
@@ -119,7 +119,7 @@ class BufferRequestDtoBuilder
   _$BufferRequestDto _build() {
     final _$result = _$v ??
         new _$BufferRequestDto._(
-            when: when,
+            when_: when_,
             positionTicks: positionTicks,
             isPlaying: isPlaying,
             playlistItemId: playlistItemId);

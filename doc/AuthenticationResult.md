@@ -8,8 +8,8 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | [**AuthenticationResultUser**](AuthenticationResultUser.md) |  | [optional] 
-**sessionInfo** | [**AuthenticationResultSessionInfo**](AuthenticationResultSessionInfo.md) |  | [optional] 
+**user** | [**UserDto**](UserDto.md) | Class UserDto. | [optional] 
+**sessionInfo** | [**SessionInfo**](SessionInfo.md) | Class SessionInfo. | [optional] 
 **accessToken** | **String** |  | [optional] 
 **serverId** | **String** |  | [optional] 
 

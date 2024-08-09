@@ -9,7 +9,7 @@ import 'package:tentacle/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Gets or sets the library item id. | [optional] 
-**libraryOptions** | [**AddVirtualFolderDtoLibraryOptions**](AddVirtualFolderDtoLibraryOptions.md) |  | [optional] 
+**libraryOptions** | [**LibraryOptions**](LibraryOptions.md) | Gets or sets library options. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

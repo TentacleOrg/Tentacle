@@ -10,7 +10,6 @@ import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/queue_item.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
 import 'package:tentacle/src/model/media_type.dart';
-import 'package:tentacle/src/model/session_info_now_playing_item.dart';
 import 'package:tentacle/src/model/transcoding_info.dart';
 import 'package:tentacle/src/model/client_capabilities.dart';
 import 'package:built_value/built_value.dart';
@@ -35,8 +34,8 @@ part 'session_info.g.dart';
 /// * [lastPausedDate] - Gets or sets the last paused date.
 /// * [deviceName] - Gets or sets the name of the device.
 /// * [deviceType] - Gets or sets the type of the device.
-/// * [nowPlayingItem]
-/// * [nowViewingItem]
+/// * [nowPlayingItem] - Gets or sets the now playing item.
+/// * [nowViewingItem] - This is strictly used as a data transfer object from the api layer.  This holds information about a BaseItem in a format that is convenient for the client.
 /// * [deviceId] - Gets or sets the device id.
 /// * [applicationVersion] - Gets or sets the application version.
 /// * [transcodingInfo]
@@ -50,8 +49,8 @@ part 'session_info.g.dart';
 /// * [serverId]
 /// * [userPrimaryImageTag]
 /// * [supportedCommands] - Gets the supported commands.
-@BuiltValue(instantiable: false)
-abstract class SessionInfo {
+@BuiltValue()
+abstract class SessionInfo implements Built<SessionInfo, SessionInfoBuilder> {
   @BuiltValueField(wireName: r'PlayState')
   PlayerStateInfo? get playState;
 
@@ -105,11 +104,13 @@ abstract class SessionInfo {
   @BuiltValueField(wireName: r'DeviceType')
   String? get deviceType;
 
+  /// Gets or sets the now playing item.
   @BuiltValueField(wireName: r'NowPlayingItem')
-  SessionInfoNowPlayingItem? get nowPlayingItem;
+  BaseItemDto? get nowPlayingItem;
 
+  /// This is strictly used as a data transfer object from the api layer.  This holds information about a BaseItem in a format that is convenient for the client.
   @BuiltValueField(wireName: r'NowViewingItem')
-  SessionInfoNowPlayingItem? get nowViewingItem;
+  BaseItemDto? get nowViewingItem;
 
   /// Gets or sets the device id.
   @BuiltValueField(wireName: r'DeviceId')
@@ -154,13 +155,20 @@ abstract class SessionInfo {
   @BuiltValueField(wireName: r'SupportedCommands')
   BuiltList<GeneralCommandType>? get supportedCommands;
 
+  SessionInfo._();
+
+  factory SessionInfo([void updates(SessionInfoBuilder b)]) = _$SessionInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(SessionInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<SessionInfo> get serializer => _$SessionInfoSerializer();
 }
 
 class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
   @override
-  final Iterable<Type> types = const [SessionInfo];
+  final Iterable<Type> types = const [SessionInfo, _$SessionInfo];
 
   @override
   final String wireName = r'SessionInfo';
@@ -274,14 +282,14 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
       yield r'NowPlayingItem';
       yield serializers.serialize(
         object.nowPlayingItem,
-        specifiedType: const FullType.nullable(SessionInfoNowPlayingItem),
+        specifiedType: const FullType.nullable(BaseItemDto),
       );
     }
     if (object.nowViewingItem != null) {
       yield r'NowViewingItem';
       yield serializers.serialize(
         object.nowViewingItem,
-        specifiedType: const FullType.nullable(SessionInfoNowPlayingItem),
+        specifiedType: const FullType.nullable(BaseItemDto),
       );
     }
     if (object.deviceId != null) {
@@ -391,49 +399,6 @@ class _$SessionInfoSerializer implements PrimitiveSerializer<SessionInfo> {
         .toList();
   }
 
-  @override
-  SessionInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($SessionInfo)) as $SessionInfo;
-  }
-}
-
-/// a concrete implementation of [SessionInfo], since [SessionInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $SessionInfo
-    implements SessionInfo, Built<$SessionInfo, $SessionInfoBuilder> {
-  $SessionInfo._();
-
-  factory $SessionInfo([void Function($SessionInfoBuilder)? updates]) =
-      _$$SessionInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($SessionInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$SessionInfo> get serializer => _$$SessionInfoSerializer();
-}
-
-class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
-  @override
-  final Iterable<Type> types = const [$SessionInfo, _$$SessionInfo];
-
-  @override
-  final String wireName = r'$SessionInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $SessionInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(SessionInfo))!;
-  }
-
   void _deserializeProperties(
     Serializers serializers,
     Object serialized, {
@@ -469,7 +434,7 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
             specifiedType: const FullType.nullable(ClientCapabilities),
           ) as ClientCapabilities?;
           if (valueDes == null) continue;
-          result.capabilities = valueDes;
+          result.capabilities.replace(valueDes);
           break;
         case r'RemoteEndPoint':
           final valueDes = serializers.deserialize(
@@ -560,16 +525,16 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
         case r'NowPlayingItem':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SessionInfoNowPlayingItem),
-          ) as SessionInfoNowPlayingItem?;
+            specifiedType: const FullType.nullable(BaseItemDto),
+          ) as BaseItemDto?;
           if (valueDes == null) continue;
           result.nowPlayingItem.replace(valueDes);
           break;
         case r'NowViewingItem':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SessionInfoNowPlayingItem),
-          ) as SessionInfoNowPlayingItem?;
+            specifiedType: const FullType.nullable(BaseItemDto),
+          ) as BaseItemDto?;
           if (valueDes == null) continue;
           result.nowViewingItem.replace(valueDes);
           break;
@@ -685,12 +650,12 @@ class _$$SessionInfoSerializer implements PrimitiveSerializer<$SessionInfo> {
   }
 
   @override
-  $SessionInfo deserialize(
+  SessionInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $SessionInfoBuilder();
+    final result = SessionInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

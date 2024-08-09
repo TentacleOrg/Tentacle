@@ -8,7 +8,7 @@ part of 'series_timer_created_message.dart';
 
 class _$SeriesTimerCreatedMessage extends SeriesTimerCreatedMessage {
   @override
-  final SeriesTimerCancelledMessageData? data;
+  final TimerEventInfo? data;
   @override
   final String? messageId;
   @override
@@ -64,10 +64,10 @@ class SeriesTimerCreatedMessageBuilder
         Builder<SeriesTimerCreatedMessage, SeriesTimerCreatedMessageBuilder> {
   _$SeriesTimerCreatedMessage? _$v;
 
-  SeriesTimerCancelledMessageDataBuilder? _data;
-  SeriesTimerCancelledMessageDataBuilder get data =>
-      _$this._data ??= new SeriesTimerCancelledMessageDataBuilder();
-  set data(SeriesTimerCancelledMessageDataBuilder? data) => _$this._data = data;
+  TimerEventInfoBuilder? _data;
+  TimerEventInfoBuilder get data =>
+      _$this._data ??= new TimerEventInfoBuilder();
+  set data(TimerEventInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

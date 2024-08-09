@@ -8,7 +8,7 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PluginUninstalledMessageData**](PluginUninstalledMessageData.md) |  | [optional] 
+**data** | [**PluginInfo**](PluginInfo.md) | Gets or sets the data. | [optional] 
 **messageId** | **String** | Gets or sets the message id. | [optional] 
 **messageType** | [**SessionMessageType**](SessionMessageType.md) | The different kinds of messages that are used in the WebSocket api. | [optional] [default to 'PackageUninstalled']
 

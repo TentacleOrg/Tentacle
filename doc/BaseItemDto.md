@@ -70,7 +70,7 @@ Name | Type | Description | Notes
 **parentBackdropItemId** | **String** | Gets or sets whether the item has any backdrops, this will hold the Id of the Parent that has one. | [optional] 
 **parentBackdropImageTags** | **BuiltList&lt;String&gt;** | Gets or sets the parent backdrop image tags. | [optional] 
 **localTrailerCount** | **int** | Gets or sets the local trailer count. | [optional] 
-**userData** | [**BaseItemDtoUserData**](BaseItemDtoUserData.md) |  | [optional] 
+**userData** | [**UserItemDataDto**](UserItemDataDto.md) | Gets or sets the user data for this item based on the user it's being requested for. | [optional] 
 **recursiveItemCount** | **int** | Gets or sets the recursive item count. | [optional] 
 **childCount** | **int** | Gets or sets the child count. | [optional] 
 **seriesName** | **String** | Gets or sets the name of the series. | [optional] 
@@ -160,7 +160,7 @@ Name | Type | Description | Notes
 **isPremiere** | **bool** | Gets or sets a value indicating whether this instance is premiere. | [optional] 
 **timerId** | **String** | Gets or sets the timer identifier. | [optional] 
 **normalizationGain** | **double** | Gets or sets the gain required for audio normalization. | [optional] 
-**currentProgram** | [**BaseItemDtoCurrentProgram**](BaseItemDtoCurrentProgram.md) |  | [optional] 
+**currentProgram** | [**BaseItemDto**](BaseItemDto.md) | Gets or sets the current program. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

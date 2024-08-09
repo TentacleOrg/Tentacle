@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for ThemeMediaResult
 void main() {
-  //final instance = ThemeMediaResultBuilder();
+  final instance = ThemeMediaResultBuilder();
   // TODO add properties to the builder and call build()
 
   group(ThemeMediaResult, () {

@@ -21,8 +21,8 @@ part 'play_request.g.dart';
 /// * [audioStreamIndex]
 /// * [mediaSourceId]
 /// * [startIndex]
-@BuiltValue(instantiable: false)
-abstract class PlayRequest {
+@BuiltValue()
+abstract class PlayRequest implements Built<PlayRequest, PlayRequestBuilder> {
   /// Gets or sets the item ids.
   @BuiltValueField(wireName: r'ItemIds')
   BuiltList<String>? get itemIds;
@@ -52,13 +52,20 @@ abstract class PlayRequest {
   @BuiltValueField(wireName: r'StartIndex')
   int? get startIndex;
 
+  PlayRequest._();
+
+  factory PlayRequest([void updates(PlayRequestBuilder b)]) = _$PlayRequest;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PlayRequestBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<PlayRequest> get serializer => _$PlayRequestSerializer();
 }
 
 class _$PlayRequestSerializer implements PrimitiveSerializer<PlayRequest> {
   @override
-  final Iterable<Type> types = const [PlayRequest];
+  final Iterable<Type> types = const [PlayRequest, _$PlayRequest];
 
   @override
   final String wireName = r'PlayRequest';
@@ -135,49 +142,6 @@ class _$PlayRequestSerializer implements PrimitiveSerializer<PlayRequest> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  PlayRequest deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($PlayRequest)) as $PlayRequest;
-  }
-}
-
-/// a concrete implementation of [PlayRequest], since [PlayRequest] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PlayRequest
-    implements PlayRequest, Built<$PlayRequest, $PlayRequestBuilder> {
-  $PlayRequest._();
-
-  factory $PlayRequest([void Function($PlayRequestBuilder)? updates]) =
-      _$$PlayRequest;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PlayRequestBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PlayRequest> get serializer => _$$PlayRequestSerializer();
-}
-
-class _$$PlayRequestSerializer implements PrimitiveSerializer<$PlayRequest> {
-  @override
-  final Iterable<Type> types = const [$PlayRequest, _$$PlayRequest];
-
-  @override
-  final String wireName = r'$PlayRequest';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PlayRequest object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PlayRequest))!;
   }
 
   void _deserializeProperties(
@@ -264,12 +228,12 @@ class _$$PlayRequestSerializer implements PrimitiveSerializer<$PlayRequest> {
   }
 
   @override
-  $PlayRequest deserialize(
+  PlayRequest deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PlayRequestBuilder();
+    final result = PlayRequestBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

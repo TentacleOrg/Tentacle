@@ -193,7 +193,7 @@ class _$VirtualFolderInfoSerializer
             specifiedType: const FullType.nullable(LibraryOptions),
           ) as LibraryOptions?;
           if (valueDes == null) continue;
-          result.libraryOptions = valueDes;
+          result.libraryOptions.replace(valueDes);
           break;
         case r'ItemId':
           final valueDes = serializers.deserialize(

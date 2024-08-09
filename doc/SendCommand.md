@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **groupId** | **String** | Gets the group identifier. | [optional] 
 **playlistItemId** | **String** | Gets the playlist identifier of the playing item. | [optional] 
-**when** | [**DateTime**](DateTime.md) | Gets or sets the UTC time when to execute the command. | [optional] 
+**when_** | [**DateTime**](DateTime.md) | Gets or sets the UTC time when to execute the command. | [optional] 
 **positionTicks** | **int** | Gets the position ticks. | [optional] 
 **command** | [**SendCommandType**](SendCommandType.md) | Gets the command. | [optional] 
 **emittedAt** | [**DateTime**](DateTime.md) | Gets the UTC time when this command has been emitted. | [optional] 

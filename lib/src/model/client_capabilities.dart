@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/device_profile.dart';
 import 'package:tentacle/src/model/media_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -19,13 +19,14 @@ part 'client_capabilities.g.dart';
 /// * [supportedCommands]
 /// * [supportsMediaControl]
 /// * [supportsPersistentIdentifier]
-/// * [deviceProfile]
+/// * [deviceProfile] - A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.  <br />  Specifically, it defines the supported <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles\">containers</see> and  <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles\">codecs</see> (video and/or audio, including codec profiles and levels)  the device is able to direct play (without transcoding or remuxing),  as well as which <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles\">containers/codecs to transcode to</see> in case it isn't.
 /// * [appStoreUrl]
 /// * [iconUrl]
 /// * [supportsContentUploading]
 /// * [supportsSync]
-@BuiltValue(instantiable: false)
-abstract class ClientCapabilities {
+@BuiltValue()
+abstract class ClientCapabilities
+    implements Built<ClientCapabilities, ClientCapabilitiesBuilder> {
   @BuiltValueField(wireName: r'PlayableMediaTypes')
   BuiltList<MediaType>? get playableMediaTypes;
 
@@ -38,8 +39,9 @@ abstract class ClientCapabilities {
   @BuiltValueField(wireName: r'SupportsPersistentIdentifier')
   bool? get supportsPersistentIdentifier;
 
+  /// A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.  <br />  Specifically, it defines the supported <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles\">containers</see> and  <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles\">codecs</see> (video and/or audio, including codec profiles and levels)  the device is able to direct play (without transcoding or remuxing),  as well as which <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles\">containers/codecs to transcode to</see> in case it isn't.
   @BuiltValueField(wireName: r'DeviceProfile')
-  ClientCapabilitiesDeviceProfile? get deviceProfile;
+  DeviceProfile? get deviceProfile;
 
   @BuiltValueField(wireName: r'AppStoreUrl')
   String? get appStoreUrl;
@@ -55,6 +57,16 @@ abstract class ClientCapabilities {
   @BuiltValueField(wireName: r'SupportsSync')
   bool? get supportsSync;
 
+  ClientCapabilities._();
+
+  factory ClientCapabilities([void updates(ClientCapabilitiesBuilder b)]) =
+      _$ClientCapabilities;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ClientCapabilitiesBuilder b) => b
+    ..supportsContentUploading = false
+    ..supportsSync = false;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<ClientCapabilities> get serializer =>
       _$ClientCapabilitiesSerializer();
@@ -63,7 +75,7 @@ abstract class ClientCapabilities {
 class _$ClientCapabilitiesSerializer
     implements PrimitiveSerializer<ClientCapabilities> {
   @override
-  final Iterable<Type> types = const [ClientCapabilities];
+  final Iterable<Type> types = const [ClientCapabilities, _$ClientCapabilities];
 
   @override
   final String wireName = r'ClientCapabilities';
@@ -107,7 +119,7 @@ class _$ClientCapabilitiesSerializer
       yield r'DeviceProfile';
       yield serializers.serialize(
         object.deviceProfile,
-        specifiedType: const FullType.nullable(ClientCapabilitiesDeviceProfile),
+        specifiedType: const FullType.nullable(DeviceProfile),
       );
     }
     if (object.appStoreUrl != null) {
@@ -149,58 +161,6 @@ class _$ClientCapabilitiesSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  ClientCapabilities deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($ClientCapabilities)) as $ClientCapabilities;
-  }
-}
-
-/// a concrete implementation of [ClientCapabilities], since [ClientCapabilities] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ClientCapabilities
-    implements
-        ClientCapabilities,
-        Built<$ClientCapabilities, $ClientCapabilitiesBuilder> {
-  $ClientCapabilities._();
-
-  factory $ClientCapabilities(
-          [void Function($ClientCapabilitiesBuilder)? updates]) =
-      _$$ClientCapabilities;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ClientCapabilitiesBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ClientCapabilities> get serializer =>
-      _$$ClientCapabilitiesSerializer();
-}
-
-class _$$ClientCapabilitiesSerializer
-    implements PrimitiveSerializer<$ClientCapabilities> {
-  @override
-  final Iterable<Type> types = const [
-    $ClientCapabilities,
-    _$$ClientCapabilities
-  ];
-
-  @override
-  final String wireName = r'$ClientCapabilities';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ClientCapabilities object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object,
-        specifiedType: FullType(ClientCapabilities))!;
   }
 
   void _deserializeProperties(
@@ -250,9 +210,8 @@ class _$$ClientCapabilitiesSerializer
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(ClientCapabilitiesDeviceProfile),
-          ) as ClientCapabilitiesDeviceProfile?;
+            specifiedType: const FullType.nullable(DeviceProfile),
+          ) as DeviceProfile?;
           if (valueDes == null) continue;
           result.deviceProfile.replace(valueDes);
           break;
@@ -297,12 +256,12 @@ class _$$ClientCapabilitiesSerializer
   }
 
   @override
-  $ClientCapabilities deserialize(
+  ClientCapabilities deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ClientCapabilitiesBuilder();
+    final result = ClientCapabilitiesBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

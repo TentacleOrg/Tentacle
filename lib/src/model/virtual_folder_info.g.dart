@@ -110,9 +110,10 @@ class VirtualFolderInfoBuilder
   set collectionType(CollectionTypeOptions? collectionType) =>
       _$this._collectionType = collectionType;
 
-  LibraryOptions? _libraryOptions;
-  LibraryOptions? get libraryOptions => _$this._libraryOptions;
-  set libraryOptions(LibraryOptions? libraryOptions) =>
+  LibraryOptionsBuilder? _libraryOptions;
+  LibraryOptionsBuilder get libraryOptions =>
+      _$this._libraryOptions ??= new LibraryOptionsBuilder();
+  set libraryOptions(LibraryOptionsBuilder? libraryOptions) =>
       _$this._libraryOptions = libraryOptions;
 
   String? _itemId;
@@ -144,7 +145,7 @@ class VirtualFolderInfoBuilder
       _name = $v.name;
       _locations = $v.locations?.toBuilder();
       _collectionType = $v.collectionType;
-      _libraryOptions = $v.libraryOptions;
+      _libraryOptions = $v.libraryOptions?.toBuilder();
       _itemId = $v.itemId;
       _primaryImageItemId = $v.primaryImageItemId;
       _refreshProgress = $v.refreshProgress;
@@ -176,7 +177,7 @@ class VirtualFolderInfoBuilder
               name: name,
               locations: _locations?.build(),
               collectionType: collectionType,
-              libraryOptions: libraryOptions,
+              libraryOptions: _libraryOptions?.build(),
               itemId: itemId,
               primaryImageItemId: primaryImageItemId,
               refreshProgress: refreshProgress,
@@ -186,6 +187,9 @@ class VirtualFolderInfoBuilder
       try {
         _$failedField = 'locations';
         _locations?.build();
+
+        _$failedField = 'libraryOptions';
+        _libraryOptions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'VirtualFolderInfo', _$failedField, e.toString());

@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/user_dto_configuration.dart';
-import 'package:tentacle/src/model/user_dto_policy.dart';
+import 'package:tentacle/src/model/user_configuration.dart';
+import 'package:tentacle/src/model/user_policy.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -24,11 +24,11 @@ part 'user_dto.g.dart';
 /// * [enableAutoLogin] - Gets or sets whether async login is enabled or not.
 /// * [lastLoginDate] - Gets or sets the last login date.
 /// * [lastActivityDate] - Gets or sets the last activity date.
-/// * [configuration]
-/// * [policy]
+/// * [configuration] - Gets or sets the configuration.
+/// * [policy] - Gets or sets the policy.
 /// * [primaryImageAspectRatio] - Gets or sets the primary image aspect ratio.
-@BuiltValue(instantiable: false)
-abstract class UserDto {
+@BuiltValue()
+abstract class UserDto implements Built<UserDto, UserDtoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -74,15 +74,24 @@ abstract class UserDto {
   @BuiltValueField(wireName: r'LastActivityDate')
   DateTime? get lastActivityDate;
 
+  /// Gets or sets the configuration.
   @BuiltValueField(wireName: r'Configuration')
-  UserDtoConfiguration? get configuration;
+  UserConfiguration? get configuration;
 
+  /// Gets or sets the policy.
   @BuiltValueField(wireName: r'Policy')
-  UserDtoPolicy? get policy;
+  UserPolicy? get policy;
 
   /// Gets or sets the primary image aspect ratio.
   @BuiltValueField(wireName: r'PrimaryImageAspectRatio')
   double? get primaryImageAspectRatio;
+
+  UserDto._();
+
+  factory UserDto([void updates(UserDtoBuilder b)]) = _$UserDto;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserDto> get serializer => _$UserDtoSerializer();
@@ -90,7 +99,7 @@ abstract class UserDto {
 
 class _$UserDtoSerializer implements PrimitiveSerializer<UserDto> {
   @override
-  final Iterable<Type> types = const [UserDto];
+  final Iterable<Type> types = const [UserDto, _$UserDto];
 
   @override
   final String wireName = r'UserDto';
@@ -181,14 +190,14 @@ class _$UserDtoSerializer implements PrimitiveSerializer<UserDto> {
       yield r'Configuration';
       yield serializers.serialize(
         object.configuration,
-        specifiedType: const FullType.nullable(UserDtoConfiguration),
+        specifiedType: const FullType.nullable(UserConfiguration),
       );
     }
     if (object.policy != null) {
       yield r'Policy';
       yield serializers.serialize(
         object.policy,
-        specifiedType: const FullType.nullable(UserDtoPolicy),
+        specifiedType: const FullType.nullable(UserPolicy),
       );
     }
     if (object.primaryImageAspectRatio != null) {
@@ -209,47 +218,6 @@ class _$UserDtoSerializer implements PrimitiveSerializer<UserDto> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  UserDto deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($UserDto)) as $UserDto;
-  }
-}
-
-/// a concrete implementation of [UserDto], since [UserDto] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $UserDto implements UserDto, Built<$UserDto, $UserDtoBuilder> {
-  $UserDto._();
-
-  factory $UserDto([void Function($UserDtoBuilder)? updates]) = _$$UserDto;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UserDtoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$UserDto> get serializer => _$$UserDtoSerializer();
-}
-
-class _$$UserDtoSerializer implements PrimitiveSerializer<$UserDto> {
-  @override
-  final Iterable<Type> types = const [$UserDto, _$$UserDto];
-
-  @override
-  final String wireName = r'$UserDto';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $UserDto object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(UserDto))!;
   }
 
   void _deserializeProperties(
@@ -351,16 +319,16 @@ class _$$UserDtoSerializer implements PrimitiveSerializer<$UserDto> {
         case r'Configuration':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(UserDtoConfiguration),
-          ) as UserDtoConfiguration?;
+            specifiedType: const FullType.nullable(UserConfiguration),
+          ) as UserConfiguration?;
           if (valueDes == null) continue;
           result.configuration.replace(valueDes);
           break;
         case r'Policy':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(UserDtoPolicy),
-          ) as UserDtoPolicy?;
+            specifiedType: const FullType.nullable(UserPolicy),
+          ) as UserPolicy?;
           if (valueDes == null) continue;
           result.policy.replace(valueDes);
           break;
@@ -381,12 +349,12 @@ class _$$UserDtoSerializer implements PrimitiveSerializer<$UserDto> {
   }
 
   @override
-  $UserDto deserialize(
+  UserDto deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $UserDtoBuilder();
+    final result = UserDtoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

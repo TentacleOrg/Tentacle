@@ -10,7 +10,7 @@ class _$UpdateLibraryOptionsDto extends UpdateLibraryOptionsDto {
   @override
   final String? id;
   @override
-  final AddVirtualFolderDtoLibraryOptions? libraryOptions;
+  final LibraryOptions? libraryOptions;
 
   factory _$UpdateLibraryOptionsDto(
           [void Function(UpdateLibraryOptionsDtoBuilder)? updates]) =>
@@ -62,11 +62,10 @@ class UpdateLibraryOptionsDtoBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  AddVirtualFolderDtoLibraryOptionsBuilder? _libraryOptions;
-  AddVirtualFolderDtoLibraryOptionsBuilder get libraryOptions =>
-      _$this._libraryOptions ??= new AddVirtualFolderDtoLibraryOptionsBuilder();
-  set libraryOptions(
-          AddVirtualFolderDtoLibraryOptionsBuilder? libraryOptions) =>
+  LibraryOptionsBuilder? _libraryOptions;
+  LibraryOptionsBuilder get libraryOptions =>
+      _$this._libraryOptions ??= new LibraryOptionsBuilder();
+  set libraryOptions(LibraryOptionsBuilder? libraryOptions) =>
       _$this._libraryOptions = libraryOptions;
 
   UpdateLibraryOptionsDtoBuilder() {

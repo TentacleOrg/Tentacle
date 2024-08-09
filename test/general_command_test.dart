@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for GeneralCommand
 void main() {
-  //final instance = GeneralCommandBuilder();
+  final instance = GeneralCommandBuilder();
   // TODO add properties to the builder and call build()
 
   group(GeneralCommand, () {

@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for TaskResult
 void main() {
-  //final instance = TaskResultBuilder();
+  final instance = TaskResultBuilder();
   // TODO add properties to the builder and call build()
 
   group(TaskResult, () {

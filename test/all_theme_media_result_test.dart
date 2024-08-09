@@ -7,17 +7,20 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(AllThemeMediaResult, () {
-    // AllThemeMediaResultThemeVideosResult themeVideosResult
+    // Class ThemeMediaResult.
+    // ThemeMediaResult themeVideosResult
     test('to test the property `themeVideosResult`', () async {
       // TODO
     });
 
-    // AllThemeMediaResultThemeVideosResult themeSongsResult
+    // Class ThemeMediaResult.
+    // ThemeMediaResult themeSongsResult
     test('to test the property `themeSongsResult`', () async {
       // TODO
     });
 
-    // AllThemeMediaResultThemeVideosResult soundtrackSongsResult
+    // Class ThemeMediaResult.
+    // ThemeMediaResult soundtrackSongsResult
     test('to test the property `soundtrackSongsResult`', () async {
       // TODO
     });

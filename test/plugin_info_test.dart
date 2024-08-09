@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for PluginInfo
 void main() {
-  //final instance = PluginInfoBuilder();
+  final instance = PluginInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(PluginInfo, () {

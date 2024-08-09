@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **state** | [**TaskState**](TaskState.md) | Gets or sets the state of the task. | [optional] 
 **currentProgressPercentage** | **double** | Gets or sets the progress. | [optional] 
 **id** | **String** | Gets or sets the id. | [optional] 
-**lastExecutionResult** | [**TaskInfoLastExecutionResult**](TaskInfoLastExecutionResult.md) |  | [optional] 
+**lastExecutionResult** | [**TaskResult**](TaskResult.md) | Gets or sets the last execution result. | [optional] 
 **triggers** | [**BuiltList&lt;TaskTriggerInfo&gt;**](TaskTriggerInfo.md) | Gets or sets the triggers. | [optional] 
 **description** | **String** | Gets or sets the description. | [optional] 
 **category** | **String** | Gets or sets the category. | [optional] 

@@ -6,39 +6,28 @@ part of 'media_path_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class MediaPathInfoBuilder {
-  void replace(MediaPathInfo other);
-  void update(void Function(MediaPathInfoBuilder) updates);
-  String? get path;
-  set path(String? path);
-
-  String? get networkPath;
-  set networkPath(String? networkPath);
-}
-
-class _$$MediaPathInfo extends $MediaPathInfo {
+class _$MediaPathInfo extends MediaPathInfo {
   @override
   final String? path;
   @override
   final String? networkPath;
 
-  factory _$$MediaPathInfo([void Function($MediaPathInfoBuilder)? updates]) =>
-      (new $MediaPathInfoBuilder()..update(updates))._build();
+  factory _$MediaPathInfo([void Function(MediaPathInfoBuilder)? updates]) =>
+      (new MediaPathInfoBuilder()..update(updates))._build();
 
-  _$$MediaPathInfo._({this.path, this.networkPath}) : super._();
+  _$MediaPathInfo._({this.path, this.networkPath}) : super._();
 
   @override
-  $MediaPathInfo rebuild(void Function($MediaPathInfoBuilder) updates) =>
+  MediaPathInfo rebuild(void Function(MediaPathInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $MediaPathInfoBuilder toBuilder() =>
-      new $MediaPathInfoBuilder()..replace(this);
+  MediaPathInfoBuilder toBuilder() => new MediaPathInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $MediaPathInfo &&
+    return other is MediaPathInfo &&
         path == other.path &&
         networkPath == other.networkPath;
   }
@@ -54,33 +43,30 @@ class _$$MediaPathInfo extends $MediaPathInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$MediaPathInfo')
+    return (newBuiltValueToStringHelper(r'MediaPathInfo')
           ..add('path', path)
           ..add('networkPath', networkPath))
         .toString();
   }
 }
 
-class $MediaPathInfoBuilder
-    implements
-        Builder<$MediaPathInfo, $MediaPathInfoBuilder>,
-        MediaPathInfoBuilder {
-  _$$MediaPathInfo? _$v;
+class MediaPathInfoBuilder
+    implements Builder<MediaPathInfo, MediaPathInfoBuilder> {
+  _$MediaPathInfo? _$v;
 
   String? _path;
   String? get path => _$this._path;
-  set path(covariant String? path) => _$this._path = path;
+  set path(String? path) => _$this._path = path;
 
   String? _networkPath;
   String? get networkPath => _$this._networkPath;
-  set networkPath(covariant String? networkPath) =>
-      _$this._networkPath = networkPath;
+  set networkPath(String? networkPath) => _$this._networkPath = networkPath;
 
-  $MediaPathInfoBuilder() {
-    $MediaPathInfo._defaults(this);
+  MediaPathInfoBuilder() {
+    MediaPathInfo._defaults(this);
   }
 
-  $MediaPathInfoBuilder get _$this {
+  MediaPathInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _path = $v.path;
@@ -91,22 +77,22 @@ class $MediaPathInfoBuilder
   }
 
   @override
-  void replace(covariant $MediaPathInfo other) {
+  void replace(MediaPathInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$MediaPathInfo;
+    _$v = other as _$MediaPathInfo;
   }
 
   @override
-  void update(void Function($MediaPathInfoBuilder)? updates) {
+  void update(void Function(MediaPathInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $MediaPathInfo build() => _build();
+  MediaPathInfo build() => _build();
 
-  _$$MediaPathInfo _build() {
+  _$MediaPathInfo _build() {
     final _$result =
-        _$v ?? new _$$MediaPathInfo._(path: path, networkPath: networkPath);
+        _$v ?? new _$MediaPathInfo._(path: path, networkPath: networkPath);
     replace(_$result);
     return _$result;
   }

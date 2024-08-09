@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/task_result.dart';
 import 'package:tentacle/src/model/task_state.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/task_trigger_info.dart';
-import 'package:tentacle/src/model/task_info_last_execution_result.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -19,7 +19,7 @@ part 'task_info.g.dart';
 /// * [state] - Gets or sets the state of the task.
 /// * [currentProgressPercentage] - Gets or sets the progress.
 /// * [id] - Gets or sets the id.
-/// * [lastExecutionResult]
+/// * [lastExecutionResult] - Gets or sets the last execution result.
 /// * [triggers] - Gets or sets the triggers.
 /// * [description] - Gets or sets the description.
 /// * [category] - Gets or sets the category.
@@ -44,8 +44,9 @@ abstract class TaskInfo implements Built<TaskInfo, TaskInfoBuilder> {
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
+  /// Gets or sets the last execution result.
   @BuiltValueField(wireName: r'LastExecutionResult')
-  TaskInfoLastExecutionResult? get lastExecutionResult;
+  TaskResult? get lastExecutionResult;
 
   /// Gets or sets the triggers.
   @BuiltValueField(wireName: r'Triggers')
@@ -122,7 +123,7 @@ class _$TaskInfoSerializer implements PrimitiveSerializer<TaskInfo> {
       yield r'LastExecutionResult';
       yield serializers.serialize(
         object.lastExecutionResult,
-        specifiedType: const FullType.nullable(TaskInfoLastExecutionResult),
+        specifiedType: const FullType.nullable(TaskResult),
       );
     }
     if (object.triggers != null) {
@@ -220,8 +221,8 @@ class _$TaskInfoSerializer implements PrimitiveSerializer<TaskInfo> {
         case r'LastExecutionResult':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(TaskInfoLastExecutionResult),
-          ) as TaskInfoLastExecutionResult?;
+            specifiedType: const FullType.nullable(TaskResult),
+          ) as TaskResult?;
           if (valueDes == null) continue;
           result.lastExecutionResult.replace(valueDes);
           break;

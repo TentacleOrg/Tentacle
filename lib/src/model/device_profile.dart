@@ -28,8 +28,9 @@ part 'device_profile.g.dart';
 /// * [containerProfiles] - Gets or sets the container profiles.
 /// * [codecProfiles] - Gets or sets the codec profiles.
 /// * [subtitleProfiles] - Gets or sets the subtitle profiles.
-@BuiltValue(instantiable: false)
-abstract class DeviceProfile {
+@BuiltValue()
+abstract class DeviceProfile
+    implements Built<DeviceProfile, DeviceProfileBuilder> {
   /// Gets or sets the name of this device profile.
   @BuiltValueField(wireName: r'Name')
   String? get name;
@@ -74,6 +75,14 @@ abstract class DeviceProfile {
   @BuiltValueField(wireName: r'SubtitleProfiles')
   BuiltList<SubtitleProfile>? get subtitleProfiles;
 
+  DeviceProfile._();
+
+  factory DeviceProfile([void updates(DeviceProfileBuilder b)]) =
+      _$DeviceProfile;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(DeviceProfileBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<DeviceProfile> get serializer =>
       _$DeviceProfileSerializer();
@@ -81,7 +90,7 @@ abstract class DeviceProfile {
 
 class _$DeviceProfileSerializer implements PrimitiveSerializer<DeviceProfile> {
   @override
-  final Iterable<Type> types = const [DeviceProfile];
+  final Iterable<Type> types = const [DeviceProfile, _$DeviceProfile];
 
   @override
   final String wireName = r'DeviceProfile';
@@ -180,52 +189,6 @@ class _$DeviceProfileSerializer implements PrimitiveSerializer<DeviceProfile> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  DeviceProfile deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($DeviceProfile)) as $DeviceProfile;
-  }
-}
-
-/// a concrete implementation of [DeviceProfile], since [DeviceProfile] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $DeviceProfile
-    implements DeviceProfile, Built<$DeviceProfile, $DeviceProfileBuilder> {
-  $DeviceProfile._();
-
-  factory $DeviceProfile([void Function($DeviceProfileBuilder)? updates]) =
-      _$$DeviceProfile;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($DeviceProfileBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$DeviceProfile> get serializer =>
-      _$$DeviceProfileSerializer();
-}
-
-class _$$DeviceProfileSerializer
-    implements PrimitiveSerializer<$DeviceProfile> {
-  @override
-  final Iterable<Type> types = const [$DeviceProfile, _$$DeviceProfile];
-
-  @override
-  final String wireName = r'$DeviceProfile';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $DeviceProfile object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object,
-        specifiedType: FullType(DeviceProfile))!;
   }
 
   void _deserializeProperties(
@@ -336,12 +299,12 @@ class _$$DeviceProfileSerializer
   }
 
   @override
-  $DeviceProfile deserialize(
+  DeviceProfile deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $DeviceProfileBuilder();
+    final result = DeviceProfileBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

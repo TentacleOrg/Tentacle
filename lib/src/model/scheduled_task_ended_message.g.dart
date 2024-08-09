@@ -8,7 +8,7 @@ part of 'scheduled_task_ended_message.dart';
 
 class _$ScheduledTaskEndedMessage extends ScheduledTaskEndedMessage {
   @override
-  final ScheduledTaskEndedMessageData? data;
+  final TaskResult? data;
   @override
   final String? messageId;
   @override
@@ -64,10 +64,9 @@ class ScheduledTaskEndedMessageBuilder
         Builder<ScheduledTaskEndedMessage, ScheduledTaskEndedMessageBuilder> {
   _$ScheduledTaskEndedMessage? _$v;
 
-  ScheduledTaskEndedMessageDataBuilder? _data;
-  ScheduledTaskEndedMessageDataBuilder get data =>
-      _$this._data ??= new ScheduledTaskEndedMessageDataBuilder();
-  set data(ScheduledTaskEndedMessageDataBuilder? data) => _$this._data = data;
+  TaskResultBuilder? _data;
+  TaskResultBuilder get data => _$this._data ??= new TaskResultBuilder();
+  set data(TaskResultBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

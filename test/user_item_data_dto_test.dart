@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UserItemDataDto
 void main() {
-  //final instance = UserItemDataDtoBuilder();
+  final instance = UserItemDataDtoBuilder();
   // TODO add properties to the builder and call build()
 
   group(UserItemDataDto, () {

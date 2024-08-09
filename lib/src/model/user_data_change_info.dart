@@ -15,8 +15,9 @@ part 'user_data_change_info.g.dart';
 /// Properties:
 /// * [userId] - Gets or sets the user id.
 /// * [userDataList] - Gets or sets the user data list.
-@BuiltValue(instantiable: false)
-abstract class UserDataChangeInfo {
+@BuiltValue()
+abstract class UserDataChangeInfo
+    implements Built<UserDataChangeInfo, UserDataChangeInfoBuilder> {
   /// Gets or sets the user id.
   @BuiltValueField(wireName: r'UserId')
   String? get userId;
@@ -24,6 +25,14 @@ abstract class UserDataChangeInfo {
   /// Gets or sets the user data list.
   @BuiltValueField(wireName: r'UserDataList')
   BuiltList<UserItemDataDto>? get userDataList;
+
+  UserDataChangeInfo._();
+
+  factory UserDataChangeInfo([void updates(UserDataChangeInfoBuilder b)]) =
+      _$UserDataChangeInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(UserDataChangeInfoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserDataChangeInfo> get serializer =>
@@ -33,7 +42,7 @@ abstract class UserDataChangeInfo {
 class _$UserDataChangeInfoSerializer
     implements PrimitiveSerializer<UserDataChangeInfo> {
   @override
-  final Iterable<Type> types = const [UserDataChangeInfo];
+  final Iterable<Type> types = const [UserDataChangeInfo, _$UserDataChangeInfo];
 
   @override
   final String wireName = r'UserDataChangeInfo';
@@ -69,58 +78,6 @@ class _$UserDataChangeInfoSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  UserDataChangeInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($UserDataChangeInfo)) as $UserDataChangeInfo;
-  }
-}
-
-/// a concrete implementation of [UserDataChangeInfo], since [UserDataChangeInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $UserDataChangeInfo
-    implements
-        UserDataChangeInfo,
-        Built<$UserDataChangeInfo, $UserDataChangeInfoBuilder> {
-  $UserDataChangeInfo._();
-
-  factory $UserDataChangeInfo(
-          [void Function($UserDataChangeInfoBuilder)? updates]) =
-      _$$UserDataChangeInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($UserDataChangeInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$UserDataChangeInfo> get serializer =>
-      _$$UserDataChangeInfoSerializer();
-}
-
-class _$$UserDataChangeInfoSerializer
-    implements PrimitiveSerializer<$UserDataChangeInfo> {
-  @override
-  final Iterable<Type> types = const [
-    $UserDataChangeInfo,
-    _$$UserDataChangeInfo
-  ];
-
-  @override
-  final String wireName = r'$UserDataChangeInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $UserDataChangeInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object,
-        specifiedType: FullType(UserDataChangeInfo))!;
   }
 
   void _deserializeProperties(
@@ -161,12 +118,12 @@ class _$$UserDataChangeInfoSerializer
   }
 
   @override
-  $UserDataChangeInfo deserialize(
+  UserDataChangeInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $UserDataChangeInfoBuilder();
+    final result = UserDataChangeInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

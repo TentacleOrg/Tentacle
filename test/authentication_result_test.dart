@@ -7,12 +7,14 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(AuthenticationResult, () {
-    // AuthenticationResultUser user
+    // Class UserDto.
+    // UserDto user
     test('to test the property `user`', () async {
       // TODO
     });
 
-    // AuthenticationResultSessionInfo sessionInfo
+    // Class SessionInfo.
+    // SessionInfo sessionInfo
     test('to test the property `sessionInfo`', () async {
       // TODO
     });

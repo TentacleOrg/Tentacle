@@ -8,7 +8,7 @@ part of 'playstate_message.dart';
 
 class _$PlaystateMessage extends PlaystateMessage {
   @override
-  final PlaystateMessageData? data;
+  final PlaystateRequest? data;
   @override
   final String? messageId;
   @override
@@ -62,10 +62,10 @@ class PlaystateMessageBuilder
     implements Builder<PlaystateMessage, PlaystateMessageBuilder> {
   _$PlaystateMessage? _$v;
 
-  PlaystateMessageDataBuilder? _data;
-  PlaystateMessageDataBuilder get data =>
-      _$this._data ??= new PlaystateMessageDataBuilder();
-  set data(PlaystateMessageDataBuilder? data) => _$this._data = data;
+  PlaystateRequestBuilder? _data;
+  PlaystateRequestBuilder get data =>
+      _$this._data ??= new PlaystateRequestBuilder();
+  set data(PlaystateRequestBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

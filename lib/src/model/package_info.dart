@@ -21,8 +21,8 @@ part 'package_info.g.dart';
 /// * [guid] - Gets or sets the guid of the assembly associated with this plugin.  This is used to identify the proper item for automatic updates.
 /// * [versions] - Gets or sets the versions.
 /// * [imageUrl] - Gets or sets the image url for the package.
-@BuiltValue(instantiable: false)
-abstract class PackageInfo {
+@BuiltValue()
+abstract class PackageInfo implements Built<PackageInfo, PackageInfoBuilder> {
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'name')
   String? get name;
@@ -55,13 +55,20 @@ abstract class PackageInfo {
   @BuiltValueField(wireName: r'imageUrl')
   String? get imageUrl;
 
+  PackageInfo._();
+
+  factory PackageInfo([void updates(PackageInfoBuilder b)]) = _$PackageInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PackageInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<PackageInfo> get serializer => _$PackageInfoSerializer();
 }
 
 class _$PackageInfoSerializer implements PrimitiveSerializer<PackageInfo> {
   @override
-  final Iterable<Type> types = const [PackageInfo];
+  final Iterable<Type> types = const [PackageInfo, _$PackageInfo];
 
   @override
   final String wireName = r'PackageInfo';
@@ -138,49 +145,6 @@ class _$PackageInfoSerializer implements PrimitiveSerializer<PackageInfo> {
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  PackageInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($PackageInfo)) as $PackageInfo;
-  }
-}
-
-/// a concrete implementation of [PackageInfo], since [PackageInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PackageInfo
-    implements PackageInfo, Built<$PackageInfo, $PackageInfoBuilder> {
-  $PackageInfo._();
-
-  factory $PackageInfo([void Function($PackageInfoBuilder)? updates]) =
-      _$$PackageInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PackageInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PackageInfo> get serializer => _$$PackageInfoSerializer();
-}
-
-class _$$PackageInfoSerializer implements PrimitiveSerializer<$PackageInfo> {
-  @override
-  final Iterable<Type> types = const [$PackageInfo, _$$PackageInfo];
-
-  @override
-  final String wireName = r'$PackageInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PackageInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object, specifiedType: FullType(PackageInfo))!;
   }
 
   void _deserializeProperties(
@@ -261,12 +225,12 @@ class _$$PackageInfoSerializer implements PrimitiveSerializer<$PackageInfo> {
   }
 
   @override
-  $PackageInfo deserialize(
+  PackageInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PackageInfoBuilder();
+    final result = PackageInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

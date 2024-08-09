@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/media_path_dto_path_info.dart';
+import 'package:tentacle/src/model/media_path_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,7 +14,7 @@ part 'media_path_dto.g.dart';
 /// Properties:
 /// * [name] - Gets or sets the name of the library.
 /// * [path] - Gets or sets the path to add.
-/// * [pathInfo]
+/// * [pathInfo] - Gets or sets the path info.
 @BuiltValue()
 abstract class MediaPathDto
     implements Built<MediaPathDto, MediaPathDtoBuilder> {
@@ -26,8 +26,9 @@ abstract class MediaPathDto
   @BuiltValueField(wireName: r'Path')
   String? get path;
 
+  /// Gets or sets the path info.
   @BuiltValueField(wireName: r'PathInfo')
-  MediaPathDtoPathInfo? get pathInfo;
+  MediaPathInfo? get pathInfo;
 
   MediaPathDto._();
 
@@ -68,7 +69,7 @@ class _$MediaPathDtoSerializer implements PrimitiveSerializer<MediaPathDto> {
       yield r'PathInfo';
       yield serializers.serialize(
         object.pathInfo,
-        specifiedType: const FullType.nullable(MediaPathDtoPathInfo),
+        specifiedType: const FullType.nullable(MediaPathInfo),
       );
     }
   }
@@ -114,8 +115,8 @@ class _$MediaPathDtoSerializer implements PrimitiveSerializer<MediaPathDto> {
         case r'PathInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(MediaPathDtoPathInfo),
-          ) as MediaPathDtoPathInfo?;
+            specifiedType: const FullType.nullable(MediaPathInfo),
+          ) as MediaPathInfo?;
           if (valueDes == null) continue;
           result.pathInfo.replace(valueDes);
           break;

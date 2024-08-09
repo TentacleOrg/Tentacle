@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
+import 'package:tentacle/src/model/device_profile.dart';
 import 'package:tentacle/src/model/media_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -19,7 +19,7 @@ part 'client_capabilities_dto.g.dart';
 /// * [supportedCommands] - Gets or sets the list of supported commands.
 /// * [supportsMediaControl] - Gets or sets a value indicating whether session supports media control.
 /// * [supportsPersistentIdentifier] - Gets or sets a value indicating whether session supports a persistent identifier.
-/// * [deviceProfile]
+/// * [deviceProfile] - A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.  <br />  Specifically, it defines the supported <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles\">containers</see> and  <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles\">codecs</see> (video and/or audio, including codec profiles and levels)  the device is able to direct play (without transcoding or remuxing),  as well as which <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles\">containers/codecs to transcode to</see> in case it isn't.
 /// * [appStoreUrl] - Gets or sets the app store url.
 /// * [iconUrl] - Gets or sets the icon url.
 /// * [supportsContentUploading]
@@ -43,8 +43,9 @@ abstract class ClientCapabilitiesDto
   @BuiltValueField(wireName: r'SupportsPersistentIdentifier')
   bool? get supportsPersistentIdentifier;
 
+  /// A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.  <br />  Specifically, it defines the supported <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles\">containers</see> and  <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles\">codecs</see> (video and/or audio, including codec profiles and levels)  the device is able to direct play (without transcoding or remuxing),  as well as which <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles\">containers/codecs to transcode to</see> in case it isn't.
   @BuiltValueField(wireName: r'DeviceProfile')
-  ClientCapabilitiesDeviceProfile? get deviceProfile;
+  DeviceProfile? get deviceProfile;
 
   /// Gets or sets the app store url.
   @BuiltValueField(wireName: r'AppStoreUrl')
@@ -126,7 +127,7 @@ class _$ClientCapabilitiesDtoSerializer
       yield r'DeviceProfile';
       yield serializers.serialize(
         object.deviceProfile,
-        specifiedType: const FullType.nullable(ClientCapabilitiesDeviceProfile),
+        specifiedType: const FullType.nullable(DeviceProfile),
       );
     }
     if (object.appStoreUrl != null) {
@@ -214,9 +215,8 @@ class _$ClientCapabilitiesDtoSerializer
         case r'DeviceProfile':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(ClientCapabilitiesDeviceProfile),
-          ) as ClientCapabilitiesDeviceProfile?;
+            specifiedType: const FullType.nullable(DeviceProfile),
+          ) as DeviceProfile?;
           if (valueDes == null) continue;
           result.deviceProfile.replace(valueDes);
           break;

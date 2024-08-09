@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/plugin_uninstalled_message_data.dart';
+import 'package:tentacle/src/model/plugin_info.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -13,15 +13,16 @@ part 'plugin_uninstalled_message.g.dart';
 /// Plugin uninstalled message.
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class PluginUninstalledMessage
     implements
         Built<PluginUninstalledMessage, PluginUninstalledMessageBuilder> {
+  /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  PluginUninstalledMessageData? get data;
+  PluginInfo? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -67,7 +68,7 @@ class _$PluginUninstalledMessageSerializer
       yield r'Data';
       yield serializers.serialize(
         object.data,
-        specifiedType: const FullType.nullable(PluginUninstalledMessageData),
+        specifiedType: const FullType.nullable(PluginInfo),
       );
     }
     if (object.messageId != null) {
@@ -112,9 +113,8 @@ class _$PluginUninstalledMessageSerializer
         case r'Data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(PluginUninstalledMessageData),
-          ) as PluginUninstalledMessageData?;
+            specifiedType: const FullType.nullable(PluginInfo),
+          ) as PluginInfo?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

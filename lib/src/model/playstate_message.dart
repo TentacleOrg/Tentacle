@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/playstate_message_data.dart';
+import 'package:tentacle/src/model/playstate_request.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -13,14 +13,15 @@ part 'playstate_message.g.dart';
 /// Playstate message.
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class PlaystateMessage
     implements Built<PlaystateMessage, PlaystateMessageBuilder> {
+  /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  PlaystateMessageData? get data;
+  PlaystateRequest? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -62,7 +63,7 @@ class _$PlaystateMessageSerializer
       yield r'Data';
       yield serializers.serialize(
         object.data,
-        specifiedType: const FullType.nullable(PlaystateMessageData),
+        specifiedType: const FullType.nullable(PlaystateRequest),
       );
     }
     if (object.messageId != null) {
@@ -107,8 +108,8 @@ class _$PlaystateMessageSerializer
         case r'Data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(PlaystateMessageData),
-          ) as PlaystateMessageData?;
+            specifiedType: const FullType.nullable(PlaystateRequest),
+          ) as PlaystateRequest?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

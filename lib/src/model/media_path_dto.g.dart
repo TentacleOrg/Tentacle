@@ -12,7 +12,7 @@ class _$MediaPathDto extends MediaPathDto {
   @override
   final String? path;
   @override
-  final MediaPathDtoPathInfo? pathInfo;
+  final MediaPathInfo? pathInfo;
 
   factory _$MediaPathDto([void Function(MediaPathDtoBuilder)? updates]) =>
       (new MediaPathDtoBuilder()..update(updates))._build();
@@ -69,11 +69,10 @@ class MediaPathDtoBuilder
   String? get path => _$this._path;
   set path(String? path) => _$this._path = path;
 
-  MediaPathDtoPathInfoBuilder? _pathInfo;
-  MediaPathDtoPathInfoBuilder get pathInfo =>
-      _$this._pathInfo ??= new MediaPathDtoPathInfoBuilder();
-  set pathInfo(MediaPathDtoPathInfoBuilder? pathInfo) =>
-      _$this._pathInfo = pathInfo;
+  MediaPathInfoBuilder? _pathInfo;
+  MediaPathInfoBuilder get pathInfo =>
+      _$this._pathInfo ??= new MediaPathInfoBuilder();
+  set pathInfo(MediaPathInfoBuilder? pathInfo) => _$this._pathInfo = pathInfo;
 
   MediaPathDtoBuilder() {
     MediaPathDto._defaults(this);

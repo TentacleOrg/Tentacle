@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/scheduled_task_ended_message_data.dart';
+import 'package:tentacle/src/model/task_result.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -13,15 +13,16 @@ part 'scheduled_task_ended_message.g.dart';
 /// Scheduled task ended message.
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class ScheduledTaskEndedMessage
     implements
         Built<ScheduledTaskEndedMessage, ScheduledTaskEndedMessageBuilder> {
+  /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  ScheduledTaskEndedMessageData? get data;
+  TaskResult? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -67,7 +68,7 @@ class _$ScheduledTaskEndedMessageSerializer
       yield r'Data';
       yield serializers.serialize(
         object.data,
-        specifiedType: const FullType.nullable(ScheduledTaskEndedMessageData),
+        specifiedType: const FullType.nullable(TaskResult),
       );
     }
     if (object.messageId != null) {
@@ -112,9 +113,8 @@ class _$ScheduledTaskEndedMessageSerializer
         case r'Data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(ScheduledTaskEndedMessageData),
-          ) as ScheduledTaskEndedMessageData?;
+            specifiedType: const FullType.nullable(TaskResult),
+          ) as TaskResult?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

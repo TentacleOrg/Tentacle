@@ -6,141 +6,7 @@ part of 'user_policy.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class UserPolicyBuilder {
-  void replace(UserPolicy other);
-  void update(void Function(UserPolicyBuilder) updates);
-  bool? get isAdministrator;
-  set isAdministrator(bool? isAdministrator);
-
-  bool? get isHidden;
-  set isHidden(bool? isHidden);
-
-  bool? get enableCollectionManagement;
-  set enableCollectionManagement(bool? enableCollectionManagement);
-
-  bool? get enableSubtitleManagement;
-  set enableSubtitleManagement(bool? enableSubtitleManagement);
-
-  bool? get enableLyricManagement;
-  set enableLyricManagement(bool? enableLyricManagement);
-
-  bool? get isDisabled;
-  set isDisabled(bool? isDisabled);
-
-  int? get maxParentalRating;
-  set maxParentalRating(int? maxParentalRating);
-
-  ListBuilder<String> get blockedTags;
-  set blockedTags(ListBuilder<String>? blockedTags);
-
-  ListBuilder<String> get allowedTags;
-  set allowedTags(ListBuilder<String>? allowedTags);
-
-  bool? get enableUserPreferenceAccess;
-  set enableUserPreferenceAccess(bool? enableUserPreferenceAccess);
-
-  ListBuilder<AccessSchedule> get accessSchedules;
-  set accessSchedules(ListBuilder<AccessSchedule>? accessSchedules);
-
-  ListBuilder<UnratedItem> get blockUnratedItems;
-  set blockUnratedItems(ListBuilder<UnratedItem>? blockUnratedItems);
-
-  bool? get enableRemoteControlOfOtherUsers;
-  set enableRemoteControlOfOtherUsers(bool? enableRemoteControlOfOtherUsers);
-
-  bool? get enableSharedDeviceControl;
-  set enableSharedDeviceControl(bool? enableSharedDeviceControl);
-
-  bool? get enableRemoteAccess;
-  set enableRemoteAccess(bool? enableRemoteAccess);
-
-  bool? get enableLiveTvManagement;
-  set enableLiveTvManagement(bool? enableLiveTvManagement);
-
-  bool? get enableLiveTvAccess;
-  set enableLiveTvAccess(bool? enableLiveTvAccess);
-
-  bool? get enableMediaPlayback;
-  set enableMediaPlayback(bool? enableMediaPlayback);
-
-  bool? get enableAudioPlaybackTranscoding;
-  set enableAudioPlaybackTranscoding(bool? enableAudioPlaybackTranscoding);
-
-  bool? get enableVideoPlaybackTranscoding;
-  set enableVideoPlaybackTranscoding(bool? enableVideoPlaybackTranscoding);
-
-  bool? get enablePlaybackRemuxing;
-  set enablePlaybackRemuxing(bool? enablePlaybackRemuxing);
-
-  bool? get forceRemoteSourceTranscoding;
-  set forceRemoteSourceTranscoding(bool? forceRemoteSourceTranscoding);
-
-  bool? get enableContentDeletion;
-  set enableContentDeletion(bool? enableContentDeletion);
-
-  ListBuilder<String> get enableContentDeletionFromFolders;
-  set enableContentDeletionFromFolders(
-      ListBuilder<String>? enableContentDeletionFromFolders);
-
-  bool? get enableContentDownloading;
-  set enableContentDownloading(bool? enableContentDownloading);
-
-  bool? get enableSyncTranscoding;
-  set enableSyncTranscoding(bool? enableSyncTranscoding);
-
-  bool? get enableMediaConversion;
-  set enableMediaConversion(bool? enableMediaConversion);
-
-  ListBuilder<String> get enabledDevices;
-  set enabledDevices(ListBuilder<String>? enabledDevices);
-
-  bool? get enableAllDevices;
-  set enableAllDevices(bool? enableAllDevices);
-
-  ListBuilder<String> get enabledChannels;
-  set enabledChannels(ListBuilder<String>? enabledChannels);
-
-  bool? get enableAllChannels;
-  set enableAllChannels(bool? enableAllChannels);
-
-  ListBuilder<String> get enabledFolders;
-  set enabledFolders(ListBuilder<String>? enabledFolders);
-
-  bool? get enableAllFolders;
-  set enableAllFolders(bool? enableAllFolders);
-
-  int? get invalidLoginAttemptCount;
-  set invalidLoginAttemptCount(int? invalidLoginAttemptCount);
-
-  int? get loginAttemptsBeforeLockout;
-  set loginAttemptsBeforeLockout(int? loginAttemptsBeforeLockout);
-
-  int? get maxActiveSessions;
-  set maxActiveSessions(int? maxActiveSessions);
-
-  bool? get enablePublicSharing;
-  set enablePublicSharing(bool? enablePublicSharing);
-
-  ListBuilder<String> get blockedMediaFolders;
-  set blockedMediaFolders(ListBuilder<String>? blockedMediaFolders);
-
-  ListBuilder<String> get blockedChannels;
-  set blockedChannels(ListBuilder<String>? blockedChannels);
-
-  int? get remoteClientBitrateLimit;
-  set remoteClientBitrateLimit(int? remoteClientBitrateLimit);
-
-  String? get authenticationProviderId;
-  set authenticationProviderId(String? authenticationProviderId);
-
-  String? get passwordResetProviderId;
-  set passwordResetProviderId(String? passwordResetProviderId);
-
-  SyncPlayUserAccessType? get syncPlayAccess;
-  set syncPlayAccess(SyncPlayUserAccessType? syncPlayAccess);
-}
-
-class _$$UserPolicy extends $UserPolicy {
+class _$UserPolicy extends UserPolicy {
   @override
   final bool? isAdministrator;
   @override
@@ -228,10 +94,10 @@ class _$$UserPolicy extends $UserPolicy {
   @override
   final SyncPlayUserAccessType? syncPlayAccess;
 
-  factory _$$UserPolicy([void Function($UserPolicyBuilder)? updates]) =>
-      (new $UserPolicyBuilder()..update(updates))._build();
+  factory _$UserPolicy([void Function(UserPolicyBuilder)? updates]) =>
+      (new UserPolicyBuilder()..update(updates))._build();
 
-  _$$UserPolicy._(
+  _$UserPolicy._(
       {this.isAdministrator,
       this.isHidden,
       this.enableCollectionManagement,
@@ -277,22 +143,22 @@ class _$$UserPolicy extends $UserPolicy {
       this.syncPlayAccess})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        authenticationProviderId, r'$UserPolicy', 'authenticationProviderId');
+        authenticationProviderId, r'UserPolicy', 'authenticationProviderId');
     BuiltValueNullFieldError.checkNotNull(
-        passwordResetProviderId, r'$UserPolicy', 'passwordResetProviderId');
+        passwordResetProviderId, r'UserPolicy', 'passwordResetProviderId');
   }
 
   @override
-  $UserPolicy rebuild(void Function($UserPolicyBuilder) updates) =>
+  UserPolicy rebuild(void Function(UserPolicyBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $UserPolicyBuilder toBuilder() => new $UserPolicyBuilder()..replace(this);
+  UserPolicyBuilder toBuilder() => new UserPolicyBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $UserPolicy &&
+    return other is UserPolicy &&
         isAdministrator == other.isAdministrator &&
         isHidden == other.isHidden &&
         enableCollectionManagement == other.enableCollectionManagement &&
@@ -394,7 +260,7 @@ class _$$UserPolicy extends $UserPolicy {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$UserPolicy')
+    return (newBuiltValueToStringHelper(r'UserPolicy')
           ..add('isAdministrator', isAdministrator)
           ..add('isHidden', isHidden)
           ..add('enableCollectionManagement', enableCollectionManagement)
@@ -446,249 +312,243 @@ class _$$UserPolicy extends $UserPolicy {
   }
 }
 
-class $UserPolicyBuilder
-    implements Builder<$UserPolicy, $UserPolicyBuilder>, UserPolicyBuilder {
-  _$$UserPolicy? _$v;
+class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
+  _$UserPolicy? _$v;
 
   bool? _isAdministrator;
   bool? get isAdministrator => _$this._isAdministrator;
-  set isAdministrator(covariant bool? isAdministrator) =>
+  set isAdministrator(bool? isAdministrator) =>
       _$this._isAdministrator = isAdministrator;
 
   bool? _isHidden;
   bool? get isHidden => _$this._isHidden;
-  set isHidden(covariant bool? isHidden) => _$this._isHidden = isHidden;
+  set isHidden(bool? isHidden) => _$this._isHidden = isHidden;
 
   bool? _enableCollectionManagement;
   bool? get enableCollectionManagement => _$this._enableCollectionManagement;
-  set enableCollectionManagement(covariant bool? enableCollectionManagement) =>
+  set enableCollectionManagement(bool? enableCollectionManagement) =>
       _$this._enableCollectionManagement = enableCollectionManagement;
 
   bool? _enableSubtitleManagement;
   bool? get enableSubtitleManagement => _$this._enableSubtitleManagement;
-  set enableSubtitleManagement(covariant bool? enableSubtitleManagement) =>
+  set enableSubtitleManagement(bool? enableSubtitleManagement) =>
       _$this._enableSubtitleManagement = enableSubtitleManagement;
 
   bool? _enableLyricManagement;
   bool? get enableLyricManagement => _$this._enableLyricManagement;
-  set enableLyricManagement(covariant bool? enableLyricManagement) =>
+  set enableLyricManagement(bool? enableLyricManagement) =>
       _$this._enableLyricManagement = enableLyricManagement;
 
   bool? _isDisabled;
   bool? get isDisabled => _$this._isDisabled;
-  set isDisabled(covariant bool? isDisabled) => _$this._isDisabled = isDisabled;
+  set isDisabled(bool? isDisabled) => _$this._isDisabled = isDisabled;
 
   int? _maxParentalRating;
   int? get maxParentalRating => _$this._maxParentalRating;
-  set maxParentalRating(covariant int? maxParentalRating) =>
+  set maxParentalRating(int? maxParentalRating) =>
       _$this._maxParentalRating = maxParentalRating;
 
   ListBuilder<String>? _blockedTags;
   ListBuilder<String> get blockedTags =>
       _$this._blockedTags ??= new ListBuilder<String>();
-  set blockedTags(covariant ListBuilder<String>? blockedTags) =>
+  set blockedTags(ListBuilder<String>? blockedTags) =>
       _$this._blockedTags = blockedTags;
 
   ListBuilder<String>? _allowedTags;
   ListBuilder<String> get allowedTags =>
       _$this._allowedTags ??= new ListBuilder<String>();
-  set allowedTags(covariant ListBuilder<String>? allowedTags) =>
+  set allowedTags(ListBuilder<String>? allowedTags) =>
       _$this._allowedTags = allowedTags;
 
   bool? _enableUserPreferenceAccess;
   bool? get enableUserPreferenceAccess => _$this._enableUserPreferenceAccess;
-  set enableUserPreferenceAccess(covariant bool? enableUserPreferenceAccess) =>
+  set enableUserPreferenceAccess(bool? enableUserPreferenceAccess) =>
       _$this._enableUserPreferenceAccess = enableUserPreferenceAccess;
 
   ListBuilder<AccessSchedule>? _accessSchedules;
   ListBuilder<AccessSchedule> get accessSchedules =>
       _$this._accessSchedules ??= new ListBuilder<AccessSchedule>();
-  set accessSchedules(covariant ListBuilder<AccessSchedule>? accessSchedules) =>
+  set accessSchedules(ListBuilder<AccessSchedule>? accessSchedules) =>
       _$this._accessSchedules = accessSchedules;
 
   ListBuilder<UnratedItem>? _blockUnratedItems;
   ListBuilder<UnratedItem> get blockUnratedItems =>
       _$this._blockUnratedItems ??= new ListBuilder<UnratedItem>();
-  set blockUnratedItems(
-          covariant ListBuilder<UnratedItem>? blockUnratedItems) =>
+  set blockUnratedItems(ListBuilder<UnratedItem>? blockUnratedItems) =>
       _$this._blockUnratedItems = blockUnratedItems;
 
   bool? _enableRemoteControlOfOtherUsers;
   bool? get enableRemoteControlOfOtherUsers =>
       _$this._enableRemoteControlOfOtherUsers;
-  set enableRemoteControlOfOtherUsers(
-          covariant bool? enableRemoteControlOfOtherUsers) =>
+  set enableRemoteControlOfOtherUsers(bool? enableRemoteControlOfOtherUsers) =>
       _$this._enableRemoteControlOfOtherUsers = enableRemoteControlOfOtherUsers;
 
   bool? _enableSharedDeviceControl;
   bool? get enableSharedDeviceControl => _$this._enableSharedDeviceControl;
-  set enableSharedDeviceControl(covariant bool? enableSharedDeviceControl) =>
+  set enableSharedDeviceControl(bool? enableSharedDeviceControl) =>
       _$this._enableSharedDeviceControl = enableSharedDeviceControl;
 
   bool? _enableRemoteAccess;
   bool? get enableRemoteAccess => _$this._enableRemoteAccess;
-  set enableRemoteAccess(covariant bool? enableRemoteAccess) =>
+  set enableRemoteAccess(bool? enableRemoteAccess) =>
       _$this._enableRemoteAccess = enableRemoteAccess;
 
   bool? _enableLiveTvManagement;
   bool? get enableLiveTvManagement => _$this._enableLiveTvManagement;
-  set enableLiveTvManagement(covariant bool? enableLiveTvManagement) =>
+  set enableLiveTvManagement(bool? enableLiveTvManagement) =>
       _$this._enableLiveTvManagement = enableLiveTvManagement;
 
   bool? _enableLiveTvAccess;
   bool? get enableLiveTvAccess => _$this._enableLiveTvAccess;
-  set enableLiveTvAccess(covariant bool? enableLiveTvAccess) =>
+  set enableLiveTvAccess(bool? enableLiveTvAccess) =>
       _$this._enableLiveTvAccess = enableLiveTvAccess;
 
   bool? _enableMediaPlayback;
   bool? get enableMediaPlayback => _$this._enableMediaPlayback;
-  set enableMediaPlayback(covariant bool? enableMediaPlayback) =>
+  set enableMediaPlayback(bool? enableMediaPlayback) =>
       _$this._enableMediaPlayback = enableMediaPlayback;
 
   bool? _enableAudioPlaybackTranscoding;
   bool? get enableAudioPlaybackTranscoding =>
       _$this._enableAudioPlaybackTranscoding;
-  set enableAudioPlaybackTranscoding(
-          covariant bool? enableAudioPlaybackTranscoding) =>
+  set enableAudioPlaybackTranscoding(bool? enableAudioPlaybackTranscoding) =>
       _$this._enableAudioPlaybackTranscoding = enableAudioPlaybackTranscoding;
 
   bool? _enableVideoPlaybackTranscoding;
   bool? get enableVideoPlaybackTranscoding =>
       _$this._enableVideoPlaybackTranscoding;
-  set enableVideoPlaybackTranscoding(
-          covariant bool? enableVideoPlaybackTranscoding) =>
+  set enableVideoPlaybackTranscoding(bool? enableVideoPlaybackTranscoding) =>
       _$this._enableVideoPlaybackTranscoding = enableVideoPlaybackTranscoding;
 
   bool? _enablePlaybackRemuxing;
   bool? get enablePlaybackRemuxing => _$this._enablePlaybackRemuxing;
-  set enablePlaybackRemuxing(covariant bool? enablePlaybackRemuxing) =>
+  set enablePlaybackRemuxing(bool? enablePlaybackRemuxing) =>
       _$this._enablePlaybackRemuxing = enablePlaybackRemuxing;
 
   bool? _forceRemoteSourceTranscoding;
   bool? get forceRemoteSourceTranscoding =>
       _$this._forceRemoteSourceTranscoding;
-  set forceRemoteSourceTranscoding(
-          covariant bool? forceRemoteSourceTranscoding) =>
+  set forceRemoteSourceTranscoding(bool? forceRemoteSourceTranscoding) =>
       _$this._forceRemoteSourceTranscoding = forceRemoteSourceTranscoding;
 
   bool? _enableContentDeletion;
   bool? get enableContentDeletion => _$this._enableContentDeletion;
-  set enableContentDeletion(covariant bool? enableContentDeletion) =>
+  set enableContentDeletion(bool? enableContentDeletion) =>
       _$this._enableContentDeletion = enableContentDeletion;
 
   ListBuilder<String>? _enableContentDeletionFromFolders;
   ListBuilder<String> get enableContentDeletionFromFolders =>
       _$this._enableContentDeletionFromFolders ??= new ListBuilder<String>();
   set enableContentDeletionFromFolders(
-          covariant ListBuilder<String>? enableContentDeletionFromFolders) =>
+          ListBuilder<String>? enableContentDeletionFromFolders) =>
       _$this._enableContentDeletionFromFolders =
           enableContentDeletionFromFolders;
 
   bool? _enableContentDownloading;
   bool? get enableContentDownloading => _$this._enableContentDownloading;
-  set enableContentDownloading(covariant bool? enableContentDownloading) =>
+  set enableContentDownloading(bool? enableContentDownloading) =>
       _$this._enableContentDownloading = enableContentDownloading;
 
   bool? _enableSyncTranscoding;
   bool? get enableSyncTranscoding => _$this._enableSyncTranscoding;
-  set enableSyncTranscoding(covariant bool? enableSyncTranscoding) =>
+  set enableSyncTranscoding(bool? enableSyncTranscoding) =>
       _$this._enableSyncTranscoding = enableSyncTranscoding;
 
   bool? _enableMediaConversion;
   bool? get enableMediaConversion => _$this._enableMediaConversion;
-  set enableMediaConversion(covariant bool? enableMediaConversion) =>
+  set enableMediaConversion(bool? enableMediaConversion) =>
       _$this._enableMediaConversion = enableMediaConversion;
 
   ListBuilder<String>? _enabledDevices;
   ListBuilder<String> get enabledDevices =>
       _$this._enabledDevices ??= new ListBuilder<String>();
-  set enabledDevices(covariant ListBuilder<String>? enabledDevices) =>
+  set enabledDevices(ListBuilder<String>? enabledDevices) =>
       _$this._enabledDevices = enabledDevices;
 
   bool? _enableAllDevices;
   bool? get enableAllDevices => _$this._enableAllDevices;
-  set enableAllDevices(covariant bool? enableAllDevices) =>
+  set enableAllDevices(bool? enableAllDevices) =>
       _$this._enableAllDevices = enableAllDevices;
 
   ListBuilder<String>? _enabledChannels;
   ListBuilder<String> get enabledChannels =>
       _$this._enabledChannels ??= new ListBuilder<String>();
-  set enabledChannels(covariant ListBuilder<String>? enabledChannels) =>
+  set enabledChannels(ListBuilder<String>? enabledChannels) =>
       _$this._enabledChannels = enabledChannels;
 
   bool? _enableAllChannels;
   bool? get enableAllChannels => _$this._enableAllChannels;
-  set enableAllChannels(covariant bool? enableAllChannels) =>
+  set enableAllChannels(bool? enableAllChannels) =>
       _$this._enableAllChannels = enableAllChannels;
 
   ListBuilder<String>? _enabledFolders;
   ListBuilder<String> get enabledFolders =>
       _$this._enabledFolders ??= new ListBuilder<String>();
-  set enabledFolders(covariant ListBuilder<String>? enabledFolders) =>
+  set enabledFolders(ListBuilder<String>? enabledFolders) =>
       _$this._enabledFolders = enabledFolders;
 
   bool? _enableAllFolders;
   bool? get enableAllFolders => _$this._enableAllFolders;
-  set enableAllFolders(covariant bool? enableAllFolders) =>
+  set enableAllFolders(bool? enableAllFolders) =>
       _$this._enableAllFolders = enableAllFolders;
 
   int? _invalidLoginAttemptCount;
   int? get invalidLoginAttemptCount => _$this._invalidLoginAttemptCount;
-  set invalidLoginAttemptCount(covariant int? invalidLoginAttemptCount) =>
+  set invalidLoginAttemptCount(int? invalidLoginAttemptCount) =>
       _$this._invalidLoginAttemptCount = invalidLoginAttemptCount;
 
   int? _loginAttemptsBeforeLockout;
   int? get loginAttemptsBeforeLockout => _$this._loginAttemptsBeforeLockout;
-  set loginAttemptsBeforeLockout(covariant int? loginAttemptsBeforeLockout) =>
+  set loginAttemptsBeforeLockout(int? loginAttemptsBeforeLockout) =>
       _$this._loginAttemptsBeforeLockout = loginAttemptsBeforeLockout;
 
   int? _maxActiveSessions;
   int? get maxActiveSessions => _$this._maxActiveSessions;
-  set maxActiveSessions(covariant int? maxActiveSessions) =>
+  set maxActiveSessions(int? maxActiveSessions) =>
       _$this._maxActiveSessions = maxActiveSessions;
 
   bool? _enablePublicSharing;
   bool? get enablePublicSharing => _$this._enablePublicSharing;
-  set enablePublicSharing(covariant bool? enablePublicSharing) =>
+  set enablePublicSharing(bool? enablePublicSharing) =>
       _$this._enablePublicSharing = enablePublicSharing;
 
   ListBuilder<String>? _blockedMediaFolders;
   ListBuilder<String> get blockedMediaFolders =>
       _$this._blockedMediaFolders ??= new ListBuilder<String>();
-  set blockedMediaFolders(covariant ListBuilder<String>? blockedMediaFolders) =>
+  set blockedMediaFolders(ListBuilder<String>? blockedMediaFolders) =>
       _$this._blockedMediaFolders = blockedMediaFolders;
 
   ListBuilder<String>? _blockedChannels;
   ListBuilder<String> get blockedChannels =>
       _$this._blockedChannels ??= new ListBuilder<String>();
-  set blockedChannels(covariant ListBuilder<String>? blockedChannels) =>
+  set blockedChannels(ListBuilder<String>? blockedChannels) =>
       _$this._blockedChannels = blockedChannels;
 
   int? _remoteClientBitrateLimit;
   int? get remoteClientBitrateLimit => _$this._remoteClientBitrateLimit;
-  set remoteClientBitrateLimit(covariant int? remoteClientBitrateLimit) =>
+  set remoteClientBitrateLimit(int? remoteClientBitrateLimit) =>
       _$this._remoteClientBitrateLimit = remoteClientBitrateLimit;
 
   String? _authenticationProviderId;
   String? get authenticationProviderId => _$this._authenticationProviderId;
-  set authenticationProviderId(covariant String? authenticationProviderId) =>
+  set authenticationProviderId(String? authenticationProviderId) =>
       _$this._authenticationProviderId = authenticationProviderId;
 
   String? _passwordResetProviderId;
   String? get passwordResetProviderId => _$this._passwordResetProviderId;
-  set passwordResetProviderId(covariant String? passwordResetProviderId) =>
+  set passwordResetProviderId(String? passwordResetProviderId) =>
       _$this._passwordResetProviderId = passwordResetProviderId;
 
   SyncPlayUserAccessType? _syncPlayAccess;
   SyncPlayUserAccessType? get syncPlayAccess => _$this._syncPlayAccess;
-  set syncPlayAccess(covariant SyncPlayUserAccessType? syncPlayAccess) =>
+  set syncPlayAccess(SyncPlayUserAccessType? syncPlayAccess) =>
       _$this._syncPlayAccess = syncPlayAccess;
 
-  $UserPolicyBuilder() {
-    $UserPolicy._defaults(this);
+  UserPolicyBuilder() {
+    UserPolicy._defaults(this);
   }
 
-  $UserPolicyBuilder get _$this {
+  UserPolicyBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _isAdministrator = $v.isAdministrator;
@@ -741,24 +601,24 @@ class $UserPolicyBuilder
   }
 
   @override
-  void replace(covariant $UserPolicy other) {
+  void replace(UserPolicy other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$UserPolicy;
+    _$v = other as _$UserPolicy;
   }
 
   @override
-  void update(void Function($UserPolicyBuilder)? updates) {
+  void update(void Function(UserPolicyBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $UserPolicy build() => _build();
+  UserPolicy build() => _build();
 
-  _$$UserPolicy _build() {
-    _$$UserPolicy _$result;
+  _$UserPolicy _build() {
+    _$UserPolicy _$result;
     try {
       _$result = _$v ??
-          new _$$UserPolicy._(
+          new _$UserPolicy._(
               isAdministrator: isAdministrator,
               isHidden: isHidden,
               enableCollectionManagement: enableCollectionManagement,
@@ -802,11 +662,11 @@ class $UserPolicyBuilder
               remoteClientBitrateLimit: remoteClientBitrateLimit,
               authenticationProviderId: BuiltValueNullFieldError.checkNotNull(
                   authenticationProviderId,
-                  r'$UserPolicy',
+                  r'UserPolicy',
                   'authenticationProviderId'),
               passwordResetProviderId: BuiltValueNullFieldError.checkNotNull(
                   passwordResetProviderId,
-                  r'$UserPolicy',
+                  r'UserPolicy',
                   'passwordResetProviderId'),
               syncPlayAccess: syncPlayAccess);
     } catch (_) {
@@ -840,7 +700,7 @@ class $UserPolicyBuilder
         _blockedChannels?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$UserPolicy', _$failedField, e.toString());
+            r'UserPolicy', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -15,8 +15,9 @@ part 'playstate_request.g.dart';
 /// * [command] - Enum PlaystateCommand.
 /// * [seekPositionTicks]
 /// * [controllingUserId] - Gets or sets the controlling user identifier.
-@BuiltValue(instantiable: false)
-abstract class PlaystateRequest {
+@BuiltValue()
+abstract class PlaystateRequest
+    implements Built<PlaystateRequest, PlaystateRequestBuilder> {
   /// Enum PlaystateCommand.
   @BuiltValueField(wireName: r'Command')
   PlaystateCommand? get command;
@@ -29,6 +30,14 @@ abstract class PlaystateRequest {
   @BuiltValueField(wireName: r'ControllingUserId')
   String? get controllingUserId;
 
+  PlaystateRequest._();
+
+  factory PlaystateRequest([void updates(PlaystateRequestBuilder b)]) =
+      _$PlaystateRequest;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(PlaystateRequestBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<PlaystateRequest> get serializer =>
       _$PlaystateRequestSerializer();
@@ -37,7 +46,7 @@ abstract class PlaystateRequest {
 class _$PlaystateRequestSerializer
     implements PrimitiveSerializer<PlaystateRequest> {
   @override
-  final Iterable<Type> types = const [PlaystateRequest];
+  final Iterable<Type> types = const [PlaystateRequest, _$PlaystateRequest];
 
   @override
   final String wireName = r'PlaystateRequest';
@@ -79,54 +88,6 @@ class _$PlaystateRequestSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  PlaystateRequest deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($PlaystateRequest)) as $PlaystateRequest;
-  }
-}
-
-/// a concrete implementation of [PlaystateRequest], since [PlaystateRequest] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $PlaystateRequest
-    implements
-        PlaystateRequest,
-        Built<$PlaystateRequest, $PlaystateRequestBuilder> {
-  $PlaystateRequest._();
-
-  factory $PlaystateRequest(
-      [void Function($PlaystateRequestBuilder)? updates]) = _$$PlaystateRequest;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($PlaystateRequestBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$PlaystateRequest> get serializer =>
-      _$$PlaystateRequestSerializer();
-}
-
-class _$$PlaystateRequestSerializer
-    implements PrimitiveSerializer<$PlaystateRequest> {
-  @override
-  final Iterable<Type> types = const [$PlaystateRequest, _$$PlaystateRequest];
-
-  @override
-  final String wireName = r'$PlaystateRequest';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $PlaystateRequest object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object,
-        specifiedType: FullType(PlaystateRequest))!;
   }
 
   void _deserializeProperties(
@@ -173,12 +134,12 @@ class _$$PlaystateRequestSerializer
   }
 
   @override
-  $PlaystateRequest deserialize(
+  PlaystateRequest deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $PlaystateRequestBuilder();
+    final result = PlaystateRequestBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

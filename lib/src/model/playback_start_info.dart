@@ -4,11 +4,11 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/play_method.dart';
+import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:tentacle/src/model/playback_order.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/queue_item.dart';
 import 'package:tentacle/src/model/repeat_mode.dart';
-import 'package:tentacle/src/model/playback_progress_info_item.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -18,7 +18,7 @@ part 'playback_start_info.g.dart';
 ///
 /// Properties:
 /// * [canSeek] - Gets or sets a value indicating whether this instance can seek.
-/// * [item]
+/// * [item] - Gets or sets the item.
 /// * [itemId] - Gets or sets the item identifier.
 /// * [sessionId] - Gets or sets the session id.
 /// * [mediaSourceId] - Gets or sets the media version identifier.
@@ -45,8 +45,9 @@ abstract class PlaybackStartInfo
   @BuiltValueField(wireName: r'CanSeek')
   bool? get canSeek;
 
+  /// Gets or sets the item.
   @BuiltValueField(wireName: r'Item')
-  PlaybackProgressInfoItem? get item;
+  BaseItemDto? get item;
 
   /// Gets or sets the item identifier.
   @BuiltValueField(wireName: r'ItemId')
@@ -159,7 +160,7 @@ class _$PlaybackStartInfoSerializer
       yield r'Item';
       yield serializers.serialize(
         object.item,
-        specifiedType: const FullType.nullable(PlaybackProgressInfoItem),
+        specifiedType: const FullType.nullable(BaseItemDto),
       );
     }
     if (object.itemId != null) {
@@ -331,8 +332,8 @@ class _$PlaybackStartInfoSerializer
         case r'Item':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(PlaybackProgressInfoItem),
-          ) as PlaybackProgressInfoItem?;
+            specifiedType: const FullType.nullable(BaseItemDto),
+          ) as BaseItemDto?;
           if (valueDes == null) continue;
           result.item.replace(valueDes);
           break;

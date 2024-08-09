@@ -6,53 +6,7 @@ part of 'user_dto.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class UserDtoBuilder {
-  void replace(UserDto other);
-  void update(void Function(UserDtoBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  String? get serverId;
-  set serverId(String? serverId);
-
-  String? get serverName;
-  set serverName(String? serverName);
-
-  String? get id;
-  set id(String? id);
-
-  String? get primaryImageTag;
-  set primaryImageTag(String? primaryImageTag);
-
-  bool? get hasPassword;
-  set hasPassword(bool? hasPassword);
-
-  bool? get hasConfiguredPassword;
-  set hasConfiguredPassword(bool? hasConfiguredPassword);
-
-  bool? get hasConfiguredEasyPassword;
-  set hasConfiguredEasyPassword(bool? hasConfiguredEasyPassword);
-
-  bool? get enableAutoLogin;
-  set enableAutoLogin(bool? enableAutoLogin);
-
-  DateTime? get lastLoginDate;
-  set lastLoginDate(DateTime? lastLoginDate);
-
-  DateTime? get lastActivityDate;
-  set lastActivityDate(DateTime? lastActivityDate);
-
-  UserDtoConfigurationBuilder get configuration;
-  set configuration(UserDtoConfigurationBuilder? configuration);
-
-  UserDtoPolicyBuilder get policy;
-  set policy(UserDtoPolicyBuilder? policy);
-
-  double? get primaryImageAspectRatio;
-  set primaryImageAspectRatio(double? primaryImageAspectRatio);
-}
-
-class _$$UserDto extends $UserDto {
+class _$UserDto extends UserDto {
   @override
   final String? name;
   @override
@@ -76,16 +30,16 @@ class _$$UserDto extends $UserDto {
   @override
   final DateTime? lastActivityDate;
   @override
-  final UserDtoConfiguration? configuration;
+  final UserConfiguration? configuration;
   @override
-  final UserDtoPolicy? policy;
+  final UserPolicy? policy;
   @override
   final double? primaryImageAspectRatio;
 
-  factory _$$UserDto([void Function($UserDtoBuilder)? updates]) =>
-      (new $UserDtoBuilder()..update(updates))._build();
+  factory _$UserDto([void Function(UserDtoBuilder)? updates]) =>
+      (new UserDtoBuilder()..update(updates))._build();
 
-  _$$UserDto._(
+  _$UserDto._(
       {this.name,
       this.serverId,
       this.serverName,
@@ -103,16 +57,16 @@ class _$$UserDto extends $UserDto {
       : super._();
 
   @override
-  $UserDto rebuild(void Function($UserDtoBuilder) updates) =>
+  UserDto rebuild(void Function(UserDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $UserDtoBuilder toBuilder() => new $UserDtoBuilder()..replace(this);
+  UserDtoBuilder toBuilder() => new UserDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $UserDto &&
+    return other is UserDto &&
         name == other.name &&
         serverId == other.serverId &&
         serverName == other.serverName &&
@@ -152,7 +106,7 @@ class _$$UserDto extends $UserDto {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$UserDto')
+    return (newBuiltValueToStringHelper(r'UserDto')
           ..add('name', name)
           ..add('serverId', serverId)
           ..add('serverName', serverName)
@@ -171,83 +125,79 @@ class _$$UserDto extends $UserDto {
   }
 }
 
-class $UserDtoBuilder
-    implements Builder<$UserDto, $UserDtoBuilder>, UserDtoBuilder {
-  _$$UserDto? _$v;
+class UserDtoBuilder implements Builder<UserDto, UserDtoBuilder> {
+  _$UserDto? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _serverId;
   String? get serverId => _$this._serverId;
-  set serverId(covariant String? serverId) => _$this._serverId = serverId;
+  set serverId(String? serverId) => _$this._serverId = serverId;
 
   String? _serverName;
   String? get serverName => _$this._serverName;
-  set serverName(covariant String? serverName) =>
-      _$this._serverName = serverName;
+  set serverName(String? serverName) => _$this._serverName = serverName;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   String? _primaryImageTag;
   String? get primaryImageTag => _$this._primaryImageTag;
-  set primaryImageTag(covariant String? primaryImageTag) =>
+  set primaryImageTag(String? primaryImageTag) =>
       _$this._primaryImageTag = primaryImageTag;
 
   bool? _hasPassword;
   bool? get hasPassword => _$this._hasPassword;
-  set hasPassword(covariant bool? hasPassword) =>
-      _$this._hasPassword = hasPassword;
+  set hasPassword(bool? hasPassword) => _$this._hasPassword = hasPassword;
 
   bool? _hasConfiguredPassword;
   bool? get hasConfiguredPassword => _$this._hasConfiguredPassword;
-  set hasConfiguredPassword(covariant bool? hasConfiguredPassword) =>
+  set hasConfiguredPassword(bool? hasConfiguredPassword) =>
       _$this._hasConfiguredPassword = hasConfiguredPassword;
 
   bool? _hasConfiguredEasyPassword;
   bool? get hasConfiguredEasyPassword => _$this._hasConfiguredEasyPassword;
-  set hasConfiguredEasyPassword(covariant bool? hasConfiguredEasyPassword) =>
+  set hasConfiguredEasyPassword(bool? hasConfiguredEasyPassword) =>
       _$this._hasConfiguredEasyPassword = hasConfiguredEasyPassword;
 
   bool? _enableAutoLogin;
   bool? get enableAutoLogin => _$this._enableAutoLogin;
-  set enableAutoLogin(covariant bool? enableAutoLogin) =>
+  set enableAutoLogin(bool? enableAutoLogin) =>
       _$this._enableAutoLogin = enableAutoLogin;
 
   DateTime? _lastLoginDate;
   DateTime? get lastLoginDate => _$this._lastLoginDate;
-  set lastLoginDate(covariant DateTime? lastLoginDate) =>
+  set lastLoginDate(DateTime? lastLoginDate) =>
       _$this._lastLoginDate = lastLoginDate;
 
   DateTime? _lastActivityDate;
   DateTime? get lastActivityDate => _$this._lastActivityDate;
-  set lastActivityDate(covariant DateTime? lastActivityDate) =>
+  set lastActivityDate(DateTime? lastActivityDate) =>
       _$this._lastActivityDate = lastActivityDate;
 
-  UserDtoConfigurationBuilder? _configuration;
-  UserDtoConfigurationBuilder get configuration =>
-      _$this._configuration ??= new UserDtoConfigurationBuilder();
-  set configuration(covariant UserDtoConfigurationBuilder? configuration) =>
+  UserConfigurationBuilder? _configuration;
+  UserConfigurationBuilder get configuration =>
+      _$this._configuration ??= new UserConfigurationBuilder();
+  set configuration(UserConfigurationBuilder? configuration) =>
       _$this._configuration = configuration;
 
-  UserDtoPolicyBuilder? _policy;
-  UserDtoPolicyBuilder get policy =>
-      _$this._policy ??= new UserDtoPolicyBuilder();
-  set policy(covariant UserDtoPolicyBuilder? policy) => _$this._policy = policy;
+  UserPolicyBuilder? _policy;
+  UserPolicyBuilder get policy => _$this._policy ??= new UserPolicyBuilder();
+  set policy(UserPolicyBuilder? policy) => _$this._policy = policy;
 
   double? _primaryImageAspectRatio;
   double? get primaryImageAspectRatio => _$this._primaryImageAspectRatio;
-  set primaryImageAspectRatio(covariant double? primaryImageAspectRatio) =>
+  set primaryImageAspectRatio(double? primaryImageAspectRatio) =>
       _$this._primaryImageAspectRatio = primaryImageAspectRatio;
 
-  $UserDtoBuilder() {
-    $UserDto._defaults(this);
+  UserDtoBuilder() {
+    UserDto._defaults(this);
   }
 
-  $UserDtoBuilder get _$this {
+  UserDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -270,24 +220,24 @@ class $UserDtoBuilder
   }
 
   @override
-  void replace(covariant $UserDto other) {
+  void replace(UserDto other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$UserDto;
+    _$v = other as _$UserDto;
   }
 
   @override
-  void update(void Function($UserDtoBuilder)? updates) {
+  void update(void Function(UserDtoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $UserDto build() => _build();
+  UserDto build() => _build();
 
-  _$$UserDto _build() {
-    _$$UserDto _$result;
+  _$UserDto _build() {
+    _$UserDto _$result;
     try {
       _$result = _$v ??
-          new _$$UserDto._(
+          new _$UserDto._(
               name: name,
               serverId: serverId,
               serverName: serverName,
@@ -311,7 +261,7 @@ class $UserDtoBuilder
         _policy?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$UserDto', _$failedField, e.toString());
+            r'UserDto', _$failedField, e.toString());
       }
       rethrow;
     }

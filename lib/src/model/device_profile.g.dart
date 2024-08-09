@@ -6,44 +6,7 @@ part of 'device_profile.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class DeviceProfileBuilder {
-  void replace(DeviceProfile other);
-  void update(void Function(DeviceProfileBuilder) updates);
-  String? get name;
-  set name(String? name);
-
-  String? get id;
-  set id(String? id);
-
-  int? get maxStreamingBitrate;
-  set maxStreamingBitrate(int? maxStreamingBitrate);
-
-  int? get maxStaticBitrate;
-  set maxStaticBitrate(int? maxStaticBitrate);
-
-  int? get musicStreamingTranscodingBitrate;
-  set musicStreamingTranscodingBitrate(int? musicStreamingTranscodingBitrate);
-
-  int? get maxStaticMusicBitrate;
-  set maxStaticMusicBitrate(int? maxStaticMusicBitrate);
-
-  ListBuilder<DirectPlayProfile> get directPlayProfiles;
-  set directPlayProfiles(ListBuilder<DirectPlayProfile>? directPlayProfiles);
-
-  ListBuilder<TranscodingProfile> get transcodingProfiles;
-  set transcodingProfiles(ListBuilder<TranscodingProfile>? transcodingProfiles);
-
-  ListBuilder<ContainerProfile> get containerProfiles;
-  set containerProfiles(ListBuilder<ContainerProfile>? containerProfiles);
-
-  ListBuilder<CodecProfile> get codecProfiles;
-  set codecProfiles(ListBuilder<CodecProfile>? codecProfiles);
-
-  ListBuilder<SubtitleProfile> get subtitleProfiles;
-  set subtitleProfiles(ListBuilder<SubtitleProfile>? subtitleProfiles);
-}
-
-class _$$DeviceProfile extends $DeviceProfile {
+class _$DeviceProfile extends DeviceProfile {
   @override
   final String? name;
   @override
@@ -67,10 +30,10 @@ class _$$DeviceProfile extends $DeviceProfile {
   @override
   final BuiltList<SubtitleProfile>? subtitleProfiles;
 
-  factory _$$DeviceProfile([void Function($DeviceProfileBuilder)? updates]) =>
-      (new $DeviceProfileBuilder()..update(updates))._build();
+  factory _$DeviceProfile([void Function(DeviceProfileBuilder)? updates]) =>
+      (new DeviceProfileBuilder()..update(updates))._build();
 
-  _$$DeviceProfile._(
+  _$DeviceProfile._(
       {this.name,
       this.id,
       this.maxStreamingBitrate,
@@ -85,17 +48,16 @@ class _$$DeviceProfile extends $DeviceProfile {
       : super._();
 
   @override
-  $DeviceProfile rebuild(void Function($DeviceProfileBuilder) updates) =>
+  DeviceProfile rebuild(void Function(DeviceProfileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $DeviceProfileBuilder toBuilder() =>
-      new $DeviceProfileBuilder()..replace(this);
+  DeviceProfileBuilder toBuilder() => new DeviceProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $DeviceProfile &&
+    return other is DeviceProfile &&
         name == other.name &&
         id == other.id &&
         maxStreamingBitrate == other.maxStreamingBitrate &&
@@ -130,7 +92,7 @@ class _$$DeviceProfile extends $DeviceProfile {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$DeviceProfile')
+    return (newBuiltValueToStringHelper(r'DeviceProfile')
           ..add('name', name)
           ..add('id', id)
           ..add('maxStreamingBitrate', maxStreamingBitrate)
@@ -147,82 +109,76 @@ class _$$DeviceProfile extends $DeviceProfile {
   }
 }
 
-class $DeviceProfileBuilder
-    implements
-        Builder<$DeviceProfile, $DeviceProfileBuilder>,
-        DeviceProfileBuilder {
-  _$$DeviceProfile? _$v;
+class DeviceProfileBuilder
+    implements Builder<DeviceProfile, DeviceProfileBuilder> {
+  _$DeviceProfile? _$v;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   int? _maxStreamingBitrate;
   int? get maxStreamingBitrate => _$this._maxStreamingBitrate;
-  set maxStreamingBitrate(covariant int? maxStreamingBitrate) =>
+  set maxStreamingBitrate(int? maxStreamingBitrate) =>
       _$this._maxStreamingBitrate = maxStreamingBitrate;
 
   int? _maxStaticBitrate;
   int? get maxStaticBitrate => _$this._maxStaticBitrate;
-  set maxStaticBitrate(covariant int? maxStaticBitrate) =>
+  set maxStaticBitrate(int? maxStaticBitrate) =>
       _$this._maxStaticBitrate = maxStaticBitrate;
 
   int? _musicStreamingTranscodingBitrate;
   int? get musicStreamingTranscodingBitrate =>
       _$this._musicStreamingTranscodingBitrate;
-  set musicStreamingTranscodingBitrate(
-          covariant int? musicStreamingTranscodingBitrate) =>
+  set musicStreamingTranscodingBitrate(int? musicStreamingTranscodingBitrate) =>
       _$this._musicStreamingTranscodingBitrate =
           musicStreamingTranscodingBitrate;
 
   int? _maxStaticMusicBitrate;
   int? get maxStaticMusicBitrate => _$this._maxStaticMusicBitrate;
-  set maxStaticMusicBitrate(covariant int? maxStaticMusicBitrate) =>
+  set maxStaticMusicBitrate(int? maxStaticMusicBitrate) =>
       _$this._maxStaticMusicBitrate = maxStaticMusicBitrate;
 
   ListBuilder<DirectPlayProfile>? _directPlayProfiles;
   ListBuilder<DirectPlayProfile> get directPlayProfiles =>
       _$this._directPlayProfiles ??= new ListBuilder<DirectPlayProfile>();
-  set directPlayProfiles(
-          covariant ListBuilder<DirectPlayProfile>? directPlayProfiles) =>
+  set directPlayProfiles(ListBuilder<DirectPlayProfile>? directPlayProfiles) =>
       _$this._directPlayProfiles = directPlayProfiles;
 
   ListBuilder<TranscodingProfile>? _transcodingProfiles;
   ListBuilder<TranscodingProfile> get transcodingProfiles =>
       _$this._transcodingProfiles ??= new ListBuilder<TranscodingProfile>();
   set transcodingProfiles(
-          covariant ListBuilder<TranscodingProfile>? transcodingProfiles) =>
+          ListBuilder<TranscodingProfile>? transcodingProfiles) =>
       _$this._transcodingProfiles = transcodingProfiles;
 
   ListBuilder<ContainerProfile>? _containerProfiles;
   ListBuilder<ContainerProfile> get containerProfiles =>
       _$this._containerProfiles ??= new ListBuilder<ContainerProfile>();
-  set containerProfiles(
-          covariant ListBuilder<ContainerProfile>? containerProfiles) =>
+  set containerProfiles(ListBuilder<ContainerProfile>? containerProfiles) =>
       _$this._containerProfiles = containerProfiles;
 
   ListBuilder<CodecProfile>? _codecProfiles;
   ListBuilder<CodecProfile> get codecProfiles =>
       _$this._codecProfiles ??= new ListBuilder<CodecProfile>();
-  set codecProfiles(covariant ListBuilder<CodecProfile>? codecProfiles) =>
+  set codecProfiles(ListBuilder<CodecProfile>? codecProfiles) =>
       _$this._codecProfiles = codecProfiles;
 
   ListBuilder<SubtitleProfile>? _subtitleProfiles;
   ListBuilder<SubtitleProfile> get subtitleProfiles =>
       _$this._subtitleProfiles ??= new ListBuilder<SubtitleProfile>();
-  set subtitleProfiles(
-          covariant ListBuilder<SubtitleProfile>? subtitleProfiles) =>
+  set subtitleProfiles(ListBuilder<SubtitleProfile>? subtitleProfiles) =>
       _$this._subtitleProfiles = subtitleProfiles;
 
-  $DeviceProfileBuilder() {
-    $DeviceProfile._defaults(this);
+  DeviceProfileBuilder() {
+    DeviceProfile._defaults(this);
   }
 
-  $DeviceProfileBuilder get _$this {
+  DeviceProfileBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _name = $v.name;
@@ -242,24 +198,24 @@ class $DeviceProfileBuilder
   }
 
   @override
-  void replace(covariant $DeviceProfile other) {
+  void replace(DeviceProfile other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$DeviceProfile;
+    _$v = other as _$DeviceProfile;
   }
 
   @override
-  void update(void Function($DeviceProfileBuilder)? updates) {
+  void update(void Function(DeviceProfileBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $DeviceProfile build() => _build();
+  DeviceProfile build() => _build();
 
-  _$$DeviceProfile _build() {
-    _$$DeviceProfile _$result;
+  _$DeviceProfile _build() {
+    _$DeviceProfile _$result;
     try {
       _$result = _$v ??
-          new _$$DeviceProfile._(
+          new _$DeviceProfile._(
               name: name,
               id: id,
               maxStreamingBitrate: maxStreamingBitrate,
@@ -287,7 +243,7 @@ class $DeviceProfileBuilder
         _subtitleProfiles?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$DeviceProfile', _$failedField, e.toString());
+            r'DeviceProfile', _$failedField, e.toString());
       }
       rethrow;
     }

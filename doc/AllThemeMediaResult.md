@@ -8,9 +8,9 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**themeVideosResult** | [**AllThemeMediaResultThemeVideosResult**](AllThemeMediaResultThemeVideosResult.md) |  | [optional] 
-**themeSongsResult** | [**AllThemeMediaResultThemeVideosResult**](AllThemeMediaResultThemeVideosResult.md) |  | [optional] 
-**soundtrackSongsResult** | [**AllThemeMediaResultThemeVideosResult**](AllThemeMediaResultThemeVideosResult.md) |  | [optional] 
+**themeVideosResult** | [**ThemeMediaResult**](ThemeMediaResult.md) | Class ThemeMediaResult. | [optional] 
+**themeSongsResult** | [**ThemeMediaResult**](ThemeMediaResult.md) | Class ThemeMediaResult. | [optional] 
+**soundtrackSongsResult** | [**ThemeMediaResult**](ThemeMediaResult.md) | Class ThemeMediaResult. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

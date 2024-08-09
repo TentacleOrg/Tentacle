@@ -6,35 +6,7 @@ part of 'task_result.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class TaskResultBuilder {
-  void replace(TaskResult other);
-  void update(void Function(TaskResultBuilder) updates);
-  DateTime? get startTimeUtc;
-  set startTimeUtc(DateTime? startTimeUtc);
-
-  DateTime? get endTimeUtc;
-  set endTimeUtc(DateTime? endTimeUtc);
-
-  TaskCompletionStatus? get status;
-  set status(TaskCompletionStatus? status);
-
-  String? get name;
-  set name(String? name);
-
-  String? get key;
-  set key(String? key);
-
-  String? get id;
-  set id(String? id);
-
-  String? get errorMessage;
-  set errorMessage(String? errorMessage);
-
-  String? get longErrorMessage;
-  set longErrorMessage(String? longErrorMessage);
-}
-
-class _$$TaskResult extends $TaskResult {
+class _$TaskResult extends TaskResult {
   @override
   final DateTime? startTimeUtc;
   @override
@@ -52,10 +24,10 @@ class _$$TaskResult extends $TaskResult {
   @override
   final String? longErrorMessage;
 
-  factory _$$TaskResult([void Function($TaskResultBuilder)? updates]) =>
-      (new $TaskResultBuilder()..update(updates))._build();
+  factory _$TaskResult([void Function(TaskResultBuilder)? updates]) =>
+      (new TaskResultBuilder()..update(updates))._build();
 
-  _$$TaskResult._(
+  _$TaskResult._(
       {this.startTimeUtc,
       this.endTimeUtc,
       this.status,
@@ -67,16 +39,16 @@ class _$$TaskResult extends $TaskResult {
       : super._();
 
   @override
-  $TaskResult rebuild(void Function($TaskResultBuilder) updates) =>
+  TaskResult rebuild(void Function(TaskResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $TaskResultBuilder toBuilder() => new $TaskResultBuilder()..replace(this);
+  TaskResultBuilder toBuilder() => new TaskResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $TaskResult &&
+    return other is TaskResult &&
         startTimeUtc == other.startTimeUtc &&
         endTimeUtc == other.endTimeUtc &&
         status == other.status &&
@@ -104,7 +76,7 @@ class _$$TaskResult extends $TaskResult {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$TaskResult')
+    return (newBuiltValueToStringHelper(r'TaskResult')
           ..add('startTimeUtc', startTimeUtc)
           ..add('endTimeUtc', endTimeUtc)
           ..add('status', status)
@@ -117,51 +89,48 @@ class _$$TaskResult extends $TaskResult {
   }
 }
 
-class $TaskResultBuilder
-    implements Builder<$TaskResult, $TaskResultBuilder>, TaskResultBuilder {
-  _$$TaskResult? _$v;
+class TaskResultBuilder implements Builder<TaskResult, TaskResultBuilder> {
+  _$TaskResult? _$v;
 
   DateTime? _startTimeUtc;
   DateTime? get startTimeUtc => _$this._startTimeUtc;
-  set startTimeUtc(covariant DateTime? startTimeUtc) =>
+  set startTimeUtc(DateTime? startTimeUtc) =>
       _$this._startTimeUtc = startTimeUtc;
 
   DateTime? _endTimeUtc;
   DateTime? get endTimeUtc => _$this._endTimeUtc;
-  set endTimeUtc(covariant DateTime? endTimeUtc) =>
-      _$this._endTimeUtc = endTimeUtc;
+  set endTimeUtc(DateTime? endTimeUtc) => _$this._endTimeUtc = endTimeUtc;
 
   TaskCompletionStatus? _status;
   TaskCompletionStatus? get status => _$this._status;
-  set status(covariant TaskCompletionStatus? status) => _$this._status = status;
+  set status(TaskCompletionStatus? status) => _$this._status = status;
 
   String? _name;
   String? get name => _$this._name;
-  set name(covariant String? name) => _$this._name = name;
+  set name(String? name) => _$this._name = name;
 
   String? _key;
   String? get key => _$this._key;
-  set key(covariant String? key) => _$this._key = key;
+  set key(String? key) => _$this._key = key;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   String? _errorMessage;
   String? get errorMessage => _$this._errorMessage;
-  set errorMessage(covariant String? errorMessage) =>
-      _$this._errorMessage = errorMessage;
+  set errorMessage(String? errorMessage) => _$this._errorMessage = errorMessage;
 
   String? _longErrorMessage;
   String? get longErrorMessage => _$this._longErrorMessage;
-  set longErrorMessage(covariant String? longErrorMessage) =>
+  set longErrorMessage(String? longErrorMessage) =>
       _$this._longErrorMessage = longErrorMessage;
 
-  $TaskResultBuilder() {
-    $TaskResult._defaults(this);
+  TaskResultBuilder() {
+    TaskResult._defaults(this);
   }
 
-  $TaskResultBuilder get _$this {
+  TaskResultBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _startTimeUtc = $v.startTimeUtc;
@@ -178,22 +147,22 @@ class $TaskResultBuilder
   }
 
   @override
-  void replace(covariant $TaskResult other) {
+  void replace(TaskResult other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$TaskResult;
+    _$v = other as _$TaskResult;
   }
 
   @override
-  void update(void Function($TaskResultBuilder)? updates) {
+  void update(void Function(TaskResultBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $TaskResult build() => _build();
+  TaskResult build() => _build();
 
-  _$$TaskResult _build() {
+  _$TaskResult _build() {
     final _$result = _$v ??
-        new _$$TaskResult._(
+        new _$TaskResult._(
             startTimeUtc: startTimeUtc,
             endTimeUtc: endTimeUtc,
             status: status,

@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/add_virtual_folder_dto_library_options.dart';
+import 'package:tentacle/src/model/library_options.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,7 +13,7 @@ part 'update_library_options_dto.g.dart';
 ///
 /// Properties:
 /// * [id] - Gets or sets the library item id.
-/// * [libraryOptions]
+/// * [libraryOptions] - Gets or sets library options.
 @BuiltValue()
 abstract class UpdateLibraryOptionsDto
     implements Built<UpdateLibraryOptionsDto, UpdateLibraryOptionsDtoBuilder> {
@@ -21,8 +21,9 @@ abstract class UpdateLibraryOptionsDto
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
+  /// Gets or sets library options.
   @BuiltValueField(wireName: r'LibraryOptions')
-  AddVirtualFolderDtoLibraryOptions? get libraryOptions;
+  LibraryOptions? get libraryOptions;
 
   UpdateLibraryOptionsDto._();
 
@@ -65,8 +66,7 @@ class _$UpdateLibraryOptionsDtoSerializer
       yield r'LibraryOptions';
       yield serializers.serialize(
         object.libraryOptions,
-        specifiedType:
-            const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
+        specifiedType: const FullType.nullable(LibraryOptions),
       );
     }
   }
@@ -104,9 +104,8 @@ class _$UpdateLibraryOptionsDtoSerializer
         case r'LibraryOptions':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(AddVirtualFolderDtoLibraryOptions),
-          ) as AddVirtualFolderDtoLibraryOptions?;
+            specifiedType: const FullType.nullable(LibraryOptions),
+          ) as LibraryOptions?;
           if (valueDes == null) continue;
           result.libraryOptions.replace(valueDes);
           break;

@@ -4,7 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/session_message_type.dart';
-import 'package:tentacle/src/model/play_message_data.dart';
+import 'package:tentacle/src/model/play_request.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,13 +13,14 @@ part 'play_message.g.dart';
 /// Play command websocket message.
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class PlayMessage implements Built<PlayMessage, PlayMessageBuilder> {
+  /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  PlayMessageData? get data;
+  PlayRequest? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -58,7 +59,7 @@ class _$PlayMessageSerializer implements PrimitiveSerializer<PlayMessage> {
       yield r'Data';
       yield serializers.serialize(
         object.data,
-        specifiedType: const FullType.nullable(PlayMessageData),
+        specifiedType: const FullType.nullable(PlayRequest),
       );
     }
     if (object.messageId != null) {
@@ -103,8 +104,8 @@ class _$PlayMessageSerializer implements PrimitiveSerializer<PlayMessage> {
         case r'Data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(PlayMessageData),
-          ) as PlayMessageData?;
+            specifiedType: const FullType.nullable(PlayRequest),
+          ) as PlayRequest?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

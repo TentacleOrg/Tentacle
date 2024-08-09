@@ -6,59 +6,7 @@ part of 'user_configuration.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class UserConfigurationBuilder {
-  void replace(UserConfiguration other);
-  void update(void Function(UserConfigurationBuilder) updates);
-  String? get audioLanguagePreference;
-  set audioLanguagePreference(String? audioLanguagePreference);
-
-  bool? get playDefaultAudioTrack;
-  set playDefaultAudioTrack(bool? playDefaultAudioTrack);
-
-  String? get subtitleLanguagePreference;
-  set subtitleLanguagePreference(String? subtitleLanguagePreference);
-
-  bool? get displayMissingEpisodes;
-  set displayMissingEpisodes(bool? displayMissingEpisodes);
-
-  ListBuilder<String> get groupedFolders;
-  set groupedFolders(ListBuilder<String>? groupedFolders);
-
-  SubtitlePlaybackMode? get subtitleMode;
-  set subtitleMode(SubtitlePlaybackMode? subtitleMode);
-
-  bool? get displayCollectionsView;
-  set displayCollectionsView(bool? displayCollectionsView);
-
-  bool? get enableLocalPassword;
-  set enableLocalPassword(bool? enableLocalPassword);
-
-  ListBuilder<String> get orderedViews;
-  set orderedViews(ListBuilder<String>? orderedViews);
-
-  ListBuilder<String> get latestItemsExcludes;
-  set latestItemsExcludes(ListBuilder<String>? latestItemsExcludes);
-
-  ListBuilder<String> get myMediaExcludes;
-  set myMediaExcludes(ListBuilder<String>? myMediaExcludes);
-
-  bool? get hidePlayedInLatest;
-  set hidePlayedInLatest(bool? hidePlayedInLatest);
-
-  bool? get rememberAudioSelections;
-  set rememberAudioSelections(bool? rememberAudioSelections);
-
-  bool? get rememberSubtitleSelections;
-  set rememberSubtitleSelections(bool? rememberSubtitleSelections);
-
-  bool? get enableNextEpisodeAutoPlay;
-  set enableNextEpisodeAutoPlay(bool? enableNextEpisodeAutoPlay);
-
-  String? get castReceiverId;
-  set castReceiverId(String? castReceiverId);
-}
-
-class _$$UserConfiguration extends $UserConfiguration {
+class _$UserConfiguration extends UserConfiguration {
   @override
   final String? audioLanguagePreference;
   @override
@@ -92,11 +40,11 @@ class _$$UserConfiguration extends $UserConfiguration {
   @override
   final String? castReceiverId;
 
-  factory _$$UserConfiguration(
-          [void Function($UserConfigurationBuilder)? updates]) =>
-      (new $UserConfigurationBuilder()..update(updates))._build();
+  factory _$UserConfiguration(
+          [void Function(UserConfigurationBuilder)? updates]) =>
+      (new UserConfigurationBuilder()..update(updates))._build();
 
-  _$$UserConfiguration._(
+  _$UserConfiguration._(
       {this.audioLanguagePreference,
       this.playDefaultAudioTrack,
       this.subtitleLanguagePreference,
@@ -116,18 +64,17 @@ class _$$UserConfiguration extends $UserConfiguration {
       : super._();
 
   @override
-  $UserConfiguration rebuild(
-          void Function($UserConfigurationBuilder) updates) =>
+  UserConfiguration rebuild(void Function(UserConfigurationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $UserConfigurationBuilder toBuilder() =>
-      new $UserConfigurationBuilder()..replace(this);
+  UserConfigurationBuilder toBuilder() =>
+      new UserConfigurationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $UserConfiguration &&
+    return other is UserConfiguration &&
         audioLanguagePreference == other.audioLanguagePreference &&
         playDefaultAudioTrack == other.playDefaultAudioTrack &&
         subtitleLanguagePreference == other.subtitleLanguagePreference &&
@@ -171,7 +118,7 @@ class _$$UserConfiguration extends $UserConfiguration {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$UserConfiguration')
+    return (newBuiltValueToStringHelper(r'UserConfiguration')
           ..add('audioLanguagePreference', audioLanguagePreference)
           ..add('playDefaultAudioTrack', playDefaultAudioTrack)
           ..add('subtitleLanguagePreference', subtitleLanguagePreference)
@@ -192,102 +139,99 @@ class _$$UserConfiguration extends $UserConfiguration {
   }
 }
 
-class $UserConfigurationBuilder
-    implements
-        Builder<$UserConfiguration, $UserConfigurationBuilder>,
-        UserConfigurationBuilder {
-  _$$UserConfiguration? _$v;
+class UserConfigurationBuilder
+    implements Builder<UserConfiguration, UserConfigurationBuilder> {
+  _$UserConfiguration? _$v;
 
   String? _audioLanguagePreference;
   String? get audioLanguagePreference => _$this._audioLanguagePreference;
-  set audioLanguagePreference(covariant String? audioLanguagePreference) =>
+  set audioLanguagePreference(String? audioLanguagePreference) =>
       _$this._audioLanguagePreference = audioLanguagePreference;
 
   bool? _playDefaultAudioTrack;
   bool? get playDefaultAudioTrack => _$this._playDefaultAudioTrack;
-  set playDefaultAudioTrack(covariant bool? playDefaultAudioTrack) =>
+  set playDefaultAudioTrack(bool? playDefaultAudioTrack) =>
       _$this._playDefaultAudioTrack = playDefaultAudioTrack;
 
   String? _subtitleLanguagePreference;
   String? get subtitleLanguagePreference => _$this._subtitleLanguagePreference;
-  set subtitleLanguagePreference(
-          covariant String? subtitleLanguagePreference) =>
+  set subtitleLanguagePreference(String? subtitleLanguagePreference) =>
       _$this._subtitleLanguagePreference = subtitleLanguagePreference;
 
   bool? _displayMissingEpisodes;
   bool? get displayMissingEpisodes => _$this._displayMissingEpisodes;
-  set displayMissingEpisodes(covariant bool? displayMissingEpisodes) =>
+  set displayMissingEpisodes(bool? displayMissingEpisodes) =>
       _$this._displayMissingEpisodes = displayMissingEpisodes;
 
   ListBuilder<String>? _groupedFolders;
   ListBuilder<String> get groupedFolders =>
       _$this._groupedFolders ??= new ListBuilder<String>();
-  set groupedFolders(covariant ListBuilder<String>? groupedFolders) =>
+  set groupedFolders(ListBuilder<String>? groupedFolders) =>
       _$this._groupedFolders = groupedFolders;
 
   SubtitlePlaybackMode? _subtitleMode;
   SubtitlePlaybackMode? get subtitleMode => _$this._subtitleMode;
-  set subtitleMode(covariant SubtitlePlaybackMode? subtitleMode) =>
+  set subtitleMode(SubtitlePlaybackMode? subtitleMode) =>
       _$this._subtitleMode = subtitleMode;
 
   bool? _displayCollectionsView;
   bool? get displayCollectionsView => _$this._displayCollectionsView;
-  set displayCollectionsView(covariant bool? displayCollectionsView) =>
+  set displayCollectionsView(bool? displayCollectionsView) =>
       _$this._displayCollectionsView = displayCollectionsView;
 
   bool? _enableLocalPassword;
   bool? get enableLocalPassword => _$this._enableLocalPassword;
-  set enableLocalPassword(covariant bool? enableLocalPassword) =>
+  set enableLocalPassword(bool? enableLocalPassword) =>
       _$this._enableLocalPassword = enableLocalPassword;
 
   ListBuilder<String>? _orderedViews;
   ListBuilder<String> get orderedViews =>
       _$this._orderedViews ??= new ListBuilder<String>();
-  set orderedViews(covariant ListBuilder<String>? orderedViews) =>
+  set orderedViews(ListBuilder<String>? orderedViews) =>
       _$this._orderedViews = orderedViews;
 
   ListBuilder<String>? _latestItemsExcludes;
   ListBuilder<String> get latestItemsExcludes =>
       _$this._latestItemsExcludes ??= new ListBuilder<String>();
-  set latestItemsExcludes(covariant ListBuilder<String>? latestItemsExcludes) =>
+  set latestItemsExcludes(ListBuilder<String>? latestItemsExcludes) =>
       _$this._latestItemsExcludes = latestItemsExcludes;
 
   ListBuilder<String>? _myMediaExcludes;
   ListBuilder<String> get myMediaExcludes =>
       _$this._myMediaExcludes ??= new ListBuilder<String>();
-  set myMediaExcludes(covariant ListBuilder<String>? myMediaExcludes) =>
+  set myMediaExcludes(ListBuilder<String>? myMediaExcludes) =>
       _$this._myMediaExcludes = myMediaExcludes;
 
   bool? _hidePlayedInLatest;
   bool? get hidePlayedInLatest => _$this._hidePlayedInLatest;
-  set hidePlayedInLatest(covariant bool? hidePlayedInLatest) =>
+  set hidePlayedInLatest(bool? hidePlayedInLatest) =>
       _$this._hidePlayedInLatest = hidePlayedInLatest;
 
   bool? _rememberAudioSelections;
   bool? get rememberAudioSelections => _$this._rememberAudioSelections;
-  set rememberAudioSelections(covariant bool? rememberAudioSelections) =>
+  set rememberAudioSelections(bool? rememberAudioSelections) =>
       _$this._rememberAudioSelections = rememberAudioSelections;
 
   bool? _rememberSubtitleSelections;
   bool? get rememberSubtitleSelections => _$this._rememberSubtitleSelections;
-  set rememberSubtitleSelections(covariant bool? rememberSubtitleSelections) =>
+  set rememberSubtitleSelections(bool? rememberSubtitleSelections) =>
       _$this._rememberSubtitleSelections = rememberSubtitleSelections;
 
   bool? _enableNextEpisodeAutoPlay;
   bool? get enableNextEpisodeAutoPlay => _$this._enableNextEpisodeAutoPlay;
-  set enableNextEpisodeAutoPlay(covariant bool? enableNextEpisodeAutoPlay) =>
+  set enableNextEpisodeAutoPlay(bool? enableNextEpisodeAutoPlay) =>
       _$this._enableNextEpisodeAutoPlay = enableNextEpisodeAutoPlay;
 
   String? _castReceiverId;
   String? get castReceiverId => _$this._castReceiverId;
-  set castReceiverId(covariant String? castReceiverId) =>
+  set castReceiverId(String? castReceiverId) =>
       _$this._castReceiverId = castReceiverId;
 
-  $UserConfigurationBuilder() {
-    $UserConfiguration._defaults(this);
+  UserConfigurationBuilder() {
+    UserConfiguration._defaults(this);
   }
 
-  $UserConfigurationBuilder get _$this {
+  UserConfigurationBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _audioLanguagePreference = $v.audioLanguagePreference;
@@ -312,24 +256,24 @@ class $UserConfigurationBuilder
   }
 
   @override
-  void replace(covariant $UserConfiguration other) {
+  void replace(UserConfiguration other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$UserConfiguration;
+    _$v = other as _$UserConfiguration;
   }
 
   @override
-  void update(void Function($UserConfigurationBuilder)? updates) {
+  void update(void Function(UserConfigurationBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $UserConfiguration build() => _build();
+  UserConfiguration build() => _build();
 
-  _$$UserConfiguration _build() {
-    _$$UserConfiguration _$result;
+  _$UserConfiguration _build() {
+    _$UserConfiguration _$result;
     try {
       _$result = _$v ??
-          new _$$UserConfiguration._(
+          new _$UserConfiguration._(
               audioLanguagePreference: audioLanguagePreference,
               playDefaultAudioTrack: playDefaultAudioTrack,
               subtitleLanguagePreference: subtitleLanguagePreference,
@@ -360,7 +304,7 @@ class $UserConfigurationBuilder
         _myMediaExcludes?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$UserConfiguration', _$failedField, e.toString());
+            r'UserConfiguration', _$failedField, e.toString());
       }
       rethrow;
     }

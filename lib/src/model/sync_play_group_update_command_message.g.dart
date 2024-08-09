@@ -9,7 +9,7 @@ part of 'sync_play_group_update_command_message.dart';
 class _$SyncPlayGroupUpdateCommandMessage
     extends SyncPlayGroupUpdateCommandMessage {
   @override
-  final SyncPlayGroupUpdateCommandMessageData? data;
+  final GroupUpdate? data;
   @override
   final String? messageId;
   @override
@@ -68,11 +68,9 @@ class SyncPlayGroupUpdateCommandMessageBuilder
             SyncPlayGroupUpdateCommandMessageBuilder> {
   _$SyncPlayGroupUpdateCommandMessage? _$v;
 
-  SyncPlayGroupUpdateCommandMessageDataBuilder? _data;
-  SyncPlayGroupUpdateCommandMessageDataBuilder get data =>
-      _$this._data ??= new SyncPlayGroupUpdateCommandMessageDataBuilder();
-  set data(SyncPlayGroupUpdateCommandMessageDataBuilder? data) =>
-      _$this._data = data;
+  GroupUpdateBuilder? _data;
+  GroupUpdateBuilder get data => _$this._data ??= new GroupUpdateBuilder();
+  set data(GroupUpdateBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

@@ -6,38 +6,7 @@ part of 'client_capabilities.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class ClientCapabilitiesBuilder {
-  void replace(ClientCapabilities other);
-  void update(void Function(ClientCapabilitiesBuilder) updates);
-  ListBuilder<MediaType> get playableMediaTypes;
-  set playableMediaTypes(ListBuilder<MediaType>? playableMediaTypes);
-
-  ListBuilder<GeneralCommandType> get supportedCommands;
-  set supportedCommands(ListBuilder<GeneralCommandType>? supportedCommands);
-
-  bool? get supportsMediaControl;
-  set supportsMediaControl(bool? supportsMediaControl);
-
-  bool? get supportsPersistentIdentifier;
-  set supportsPersistentIdentifier(bool? supportsPersistentIdentifier);
-
-  ClientCapabilitiesDeviceProfileBuilder get deviceProfile;
-  set deviceProfile(ClientCapabilitiesDeviceProfileBuilder? deviceProfile);
-
-  String? get appStoreUrl;
-  set appStoreUrl(String? appStoreUrl);
-
-  String? get iconUrl;
-  set iconUrl(String? iconUrl);
-
-  bool? get supportsContentUploading;
-  set supportsContentUploading(bool? supportsContentUploading);
-
-  bool? get supportsSync;
-  set supportsSync(bool? supportsSync);
-}
-
-class _$$ClientCapabilities extends $ClientCapabilities {
+class _$ClientCapabilities extends ClientCapabilities {
   @override
   final BuiltList<MediaType>? playableMediaTypes;
   @override
@@ -47,7 +16,7 @@ class _$$ClientCapabilities extends $ClientCapabilities {
   @override
   final bool? supportsPersistentIdentifier;
   @override
-  final ClientCapabilitiesDeviceProfile? deviceProfile;
+  final DeviceProfile? deviceProfile;
   @override
   final String? appStoreUrl;
   @override
@@ -57,11 +26,11 @@ class _$$ClientCapabilities extends $ClientCapabilities {
   @override
   final bool? supportsSync;
 
-  factory _$$ClientCapabilities(
-          [void Function($ClientCapabilitiesBuilder)? updates]) =>
-      (new $ClientCapabilitiesBuilder()..update(updates))._build();
+  factory _$ClientCapabilities(
+          [void Function(ClientCapabilitiesBuilder)? updates]) =>
+      (new ClientCapabilitiesBuilder()..update(updates))._build();
 
-  _$$ClientCapabilities._(
+  _$ClientCapabilities._(
       {this.playableMediaTypes,
       this.supportedCommands,
       this.supportsMediaControl,
@@ -74,18 +43,18 @@ class _$$ClientCapabilities extends $ClientCapabilities {
       : super._();
 
   @override
-  $ClientCapabilities rebuild(
-          void Function($ClientCapabilitiesBuilder) updates) =>
+  ClientCapabilities rebuild(
+          void Function(ClientCapabilitiesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $ClientCapabilitiesBuilder toBuilder() =>
-      new $ClientCapabilitiesBuilder()..replace(this);
+  ClientCapabilitiesBuilder toBuilder() =>
+      new ClientCapabilitiesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $ClientCapabilities &&
+    return other is ClientCapabilities &&
         playableMediaTypes == other.playableMediaTypes &&
         supportedCommands == other.supportedCommands &&
         supportsMediaControl == other.supportsMediaControl &&
@@ -115,7 +84,7 @@ class _$$ClientCapabilities extends $ClientCapabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$ClientCapabilities')
+    return (newBuiltValueToStringHelper(r'ClientCapabilities')
           ..add('playableMediaTypes', playableMediaTypes)
           ..add('supportedCommands', supportedCommands)
           ..add('supportsMediaControl', supportsMediaControl)
@@ -129,69 +98,61 @@ class _$$ClientCapabilities extends $ClientCapabilities {
   }
 }
 
-class $ClientCapabilitiesBuilder
-    implements
-        Builder<$ClientCapabilities, $ClientCapabilitiesBuilder>,
-        ClientCapabilitiesBuilder {
-  _$$ClientCapabilities? _$v;
+class ClientCapabilitiesBuilder
+    implements Builder<ClientCapabilities, ClientCapabilitiesBuilder> {
+  _$ClientCapabilities? _$v;
 
   ListBuilder<MediaType>? _playableMediaTypes;
   ListBuilder<MediaType> get playableMediaTypes =>
       _$this._playableMediaTypes ??= new ListBuilder<MediaType>();
-  set playableMediaTypes(
-          covariant ListBuilder<MediaType>? playableMediaTypes) =>
+  set playableMediaTypes(ListBuilder<MediaType>? playableMediaTypes) =>
       _$this._playableMediaTypes = playableMediaTypes;
 
   ListBuilder<GeneralCommandType>? _supportedCommands;
   ListBuilder<GeneralCommandType> get supportedCommands =>
       _$this._supportedCommands ??= new ListBuilder<GeneralCommandType>();
-  set supportedCommands(
-          covariant ListBuilder<GeneralCommandType>? supportedCommands) =>
+  set supportedCommands(ListBuilder<GeneralCommandType>? supportedCommands) =>
       _$this._supportedCommands = supportedCommands;
 
   bool? _supportsMediaControl;
   bool? get supportsMediaControl => _$this._supportsMediaControl;
-  set supportsMediaControl(covariant bool? supportsMediaControl) =>
+  set supportsMediaControl(bool? supportsMediaControl) =>
       _$this._supportsMediaControl = supportsMediaControl;
 
   bool? _supportsPersistentIdentifier;
   bool? get supportsPersistentIdentifier =>
       _$this._supportsPersistentIdentifier;
-  set supportsPersistentIdentifier(
-          covariant bool? supportsPersistentIdentifier) =>
+  set supportsPersistentIdentifier(bool? supportsPersistentIdentifier) =>
       _$this._supportsPersistentIdentifier = supportsPersistentIdentifier;
 
-  ClientCapabilitiesDeviceProfileBuilder? _deviceProfile;
-  ClientCapabilitiesDeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new ClientCapabilitiesDeviceProfileBuilder();
-  set deviceProfile(
-          covariant ClientCapabilitiesDeviceProfileBuilder? deviceProfile) =>
+  DeviceProfileBuilder? _deviceProfile;
+  DeviceProfileBuilder get deviceProfile =>
+      _$this._deviceProfile ??= new DeviceProfileBuilder();
+  set deviceProfile(DeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
   String? _appStoreUrl;
   String? get appStoreUrl => _$this._appStoreUrl;
-  set appStoreUrl(covariant String? appStoreUrl) =>
-      _$this._appStoreUrl = appStoreUrl;
+  set appStoreUrl(String? appStoreUrl) => _$this._appStoreUrl = appStoreUrl;
 
   String? _iconUrl;
   String? get iconUrl => _$this._iconUrl;
-  set iconUrl(covariant String? iconUrl) => _$this._iconUrl = iconUrl;
+  set iconUrl(String? iconUrl) => _$this._iconUrl = iconUrl;
 
   bool? _supportsContentUploading;
   bool? get supportsContentUploading => _$this._supportsContentUploading;
-  set supportsContentUploading(covariant bool? supportsContentUploading) =>
+  set supportsContentUploading(bool? supportsContentUploading) =>
       _$this._supportsContentUploading = supportsContentUploading;
 
   bool? _supportsSync;
   bool? get supportsSync => _$this._supportsSync;
-  set supportsSync(covariant bool? supportsSync) =>
-      _$this._supportsSync = supportsSync;
+  set supportsSync(bool? supportsSync) => _$this._supportsSync = supportsSync;
 
-  $ClientCapabilitiesBuilder() {
-    $ClientCapabilities._defaults(this);
+  ClientCapabilitiesBuilder() {
+    ClientCapabilities._defaults(this);
   }
 
-  $ClientCapabilitiesBuilder get _$this {
+  ClientCapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _playableMediaTypes = $v.playableMediaTypes?.toBuilder();
@@ -209,24 +170,24 @@ class $ClientCapabilitiesBuilder
   }
 
   @override
-  void replace(covariant $ClientCapabilities other) {
+  void replace(ClientCapabilities other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$ClientCapabilities;
+    _$v = other as _$ClientCapabilities;
   }
 
   @override
-  void update(void Function($ClientCapabilitiesBuilder)? updates) {
+  void update(void Function(ClientCapabilitiesBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $ClientCapabilities build() => _build();
+  ClientCapabilities build() => _build();
 
-  _$$ClientCapabilities _build() {
-    _$$ClientCapabilities _$result;
+  _$ClientCapabilities _build() {
+    _$ClientCapabilities _$result;
     try {
       _$result = _$v ??
-          new _$$ClientCapabilities._(
+          new _$ClientCapabilities._(
               playableMediaTypes: _playableMediaTypes?.build(),
               supportedCommands: _supportedCommands?.build(),
               supportsMediaControl: supportsMediaControl,
@@ -248,7 +209,7 @@ class $ClientCapabilitiesBuilder
         _deviceProfile?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$ClientCapabilities', _$failedField, e.toString());
+            r'ClientCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -10,7 +10,7 @@ class _$PlaybackProgressInfo extends PlaybackProgressInfo {
   @override
   final bool? canSeek;
   @override
-  final PlaybackProgressInfoItem? item;
+  final BaseItemDto? item;
   @override
   final String? itemId;
   @override
@@ -178,10 +178,9 @@ class PlaybackProgressInfoBuilder
   bool? get canSeek => _$this._canSeek;
   set canSeek(bool? canSeek) => _$this._canSeek = canSeek;
 
-  PlaybackProgressInfoItemBuilder? _item;
-  PlaybackProgressInfoItemBuilder get item =>
-      _$this._item ??= new PlaybackProgressInfoItemBuilder();
-  set item(PlaybackProgressInfoItemBuilder? item) => _$this._item = item;
+  BaseItemDtoBuilder? _item;
+  BaseItemDtoBuilder get item => _$this._item ??= new BaseItemDtoBuilder();
+  set item(BaseItemDtoBuilder? item) => _$this._item = item;
 
   String? _itemId;
   String? get itemId => _$this._itemId;

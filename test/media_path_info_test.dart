@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for MediaPathInfo
 void main() {
-  //final instance = MediaPathInfoBuilder();
+  final instance = MediaPathInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(MediaPathInfo, () {

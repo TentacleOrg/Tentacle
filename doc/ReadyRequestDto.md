@@ -8,7 +8,7 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**when** | [**DateTime**](DateTime.md) | Gets or sets when the request has been made by the client. | [optional] 
+**when_** | [**DateTime**](DateTime.md) | Gets or sets when the request has been made by the client. | [optional] 
 **positionTicks** | **int** | Gets or sets the position ticks. | [optional] 
 **isPlaying** | **bool** | Gets or sets a value indicating whether the client playback is unpaused. | [optional] 
 **playlistItemId** | **String** | Gets or sets the playlist item identifier of the playing item. | [optional] 

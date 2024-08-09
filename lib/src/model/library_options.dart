@@ -48,8 +48,9 @@ part 'library_options.g.dart';
 /// * [automaticallyAddToCollection]
 /// * [allowEmbeddedSubtitles] - An enum representing the options to disable embedded subs.
 /// * [typeOptions]
-@BuiltValue(instantiable: false)
-abstract class LibraryOptions {
+@BuiltValue()
+abstract class LibraryOptions
+    implements Built<LibraryOptions, LibraryOptionsBuilder> {
   @BuiltValueField(wireName: r'Enabled')
   bool? get enabled;
 
@@ -154,6 +155,15 @@ abstract class LibraryOptions {
   @BuiltValueField(wireName: r'TypeOptions')
   BuiltList<TypeOptions>? get typeOptions;
 
+  LibraryOptions._();
+
+  factory LibraryOptions([void updates(LibraryOptionsBuilder b)]) =
+      _$LibraryOptions;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(LibraryOptionsBuilder b) =>
+      b..saveLyricsWithMedia = false;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<LibraryOptions> get serializer =>
       _$LibraryOptionsSerializer();
@@ -162,7 +172,7 @@ abstract class LibraryOptions {
 class _$LibraryOptionsSerializer
     implements PrimitiveSerializer<LibraryOptions> {
   @override
-  final Iterable<Type> types = const [LibraryOptions];
+  final Iterable<Type> types = const [LibraryOptions, _$LibraryOptions];
 
   @override
   final String wireName = r'LibraryOptions';
@@ -414,52 +424,6 @@ class _$LibraryOptionsSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  LibraryOptions deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($LibraryOptions)) as $LibraryOptions;
-  }
-}
-
-/// a concrete implementation of [LibraryOptions], since [LibraryOptions] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $LibraryOptions
-    implements LibraryOptions, Built<$LibraryOptions, $LibraryOptionsBuilder> {
-  $LibraryOptions._();
-
-  factory $LibraryOptions([void Function($LibraryOptionsBuilder)? updates]) =
-      _$$LibraryOptions;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($LibraryOptionsBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$LibraryOptions> get serializer =>
-      _$$LibraryOptionsSerializer();
-}
-
-class _$$LibraryOptionsSerializer
-    implements PrimitiveSerializer<$LibraryOptions> {
-  @override
-  final Iterable<Type> types = const [$LibraryOptions, _$$LibraryOptions];
-
-  @override
-  final String wireName = r'$LibraryOptions';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $LibraryOptions object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object,
-        specifiedType: FullType(LibraryOptions))!;
   }
 
   void _deserializeProperties(
@@ -722,12 +686,12 @@ class _$$LibraryOptionsSerializer
   }
 
   @override
-  $LibraryOptions deserialize(
+  LibraryOptions deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $LibraryOptionsBuilder();
+    final result = LibraryOptionsBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

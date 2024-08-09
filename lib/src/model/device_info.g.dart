@@ -26,7 +26,7 @@ class _$DeviceInfo extends DeviceInfo {
   @override
   final DateTime? dateLastActivity;
   @override
-  final DeviceInfoCapabilities? capabilities;
+  final ClientCapabilities? capabilities;
   @override
   final String? iconUrl;
 
@@ -147,10 +147,10 @@ class DeviceInfoBuilder implements Builder<DeviceInfo, DeviceInfoBuilder> {
   set dateLastActivity(DateTime? dateLastActivity) =>
       _$this._dateLastActivity = dateLastActivity;
 
-  DeviceInfoCapabilitiesBuilder? _capabilities;
-  DeviceInfoCapabilitiesBuilder get capabilities =>
-      _$this._capabilities ??= new DeviceInfoCapabilitiesBuilder();
-  set capabilities(DeviceInfoCapabilitiesBuilder? capabilities) =>
+  ClientCapabilitiesBuilder? _capabilities;
+  ClientCapabilitiesBuilder get capabilities =>
+      _$this._capabilities ??= new ClientCapabilitiesBuilder();
+  set capabilities(ClientCapabilitiesBuilder? capabilities) =>
       _$this._capabilities = capabilities;
 
   String? _iconUrl;

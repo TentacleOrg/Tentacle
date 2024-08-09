@@ -21,11 +21,9 @@ import 'package:tentacle/src/model/activity_log_entry_query_result.dart';
 import 'package:tentacle/src/model/activity_log_entry_start_message.dart';
 import 'package:tentacle/src/model/activity_log_entry_stop_message.dart';
 import 'package:tentacle/src/model/add_virtual_folder_dto.dart';
-import 'package:tentacle/src/model/add_virtual_folder_dto_library_options.dart';
 import 'package:tentacle/src/model/album_info.dart';
 import 'package:tentacle/src/model/album_info_remote_search_query.dart';
 import 'package:tentacle/src/model/all_theme_media_result.dart';
-import 'package:tentacle/src/model/all_theme_media_result_theme_videos_result.dart';
 import 'package:tentacle/src/model/artist_info.dart';
 import 'package:tentacle/src/model/artist_info_remote_search_query.dart';
 import 'package:tentacle/src/model/audio_spatial_format.dart';
@@ -33,13 +31,9 @@ import 'package:tentacle/src/model/authenticate_user_by_name.dart';
 import 'package:tentacle/src/model/authentication_info.dart';
 import 'package:tentacle/src/model/authentication_info_query_result.dart';
 import 'package:tentacle/src/model/authentication_result.dart';
-import 'package:tentacle/src/model/authentication_result_session_info.dart';
-import 'package:tentacle/src/model/authentication_result_user.dart';
 import 'package:tentacle/src/model/base_item_dto.dart';
-import 'package:tentacle/src/model/base_item_dto_current_program.dart';
 import 'package:tentacle/src/model/base_item_dto_image_blur_hashes.dart';
 import 'package:tentacle/src/model/base_item_dto_query_result.dart';
-import 'package:tentacle/src/model/base_item_dto_user_data.dart';
 import 'package:tentacle/src/model/base_item_kind.dart';
 import 'package:tentacle/src/model/base_item_person.dart';
 import 'package:tentacle/src/model/base_item_person_image_blur_hashes.dart';
@@ -58,7 +52,6 @@ import 'package:tentacle/src/model/channel_media_type.dart';
 import 'package:tentacle/src/model/channel_type.dart';
 import 'package:tentacle/src/model/chapter_info.dart';
 import 'package:tentacle/src/model/client_capabilities.dart';
-import 'package:tentacle/src/model/client_capabilities_device_profile.dart';
 import 'package:tentacle/src/model/client_capabilities_dto.dart';
 import 'package:tentacle/src/model/client_log_document_response_dto.dart';
 import 'package:tentacle/src/model/codec_profile.dart';
@@ -77,7 +70,6 @@ import 'package:tentacle/src/model/day_of_week.dart';
 import 'package:tentacle/src/model/day_pattern.dart';
 import 'package:tentacle/src/model/default_directory_browser_info_dto.dart';
 import 'package:tentacle/src/model/device_info.dart';
-import 'package:tentacle/src/model/device_info_capabilities.dart';
 import 'package:tentacle/src/model/device_info_query_result.dart';
 import 'package:tentacle/src/model/device_options.dart';
 import 'package:tentacle/src/model/device_options_dto.dart';
@@ -105,7 +97,6 @@ import 'package:tentacle/src/model/forgot_password_pin_dto.dart';
 import 'package:tentacle/src/model/forgot_password_result.dart';
 import 'package:tentacle/src/model/general_command.dart';
 import 'package:tentacle/src/model/general_command_message.dart';
-import 'package:tentacle/src/model/general_command_message_data.dart';
 import 'package:tentacle/src/model/general_command_type.dart';
 import 'package:tentacle/src/model/get_programs_dto.dart';
 import 'package:tentacle/src/model/group_info_dto.dart';
@@ -133,7 +124,6 @@ import 'package:tentacle/src/model/image_type.dart';
 import 'package:tentacle/src/model/inbound_keep_alive_message.dart';
 import 'package:tentacle/src/model/inbound_web_socket_message.dart';
 import 'package:tentacle/src/model/installation_info.dart';
-import 'package:tentacle/src/model/installation_info_package_info.dart';
 import 'package:tentacle/src/model/iso_type.dart';
 import 'package:tentacle/src/model/item_counts.dart';
 import 'package:tentacle/src/model/item_fields.dart';
@@ -142,7 +132,6 @@ import 'package:tentacle/src/model/item_sort_by.dart';
 import 'package:tentacle/src/model/join_group_request_dto.dart';
 import 'package:tentacle/src/model/keep_until.dart';
 import 'package:tentacle/src/model/library_changed_message.dart';
-import 'package:tentacle/src/model/library_changed_message_data.dart';
 import 'package:tentacle/src/model/library_option_info_dto.dart';
 import 'package:tentacle/src/model/library_options.dart';
 import 'package:tentacle/src/model/library_options_result_dto.dart';
@@ -163,7 +152,6 @@ import 'package:tentacle/src/model/lyric_line.dart';
 import 'package:tentacle/src/model/lyric_metadata.dart';
 import 'package:tentacle/src/model/media_attachment.dart';
 import 'package:tentacle/src/model/media_path_dto.dart';
-import 'package:tentacle/src/model/media_path_dto_path_info.dart';
 import 'package:tentacle/src/model/media_path_info.dart';
 import 'package:tentacle/src/model/media_protocol.dart';
 import 'package:tentacle/src/model/media_source_info.dart';
@@ -206,7 +194,6 @@ import 'package:tentacle/src/model/ping_request_dto.dart';
 import 'package:tentacle/src/model/play_access.dart';
 import 'package:tentacle/src/model/play_command.dart';
 import 'package:tentacle/src/model/play_message.dart';
-import 'package:tentacle/src/model/play_message_data.dart';
 import 'package:tentacle/src/model/play_method.dart';
 import 'package:tentacle/src/model/play_queue_update.dart';
 import 'package:tentacle/src/model/play_queue_update_group_update.dart';
@@ -218,7 +205,6 @@ import 'package:tentacle/src/model/playback_info_dto.dart';
 import 'package:tentacle/src/model/playback_info_response.dart';
 import 'package:tentacle/src/model/playback_order.dart';
 import 'package:tentacle/src/model/playback_progress_info.dart';
-import 'package:tentacle/src/model/playback_progress_info_item.dart';
 import 'package:tentacle/src/model/playback_request_type.dart';
 import 'package:tentacle/src/model/playback_start_info.dart';
 import 'package:tentacle/src/model/playback_stop_info.dart';
@@ -227,17 +213,14 @@ import 'package:tentacle/src/model/playlist_creation_result.dart';
 import 'package:tentacle/src/model/playlist_user_permissions.dart';
 import 'package:tentacle/src/model/playstate_command.dart';
 import 'package:tentacle/src/model/playstate_message.dart';
-import 'package:tentacle/src/model/playstate_message_data.dart';
 import 'package:tentacle/src/model/playstate_request.dart';
 import 'package:tentacle/src/model/plugin_info.dart';
 import 'package:tentacle/src/model/plugin_installation_cancelled_message.dart';
-import 'package:tentacle/src/model/plugin_installation_cancelled_message_data.dart';
 import 'package:tentacle/src/model/plugin_installation_completed_message.dart';
 import 'package:tentacle/src/model/plugin_installation_failed_message.dart';
 import 'package:tentacle/src/model/plugin_installing_message.dart';
 import 'package:tentacle/src/model/plugin_status.dart';
 import 'package:tentacle/src/model/plugin_uninstalled_message.dart';
-import 'package:tentacle/src/model/plugin_uninstalled_message_data.dart';
 import 'package:tentacle/src/model/previous_item_request_dto.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/process_priority_class.dart';
@@ -268,7 +251,6 @@ import 'package:tentacle/src/model/repeat_mode.dart';
 import 'package:tentacle/src/model/repository_info.dart';
 import 'package:tentacle/src/model/restart_required_message.dart';
 import 'package:tentacle/src/model/scheduled_task_ended_message.dart';
-import 'package:tentacle/src/model/scheduled_task_ended_message_data.dart';
 import 'package:tentacle/src/model/scheduled_tasks_info_message.dart';
 import 'package:tentacle/src/model/scheduled_tasks_info_start_message.dart';
 import 'package:tentacle/src/model/scheduled_tasks_info_stop_message.dart';
@@ -282,7 +264,6 @@ import 'package:tentacle/src/model/series_info.dart';
 import 'package:tentacle/src/model/series_info_remote_search_query.dart';
 import 'package:tentacle/src/model/series_status.dart';
 import 'package:tentacle/src/model/series_timer_cancelled_message.dart';
-import 'package:tentacle/src/model/series_timer_cancelled_message_data.dart';
 import 'package:tentacle/src/model/series_timer_created_message.dart';
 import 'package:tentacle/src/model/series_timer_info_dto.dart';
 import 'package:tentacle/src/model/series_timer_info_dto_query_result.dart';
@@ -291,7 +272,6 @@ import 'package:tentacle/src/model/server_discovery_info.dart';
 import 'package:tentacle/src/model/server_restarting_message.dart';
 import 'package:tentacle/src/model/server_shutting_down_message.dart';
 import 'package:tentacle/src/model/session_info.dart';
-import 'package:tentacle/src/model/session_info_now_playing_item.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:tentacle/src/model/session_user_info.dart';
 import 'package:tentacle/src/model/sessions_message.dart';
@@ -313,15 +293,12 @@ import 'package:tentacle/src/model/subtitle_options.dart';
 import 'package:tentacle/src/model/subtitle_playback_mode.dart';
 import 'package:tentacle/src/model/subtitle_profile.dart';
 import 'package:tentacle/src/model/sync_play_command_message.dart';
-import 'package:tentacle/src/model/sync_play_command_message_data.dart';
 import 'package:tentacle/src/model/sync_play_group_update_command_message.dart';
-import 'package:tentacle/src/model/sync_play_group_update_command_message_data.dart';
 import 'package:tentacle/src/model/sync_play_queue_item.dart';
 import 'package:tentacle/src/model/sync_play_user_access_type.dart';
 import 'package:tentacle/src/model/system_info.dart';
 import 'package:tentacle/src/model/task_completion_status.dart';
 import 'package:tentacle/src/model/task_info.dart';
-import 'package:tentacle/src/model/task_info_last_execution_result.dart';
 import 'package:tentacle/src/model/task_result.dart';
 import 'package:tentacle/src/model/task_state.dart';
 import 'package:tentacle/src/model/task_trigger_info.dart';
@@ -330,7 +307,6 @@ import 'package:tentacle/src/model/timer_cancelled_message.dart';
 import 'package:tentacle/src/model/timer_created_message.dart';
 import 'package:tentacle/src/model/timer_event_info.dart';
 import 'package:tentacle/src/model/timer_info_dto.dart';
-import 'package:tentacle/src/model/timer_info_dto_program_info.dart';
 import 'package:tentacle/src/model/timer_info_dto_query_result.dart';
 import 'package:tentacle/src/model/trailer_info.dart';
 import 'package:tentacle/src/model/trailer_info_remote_search_query.dart';
@@ -356,11 +332,8 @@ import 'package:tentacle/src/model/upload_subtitle_dto.dart';
 import 'package:tentacle/src/model/user_configuration.dart';
 import 'package:tentacle/src/model/user_data_change_info.dart';
 import 'package:tentacle/src/model/user_data_changed_message.dart';
-import 'package:tentacle/src/model/user_data_changed_message_data.dart';
 import 'package:tentacle/src/model/user_deleted_message.dart';
 import 'package:tentacle/src/model/user_dto.dart';
-import 'package:tentacle/src/model/user_dto_configuration.dart';
-import 'package:tentacle/src/model/user_dto_policy.dart';
 import 'package:tentacle/src/model/user_item_data_dto.dart';
 import 'package:tentacle/src/model/user_policy.dart';
 import 'package:tentacle/src/model/user_updated_message.dart';
@@ -386,11 +359,9 @@ part 'serializers.g.dart';
   ActivityLogEntryStartMessage,
   ActivityLogEntryStopMessage,
   AddVirtualFolderDto,
-  AddVirtualFolderDtoLibraryOptions,
   AlbumInfo,
   AlbumInfoRemoteSearchQuery,
   AllThemeMediaResult,
-  AllThemeMediaResultThemeVideosResult,
   ArtistInfo,
   ArtistInfoRemoteSearchQuery,
   AudioSpatialFormat,
@@ -398,14 +369,9 @@ part 'serializers.g.dart';
   AuthenticationInfo,
   AuthenticationInfoQueryResult,
   AuthenticationResult,
-  AuthenticationResultSessionInfo,
-  AuthenticationResultUser,
   BaseItemDto,
-  $BaseItemDto,
-  BaseItemDtoCurrentProgram,
   BaseItemDtoImageBlurHashes,
   BaseItemDtoQueryResult,
-  BaseItemDtoUserData,
   BaseItemKind,
   BaseItemPerson,
   BaseItemPersonImageBlurHashes,
@@ -424,8 +390,6 @@ part 'serializers.g.dart';
   ChannelType,
   ChapterInfo,
   ClientCapabilities,
-  $ClientCapabilities,
-  ClientCapabilitiesDeviceProfile,
   ClientCapabilitiesDto,
   ClientLogDocumentResponseDto,
   CodecProfile,
@@ -444,12 +408,10 @@ part 'serializers.g.dart';
   DayPattern,
   DefaultDirectoryBrowserInfoDto,
   DeviceInfo,
-  DeviceInfoCapabilities,
   DeviceInfoQueryResult,
   DeviceOptions,
   DeviceOptionsDto,
   DeviceProfile,
-  $DeviceProfile,
   DirectPlayProfile,
   DisplayPreferencesDto,
   DlnaProfileType,
@@ -472,9 +434,7 @@ part 'serializers.g.dart';
   ForgotPasswordPinDto,
   ForgotPasswordResult,
   GeneralCommand,
-  $GeneralCommand,
   GeneralCommandMessage,
-  GeneralCommandMessageData,
   GeneralCommandType,
   GetProgramsDto,
   GroupInfoDto,
@@ -486,7 +446,6 @@ part 'serializers.g.dart';
   GroupStateUpdate,
   GroupStateUpdateGroupUpdate,
   GroupUpdate,
-  $GroupUpdate,
   GroupUpdateType,
   GuideInfo,
   HardwareEncodingType,
@@ -503,8 +462,6 @@ part 'serializers.g.dart';
   InboundKeepAliveMessage,
   InboundWebSocketMessage,
   InstallationInfo,
-  $InstallationInfo,
-  InstallationInfoPackageInfo,
   IsoType,
   ItemCounts,
   ItemFields,
@@ -513,14 +470,11 @@ part 'serializers.g.dart';
   JoinGroupRequestDto,
   KeepUntil,
   LibraryChangedMessage,
-  LibraryChangedMessageData,
   LibraryOptionInfoDto,
   LibraryOptions,
-  $LibraryOptions,
   LibraryOptionsResultDto,
   LibraryTypeOptionsDto,
   LibraryUpdateInfo,
-  $LibraryUpdateInfo,
   ListingsProviderInfo,
   LiveStreamResponse,
   LiveTvInfo,
@@ -536,9 +490,7 @@ part 'serializers.g.dart';
   LyricMetadata,
   MediaAttachment,
   MediaPathDto,
-  MediaPathDtoPathInfo,
   MediaPathInfo,
-  $MediaPathInfo,
   MediaProtocol,
   MediaSourceInfo,
   MediaSourceType,
@@ -570,7 +522,6 @@ part 'serializers.g.dart';
   OutboundKeepAliveMessage,
   OutboundWebSocketMessage,
   PackageInfo,
-  $PackageInfo,
   ParentalRating,
   PathSubstitution,
   PersonKind,
@@ -581,20 +532,17 @@ part 'serializers.g.dart';
   PlayAccess,
   PlayCommand,
   PlayMessage,
-  PlayMessageData,
   PlayMethod,
   PlayQueueUpdate,
   PlayQueueUpdateGroupUpdate,
   PlayQueueUpdateReason,
   PlayRequest,
-  $PlayRequest,
   PlayRequestDto,
   PlaybackErrorCode,
   PlaybackInfoDto,
   PlaybackInfoResponse,
   PlaybackOrder,
   PlaybackProgressInfo,
-  PlaybackProgressInfoItem,
   PlaybackRequestType,
   PlaybackStartInfo,
   PlaybackStopInfo,
@@ -603,19 +551,14 @@ part 'serializers.g.dart';
   PlaylistUserPermissions,
   PlaystateCommand,
   PlaystateMessage,
-  PlaystateMessageData,
   PlaystateRequest,
-  $PlaystateRequest,
   PluginInfo,
-  $PluginInfo,
   PluginInstallationCancelledMessage,
-  PluginInstallationCancelledMessageData,
   PluginInstallationCompletedMessage,
   PluginInstallationFailedMessage,
   PluginInstallingMessage,
   PluginStatus,
   PluginUninstalledMessage,
-  PluginUninstalledMessageData,
   PreviousItemRequestDto,
   ProblemDetails,
   ProcessPriorityClass,
@@ -646,7 +589,6 @@ part 'serializers.g.dart';
   RepositoryInfo,
   RestartRequiredMessage,
   ScheduledTaskEndedMessage,
-  ScheduledTaskEndedMessageData,
   ScheduledTasksInfoMessage,
   ScheduledTasksInfoStartMessage,
   ScheduledTasksInfoStopMessage,
@@ -655,13 +597,11 @@ part 'serializers.g.dart';
   SearchHintResult,
   SeekRequestDto,
   SendCommand,
-  $SendCommand,
   SendCommandType,
   SeriesInfo,
   SeriesInfoRemoteSearchQuery,
   SeriesStatus,
   SeriesTimerCancelledMessage,
-  SeriesTimerCancelledMessageData,
   SeriesTimerCreatedMessage,
   SeriesTimerInfoDto,
   SeriesTimerInfoDtoQueryResult,
@@ -670,8 +610,6 @@ part 'serializers.g.dart';
   ServerRestartingMessage,
   ServerShuttingDownMessage,
   SessionInfo,
-  $SessionInfo,
-  SessionInfoNowPlayingItem,
   SessionMessageType,
   SessionUserInfo,
   SessionsMessage,
@@ -693,27 +631,20 @@ part 'serializers.g.dart';
   SubtitlePlaybackMode,
   SubtitleProfile,
   SyncPlayCommandMessage,
-  SyncPlayCommandMessageData,
   SyncPlayGroupUpdateCommandMessage,
-  SyncPlayGroupUpdateCommandMessageData,
   SyncPlayQueueItem,
   SyncPlayUserAccessType,
   SystemInfo,
   TaskCompletionStatus,
   TaskInfo,
-  TaskInfoLastExecutionResult,
   TaskResult,
-  $TaskResult,
   TaskState,
   TaskTriggerInfo,
   ThemeMediaResult,
-  $ThemeMediaResult,
   TimerCancelledMessage,
   TimerCreatedMessage,
   TimerEventInfo,
-  $TimerEventInfo,
   TimerInfoDto,
-  TimerInfoDtoProgramInfo,
   TimerInfoDtoQueryResult,
   TrailerInfo,
   TrailerInfoRemoteSearchQuery,
@@ -737,20 +668,12 @@ part 'serializers.g.dart';
   UpdateUserPassword,
   UploadSubtitleDto,
   UserConfiguration,
-  $UserConfiguration,
   UserDataChangeInfo,
-  $UserDataChangeInfo,
   UserDataChangedMessage,
-  UserDataChangedMessageData,
   UserDeletedMessage,
   UserDto,
-  $UserDto,
-  UserDtoConfiguration,
-  UserDtoPolicy,
   UserItemDataDto,
-  $UserItemDataDto,
   UserPolicy,
-  $UserPolicy,
   UserUpdatedMessage,
   UtcTimeResponse,
   ValidatePathDto,
@@ -953,29 +876,6 @@ Serializers serializers = (_$serializers.toBuilder()
         const FullType(BuiltList, [FullType(PlaylistUserPermissions)]),
         () => ListBuilder<PlaylistUserPermissions>(),
       )
-      ..add(BaseItemDto.serializer)
-      ..add(ClientCapabilities.serializer)
-      ..add(DeviceProfile.serializer)
-      ..add(GeneralCommand.serializer)
-      ..add(GroupUpdate.serializer)
-      ..add(InstallationInfo.serializer)
-      ..add(LibraryOptions.serializer)
-      ..add(LibraryUpdateInfo.serializer)
-      ..add(MediaPathInfo.serializer)
-      ..add(PackageInfo.serializer)
-      ..add(PlayRequest.serializer)
-      ..add(PlaystateRequest.serializer)
-      ..add(PluginInfo.serializer)
-      ..add(SendCommand.serializer)
-      ..add(SessionInfo.serializer)
-      ..add(TaskResult.serializer)
-      ..add(ThemeMediaResult.serializer)
-      ..add(TimerEventInfo.serializer)
-      ..add(UserConfiguration.serializer)
-      ..add(UserDataChangeInfo.serializer)
-      ..add(UserDto.serializer)
-      ..add(UserItemDataDto.serializer)
-      ..add(UserPolicy.serializer)
       ..add(const OneOfSerializer())
       ..add(const AnyOfSerializer())
       ..add(const DateSerializer())

@@ -19,8 +19,9 @@ part 'library_update_info.g.dart';
 /// * [itemsUpdated] - Gets or sets the items updated.
 /// * [collectionFolders]
 /// * [isEmpty]
-@BuiltValue(instantiable: false)
-abstract class LibraryUpdateInfo {
+@BuiltValue()
+abstract class LibraryUpdateInfo
+    implements Built<LibraryUpdateInfo, LibraryUpdateInfoBuilder> {
   /// Gets or sets the folders added to.
   @BuiltValueField(wireName: r'FoldersAddedTo')
   BuiltList<String>? get foldersAddedTo;
@@ -47,6 +48,14 @@ abstract class LibraryUpdateInfo {
   @BuiltValueField(wireName: r'IsEmpty')
   bool? get isEmpty;
 
+  LibraryUpdateInfo._();
+
+  factory LibraryUpdateInfo([void updates(LibraryUpdateInfoBuilder b)]) =
+      _$LibraryUpdateInfo;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(LibraryUpdateInfoBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<LibraryUpdateInfo> get serializer =>
       _$LibraryUpdateInfoSerializer();
@@ -55,7 +64,7 @@ abstract class LibraryUpdateInfo {
 class _$LibraryUpdateInfoSerializer
     implements PrimitiveSerializer<LibraryUpdateInfo> {
   @override
-  final Iterable<Type> types = const [LibraryUpdateInfo];
+  final Iterable<Type> types = const [LibraryUpdateInfo, _$LibraryUpdateInfo];
 
   @override
   final String wireName = r'LibraryUpdateInfo';
@@ -125,55 +134,6 @@ class _$LibraryUpdateInfoSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  LibraryUpdateInfo deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($LibraryUpdateInfo)) as $LibraryUpdateInfo;
-  }
-}
-
-/// a concrete implementation of [LibraryUpdateInfo], since [LibraryUpdateInfo] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $LibraryUpdateInfo
-    implements
-        LibraryUpdateInfo,
-        Built<$LibraryUpdateInfo, $LibraryUpdateInfoBuilder> {
-  $LibraryUpdateInfo._();
-
-  factory $LibraryUpdateInfo(
-          [void Function($LibraryUpdateInfoBuilder)? updates]) =
-      _$$LibraryUpdateInfo;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($LibraryUpdateInfoBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$LibraryUpdateInfo> get serializer =>
-      _$$LibraryUpdateInfoSerializer();
-}
-
-class _$$LibraryUpdateInfoSerializer
-    implements PrimitiveSerializer<$LibraryUpdateInfo> {
-  @override
-  final Iterable<Type> types = const [$LibraryUpdateInfo, _$$LibraryUpdateInfo];
-
-  @override
-  final String wireName = r'$LibraryUpdateInfo';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $LibraryUpdateInfo object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object,
-        specifiedType: FullType(LibraryUpdateInfo))!;
   }
 
   void _deserializeProperties(
@@ -246,12 +206,12 @@ class _$$LibraryUpdateInfoSerializer
   }
 
   @override
-  $LibraryUpdateInfo deserialize(
+  LibraryUpdateInfo deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $LibraryUpdateInfoBuilder();
+    final result = LibraryUpdateInfoBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

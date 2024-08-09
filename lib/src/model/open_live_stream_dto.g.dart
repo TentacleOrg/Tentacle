@@ -30,7 +30,7 @@ class _$OpenLiveStreamDto extends OpenLiveStreamDto {
   @override
   final bool? enableDirectStream;
   @override
-  final ClientCapabilitiesDeviceProfile? deviceProfile;
+  final DeviceProfile? deviceProfile;
   @override
   final BuiltList<MediaProtocol>? directPlayProtocols;
 
@@ -177,10 +177,10 @@ class OpenLiveStreamDtoBuilder
   set enableDirectStream(bool? enableDirectStream) =>
       _$this._enableDirectStream = enableDirectStream;
 
-  ClientCapabilitiesDeviceProfileBuilder? _deviceProfile;
-  ClientCapabilitiesDeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new ClientCapabilitiesDeviceProfileBuilder();
-  set deviceProfile(ClientCapabilitiesDeviceProfileBuilder? deviceProfile) =>
+  DeviceProfileBuilder? _deviceProfile;
+  DeviceProfileBuilder get deviceProfile =>
+      _$this._deviceProfile ??= new DeviceProfileBuilder();
+  set deviceProfile(DeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
   ListBuilder<MediaProtocol>? _directPlayProtocols;

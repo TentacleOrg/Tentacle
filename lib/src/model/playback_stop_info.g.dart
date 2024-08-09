@@ -8,7 +8,7 @@ part of 'playback_stop_info.dart';
 
 class _$PlaybackStopInfo extends PlaybackStopInfo {
   @override
-  final PlaybackProgressInfoItem? item;
+  final BaseItemDto? item;
   @override
   final String? itemId;
   @override
@@ -113,10 +113,9 @@ class PlaybackStopInfoBuilder
     implements Builder<PlaybackStopInfo, PlaybackStopInfoBuilder> {
   _$PlaybackStopInfo? _$v;
 
-  PlaybackProgressInfoItemBuilder? _item;
-  PlaybackProgressInfoItemBuilder get item =>
-      _$this._item ??= new PlaybackProgressInfoItemBuilder();
-  set item(PlaybackProgressInfoItemBuilder? item) => _$this._item = item;
+  BaseItemDtoBuilder? _item;
+  BaseItemDtoBuilder get item => _$this._item ??= new BaseItemDtoBuilder();
+  set item(BaseItemDtoBuilder? item) => _$this._item = item;
 
   String? _itemId;
   String? get itemId => _$this._itemId;

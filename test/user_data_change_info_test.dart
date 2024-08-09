@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for UserDataChangeInfo
 void main() {
-  //final instance = UserDataChangeInfoBuilder();
+  final instance = UserDataChangeInfoBuilder();
   // TODO add properties to the builder and call build()
 
   group(UserDataChangeInfo, () {

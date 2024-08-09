@@ -8,7 +8,7 @@ part of 'user_data_changed_message.dart';
 
 class _$UserDataChangedMessage extends UserDataChangedMessage {
   @override
-  final UserDataChangedMessageData? data;
+  final UserDataChangeInfo? data;
   @override
   final String? messageId;
   @override
@@ -63,10 +63,10 @@ class UserDataChangedMessageBuilder
     implements Builder<UserDataChangedMessage, UserDataChangedMessageBuilder> {
   _$UserDataChangedMessage? _$v;
 
-  UserDataChangedMessageDataBuilder? _data;
-  UserDataChangedMessageDataBuilder get data =>
-      _$this._data ??= new UserDataChangedMessageDataBuilder();
-  set data(UserDataChangedMessageDataBuilder? data) => _$this._data = data;
+  UserDataChangeInfoBuilder? _data;
+  UserDataChangeInfoBuilder get data =>
+      _$this._data ??= new UserDataChangeInfoBuilder();
+  set data(UserDataChangeInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

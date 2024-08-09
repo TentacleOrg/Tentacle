@@ -19,7 +19,8 @@ void main() {
       // TODO
     });
 
-    // MediaPathDtoPathInfo pathInfo
+    // Gets or sets the path info.
+    // MediaPathInfo pathInfo
     test('to test the property `pathInfo`', () async {
       // TODO
     });

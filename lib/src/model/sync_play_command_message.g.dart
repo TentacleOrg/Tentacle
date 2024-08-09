@@ -8,7 +8,7 @@ part of 'sync_play_command_message.dart';
 
 class _$SyncPlayCommandMessage extends SyncPlayCommandMessage {
   @override
-  final SyncPlayCommandMessageData? data;
+  final SendCommand? data;
   @override
   final String? messageId;
   @override
@@ -63,10 +63,9 @@ class SyncPlayCommandMessageBuilder
     implements Builder<SyncPlayCommandMessage, SyncPlayCommandMessageBuilder> {
   _$SyncPlayCommandMessage? _$v;
 
-  SyncPlayCommandMessageDataBuilder? _data;
-  SyncPlayCommandMessageDataBuilder get data =>
-      _$this._data ??= new SyncPlayCommandMessageDataBuilder();
-  set data(SyncPlayCommandMessageDataBuilder? data) => _$this._data = data;
+  SendCommandBuilder? _data;
+  SendCommandBuilder get data => _$this._data ??= new SendCommandBuilder();
+  set data(SendCommandBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

@@ -8,7 +8,7 @@ part of 'ready_request_dto.dart';
 
 class _$ReadyRequestDto extends ReadyRequestDto {
   @override
-  final DateTime? when;
+  final DateTime? when_;
   @override
   final int? positionTicks;
   @override
@@ -20,7 +20,7 @@ class _$ReadyRequestDto extends ReadyRequestDto {
       (new ReadyRequestDtoBuilder()..update(updates))._build();
 
   _$ReadyRequestDto._(
-      {this.when, this.positionTicks, this.isPlaying, this.playlistItemId})
+      {this.when_, this.positionTicks, this.isPlaying, this.playlistItemId})
       : super._();
 
   @override
@@ -35,7 +35,7 @@ class _$ReadyRequestDto extends ReadyRequestDto {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is ReadyRequestDto &&
-        when == other.when &&
+        when_ == other.when_ &&
         positionTicks == other.positionTicks &&
         isPlaying == other.isPlaying &&
         playlistItemId == other.playlistItemId;
@@ -44,7 +44,7 @@ class _$ReadyRequestDto extends ReadyRequestDto {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, when.hashCode);
+    _$hash = $jc(_$hash, when_.hashCode);
     _$hash = $jc(_$hash, positionTicks.hashCode);
     _$hash = $jc(_$hash, isPlaying.hashCode);
     _$hash = $jc(_$hash, playlistItemId.hashCode);
@@ -55,7 +55,7 @@ class _$ReadyRequestDto extends ReadyRequestDto {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ReadyRequestDto')
-          ..add('when', when)
+          ..add('when_', when_)
           ..add('positionTicks', positionTicks)
           ..add('isPlaying', isPlaying)
           ..add('playlistItemId', playlistItemId))
@@ -67,9 +67,9 @@ class ReadyRequestDtoBuilder
     implements Builder<ReadyRequestDto, ReadyRequestDtoBuilder> {
   _$ReadyRequestDto? _$v;
 
-  DateTime? _when;
-  DateTime? get when => _$this._when;
-  set when(DateTime? when) => _$this._when = when;
+  DateTime? _when_;
+  DateTime? get when_ => _$this._when_;
+  set when_(DateTime? when_) => _$this._when_ = when_;
 
   int? _positionTicks;
   int? get positionTicks => _$this._positionTicks;
@@ -92,7 +92,7 @@ class ReadyRequestDtoBuilder
   ReadyRequestDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _when = $v.when;
+      _when_ = $v.when_;
       _positionTicks = $v.positionTicks;
       _isPlaying = $v.isPlaying;
       _playlistItemId = $v.playlistItemId;
@@ -118,7 +118,7 @@ class ReadyRequestDtoBuilder
   _$ReadyRequestDto _build() {
     final _$result = _$v ??
         new _$ReadyRequestDto._(
-            when: when,
+            when_: when_,
             positionTicks: positionTicks,
             isPlaying: isPlaying,
             playlistItemId: playlistItemId);

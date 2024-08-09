@@ -6,99 +6,7 @@ part of 'session_info.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class SessionInfoBuilder {
-  void replace(SessionInfo other);
-  void update(void Function(SessionInfoBuilder) updates);
-  PlayerStateInfoBuilder get playState;
-  set playState(PlayerStateInfoBuilder? playState);
-
-  ListBuilder<SessionUserInfo> get additionalUsers;
-  set additionalUsers(ListBuilder<SessionUserInfo>? additionalUsers);
-
-  ClientCapabilities? get capabilities;
-  set capabilities(ClientCapabilities? capabilities);
-
-  String? get remoteEndPoint;
-  set remoteEndPoint(String? remoteEndPoint);
-
-  ListBuilder<MediaType> get playableMediaTypes;
-  set playableMediaTypes(ListBuilder<MediaType>? playableMediaTypes);
-
-  String? get id;
-  set id(String? id);
-
-  String? get userId;
-  set userId(String? userId);
-
-  String? get userName;
-  set userName(String? userName);
-
-  String? get client;
-  set client(String? client);
-
-  DateTime? get lastActivityDate;
-  set lastActivityDate(DateTime? lastActivityDate);
-
-  DateTime? get lastPlaybackCheckIn;
-  set lastPlaybackCheckIn(DateTime? lastPlaybackCheckIn);
-
-  DateTime? get lastPausedDate;
-  set lastPausedDate(DateTime? lastPausedDate);
-
-  String? get deviceName;
-  set deviceName(String? deviceName);
-
-  String? get deviceType;
-  set deviceType(String? deviceType);
-
-  SessionInfoNowPlayingItemBuilder get nowPlayingItem;
-  set nowPlayingItem(SessionInfoNowPlayingItemBuilder? nowPlayingItem);
-
-  SessionInfoNowPlayingItemBuilder get nowViewingItem;
-  set nowViewingItem(SessionInfoNowPlayingItemBuilder? nowViewingItem);
-
-  String? get deviceId;
-  set deviceId(String? deviceId);
-
-  String? get applicationVersion;
-  set applicationVersion(String? applicationVersion);
-
-  TranscodingInfoBuilder get transcodingInfo;
-  set transcodingInfo(TranscodingInfoBuilder? transcodingInfo);
-
-  bool? get isActive;
-  set isActive(bool? isActive);
-
-  bool? get supportsMediaControl;
-  set supportsMediaControl(bool? supportsMediaControl);
-
-  bool? get supportsRemoteControl;
-  set supportsRemoteControl(bool? supportsRemoteControl);
-
-  ListBuilder<QueueItem> get nowPlayingQueue;
-  set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue);
-
-  ListBuilder<BaseItemDto> get nowPlayingQueueFullItems;
-  set nowPlayingQueueFullItems(
-      ListBuilder<BaseItemDto>? nowPlayingQueueFullItems);
-
-  bool? get hasCustomDeviceName;
-  set hasCustomDeviceName(bool? hasCustomDeviceName);
-
-  String? get playlistItemId;
-  set playlistItemId(String? playlistItemId);
-
-  String? get serverId;
-  set serverId(String? serverId);
-
-  String? get userPrimaryImageTag;
-  set userPrimaryImageTag(String? userPrimaryImageTag);
-
-  ListBuilder<GeneralCommandType> get supportedCommands;
-  set supportedCommands(ListBuilder<GeneralCommandType>? supportedCommands);
-}
-
-class _$$SessionInfo extends $SessionInfo {
+class _$SessionInfo extends SessionInfo {
   @override
   final PlayerStateInfo? playState;
   @override
@@ -128,9 +36,9 @@ class _$$SessionInfo extends $SessionInfo {
   @override
   final String? deviceType;
   @override
-  final SessionInfoNowPlayingItem? nowPlayingItem;
+  final BaseItemDto? nowPlayingItem;
   @override
-  final SessionInfoNowPlayingItem? nowViewingItem;
+  final BaseItemDto? nowViewingItem;
   @override
   final String? deviceId;
   @override
@@ -158,10 +66,10 @@ class _$$SessionInfo extends $SessionInfo {
   @override
   final BuiltList<GeneralCommandType>? supportedCommands;
 
-  factory _$$SessionInfo([void Function($SessionInfoBuilder)? updates]) =>
-      (new $SessionInfoBuilder()..update(updates))._build();
+  factory _$SessionInfo([void Function(SessionInfoBuilder)? updates]) =>
+      (new SessionInfoBuilder()..update(updates))._build();
 
-  _$$SessionInfo._(
+  _$SessionInfo._(
       {this.playState,
       this.additionalUsers,
       this.capabilities,
@@ -194,16 +102,16 @@ class _$$SessionInfo extends $SessionInfo {
       : super._();
 
   @override
-  $SessionInfo rebuild(void Function($SessionInfoBuilder) updates) =>
+  SessionInfo rebuild(void Function(SessionInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $SessionInfoBuilder toBuilder() => new $SessionInfoBuilder()..replace(this);
+  SessionInfoBuilder toBuilder() => new SessionInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $SessionInfo &&
+    return other is SessionInfo &&
         playState == other.playState &&
         additionalUsers == other.additionalUsers &&
         capabilities == other.capabilities &&
@@ -273,7 +181,7 @@ class _$$SessionInfo extends $SessionInfo {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$SessionInfo')
+    return (newBuiltValueToStringHelper(r'SessionInfo')
           ..add('playState', playState)
           ..add('additionalUsers', additionalUsers)
           ..add('capabilities', capabilities)
@@ -307,173 +215,166 @@ class _$$SessionInfo extends $SessionInfo {
   }
 }
 
-class $SessionInfoBuilder
-    implements Builder<$SessionInfo, $SessionInfoBuilder>, SessionInfoBuilder {
-  _$$SessionInfo? _$v;
+class SessionInfoBuilder implements Builder<SessionInfo, SessionInfoBuilder> {
+  _$SessionInfo? _$v;
 
   PlayerStateInfoBuilder? _playState;
   PlayerStateInfoBuilder get playState =>
       _$this._playState ??= new PlayerStateInfoBuilder();
-  set playState(covariant PlayerStateInfoBuilder? playState) =>
+  set playState(PlayerStateInfoBuilder? playState) =>
       _$this._playState = playState;
 
   ListBuilder<SessionUserInfo>? _additionalUsers;
   ListBuilder<SessionUserInfo> get additionalUsers =>
       _$this._additionalUsers ??= new ListBuilder<SessionUserInfo>();
-  set additionalUsers(
-          covariant ListBuilder<SessionUserInfo>? additionalUsers) =>
+  set additionalUsers(ListBuilder<SessionUserInfo>? additionalUsers) =>
       _$this._additionalUsers = additionalUsers;
 
-  ClientCapabilities? _capabilities;
-  ClientCapabilities? get capabilities => _$this._capabilities;
-  set capabilities(covariant ClientCapabilities? capabilities) =>
+  ClientCapabilitiesBuilder? _capabilities;
+  ClientCapabilitiesBuilder get capabilities =>
+      _$this._capabilities ??= new ClientCapabilitiesBuilder();
+  set capabilities(ClientCapabilitiesBuilder? capabilities) =>
       _$this._capabilities = capabilities;
 
   String? _remoteEndPoint;
   String? get remoteEndPoint => _$this._remoteEndPoint;
-  set remoteEndPoint(covariant String? remoteEndPoint) =>
+  set remoteEndPoint(String? remoteEndPoint) =>
       _$this._remoteEndPoint = remoteEndPoint;
 
   ListBuilder<MediaType>? _playableMediaTypes;
   ListBuilder<MediaType> get playableMediaTypes =>
       _$this._playableMediaTypes ??= new ListBuilder<MediaType>();
-  set playableMediaTypes(
-          covariant ListBuilder<MediaType>? playableMediaTypes) =>
+  set playableMediaTypes(ListBuilder<MediaType>? playableMediaTypes) =>
       _$this._playableMediaTypes = playableMediaTypes;
 
   String? _id;
   String? get id => _$this._id;
-  set id(covariant String? id) => _$this._id = id;
+  set id(String? id) => _$this._id = id;
 
   String? _userId;
   String? get userId => _$this._userId;
-  set userId(covariant String? userId) => _$this._userId = userId;
+  set userId(String? userId) => _$this._userId = userId;
 
   String? _userName;
   String? get userName => _$this._userName;
-  set userName(covariant String? userName) => _$this._userName = userName;
+  set userName(String? userName) => _$this._userName = userName;
 
   String? _client;
   String? get client => _$this._client;
-  set client(covariant String? client) => _$this._client = client;
+  set client(String? client) => _$this._client = client;
 
   DateTime? _lastActivityDate;
   DateTime? get lastActivityDate => _$this._lastActivityDate;
-  set lastActivityDate(covariant DateTime? lastActivityDate) =>
+  set lastActivityDate(DateTime? lastActivityDate) =>
       _$this._lastActivityDate = lastActivityDate;
 
   DateTime? _lastPlaybackCheckIn;
   DateTime? get lastPlaybackCheckIn => _$this._lastPlaybackCheckIn;
-  set lastPlaybackCheckIn(covariant DateTime? lastPlaybackCheckIn) =>
+  set lastPlaybackCheckIn(DateTime? lastPlaybackCheckIn) =>
       _$this._lastPlaybackCheckIn = lastPlaybackCheckIn;
 
   DateTime? _lastPausedDate;
   DateTime? get lastPausedDate => _$this._lastPausedDate;
-  set lastPausedDate(covariant DateTime? lastPausedDate) =>
+  set lastPausedDate(DateTime? lastPausedDate) =>
       _$this._lastPausedDate = lastPausedDate;
 
   String? _deviceName;
   String? get deviceName => _$this._deviceName;
-  set deviceName(covariant String? deviceName) =>
-      _$this._deviceName = deviceName;
+  set deviceName(String? deviceName) => _$this._deviceName = deviceName;
 
   String? _deviceType;
   String? get deviceType => _$this._deviceType;
-  set deviceType(covariant String? deviceType) =>
-      _$this._deviceType = deviceType;
+  set deviceType(String? deviceType) => _$this._deviceType = deviceType;
 
-  SessionInfoNowPlayingItemBuilder? _nowPlayingItem;
-  SessionInfoNowPlayingItemBuilder get nowPlayingItem =>
-      _$this._nowPlayingItem ??= new SessionInfoNowPlayingItemBuilder();
-  set nowPlayingItem(
-          covariant SessionInfoNowPlayingItemBuilder? nowPlayingItem) =>
+  BaseItemDtoBuilder? _nowPlayingItem;
+  BaseItemDtoBuilder get nowPlayingItem =>
+      _$this._nowPlayingItem ??= new BaseItemDtoBuilder();
+  set nowPlayingItem(BaseItemDtoBuilder? nowPlayingItem) =>
       _$this._nowPlayingItem = nowPlayingItem;
 
-  SessionInfoNowPlayingItemBuilder? _nowViewingItem;
-  SessionInfoNowPlayingItemBuilder get nowViewingItem =>
-      _$this._nowViewingItem ??= new SessionInfoNowPlayingItemBuilder();
-  set nowViewingItem(
-          covariant SessionInfoNowPlayingItemBuilder? nowViewingItem) =>
+  BaseItemDtoBuilder? _nowViewingItem;
+  BaseItemDtoBuilder get nowViewingItem =>
+      _$this._nowViewingItem ??= new BaseItemDtoBuilder();
+  set nowViewingItem(BaseItemDtoBuilder? nowViewingItem) =>
       _$this._nowViewingItem = nowViewingItem;
 
   String? _deviceId;
   String? get deviceId => _$this._deviceId;
-  set deviceId(covariant String? deviceId) => _$this._deviceId = deviceId;
+  set deviceId(String? deviceId) => _$this._deviceId = deviceId;
 
   String? _applicationVersion;
   String? get applicationVersion => _$this._applicationVersion;
-  set applicationVersion(covariant String? applicationVersion) =>
+  set applicationVersion(String? applicationVersion) =>
       _$this._applicationVersion = applicationVersion;
 
   TranscodingInfoBuilder? _transcodingInfo;
   TranscodingInfoBuilder get transcodingInfo =>
       _$this._transcodingInfo ??= new TranscodingInfoBuilder();
-  set transcodingInfo(covariant TranscodingInfoBuilder? transcodingInfo) =>
+  set transcodingInfo(TranscodingInfoBuilder? transcodingInfo) =>
       _$this._transcodingInfo = transcodingInfo;
 
   bool? _isActive;
   bool? get isActive => _$this._isActive;
-  set isActive(covariant bool? isActive) => _$this._isActive = isActive;
+  set isActive(bool? isActive) => _$this._isActive = isActive;
 
   bool? _supportsMediaControl;
   bool? get supportsMediaControl => _$this._supportsMediaControl;
-  set supportsMediaControl(covariant bool? supportsMediaControl) =>
+  set supportsMediaControl(bool? supportsMediaControl) =>
       _$this._supportsMediaControl = supportsMediaControl;
 
   bool? _supportsRemoteControl;
   bool? get supportsRemoteControl => _$this._supportsRemoteControl;
-  set supportsRemoteControl(covariant bool? supportsRemoteControl) =>
+  set supportsRemoteControl(bool? supportsRemoteControl) =>
       _$this._supportsRemoteControl = supportsRemoteControl;
 
   ListBuilder<QueueItem>? _nowPlayingQueue;
   ListBuilder<QueueItem> get nowPlayingQueue =>
       _$this._nowPlayingQueue ??= new ListBuilder<QueueItem>();
-  set nowPlayingQueue(covariant ListBuilder<QueueItem>? nowPlayingQueue) =>
+  set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue) =>
       _$this._nowPlayingQueue = nowPlayingQueue;
 
   ListBuilder<BaseItemDto>? _nowPlayingQueueFullItems;
   ListBuilder<BaseItemDto> get nowPlayingQueueFullItems =>
       _$this._nowPlayingQueueFullItems ??= new ListBuilder<BaseItemDto>();
   set nowPlayingQueueFullItems(
-          covariant ListBuilder<BaseItemDto>? nowPlayingQueueFullItems) =>
+          ListBuilder<BaseItemDto>? nowPlayingQueueFullItems) =>
       _$this._nowPlayingQueueFullItems = nowPlayingQueueFullItems;
 
   bool? _hasCustomDeviceName;
   bool? get hasCustomDeviceName => _$this._hasCustomDeviceName;
-  set hasCustomDeviceName(covariant bool? hasCustomDeviceName) =>
+  set hasCustomDeviceName(bool? hasCustomDeviceName) =>
       _$this._hasCustomDeviceName = hasCustomDeviceName;
 
   String? _playlistItemId;
   String? get playlistItemId => _$this._playlistItemId;
-  set playlistItemId(covariant String? playlistItemId) =>
+  set playlistItemId(String? playlistItemId) =>
       _$this._playlistItemId = playlistItemId;
 
   String? _serverId;
   String? get serverId => _$this._serverId;
-  set serverId(covariant String? serverId) => _$this._serverId = serverId;
+  set serverId(String? serverId) => _$this._serverId = serverId;
 
   String? _userPrimaryImageTag;
   String? get userPrimaryImageTag => _$this._userPrimaryImageTag;
-  set userPrimaryImageTag(covariant String? userPrimaryImageTag) =>
+  set userPrimaryImageTag(String? userPrimaryImageTag) =>
       _$this._userPrimaryImageTag = userPrimaryImageTag;
 
   ListBuilder<GeneralCommandType>? _supportedCommands;
   ListBuilder<GeneralCommandType> get supportedCommands =>
       _$this._supportedCommands ??= new ListBuilder<GeneralCommandType>();
-  set supportedCommands(
-          covariant ListBuilder<GeneralCommandType>? supportedCommands) =>
+  set supportedCommands(ListBuilder<GeneralCommandType>? supportedCommands) =>
       _$this._supportedCommands = supportedCommands;
 
-  $SessionInfoBuilder() {
-    $SessionInfo._defaults(this);
+  SessionInfoBuilder() {
+    SessionInfo._defaults(this);
   }
 
-  $SessionInfoBuilder get _$this {
+  SessionInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _playState = $v.playState?.toBuilder();
       _additionalUsers = $v.additionalUsers?.toBuilder();
-      _capabilities = $v.capabilities;
+      _capabilities = $v.capabilities?.toBuilder();
       _remoteEndPoint = $v.remoteEndPoint;
       _playableMediaTypes = $v.playableMediaTypes?.toBuilder();
       _id = $v.id;
@@ -506,27 +407,27 @@ class $SessionInfoBuilder
   }
 
   @override
-  void replace(covariant $SessionInfo other) {
+  void replace(SessionInfo other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$SessionInfo;
+    _$v = other as _$SessionInfo;
   }
 
   @override
-  void update(void Function($SessionInfoBuilder)? updates) {
+  void update(void Function(SessionInfoBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $SessionInfo build() => _build();
+  SessionInfo build() => _build();
 
-  _$$SessionInfo _build() {
-    _$$SessionInfo _$result;
+  _$SessionInfo _build() {
+    _$SessionInfo _$result;
     try {
       _$result = _$v ??
-          new _$$SessionInfo._(
+          new _$SessionInfo._(
               playState: _playState?.build(),
               additionalUsers: _additionalUsers?.build(),
-              capabilities: capabilities,
+              capabilities: _capabilities?.build(),
               remoteEndPoint: remoteEndPoint,
               playableMediaTypes: _playableMediaTypes?.build(),
               id: id,
@@ -560,6 +461,8 @@ class $SessionInfoBuilder
         _playState?.build();
         _$failedField = 'additionalUsers';
         _additionalUsers?.build();
+        _$failedField = 'capabilities';
+        _capabilities?.build();
 
         _$failedField = 'playableMediaTypes';
         _playableMediaTypes?.build();
@@ -581,7 +484,7 @@ class $SessionInfoBuilder
         _supportedCommands?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$SessionInfo', _$failedField, e.toString());
+            r'SessionInfo', _$failedField, e.toString());
       }
       rethrow;
     }

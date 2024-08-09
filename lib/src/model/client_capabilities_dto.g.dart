@@ -16,7 +16,7 @@ class _$ClientCapabilitiesDto extends ClientCapabilitiesDto {
   @override
   final bool? supportsPersistentIdentifier;
   @override
-  final ClientCapabilitiesDeviceProfile? deviceProfile;
+  final DeviceProfile? deviceProfile;
   @override
   final String? appStoreUrl;
   @override
@@ -125,10 +125,10 @@ class ClientCapabilitiesDtoBuilder
   set supportsPersistentIdentifier(bool? supportsPersistentIdentifier) =>
       _$this._supportsPersistentIdentifier = supportsPersistentIdentifier;
 
-  ClientCapabilitiesDeviceProfileBuilder? _deviceProfile;
-  ClientCapabilitiesDeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new ClientCapabilitiesDeviceProfileBuilder();
-  set deviceProfile(ClientCapabilitiesDeviceProfileBuilder? deviceProfile) =>
+  DeviceProfileBuilder? _deviceProfile;
+  DeviceProfileBuilder get deviceProfile =>
+      _$this._deviceProfile ??= new DeviceProfileBuilder();
+  set deviceProfile(DeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
   String? _appStoreUrl;

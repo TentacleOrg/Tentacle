@@ -17,8 +17,9 @@ part 'theme_media_result.g.dart';
 /// * [totalRecordCount] - Gets or sets the total number of records available.
 /// * [startIndex] - Gets or sets the index of the first record in Items.
 /// * [ownerId] - Gets or sets the owner id.
-@BuiltValue(instantiable: false)
-abstract class ThemeMediaResult {
+@BuiltValue()
+abstract class ThemeMediaResult
+    implements Built<ThemeMediaResult, ThemeMediaResultBuilder> {
   /// Gets or sets the items.
   @BuiltValueField(wireName: r'Items')
   BuiltList<BaseItemDto>? get items;
@@ -35,6 +36,14 @@ abstract class ThemeMediaResult {
   @BuiltValueField(wireName: r'OwnerId')
   String? get ownerId;
 
+  ThemeMediaResult._();
+
+  factory ThemeMediaResult([void updates(ThemeMediaResultBuilder b)]) =
+      _$ThemeMediaResult;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(ThemeMediaResultBuilder b) => b;
+
   @BuiltValueSerializer(custom: true)
   static Serializer<ThemeMediaResult> get serializer =>
       _$ThemeMediaResultSerializer();
@@ -43,7 +52,7 @@ abstract class ThemeMediaResult {
 class _$ThemeMediaResultSerializer
     implements PrimitiveSerializer<ThemeMediaResult> {
   @override
-  final Iterable<Type> types = const [ThemeMediaResult];
+  final Iterable<Type> types = const [ThemeMediaResult, _$ThemeMediaResult];
 
   @override
   final String wireName = r'ThemeMediaResult';
@@ -93,54 +102,6 @@ class _$ThemeMediaResultSerializer
     return _serializeProperties(serializers, object,
             specifiedType: specifiedType)
         .toList();
-  }
-
-  @override
-  ThemeMediaResult deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.deserialize(serialized,
-        specifiedType: FullType($ThemeMediaResult)) as $ThemeMediaResult;
-  }
-}
-
-/// a concrete implementation of [ThemeMediaResult], since [ThemeMediaResult] is not instantiable
-@BuiltValue(instantiable: true)
-abstract class $ThemeMediaResult
-    implements
-        ThemeMediaResult,
-        Built<$ThemeMediaResult, $ThemeMediaResultBuilder> {
-  $ThemeMediaResult._();
-
-  factory $ThemeMediaResult(
-      [void Function($ThemeMediaResultBuilder)? updates]) = _$$ThemeMediaResult;
-
-  @BuiltValueHook(initializeBuilder: true)
-  static void _defaults($ThemeMediaResultBuilder b) => b;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<$ThemeMediaResult> get serializer =>
-      _$$ThemeMediaResultSerializer();
-}
-
-class _$$ThemeMediaResultSerializer
-    implements PrimitiveSerializer<$ThemeMediaResult> {
-  @override
-  final Iterable<Type> types = const [$ThemeMediaResult, _$$ThemeMediaResult];
-
-  @override
-  final String wireName = r'$ThemeMediaResult';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    $ThemeMediaResult object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return serializers.serialize(object,
-        specifiedType: FullType(ThemeMediaResult))!;
   }
 
   void _deserializeProperties(
@@ -194,12 +155,12 @@ class _$$ThemeMediaResultSerializer
   }
 
   @override
-  $ThemeMediaResult deserialize(
+  ThemeMediaResult deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    final result = $ThemeMediaResultBuilder();
+    final result = ThemeMediaResultBuilder();
     final serializedList = (serialized as Iterable<Object?>).toList();
     final unhandled = <Object?>[];
     _deserializeProperties(

@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/base_item_dto.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/queue_item.dart';
-import 'package:tentacle/src/model/playback_progress_info_item.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -14,7 +14,7 @@ part 'playback_stop_info.g.dart';
 /// Class PlaybackStopInfo.
 ///
 /// Properties:
-/// * [item]
+/// * [item] - Gets or sets the item.
 /// * [itemId] - Gets or sets the item identifier.
 /// * [sessionId] - Gets or sets the session id.
 /// * [mediaSourceId] - Gets or sets the media version identifier.
@@ -28,8 +28,9 @@ part 'playback_stop_info.g.dart';
 @BuiltValue()
 abstract class PlaybackStopInfo
     implements Built<PlaybackStopInfo, PlaybackStopInfoBuilder> {
+  /// Gets or sets the item.
   @BuiltValueField(wireName: r'Item')
-  PlaybackProgressInfoItem? get item;
+  BaseItemDto? get item;
 
   /// Gets or sets the item identifier.
   @BuiltValueField(wireName: r'ItemId')
@@ -98,7 +99,7 @@ class _$PlaybackStopInfoSerializer
       yield r'Item';
       yield serializers.serialize(
         object.item,
-        specifiedType: const FullType.nullable(PlaybackProgressInfoItem),
+        specifiedType: const FullType.nullable(BaseItemDto),
       );
     }
     if (object.itemId != null) {
@@ -200,8 +201,8 @@ class _$PlaybackStopInfoSerializer
         case r'Item':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(PlaybackProgressInfoItem),
-          ) as PlaybackProgressInfoItem?;
+            specifiedType: const FullType.nullable(BaseItemDto),
+          ) as BaseItemDto?;
           if (valueDes == null) continue;
           result.item.replace(valueDes);
           break;

@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/send_command.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
-import 'package:tentacle/src/model/sync_play_command_message_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,14 +13,15 @@ part 'sync_play_command_message.g.dart';
 /// Sync play command.
 ///
 /// Properties:
-/// * [data]
+/// * [data] - Gets or sets the data.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class SyncPlayCommandMessage
     implements Built<SyncPlayCommandMessage, SyncPlayCommandMessageBuilder> {
+  /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  SyncPlayCommandMessageData? get data;
+  SendCommand? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -66,7 +67,7 @@ class _$SyncPlayCommandMessageSerializer
       yield r'Data';
       yield serializers.serialize(
         object.data,
-        specifiedType: const FullType.nullable(SyncPlayCommandMessageData),
+        specifiedType: const FullType.nullable(SendCommand),
       );
     }
     if (object.messageId != null) {
@@ -111,8 +112,8 @@ class _$SyncPlayCommandMessageSerializer
         case r'Data':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SyncPlayCommandMessageData),
-          ) as SyncPlayCommandMessageData?;
+            specifiedType: const FullType.nullable(SendCommand),
+          ) as SendCommand?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

@@ -6,114 +6,7 @@ part of 'library_options.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class LibraryOptionsBuilder {
-  void replace(LibraryOptions other);
-  void update(void Function(LibraryOptionsBuilder) updates);
-  bool? get enabled;
-  set enabled(bool? enabled);
-
-  bool? get enablePhotos;
-  set enablePhotos(bool? enablePhotos);
-
-  bool? get enableRealtimeMonitor;
-  set enableRealtimeMonitor(bool? enableRealtimeMonitor);
-
-  bool? get enableLUFSScan;
-  set enableLUFSScan(bool? enableLUFSScan);
-
-  bool? get enableChapterImageExtraction;
-  set enableChapterImageExtraction(bool? enableChapterImageExtraction);
-
-  bool? get extractChapterImagesDuringLibraryScan;
-  set extractChapterImagesDuringLibraryScan(
-      bool? extractChapterImagesDuringLibraryScan);
-
-  bool? get enableTrickplayImageExtraction;
-  set enableTrickplayImageExtraction(bool? enableTrickplayImageExtraction);
-
-  bool? get extractTrickplayImagesDuringLibraryScan;
-  set extractTrickplayImagesDuringLibraryScan(
-      bool? extractTrickplayImagesDuringLibraryScan);
-
-  ListBuilder<MediaPathInfo> get pathInfos;
-  set pathInfos(ListBuilder<MediaPathInfo>? pathInfos);
-
-  bool? get saveLocalMetadata;
-  set saveLocalMetadata(bool? saveLocalMetadata);
-
-  bool? get enableInternetProviders;
-  set enableInternetProviders(bool? enableInternetProviders);
-
-  bool? get enableAutomaticSeriesGrouping;
-  set enableAutomaticSeriesGrouping(bool? enableAutomaticSeriesGrouping);
-
-  bool? get enableEmbeddedTitles;
-  set enableEmbeddedTitles(bool? enableEmbeddedTitles);
-
-  bool? get enableEmbeddedExtrasTitles;
-  set enableEmbeddedExtrasTitles(bool? enableEmbeddedExtrasTitles);
-
-  bool? get enableEmbeddedEpisodeInfos;
-  set enableEmbeddedEpisodeInfos(bool? enableEmbeddedEpisodeInfos);
-
-  int? get automaticRefreshIntervalDays;
-  set automaticRefreshIntervalDays(int? automaticRefreshIntervalDays);
-
-  String? get preferredMetadataLanguage;
-  set preferredMetadataLanguage(String? preferredMetadataLanguage);
-
-  String? get metadataCountryCode;
-  set metadataCountryCode(String? metadataCountryCode);
-
-  String? get seasonZeroDisplayName;
-  set seasonZeroDisplayName(String? seasonZeroDisplayName);
-
-  ListBuilder<String> get metadataSavers;
-  set metadataSavers(ListBuilder<String>? metadataSavers);
-
-  ListBuilder<String> get disabledLocalMetadataReaders;
-  set disabledLocalMetadataReaders(
-      ListBuilder<String>? disabledLocalMetadataReaders);
-
-  ListBuilder<String> get localMetadataReaderOrder;
-  set localMetadataReaderOrder(ListBuilder<String>? localMetadataReaderOrder);
-
-  ListBuilder<String> get disabledSubtitleFetchers;
-  set disabledSubtitleFetchers(ListBuilder<String>? disabledSubtitleFetchers);
-
-  ListBuilder<String> get subtitleFetcherOrder;
-  set subtitleFetcherOrder(ListBuilder<String>? subtitleFetcherOrder);
-
-  bool? get skipSubtitlesIfEmbeddedSubtitlesPresent;
-  set skipSubtitlesIfEmbeddedSubtitlesPresent(
-      bool? skipSubtitlesIfEmbeddedSubtitlesPresent);
-
-  bool? get skipSubtitlesIfAudioTrackMatches;
-  set skipSubtitlesIfAudioTrackMatches(bool? skipSubtitlesIfAudioTrackMatches);
-
-  ListBuilder<String> get subtitleDownloadLanguages;
-  set subtitleDownloadLanguages(ListBuilder<String>? subtitleDownloadLanguages);
-
-  bool? get requirePerfectSubtitleMatch;
-  set requirePerfectSubtitleMatch(bool? requirePerfectSubtitleMatch);
-
-  bool? get saveSubtitlesWithMedia;
-  set saveSubtitlesWithMedia(bool? saveSubtitlesWithMedia);
-
-  bool? get saveLyricsWithMedia;
-  set saveLyricsWithMedia(bool? saveLyricsWithMedia);
-
-  bool? get automaticallyAddToCollection;
-  set automaticallyAddToCollection(bool? automaticallyAddToCollection);
-
-  EmbeddedSubtitleOptions? get allowEmbeddedSubtitles;
-  set allowEmbeddedSubtitles(EmbeddedSubtitleOptions? allowEmbeddedSubtitles);
-
-  ListBuilder<TypeOptions> get typeOptions;
-  set typeOptions(ListBuilder<TypeOptions>? typeOptions);
-}
-
-class _$$LibraryOptions extends $LibraryOptions {
+class _$LibraryOptions extends LibraryOptions {
   @override
   final bool? enabled;
   @override
@@ -181,10 +74,10 @@ class _$$LibraryOptions extends $LibraryOptions {
   @override
   final BuiltList<TypeOptions>? typeOptions;
 
-  factory _$$LibraryOptions([void Function($LibraryOptionsBuilder)? updates]) =>
-      (new $LibraryOptionsBuilder()..update(updates))._build();
+  factory _$LibraryOptions([void Function(LibraryOptionsBuilder)? updates]) =>
+      (new LibraryOptionsBuilder()..update(updates))._build();
 
-  _$$LibraryOptions._(
+  _$LibraryOptions._(
       {this.enabled,
       this.enablePhotos,
       this.enableRealtimeMonitor,
@@ -221,17 +114,17 @@ class _$$LibraryOptions extends $LibraryOptions {
       : super._();
 
   @override
-  $LibraryOptions rebuild(void Function($LibraryOptionsBuilder) updates) =>
+  LibraryOptions rebuild(void Function(LibraryOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $LibraryOptionsBuilder toBuilder() =>
-      new $LibraryOptionsBuilder()..replace(this);
+  LibraryOptionsBuilder toBuilder() =>
+      new LibraryOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $LibraryOptions &&
+    return other is LibraryOptions &&
         enabled == other.enabled &&
         enablePhotos == other.enablePhotos &&
         enableRealtimeMonitor == other.enableRealtimeMonitor &&
@@ -314,7 +207,7 @@ class _$$LibraryOptions extends $LibraryOptions {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$LibraryOptions')
+    return (newBuiltValueToStringHelper(r'LibraryOptions')
           ..add('enabled', enabled)
           ..add('enablePhotos', enablePhotos)
           ..add('enableRealtimeMonitor', enableRealtimeMonitor)
@@ -357,159 +250,149 @@ class _$$LibraryOptions extends $LibraryOptions {
   }
 }
 
-class $LibraryOptionsBuilder
-    implements
-        Builder<$LibraryOptions, $LibraryOptionsBuilder>,
-        LibraryOptionsBuilder {
-  _$$LibraryOptions? _$v;
+class LibraryOptionsBuilder
+    implements Builder<LibraryOptions, LibraryOptionsBuilder> {
+  _$LibraryOptions? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
-  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
+  set enabled(bool? enabled) => _$this._enabled = enabled;
 
   bool? _enablePhotos;
   bool? get enablePhotos => _$this._enablePhotos;
-  set enablePhotos(covariant bool? enablePhotos) =>
-      _$this._enablePhotos = enablePhotos;
+  set enablePhotos(bool? enablePhotos) => _$this._enablePhotos = enablePhotos;
 
   bool? _enableRealtimeMonitor;
   bool? get enableRealtimeMonitor => _$this._enableRealtimeMonitor;
-  set enableRealtimeMonitor(covariant bool? enableRealtimeMonitor) =>
+  set enableRealtimeMonitor(bool? enableRealtimeMonitor) =>
       _$this._enableRealtimeMonitor = enableRealtimeMonitor;
 
   bool? _enableLUFSScan;
   bool? get enableLUFSScan => _$this._enableLUFSScan;
-  set enableLUFSScan(covariant bool? enableLUFSScan) =>
+  set enableLUFSScan(bool? enableLUFSScan) =>
       _$this._enableLUFSScan = enableLUFSScan;
 
   bool? _enableChapterImageExtraction;
   bool? get enableChapterImageExtraction =>
       _$this._enableChapterImageExtraction;
-  set enableChapterImageExtraction(
-          covariant bool? enableChapterImageExtraction) =>
+  set enableChapterImageExtraction(bool? enableChapterImageExtraction) =>
       _$this._enableChapterImageExtraction = enableChapterImageExtraction;
 
   bool? _extractChapterImagesDuringLibraryScan;
   bool? get extractChapterImagesDuringLibraryScan =>
       _$this._extractChapterImagesDuringLibraryScan;
   set extractChapterImagesDuringLibraryScan(
-          covariant bool? extractChapterImagesDuringLibraryScan) =>
+          bool? extractChapterImagesDuringLibraryScan) =>
       _$this._extractChapterImagesDuringLibraryScan =
           extractChapterImagesDuringLibraryScan;
 
   bool? _enableTrickplayImageExtraction;
   bool? get enableTrickplayImageExtraction =>
       _$this._enableTrickplayImageExtraction;
-  set enableTrickplayImageExtraction(
-          covariant bool? enableTrickplayImageExtraction) =>
+  set enableTrickplayImageExtraction(bool? enableTrickplayImageExtraction) =>
       _$this._enableTrickplayImageExtraction = enableTrickplayImageExtraction;
 
   bool? _extractTrickplayImagesDuringLibraryScan;
   bool? get extractTrickplayImagesDuringLibraryScan =>
       _$this._extractTrickplayImagesDuringLibraryScan;
   set extractTrickplayImagesDuringLibraryScan(
-          covariant bool? extractTrickplayImagesDuringLibraryScan) =>
+          bool? extractTrickplayImagesDuringLibraryScan) =>
       _$this._extractTrickplayImagesDuringLibraryScan =
           extractTrickplayImagesDuringLibraryScan;
 
   ListBuilder<MediaPathInfo>? _pathInfos;
   ListBuilder<MediaPathInfo> get pathInfos =>
       _$this._pathInfos ??= new ListBuilder<MediaPathInfo>();
-  set pathInfos(covariant ListBuilder<MediaPathInfo>? pathInfos) =>
+  set pathInfos(ListBuilder<MediaPathInfo>? pathInfos) =>
       _$this._pathInfos = pathInfos;
 
   bool? _saveLocalMetadata;
   bool? get saveLocalMetadata => _$this._saveLocalMetadata;
-  set saveLocalMetadata(covariant bool? saveLocalMetadata) =>
+  set saveLocalMetadata(bool? saveLocalMetadata) =>
       _$this._saveLocalMetadata = saveLocalMetadata;
 
   bool? _enableInternetProviders;
   bool? get enableInternetProviders => _$this._enableInternetProviders;
-  set enableInternetProviders(covariant bool? enableInternetProviders) =>
+  set enableInternetProviders(bool? enableInternetProviders) =>
       _$this._enableInternetProviders = enableInternetProviders;
 
   bool? _enableAutomaticSeriesGrouping;
   bool? get enableAutomaticSeriesGrouping =>
       _$this._enableAutomaticSeriesGrouping;
-  set enableAutomaticSeriesGrouping(
-          covariant bool? enableAutomaticSeriesGrouping) =>
+  set enableAutomaticSeriesGrouping(bool? enableAutomaticSeriesGrouping) =>
       _$this._enableAutomaticSeriesGrouping = enableAutomaticSeriesGrouping;
 
   bool? _enableEmbeddedTitles;
   bool? get enableEmbeddedTitles => _$this._enableEmbeddedTitles;
-  set enableEmbeddedTitles(covariant bool? enableEmbeddedTitles) =>
+  set enableEmbeddedTitles(bool? enableEmbeddedTitles) =>
       _$this._enableEmbeddedTitles = enableEmbeddedTitles;
 
   bool? _enableEmbeddedExtrasTitles;
   bool? get enableEmbeddedExtrasTitles => _$this._enableEmbeddedExtrasTitles;
-  set enableEmbeddedExtrasTitles(covariant bool? enableEmbeddedExtrasTitles) =>
+  set enableEmbeddedExtrasTitles(bool? enableEmbeddedExtrasTitles) =>
       _$this._enableEmbeddedExtrasTitles = enableEmbeddedExtrasTitles;
 
   bool? _enableEmbeddedEpisodeInfos;
   bool? get enableEmbeddedEpisodeInfos => _$this._enableEmbeddedEpisodeInfos;
-  set enableEmbeddedEpisodeInfos(covariant bool? enableEmbeddedEpisodeInfos) =>
+  set enableEmbeddedEpisodeInfos(bool? enableEmbeddedEpisodeInfos) =>
       _$this._enableEmbeddedEpisodeInfos = enableEmbeddedEpisodeInfos;
 
   int? _automaticRefreshIntervalDays;
   int? get automaticRefreshIntervalDays => _$this._automaticRefreshIntervalDays;
-  set automaticRefreshIntervalDays(
-          covariant int? automaticRefreshIntervalDays) =>
+  set automaticRefreshIntervalDays(int? automaticRefreshIntervalDays) =>
       _$this._automaticRefreshIntervalDays = automaticRefreshIntervalDays;
 
   String? _preferredMetadataLanguage;
   String? get preferredMetadataLanguage => _$this._preferredMetadataLanguage;
-  set preferredMetadataLanguage(covariant String? preferredMetadataLanguage) =>
+  set preferredMetadataLanguage(String? preferredMetadataLanguage) =>
       _$this._preferredMetadataLanguage = preferredMetadataLanguage;
 
   String? _metadataCountryCode;
   String? get metadataCountryCode => _$this._metadataCountryCode;
-  set metadataCountryCode(covariant String? metadataCountryCode) =>
+  set metadataCountryCode(String? metadataCountryCode) =>
       _$this._metadataCountryCode = metadataCountryCode;
 
   String? _seasonZeroDisplayName;
   String? get seasonZeroDisplayName => _$this._seasonZeroDisplayName;
-  set seasonZeroDisplayName(covariant String? seasonZeroDisplayName) =>
+  set seasonZeroDisplayName(String? seasonZeroDisplayName) =>
       _$this._seasonZeroDisplayName = seasonZeroDisplayName;
 
   ListBuilder<String>? _metadataSavers;
   ListBuilder<String> get metadataSavers =>
       _$this._metadataSavers ??= new ListBuilder<String>();
-  set metadataSavers(covariant ListBuilder<String>? metadataSavers) =>
+  set metadataSavers(ListBuilder<String>? metadataSavers) =>
       _$this._metadataSavers = metadataSavers;
 
   ListBuilder<String>? _disabledLocalMetadataReaders;
   ListBuilder<String> get disabledLocalMetadataReaders =>
       _$this._disabledLocalMetadataReaders ??= new ListBuilder<String>();
   set disabledLocalMetadataReaders(
-          covariant ListBuilder<String>? disabledLocalMetadataReaders) =>
+          ListBuilder<String>? disabledLocalMetadataReaders) =>
       _$this._disabledLocalMetadataReaders = disabledLocalMetadataReaders;
 
   ListBuilder<String>? _localMetadataReaderOrder;
   ListBuilder<String> get localMetadataReaderOrder =>
       _$this._localMetadataReaderOrder ??= new ListBuilder<String>();
-  set localMetadataReaderOrder(
-          covariant ListBuilder<String>? localMetadataReaderOrder) =>
+  set localMetadataReaderOrder(ListBuilder<String>? localMetadataReaderOrder) =>
       _$this._localMetadataReaderOrder = localMetadataReaderOrder;
 
   ListBuilder<String>? _disabledSubtitleFetchers;
   ListBuilder<String> get disabledSubtitleFetchers =>
       _$this._disabledSubtitleFetchers ??= new ListBuilder<String>();
-  set disabledSubtitleFetchers(
-          covariant ListBuilder<String>? disabledSubtitleFetchers) =>
+  set disabledSubtitleFetchers(ListBuilder<String>? disabledSubtitleFetchers) =>
       _$this._disabledSubtitleFetchers = disabledSubtitleFetchers;
 
   ListBuilder<String>? _subtitleFetcherOrder;
   ListBuilder<String> get subtitleFetcherOrder =>
       _$this._subtitleFetcherOrder ??= new ListBuilder<String>();
-  set subtitleFetcherOrder(
-          covariant ListBuilder<String>? subtitleFetcherOrder) =>
+  set subtitleFetcherOrder(ListBuilder<String>? subtitleFetcherOrder) =>
       _$this._subtitleFetcherOrder = subtitleFetcherOrder;
 
   bool? _skipSubtitlesIfEmbeddedSubtitlesPresent;
   bool? get skipSubtitlesIfEmbeddedSubtitlesPresent =>
       _$this._skipSubtitlesIfEmbeddedSubtitlesPresent;
   set skipSubtitlesIfEmbeddedSubtitlesPresent(
-          covariant bool? skipSubtitlesIfEmbeddedSubtitlesPresent) =>
+          bool? skipSubtitlesIfEmbeddedSubtitlesPresent) =>
       _$this._skipSubtitlesIfEmbeddedSubtitlesPresent =
           skipSubtitlesIfEmbeddedSubtitlesPresent;
 
@@ -517,7 +400,7 @@ class $LibraryOptionsBuilder
   bool? get skipSubtitlesIfAudioTrackMatches =>
       _$this._skipSubtitlesIfAudioTrackMatches;
   set skipSubtitlesIfAudioTrackMatches(
-          covariant bool? skipSubtitlesIfAudioTrackMatches) =>
+          bool? skipSubtitlesIfAudioTrackMatches) =>
       _$this._skipSubtitlesIfAudioTrackMatches =
           skipSubtitlesIfAudioTrackMatches;
 
@@ -525,50 +408,47 @@ class $LibraryOptionsBuilder
   ListBuilder<String> get subtitleDownloadLanguages =>
       _$this._subtitleDownloadLanguages ??= new ListBuilder<String>();
   set subtitleDownloadLanguages(
-          covariant ListBuilder<String>? subtitleDownloadLanguages) =>
+          ListBuilder<String>? subtitleDownloadLanguages) =>
       _$this._subtitleDownloadLanguages = subtitleDownloadLanguages;
 
   bool? _requirePerfectSubtitleMatch;
   bool? get requirePerfectSubtitleMatch => _$this._requirePerfectSubtitleMatch;
-  set requirePerfectSubtitleMatch(
-          covariant bool? requirePerfectSubtitleMatch) =>
+  set requirePerfectSubtitleMatch(bool? requirePerfectSubtitleMatch) =>
       _$this._requirePerfectSubtitleMatch = requirePerfectSubtitleMatch;
 
   bool? _saveSubtitlesWithMedia;
   bool? get saveSubtitlesWithMedia => _$this._saveSubtitlesWithMedia;
-  set saveSubtitlesWithMedia(covariant bool? saveSubtitlesWithMedia) =>
+  set saveSubtitlesWithMedia(bool? saveSubtitlesWithMedia) =>
       _$this._saveSubtitlesWithMedia = saveSubtitlesWithMedia;
 
   bool? _saveLyricsWithMedia;
   bool? get saveLyricsWithMedia => _$this._saveLyricsWithMedia;
-  set saveLyricsWithMedia(covariant bool? saveLyricsWithMedia) =>
+  set saveLyricsWithMedia(bool? saveLyricsWithMedia) =>
       _$this._saveLyricsWithMedia = saveLyricsWithMedia;
 
   bool? _automaticallyAddToCollection;
   bool? get automaticallyAddToCollection =>
       _$this._automaticallyAddToCollection;
-  set automaticallyAddToCollection(
-          covariant bool? automaticallyAddToCollection) =>
+  set automaticallyAddToCollection(bool? automaticallyAddToCollection) =>
       _$this._automaticallyAddToCollection = automaticallyAddToCollection;
 
   EmbeddedSubtitleOptions? _allowEmbeddedSubtitles;
   EmbeddedSubtitleOptions? get allowEmbeddedSubtitles =>
       _$this._allowEmbeddedSubtitles;
-  set allowEmbeddedSubtitles(
-          covariant EmbeddedSubtitleOptions? allowEmbeddedSubtitles) =>
+  set allowEmbeddedSubtitles(EmbeddedSubtitleOptions? allowEmbeddedSubtitles) =>
       _$this._allowEmbeddedSubtitles = allowEmbeddedSubtitles;
 
   ListBuilder<TypeOptions>? _typeOptions;
   ListBuilder<TypeOptions> get typeOptions =>
       _$this._typeOptions ??= new ListBuilder<TypeOptions>();
-  set typeOptions(covariant ListBuilder<TypeOptions>? typeOptions) =>
+  set typeOptions(ListBuilder<TypeOptions>? typeOptions) =>
       _$this._typeOptions = typeOptions;
 
-  $LibraryOptionsBuilder() {
-    $LibraryOptions._defaults(this);
+  LibraryOptionsBuilder() {
+    LibraryOptions._defaults(this);
   }
 
-  $LibraryOptionsBuilder get _$this {
+  LibraryOptionsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -614,24 +494,24 @@ class $LibraryOptionsBuilder
   }
 
   @override
-  void replace(covariant $LibraryOptions other) {
+  void replace(LibraryOptions other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$LibraryOptions;
+    _$v = other as _$LibraryOptions;
   }
 
   @override
-  void update(void Function($LibraryOptionsBuilder)? updates) {
+  void update(void Function(LibraryOptionsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $LibraryOptions build() => _build();
+  LibraryOptions build() => _build();
 
-  _$$LibraryOptions _build() {
-    _$$LibraryOptions _$result;
+  _$LibraryOptions _build() {
+    _$LibraryOptions _$result;
     try {
       _$result = _$v ??
-          new _$$LibraryOptions._(
+          new _$LibraryOptions._(
               enabled: enabled,
               enablePhotos: enablePhotos,
               enableRealtimeMonitor: enableRealtimeMonitor,
@@ -694,7 +574,7 @@ class $LibraryOptionsBuilder
         _typeOptions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'$LibraryOptions', _$failedField, e.toString());
+            r'LibraryOptions', _$failedField, e.toString());
       }
       rethrow;
     }

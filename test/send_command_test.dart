@@ -3,7 +3,7 @@ import 'package:tentacle/tentacle.dart';
 
 // tests for SendCommand
 void main() {
-  //final instance = SendCommandBuilder();
+  final instance = SendCommandBuilder();
   // TODO add properties to the builder and call build()
 
   group(SendCommand, () {
@@ -20,8 +20,8 @@ void main() {
     });
 
     // Gets or sets the UTC time when to execute the command.
-    // DateTime when
-    test('to test the property `when`', () async {
+    // DateTime when_
+    test('to test the property `when_`', () async {
       // TODO
     });
 

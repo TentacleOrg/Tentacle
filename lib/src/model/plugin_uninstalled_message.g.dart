@@ -8,7 +8,7 @@ part of 'plugin_uninstalled_message.dart';
 
 class _$PluginUninstalledMessage extends PluginUninstalledMessage {
   @override
-  final PluginUninstalledMessageData? data;
+  final PluginInfo? data;
   @override
   final String? messageId;
   @override
@@ -64,10 +64,9 @@ class PluginUninstalledMessageBuilder
         Builder<PluginUninstalledMessage, PluginUninstalledMessageBuilder> {
   _$PluginUninstalledMessage? _$v;
 
-  PluginUninstalledMessageDataBuilder? _data;
-  PluginUninstalledMessageDataBuilder get data =>
-      _$this._data ??= new PluginUninstalledMessageDataBuilder();
-  set data(PluginUninstalledMessageDataBuilder? data) => _$this._data = data;
+  PluginInfoBuilder? _data;
+  PluginInfoBuilder get data => _$this._data ??= new PluginInfoBuilder();
+  set data(PluginInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;

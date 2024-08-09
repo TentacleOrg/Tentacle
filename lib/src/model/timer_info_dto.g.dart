@@ -62,7 +62,7 @@ class _$TimerInfoDto extends TimerInfoDto {
   @override
   final int? runTimeTicks;
   @override
-  final TimerInfoDtoProgramInfo? programInfo;
+  final BaseItemDto? programInfo;
 
   factory _$TimerInfoDto([void Function(TimerInfoDtoBuilder)? updates]) =>
       (new TimerInfoDtoBuilder()..update(updates))._build();
@@ -333,10 +333,10 @@ class TimerInfoDtoBuilder
   int? get runTimeTicks => _$this._runTimeTicks;
   set runTimeTicks(int? runTimeTicks) => _$this._runTimeTicks = runTimeTicks;
 
-  TimerInfoDtoProgramInfoBuilder? _programInfo;
-  TimerInfoDtoProgramInfoBuilder get programInfo =>
-      _$this._programInfo ??= new TimerInfoDtoProgramInfoBuilder();
-  set programInfo(TimerInfoDtoProgramInfoBuilder? programInfo) =>
+  BaseItemDtoBuilder? _programInfo;
+  BaseItemDtoBuilder get programInfo =>
+      _$this._programInfo ??= new BaseItemDtoBuilder();
+  set programInfo(BaseItemDtoBuilder? programInfo) =>
       _$this._programInfo = programInfo;
 
   TimerInfoDtoBuilder() {

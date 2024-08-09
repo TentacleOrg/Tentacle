@@ -7,7 +7,8 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(AddVirtualFolderDto, () {
-    // AddVirtualFolderDtoLibraryOptions libraryOptions
+    // Gets or sets library options.
+    // LibraryOptions libraryOptions
     test('to test the property `libraryOptions`', () async {
       // TODO
     });

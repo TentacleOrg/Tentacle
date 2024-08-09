@@ -7,7 +7,8 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(PlayMessage, () {
-    // PlayMessageData data
+    // Gets or sets the data.
+    // PlayRequest data
     test('to test the property `data`', () async {
       // TODO
     });

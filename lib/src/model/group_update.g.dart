@@ -6,35 +6,28 @@ part of 'group_update.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class GroupUpdateBuilder {
-  void replace(GroupUpdate other);
-  void update(void Function(GroupUpdateBuilder) updates);
-  OneOf? get oneOf;
-  set oneOf(OneOf? oneOf);
-}
-
-class _$$GroupUpdate extends $GroupUpdate {
+class _$GroupUpdate extends GroupUpdate {
   @override
   final OneOf oneOf;
 
-  factory _$$GroupUpdate([void Function($GroupUpdateBuilder)? updates]) =>
-      (new $GroupUpdateBuilder()..update(updates))._build();
+  factory _$GroupUpdate([void Function(GroupUpdateBuilder)? updates]) =>
+      (new GroupUpdateBuilder()..update(updates))._build();
 
-  _$$GroupUpdate._({required this.oneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(oneOf, r'$GroupUpdate', 'oneOf');
+  _$GroupUpdate._({required this.oneOf}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(oneOf, r'GroupUpdate', 'oneOf');
   }
 
   @override
-  $GroupUpdate rebuild(void Function($GroupUpdateBuilder) updates) =>
+  GroupUpdate rebuild(void Function(GroupUpdateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  $GroupUpdateBuilder toBuilder() => new $GroupUpdateBuilder()..replace(this);
+  GroupUpdateBuilder toBuilder() => new GroupUpdateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is $GroupUpdate && oneOf == other.oneOf;
+    return other is GroupUpdate && oneOf == other.oneOf;
   }
 
   @override
@@ -47,24 +40,23 @@ class _$$GroupUpdate extends $GroupUpdate {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'$GroupUpdate')..add('oneOf', oneOf))
+    return (newBuiltValueToStringHelper(r'GroupUpdate')..add('oneOf', oneOf))
         .toString();
   }
 }
 
-class $GroupUpdateBuilder
-    implements Builder<$GroupUpdate, $GroupUpdateBuilder>, GroupUpdateBuilder {
-  _$$GroupUpdate? _$v;
+class GroupUpdateBuilder implements Builder<GroupUpdate, GroupUpdateBuilder> {
+  _$GroupUpdate? _$v;
 
   OneOf? _oneOf;
   OneOf? get oneOf => _$this._oneOf;
-  set oneOf(covariant OneOf? oneOf) => _$this._oneOf = oneOf;
+  set oneOf(OneOf? oneOf) => _$this._oneOf = oneOf;
 
-  $GroupUpdateBuilder() {
-    $GroupUpdate._defaults(this);
+  GroupUpdateBuilder() {
+    GroupUpdate._defaults(this);
   }
 
-  $GroupUpdateBuilder get _$this {
+  GroupUpdateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _oneOf = $v.oneOf;
@@ -74,24 +66,24 @@ class $GroupUpdateBuilder
   }
 
   @override
-  void replace(covariant $GroupUpdate other) {
+  void replace(GroupUpdate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$$GroupUpdate;
+    _$v = other as _$GroupUpdate;
   }
 
   @override
-  void update(void Function($GroupUpdateBuilder)? updates) {
+  void update(void Function(GroupUpdateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  $GroupUpdate build() => _build();
+  GroupUpdate build() => _build();
 
-  _$$GroupUpdate _build() {
+  _$GroupUpdate _build() {
     final _$result = _$v ??
-        new _$$GroupUpdate._(
+        new _$GroupUpdate._(
             oneOf: BuiltValueNullFieldError.checkNotNull(
-                oneOf, r'$GroupUpdate', 'oneOf'));
+                oneOf, r'GroupUpdate', 'oneOf'));
     replace(_$result);
     return _$result;
   }
