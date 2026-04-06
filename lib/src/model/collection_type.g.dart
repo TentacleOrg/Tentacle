@@ -49,12 +49,12 @@ CollectionType _$valueOf(String name) {
     case 'folders':
       return _$folders;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<CollectionType> _$values =
-    new BuiltSet<CollectionType>(const <CollectionType>[
+    BuiltSet<CollectionType>(const <CollectionType>[
   _$unknown,
   _$movies,
   _$tvshows,
@@ -95,7 +95,7 @@ mixin _$CollectionTypeMixin {
 }
 
 Serializer<CollectionType> _$collectionTypeSerializer =
-    new _$CollectionTypeSerializer();
+    _$CollectionTypeSerializer();
 
 class _$CollectionTypeSerializer
     implements PrimitiveSerializer<CollectionType> {

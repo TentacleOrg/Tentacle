@@ -4,7 +4,13 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/down_mix_stereo_algorithms.dart';
+import 'package:tentacle/src/model/encoder_preset.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/tonemapping_mode.dart';
+import 'package:tentacle/src/model/tonemapping_algorithm.dart';
+import 'package:tentacle/src/model/hardware_acceleration_type.dart';
+import 'package:tentacle/src/model/tonemapping_range.dart';
+import 'package:tentacle/src/model/deinterlace_method.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -29,6 +35,7 @@ part 'encoding_options.g.dart';
 /// * [encoderAppPath] - Gets or sets the FFmpeg path as set by the user via the UI.
 /// * [encoderAppPathDisplay] - Gets or sets the current FFmpeg path being used by the system and displayed on the transcode page.
 /// * [vaapiDevice] - Gets or sets the VA-API device.
+/// * [qsvDevice] - Gets or sets the QSV device.
 /// * [enableTonemapping] - Gets or sets a value indicating whether tonemapping is enabled.
 /// * [enableVppTonemapping] - Gets or sets a value indicating whether VPP tonemapping is enabled.
 /// * [enableVideoToolboxTonemapping] - Gets or sets a value indicating whether videotoolbox tonemapping is enabled.
@@ -47,6 +54,8 @@ part 'encoding_options.g.dart';
 /// * [deinterlaceMethod] - Gets or sets the deinterlace method.
 /// * [enableDecodingColorDepth10Hevc] - Gets or sets a value indicating whether 10bit HEVC decoding is enabled.
 /// * [enableDecodingColorDepth10Vp9] - Gets or sets a value indicating whether 10bit VP9 decoding is enabled.
+/// * [enableDecodingColorDepth10HevcRext] - Gets or sets a value indicating whether 8/10bit HEVC RExt decoding is enabled.
+/// * [enableDecodingColorDepth12HevcRext] - Gets or sets a value indicating whether 12bit HEVC RExt decoding is enabled.
 /// * [enableEnhancedNvdecDecoder] - Gets or sets a value indicating whether the enhanced NVDEC is enabled.
 /// * [preferSystemNativeHwDecoder] - Gets or sets a value indicating whether the system native hardware decoder should be used.
 /// * [enableIntelLowPowerH264HwEncoder] - Gets or sets a value indicating whether the Intel H264 low-power hardware encoder should be used.
@@ -87,7 +96,7 @@ abstract class EncodingOptions
   /// Gets or sets the algorithm used for downmixing audio to stereo.
   @BuiltValueField(wireName: r'DownMixStereoAlgorithm')
   DownMixStereoAlgorithms? get downMixStereoAlgorithm;
-  // enum downMixStereoAlgorithmEnum {  None,  Dave750,  NightmodeDialogue,  };
+  // enum downMixStereoAlgorithmEnum {  None,  Dave750,  NightmodeDialogue,  Rfc7845,  Ac4,  };
 
   /// Gets or sets the maximum size of the muxing queue.
   @BuiltValueField(wireName: r'MaxMuxingQueueSize')
@@ -111,7 +120,8 @@ abstract class EncodingOptions
 
   /// Gets or sets the hardware acceleration type.
   @BuiltValueField(wireName: r'HardwareAccelerationType')
-  String? get hardwareAccelerationType;
+  HardwareAccelerationType? get hardwareAccelerationType;
+  // enum hardwareAccelerationTypeEnum {  none,  amf,  qsv,  nvenc,  v4l2m2m,  vaapi,  videotoolbox,  rkmpp,  };
 
   /// Gets or sets the FFmpeg path as set by the user via the UI.
   @BuiltValueField(wireName: r'EncoderAppPath')
@@ -124,6 +134,10 @@ abstract class EncodingOptions
   /// Gets or sets the VA-API device.
   @BuiltValueField(wireName: r'VaapiDevice')
   String? get vaapiDevice;
+
+  /// Gets or sets the QSV device.
+  @BuiltValueField(wireName: r'QsvDevice')
+  String? get qsvDevice;
 
   /// Gets or sets a value indicating whether tonemapping is enabled.
   @BuiltValueField(wireName: r'EnableTonemapping')
@@ -139,15 +153,18 @@ abstract class EncodingOptions
 
   /// Gets or sets the tone-mapping algorithm.
   @BuiltValueField(wireName: r'TonemappingAlgorithm')
-  String? get tonemappingAlgorithm;
+  TonemappingAlgorithm? get tonemappingAlgorithm;
+  // enum tonemappingAlgorithmEnum {  none,  clip,  linear,  gamma,  reinhard,  hable,  mobius,  bt2390,  };
 
   /// Gets or sets the tone-mapping mode.
   @BuiltValueField(wireName: r'TonemappingMode')
-  String? get tonemappingMode;
+  TonemappingMode? get tonemappingMode;
+  // enum tonemappingModeEnum {  auto,  max,  rgb,  lum,  itp,  };
 
   /// Gets or sets the tone-mapping range.
   @BuiltValueField(wireName: r'TonemappingRange')
-  String? get tonemappingRange;
+  TonemappingRange? get tonemappingRange;
+  // enum tonemappingRangeEnum {  auto,  tv,  pc,  };
 
   /// Gets or sets the tone-mapping desaturation.
   @BuiltValueField(wireName: r'TonemappingDesat')
@@ -179,7 +196,8 @@ abstract class EncodingOptions
 
   /// Gets or sets the encoder preset.
   @BuiltValueField(wireName: r'EncoderPreset')
-  String? get encoderPreset;
+  EncoderPreset? get encoderPreset;
+  // enum encoderPresetEnum {  auto,  placebo,  veryslow,  slower,  slow,  medium,  fast,  faster,  veryfast,  superfast,  ultrafast,  };
 
   /// Gets or sets a value indicating whether the framerate is doubled when deinterlacing.
   @BuiltValueField(wireName: r'DeinterlaceDoubleRate')
@@ -187,7 +205,8 @@ abstract class EncodingOptions
 
   /// Gets or sets the deinterlace method.
   @BuiltValueField(wireName: r'DeinterlaceMethod')
-  String? get deinterlaceMethod;
+  DeinterlaceMethod? get deinterlaceMethod;
+  // enum deinterlaceMethodEnum {  yadif,  bwdif,  };
 
   /// Gets or sets a value indicating whether 10bit HEVC decoding is enabled.
   @BuiltValueField(wireName: r'EnableDecodingColorDepth10Hevc')
@@ -196,6 +215,14 @@ abstract class EncodingOptions
   /// Gets or sets a value indicating whether 10bit VP9 decoding is enabled.
   @BuiltValueField(wireName: r'EnableDecodingColorDepth10Vp9')
   bool? get enableDecodingColorDepth10Vp9;
+
+  /// Gets or sets a value indicating whether 8/10bit HEVC RExt decoding is enabled.
+  @BuiltValueField(wireName: r'EnableDecodingColorDepth10HevcRext')
+  bool? get enableDecodingColorDepth10HevcRext;
+
+  /// Gets or sets a value indicating whether 12bit HEVC RExt decoding is enabled.
+  @BuiltValueField(wireName: r'EnableDecodingColorDepth12HevcRext')
+  bool? get enableDecodingColorDepth12HevcRext;
 
   /// Gets or sets a value indicating whether the enhanced NVDEC is enabled.
   @BuiltValueField(wireName: r'EnableEnhancedNvdecDecoder')
@@ -353,7 +380,7 @@ class _$EncodingOptionsSerializer
       yield r'HardwareAccelerationType';
       yield serializers.serialize(
         object.hardwareAccelerationType,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(HardwareAccelerationType),
       );
     }
     if (object.encoderAppPath != null) {
@@ -374,6 +401,13 @@ class _$EncodingOptionsSerializer
       yield r'VaapiDevice';
       yield serializers.serialize(
         object.vaapiDevice,
+        specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.qsvDevice != null) {
+      yield r'QsvDevice';
+      yield serializers.serialize(
+        object.qsvDevice,
         specifiedType: const FullType.nullable(String),
       );
     }
@@ -402,21 +436,21 @@ class _$EncodingOptionsSerializer
       yield r'TonemappingAlgorithm';
       yield serializers.serialize(
         object.tonemappingAlgorithm,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(TonemappingAlgorithm),
       );
     }
     if (object.tonemappingMode != null) {
       yield r'TonemappingMode';
       yield serializers.serialize(
         object.tonemappingMode,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(TonemappingMode),
       );
     }
     if (object.tonemappingRange != null) {
       yield r'TonemappingRange';
       yield serializers.serialize(
         object.tonemappingRange,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(TonemappingRange),
       );
     }
     if (object.tonemappingDesat != null) {
@@ -472,7 +506,7 @@ class _$EncodingOptionsSerializer
       yield r'EncoderPreset';
       yield serializers.serialize(
         object.encoderPreset,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType.nullable(EncoderPreset),
       );
     }
     if (object.deinterlaceDoubleRate != null) {
@@ -486,7 +520,7 @@ class _$EncodingOptionsSerializer
       yield r'DeinterlaceMethod';
       yield serializers.serialize(
         object.deinterlaceMethod,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(DeinterlaceMethod),
       );
     }
     if (object.enableDecodingColorDepth10Hevc != null) {
@@ -500,6 +534,20 @@ class _$EncodingOptionsSerializer
       yield r'EnableDecodingColorDepth10Vp9';
       yield serializers.serialize(
         object.enableDecodingColorDepth10Vp9,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableDecodingColorDepth10HevcRext != null) {
+      yield r'EnableDecodingColorDepth10HevcRext';
+      yield serializers.serialize(
+        object.enableDecodingColorDepth10HevcRext,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableDecodingColorDepth12HevcRext != null) {
+      yield r'EnableDecodingColorDepth12HevcRext';
+      yield serializers.serialize(
+        object.enableDecodingColorDepth12HevcRext,
         specifiedType: const FullType(bool),
       );
     }
@@ -688,9 +736,8 @@ class _$EncodingOptionsSerializer
         case r'HardwareAccelerationType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(HardwareAccelerationType),
+          ) as HardwareAccelerationType;
           result.hardwareAccelerationType = valueDes;
           break;
         case r'EncoderAppPath':
@@ -717,6 +764,14 @@ class _$EncodingOptionsSerializer
           if (valueDes == null) continue;
           result.vaapiDevice = valueDes;
           break;
+        case r'QsvDevice':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.qsvDevice = valueDes;
+          break;
         case r'EnableTonemapping':
           final valueDes = serializers.deserialize(
             value,
@@ -741,25 +796,22 @@ class _$EncodingOptionsSerializer
         case r'TonemappingAlgorithm':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(TonemappingAlgorithm),
+          ) as TonemappingAlgorithm;
           result.tonemappingAlgorithm = valueDes;
           break;
         case r'TonemappingMode':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(TonemappingMode),
+          ) as TonemappingMode;
           result.tonemappingMode = valueDes;
           break;
         case r'TonemappingRange':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(TonemappingRange),
+          ) as TonemappingRange;
           result.tonemappingRange = valueDes;
           break;
         case r'TonemappingDesat':
@@ -814,8 +866,8 @@ class _$EncodingOptionsSerializer
         case r'EncoderPreset':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
+            specifiedType: const FullType.nullable(EncoderPreset),
+          ) as EncoderPreset?;
           if (valueDes == null) continue;
           result.encoderPreset = valueDes;
           break;
@@ -829,9 +881,8 @@ class _$EncodingOptionsSerializer
         case r'DeinterlaceMethod':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(DeinterlaceMethod),
+          ) as DeinterlaceMethod;
           result.deinterlaceMethod = valueDes;
           break;
         case r'EnableDecodingColorDepth10Hevc':
@@ -847,6 +898,20 @@ class _$EncodingOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.enableDecodingColorDepth10Vp9 = valueDes;
+          break;
+        case r'EnableDecodingColorDepth10HevcRext':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableDecodingColorDepth10HevcRext = valueDes;
+          break;
+        case r'EnableDecodingColorDepth12HevcRext':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableDecodingColorDepth12HevcRext = valueDes;
           break;
         case r'EnableEnhancedNvdecDecoder':
           final valueDes = serializers.deserialize(

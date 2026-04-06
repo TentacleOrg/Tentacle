@@ -13,16 +13,15 @@ class _$QueueItem extends QueueItem {
   final String? playlistItemId;
 
   factory _$QueueItem([void Function(QueueItemBuilder)? updates]) =>
-      (new QueueItemBuilder()..update(updates))._build();
+      (QueueItemBuilder()..update(updates))._build();
 
   _$QueueItem._({this.id, this.playlistItemId}) : super._();
-
   @override
   QueueItem rebuild(void Function(QueueItemBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  QueueItemBuilder toBuilder() => new QueueItemBuilder()..replace(this);
+  QueueItemBuilder toBuilder() => QueueItemBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -78,7 +77,6 @@ class QueueItemBuilder implements Builder<QueueItem, QueueItemBuilder> {
 
   @override
   void replace(QueueItem other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$QueueItem;
   }
 
@@ -91,8 +89,11 @@ class QueueItemBuilder implements Builder<QueueItem, QueueItemBuilder> {
   QueueItem build() => _build();
 
   _$QueueItem _build() {
-    final _$result =
-        _$v ?? new _$QueueItem._(id: id, playlistItemId: playlistItemId);
+    final _$result = _$v ??
+        _$QueueItem._(
+          id: id,
+          playlistItemId: playlistItemId,
+        );
     replace(_$result);
     return _$result;
   }

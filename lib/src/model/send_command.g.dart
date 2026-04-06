@@ -21,7 +21,7 @@ class _$SendCommand extends SendCommand {
   final DateTime? emittedAt;
 
   factory _$SendCommand([void Function(SendCommandBuilder)? updates]) =>
-      (new SendCommandBuilder()..update(updates))._build();
+      (SendCommandBuilder()..update(updates))._build();
 
   _$SendCommand._(
       {this.groupId,
@@ -31,13 +31,12 @@ class _$SendCommand extends SendCommand {
       this.command,
       this.emittedAt})
       : super._();
-
   @override
   SendCommand rebuild(void Function(SendCommandBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SendCommandBuilder toBuilder() => new SendCommandBuilder()..replace(this);
+  SendCommandBuilder toBuilder() => SendCommandBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -126,7 +125,6 @@ class SendCommandBuilder implements Builder<SendCommand, SendCommandBuilder> {
 
   @override
   void replace(SendCommand other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SendCommand;
   }
 
@@ -140,13 +138,14 @@ class SendCommandBuilder implements Builder<SendCommand, SendCommandBuilder> {
 
   _$SendCommand _build() {
     final _$result = _$v ??
-        new _$SendCommand._(
-            groupId: groupId,
-            playlistItemId: playlistItemId,
-            when_: when_,
-            positionTicks: positionTicks,
-            command: command,
-            emittedAt: emittedAt);
+        _$SendCommand._(
+          groupId: groupId,
+          playlistItemId: playlistItemId,
+          when_: when_,
+          positionTicks: positionTicks,
+          command: command,
+          emittedAt: emittedAt,
+        );
     replace(_$result);
     return _$result;
   }

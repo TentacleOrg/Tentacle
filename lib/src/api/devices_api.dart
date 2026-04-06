@@ -8,9 +8,8 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/device_info.dart';
-import 'package:tentacle/src/model/device_info_query_result.dart';
-import 'package:tentacle/src/model/device_options.dart';
+import 'package:tentacle/src/model/device_info_dto.dart';
+import 'package:tentacle/src/model/device_info_dto_query_result.dart';
 import 'package:tentacle/src/model/device_options_dto.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 
@@ -92,9 +91,9 @@ class DevicesApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [DeviceInfo] as data
+  /// Returns a [Future] containing a [Response] with a [DeviceInfoDto] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<DeviceInfo>> getDeviceInfo({
+  Future<Response<DeviceInfoDto>> getDeviceInfo({
     required String id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -136,7 +135,7 @@ class DevicesApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceInfo? _responseData;
+    DeviceInfoDto? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -144,8 +143,8 @@ class DevicesApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(DeviceInfo),
-            ) as DeviceInfo;
+              specifiedType: const FullType(DeviceInfoDto),
+            ) as DeviceInfoDto;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -156,7 +155,7 @@ class DevicesApi {
       );
     }
 
-    return Response<DeviceInfo>(
+    return Response<DeviceInfoDto>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -180,9 +179,9 @@ class DevicesApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [DeviceOptions] as data
+  /// Returns a [Future] containing a [Response] with a [DeviceOptionsDto] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<DeviceOptions>> getDeviceOptions({
+  Future<Response<DeviceOptionsDto>> getDeviceOptions({
     required String id,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -224,7 +223,7 @@ class DevicesApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceOptions? _responseData;
+    DeviceOptionsDto? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -232,8 +231,8 @@ class DevicesApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(DeviceOptions),
-            ) as DeviceOptions;
+              specifiedType: const FullType(DeviceOptionsDto),
+            ) as DeviceOptionsDto;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -244,7 +243,7 @@ class DevicesApi {
       );
     }
 
-    return Response<DeviceOptions>(
+    return Response<DeviceOptionsDto>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -268,9 +267,9 @@ class DevicesApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [DeviceInfoQueryResult] as data
+  /// Returns a [Future] containing a [Response] with a [DeviceInfoDtoQueryResult] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<DeviceInfoQueryResult>> getDevices({
+  Future<Response<DeviceInfoDtoQueryResult>> getDevices({
     String? userId,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -314,7 +313,7 @@ class DevicesApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    DeviceInfoQueryResult? _responseData;
+    DeviceInfoDtoQueryResult? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -322,8 +321,8 @@ class DevicesApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(DeviceInfoQueryResult),
-            ) as DeviceInfoQueryResult;
+              specifiedType: const FullType(DeviceInfoDtoQueryResult),
+            ) as DeviceInfoDtoQueryResult;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -334,7 +333,7 @@ class DevicesApi {
       );
     }
 
-    return Response<DeviceInfoQueryResult>(
+    return Response<DeviceInfoDtoQueryResult>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

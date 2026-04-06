@@ -21,5 +21,10 @@ void main() {
     test('to test the property `p256dh`', () async {
       // TODO
     });
+
+    // String userAgent
+    test('to test the property `userAgent`', () async {
+      // TODO
+    });
   });
 }

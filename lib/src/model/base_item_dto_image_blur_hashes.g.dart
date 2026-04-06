@@ -36,7 +36,7 @@ class _$BaseItemDtoImageBlurHashes extends BaseItemDtoImageBlurHashes {
 
   factory _$BaseItemDtoImageBlurHashes(
           [void Function(BaseItemDtoImageBlurHashesBuilder)? updates]) =>
-      (new BaseItemDtoImageBlurHashesBuilder()..update(updates))._build();
+      (BaseItemDtoImageBlurHashesBuilder()..update(updates))._build();
 
   _$BaseItemDtoImageBlurHashes._(
       {this.primary,
@@ -53,7 +53,6 @@ class _$BaseItemDtoImageBlurHashes extends BaseItemDtoImageBlurHashes {
       this.boxRear,
       this.profile})
       : super._();
-
   @override
   BaseItemDtoImageBlurHashes rebuild(
           void Function(BaseItemDtoImageBlurHashesBuilder) updates) =>
@@ -61,7 +60,7 @@ class _$BaseItemDtoImageBlurHashes extends BaseItemDtoImageBlurHashes {
 
   @override
   BaseItemDtoImageBlurHashesBuilder toBuilder() =>
-      new BaseItemDtoImageBlurHashesBuilder()..replace(this);
+      BaseItemDtoImageBlurHashesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -129,69 +128,69 @@ class BaseItemDtoImageBlurHashesBuilder
 
   MapBuilder<String, String>? _primary;
   MapBuilder<String, String> get primary =>
-      _$this._primary ??= new MapBuilder<String, String>();
+      _$this._primary ??= MapBuilder<String, String>();
   set primary(MapBuilder<String, String>? primary) => _$this._primary = primary;
 
   MapBuilder<String, String>? _art;
   MapBuilder<String, String> get art =>
-      _$this._art ??= new MapBuilder<String, String>();
+      _$this._art ??= MapBuilder<String, String>();
   set art(MapBuilder<String, String>? art) => _$this._art = art;
 
   MapBuilder<String, String>? _backdrop;
   MapBuilder<String, String> get backdrop =>
-      _$this._backdrop ??= new MapBuilder<String, String>();
+      _$this._backdrop ??= MapBuilder<String, String>();
   set backdrop(MapBuilder<String, String>? backdrop) =>
       _$this._backdrop = backdrop;
 
   MapBuilder<String, String>? _banner;
   MapBuilder<String, String> get banner =>
-      _$this._banner ??= new MapBuilder<String, String>();
+      _$this._banner ??= MapBuilder<String, String>();
   set banner(MapBuilder<String, String>? banner) => _$this._banner = banner;
 
   MapBuilder<String, String>? _logo;
   MapBuilder<String, String> get logo =>
-      _$this._logo ??= new MapBuilder<String, String>();
+      _$this._logo ??= MapBuilder<String, String>();
   set logo(MapBuilder<String, String>? logo) => _$this._logo = logo;
 
   MapBuilder<String, String>? _thumb;
   MapBuilder<String, String> get thumb =>
-      _$this._thumb ??= new MapBuilder<String, String>();
+      _$this._thumb ??= MapBuilder<String, String>();
   set thumb(MapBuilder<String, String>? thumb) => _$this._thumb = thumb;
 
   MapBuilder<String, String>? _disc;
   MapBuilder<String, String> get disc =>
-      _$this._disc ??= new MapBuilder<String, String>();
+      _$this._disc ??= MapBuilder<String, String>();
   set disc(MapBuilder<String, String>? disc) => _$this._disc = disc;
 
   MapBuilder<String, String>? _box;
   MapBuilder<String, String> get box =>
-      _$this._box ??= new MapBuilder<String, String>();
+      _$this._box ??= MapBuilder<String, String>();
   set box(MapBuilder<String, String>? box) => _$this._box = box;
 
   MapBuilder<String, String>? _screenshot;
   MapBuilder<String, String> get screenshot =>
-      _$this._screenshot ??= new MapBuilder<String, String>();
+      _$this._screenshot ??= MapBuilder<String, String>();
   set screenshot(MapBuilder<String, String>? screenshot) =>
       _$this._screenshot = screenshot;
 
   MapBuilder<String, String>? _menu;
   MapBuilder<String, String> get menu =>
-      _$this._menu ??= new MapBuilder<String, String>();
+      _$this._menu ??= MapBuilder<String, String>();
   set menu(MapBuilder<String, String>? menu) => _$this._menu = menu;
 
   MapBuilder<String, String>? _chapter;
   MapBuilder<String, String> get chapter =>
-      _$this._chapter ??= new MapBuilder<String, String>();
+      _$this._chapter ??= MapBuilder<String, String>();
   set chapter(MapBuilder<String, String>? chapter) => _$this._chapter = chapter;
 
   MapBuilder<String, String>? _boxRear;
   MapBuilder<String, String> get boxRear =>
-      _$this._boxRear ??= new MapBuilder<String, String>();
+      _$this._boxRear ??= MapBuilder<String, String>();
   set boxRear(MapBuilder<String, String>? boxRear) => _$this._boxRear = boxRear;
 
   MapBuilder<String, String>? _profile;
   MapBuilder<String, String> get profile =>
-      _$this._profile ??= new MapBuilder<String, String>();
+      _$this._profile ??= MapBuilder<String, String>();
   set profile(MapBuilder<String, String>? profile) => _$this._profile = profile;
 
   BaseItemDtoImageBlurHashesBuilder() {
@@ -221,7 +220,6 @@ class BaseItemDtoImageBlurHashesBuilder
 
   @override
   void replace(BaseItemDtoImageBlurHashes other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BaseItemDtoImageBlurHashes;
   }
 
@@ -237,20 +235,21 @@ class BaseItemDtoImageBlurHashesBuilder
     _$BaseItemDtoImageBlurHashes _$result;
     try {
       _$result = _$v ??
-          new _$BaseItemDtoImageBlurHashes._(
-              primary: _primary?.build(),
-              art: _art?.build(),
-              backdrop: _backdrop?.build(),
-              banner: _banner?.build(),
-              logo: _logo?.build(),
-              thumb: _thumb?.build(),
-              disc: _disc?.build(),
-              box: _box?.build(),
-              screenshot: _screenshot?.build(),
-              menu: _menu?.build(),
-              chapter: _chapter?.build(),
-              boxRear: _boxRear?.build(),
-              profile: _profile?.build());
+          _$BaseItemDtoImageBlurHashes._(
+            primary: _primary?.build(),
+            art: _art?.build(),
+            backdrop: _backdrop?.build(),
+            banner: _banner?.build(),
+            logo: _logo?.build(),
+            thumb: _thumb?.build(),
+            disc: _disc?.build(),
+            box: _box?.build(),
+            screenshot: _screenshot?.build(),
+            menu: _menu?.build(),
+            chapter: _chapter?.build(),
+            boxRear: _boxRear?.build(),
+            profile: _profile?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -281,7 +280,7 @@ class BaseItemDtoImageBlurHashesBuilder
         _$failedField = 'profile';
         _profile?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'BaseItemDtoImageBlurHashes', _$failedField, e.toString());
       }
       rethrow;

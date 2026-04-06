@@ -17,17 +17,16 @@ class _$LogFile extends LogFile {
   final String? name;
 
   factory _$LogFile([void Function(LogFileBuilder)? updates]) =>
-      (new LogFileBuilder()..update(updates))._build();
+      (LogFileBuilder()..update(updates))._build();
 
   _$LogFile._({this.dateCreated, this.dateModified, this.size, this.name})
       : super._();
-
   @override
   LogFile rebuild(void Function(LogFileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LogFileBuilder toBuilder() => new LogFileBuilder()..replace(this);
+  LogFileBuilder toBuilder() => LogFileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -99,7 +98,6 @@ class LogFileBuilder implements Builder<LogFile, LogFileBuilder> {
 
   @override
   void replace(LogFile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LogFile;
   }
 
@@ -113,11 +111,12 @@ class LogFileBuilder implements Builder<LogFile, LogFileBuilder> {
 
   _$LogFile _build() {
     final _$result = _$v ??
-        new _$LogFile._(
-            dateCreated: dateCreated,
-            dateModified: dateModified,
-            size: size,
-            name: name);
+        _$LogFile._(
+          dateCreated: dateCreated,
+          dateModified: dateModified,
+          size: size,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

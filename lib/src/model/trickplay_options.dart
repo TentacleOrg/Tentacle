@@ -16,6 +16,7 @@ part 'trickplay_options.g.dart';
 /// Properties:
 /// * [enableHwAcceleration] - Gets or sets a value indicating whether or not to use HW acceleration.
 /// * [enableHwEncoding] - Gets or sets a value indicating whether or not to use HW accelerated MJPEG encoding.
+/// * [enableKeyFrameOnlyExtraction] - Gets or sets a value indicating whether to only extract key frames.  Significantly faster, but is not compatible with all decoders and/or video files.
 /// * [scanBehavior] - Gets or sets the behavior used by trickplay provider on library scan/update.
 /// * [processPriority] - Gets or sets the process priority for the ffmpeg process.
 /// * [interval] - Gets or sets the interval, in ms, between each new trickplay image.
@@ -35,6 +36,10 @@ abstract class TrickplayOptions
   /// Gets or sets a value indicating whether or not to use HW accelerated MJPEG encoding.
   @BuiltValueField(wireName: r'EnableHwEncoding')
   bool? get enableHwEncoding;
+
+  /// Gets or sets a value indicating whether to only extract key frames.  Significantly faster, but is not compatible with all decoders and/or video files.
+  @BuiltValueField(wireName: r'EnableKeyFrameOnlyExtraction')
+  bool? get enableKeyFrameOnlyExtraction;
 
   /// Gets or sets the behavior used by trickplay provider on library scan/update.
   @BuiltValueField(wireName: r'ScanBehavior')
@@ -111,6 +116,13 @@ class _$TrickplayOptionsSerializer
       yield r'EnableHwEncoding';
       yield serializers.serialize(
         object.enableHwEncoding,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableKeyFrameOnlyExtraction != null) {
+      yield r'EnableKeyFrameOnlyExtraction';
+      yield serializers.serialize(
+        object.enableKeyFrameOnlyExtraction,
         specifiedType: const FullType(bool),
       );
     }
@@ -215,6 +227,13 @@ class _$TrickplayOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.enableHwEncoding = valueDes;
+          break;
+        case r'EnableKeyFrameOnlyExtraction':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableKeyFrameOnlyExtraction = valueDes;
           break;
         case r'ScanBehavior':
           final valueDes = serializers.deserialize(

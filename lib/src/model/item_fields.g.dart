@@ -24,7 +24,6 @@ const ItemFields _$displayPreferencesId =
 const ItemFields _$etag = const ItemFields._('etag');
 const ItemFields _$externalUrls = const ItemFields._('externalUrls');
 const ItemFields _$genres = const ItemFields._('genres');
-const ItemFields _$homePageUrl = const ItemFields._('homePageUrl');
 const ItemFields _$itemCounts = const ItemFields._('itemCounts');
 const ItemFields _$mediaSourceCount = const ItemFields._('mediaSourceCount');
 const ItemFields _$mediaSources = const ItemFields._('mediaSources');
@@ -42,10 +41,6 @@ const ItemFields _$primaryImageAspectRatio =
 const ItemFields _$recursiveItemCount =
     const ItemFields._('recursiveItemCount');
 const ItemFields _$settings = const ItemFields._('settings');
-const ItemFields _$screenshotImageTags =
-    const ItemFields._('screenshotImageTags');
-const ItemFields _$seriesPrimaryImage =
-    const ItemFields._('seriesPrimaryImage');
 const ItemFields _$seriesStudio = const ItemFields._('seriesStudio');
 const ItemFields _$sortName = const ItemFields._('sortName');
 const ItemFields _$specialEpisodeNumbers =
@@ -56,17 +51,6 @@ const ItemFields _$tags = const ItemFields._('tags');
 const ItemFields _$remoteTrailers = const ItemFields._('remoteTrailers');
 const ItemFields _$mediaStreams = const ItemFields._('mediaStreams');
 const ItemFields _$seasonUserData = const ItemFields._('seasonUserData');
-const ItemFields _$serviceName = const ItemFields._('serviceName');
-const ItemFields _$themeSongIds = const ItemFields._('themeSongIds');
-const ItemFields _$themeVideoIds = const ItemFields._('themeVideoIds');
-const ItemFields _$externalEtag = const ItemFields._('externalEtag');
-const ItemFields _$presentationUniqueKey =
-    const ItemFields._('presentationUniqueKey');
-const ItemFields _$inheritedParentalRatingValue =
-    const ItemFields._('inheritedParentalRatingValue');
-const ItemFields _$externalSeriesId = const ItemFields._('externalSeriesId');
-const ItemFields _$seriesPresentationUniqueKey =
-    const ItemFields._('seriesPresentationUniqueKey');
 const ItemFields _$dateLastRefreshed = const ItemFields._('dateLastRefreshed');
 const ItemFields _$dateLastSaved = const ItemFields._('dateLastSaved');
 const ItemFields _$refreshState = const ItemFields._('refreshState');
@@ -113,8 +97,6 @@ ItemFields _$valueOf(String name) {
       return _$externalUrls;
     case 'genres':
       return _$genres;
-    case 'homePageUrl':
-      return _$homePageUrl;
     case 'itemCounts':
       return _$itemCounts;
     case 'mediaSourceCount':
@@ -143,10 +125,6 @@ ItemFields _$valueOf(String name) {
       return _$recursiveItemCount;
     case 'settings':
       return _$settings;
-    case 'screenshotImageTags':
-      return _$screenshotImageTags;
-    case 'seriesPrimaryImage':
-      return _$seriesPrimaryImage;
     case 'seriesStudio':
       return _$seriesStudio;
     case 'sortName':
@@ -165,22 +143,6 @@ ItemFields _$valueOf(String name) {
       return _$mediaStreams;
     case 'seasonUserData':
       return _$seasonUserData;
-    case 'serviceName':
-      return _$serviceName;
-    case 'themeSongIds':
-      return _$themeSongIds;
-    case 'themeVideoIds':
-      return _$themeVideoIds;
-    case 'externalEtag':
-      return _$externalEtag;
-    case 'presentationUniqueKey':
-      return _$presentationUniqueKey;
-    case 'inheritedParentalRatingValue':
-      return _$inheritedParentalRatingValue;
-    case 'externalSeriesId':
-      return _$externalSeriesId;
-    case 'seriesPresentationUniqueKey':
-      return _$seriesPresentationUniqueKey;
     case 'dateLastRefreshed':
       return _$dateLastRefreshed;
     case 'dateLastSaved':
@@ -204,12 +166,11 @@ ItemFields _$valueOf(String name) {
     case 'specialFeatureCount':
       return _$specialFeatureCount;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ItemFields> _$values =
-    new BuiltSet<ItemFields>(const <ItemFields>[
+final BuiltSet<ItemFields> _$values = BuiltSet<ItemFields>(const <ItemFields>[
   _$airTime,
   _$canDelete,
   _$canDownload,
@@ -225,7 +186,6 @@ final BuiltSet<ItemFields> _$values =
   _$etag,
   _$externalUrls,
   _$genres,
-  _$homePageUrl,
   _$itemCounts,
   _$mediaSourceCount,
   _$mediaSources,
@@ -240,8 +200,6 @@ final BuiltSet<ItemFields> _$values =
   _$primaryImageAspectRatio,
   _$recursiveItemCount,
   _$settings,
-  _$screenshotImageTags,
-  _$seriesPrimaryImage,
   _$seriesStudio,
   _$sortName,
   _$specialEpisodeNumbers,
@@ -251,14 +209,6 @@ final BuiltSet<ItemFields> _$values =
   _$remoteTrailers,
   _$mediaStreams,
   _$seasonUserData,
-  _$serviceName,
-  _$themeSongIds,
-  _$themeVideoIds,
-  _$externalEtag,
-  _$presentationUniqueKey,
-  _$inheritedParentalRatingValue,
-  _$externalSeriesId,
-  _$seriesPresentationUniqueKey,
   _$dateLastRefreshed,
   _$dateLastSaved,
   _$refreshState,
@@ -289,7 +239,6 @@ class _$ItemFieldsMeta {
   ItemFields get etag => _$etag;
   ItemFields get externalUrls => _$externalUrls;
   ItemFields get genres => _$genres;
-  ItemFields get homePageUrl => _$homePageUrl;
   ItemFields get itemCounts => _$itemCounts;
   ItemFields get mediaSourceCount => _$mediaSourceCount;
   ItemFields get mediaSources => _$mediaSources;
@@ -304,8 +253,6 @@ class _$ItemFieldsMeta {
   ItemFields get primaryImageAspectRatio => _$primaryImageAspectRatio;
   ItemFields get recursiveItemCount => _$recursiveItemCount;
   ItemFields get settings => _$settings;
-  ItemFields get screenshotImageTags => _$screenshotImageTags;
-  ItemFields get seriesPrimaryImage => _$seriesPrimaryImage;
   ItemFields get seriesStudio => _$seriesStudio;
   ItemFields get sortName => _$sortName;
   ItemFields get specialEpisodeNumbers => _$specialEpisodeNumbers;
@@ -315,14 +262,6 @@ class _$ItemFieldsMeta {
   ItemFields get remoteTrailers => _$remoteTrailers;
   ItemFields get mediaStreams => _$mediaStreams;
   ItemFields get seasonUserData => _$seasonUserData;
-  ItemFields get serviceName => _$serviceName;
-  ItemFields get themeSongIds => _$themeSongIds;
-  ItemFields get themeVideoIds => _$themeVideoIds;
-  ItemFields get externalEtag => _$externalEtag;
-  ItemFields get presentationUniqueKey => _$presentationUniqueKey;
-  ItemFields get inheritedParentalRatingValue => _$inheritedParentalRatingValue;
-  ItemFields get externalSeriesId => _$externalSeriesId;
-  ItemFields get seriesPresentationUniqueKey => _$seriesPresentationUniqueKey;
   ItemFields get dateLastRefreshed => _$dateLastRefreshed;
   ItemFields get dateLastSaved => _$dateLastSaved;
   ItemFields get refreshState => _$refreshState;
@@ -343,7 +282,7 @@ mixin _$ItemFieldsMixin {
   _$ItemFieldsMeta get ItemFields => const _$ItemFieldsMeta();
 }
 
-Serializer<ItemFields> _$itemFieldsSerializer = new _$ItemFieldsSerializer();
+Serializer<ItemFields> _$itemFieldsSerializer = _$ItemFieldsSerializer();
 
 class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
   static const Map<String, Object> _toWire = const <String, Object>{
@@ -362,7 +301,6 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'etag': 'Etag',
     'externalUrls': 'ExternalUrls',
     'genres': 'Genres',
-    'homePageUrl': 'HomePageUrl',
     'itemCounts': 'ItemCounts',
     'mediaSourceCount': 'MediaSourceCount',
     'mediaSources': 'MediaSources',
@@ -377,8 +315,6 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'primaryImageAspectRatio': 'PrimaryImageAspectRatio',
     'recursiveItemCount': 'RecursiveItemCount',
     'settings': 'Settings',
-    'screenshotImageTags': 'ScreenshotImageTags',
-    'seriesPrimaryImage': 'SeriesPrimaryImage',
     'seriesStudio': 'SeriesStudio',
     'sortName': 'SortName',
     'specialEpisodeNumbers': 'SpecialEpisodeNumbers',
@@ -388,14 +324,6 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'remoteTrailers': 'RemoteTrailers',
     'mediaStreams': 'MediaStreams',
     'seasonUserData': 'SeasonUserData',
-    'serviceName': 'ServiceName',
-    'themeSongIds': 'ThemeSongIds',
-    'themeVideoIds': 'ThemeVideoIds',
-    'externalEtag': 'ExternalEtag',
-    'presentationUniqueKey': 'PresentationUniqueKey',
-    'inheritedParentalRatingValue': 'InheritedParentalRatingValue',
-    'externalSeriesId': 'ExternalSeriesId',
-    'seriesPresentationUniqueKey': 'SeriesPresentationUniqueKey',
     'dateLastRefreshed': 'DateLastRefreshed',
     'dateLastSaved': 'DateLastSaved',
     'refreshState': 'RefreshState',
@@ -424,7 +352,6 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'Etag': 'etag',
     'ExternalUrls': 'externalUrls',
     'Genres': 'genres',
-    'HomePageUrl': 'homePageUrl',
     'ItemCounts': 'itemCounts',
     'MediaSourceCount': 'mediaSourceCount',
     'MediaSources': 'mediaSources',
@@ -439,8 +366,6 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'PrimaryImageAspectRatio': 'primaryImageAspectRatio',
     'RecursiveItemCount': 'recursiveItemCount',
     'Settings': 'settings',
-    'ScreenshotImageTags': 'screenshotImageTags',
-    'SeriesPrimaryImage': 'seriesPrimaryImage',
     'SeriesStudio': 'seriesStudio',
     'SortName': 'sortName',
     'SpecialEpisodeNumbers': 'specialEpisodeNumbers',
@@ -450,14 +375,6 @@ class _$ItemFieldsSerializer implements PrimitiveSerializer<ItemFields> {
     'RemoteTrailers': 'remoteTrailers',
     'MediaStreams': 'mediaStreams',
     'SeasonUserData': 'seasonUserData',
-    'ServiceName': 'serviceName',
-    'ThemeSongIds': 'themeSongIds',
-    'ThemeVideoIds': 'themeVideoIds',
-    'ExternalEtag': 'externalEtag',
-    'PresentationUniqueKey': 'presentationUniqueKey',
-    'InheritedParentalRatingValue': 'inheritedParentalRatingValue',
-    'ExternalSeriesId': 'externalSeriesId',
-    'SeriesPresentationUniqueKey': 'seriesPresentationUniqueKey',
     'DateLastRefreshed': 'dateLastRefreshed',
     'DateLastSaved': 'dateLastSaved',
     'RefreshState': 'refreshState',

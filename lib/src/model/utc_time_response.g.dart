@@ -13,19 +13,17 @@ class _$UtcTimeResponse extends UtcTimeResponse {
   final DateTime? responseTransmissionTime;
 
   factory _$UtcTimeResponse([void Function(UtcTimeResponseBuilder)? updates]) =>
-      (new UtcTimeResponseBuilder()..update(updates))._build();
+      (UtcTimeResponseBuilder()..update(updates))._build();
 
   _$UtcTimeResponse._(
       {this.requestReceptionTime, this.responseTransmissionTime})
       : super._();
-
   @override
   UtcTimeResponse rebuild(void Function(UtcTimeResponseBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UtcTimeResponseBuilder toBuilder() =>
-      new UtcTimeResponseBuilder()..replace(this);
+  UtcTimeResponseBuilder toBuilder() => UtcTimeResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -83,7 +81,6 @@ class UtcTimeResponseBuilder
 
   @override
   void replace(UtcTimeResponse other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UtcTimeResponse;
   }
 
@@ -97,9 +94,10 @@ class UtcTimeResponseBuilder
 
   _$UtcTimeResponse _build() {
     final _$result = _$v ??
-        new _$UtcTimeResponse._(
-            requestReceptionTime: requestReceptionTime,
-            responseTransmissionTime: responseTransmissionTime);
+        _$UtcTimeResponse._(
+          requestReceptionTime: requestReceptionTime,
+          responseTransmissionTime: responseTransmissionTime,
+        );
     replace(_$result);
     return _$result;
   }

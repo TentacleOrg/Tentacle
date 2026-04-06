@@ -48,10 +48,10 @@ void main() {
       // TODO
     });
 
-    // Gets wake on lan information.
+    // Gets information about the server.
     //
-    //Future<BuiltList<WakeOnLanInfo>> getWakeOnLanInfo() async
-    test('test getWakeOnLanInfo', () async {
+    //Future<SystemStorageDto> getSystemStorage() async
+    test('test getSystemStorage', () async {
       // TODO
     });
 

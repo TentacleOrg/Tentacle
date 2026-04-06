@@ -15,21 +15,21 @@ void main() {
 
     // Get info for a device.
     //
-    //Future<DeviceInfo> getDeviceInfo(String id) async
+    //Future<DeviceInfoDto> getDeviceInfo(String id) async
     test('test getDeviceInfo', () async {
       // TODO
     });
 
     // Get options for a device.
     //
-    //Future<DeviceOptions> getDeviceOptions(String id) async
+    //Future<DeviceOptionsDto> getDeviceOptions(String id) async
     test('test getDeviceOptions', () async {
       // TODO
     });
 
     // Get Devices.
     //
-    //Future<DeviceInfoQueryResult> getDevices({ String userId }) async
+    //Future<DeviceInfoDtoQueryResult> getDevices({ String userId }) async
     test('test getDevices', () async {
       // TODO
     });

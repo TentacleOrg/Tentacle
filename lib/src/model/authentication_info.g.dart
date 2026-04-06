@@ -34,7 +34,7 @@ class _$AuthenticationInfo extends AuthenticationInfo {
 
   factory _$AuthenticationInfo(
           [void Function(AuthenticationInfoBuilder)? updates]) =>
-      (new AuthenticationInfoBuilder()..update(updates))._build();
+      (AuthenticationInfoBuilder()..update(updates))._build();
 
   _$AuthenticationInfo._(
       {this.id,
@@ -50,7 +50,6 @@ class _$AuthenticationInfo extends AuthenticationInfo {
       this.dateLastActivity,
       this.userName})
       : super._();
-
   @override
   AuthenticationInfo rebuild(
           void Function(AuthenticationInfoBuilder) updates) =>
@@ -58,7 +57,7 @@ class _$AuthenticationInfo extends AuthenticationInfo {
 
   @override
   AuthenticationInfoBuilder toBuilder() =>
-      new AuthenticationInfoBuilder()..replace(this);
+      AuthenticationInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -195,7 +194,6 @@ class AuthenticationInfoBuilder
 
   @override
   void replace(AuthenticationInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthenticationInfo;
   }
 
@@ -209,19 +207,20 @@ class AuthenticationInfoBuilder
 
   _$AuthenticationInfo _build() {
     final _$result = _$v ??
-        new _$AuthenticationInfo._(
-            id: id,
-            accessToken: accessToken,
-            deviceId: deviceId,
-            appName: appName,
-            appVersion: appVersion,
-            deviceName: deviceName,
-            userId: userId,
-            isActive: isActive,
-            dateCreated: dateCreated,
-            dateRevoked: dateRevoked,
-            dateLastActivity: dateLastActivity,
-            userName: userName);
+        _$AuthenticationInfo._(
+          id: id,
+          accessToken: accessToken,
+          deviceId: deviceId,
+          appName: appName,
+          appVersion: appVersion,
+          deviceName: deviceName,
+          userId: userId,
+          isActive: isActive,
+          dateCreated: dateCreated,
+          dateRevoked: dateRevoked,
+          dateLastActivity: dateLastActivity,
+          userName: userName,
+        );
     replace(_$result);
     return _$result;
   }

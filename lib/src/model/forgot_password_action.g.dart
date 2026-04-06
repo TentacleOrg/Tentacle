@@ -21,12 +21,12 @@ ForgotPasswordAction _$valueOf(String name) {
     case 'inNetworkRequired':
       return _$inNetworkRequired;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ForgotPasswordAction> _$values =
-    new BuiltSet<ForgotPasswordAction>(const <ForgotPasswordAction>[
+    BuiltSet<ForgotPasswordAction>(const <ForgotPasswordAction>[
   _$contactAdmin,
   _$pinCode,
   _$inNetworkRequired,
@@ -48,7 +48,7 @@ mixin _$ForgotPasswordActionMixin {
 }
 
 Serializer<ForgotPasswordAction> _$forgotPasswordActionSerializer =
-    new _$ForgotPasswordActionSerializer();
+    _$ForgotPasswordActionSerializer();
 
 class _$ForgotPasswordActionSerializer
     implements PrimitiveSerializer<ForgotPasswordAction> {

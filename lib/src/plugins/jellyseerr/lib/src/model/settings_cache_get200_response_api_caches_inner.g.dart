@@ -18,13 +18,12 @@ class _$SettingsCacheGet200ResponseApiCachesInner
   factory _$SettingsCacheGet200ResponseApiCachesInner(
           [void Function(SettingsCacheGet200ResponseApiCachesInnerBuilder)?
               updates]) =>
-      (new SettingsCacheGet200ResponseApiCachesInnerBuilder()..update(updates))
+      (SettingsCacheGet200ResponseApiCachesInnerBuilder()..update(updates))
           ._build();
 
   _$SettingsCacheGet200ResponseApiCachesInner._(
       {this.id, this.name, this.stats})
       : super._();
-
   @override
   SettingsCacheGet200ResponseApiCachesInner rebuild(
           void Function(SettingsCacheGet200ResponseApiCachesInnerBuilder)
@@ -33,7 +32,7 @@ class _$SettingsCacheGet200ResponseApiCachesInner
 
   @override
   SettingsCacheGet200ResponseApiCachesInnerBuilder toBuilder() =>
-      new SettingsCacheGet200ResponseApiCachesInnerBuilder()..replace(this);
+      SettingsCacheGet200ResponseApiCachesInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -81,8 +80,7 @@ class SettingsCacheGet200ResponseApiCachesInnerBuilder
 
   SettingsCacheGet200ResponseApiCachesInnerStatsBuilder? _stats;
   SettingsCacheGet200ResponseApiCachesInnerStatsBuilder get stats =>
-      _$this._stats ??=
-          new SettingsCacheGet200ResponseApiCachesInnerStatsBuilder();
+      _$this._stats ??= SettingsCacheGet200ResponseApiCachesInnerStatsBuilder();
   set stats(SettingsCacheGet200ResponseApiCachesInnerStatsBuilder? stats) =>
       _$this._stats = stats;
 
@@ -103,7 +101,6 @@ class SettingsCacheGet200ResponseApiCachesInnerBuilder
 
   @override
   void replace(SettingsCacheGet200ResponseApiCachesInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsCacheGet200ResponseApiCachesInner;
   }
 
@@ -121,15 +118,18 @@ class SettingsCacheGet200ResponseApiCachesInnerBuilder
     _$SettingsCacheGet200ResponseApiCachesInner _$result;
     try {
       _$result = _$v ??
-          new _$SettingsCacheGet200ResponseApiCachesInner._(
-              id: id, name: name, stats: _stats?.build());
+          _$SettingsCacheGet200ResponseApiCachesInner._(
+            id: id,
+            name: name,
+            stats: _stats?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'stats';
         _stats?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SettingsCacheGet200ResponseApiCachesInner',
             _$failedField,
             e.toString());

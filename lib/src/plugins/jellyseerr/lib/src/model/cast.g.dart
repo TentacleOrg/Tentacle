@@ -25,7 +25,7 @@ class _$Cast extends Cast {
   final String? profilePath;
 
   factory _$Cast([void Function(CastBuilder)? updates]) =>
-      (new CastBuilder()..update(updates))._build();
+      (CastBuilder()..update(updates))._build();
 
   _$Cast._(
       {this.id,
@@ -37,13 +37,12 @@ class _$Cast extends Cast {
       this.order,
       this.profilePath})
       : super._();
-
   @override
   Cast rebuild(void Function(CastBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CastBuilder toBuilder() => new CastBuilder()..replace(this);
+  CastBuilder toBuilder() => CastBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -146,7 +145,6 @@ class CastBuilder implements Builder<Cast, CastBuilder> {
 
   @override
   void replace(Cast other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Cast;
   }
 
@@ -160,15 +158,16 @@ class CastBuilder implements Builder<Cast, CastBuilder> {
 
   _$Cast _build() {
     final _$result = _$v ??
-        new _$Cast._(
-            id: id,
-            castId: castId,
-            character: character,
-            creditId: creditId,
-            gender: gender,
-            name: name,
-            order: order,
-            profilePath: profilePath);
+        _$Cast._(
+          id: id,
+          castId: castId,
+          character: character,
+          creditId: creditId,
+          gender: gender,
+          name: name,
+          order: order,
+          profilePath: profilePath,
+        );
     replace(_$result);
     return _$result;
   }

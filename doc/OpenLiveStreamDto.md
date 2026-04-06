@@ -18,7 +18,8 @@ Name | Type | Description | Notes
 **maxAudioChannels** | **int** | Gets or sets the max audio channels. | [optional] 
 **itemId** | **String** | Gets or sets the item id. | [optional] 
 **enableDirectPlay** | **bool** | Gets or sets a value indicating whether to enable direct play. | [optional] 
-**enableDirectStream** | **bool** | Gets or sets a value indicating whether to enale direct stream. | [optional] 
+**enableDirectStream** | **bool** | Gets or sets a value indicating whether to enable direct stream. | [optional] 
+**alwaysBurnInSubtitleWhenTranscoding** | **bool** | Gets or sets a value indicating whether always burn in subtitles when transcoding. | [optional] 
 **deviceProfile** | [**DeviceProfile**](DeviceProfile.md) | A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.  <br />  Specifically, it defines the supported <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles\">containers</see> and  <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles\">codecs</see> (video and/or audio, including codec profiles and levels)  the device is able to direct play (without transcoding or remuxing),  as well as which <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles\">containers/codecs to transcode to</see> in case it isn't. | [optional] 
 **directPlayProtocols** | [**BuiltList&lt;MediaProtocol&gt;**](MediaProtocol.md) | Gets or sets the device play protocols. | [optional] 
 

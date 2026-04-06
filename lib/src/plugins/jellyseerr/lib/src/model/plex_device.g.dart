@@ -57,7 +57,7 @@ class _$PlexDevice extends PlexDevice {
   final BuiltList<PlexConnection> connection;
 
   factory _$PlexDevice([void Function(PlexDeviceBuilder)? updates]) =>
-      (new PlexDeviceBuilder()..update(updates))._build();
+      (PlexDeviceBuilder()..update(updates))._build();
 
   _$PlexDevice._(
       {required this.name,
@@ -84,31 +84,13 @@ class _$PlexDevice extends PlexDevice {
       this.publicAddressMatches,
       this.presence,
       required this.connection})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'PlexDevice', 'name');
-    BuiltValueNullFieldError.checkNotNull(product, r'PlexDevice', 'product');
-    BuiltValueNullFieldError.checkNotNull(
-        productVersion, r'PlexDevice', 'productVersion');
-    BuiltValueNullFieldError.checkNotNull(platform, r'PlexDevice', 'platform');
-    BuiltValueNullFieldError.checkNotNull(device, r'PlexDevice', 'device');
-    BuiltValueNullFieldError.checkNotNull(
-        clientIdentifier, r'PlexDevice', 'clientIdentifier');
-    BuiltValueNullFieldError.checkNotNull(
-        createdAt, r'PlexDevice', 'createdAt');
-    BuiltValueNullFieldError.checkNotNull(
-        lastSeenAt, r'PlexDevice', 'lastSeenAt');
-    BuiltValueNullFieldError.checkNotNull(provides, r'PlexDevice', 'provides');
-    BuiltValueNullFieldError.checkNotNull(owned, r'PlexDevice', 'owned');
-    BuiltValueNullFieldError.checkNotNull(
-        connection, r'PlexDevice', 'connection');
-  }
-
+      : super._();
   @override
   PlexDevice rebuild(void Function(PlexDeviceBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlexDeviceBuilder toBuilder() => new PlexDeviceBuilder()..replace(this);
+  PlexDeviceBuilder toBuilder() => PlexDeviceBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -246,7 +228,7 @@ class PlexDeviceBuilder implements Builder<PlexDevice, PlexDeviceBuilder> {
 
   ListBuilder<String>? _provides;
   ListBuilder<String> get provides =>
-      _$this._provides ??= new ListBuilder<String>();
+      _$this._provides ??= ListBuilder<String>();
   set provides(ListBuilder<String>? provides) => _$this._provides = provides;
 
   bool? _owned;
@@ -308,7 +290,7 @@ class PlexDeviceBuilder implements Builder<PlexDevice, PlexDeviceBuilder> {
 
   ListBuilder<PlexConnection>? _connection;
   ListBuilder<PlexConnection> get connection =>
-      _$this._connection ??= new ListBuilder<PlexConnection>();
+      _$this._connection ??= ListBuilder<PlexConnection>();
   set connection(ListBuilder<PlexConnection>? connection) =>
       _$this._connection = connection;
 
@@ -350,7 +332,6 @@ class PlexDeviceBuilder implements Builder<PlexDevice, PlexDeviceBuilder> {
 
   @override
   void replace(PlexDevice other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlexDevice;
   }
 
@@ -366,40 +347,41 @@ class PlexDeviceBuilder implements Builder<PlexDevice, PlexDeviceBuilder> {
     _$PlexDevice _$result;
     try {
       _$result = _$v ??
-          new _$PlexDevice._(
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'PlexDevice', 'name'),
-              product: BuiltValueNullFieldError.checkNotNull(
-                  product, r'PlexDevice', 'product'),
-              productVersion: BuiltValueNullFieldError.checkNotNull(
-                  productVersion, r'PlexDevice', 'productVersion'),
-              platform: BuiltValueNullFieldError.checkNotNull(
-                  platform, r'PlexDevice', 'platform'),
-              platformVersion: platformVersion,
-              device: BuiltValueNullFieldError.checkNotNull(
-                  device, r'PlexDevice', 'device'),
-              clientIdentifier: BuiltValueNullFieldError.checkNotNull(
-                  clientIdentifier, r'PlexDevice', 'clientIdentifier'),
-              createdAt: BuiltValueNullFieldError.checkNotNull(
-                  createdAt, r'PlexDevice', 'createdAt'),
-              lastSeenAt: BuiltValueNullFieldError.checkNotNull(
-                  lastSeenAt, r'PlexDevice', 'lastSeenAt'),
-              provides: provides.build(),
-              owned: BuiltValueNullFieldError.checkNotNull(
-                  owned, r'PlexDevice', 'owned'),
-              ownerID: ownerID,
-              home: home,
-              sourceTitle: sourceTitle,
-              accessToken: accessToken,
-              publicAddress: publicAddress,
-              httpsRequired: httpsRequired,
-              synced: synced,
-              relay: relay,
-              dnsRebindingProtection: dnsRebindingProtection,
-              natLoopbackSupported: natLoopbackSupported,
-              publicAddressMatches: publicAddressMatches,
-              presence: presence,
-              connection: connection.build());
+          _$PlexDevice._(
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'PlexDevice', 'name'),
+            product: BuiltValueNullFieldError.checkNotNull(
+                product, r'PlexDevice', 'product'),
+            productVersion: BuiltValueNullFieldError.checkNotNull(
+                productVersion, r'PlexDevice', 'productVersion'),
+            platform: BuiltValueNullFieldError.checkNotNull(
+                platform, r'PlexDevice', 'platform'),
+            platformVersion: platformVersion,
+            device: BuiltValueNullFieldError.checkNotNull(
+                device, r'PlexDevice', 'device'),
+            clientIdentifier: BuiltValueNullFieldError.checkNotNull(
+                clientIdentifier, r'PlexDevice', 'clientIdentifier'),
+            createdAt: BuiltValueNullFieldError.checkNotNull(
+                createdAt, r'PlexDevice', 'createdAt'),
+            lastSeenAt: BuiltValueNullFieldError.checkNotNull(
+                lastSeenAt, r'PlexDevice', 'lastSeenAt'),
+            provides: provides.build(),
+            owned: BuiltValueNullFieldError.checkNotNull(
+                owned, r'PlexDevice', 'owned'),
+            ownerID: ownerID,
+            home: home,
+            sourceTitle: sourceTitle,
+            accessToken: accessToken,
+            publicAddress: publicAddress,
+            httpsRequired: httpsRequired,
+            synced: synced,
+            relay: relay,
+            dnsRebindingProtection: dnsRebindingProtection,
+            natLoopbackSupported: natLoopbackSupported,
+            publicAddressMatches: publicAddressMatches,
+            presence: presence,
+            connection: connection.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -409,7 +391,7 @@ class PlexDeviceBuilder implements Builder<PlexDevice, PlexDeviceBuilder> {
         _$failedField = 'connection';
         connection.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlexDevice', _$failedField, e.toString());
       }
       rethrow;

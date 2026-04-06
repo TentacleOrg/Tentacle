@@ -14,10 +14,9 @@ class _$UpdateLibraryOptionsDto extends UpdateLibraryOptionsDto {
 
   factory _$UpdateLibraryOptionsDto(
           [void Function(UpdateLibraryOptionsDtoBuilder)? updates]) =>
-      (new UpdateLibraryOptionsDtoBuilder()..update(updates))._build();
+      (UpdateLibraryOptionsDtoBuilder()..update(updates))._build();
 
   _$UpdateLibraryOptionsDto._({this.id, this.libraryOptions}) : super._();
-
   @override
   UpdateLibraryOptionsDto rebuild(
           void Function(UpdateLibraryOptionsDtoBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$UpdateLibraryOptionsDto extends UpdateLibraryOptionsDto {
 
   @override
   UpdateLibraryOptionsDtoBuilder toBuilder() =>
-      new UpdateLibraryOptionsDtoBuilder()..replace(this);
+      UpdateLibraryOptionsDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,7 +63,7 @@ class UpdateLibraryOptionsDtoBuilder
 
   LibraryOptionsBuilder? _libraryOptions;
   LibraryOptionsBuilder get libraryOptions =>
-      _$this._libraryOptions ??= new LibraryOptionsBuilder();
+      _$this._libraryOptions ??= LibraryOptionsBuilder();
   set libraryOptions(LibraryOptionsBuilder? libraryOptions) =>
       _$this._libraryOptions = libraryOptions;
 
@@ -84,7 +83,6 @@ class UpdateLibraryOptionsDtoBuilder
 
   @override
   void replace(UpdateLibraryOptionsDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdateLibraryOptionsDto;
   }
 
@@ -100,15 +98,17 @@ class UpdateLibraryOptionsDtoBuilder
     _$UpdateLibraryOptionsDto _$result;
     try {
       _$result = _$v ??
-          new _$UpdateLibraryOptionsDto._(
-              id: id, libraryOptions: _libraryOptions?.build());
+          _$UpdateLibraryOptionsDto._(
+            id: id,
+            libraryOptions: _libraryOptions?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'libraryOptions';
         _libraryOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UpdateLibraryOptionsDto', _$failedField, e.toString());
       }
       rethrow;

@@ -12,10 +12,9 @@ class _$SessionsStopMessage extends SessionsStopMessage {
 
   factory _$SessionsStopMessage(
           [void Function(SessionsStopMessageBuilder)? updates]) =>
-      (new SessionsStopMessageBuilder()..update(updates))._build();
+      (SessionsStopMessageBuilder()..update(updates))._build();
 
   _$SessionsStopMessage._({this.messageType}) : super._();
-
   @override
   SessionsStopMessage rebuild(
           void Function(SessionsStopMessageBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$SessionsStopMessage extends SessionsStopMessage {
 
   @override
   SessionsStopMessageBuilder toBuilder() =>
-      new SessionsStopMessageBuilder()..replace(this);
+      SessionsStopMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +70,6 @@ class SessionsStopMessageBuilder
 
   @override
   void replace(SessionsStopMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SessionsStopMessage;
   }
 
@@ -84,8 +82,10 @@ class SessionsStopMessageBuilder
   SessionsStopMessage build() => _build();
 
   _$SessionsStopMessage _build() {
-    final _$result =
-        _$v ?? new _$SessionsStopMessage._(messageType: messageType);
+    final _$result = _$v ??
+        _$SessionsStopMessage._(
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

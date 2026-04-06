@@ -3,73 +3,86 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/hardware_encoding_type.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:tentacle/src/model/transcode_reason.dart';
+import 'package:tentacle/src/model/hardware_acceleration_type.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'transcoding_info.g.dart';
 
-/// TranscodingInfo
+/// Class holding information on a running transcode.
 ///
 /// Properties:
-/// * [audioCodec]
-/// * [videoCodec]
-/// * [container]
-/// * [isVideoDirect]
-/// * [isAudioDirect]
-/// * [bitrate]
-/// * [framerate]
-/// * [completionPercentage]
-/// * [width]
-/// * [height]
-/// * [audioChannels]
-/// * [hardwareAccelerationType]
-/// * [transcodeReasons]
+/// * [audioCodec] - Gets or sets the thread count used for encoding.
+/// * [videoCodec] - Gets or sets the thread count used for encoding.
+/// * [container] - Gets or sets the thread count used for encoding.
+/// * [isVideoDirect] - Gets or sets a value indicating whether the video is passed through.
+/// * [isAudioDirect] - Gets or sets a value indicating whether the audio is passed through.
+/// * [bitrate] - Gets or sets the bitrate.
+/// * [framerate] - Gets or sets the framerate.
+/// * [completionPercentage] - Gets or sets the completion percentage.
+/// * [width] - Gets or sets the video width.
+/// * [height] - Gets or sets the video height.
+/// * [audioChannels] - Gets or sets the audio channels.
+/// * [hardwareAccelerationType] - Gets or sets the hardware acceleration type.
+/// * [transcodeReasons] - Gets or sets the transcode reasons.
 @BuiltValue()
 abstract class TranscodingInfo
     implements Built<TranscodingInfo, TranscodingInfoBuilder> {
+  /// Gets or sets the thread count used for encoding.
   @BuiltValueField(wireName: r'AudioCodec')
   String? get audioCodec;
 
+  /// Gets or sets the thread count used for encoding.
   @BuiltValueField(wireName: r'VideoCodec')
   String? get videoCodec;
 
+  /// Gets or sets the thread count used for encoding.
   @BuiltValueField(wireName: r'Container')
   String? get container;
 
+  /// Gets or sets a value indicating whether the video is passed through.
   @BuiltValueField(wireName: r'IsVideoDirect')
   bool? get isVideoDirect;
 
+  /// Gets or sets a value indicating whether the audio is passed through.
   @BuiltValueField(wireName: r'IsAudioDirect')
   bool? get isAudioDirect;
 
+  /// Gets or sets the bitrate.
   @BuiltValueField(wireName: r'Bitrate')
   int? get bitrate;
 
+  /// Gets or sets the framerate.
   @BuiltValueField(wireName: r'Framerate')
   double? get framerate;
 
+  /// Gets or sets the completion percentage.
   @BuiltValueField(wireName: r'CompletionPercentage')
   double? get completionPercentage;
 
+  /// Gets or sets the video width.
   @BuiltValueField(wireName: r'Width')
   int? get width;
 
+  /// Gets or sets the video height.
   @BuiltValueField(wireName: r'Height')
   int? get height;
 
+  /// Gets or sets the audio channels.
   @BuiltValueField(wireName: r'AudioChannels')
   int? get audioChannels;
 
+  /// Gets or sets the hardware acceleration type.
   @BuiltValueField(wireName: r'HardwareAccelerationType')
-  HardwareEncodingType? get hardwareAccelerationType;
-  // enum hardwareAccelerationTypeEnum {  AMF,  QSV,  NVENC,  V4L2M2M,  VAAPI,  VideoToolBox,  RKMPP,  };
+  HardwareAccelerationType? get hardwareAccelerationType;
+  // enum hardwareAccelerationTypeEnum {  none,  amf,  qsv,  nvenc,  v4l2m2m,  vaapi,  videotoolbox,  rkmpp,  };
 
+  /// Gets or sets the transcode reasons.
   @BuiltValueField(wireName: r'TranscodeReasons')
   BuiltList<TranscodingInfoTranscodeReasonsEnum>? get transcodeReasons;
-  // enum transcodeReasonsEnum {  ContainerNotSupported,  VideoCodecNotSupported,  AudioCodecNotSupported,  SubtitleCodecNotSupported,  AudioIsExternal,  SecondaryAudioNotSupported,  VideoProfileNotSupported,  VideoLevelNotSupported,  VideoResolutionNotSupported,  VideoBitDepthNotSupported,  VideoFramerateNotSupported,  RefFramesNotSupported,  AnamorphicVideoNotSupported,  InterlacedVideoNotSupported,  AudioChannelsNotSupported,  AudioProfileNotSupported,  AudioSampleRateNotSupported,  AudioBitDepthNotSupported,  ContainerBitrateExceedsLimit,  VideoBitrateNotSupported,  AudioBitrateNotSupported,  UnknownVideoStreamInfo,  UnknownAudioStreamInfo,  DirectPlayError,  VideoRangeTypeNotSupported,  };
+  // enum transcodeReasonsEnum {  ContainerNotSupported,  VideoCodecNotSupported,  AudioCodecNotSupported,  SubtitleCodecNotSupported,  AudioIsExternal,  SecondaryAudioNotSupported,  VideoProfileNotSupported,  VideoLevelNotSupported,  VideoResolutionNotSupported,  VideoBitDepthNotSupported,  VideoFramerateNotSupported,  RefFramesNotSupported,  AnamorphicVideoNotSupported,  InterlacedVideoNotSupported,  AudioChannelsNotSupported,  AudioProfileNotSupported,  AudioSampleRateNotSupported,  AudioBitDepthNotSupported,  ContainerBitrateExceedsLimit,  VideoBitrateNotSupported,  AudioBitrateNotSupported,  UnknownVideoStreamInfo,  UnknownAudioStreamInfo,  DirectPlayError,  VideoRangeTypeNotSupported,  VideoCodecTagNotSupported,  StreamCountExceedsLimit,  };
 
   TranscodingInfo._();
 
@@ -178,7 +191,7 @@ class _$TranscodingInfoSerializer
       yield r'HardwareAccelerationType';
       yield serializers.serialize(
         object.hardwareAccelerationType,
-        specifiedType: const FullType.nullable(HardwareEncodingType),
+        specifiedType: const FullType.nullable(HardwareAccelerationType),
       );
     }
     if (object.transcodeReasons != null) {
@@ -303,8 +316,8 @@ class _$TranscodingInfoSerializer
         case r'HardwareAccelerationType':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(HardwareEncodingType),
-          ) as HardwareEncodingType?;
+            specifiedType: const FullType.nullable(HardwareAccelerationType),
+          ) as HardwareAccelerationType?;
           if (valueDes == null) continue;
           result.hardwareAccelerationType = valueDes;
           break;
@@ -422,6 +435,12 @@ class TranscodingInfoTranscodeReasonsEnum extends EnumClass {
   @BuiltValueEnumConst(wireName: r'VideoRangeTypeNotSupported')
   static const TranscodingInfoTranscodeReasonsEnum videoRangeTypeNotSupported =
       _$transcodingInfoTranscodeReasonsEnum_videoRangeTypeNotSupported;
+  @BuiltValueEnumConst(wireName: r'VideoCodecTagNotSupported')
+  static const TranscodingInfoTranscodeReasonsEnum videoCodecTagNotSupported =
+      _$transcodingInfoTranscodeReasonsEnum_videoCodecTagNotSupported;
+  @BuiltValueEnumConst(wireName: r'StreamCountExceedsLimit')
+  static const TranscodingInfoTranscodeReasonsEnum streamCountExceedsLimit =
+      _$transcodingInfoTranscodeReasonsEnum_streamCountExceedsLimit;
 
   static Serializer<TranscodingInfoTranscodeReasonsEnum> get serializer =>
       _$transcodingInfoTranscodeReasonsEnumSerializer;

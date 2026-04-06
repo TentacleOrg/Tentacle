@@ -12,10 +12,9 @@ class _$SetPlaylistItemRequestDto extends SetPlaylistItemRequestDto {
 
   factory _$SetPlaylistItemRequestDto(
           [void Function(SetPlaylistItemRequestDtoBuilder)? updates]) =>
-      (new SetPlaylistItemRequestDtoBuilder()..update(updates))._build();
+      (SetPlaylistItemRequestDtoBuilder()..update(updates))._build();
 
   _$SetPlaylistItemRequestDto._({this.playlistItemId}) : super._();
-
   @override
   SetPlaylistItemRequestDto rebuild(
           void Function(SetPlaylistItemRequestDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$SetPlaylistItemRequestDto extends SetPlaylistItemRequestDto {
 
   @override
   SetPlaylistItemRequestDtoBuilder toBuilder() =>
-      new SetPlaylistItemRequestDtoBuilder()..replace(this);
+      SetPlaylistItemRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -73,7 +72,6 @@ class SetPlaylistItemRequestDtoBuilder
 
   @override
   void replace(SetPlaylistItemRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetPlaylistItemRequestDto;
   }
 
@@ -87,7 +85,9 @@ class SetPlaylistItemRequestDtoBuilder
 
   _$SetPlaylistItemRequestDto _build() {
     final _$result = _$v ??
-        new _$SetPlaylistItemRequestDto._(playlistItemId: playlistItemId);
+        _$SetPlaylistItemRequestDto._(
+          playlistItemId: playlistItemId,
+        );
     replace(_$result);
     return _$result;
   }

@@ -39,7 +39,7 @@ class _$LiveTvOptions extends LiveTvOptions {
   final bool? saveRecordingImages;
 
   factory _$LiveTvOptions([void Function(LiveTvOptionsBuilder)? updates]) =>
-      (new LiveTvOptionsBuilder()..update(updates))._build();
+      (LiveTvOptionsBuilder()..update(updates))._build();
 
   _$LiveTvOptions._(
       {this.guideDays,
@@ -58,13 +58,12 @@ class _$LiveTvOptions extends LiveTvOptions {
       this.saveRecordingNFO,
       this.saveRecordingImages})
       : super._();
-
   @override
   LiveTvOptions rebuild(void Function(LiveTvOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LiveTvOptionsBuilder toBuilder() => new LiveTvOptionsBuilder()..replace(this);
+  LiveTvOptionsBuilder toBuilder() => LiveTvOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -173,13 +172,13 @@ class LiveTvOptionsBuilder
 
   ListBuilder<TunerHostInfo>? _tunerHosts;
   ListBuilder<TunerHostInfo> get tunerHosts =>
-      _$this._tunerHosts ??= new ListBuilder<TunerHostInfo>();
+      _$this._tunerHosts ??= ListBuilder<TunerHostInfo>();
   set tunerHosts(ListBuilder<TunerHostInfo>? tunerHosts) =>
       _$this._tunerHosts = tunerHosts;
 
   ListBuilder<ListingsProviderInfo>? _listingProviders;
   ListBuilder<ListingsProviderInfo> get listingProviders =>
-      _$this._listingProviders ??= new ListBuilder<ListingsProviderInfo>();
+      _$this._listingProviders ??= ListBuilder<ListingsProviderInfo>();
   set listingProviders(ListBuilder<ListingsProviderInfo>? listingProviders) =>
       _$this._listingProviders = listingProviders;
 
@@ -195,7 +194,7 @@ class LiveTvOptionsBuilder
 
   ListBuilder<String>? _mediaLocationsCreated;
   ListBuilder<String> get mediaLocationsCreated =>
-      _$this._mediaLocationsCreated ??= new ListBuilder<String>();
+      _$this._mediaLocationsCreated ??= ListBuilder<String>();
   set mediaLocationsCreated(ListBuilder<String>? mediaLocationsCreated) =>
       _$this._mediaLocationsCreated = mediaLocationsCreated;
 
@@ -251,7 +250,6 @@ class LiveTvOptionsBuilder
 
   @override
   void replace(LiveTvOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LiveTvOptions;
   }
 
@@ -267,23 +265,24 @@ class LiveTvOptionsBuilder
     _$LiveTvOptions _$result;
     try {
       _$result = _$v ??
-          new _$LiveTvOptions._(
-              guideDays: guideDays,
-              recordingPath: recordingPath,
-              movieRecordingPath: movieRecordingPath,
-              seriesRecordingPath: seriesRecordingPath,
-              enableRecordingSubfolders: enableRecordingSubfolders,
-              enableOriginalAudioWithEncodedRecordings:
-                  enableOriginalAudioWithEncodedRecordings,
-              tunerHosts: _tunerHosts?.build(),
-              listingProviders: _listingProviders?.build(),
-              prePaddingSeconds: prePaddingSeconds,
-              postPaddingSeconds: postPaddingSeconds,
-              mediaLocationsCreated: _mediaLocationsCreated?.build(),
-              recordingPostProcessor: recordingPostProcessor,
-              recordingPostProcessorArguments: recordingPostProcessorArguments,
-              saveRecordingNFO: saveRecordingNFO,
-              saveRecordingImages: saveRecordingImages);
+          _$LiveTvOptions._(
+            guideDays: guideDays,
+            recordingPath: recordingPath,
+            movieRecordingPath: movieRecordingPath,
+            seriesRecordingPath: seriesRecordingPath,
+            enableRecordingSubfolders: enableRecordingSubfolders,
+            enableOriginalAudioWithEncodedRecordings:
+                enableOriginalAudioWithEncodedRecordings,
+            tunerHosts: _tunerHosts?.build(),
+            listingProviders: _listingProviders?.build(),
+            prePaddingSeconds: prePaddingSeconds,
+            postPaddingSeconds: postPaddingSeconds,
+            mediaLocationsCreated: _mediaLocationsCreated?.build(),
+            recordingPostProcessor: recordingPostProcessor,
+            recordingPostProcessorArguments: recordingPostProcessorArguments,
+            saveRecordingNFO: saveRecordingNFO,
+            saveRecordingImages: saveRecordingImages,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -295,7 +294,7 @@ class LiveTvOptionsBuilder
         _$failedField = 'mediaLocationsCreated';
         _mediaLocationsCreated?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LiveTvOptions', _$failedField, e.toString());
       }
       rethrow;

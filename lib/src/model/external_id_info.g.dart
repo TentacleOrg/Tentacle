@@ -13,22 +13,17 @@ class _$ExternalIdInfo extends ExternalIdInfo {
   final String? key;
   @override
   final ExternalIdMediaType? type;
-  @override
-  final String? urlFormatString;
 
   factory _$ExternalIdInfo([void Function(ExternalIdInfoBuilder)? updates]) =>
-      (new ExternalIdInfoBuilder()..update(updates))._build();
+      (ExternalIdInfoBuilder()..update(updates))._build();
 
-  _$ExternalIdInfo._({this.name, this.key, this.type, this.urlFormatString})
-      : super._();
-
+  _$ExternalIdInfo._({this.name, this.key, this.type}) : super._();
   @override
   ExternalIdInfo rebuild(void Function(ExternalIdInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ExternalIdInfoBuilder toBuilder() =>
-      new ExternalIdInfoBuilder()..replace(this);
+  ExternalIdInfoBuilder toBuilder() => ExternalIdInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -36,8 +31,7 @@ class _$ExternalIdInfo extends ExternalIdInfo {
     return other is ExternalIdInfo &&
         name == other.name &&
         key == other.key &&
-        type == other.type &&
-        urlFormatString == other.urlFormatString;
+        type == other.type;
   }
 
   @override
@@ -46,7 +40,6 @@ class _$ExternalIdInfo extends ExternalIdInfo {
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, key.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
-    _$hash = $jc(_$hash, urlFormatString.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -56,8 +49,7 @@ class _$ExternalIdInfo extends ExternalIdInfo {
     return (newBuiltValueToStringHelper(r'ExternalIdInfo')
           ..add('name', name)
           ..add('key', key)
-          ..add('type', type)
-          ..add('urlFormatString', urlFormatString))
+          ..add('type', type))
         .toString();
   }
 }
@@ -78,11 +70,6 @@ class ExternalIdInfoBuilder
   ExternalIdMediaType? get type => _$this._type;
   set type(ExternalIdMediaType? type) => _$this._type = type;
 
-  String? _urlFormatString;
-  String? get urlFormatString => _$this._urlFormatString;
-  set urlFormatString(String? urlFormatString) =>
-      _$this._urlFormatString = urlFormatString;
-
   ExternalIdInfoBuilder() {
     ExternalIdInfo._defaults(this);
   }
@@ -93,7 +80,6 @@ class ExternalIdInfoBuilder
       _name = $v.name;
       _key = $v.key;
       _type = $v.type;
-      _urlFormatString = $v.urlFormatString;
       _$v = null;
     }
     return this;
@@ -101,7 +87,6 @@ class ExternalIdInfoBuilder
 
   @override
   void replace(ExternalIdInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ExternalIdInfo;
   }
 
@@ -115,8 +100,11 @@ class ExternalIdInfoBuilder
 
   _$ExternalIdInfo _build() {
     final _$result = _$v ??
-        new _$ExternalIdInfo._(
-            name: name, key: key, type: type, urlFormatString: urlFormatString);
+        _$ExternalIdInfo._(
+          name: name,
+          key: key,
+          type: type,
+        );
     replace(_$result);
     return _$result;
   }

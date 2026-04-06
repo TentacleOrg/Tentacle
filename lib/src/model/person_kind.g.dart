@@ -85,12 +85,11 @@ PersonKind _$valueOf(String name) {
     case 'translator':
       return _$translator;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<PersonKind> _$values =
-    new BuiltSet<PersonKind>(const <PersonKind>[
+final BuiltSet<PersonKind> _$values = BuiltSet<PersonKind>(const <PersonKind>[
   _$unknown,
   _$actor,
   _$director,
@@ -154,7 +153,7 @@ mixin _$PersonKindMixin {
   _$PersonKindMeta get PersonKind => const _$PersonKindMeta();
 }
 
-Serializer<PersonKind> _$personKindSerializer = new _$PersonKindSerializer();
+Serializer<PersonKind> _$personKindSerializer = _$PersonKindSerializer();
 
 class _$PersonKindSerializer implements PrimitiveSerializer<PersonKind> {
   static const Map<String, Object> _toWire = const <String, Object>{

@@ -14,10 +14,9 @@ class _$SonarrSeriesSeasonsInner extends SonarrSeriesSeasonsInner {
 
   factory _$SonarrSeriesSeasonsInner(
           [void Function(SonarrSeriesSeasonsInnerBuilder)? updates]) =>
-      (new SonarrSeriesSeasonsInnerBuilder()..update(updates))._build();
+      (SonarrSeriesSeasonsInnerBuilder()..update(updates))._build();
 
   _$SonarrSeriesSeasonsInner._({this.seasonNumber, this.monitored}) : super._();
-
   @override
   SonarrSeriesSeasonsInner rebuild(
           void Function(SonarrSeriesSeasonsInnerBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$SonarrSeriesSeasonsInner extends SonarrSeriesSeasonsInner {
 
   @override
   SonarrSeriesSeasonsInnerBuilder toBuilder() =>
-      new SonarrSeriesSeasonsInnerBuilder()..replace(this);
+      SonarrSeriesSeasonsInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class SonarrSeriesSeasonsInnerBuilder
 
   @override
   void replace(SonarrSeriesSeasonsInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SonarrSeriesSeasonsInner;
   }
 
@@ -96,8 +94,10 @@ class SonarrSeriesSeasonsInnerBuilder
 
   _$SonarrSeriesSeasonsInner _build() {
     final _$result = _$v ??
-        new _$SonarrSeriesSeasonsInner._(
-            seasonNumber: seasonNumber, monitored: monitored);
+        _$SonarrSeriesSeasonsInner._(
+          seasonNumber: seasonNumber,
+          monitored: monitored,
+        );
     replace(_$result);
     return _$result;
   }

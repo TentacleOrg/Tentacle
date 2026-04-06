@@ -18,12 +18,11 @@ class _$DiscoverMoviesGet200Response extends DiscoverMoviesGet200Response {
 
   factory _$DiscoverMoviesGet200Response(
           [void Function(DiscoverMoviesGet200ResponseBuilder)? updates]) =>
-      (new DiscoverMoviesGet200ResponseBuilder()..update(updates))._build();
+      (DiscoverMoviesGet200ResponseBuilder()..update(updates))._build();
 
   _$DiscoverMoviesGet200Response._(
       {this.page, this.totalPages, this.totalResults, this.results})
       : super._();
-
   @override
   DiscoverMoviesGet200Response rebuild(
           void Function(DiscoverMoviesGet200ResponseBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$DiscoverMoviesGet200Response extends DiscoverMoviesGet200Response {
 
   @override
   DiscoverMoviesGet200ResponseBuilder toBuilder() =>
-      new DiscoverMoviesGet200ResponseBuilder()..replace(this);
+      DiscoverMoviesGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -85,7 +84,7 @@ class DiscoverMoviesGet200ResponseBuilder
 
   ListBuilder<MovieResult>? _results;
   ListBuilder<MovieResult> get results =>
-      _$this._results ??= new ListBuilder<MovieResult>();
+      _$this._results ??= ListBuilder<MovieResult>();
   set results(ListBuilder<MovieResult>? results) => _$this._results = results;
 
   DiscoverMoviesGet200ResponseBuilder() {
@@ -106,7 +105,6 @@ class DiscoverMoviesGet200ResponseBuilder
 
   @override
   void replace(DiscoverMoviesGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverMoviesGet200Response;
   }
 
@@ -122,18 +120,19 @@ class DiscoverMoviesGet200ResponseBuilder
     _$DiscoverMoviesGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverMoviesGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              results: _results?.build());
+          _$DiscoverMoviesGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverMoviesGet200Response', _$failedField, e.toString());
       }
       rethrow;

@@ -22,6 +22,13 @@ void main() {
       // TODO
     });
 
+    // Get a playlist.
+    //
+    //Future<PlaylistDto> getPlaylist(String playlistId) async
+    test('test getPlaylist', () async {
+      // TODO
+    });
+
     // Gets the original items of a playlist.
     //
     //Future<BaseItemDtoQueryResult> getPlaylistItems(String playlistId, { String userId, int startIndex, int limit, BuiltList<ItemFields> fields, bool enableImages, bool enableUserData, int imageTypeLimit, BuiltList<ImageType> enableImageTypes }) async

@@ -13,17 +13,15 @@ class _$TimerEventInfo extends TimerEventInfo {
   final String? programId;
 
   factory _$TimerEventInfo([void Function(TimerEventInfoBuilder)? updates]) =>
-      (new TimerEventInfoBuilder()..update(updates))._build();
+      (TimerEventInfoBuilder()..update(updates))._build();
 
   _$TimerEventInfo._({this.id, this.programId}) : super._();
-
   @override
   TimerEventInfo rebuild(void Function(TimerEventInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TimerEventInfoBuilder toBuilder() =>
-      new TimerEventInfoBuilder()..replace(this);
+  TimerEventInfoBuilder toBuilder() => TimerEventInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -79,7 +77,6 @@ class TimerEventInfoBuilder
 
   @override
   void replace(TimerEventInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TimerEventInfo;
   }
 
@@ -92,8 +89,11 @@ class TimerEventInfoBuilder
   TimerEventInfo build() => _build();
 
   _$TimerEventInfo _build() {
-    final _$result =
-        _$v ?? new _$TimerEventInfo._(id: id, programId: programId);
+    final _$result = _$v ??
+        _$TimerEventInfo._(
+          id: id,
+          programId: programId,
+        );
     replace(_$result);
     return _$result;
   }

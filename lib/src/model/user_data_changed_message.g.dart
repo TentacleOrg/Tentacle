@@ -16,11 +16,10 @@ class _$UserDataChangedMessage extends UserDataChangedMessage {
 
   factory _$UserDataChangedMessage(
           [void Function(UserDataChangedMessageBuilder)? updates]) =>
-      (new UserDataChangedMessageBuilder()..update(updates))._build();
+      (UserDataChangedMessageBuilder()..update(updates))._build();
 
   _$UserDataChangedMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   UserDataChangedMessage rebuild(
           void Function(UserDataChangedMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$UserDataChangedMessage extends UserDataChangedMessage {
 
   @override
   UserDataChangedMessageBuilder toBuilder() =>
-      new UserDataChangedMessageBuilder()..replace(this);
+      UserDataChangedMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,7 +64,7 @@ class UserDataChangedMessageBuilder
 
   UserDataChangeInfoBuilder? _data;
   UserDataChangeInfoBuilder get data =>
-      _$this._data ??= new UserDataChangeInfoBuilder();
+      _$this._data ??= UserDataChangeInfoBuilder();
   set data(UserDataChangeInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -94,7 +93,6 @@ class UserDataChangedMessageBuilder
 
   @override
   void replace(UserDataChangedMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserDataChangedMessage;
   }
 
@@ -110,17 +108,18 @@ class UserDataChangedMessageBuilder
     _$UserDataChangedMessage _$result;
     try {
       _$result = _$v ??
-          new _$UserDataChangedMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$UserDataChangedMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserDataChangedMessage', _$failedField, e.toString());
       }
       rethrow;

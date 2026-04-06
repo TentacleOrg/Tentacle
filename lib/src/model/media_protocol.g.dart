@@ -31,12 +31,12 @@ MediaProtocol _$valueOf(String name) {
     case 'ftp':
       return _$ftp;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<MediaProtocol> _$values =
-    new BuiltSet<MediaProtocol>(const <MediaProtocol>[
+    BuiltSet<MediaProtocol>(const <MediaProtocol>[
   _$file,
   _$http,
   _$rtmp,
@@ -65,7 +65,7 @@ mixin _$MediaProtocolMixin {
 }
 
 Serializer<MediaProtocol> _$mediaProtocolSerializer =
-    new _$MediaProtocolSerializer();
+    _$MediaProtocolSerializer();
 
 class _$MediaProtocolSerializer implements PrimitiveSerializer<MediaProtocol> {
   static const Map<String, Object> _toWire = const <String, Object>{

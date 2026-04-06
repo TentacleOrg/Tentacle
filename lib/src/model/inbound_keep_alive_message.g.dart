@@ -12,10 +12,9 @@ class _$InboundKeepAliveMessage extends InboundKeepAliveMessage {
 
   factory _$InboundKeepAliveMessage(
           [void Function(InboundKeepAliveMessageBuilder)? updates]) =>
-      (new InboundKeepAliveMessageBuilder()..update(updates))._build();
+      (InboundKeepAliveMessageBuilder()..update(updates))._build();
 
   _$InboundKeepAliveMessage._({this.messageType}) : super._();
-
   @override
   InboundKeepAliveMessage rebuild(
           void Function(InboundKeepAliveMessageBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$InboundKeepAliveMessage extends InboundKeepAliveMessage {
 
   @override
   InboundKeepAliveMessageBuilder toBuilder() =>
-      new InboundKeepAliveMessageBuilder()..replace(this);
+      InboundKeepAliveMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +71,6 @@ class InboundKeepAliveMessageBuilder
 
   @override
   void replace(InboundKeepAliveMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$InboundKeepAliveMessage;
   }
 
@@ -85,8 +83,10 @@ class InboundKeepAliveMessageBuilder
   InboundKeepAliveMessage build() => _build();
 
   _$InboundKeepAliveMessage _build() {
-    final _$result =
-        _$v ?? new _$InboundKeepAliveMessage._(messageType: messageType);
+    final _$result = _$v ??
+        _$InboundKeepAliveMessage._(
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

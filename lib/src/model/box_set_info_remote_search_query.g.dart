@@ -18,7 +18,7 @@ class _$BoxSetInfoRemoteSearchQuery extends BoxSetInfoRemoteSearchQuery {
 
   factory _$BoxSetInfoRemoteSearchQuery(
           [void Function(BoxSetInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new BoxSetInfoRemoteSearchQueryBuilder()..update(updates))._build();
+      (BoxSetInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
   _$BoxSetInfoRemoteSearchQuery._(
       {this.searchInfo,
@@ -26,7 +26,6 @@ class _$BoxSetInfoRemoteSearchQuery extends BoxSetInfoRemoteSearchQuery {
       this.searchProviderName,
       this.includeDisabledProviders})
       : super._();
-
   @override
   BoxSetInfoRemoteSearchQuery rebuild(
           void Function(BoxSetInfoRemoteSearchQueryBuilder) updates) =>
@@ -34,7 +33,7 @@ class _$BoxSetInfoRemoteSearchQuery extends BoxSetInfoRemoteSearchQuery {
 
   @override
   BoxSetInfoRemoteSearchQueryBuilder toBuilder() =>
-      new BoxSetInfoRemoteSearchQueryBuilder()..replace(this);
+      BoxSetInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,7 +75,7 @@ class BoxSetInfoRemoteSearchQueryBuilder
 
   BoxSetInfoBuilder? _searchInfo;
   BoxSetInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new BoxSetInfoBuilder();
+      _$this._searchInfo ??= BoxSetInfoBuilder();
   set searchInfo(BoxSetInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
@@ -112,7 +111,6 @@ class BoxSetInfoRemoteSearchQueryBuilder
 
   @override
   void replace(BoxSetInfoRemoteSearchQuery other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BoxSetInfoRemoteSearchQuery;
   }
 
@@ -128,18 +126,19 @@ class BoxSetInfoRemoteSearchQueryBuilder
     _$BoxSetInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$BoxSetInfoRemoteSearchQuery._(
-              searchInfo: _searchInfo?.build(),
-              itemId: itemId,
-              searchProviderName: searchProviderName,
-              includeDisabledProviders: includeDisabledProviders);
+          _$BoxSetInfoRemoteSearchQuery._(
+            searchInfo: _searchInfo?.build(),
+            itemId: itemId,
+            searchProviderName: searchProviderName,
+            includeDisabledProviders: includeDisabledProviders,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'searchInfo';
         _searchInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'BoxSetInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;

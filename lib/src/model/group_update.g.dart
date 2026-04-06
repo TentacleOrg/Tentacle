@@ -11,18 +11,15 @@ class _$GroupUpdate extends GroupUpdate {
   final OneOf oneOf;
 
   factory _$GroupUpdate([void Function(GroupUpdateBuilder)? updates]) =>
-      (new GroupUpdateBuilder()..update(updates))._build();
+      (GroupUpdateBuilder()..update(updates))._build();
 
-  _$GroupUpdate._({required this.oneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(oneOf, r'GroupUpdate', 'oneOf');
-  }
-
+  _$GroupUpdate._({required this.oneOf}) : super._();
   @override
   GroupUpdate rebuild(void Function(GroupUpdateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GroupUpdateBuilder toBuilder() => new GroupUpdateBuilder()..replace(this);
+  GroupUpdateBuilder toBuilder() => GroupUpdateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -67,7 +64,6 @@ class GroupUpdateBuilder implements Builder<GroupUpdate, GroupUpdateBuilder> {
 
   @override
   void replace(GroupUpdate other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GroupUpdate;
   }
 
@@ -81,9 +77,10 @@ class GroupUpdateBuilder implements Builder<GroupUpdate, GroupUpdateBuilder> {
 
   _$GroupUpdate _build() {
     final _$result = _$v ??
-        new _$GroupUpdate._(
-            oneOf: BuiltValueNullFieldError.checkNotNull(
-                oneOf, r'GroupUpdate', 'oneOf'));
+        _$GroupUpdate._(
+          oneOf: BuiltValueNullFieldError.checkNotNull(
+              oneOf, r'GroupUpdate', 'oneOf'),
+        );
     replace(_$result);
     return _$result;
   }

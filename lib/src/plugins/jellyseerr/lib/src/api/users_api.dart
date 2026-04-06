@@ -12,16 +12,15 @@ import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/auth_logout_post200_response.dart';
 import 'package:tentacle/src/model/auth_reset_password_guid_post_request.dart';
 import 'package:tentacle/src/model/auth_reset_password_post_request.dart';
-import 'package:tentacle/src/model/settings_jellyfin_users_get200_response_inner.dart';
 import 'package:tentacle/src/model/settings_plex_users_get200_response_inner.dart';
 import 'package:tentacle/src/model/user.dart';
 import 'package:tentacle/src/model/user_get200_response.dart';
-import 'package:tentacle/src/model/user_import_from_jellyfin_post_request.dart';
 import 'package:tentacle/src/model/user_import_from_plex_post_request.dart';
 import 'package:tentacle/src/model/user_post_request.dart';
 import 'package:tentacle/src/model/user_put_request.dart';
 import 'package:tentacle/src/model/user_register_push_subscription_post_request.dart';
 import 'package:tentacle/src/model/user_settings_notifications.dart';
+import 'package:tentacle/src/model/user_user_id_push_subscriptions_get200_response.dart';
 import 'package:tentacle/src/model/user_user_id_quota_get200_response.dart';
 import 'package:tentacle/src/model/user_user_id_requests_get200_response.dart';
 import 'package:tentacle/src/model/user_user_id_settings_main_get200_response.dart';
@@ -324,95 +323,6 @@ class UsersApi {
     );
   }
 
-  /// Get Jellyfin Users
-  /// Returns a list of Jellyfin Users in a JSON array.
-  ///
-  /// Parameters:
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<SettingsJellyfinUsersGet200ResponseInner>] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<SettingsJellyfinUsersGet200ResponseInner>>>
-      settingsJellyfinUsersGet({
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/settings/jellyfin/users';
-    final _options = Options(
-      method: r'GET',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'apiKey',
-            'name': 'apiKey',
-            'keyName': 'X-Api-Key',
-            'where': 'header',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'connect.sid',
-            'where': '',
-          },
-        ],
-        ...?extra,
-      },
-      validateStatus: validateStatus,
-    );
-
-    final _response = await _dio.request<Object>(
-      _path,
-      options: _options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    BuiltList<SettingsJellyfinUsersGet200ResponseInner>? _responseData;
-
-    try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null
-          ? null
-          : _serializers.deserialize(
-              rawResponse,
-              specifiedType: const FullType(BuiltList,
-                  [FullType(SettingsJellyfinUsersGet200ResponseInner)]),
-            ) as BuiltList<SettingsJellyfinUsersGet200ResponseInner>;
-    } catch (error, stackTrace) {
-      throw DioException(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioExceptionType.unknown,
-        error: error,
-        stackTrace: stackTrace,
-      );
-    }
-
-    return Response<BuiltList<SettingsJellyfinUsersGet200ResponseInner>>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
-  }
-
   /// Get Plex users
   /// Returns a list of Plex users in a JSON array.  Requires the &#x60;MANAGE_USERS&#x60; permission.
   ///
@@ -593,117 +503,6 @@ class UsersApi {
     }
 
     return Response<UserGet200Response>(
-      data: _responseData,
-      headers: _response.headers,
-      isRedirect: _response.isRedirect,
-      requestOptions: _response.requestOptions,
-      redirects: _response.redirects,
-      statusCode: _response.statusCode,
-      statusMessage: _response.statusMessage,
-      extra: _response.extra,
-    );
-  }
-
-  /// Import all users from Jellyfin
-  /// Fetches and imports users from the Jellyfin server.  Requires the &#x60;MANAGE_USERS&#x60; permission.
-  ///
-  /// Parameters:
-  /// * [userImportFromJellyfinPostRequest]
-  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
-  /// * [headers] - Can be used to add additional headers to the request
-  /// * [extras] - Can be used to add flags to the request
-  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
-  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
-  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
-  ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<User>] as data
-  /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<User>>> userImportFromJellyfinPost({
-    UserImportFromJellyfinPostRequest? userImportFromJellyfinPostRequest,
-    CancelToken? cancelToken,
-    Map<String, dynamic>? headers,
-    Map<String, dynamic>? extra,
-    ValidateStatus? validateStatus,
-    ProgressCallback? onSendProgress,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    final _path = r'/user/import-from-jellyfin';
-    final _options = Options(
-      method: r'POST',
-      headers: <String, dynamic>{
-        ...?headers,
-      },
-      extra: <String, dynamic>{
-        'secure': <Map<String, String>>[
-          {
-            'type': 'apiKey',
-            'name': 'apiKey',
-            'keyName': 'X-Api-Key',
-            'where': 'header',
-          },
-          {
-            'type': 'apiKey',
-            'name': 'cookieAuth',
-            'keyName': 'connect.sid',
-            'where': '',
-          },
-        ],
-        ...?extra,
-      },
-      contentType: 'application/json',
-      validateStatus: validateStatus,
-    );
-
-    dynamic _bodyData;
-
-    try {
-      const _type = FullType(UserImportFromJellyfinPostRequest);
-      _bodyData = userImportFromJellyfinPostRequest == null
-          ? null
-          : _serializers.serialize(userImportFromJellyfinPostRequest,
-              specifiedType: _type);
-    } catch (error, stackTrace) {
-      throw DioException(
-        requestOptions: _options.compose(
-          _dio.options,
-          _path,
-        ),
-        type: DioExceptionType.unknown,
-        error: error,
-        stackTrace: stackTrace,
-      );
-    }
-
-    final _response = await _dio.request<Object>(
-      _path,
-      data: _bodyData,
-      options: _options,
-      cancelToken: cancelToken,
-      onSendProgress: onSendProgress,
-      onReceiveProgress: onReceiveProgress,
-    );
-
-    BuiltList<User>? _responseData;
-
-    try {
-      final rawResponse = _response.data;
-      _responseData = rawResponse == null
-          ? null
-          : _serializers.deserialize(
-              rawResponse,
-              specifiedType: const FullType(BuiltList, [FullType(User)]),
-            ) as BuiltList<User>;
-    } catch (error, stackTrace) {
-      throw DioException(
-        requestOptions: _response.requestOptions,
-        response: _response,
-        type: DioExceptionType.unknown,
-        error: error,
-        stackTrace: stackTrace,
-      );
-    }
-
-    return Response<BuiltList<User>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,
@@ -1297,6 +1096,271 @@ class UsersApi {
     }
 
     return Response<User>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Delete user push subscription by key
+  /// Deletes the user push subscription with the provided key.
+  ///
+  /// Parameters:
+  /// * [userId]
+  /// * [endpoint]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future]
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<void>> userUserIdPushSubscriptionEndpointDelete({
+    required num userId,
+    required String endpoint,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/user/{userId}/pushSubscription/{endpoint}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(num))
+                .toString())
+        .replaceAll(
+            '{' r'endpoint' '}',
+            encodeQueryParameter(_serializers, endpoint, const FullType(String))
+                .toString());
+    final _options = Options(
+      method: r'DELETE',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'X-Api-Key',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'cookieAuth',
+            'keyName': 'connect.sid',
+            'where': '',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    return _response;
+  }
+
+  /// Get web push notification settings for a user
+  /// Returns web push notification settings for a user in a JSON object.
+  ///
+  /// Parameters:
+  /// * [userId]
+  /// * [endpoint]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [UserUserIdPushSubscriptionsGet200Response] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<UserUserIdPushSubscriptionsGet200Response>>
+      userUserIdPushSubscriptionEndpointGet({
+    required num userId,
+    required String endpoint,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/user/{userId}/pushSubscription/{endpoint}'
+        .replaceAll(
+            '{' r'userId' '}',
+            encodeQueryParameter(_serializers, userId, const FullType(num))
+                .toString())
+        .replaceAll(
+            '{' r'endpoint' '}',
+            encodeQueryParameter(_serializers, endpoint, const FullType(String))
+                .toString());
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'X-Api-Key',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'cookieAuth',
+            'keyName': 'connect.sid',
+            'where': '',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    UserUserIdPushSubscriptionsGet200Response? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(UserUserIdPushSubscriptionsGet200Response),
+            ) as UserUserIdPushSubscriptionsGet200Response;
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<UserUserIdPushSubscriptionsGet200Response>(
+      data: _responseData,
+      headers: _response.headers,
+      isRedirect: _response.isRedirect,
+      requestOptions: _response.requestOptions,
+      redirects: _response.redirects,
+      statusCode: _response.statusCode,
+      statusMessage: _response.statusMessage,
+      extra: _response.extra,
+    );
+  }
+
+  /// Get all web push notification settings for a user
+  /// Returns all web push notification settings for a user in a JSON object.
+  ///
+  /// Parameters:
+  /// * [userId]
+  /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
+  /// * [headers] - Can be used to add additional headers to the request
+  /// * [extras] - Can be used to add flags to the request
+  /// * [validateStatus] - A [ValidateStatus] callback that can be used to determine request success based on the HTTP status of the response
+  /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
+  /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
+  ///
+  /// Returns a [Future] containing a [Response] with a [UserUserIdPushSubscriptionsGet200Response] as data
+  /// Throws [DioException] if API call or serialization fails
+  Future<Response<UserUserIdPushSubscriptionsGet200Response>>
+      userUserIdPushSubscriptionsGet({
+    required num userId,
+    CancelToken? cancelToken,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? extra,
+    ValidateStatus? validateStatus,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
+  }) async {
+    final _path = r'/user/{userId}/pushSubscriptions'.replaceAll(
+        '{' r'userId' '}',
+        encodeQueryParameter(_serializers, userId, const FullType(num))
+            .toString());
+    final _options = Options(
+      method: r'GET',
+      headers: <String, dynamic>{
+        ...?headers,
+      },
+      extra: <String, dynamic>{
+        'secure': <Map<String, String>>[
+          {
+            'type': 'apiKey',
+            'name': 'apiKey',
+            'keyName': 'X-Api-Key',
+            'where': 'header',
+          },
+          {
+            'type': 'apiKey',
+            'name': 'cookieAuth',
+            'keyName': 'connect.sid',
+            'where': '',
+          },
+        ],
+        ...?extra,
+      },
+      validateStatus: validateStatus,
+    );
+
+    final _response = await _dio.request<Object>(
+      _path,
+      options: _options,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+
+    UserUserIdPushSubscriptionsGet200Response? _responseData;
+
+    try {
+      final rawResponse = _response.data;
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType:
+                  const FullType(UserUserIdPushSubscriptionsGet200Response),
+            ) as UserUserIdPushSubscriptionsGet200Response;
+    } catch (error, stackTrace) {
+      throw DioException(
+        requestOptions: _response.requestOptions,
+        response: _response,
+        type: DioExceptionType.unknown,
+        error: error,
+        stackTrace: stackTrace,
+      );
+    }
+
+    return Response<UserUserIdPushSubscriptionsGet200Response>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

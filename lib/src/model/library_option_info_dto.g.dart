@@ -14,10 +14,9 @@ class _$LibraryOptionInfoDto extends LibraryOptionInfoDto {
 
   factory _$LibraryOptionInfoDto(
           [void Function(LibraryOptionInfoDtoBuilder)? updates]) =>
-      (new LibraryOptionInfoDtoBuilder()..update(updates))._build();
+      (LibraryOptionInfoDtoBuilder()..update(updates))._build();
 
   _$LibraryOptionInfoDto._({this.name, this.defaultEnabled}) : super._();
-
   @override
   LibraryOptionInfoDto rebuild(
           void Function(LibraryOptionInfoDtoBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$LibraryOptionInfoDto extends LibraryOptionInfoDto {
 
   @override
   LibraryOptionInfoDtoBuilder toBuilder() =>
-      new LibraryOptionInfoDtoBuilder()..replace(this);
+      LibraryOptionInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class LibraryOptionInfoDtoBuilder
 
   @override
   void replace(LibraryOptionInfoDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LibraryOptionInfoDto;
   }
 
@@ -96,8 +94,10 @@ class LibraryOptionInfoDtoBuilder
 
   _$LibraryOptionInfoDto _build() {
     final _$result = _$v ??
-        new _$LibraryOptionInfoDto._(
-            name: name, defaultEnabled: defaultEnabled);
+        _$LibraryOptionInfoDto._(
+          name: name,
+          defaultEnabled: defaultEnabled,
+        );
     replace(_$result);
     return _$result;
   }

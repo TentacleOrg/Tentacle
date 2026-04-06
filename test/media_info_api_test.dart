@@ -38,7 +38,7 @@ void main() {
 
     // Opens a media source.
     //
-    //Future<LiveStreamResponse> openLiveStream({ String openToken, String userId, String playSessionId, int maxStreamingBitrate, int startTimeTicks, int audioStreamIndex, int subtitleStreamIndex, int maxAudioChannels, String itemId, bool enableDirectPlay, bool enableDirectStream, OpenLiveStreamDto openLiveStreamDto }) async
+    //Future<LiveStreamResponse> openLiveStream({ String openToken, String userId, String playSessionId, int maxStreamingBitrate, int startTimeTicks, int audioStreamIndex, int subtitleStreamIndex, int maxAudioChannels, String itemId, bool enableDirectPlay, bool enableDirectStream, bool alwaysBurnInSubtitleWhenTranscoding, OpenLiveStreamDto openLiveStreamDto }) async
     test('test openLiveStream', () async {
       // TODO
     });

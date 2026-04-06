@@ -31,11 +31,11 @@ DayOfWeek _$valueOf(String name) {
     case 'saturday':
       return _$saturday;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<DayOfWeek> _$values = new BuiltSet<DayOfWeek>(const <DayOfWeek>[
+final BuiltSet<DayOfWeek> _$values = BuiltSet<DayOfWeek>(const <DayOfWeek>[
   _$sunday,
   _$monday,
   _$tuesday,
@@ -63,7 +63,7 @@ mixin _$DayOfWeekMixin {
   _$DayOfWeekMeta get DayOfWeek => const _$DayOfWeekMeta();
 }
 
-Serializer<DayOfWeek> _$dayOfWeekSerializer = new _$DayOfWeekSerializer();
+Serializer<DayOfWeek> _$dayOfWeekSerializer = _$DayOfWeekSerializer();
 
 class _$DayOfWeekSerializer implements PrimitiveSerializer<DayOfWeek> {
   static const Map<String, Object> _toWire = const <String, Object>{

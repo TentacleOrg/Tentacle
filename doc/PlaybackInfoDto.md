@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **allowVideoStreamCopy** | **bool** | Gets or sets a value indicating whether to enable video stream copy. | [optional] 
 **allowAudioStreamCopy** | **bool** | Gets or sets a value indicating whether to allow audio stream copy. | [optional] 
 **autoOpenLiveStream** | **bool** | Gets or sets a value indicating whether to auto open the live stream. | [optional] 
+**alwaysBurnInSubtitleWhenTranscoding** | **bool** | Gets or sets a value indicating whether always burn in subtitles when transcoding. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

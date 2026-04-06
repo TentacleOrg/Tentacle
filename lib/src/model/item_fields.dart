@@ -71,10 +71,6 @@ class ItemFields extends EnumClass {
   static const ItemFields genres = _$genres;
 
   /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'HomePageUrl')
-  static const ItemFields homePageUrl = _$homePageUrl;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
   @BuiltValueEnumConst(wireName: r'ItemCounts')
   static const ItemFields itemCounts = _$itemCounts;
 
@@ -131,14 +127,6 @@ class ItemFields extends EnumClass {
   static const ItemFields settings = _$settings;
 
   /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'ScreenshotImageTags')
-  static const ItemFields screenshotImageTags = _$screenshotImageTags;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'SeriesPrimaryImage')
-  static const ItemFields seriesPrimaryImage = _$seriesPrimaryImage;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
   @BuiltValueEnumConst(wireName: r'SeriesStudio')
   static const ItemFields seriesStudio = _$seriesStudio;
 
@@ -173,40 +161,6 @@ class ItemFields extends EnumClass {
   /// Used to control the data that gets attached to DtoBaseItems.
   @BuiltValueEnumConst(wireName: r'SeasonUserData')
   static const ItemFields seasonUserData = _$seasonUserData;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'ServiceName')
-  static const ItemFields serviceName = _$serviceName;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'ThemeSongIds')
-  static const ItemFields themeSongIds = _$themeSongIds;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'ThemeVideoIds')
-  static const ItemFields themeVideoIds = _$themeVideoIds;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'ExternalEtag')
-  static const ItemFields externalEtag = _$externalEtag;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'PresentationUniqueKey')
-  static const ItemFields presentationUniqueKey = _$presentationUniqueKey;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'InheritedParentalRatingValue')
-  static const ItemFields inheritedParentalRatingValue =
-      _$inheritedParentalRatingValue;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'ExternalSeriesId')
-  static const ItemFields externalSeriesId = _$externalSeriesId;
-
-  /// Used to control the data that gets attached to DtoBaseItems.
-  @BuiltValueEnumConst(wireName: r'SeriesPresentationUniqueKey')
-  static const ItemFields seriesPresentationUniqueKey =
-      _$seriesPresentationUniqueKey;
 
   /// Used to control the data that gets attached to DtoBaseItems.
   @BuiltValueEnumConst(wireName: r'DateLastRefreshed')

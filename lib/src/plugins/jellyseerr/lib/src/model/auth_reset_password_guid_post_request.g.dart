@@ -13,13 +13,9 @@ class _$AuthResetPasswordGuidPostRequest
 
   factory _$AuthResetPasswordGuidPostRequest(
           [void Function(AuthResetPasswordGuidPostRequestBuilder)? updates]) =>
-      (new AuthResetPasswordGuidPostRequestBuilder()..update(updates))._build();
+      (AuthResetPasswordGuidPostRequestBuilder()..update(updates))._build();
 
-  _$AuthResetPasswordGuidPostRequest._({required this.password}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        password, r'AuthResetPasswordGuidPostRequest', 'password');
-  }
-
+  _$AuthResetPasswordGuidPostRequest._({required this.password}) : super._();
   @override
   AuthResetPasswordGuidPostRequest rebuild(
           void Function(AuthResetPasswordGuidPostRequestBuilder) updates) =>
@@ -27,7 +23,7 @@ class _$AuthResetPasswordGuidPostRequest
 
   @override
   AuthResetPasswordGuidPostRequestBuilder toBuilder() =>
-      new AuthResetPasswordGuidPostRequestBuilder()..replace(this);
+      AuthResetPasswordGuidPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -77,7 +73,6 @@ class AuthResetPasswordGuidPostRequestBuilder
 
   @override
   void replace(AuthResetPasswordGuidPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthResetPasswordGuidPostRequest;
   }
 
@@ -91,9 +86,10 @@ class AuthResetPasswordGuidPostRequestBuilder
 
   _$AuthResetPasswordGuidPostRequest _build() {
     final _$result = _$v ??
-        new _$AuthResetPasswordGuidPostRequest._(
-            password: BuiltValueNullFieldError.checkNotNull(
-                password, r'AuthResetPasswordGuidPostRequest', 'password'));
+        _$AuthResetPasswordGuidPostRequest._(
+          password: BuiltValueNullFieldError.checkNotNull(
+              password, r'AuthResetPasswordGuidPostRequest', 'password'),
+        );
     replace(_$result);
     return _$result;
   }

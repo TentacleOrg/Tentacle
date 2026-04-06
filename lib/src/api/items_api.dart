@@ -138,6 +138,7 @@ class ItemsApi {
   /// * [hasSpecialFeature] - Optional filter by items with special features.
   /// * [hasTrailer] - Optional filter by items with trailers.
   /// * [adjacentTo] - Optional. Return items that are siblings of a supplied item.
+  /// * [indexNumber] - Optional filter by index number.
   /// * [parentIndexNumber] - Optional filter by parent index number.
   /// * [hasParentalRating] - Optional filter by items that have or do not have a parental rating.
   /// * [isHd] - Optional filter by items that are HD or not.
@@ -233,6 +234,7 @@ class ItemsApi {
     bool? hasSpecialFeature,
     bool? hasTrailer,
     String? adjacentTo,
+    int? indexNumber,
     int? parentIndexNumber,
     bool? hasParentalRating,
     bool? isHd,
@@ -362,6 +364,9 @@ class ItemsApi {
       if (adjacentTo != null)
         r'adjacentTo': encodeQueryParameter(
             _serializers, adjacentTo, const FullType(String)),
+      if (indexNumber != null)
+        r'indexNumber': encodeQueryParameter(
+            _serializers, indexNumber, const FullType(int)),
       if (parentIndexNumber != null)
         r'parentIndexNumber': encodeQueryParameter(
             _serializers, parentIndexNumber, const FullType(int)),

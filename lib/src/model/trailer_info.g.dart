@@ -31,7 +31,7 @@ class _$TrailerInfo extends TrailerInfo {
   final bool? isAutomated;
 
   factory _$TrailerInfo([void Function(TrailerInfoBuilder)? updates]) =>
-      (new TrailerInfoBuilder()..update(updates))._build();
+      (TrailerInfoBuilder()..update(updates))._build();
 
   _$TrailerInfo._(
       {this.name,
@@ -46,13 +46,12 @@ class _$TrailerInfo extends TrailerInfo {
       this.premiereDate,
       this.isAutomated})
       : super._();
-
   @override
   TrailerInfo rebuild(void Function(TrailerInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TrailerInfoBuilder toBuilder() => new TrailerInfoBuilder()..replace(this);
+  TrailerInfoBuilder toBuilder() => TrailerInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -135,7 +134,7 @@ class TrailerInfoBuilder implements Builder<TrailerInfo, TrailerInfoBuilder> {
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -186,7 +185,6 @@ class TrailerInfoBuilder implements Builder<TrailerInfo, TrailerInfoBuilder> {
 
   @override
   void replace(TrailerInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TrailerInfo;
   }
 
@@ -202,25 +200,26 @@ class TrailerInfoBuilder implements Builder<TrailerInfo, TrailerInfoBuilder> {
     _$TrailerInfo _$result;
     try {
       _$result = _$v ??
-          new _$TrailerInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated);
+          _$TrailerInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'providerIds';
         _providerIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TrailerInfo', _$failedField, e.toString());
       }
       rethrow;

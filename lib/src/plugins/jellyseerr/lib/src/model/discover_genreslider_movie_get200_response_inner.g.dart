@@ -18,14 +18,12 @@ class _$DiscoverGenresliderMovieGet200ResponseInner
   factory _$DiscoverGenresliderMovieGet200ResponseInner(
           [void Function(DiscoverGenresliderMovieGet200ResponseInnerBuilder)?
               updates]) =>
-      (new DiscoverGenresliderMovieGet200ResponseInnerBuilder()
-            ..update(updates))
+      (DiscoverGenresliderMovieGet200ResponseInnerBuilder()..update(updates))
           ._build();
 
   _$DiscoverGenresliderMovieGet200ResponseInner._(
       {this.id, this.backdrops, this.name})
       : super._();
-
   @override
   DiscoverGenresliderMovieGet200ResponseInner rebuild(
           void Function(DiscoverGenresliderMovieGet200ResponseInnerBuilder)
@@ -34,7 +32,7 @@ class _$DiscoverGenresliderMovieGet200ResponseInner
 
   @override
   DiscoverGenresliderMovieGet200ResponseInnerBuilder toBuilder() =>
-      new DiscoverGenresliderMovieGet200ResponseInnerBuilder()..replace(this);
+      DiscoverGenresliderMovieGet200ResponseInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -78,7 +76,7 @@ class DiscoverGenresliderMovieGet200ResponseInnerBuilder
 
   ListBuilder<String>? _backdrops;
   ListBuilder<String> get backdrops =>
-      _$this._backdrops ??= new ListBuilder<String>();
+      _$this._backdrops ??= ListBuilder<String>();
   set backdrops(ListBuilder<String>? backdrops) =>
       _$this._backdrops = backdrops;
 
@@ -103,7 +101,6 @@ class DiscoverGenresliderMovieGet200ResponseInnerBuilder
 
   @override
   void replace(DiscoverGenresliderMovieGet200ResponseInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverGenresliderMovieGet200ResponseInner;
   }
 
@@ -121,15 +118,18 @@ class DiscoverGenresliderMovieGet200ResponseInnerBuilder
     _$DiscoverGenresliderMovieGet200ResponseInner _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverGenresliderMovieGet200ResponseInner._(
-              id: id, backdrops: _backdrops?.build(), name: name);
+          _$DiscoverGenresliderMovieGet200ResponseInner._(
+            id: id,
+            backdrops: _backdrops?.build(),
+            name: name,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'backdrops';
         _backdrops?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverGenresliderMovieGet200ResponseInner',
             _$failedField,
             e.toString());

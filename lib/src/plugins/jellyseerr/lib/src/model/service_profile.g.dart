@@ -13,17 +13,15 @@ class _$ServiceProfile extends ServiceProfile {
   final String? name;
 
   factory _$ServiceProfile([void Function(ServiceProfileBuilder)? updates]) =>
-      (new ServiceProfileBuilder()..update(updates))._build();
+      (ServiceProfileBuilder()..update(updates))._build();
 
   _$ServiceProfile._({this.id, this.name}) : super._();
-
   @override
   ServiceProfile rebuild(void Function(ServiceProfileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ServiceProfileBuilder toBuilder() =>
-      new ServiceProfileBuilder()..replace(this);
+  ServiceProfileBuilder toBuilder() => ServiceProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -77,7 +75,6 @@ class ServiceProfileBuilder
 
   @override
   void replace(ServiceProfile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServiceProfile;
   }
 
@@ -90,7 +87,11 @@ class ServiceProfileBuilder
   ServiceProfile build() => _build();
 
   _$ServiceProfile _build() {
-    final _$result = _$v ?? new _$ServiceProfile._(id: id, name: name);
+    final _$result = _$v ??
+        _$ServiceProfile._(
+          id: id,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

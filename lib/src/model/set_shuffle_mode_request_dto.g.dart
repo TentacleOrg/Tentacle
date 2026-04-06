@@ -12,10 +12,9 @@ class _$SetShuffleModeRequestDto extends SetShuffleModeRequestDto {
 
   factory _$SetShuffleModeRequestDto(
           [void Function(SetShuffleModeRequestDtoBuilder)? updates]) =>
-      (new SetShuffleModeRequestDtoBuilder()..update(updates))._build();
+      (SetShuffleModeRequestDtoBuilder()..update(updates))._build();
 
   _$SetShuffleModeRequestDto._({this.mode}) : super._();
-
   @override
   SetShuffleModeRequestDto rebuild(
           void Function(SetShuffleModeRequestDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$SetShuffleModeRequestDto extends SetShuffleModeRequestDto {
 
   @override
   SetShuffleModeRequestDtoBuilder toBuilder() =>
-      new SetShuffleModeRequestDtoBuilder()..replace(this);
+      SetShuffleModeRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +70,6 @@ class SetShuffleModeRequestDtoBuilder
 
   @override
   void replace(SetShuffleModeRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetShuffleModeRequestDto;
   }
 
@@ -84,7 +82,10 @@ class SetShuffleModeRequestDtoBuilder
   SetShuffleModeRequestDto build() => _build();
 
   _$SetShuffleModeRequestDto _build() {
-    final _$result = _$v ?? new _$SetShuffleModeRequestDto._(mode: mode);
+    final _$result = _$v ??
+        _$SetShuffleModeRequestDto._(
+          mode: mode,
+        );
     replace(_$result);
     return _$result;
   }

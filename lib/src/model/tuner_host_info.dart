@@ -18,11 +18,15 @@ part 'tuner_host_info.g.dart';
 /// * [friendlyName]
 /// * [importFavoritesOnly]
 /// * [allowHWTranscoding]
+/// * [allowFmp4TranscodingContainer]
+/// * [allowStreamSharing]
+/// * [fallbackMaxStreamingBitrate]
 /// * [enableStreamLooping]
 /// * [source_]
 /// * [tunerCount]
 /// * [userAgent]
 /// * [ignoreDts]
+/// * [readAtNativeFramerate]
 @BuiltValue()
 abstract class TunerHostInfo
     implements Built<TunerHostInfo, TunerHostInfoBuilder> {
@@ -47,6 +51,15 @@ abstract class TunerHostInfo
   @BuiltValueField(wireName: r'AllowHWTranscoding')
   bool? get allowHWTranscoding;
 
+  @BuiltValueField(wireName: r'AllowFmp4TranscodingContainer')
+  bool? get allowFmp4TranscodingContainer;
+
+  @BuiltValueField(wireName: r'AllowStreamSharing')
+  bool? get allowStreamSharing;
+
+  @BuiltValueField(wireName: r'FallbackMaxStreamingBitrate')
+  int? get fallbackMaxStreamingBitrate;
+
   @BuiltValueField(wireName: r'EnableStreamLooping')
   bool? get enableStreamLooping;
 
@@ -61,6 +74,9 @@ abstract class TunerHostInfo
 
   @BuiltValueField(wireName: r'IgnoreDts')
   bool? get ignoreDts;
+
+  @BuiltValueField(wireName: r'ReadAtNativeFramerate')
+  bool? get readAtNativeFramerate;
 
   TunerHostInfo._();
 
@@ -136,6 +152,27 @@ class _$TunerHostInfoSerializer implements PrimitiveSerializer<TunerHostInfo> {
         specifiedType: const FullType(bool),
       );
     }
+    if (object.allowFmp4TranscodingContainer != null) {
+      yield r'AllowFmp4TranscodingContainer';
+      yield serializers.serialize(
+        object.allowFmp4TranscodingContainer,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.allowStreamSharing != null) {
+      yield r'AllowStreamSharing';
+      yield serializers.serialize(
+        object.allowStreamSharing,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.fallbackMaxStreamingBitrate != null) {
+      yield r'FallbackMaxStreamingBitrate';
+      yield serializers.serialize(
+        object.fallbackMaxStreamingBitrate,
+        specifiedType: const FullType(int),
+      );
+    }
     if (object.enableStreamLooping != null) {
       yield r'EnableStreamLooping';
       yield serializers.serialize(
@@ -168,6 +205,13 @@ class _$TunerHostInfoSerializer implements PrimitiveSerializer<TunerHostInfo> {
       yield r'IgnoreDts';
       yield serializers.serialize(
         object.ignoreDts,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.readAtNativeFramerate != null) {
+      yield r'ReadAtNativeFramerate';
+      yield serializers.serialize(
+        object.readAtNativeFramerate,
         specifiedType: const FullType(bool),
       );
     }
@@ -250,6 +294,27 @@ class _$TunerHostInfoSerializer implements PrimitiveSerializer<TunerHostInfo> {
           ) as bool;
           result.allowHWTranscoding = valueDes;
           break;
+        case r'AllowFmp4TranscodingContainer':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.allowFmp4TranscodingContainer = valueDes;
+          break;
+        case r'AllowStreamSharing':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.allowStreamSharing = valueDes;
+          break;
+        case r'FallbackMaxStreamingBitrate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.fallbackMaxStreamingBitrate = valueDes;
+          break;
         case r'EnableStreamLooping':
           final valueDes = serializers.deserialize(
             value,
@@ -286,6 +351,13 @@ class _$TunerHostInfoSerializer implements PrimitiveSerializer<TunerHostInfo> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.ignoreDts = valueDes;
+          break;
+        case r'ReadAtNativeFramerate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.readAtNativeFramerate = valueDes;
           break;
         default:
           unhandled.add(key);

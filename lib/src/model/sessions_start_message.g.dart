@@ -14,10 +14,9 @@ class _$SessionsStartMessage extends SessionsStartMessage {
 
   factory _$SessionsStartMessage(
           [void Function(SessionsStartMessageBuilder)? updates]) =>
-      (new SessionsStartMessageBuilder()..update(updates))._build();
+      (SessionsStartMessageBuilder()..update(updates))._build();
 
   _$SessionsStartMessage._({this.data, this.messageType}) : super._();
-
   @override
   SessionsStartMessage rebuild(
           void Function(SessionsStartMessageBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$SessionsStartMessage extends SessionsStartMessage {
 
   @override
   SessionsStartMessageBuilder toBuilder() =>
-      new SessionsStartMessageBuilder()..replace(this);
+      SessionsStartMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class SessionsStartMessageBuilder
 
   @override
   void replace(SessionsStartMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SessionsStartMessage;
   }
 
@@ -96,7 +94,10 @@ class SessionsStartMessageBuilder
 
   _$SessionsStartMessage _build() {
     final _$result = _$v ??
-        new _$SessionsStartMessage._(data: data, messageType: messageType);
+        _$SessionsStartMessage._(
+          data: data,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

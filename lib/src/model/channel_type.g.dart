@@ -16,12 +16,12 @@ ChannelType _$valueOf(String name) {
     case 'radio':
       return _$radio;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ChannelType> _$values =
-    new BuiltSet<ChannelType>(const <ChannelType>[
+    BuiltSet<ChannelType>(const <ChannelType>[
   _$TV,
   _$radio,
 ]);
@@ -39,7 +39,7 @@ mixin _$ChannelTypeMixin {
   _$ChannelTypeMeta get ChannelType => const _$ChannelTypeMeta();
 }
 
-Serializer<ChannelType> _$channelTypeSerializer = new _$ChannelTypeSerializer();
+Serializer<ChannelType> _$channelTypeSerializer = _$ChannelTypeSerializer();
 
 class _$ChannelTypeSerializer implements PrimitiveSerializer<ChannelType> {
   static const Map<String, Object> _toWire = const <String, Object>{

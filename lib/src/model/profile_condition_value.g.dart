@@ -51,6 +51,8 @@ const ProfileConditionValue _$audioBitDepth =
     const ProfileConditionValue._('audioBitDepth');
 const ProfileConditionValue _$videoRangeType =
     const ProfileConditionValue._('videoRangeType');
+const ProfileConditionValue _$numStreams =
+    const ProfileConditionValue._('numStreams');
 
 ProfileConditionValue _$valueOf(String name) {
   switch (name) {
@@ -102,13 +104,15 @@ ProfileConditionValue _$valueOf(String name) {
       return _$audioBitDepth;
     case 'videoRangeType':
       return _$videoRangeType;
+    case 'numStreams':
+      return _$numStreams;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ProfileConditionValue> _$values =
-    new BuiltSet<ProfileConditionValue>(const <ProfileConditionValue>[
+    BuiltSet<ProfileConditionValue>(const <ProfileConditionValue>[
   _$audioChannels,
   _$audioBitrate,
   _$audioProfile,
@@ -133,6 +137,7 @@ final BuiltSet<ProfileConditionValue> _$values =
   _$audioSampleRate,
   _$audioBitDepth,
   _$videoRangeType,
+  _$numStreams,
 ]);
 
 class _$ProfileConditionValueMeta {
@@ -161,6 +166,7 @@ class _$ProfileConditionValueMeta {
   ProfileConditionValue get audioSampleRate => _$audioSampleRate;
   ProfileConditionValue get audioBitDepth => _$audioBitDepth;
   ProfileConditionValue get videoRangeType => _$videoRangeType;
+  ProfileConditionValue get numStreams => _$numStreams;
   ProfileConditionValue valueOf(String name) => _$valueOf(name);
   BuiltSet<ProfileConditionValue> get values => _$values;
 }
@@ -172,7 +178,7 @@ mixin _$ProfileConditionValueMixin {
 }
 
 Serializer<ProfileConditionValue> _$profileConditionValueSerializer =
-    new _$ProfileConditionValueSerializer();
+    _$ProfileConditionValueSerializer();
 
 class _$ProfileConditionValueSerializer
     implements PrimitiveSerializer<ProfileConditionValue> {
@@ -201,6 +207,7 @@ class _$ProfileConditionValueSerializer
     'audioSampleRate': 'AudioSampleRate',
     'audioBitDepth': 'AudioBitDepth',
     'videoRangeType': 'VideoRangeType',
+    'numStreams': 'NumStreams',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'AudioChannels': 'audioChannels',
@@ -227,6 +234,7 @@ class _$ProfileConditionValueSerializer
     'AudioSampleRate': 'audioSampleRate',
     'AudioBitDepth': 'audioBitDepth',
     'VideoRangeType': 'videoRangeType',
+    'NumStreams': 'numStreams',
   };
 
   @override

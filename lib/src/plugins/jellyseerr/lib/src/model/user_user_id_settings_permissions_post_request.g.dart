@@ -14,15 +14,11 @@ class _$UserUserIdSettingsPermissionsPostRequest
   factory _$UserUserIdSettingsPermissionsPostRequest(
           [void Function(UserUserIdSettingsPermissionsPostRequestBuilder)?
               updates]) =>
-      (new UserUserIdSettingsPermissionsPostRequestBuilder()..update(updates))
+      (UserUserIdSettingsPermissionsPostRequestBuilder()..update(updates))
           ._build();
 
   _$UserUserIdSettingsPermissionsPostRequest._({required this.permissions})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(permissions,
-        r'UserUserIdSettingsPermissionsPostRequest', 'permissions');
-  }
-
+      : super._();
   @override
   UserUserIdSettingsPermissionsPostRequest rebuild(
           void Function(UserUserIdSettingsPermissionsPostRequestBuilder)
@@ -31,7 +27,7 @@ class _$UserUserIdSettingsPermissionsPostRequest
 
   @override
   UserUserIdSettingsPermissionsPostRequestBuilder toBuilder() =>
-      new UserUserIdSettingsPermissionsPostRequestBuilder()..replace(this);
+      UserUserIdSettingsPermissionsPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +78,6 @@ class UserUserIdSettingsPermissionsPostRequestBuilder
 
   @override
   void replace(UserUserIdSettingsPermissionsPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdSettingsPermissionsPostRequest;
   }
 
@@ -97,9 +92,10 @@ class UserUserIdSettingsPermissionsPostRequestBuilder
 
   _$UserUserIdSettingsPermissionsPostRequest _build() {
     final _$result = _$v ??
-        new _$UserUserIdSettingsPermissionsPostRequest._(
-            permissions: BuiltValueNullFieldError.checkNotNull(permissions,
-                r'UserUserIdSettingsPermissionsPostRequest', 'permissions'));
+        _$UserUserIdSettingsPermissionsPostRequest._(
+          permissions: BuiltValueNullFieldError.checkNotNull(permissions,
+              r'UserUserIdSettingsPermissionsPostRequest', 'permissions'),
+        );
     replace(_$result);
     return _$result;
   }

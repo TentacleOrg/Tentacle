@@ -1987,16 +1987,6 @@ class ImageApi {
   /// Parameters:
   /// * [tag] - Supply the cache tag from the item object to receive strong caching headers.
   /// * [format] - Determines the output format of the image - original,gif,jpg,png.
-  /// * [maxWidth] - The maximum image width to return.
-  /// * [maxHeight] - The maximum image height to return.
-  /// * [width] - The fixed image width to return.
-  /// * [height] - The fixed image height to return.
-  /// * [fillWidth] - Width of box to fill.
-  /// * [fillHeight] - Height of box to fill.
-  /// * [blur] - Blur image.
-  /// * [backgroundColor] - Apply a background color for transparent images.
-  /// * [foregroundLayer] - Apply a foreground layer on top of the image.
-  /// * [quality] - Quality setting, from 0-100.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2009,16 +1999,6 @@ class ImageApi {
   Future<Response<Uint8List>> getSplashscreen({
     String? tag,
     ImageFormat? format,
-    int? maxWidth,
-    int? maxHeight,
-    int? width,
-    int? height,
-    int? fillWidth,
-    int? fillHeight,
-    int? blur,
-    String? backgroundColor,
-    String? foregroundLayer,
-    int? quality = 90,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -2046,35 +2026,6 @@ class ImageApi {
       if (format != null)
         r'format': encodeQueryParameter(
             _serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null)
-        r'maxWidth':
-            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null)
-        r'maxHeight':
-            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (width != null)
-        r'width':
-            encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null)
-        r'height':
-            encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (fillWidth != null)
-        r'fillWidth':
-            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null)
-        r'fillHeight':
-            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (blur != null)
-        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null)
-        r'backgroundColor': encodeQueryParameter(
-            _serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null)
-        r'foregroundLayer': encodeQueryParameter(
-            _serializers, foregroundLayer, const FullType(String)),
-      if (quality != null)
-        r'quality':
-            encodeQueryParameter(_serializers, quality, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2441,19 +2392,6 @@ class ImageApi {
   /// * [userId] - User id.
   /// * [tag] - Optional. Supply the cache tag from the item object to receive strong caching headers.
   /// * [format] - Determines the output format of the image - original,gif,jpg,png.
-  /// * [maxWidth] - The maximum image width to return.
-  /// * [maxHeight] - The maximum image height to return.
-  /// * [percentPlayed] - Optional. Percent to render for the percent played overlay.
-  /// * [unplayedCount] - Optional. Unplayed count overlay to render.
-  /// * [width] - The fixed image width to return.
-  /// * [height] - The fixed image height to return.
-  /// * [quality] - Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-  /// * [fillWidth] - Width of box to fill.
-  /// * [fillHeight] - Height of box to fill.
-  /// * [blur] - Optional. Blur image.
-  /// * [backgroundColor] - Optional. Apply a background color for transparent images.
-  /// * [foregroundLayer] - Optional. Apply a foreground layer on top of the image.
-  /// * [imageIndex] - Image index.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2467,19 +2405,6 @@ class ImageApi {
     String? userId,
     String? tag,
     ImageFormat? format,
-    int? maxWidth,
-    int? maxHeight,
-    double? percentPlayed,
-    int? unplayedCount,
-    int? width,
-    int? height,
-    int? quality,
-    int? fillWidth,
-    int? fillHeight,
-    int? blur,
-    String? backgroundColor,
-    String? foregroundLayer,
-    int? imageIndex,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -2510,44 +2435,6 @@ class ImageApi {
       if (format != null)
         r'format': encodeQueryParameter(
             _serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null)
-        r'maxWidth':
-            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null)
-        r'maxHeight':
-            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null)
-        r'percentPlayed': encodeQueryParameter(
-            _serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null)
-        r'unplayedCount': encodeQueryParameter(
-            _serializers, unplayedCount, const FullType(int)),
-      if (width != null)
-        r'width':
-            encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null)
-        r'height':
-            encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null)
-        r'quality':
-            encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null)
-        r'fillWidth':
-            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null)
-        r'fillHeight':
-            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (blur != null)
-        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null)
-        r'backgroundColor': encodeQueryParameter(
-            _serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null)
-        r'foregroundLayer': encodeQueryParameter(
-            _serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null)
-        r'imageIndex':
-            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(
@@ -4529,19 +4416,6 @@ class ImageApi {
   /// * [userId] - User id.
   /// * [tag] - Optional. Supply the cache tag from the item object to receive strong caching headers.
   /// * [format] - Determines the output format of the image - original,gif,jpg,png.
-  /// * [maxWidth] - The maximum image width to return.
-  /// * [maxHeight] - The maximum image height to return.
-  /// * [percentPlayed] - Optional. Percent to render for the percent played overlay.
-  /// * [unplayedCount] - Optional. Unplayed count overlay to render.
-  /// * [width] - The fixed image width to return.
-  /// * [height] - The fixed image height to return.
-  /// * [quality] - Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-  /// * [fillWidth] - Width of box to fill.
-  /// * [fillHeight] - Height of box to fill.
-  /// * [blur] - Optional. Blur image.
-  /// * [backgroundColor] - Optional. Apply a background color for transparent images.
-  /// * [foregroundLayer] - Optional. Apply a foreground layer on top of the image.
-  /// * [imageIndex] - Image index.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -4555,19 +4429,6 @@ class ImageApi {
     String? userId,
     String? tag,
     ImageFormat? format,
-    int? maxWidth,
-    int? maxHeight,
-    double? percentPlayed,
-    int? unplayedCount,
-    int? width,
-    int? height,
-    int? quality,
-    int? fillWidth,
-    int? fillHeight,
-    int? blur,
-    String? backgroundColor,
-    String? foregroundLayer,
-    int? imageIndex,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -4598,44 +4459,6 @@ class ImageApi {
       if (format != null)
         r'format': encodeQueryParameter(
             _serializers, format, const FullType(ImageFormat)),
-      if (maxWidth != null)
-        r'maxWidth':
-            encodeQueryParameter(_serializers, maxWidth, const FullType(int)),
-      if (maxHeight != null)
-        r'maxHeight':
-            encodeQueryParameter(_serializers, maxHeight, const FullType(int)),
-      if (percentPlayed != null)
-        r'percentPlayed': encodeQueryParameter(
-            _serializers, percentPlayed, const FullType(double)),
-      if (unplayedCount != null)
-        r'unplayedCount': encodeQueryParameter(
-            _serializers, unplayedCount, const FullType(int)),
-      if (width != null)
-        r'width':
-            encodeQueryParameter(_serializers, width, const FullType(int)),
-      if (height != null)
-        r'height':
-            encodeQueryParameter(_serializers, height, const FullType(int)),
-      if (quality != null)
-        r'quality':
-            encodeQueryParameter(_serializers, quality, const FullType(int)),
-      if (fillWidth != null)
-        r'fillWidth':
-            encodeQueryParameter(_serializers, fillWidth, const FullType(int)),
-      if (fillHeight != null)
-        r'fillHeight':
-            encodeQueryParameter(_serializers, fillHeight, const FullType(int)),
-      if (blur != null)
-        r'blur': encodeQueryParameter(_serializers, blur, const FullType(int)),
-      if (backgroundColor != null)
-        r'backgroundColor': encodeQueryParameter(
-            _serializers, backgroundColor, const FullType(String)),
-      if (foregroundLayer != null)
-        r'foregroundLayer': encodeQueryParameter(
-            _serializers, foregroundLayer, const FullType(String)),
-      if (imageIndex != null)
-        r'imageIndex':
-            encodeQueryParameter(_serializers, imageIndex, const FullType(int)),
     };
 
     final _response = await _dio.request<Object>(

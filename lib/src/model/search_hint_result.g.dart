@@ -14,17 +14,16 @@ class _$SearchHintResult extends SearchHintResult {
 
   factory _$SearchHintResult(
           [void Function(SearchHintResultBuilder)? updates]) =>
-      (new SearchHintResultBuilder()..update(updates))._build();
+      (SearchHintResultBuilder()..update(updates))._build();
 
   _$SearchHintResult._({this.searchHints, this.totalRecordCount}) : super._();
-
   @override
   SearchHintResult rebuild(void Function(SearchHintResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   SearchHintResultBuilder toBuilder() =>
-      new SearchHintResultBuilder()..replace(this);
+      SearchHintResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -58,7 +57,7 @@ class SearchHintResultBuilder
 
   ListBuilder<SearchHint>? _searchHints;
   ListBuilder<SearchHint> get searchHints =>
-      _$this._searchHints ??= new ListBuilder<SearchHint>();
+      _$this._searchHints ??= ListBuilder<SearchHint>();
   set searchHints(ListBuilder<SearchHint>? searchHints) =>
       _$this._searchHints = searchHints;
 
@@ -83,7 +82,6 @@ class SearchHintResultBuilder
 
   @override
   void replace(SearchHintResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SearchHintResult;
   }
 
@@ -99,16 +97,17 @@ class SearchHintResultBuilder
     _$SearchHintResult _$result;
     try {
       _$result = _$v ??
-          new _$SearchHintResult._(
-              searchHints: _searchHints?.build(),
-              totalRecordCount: totalRecordCount);
+          _$SearchHintResult._(
+            searchHints: _searchHints?.build(),
+            totalRecordCount: totalRecordCount,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'searchHints';
         _searchHints?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SearchHintResult', _$failedField, e.toString());
       }
       rethrow;

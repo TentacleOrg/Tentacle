@@ -243,6 +243,7 @@ class PlaystateApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<void>> onPlaybackProgress({
     required String itemId,
     String? mediaSourceId,
@@ -355,6 +356,7 @@ class PlaystateApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<void>> onPlaybackStart({
     required String itemId,
     String? mediaSourceId,
@@ -449,6 +451,7 @@ class PlaystateApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<void>> onPlaybackStopped({
     required String itemId,
     String? mediaSourceId,

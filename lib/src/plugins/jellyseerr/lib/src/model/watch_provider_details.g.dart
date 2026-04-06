@@ -18,12 +18,11 @@ class _$WatchProviderDetails extends WatchProviderDetails {
 
   factory _$WatchProviderDetails(
           [void Function(WatchProviderDetailsBuilder)? updates]) =>
-      (new WatchProviderDetailsBuilder()..update(updates))._build();
+      (WatchProviderDetailsBuilder()..update(updates))._build();
 
   _$WatchProviderDetails._(
       {this.displayPriority, this.logoPath, this.id, this.name})
       : super._();
-
   @override
   WatchProviderDetails rebuild(
           void Function(WatchProviderDetailsBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$WatchProviderDetails extends WatchProviderDetails {
 
   @override
   WatchProviderDetailsBuilder toBuilder() =>
-      new WatchProviderDetailsBuilder()..replace(this);
+      WatchProviderDetailsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +103,6 @@ class WatchProviderDetailsBuilder
 
   @override
   void replace(WatchProviderDetails other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WatchProviderDetails;
   }
 
@@ -118,11 +116,12 @@ class WatchProviderDetailsBuilder
 
   _$WatchProviderDetails _build() {
     final _$result = _$v ??
-        new _$WatchProviderDetails._(
-            displayPriority: displayPriority,
-            logoPath: logoPath,
-            id: id,
-            name: name);
+        _$WatchProviderDetails._(
+          displayPriority: displayPriority,
+          logoPath: logoPath,
+          id: id,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

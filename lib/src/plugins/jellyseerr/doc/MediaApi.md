@@ -11,7 +11,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**mediaGet**](MediaApi.md#mediaget) | **GET** /media | Get media
 [**mediaMediaIdDelete**](MediaApi.md#mediamediaiddelete) | **DELETE** /media/{mediaId} | Delete media item
-[**mediaMediaIdFileDelete**](MediaApi.md#mediamediaidfiledelete) | **DELETE** /media/{mediaId}/file | Delete media file
 [**mediaMediaIdStatusPost**](MediaApi.md#mediamediaidstatuspost) | **POST** /media/{mediaId}/{status} | Update media status
 [**mediaMediaIdWatchDataGet**](MediaApi.md#mediamediaidwatchdataget) | **GET** /media/{mediaId}/watch_data | Get watch data
 
@@ -99,56 +98,6 @@ try {
     api.mediaMediaIdDelete(mediaId);
 } catch on DioException (e) {
     print('Exception when calling MediaApi->mediaMediaIdDelete: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **mediaId** | **String**| Media ID | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **mediaMediaIdFileDelete**
-> mediaMediaIdFileDelete(mediaId)
-
-Delete media file
-
-Removes a media file from radarr/sonarr. The `ADMIN` permission is required to perform this action.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getMediaApi();
-final String mediaId = 1; // String | Media ID
-
-try {
-    api.mediaMediaIdFileDelete(mediaId);
-} catch on DioException (e) {
-    print('Exception when calling MediaApi->mediaMediaIdFileDelete: $e\n');
 }
 ```
 

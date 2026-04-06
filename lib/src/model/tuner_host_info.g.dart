@@ -22,6 +22,12 @@ class _$TunerHostInfo extends TunerHostInfo {
   @override
   final bool? allowHWTranscoding;
   @override
+  final bool? allowFmp4TranscodingContainer;
+  @override
+  final bool? allowStreamSharing;
+  @override
+  final int? fallbackMaxStreamingBitrate;
+  @override
   final bool? enableStreamLooping;
   @override
   final String? source_;
@@ -31,9 +37,11 @@ class _$TunerHostInfo extends TunerHostInfo {
   final String? userAgent;
   @override
   final bool? ignoreDts;
+  @override
+  final bool? readAtNativeFramerate;
 
   factory _$TunerHostInfo([void Function(TunerHostInfoBuilder)? updates]) =>
-      (new TunerHostInfoBuilder()..update(updates))._build();
+      (TunerHostInfoBuilder()..update(updates))._build();
 
   _$TunerHostInfo._(
       {this.id,
@@ -43,19 +51,22 @@ class _$TunerHostInfo extends TunerHostInfo {
       this.friendlyName,
       this.importFavoritesOnly,
       this.allowHWTranscoding,
+      this.allowFmp4TranscodingContainer,
+      this.allowStreamSharing,
+      this.fallbackMaxStreamingBitrate,
       this.enableStreamLooping,
       this.source_,
       this.tunerCount,
       this.userAgent,
-      this.ignoreDts})
+      this.ignoreDts,
+      this.readAtNativeFramerate})
       : super._();
-
   @override
   TunerHostInfo rebuild(void Function(TunerHostInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TunerHostInfoBuilder toBuilder() => new TunerHostInfoBuilder()..replace(this);
+  TunerHostInfoBuilder toBuilder() => TunerHostInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -68,11 +79,15 @@ class _$TunerHostInfo extends TunerHostInfo {
         friendlyName == other.friendlyName &&
         importFavoritesOnly == other.importFavoritesOnly &&
         allowHWTranscoding == other.allowHWTranscoding &&
+        allowFmp4TranscodingContainer == other.allowFmp4TranscodingContainer &&
+        allowStreamSharing == other.allowStreamSharing &&
+        fallbackMaxStreamingBitrate == other.fallbackMaxStreamingBitrate &&
         enableStreamLooping == other.enableStreamLooping &&
         source_ == other.source_ &&
         tunerCount == other.tunerCount &&
         userAgent == other.userAgent &&
-        ignoreDts == other.ignoreDts;
+        ignoreDts == other.ignoreDts &&
+        readAtNativeFramerate == other.readAtNativeFramerate;
   }
 
   @override
@@ -85,11 +100,15 @@ class _$TunerHostInfo extends TunerHostInfo {
     _$hash = $jc(_$hash, friendlyName.hashCode);
     _$hash = $jc(_$hash, importFavoritesOnly.hashCode);
     _$hash = $jc(_$hash, allowHWTranscoding.hashCode);
+    _$hash = $jc(_$hash, allowFmp4TranscodingContainer.hashCode);
+    _$hash = $jc(_$hash, allowStreamSharing.hashCode);
+    _$hash = $jc(_$hash, fallbackMaxStreamingBitrate.hashCode);
     _$hash = $jc(_$hash, enableStreamLooping.hashCode);
     _$hash = $jc(_$hash, source_.hashCode);
     _$hash = $jc(_$hash, tunerCount.hashCode);
     _$hash = $jc(_$hash, userAgent.hashCode);
     _$hash = $jc(_$hash, ignoreDts.hashCode);
+    _$hash = $jc(_$hash, readAtNativeFramerate.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -104,11 +123,15 @@ class _$TunerHostInfo extends TunerHostInfo {
           ..add('friendlyName', friendlyName)
           ..add('importFavoritesOnly', importFavoritesOnly)
           ..add('allowHWTranscoding', allowHWTranscoding)
+          ..add('allowFmp4TranscodingContainer', allowFmp4TranscodingContainer)
+          ..add('allowStreamSharing', allowStreamSharing)
+          ..add('fallbackMaxStreamingBitrate', fallbackMaxStreamingBitrate)
           ..add('enableStreamLooping', enableStreamLooping)
           ..add('source_', source_)
           ..add('tunerCount', tunerCount)
           ..add('userAgent', userAgent)
-          ..add('ignoreDts', ignoreDts))
+          ..add('ignoreDts', ignoreDts)
+          ..add('readAtNativeFramerate', readAtNativeFramerate))
         .toString();
   }
 }
@@ -147,6 +170,22 @@ class TunerHostInfoBuilder
   set allowHWTranscoding(bool? allowHWTranscoding) =>
       _$this._allowHWTranscoding = allowHWTranscoding;
 
+  bool? _allowFmp4TranscodingContainer;
+  bool? get allowFmp4TranscodingContainer =>
+      _$this._allowFmp4TranscodingContainer;
+  set allowFmp4TranscodingContainer(bool? allowFmp4TranscodingContainer) =>
+      _$this._allowFmp4TranscodingContainer = allowFmp4TranscodingContainer;
+
+  bool? _allowStreamSharing;
+  bool? get allowStreamSharing => _$this._allowStreamSharing;
+  set allowStreamSharing(bool? allowStreamSharing) =>
+      _$this._allowStreamSharing = allowStreamSharing;
+
+  int? _fallbackMaxStreamingBitrate;
+  int? get fallbackMaxStreamingBitrate => _$this._fallbackMaxStreamingBitrate;
+  set fallbackMaxStreamingBitrate(int? fallbackMaxStreamingBitrate) =>
+      _$this._fallbackMaxStreamingBitrate = fallbackMaxStreamingBitrate;
+
   bool? _enableStreamLooping;
   bool? get enableStreamLooping => _$this._enableStreamLooping;
   set enableStreamLooping(bool? enableStreamLooping) =>
@@ -168,6 +207,11 @@ class TunerHostInfoBuilder
   bool? get ignoreDts => _$this._ignoreDts;
   set ignoreDts(bool? ignoreDts) => _$this._ignoreDts = ignoreDts;
 
+  bool? _readAtNativeFramerate;
+  bool? get readAtNativeFramerate => _$this._readAtNativeFramerate;
+  set readAtNativeFramerate(bool? readAtNativeFramerate) =>
+      _$this._readAtNativeFramerate = readAtNativeFramerate;
+
   TunerHostInfoBuilder() {
     TunerHostInfo._defaults(this);
   }
@@ -182,11 +226,15 @@ class TunerHostInfoBuilder
       _friendlyName = $v.friendlyName;
       _importFavoritesOnly = $v.importFavoritesOnly;
       _allowHWTranscoding = $v.allowHWTranscoding;
+      _allowFmp4TranscodingContainer = $v.allowFmp4TranscodingContainer;
+      _allowStreamSharing = $v.allowStreamSharing;
+      _fallbackMaxStreamingBitrate = $v.fallbackMaxStreamingBitrate;
       _enableStreamLooping = $v.enableStreamLooping;
       _source_ = $v.source_;
       _tunerCount = $v.tunerCount;
       _userAgent = $v.userAgent;
       _ignoreDts = $v.ignoreDts;
+      _readAtNativeFramerate = $v.readAtNativeFramerate;
       _$v = null;
     }
     return this;
@@ -194,7 +242,6 @@ class TunerHostInfoBuilder
 
   @override
   void replace(TunerHostInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TunerHostInfo;
   }
 
@@ -208,19 +255,24 @@ class TunerHostInfoBuilder
 
   _$TunerHostInfo _build() {
     final _$result = _$v ??
-        new _$TunerHostInfo._(
-            id: id,
-            url: url,
-            type: type,
-            deviceId: deviceId,
-            friendlyName: friendlyName,
-            importFavoritesOnly: importFavoritesOnly,
-            allowHWTranscoding: allowHWTranscoding,
-            enableStreamLooping: enableStreamLooping,
-            source_: source_,
-            tunerCount: tunerCount,
-            userAgent: userAgent,
-            ignoreDts: ignoreDts);
+        _$TunerHostInfo._(
+          id: id,
+          url: url,
+          type: type,
+          deviceId: deviceId,
+          friendlyName: friendlyName,
+          importFavoritesOnly: importFavoritesOnly,
+          allowHWTranscoding: allowHWTranscoding,
+          allowFmp4TranscodingContainer: allowFmp4TranscodingContainer,
+          allowStreamSharing: allowStreamSharing,
+          fallbackMaxStreamingBitrate: fallbackMaxStreamingBitrate,
+          enableStreamLooping: enableStreamLooping,
+          source_: source_,
+          tunerCount: tunerCount,
+          userAgent: userAgent,
+          ignoreDts: ignoreDts,
+          readAtNativeFramerate: readAtNativeFramerate,
+        );
     replace(_$result);
     return _$result;
   }

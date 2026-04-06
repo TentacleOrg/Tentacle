@@ -23,7 +23,7 @@ class _$MovieDetailsReleasesResultsInnerReleaseDatesInner
           [void Function(
                   MovieDetailsReleasesResultsInnerReleaseDatesInnerBuilder)?
               updates]) =>
-      (new MovieDetailsReleasesResultsInnerReleaseDatesInnerBuilder()
+      (MovieDetailsReleasesResultsInnerReleaseDatesInnerBuilder()
             ..update(updates))
           ._build();
 
@@ -34,7 +34,6 @@ class _$MovieDetailsReleasesResultsInnerReleaseDatesInner
       this.releaseDate,
       this.type})
       : super._();
-
   @override
   MovieDetailsReleasesResultsInnerReleaseDatesInner rebuild(
           void Function(
@@ -44,8 +43,7 @@ class _$MovieDetailsReleasesResultsInnerReleaseDatesInner
 
   @override
   MovieDetailsReleasesResultsInnerReleaseDatesInnerBuilder toBuilder() =>
-      new MovieDetailsReleasesResultsInnerReleaseDatesInnerBuilder()
-        ..replace(this);
+      MovieDetailsReleasesResultsInnerReleaseDatesInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -129,7 +127,6 @@ class MovieDetailsReleasesResultsInnerReleaseDatesInnerBuilder
 
   @override
   void replace(MovieDetailsReleasesResultsInnerReleaseDatesInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieDetailsReleasesResultsInnerReleaseDatesInner;
   }
 
@@ -145,12 +142,13 @@ class MovieDetailsReleasesResultsInnerReleaseDatesInnerBuilder
 
   _$MovieDetailsReleasesResultsInnerReleaseDatesInner _build() {
     final _$result = _$v ??
-        new _$MovieDetailsReleasesResultsInnerReleaseDatesInner._(
-            certification: certification,
-            iso6391: iso6391,
-            note: note,
-            releaseDate: releaseDate,
-            type: type);
+        _$MovieDetailsReleasesResultsInnerReleaseDatesInner._(
+          certification: certification,
+          iso6391: iso6391,
+          note: note,
+          releaseDate: releaseDate,
+          type: type,
+        );
     replace(_$result);
     return _$result;
   }

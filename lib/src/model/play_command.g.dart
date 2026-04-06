@@ -25,12 +25,12 @@ PlayCommand _$valueOf(String name) {
     case 'playShuffle':
       return _$playShuffle;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<PlayCommand> _$values =
-    new BuiltSet<PlayCommand>(const <PlayCommand>[
+    BuiltSet<PlayCommand>(const <PlayCommand>[
   _$playNow,
   _$playNext,
   _$playLast,
@@ -54,7 +54,7 @@ mixin _$PlayCommandMixin {
   _$PlayCommandMeta get PlayCommand => const _$PlayCommandMeta();
 }
 
-Serializer<PlayCommand> _$playCommandSerializer = new _$PlayCommandSerializer();
+Serializer<PlayCommand> _$playCommandSerializer = _$PlayCommandSerializer();
 
 class _$PlayCommandSerializer implements PrimitiveSerializer<PlayCommand> {
   static const Map<String, Object> _toWire = const <String, Object>{

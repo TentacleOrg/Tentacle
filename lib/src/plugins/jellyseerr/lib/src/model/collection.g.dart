@@ -21,7 +21,7 @@ class _$Collection extends Collection {
   final BuiltList<MovieResult>? parts;
 
   factory _$Collection([void Function(CollectionBuilder)? updates]) =>
-      (new CollectionBuilder()..update(updates))._build();
+      (CollectionBuilder()..update(updates))._build();
 
   _$Collection._(
       {this.id,
@@ -31,13 +31,12 @@ class _$Collection extends Collection {
       this.backdropPath,
       this.parts})
       : super._();
-
   @override
   Collection rebuild(void Function(CollectionBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CollectionBuilder toBuilder() => new CollectionBuilder()..replace(this);
+  CollectionBuilder toBuilder() => CollectionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -102,7 +101,7 @@ class CollectionBuilder implements Builder<Collection, CollectionBuilder> {
 
   ListBuilder<MovieResult>? _parts;
   ListBuilder<MovieResult> get parts =>
-      _$this._parts ??= new ListBuilder<MovieResult>();
+      _$this._parts ??= ListBuilder<MovieResult>();
   set parts(ListBuilder<MovieResult>? parts) => _$this._parts = parts;
 
   CollectionBuilder() {
@@ -125,7 +124,6 @@ class CollectionBuilder implements Builder<Collection, CollectionBuilder> {
 
   @override
   void replace(Collection other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Collection;
   }
 
@@ -141,20 +139,21 @@ class CollectionBuilder implements Builder<Collection, CollectionBuilder> {
     _$Collection _$result;
     try {
       _$result = _$v ??
-          new _$Collection._(
-              id: id,
-              name: name,
-              overview: overview,
-              posterPath: posterPath,
-              backdropPath: backdropPath,
-              parts: _parts?.build());
+          _$Collection._(
+            id: id,
+            name: name,
+            overview: overview,
+            posterPath: posterPath,
+            backdropPath: backdropPath,
+            parts: _parts?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'parts';
         _parts?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Collection', _$failedField, e.toString());
       }
       rethrow;

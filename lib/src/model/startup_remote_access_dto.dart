@@ -21,6 +21,7 @@ abstract class StartupRemoteAccessDto
   bool get enableRemoteAccess;
 
   /// Gets or sets a value indicating whether enable automatic port mapping.
+  @Deprecated('enableAutomaticPortMapping has been deprecated')
   @BuiltValueField(wireName: r'EnableAutomaticPortMapping')
   bool get enableAutomaticPortMapping;
 

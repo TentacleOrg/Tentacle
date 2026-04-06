@@ -16,12 +16,12 @@ MediaStreamProtocol _$valueOf(String name) {
     case 'hls':
       return _$hls;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<MediaStreamProtocol> _$values =
-    new BuiltSet<MediaStreamProtocol>(const <MediaStreamProtocol>[
+    BuiltSet<MediaStreamProtocol>(const <MediaStreamProtocol>[
   _$http,
   _$hls,
 ]);
@@ -41,7 +41,7 @@ mixin _$MediaStreamProtocolMixin {
 }
 
 Serializer<MediaStreamProtocol> _$mediaStreamProtocolSerializer =
-    new _$MediaStreamProtocolSerializer();
+    _$MediaStreamProtocolSerializer();
 
 class _$MediaStreamProtocolSerializer
     implements PrimitiveSerializer<MediaStreamProtocol> {

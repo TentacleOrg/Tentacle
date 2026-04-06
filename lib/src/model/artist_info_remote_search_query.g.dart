@@ -18,7 +18,7 @@ class _$ArtistInfoRemoteSearchQuery extends ArtistInfoRemoteSearchQuery {
 
   factory _$ArtistInfoRemoteSearchQuery(
           [void Function(ArtistInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new ArtistInfoRemoteSearchQueryBuilder()..update(updates))._build();
+      (ArtistInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
   _$ArtistInfoRemoteSearchQuery._(
       {this.searchInfo,
@@ -26,7 +26,6 @@ class _$ArtistInfoRemoteSearchQuery extends ArtistInfoRemoteSearchQuery {
       this.searchProviderName,
       this.includeDisabledProviders})
       : super._();
-
   @override
   ArtistInfoRemoteSearchQuery rebuild(
           void Function(ArtistInfoRemoteSearchQueryBuilder) updates) =>
@@ -34,7 +33,7 @@ class _$ArtistInfoRemoteSearchQuery extends ArtistInfoRemoteSearchQuery {
 
   @override
   ArtistInfoRemoteSearchQueryBuilder toBuilder() =>
-      new ArtistInfoRemoteSearchQueryBuilder()..replace(this);
+      ArtistInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,7 +75,7 @@ class ArtistInfoRemoteSearchQueryBuilder
 
   ArtistInfoBuilder? _searchInfo;
   ArtistInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new ArtistInfoBuilder();
+      _$this._searchInfo ??= ArtistInfoBuilder();
   set searchInfo(ArtistInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
@@ -112,7 +111,6 @@ class ArtistInfoRemoteSearchQueryBuilder
 
   @override
   void replace(ArtistInfoRemoteSearchQuery other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ArtistInfoRemoteSearchQuery;
   }
 
@@ -128,18 +126,19 @@ class ArtistInfoRemoteSearchQueryBuilder
     _$ArtistInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$ArtistInfoRemoteSearchQuery._(
-              searchInfo: _searchInfo?.build(),
-              itemId: itemId,
-              searchProviderName: searchProviderName,
-              includeDisabledProviders: includeDisabledProviders);
+          _$ArtistInfoRemoteSearchQuery._(
+            searchInfo: _searchInfo?.build(),
+            itemId: itemId,
+            searchProviderName: searchProviderName,
+            includeDisabledProviders: includeDisabledProviders,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'searchInfo';
         _searchInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ArtistInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;

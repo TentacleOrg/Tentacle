@@ -15,34 +15,40 @@ import 'package:built_value/serializer.dart';
 
 part 'metadata_editor_info.g.dart';
 
-/// MetadataEditorInfo
+/// A class representing metadata editor information.
 ///
 /// Properties:
-/// * [parentalRatingOptions]
-/// * [countries]
-/// * [cultures]
-/// * [externalIdInfos]
-/// * [contentType]
-/// * [contentTypeOptions]
+/// * [parentalRatingOptions] - Gets or sets the parental rating options.
+/// * [countries] - Gets or sets the countries.
+/// * [cultures] - Gets or sets the cultures.
+/// * [externalIdInfos] - Gets or sets the external id infos.
+/// * [contentType] - Gets or sets the content type.
+/// * [contentTypeOptions] - Gets or sets the content type options.
 @BuiltValue()
 abstract class MetadataEditorInfo
     implements Built<MetadataEditorInfo, MetadataEditorInfoBuilder> {
+  /// Gets or sets the parental rating options.
   @BuiltValueField(wireName: r'ParentalRatingOptions')
   BuiltList<ParentalRating>? get parentalRatingOptions;
 
+  /// Gets or sets the countries.
   @BuiltValueField(wireName: r'Countries')
   BuiltList<CountryInfo>? get countries;
 
+  /// Gets or sets the cultures.
   @BuiltValueField(wireName: r'Cultures')
   BuiltList<CultureDto>? get cultures;
 
+  /// Gets or sets the external id infos.
   @BuiltValueField(wireName: r'ExternalIdInfos')
   BuiltList<ExternalIdInfo>? get externalIdInfos;
 
+  /// Gets or sets the content type.
   @BuiltValueField(wireName: r'ContentType')
   CollectionType? get contentType;
   // enum contentTypeEnum {  unknown,  movies,  tvshows,  music,  musicvideos,  trailers,  homevideos,  boxsets,  books,  photos,  livetv,  playlists,  folders,  };
 
+  /// Gets or sets the content type options.
   @BuiltValueField(wireName: r'ContentTypeOptions')
   BuiltList<NameValuePair>? get contentTypeOptions;
 

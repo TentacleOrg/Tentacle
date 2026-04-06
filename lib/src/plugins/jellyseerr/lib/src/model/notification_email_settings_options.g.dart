@@ -31,7 +31,7 @@ class _$NotificationEmailSettingsOptions
 
   factory _$NotificationEmailSettingsOptions(
           [void Function(NotificationEmailSettingsOptionsBuilder)? updates]) =>
-      (new NotificationEmailSettingsOptionsBuilder()..update(updates))._build();
+      (NotificationEmailSettingsOptionsBuilder()..update(updates))._build();
 
   _$NotificationEmailSettingsOptions._(
       {this.emailFrom,
@@ -45,7 +45,6 @@ class _$NotificationEmailSettingsOptions
       this.authPass,
       this.allowSelfSigned})
       : super._();
-
   @override
   NotificationEmailSettingsOptions rebuild(
           void Function(NotificationEmailSettingsOptionsBuilder) updates) =>
@@ -53,7 +52,7 @@ class _$NotificationEmailSettingsOptions
 
   @override
   NotificationEmailSettingsOptionsBuilder toBuilder() =>
-      new NotificationEmailSettingsOptionsBuilder()..replace(this);
+      NotificationEmailSettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -176,7 +175,6 @@ class NotificationEmailSettingsOptionsBuilder
 
   @override
   void replace(NotificationEmailSettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationEmailSettingsOptions;
   }
 
@@ -190,17 +188,18 @@ class NotificationEmailSettingsOptionsBuilder
 
   _$NotificationEmailSettingsOptions _build() {
     final _$result = _$v ??
-        new _$NotificationEmailSettingsOptions._(
-            emailFrom: emailFrom,
-            senderName: senderName,
-            smtpHost: smtpHost,
-            smtpPort: smtpPort,
-            secure: secure,
-            ignoreTls: ignoreTls,
-            requireTls: requireTls,
-            authUser: authUser,
-            authPass: authPass,
-            allowSelfSigned: allowSelfSigned);
+        _$NotificationEmailSettingsOptions._(
+          emailFrom: emailFrom,
+          senderName: senderName,
+          smtpHost: smtpHost,
+          smtpPort: smtpPort,
+          secure: secure,
+          ignoreTls: ignoreTls,
+          requireTls: requireTls,
+          authUser: authUser,
+          authPass: authPass,
+          allowSelfSigned: allowSelfSigned,
+        );
     replace(_$result);
     return _$result;
   }

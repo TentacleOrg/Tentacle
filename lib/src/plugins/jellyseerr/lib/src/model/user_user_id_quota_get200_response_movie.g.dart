@@ -22,13 +22,11 @@ class _$UserUserIdQuotaGet200ResponseMovie
   factory _$UserUserIdQuotaGet200ResponseMovie(
           [void Function(UserUserIdQuotaGet200ResponseMovieBuilder)?
               updates]) =>
-      (new UserUserIdQuotaGet200ResponseMovieBuilder()..update(updates))
-          ._build();
+      (UserUserIdQuotaGet200ResponseMovieBuilder()..update(updates))._build();
 
   _$UserUserIdQuotaGet200ResponseMovie._(
       {this.days, this.limit, this.used, this.remaining, this.restricted})
       : super._();
-
   @override
   UserUserIdQuotaGet200ResponseMovie rebuild(
           void Function(UserUserIdQuotaGet200ResponseMovieBuilder) updates) =>
@@ -36,7 +34,7 @@ class _$UserUserIdQuotaGet200ResponseMovie
 
   @override
   UserUserIdQuotaGet200ResponseMovieBuilder toBuilder() =>
-      new UserUserIdQuotaGet200ResponseMovieBuilder()..replace(this);
+      UserUserIdQuotaGet200ResponseMovieBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -118,7 +116,6 @@ class UserUserIdQuotaGet200ResponseMovieBuilder
 
   @override
   void replace(UserUserIdQuotaGet200ResponseMovie other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdQuotaGet200ResponseMovie;
   }
 
@@ -133,12 +130,13 @@ class UserUserIdQuotaGet200ResponseMovieBuilder
 
   _$UserUserIdQuotaGet200ResponseMovie _build() {
     final _$result = _$v ??
-        new _$UserUserIdQuotaGet200ResponseMovie._(
-            days: days,
-            limit: limit,
-            used: used,
-            remaining: remaining,
-            restricted: restricted);
+        _$UserUserIdQuotaGet200ResponseMovie._(
+          days: days,
+          limit: limit,
+          used: used,
+          remaining: remaining,
+          restricted: restricted,
+        );
     replace(_$result);
     return _$result;
   }

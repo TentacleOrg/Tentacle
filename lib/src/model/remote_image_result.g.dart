@@ -16,18 +16,17 @@ class _$RemoteImageResult extends RemoteImageResult {
 
   factory _$RemoteImageResult(
           [void Function(RemoteImageResultBuilder)? updates]) =>
-      (new RemoteImageResultBuilder()..update(updates))._build();
+      (RemoteImageResultBuilder()..update(updates))._build();
 
   _$RemoteImageResult._({this.images, this.totalRecordCount, this.providers})
       : super._();
-
   @override
   RemoteImageResult rebuild(void Function(RemoteImageResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   RemoteImageResultBuilder toBuilder() =>
-      new RemoteImageResultBuilder()..replace(this);
+      RemoteImageResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,7 +63,7 @@ class RemoteImageResultBuilder
 
   ListBuilder<RemoteImageInfo>? _images;
   ListBuilder<RemoteImageInfo> get images =>
-      _$this._images ??= new ListBuilder<RemoteImageInfo>();
+      _$this._images ??= ListBuilder<RemoteImageInfo>();
   set images(ListBuilder<RemoteImageInfo>? images) => _$this._images = images;
 
   int? _totalRecordCount;
@@ -74,7 +73,7 @@ class RemoteImageResultBuilder
 
   ListBuilder<String>? _providers;
   ListBuilder<String> get providers =>
-      _$this._providers ??= new ListBuilder<String>();
+      _$this._providers ??= ListBuilder<String>();
   set providers(ListBuilder<String>? providers) =>
       _$this._providers = providers;
 
@@ -95,7 +94,6 @@ class RemoteImageResultBuilder
 
   @override
   void replace(RemoteImageResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RemoteImageResult;
   }
 
@@ -111,10 +109,11 @@ class RemoteImageResultBuilder
     _$RemoteImageResult _$result;
     try {
       _$result = _$v ??
-          new _$RemoteImageResult._(
-              images: _images?.build(),
-              totalRecordCount: totalRecordCount,
-              providers: _providers?.build());
+          _$RemoteImageResult._(
+            images: _images?.build(),
+            totalRecordCount: totalRecordCount,
+            providers: _providers?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -124,7 +123,7 @@ class RemoteImageResultBuilder
         _$failedField = 'providers';
         _providers?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'RemoteImageResult', _$failedField, e.toString());
       }
       rethrow;

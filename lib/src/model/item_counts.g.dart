@@ -33,7 +33,7 @@ class _$ItemCounts extends ItemCounts {
   final int? itemCount;
 
   factory _$ItemCounts([void Function(ItemCountsBuilder)? updates]) =>
-      (new ItemCountsBuilder()..update(updates))._build();
+      (ItemCountsBuilder()..update(updates))._build();
 
   _$ItemCounts._(
       {this.movieCount,
@@ -49,13 +49,12 @@ class _$ItemCounts extends ItemCounts {
       this.bookCount,
       this.itemCount})
       : super._();
-
   @override
   ItemCounts rebuild(void Function(ItemCountsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ItemCountsBuilder toBuilder() => new ItemCountsBuilder()..replace(this);
+  ItemCountsBuilder toBuilder() => ItemCountsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -191,7 +190,6 @@ class ItemCountsBuilder implements Builder<ItemCounts, ItemCountsBuilder> {
 
   @override
   void replace(ItemCounts other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ItemCounts;
   }
 
@@ -205,19 +203,20 @@ class ItemCountsBuilder implements Builder<ItemCounts, ItemCountsBuilder> {
 
   _$ItemCounts _build() {
     final _$result = _$v ??
-        new _$ItemCounts._(
-            movieCount: movieCount,
-            seriesCount: seriesCount,
-            episodeCount: episodeCount,
-            artistCount: artistCount,
-            programCount: programCount,
-            trailerCount: trailerCount,
-            songCount: songCount,
-            albumCount: albumCount,
-            musicVideoCount: musicVideoCount,
-            boxSetCount: boxSetCount,
-            bookCount: bookCount,
-            itemCount: itemCount);
+        _$ItemCounts._(
+          movieCount: movieCount,
+          seriesCount: seriesCount,
+          episodeCount: episodeCount,
+          artistCount: artistCount,
+          programCount: programCount,
+          trailerCount: trailerCount,
+          songCount: songCount,
+          albumCount: albumCount,
+          musicVideoCount: musicVideoCount,
+          boxSetCount: boxSetCount,
+          bookCount: bookCount,
+          itemCount: itemCount,
+        );
     replace(_$result);
     return _$result;
   }

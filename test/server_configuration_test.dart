@@ -60,7 +60,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets a value indicating whether [enable case sensitive item ids].
+    // Gets or sets a value indicating whether [enable case-sensitive item ids].
     // bool enableCaseSensitiveItemIds
     test('to test the property `enableCaseSensitiveItemIds`', () async {
       // TODO
@@ -74,11 +74,6 @@ void main() {
     // Gets or sets the metadata path.
     // String metadataPath
     test('to test the property `metadataPath`', () async {
-      // TODO
-    });
-
-    // String metadataNetworkPath
-    test('to test the property `metadataNetworkPath`', () async {
       // TODO
     });
 
@@ -160,6 +155,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the maximum amount of items to cache.
+    // int cacheSize
+    test('to test the property `cacheSize`', () async {
+      // TODO
+    });
+
     // Gets or sets the image saving convention.
     // ImageSavingConvention imageSavingConvention
     test('to test the property `imageSavingConvention`', () async {
@@ -206,8 +207,14 @@ void main() {
       // TODO
     });
 
-    // bool enableGroupingIntoCollections
-    test('to test the property `enableGroupingIntoCollections`', () async {
+    // bool enableGroupingMoviesIntoCollections
+    test('to test the property `enableGroupingMoviesIntoCollections`',
+        () async {
+      // TODO
+    });
+
+    // bool enableGroupingShowsIntoCollections
+    test('to test the property `enableGroupingShowsIntoCollections`', () async {
       // TODO
     });
 
@@ -277,19 +284,13 @@ void main() {
       // TODO
     });
 
-    // Gets or sets a value indicating whether older plugins should automatically be deleted from the plugin folder.
-    // bool removeOldPlugins
-    test('to test the property `removeOldPlugins`', () async {
-      // TODO
-    });
-
     // Gets or sets a value indicating whether clients should be allowed to upload logs.
     // bool allowClientLogUpload
     test('to test the property `allowClientLogUpload`', () async {
       // TODO
     });
 
-    // Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation alltogether.
+    // Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation altogether.
     // int dummyChapterDuration
     test('to test the property `dummyChapterDuration`', () async {
       // TODO
@@ -316,6 +317,12 @@ void main() {
     // Gets or sets the trickplay options.
     // TrickplayOptions trickplayOptions
     test('to test the property `trickplayOptions`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether old authorization methods are allowed.
+    // bool enableLegacyAuthorization
+    test('to test the property `enableLegacyAuthorization`', () async {
       // TODO
     });
   });

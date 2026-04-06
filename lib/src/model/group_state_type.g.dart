@@ -22,12 +22,12 @@ GroupStateType _$valueOf(String name) {
     case 'playing':
       return _$playing;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<GroupStateType> _$values =
-    new BuiltSet<GroupStateType>(const <GroupStateType>[
+    BuiltSet<GroupStateType>(const <GroupStateType>[
   _$idle,
   _$waiting,
   _$paused,
@@ -50,7 +50,7 @@ mixin _$GroupStateTypeMixin {
 }
 
 Serializer<GroupStateType> _$groupStateTypeSerializer =
-    new _$GroupStateTypeSerializer();
+    _$GroupStateTypeSerializer();
 
 class _$GroupStateTypeSerializer
     implements PrimitiveSerializer<GroupStateType> {

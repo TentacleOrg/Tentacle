@@ -26,7 +26,7 @@ class _$VirtualFolderInfo extends VirtualFolderInfo {
 
   factory _$VirtualFolderInfo(
           [void Function(VirtualFolderInfoBuilder)? updates]) =>
-      (new VirtualFolderInfoBuilder()..update(updates))._build();
+      (VirtualFolderInfoBuilder()..update(updates))._build();
 
   _$VirtualFolderInfo._(
       {this.name,
@@ -38,14 +38,13 @@ class _$VirtualFolderInfo extends VirtualFolderInfo {
       this.refreshProgress,
       this.refreshStatus})
       : super._();
-
   @override
   VirtualFolderInfo rebuild(void Function(VirtualFolderInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   VirtualFolderInfoBuilder toBuilder() =>
-      new VirtualFolderInfoBuilder()..replace(this);
+      VirtualFolderInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -101,7 +100,7 @@ class VirtualFolderInfoBuilder
 
   ListBuilder<String>? _locations;
   ListBuilder<String> get locations =>
-      _$this._locations ??= new ListBuilder<String>();
+      _$this._locations ??= ListBuilder<String>();
   set locations(ListBuilder<String>? locations) =>
       _$this._locations = locations;
 
@@ -112,7 +111,7 @@ class VirtualFolderInfoBuilder
 
   LibraryOptionsBuilder? _libraryOptions;
   LibraryOptionsBuilder get libraryOptions =>
-      _$this._libraryOptions ??= new LibraryOptionsBuilder();
+      _$this._libraryOptions ??= LibraryOptionsBuilder();
   set libraryOptions(LibraryOptionsBuilder? libraryOptions) =>
       _$this._libraryOptions = libraryOptions;
 
@@ -157,7 +156,6 @@ class VirtualFolderInfoBuilder
 
   @override
   void replace(VirtualFolderInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$VirtualFolderInfo;
   }
 
@@ -173,15 +171,16 @@ class VirtualFolderInfoBuilder
     _$VirtualFolderInfo _$result;
     try {
       _$result = _$v ??
-          new _$VirtualFolderInfo._(
-              name: name,
-              locations: _locations?.build(),
-              collectionType: collectionType,
-              libraryOptions: _libraryOptions?.build(),
-              itemId: itemId,
-              primaryImageItemId: primaryImageItemId,
-              refreshProgress: refreshProgress,
-              refreshStatus: refreshStatus);
+          _$VirtualFolderInfo._(
+            name: name,
+            locations: _locations?.build(),
+            collectionType: collectionType,
+            libraryOptions: _libraryOptions?.build(),
+            itemId: itemId,
+            primaryImageItemId: primaryImageItemId,
+            refreshProgress: refreshProgress,
+            refreshStatus: refreshStatus,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -191,7 +190,7 @@ class VirtualFolderInfoBuilder
         _$failedField = 'libraryOptions';
         _libraryOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'VirtualFolderInfo', _$failedField, e.toString());
       }
       rethrow;

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**getPublicSystemInfo**](SystemApi.md#getpublicsysteminfo) | **GET** /System/Info/Public | Gets public information about the server.
 [**getServerLogs**](SystemApi.md#getserverlogs) | **GET** /System/Logs | Gets a list of available server log files.
 [**getSystemInfo**](SystemApi.md#getsysteminfo) | **GET** /System/Info | Gets information about the server.
-[**getWakeOnLanInfo**](SystemApi.md#getwakeonlaninfo) | **GET** /System/WakeOnLanInfo | Gets wake on lan information.
+[**getSystemStorage**](SystemApi.md#getsystemstorage) | **GET** /System/Info/Storage | Gets information about the server.
 [**postPingSystem**](SystemApi.md#postpingsystem) | **POST** /System/Ping | Pings the system.
 [**restartApplication**](SystemApi.md#restartapplication) | **POST** /System/Restart | Restarts the application.
 [**shutdownApplication**](SystemApi.md#shutdownapplication) | **POST** /System/Shutdown | Shuts down the application.
@@ -58,7 +58,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/plain, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: text/plain, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -140,7 +140,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -177,7 +177,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -218,7 +218,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -259,14 +259,14 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getWakeOnLanInfo**
-> BuiltList<WakeOnLanInfo> getWakeOnLanInfo()
+# **getSystemStorage**
+> SystemStorageDto getSystemStorage()
 
-Gets wake on lan information.
+Gets information about the server.
 
 ### Example
 ```dart
@@ -279,10 +279,10 @@ import 'package:tentacle/api.dart';
 final api = Tentacle().getSystemApi();
 
 try {
-    final response = api.getWakeOnLanInfo();
+    final response = api.getSystemStorage();
     print(response);
 } catch on DioException (e) {
-    print('Exception when calling SystemApi->getWakeOnLanInfo: $e\n');
+    print('Exception when calling SystemApi->getSystemStorage: $e\n');
 }
 ```
 
@@ -291,7 +291,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList&lt;WakeOnLanInfo&gt;**](WakeOnLanInfo.md)
+[**SystemStorageDto**](SystemStorageDto.md)
 
 ### Authorization
 
@@ -300,7 +300,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -337,7 +337,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -377,7 +377,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -417,7 +417,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

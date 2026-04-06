@@ -20,7 +20,7 @@ class _$SettingsRadarrTestPostRequest extends SettingsRadarrTestPostRequest {
 
   factory _$SettingsRadarrTestPostRequest(
           [void Function(SettingsRadarrTestPostRequestBuilder)? updates]) =>
-      (new SettingsRadarrTestPostRequestBuilder()..update(updates))._build();
+      (SettingsRadarrTestPostRequestBuilder()..update(updates))._build();
 
   _$SettingsRadarrTestPostRequest._(
       {required this.hostname,
@@ -28,17 +28,7 @@ class _$SettingsRadarrTestPostRequest extends SettingsRadarrTestPostRequest {
       required this.apiKey,
       required this.useSsl,
       this.baseUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        hostname, r'SettingsRadarrTestPostRequest', 'hostname');
-    BuiltValueNullFieldError.checkNotNull(
-        port, r'SettingsRadarrTestPostRequest', 'port');
-    BuiltValueNullFieldError.checkNotNull(
-        apiKey, r'SettingsRadarrTestPostRequest', 'apiKey');
-    BuiltValueNullFieldError.checkNotNull(
-        useSsl, r'SettingsRadarrTestPostRequest', 'useSsl');
-  }
-
+      : super._();
   @override
   SettingsRadarrTestPostRequest rebuild(
           void Function(SettingsRadarrTestPostRequestBuilder) updates) =>
@@ -46,7 +36,7 @@ class _$SettingsRadarrTestPostRequest extends SettingsRadarrTestPostRequest {
 
   @override
   SettingsRadarrTestPostRequestBuilder toBuilder() =>
-      new SettingsRadarrTestPostRequestBuilder()..replace(this);
+      SettingsRadarrTestPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -128,7 +118,6 @@ class SettingsRadarrTestPostRequestBuilder
 
   @override
   void replace(SettingsRadarrTestPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsRadarrTestPostRequest;
   }
 
@@ -142,16 +131,17 @@ class SettingsRadarrTestPostRequestBuilder
 
   _$SettingsRadarrTestPostRequest _build() {
     final _$result = _$v ??
-        new _$SettingsRadarrTestPostRequest._(
-            hostname: BuiltValueNullFieldError.checkNotNull(
-                hostname, r'SettingsRadarrTestPostRequest', 'hostname'),
-            port: BuiltValueNullFieldError.checkNotNull(
-                port, r'SettingsRadarrTestPostRequest', 'port'),
-            apiKey: BuiltValueNullFieldError.checkNotNull(
-                apiKey, r'SettingsRadarrTestPostRequest', 'apiKey'),
-            useSsl: BuiltValueNullFieldError.checkNotNull(
-                useSsl, r'SettingsRadarrTestPostRequest', 'useSsl'),
-            baseUrl: baseUrl);
+        _$SettingsRadarrTestPostRequest._(
+          hostname: BuiltValueNullFieldError.checkNotNull(
+              hostname, r'SettingsRadarrTestPostRequest', 'hostname'),
+          port: BuiltValueNullFieldError.checkNotNull(
+              port, r'SettingsRadarrTestPostRequest', 'port'),
+          apiKey: BuiltValueNullFieldError.checkNotNull(
+              apiKey, r'SettingsRadarrTestPostRequest', 'apiKey'),
+          useSsl: BuiltValueNullFieldError.checkNotNull(
+              useSsl, r'SettingsRadarrTestPostRequest', 'useSsl'),
+          baseUrl: baseUrl,
+        );
     replace(_$result);
     return _$result;
   }

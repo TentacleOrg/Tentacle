@@ -15,10 +15,6 @@ const GroupUpdateType _$playQueue = const GroupUpdateType._('playQueue');
 const GroupUpdateType _$notInGroup = const GroupUpdateType._('notInGroup');
 const GroupUpdateType _$groupDoesNotExist =
     const GroupUpdateType._('groupDoesNotExist');
-const GroupUpdateType _$createGroupDenied =
-    const GroupUpdateType._('createGroupDenied');
-const GroupUpdateType _$joinGroupDenied =
-    const GroupUpdateType._('joinGroupDenied');
 const GroupUpdateType _$libraryAccessDenied =
     const GroupUpdateType._('libraryAccessDenied');
 
@@ -40,19 +36,15 @@ GroupUpdateType _$valueOf(String name) {
       return _$notInGroup;
     case 'groupDoesNotExist':
       return _$groupDoesNotExist;
-    case 'createGroupDenied':
-      return _$createGroupDenied;
-    case 'joinGroupDenied':
-      return _$joinGroupDenied;
     case 'libraryAccessDenied':
       return _$libraryAccessDenied;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<GroupUpdateType> _$values =
-    new BuiltSet<GroupUpdateType>(const <GroupUpdateType>[
+    BuiltSet<GroupUpdateType>(const <GroupUpdateType>[
   _$userJoined,
   _$userLeft,
   _$groupJoined,
@@ -61,8 +53,6 @@ final BuiltSet<GroupUpdateType> _$values =
   _$playQueue,
   _$notInGroup,
   _$groupDoesNotExist,
-  _$createGroupDenied,
-  _$joinGroupDenied,
   _$libraryAccessDenied,
 ]);
 
@@ -76,8 +66,6 @@ class _$GroupUpdateTypeMeta {
   GroupUpdateType get playQueue => _$playQueue;
   GroupUpdateType get notInGroup => _$notInGroup;
   GroupUpdateType get groupDoesNotExist => _$groupDoesNotExist;
-  GroupUpdateType get createGroupDenied => _$createGroupDenied;
-  GroupUpdateType get joinGroupDenied => _$joinGroupDenied;
   GroupUpdateType get libraryAccessDenied => _$libraryAccessDenied;
   GroupUpdateType valueOf(String name) => _$valueOf(name);
   BuiltSet<GroupUpdateType> get values => _$values;
@@ -89,7 +77,7 @@ mixin _$GroupUpdateTypeMixin {
 }
 
 Serializer<GroupUpdateType> _$groupUpdateTypeSerializer =
-    new _$GroupUpdateTypeSerializer();
+    _$GroupUpdateTypeSerializer();
 
 class _$GroupUpdateTypeSerializer
     implements PrimitiveSerializer<GroupUpdateType> {
@@ -102,8 +90,6 @@ class _$GroupUpdateTypeSerializer
     'playQueue': 'PlayQueue',
     'notInGroup': 'NotInGroup',
     'groupDoesNotExist': 'GroupDoesNotExist',
-    'createGroupDenied': 'CreateGroupDenied',
-    'joinGroupDenied': 'JoinGroupDenied',
     'libraryAccessDenied': 'LibraryAccessDenied',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -115,8 +101,6 @@ class _$GroupUpdateTypeSerializer
     'PlayQueue': 'playQueue',
     'NotInGroup': 'notInGroup',
     'GroupDoesNotExist': 'groupDoesNotExist',
-    'CreateGroupDenied': 'createGroupDenied',
-    'JoinGroupDenied': 'joinGroupDenied',
     'LibraryAccessDenied': 'libraryAccessDenied',
   };
 

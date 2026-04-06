@@ -13,14 +13,14 @@ part 'plugin_uninstalled_message.g.dart';
 /// Plugin uninstalled message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - This is a serializable stub class that is used by the api to provide information about installed plugins.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class PluginUninstalledMessage
     implements
         Built<PluginUninstalledMessage, PluginUninstalledMessageBuilder> {
-  /// Gets or sets the data.
+  /// This is a serializable stub class that is used by the api to provide information about installed plugins.
   @BuiltValueField(wireName: r'Data')
   PluginInfo? get data;
 

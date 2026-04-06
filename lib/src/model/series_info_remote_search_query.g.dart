@@ -18,7 +18,7 @@ class _$SeriesInfoRemoteSearchQuery extends SeriesInfoRemoteSearchQuery {
 
   factory _$SeriesInfoRemoteSearchQuery(
           [void Function(SeriesInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new SeriesInfoRemoteSearchQueryBuilder()..update(updates))._build();
+      (SeriesInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
   _$SeriesInfoRemoteSearchQuery._(
       {this.searchInfo,
@@ -26,7 +26,6 @@ class _$SeriesInfoRemoteSearchQuery extends SeriesInfoRemoteSearchQuery {
       this.searchProviderName,
       this.includeDisabledProviders})
       : super._();
-
   @override
   SeriesInfoRemoteSearchQuery rebuild(
           void Function(SeriesInfoRemoteSearchQueryBuilder) updates) =>
@@ -34,7 +33,7 @@ class _$SeriesInfoRemoteSearchQuery extends SeriesInfoRemoteSearchQuery {
 
   @override
   SeriesInfoRemoteSearchQueryBuilder toBuilder() =>
-      new SeriesInfoRemoteSearchQueryBuilder()..replace(this);
+      SeriesInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,7 +75,7 @@ class SeriesInfoRemoteSearchQueryBuilder
 
   SeriesInfoBuilder? _searchInfo;
   SeriesInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new SeriesInfoBuilder();
+      _$this._searchInfo ??= SeriesInfoBuilder();
   set searchInfo(SeriesInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
@@ -112,7 +111,6 @@ class SeriesInfoRemoteSearchQueryBuilder
 
   @override
   void replace(SeriesInfoRemoteSearchQuery other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SeriesInfoRemoteSearchQuery;
   }
 
@@ -128,18 +126,19 @@ class SeriesInfoRemoteSearchQueryBuilder
     _$SeriesInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$SeriesInfoRemoteSearchQuery._(
-              searchInfo: _searchInfo?.build(),
-              itemId: itemId,
-              searchProviderName: searchProviderName,
-              includeDisabledProviders: includeDisabledProviders);
+          _$SeriesInfoRemoteSearchQuery._(
+            searchInfo: _searchInfo?.build(),
+            itemId: itemId,
+            searchProviderName: searchProviderName,
+            includeDisabledProviders: includeDisabledProviders,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'searchInfo';
         _searchInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SeriesInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;

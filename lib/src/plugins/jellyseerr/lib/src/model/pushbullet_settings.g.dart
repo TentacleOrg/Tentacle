@@ -16,10 +16,9 @@ class _$PushbulletSettings extends PushbulletSettings {
 
   factory _$PushbulletSettings(
           [void Function(PushbulletSettingsBuilder)? updates]) =>
-      (new PushbulletSettingsBuilder()..update(updates))._build();
+      (PushbulletSettingsBuilder()..update(updates))._build();
 
   _$PushbulletSettings._({this.enabled, this.types, this.options}) : super._();
-
   @override
   PushbulletSettings rebuild(
           void Function(PushbulletSettingsBuilder) updates) =>
@@ -27,7 +26,7 @@ class _$PushbulletSettings extends PushbulletSettings {
 
   @override
   PushbulletSettingsBuilder toBuilder() =>
-      new PushbulletSettingsBuilder()..replace(this);
+      PushbulletSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +71,7 @@ class PushbulletSettingsBuilder
 
   PushbulletSettingsOptionsBuilder? _options;
   PushbulletSettingsOptionsBuilder get options =>
-      _$this._options ??= new PushbulletSettingsOptionsBuilder();
+      _$this._options ??= PushbulletSettingsOptionsBuilder();
   set options(PushbulletSettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -93,7 +92,6 @@ class PushbulletSettingsBuilder
 
   @override
   void replace(PushbulletSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PushbulletSettings;
   }
 
@@ -109,15 +107,18 @@ class PushbulletSettingsBuilder
     _$PushbulletSettings _$result;
     try {
       _$result = _$v ??
-          new _$PushbulletSettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$PushbulletSettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PushbulletSettings', _$failedField, e.toString());
       }
       rethrow;

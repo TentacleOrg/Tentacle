@@ -33,7 +33,7 @@ class _$MusicVideoInfo extends MusicVideoInfo {
   final BuiltList<String>? artists;
 
   factory _$MusicVideoInfo([void Function(MusicVideoInfoBuilder)? updates]) =>
-      (new MusicVideoInfoBuilder()..update(updates))._build();
+      (MusicVideoInfoBuilder()..update(updates))._build();
 
   _$MusicVideoInfo._(
       {this.name,
@@ -49,14 +49,12 @@ class _$MusicVideoInfo extends MusicVideoInfo {
       this.isAutomated,
       this.artists})
       : super._();
-
   @override
   MusicVideoInfo rebuild(void Function(MusicVideoInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MusicVideoInfoBuilder toBuilder() =>
-      new MusicVideoInfoBuilder()..replace(this);
+  MusicVideoInfoBuilder toBuilder() => MusicVideoInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -143,7 +141,7 @@ class MusicVideoInfoBuilder
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -170,8 +168,7 @@ class MusicVideoInfoBuilder
   set isAutomated(bool? isAutomated) => _$this._isAutomated = isAutomated;
 
   ListBuilder<String>? _artists;
-  ListBuilder<String> get artists =>
-      _$this._artists ??= new ListBuilder<String>();
+  ListBuilder<String> get artists => _$this._artists ??= ListBuilder<String>();
   set artists(ListBuilder<String>? artists) => _$this._artists = artists;
 
   MusicVideoInfoBuilder() {
@@ -200,7 +197,6 @@ class MusicVideoInfoBuilder
 
   @override
   void replace(MusicVideoInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MusicVideoInfo;
   }
 
@@ -216,19 +212,20 @@ class MusicVideoInfoBuilder
     _$MusicVideoInfo _$result;
     try {
       _$result = _$v ??
-          new _$MusicVideoInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated,
-              artists: _artists?.build());
+          _$MusicVideoInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+            artists: _artists?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -238,7 +235,7 @@ class MusicVideoInfoBuilder
         _$failedField = 'artists';
         _artists?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MusicVideoInfo', _$failedField, e.toString());
       }
       rethrow;

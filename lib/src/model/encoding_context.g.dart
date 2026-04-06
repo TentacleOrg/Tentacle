@@ -16,12 +16,12 @@ EncodingContext _$valueOf(String name) {
     case 'static_':
       return _$static_;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<EncodingContext> _$values =
-    new BuiltSet<EncodingContext>(const <EncodingContext>[
+    BuiltSet<EncodingContext>(const <EncodingContext>[
   _$streaming,
   _$static_,
 ]);
@@ -40,7 +40,7 @@ mixin _$EncodingContextMixin {
 }
 
 Serializer<EncodingContext> _$encodingContextSerializer =
-    new _$EncodingContextSerializer();
+    _$EncodingContextSerializer();
 
 class _$EncodingContextSerializer
     implements PrimitiveSerializer<EncodingContext> {

@@ -12,10 +12,9 @@ class _$IgnoreWaitRequestDto extends IgnoreWaitRequestDto {
 
   factory _$IgnoreWaitRequestDto(
           [void Function(IgnoreWaitRequestDtoBuilder)? updates]) =>
-      (new IgnoreWaitRequestDtoBuilder()..update(updates))._build();
+      (IgnoreWaitRequestDtoBuilder()..update(updates))._build();
 
   _$IgnoreWaitRequestDto._({this.ignoreWait}) : super._();
-
   @override
   IgnoreWaitRequestDto rebuild(
           void Function(IgnoreWaitRequestDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$IgnoreWaitRequestDto extends IgnoreWaitRequestDto {
 
   @override
   IgnoreWaitRequestDtoBuilder toBuilder() =>
-      new IgnoreWaitRequestDtoBuilder()..replace(this);
+      IgnoreWaitRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +69,6 @@ class IgnoreWaitRequestDtoBuilder
 
   @override
   void replace(IgnoreWaitRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IgnoreWaitRequestDto;
   }
 
@@ -83,8 +81,10 @@ class IgnoreWaitRequestDtoBuilder
   IgnoreWaitRequestDto build() => _build();
 
   _$IgnoreWaitRequestDto _build() {
-    final _$result =
-        _$v ?? new _$IgnoreWaitRequestDto._(ignoreWait: ignoreWait);
+    final _$result = _$v ??
+        _$IgnoreWaitRequestDto._(
+          ignoreWait: ignoreWait,
+        );
     replace(_$result);
     return _$result;
   }

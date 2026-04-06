@@ -14,11 +14,9 @@ class _$UserUserIdSettingsMainGet200Response
   factory _$UserUserIdSettingsMainGet200Response(
           [void Function(UserUserIdSettingsMainGet200ResponseBuilder)?
               updates]) =>
-      (new UserUserIdSettingsMainGet200ResponseBuilder()..update(updates))
-          ._build();
+      (UserUserIdSettingsMainGet200ResponseBuilder()..update(updates))._build();
 
   _$UserUserIdSettingsMainGet200Response._({this.username}) : super._();
-
   @override
   UserUserIdSettingsMainGet200Response rebuild(
           void Function(UserUserIdSettingsMainGet200ResponseBuilder) updates) =>
@@ -26,7 +24,7 @@ class _$UserUserIdSettingsMainGet200Response
 
   @override
   UserUserIdSettingsMainGet200ResponseBuilder toBuilder() =>
-      new UserUserIdSettingsMainGet200ResponseBuilder()..replace(this);
+      UserUserIdSettingsMainGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,7 +74,6 @@ class UserUserIdSettingsMainGet200ResponseBuilder
 
   @override
   void replace(UserUserIdSettingsMainGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdSettingsMainGet200Response;
   }
 
@@ -90,8 +87,10 @@ class UserUserIdSettingsMainGet200ResponseBuilder
   UserUserIdSettingsMainGet200Response build() => _build();
 
   _$UserUserIdSettingsMainGet200Response _build() {
-    final _$result =
-        _$v ?? new _$UserUserIdSettingsMainGet200Response._(username: username);
+    final _$result = _$v ??
+        _$UserUserIdSettingsMainGet200Response._(
+          username: username,
+        );
     replace(_$result);
     return _$result;
   }

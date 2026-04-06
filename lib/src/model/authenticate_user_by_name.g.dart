@@ -14,10 +14,9 @@ class _$AuthenticateUserByName extends AuthenticateUserByName {
 
   factory _$AuthenticateUserByName(
           [void Function(AuthenticateUserByNameBuilder)? updates]) =>
-      (new AuthenticateUserByNameBuilder()..update(updates))._build();
+      (AuthenticateUserByNameBuilder()..update(updates))._build();
 
   _$AuthenticateUserByName._({this.username, this.pw}) : super._();
-
   @override
   AuthenticateUserByName rebuild(
           void Function(AuthenticateUserByNameBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$AuthenticateUserByName extends AuthenticateUserByName {
 
   @override
   AuthenticateUserByNameBuilder toBuilder() =>
-      new AuthenticateUserByNameBuilder()..replace(this);
+      AuthenticateUserByNameBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -81,7 +80,6 @@ class AuthenticateUserByNameBuilder
 
   @override
   void replace(AuthenticateUserByName other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthenticateUserByName;
   }
 
@@ -94,8 +92,11 @@ class AuthenticateUserByNameBuilder
   AuthenticateUserByName build() => _build();
 
   _$AuthenticateUserByName _build() {
-    final _$result =
-        _$v ?? new _$AuthenticateUserByName._(username: username, pw: pw);
+    final _$result = _$v ??
+        _$AuthenticateUserByName._(
+          username: username,
+          pw: pw,
+        );
     replace(_$result);
     return _$result;
   }

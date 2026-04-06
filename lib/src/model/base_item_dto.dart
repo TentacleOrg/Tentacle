@@ -7,7 +7,6 @@ import 'package:tentacle/src/model/base_item_dto_image_blur_hashes.dart';
 import 'package:tentacle/src/model/media_url.dart';
 import 'package:tentacle/src/model/media_stream.dart';
 import 'package:tentacle/src/model/program_audio.dart';
-import 'package:tentacle/src/model/trickplay_info.dart';
 import 'package:tentacle/src/model/base_item_person.dart';
 import 'package:tentacle/src/model/chapter_info.dart';
 import 'package:tentacle/src/model/media_source_info.dart';
@@ -28,6 +27,7 @@ import 'package:tentacle/src/model/media_type.dart';
 import 'package:tentacle/src/model/external_url.dart';
 import 'package:tentacle/src/model/location_type.dart';
 import 'package:tentacle/src/model/metadata_field.dart';
+import 'package:tentacle/src/model/trickplay_info_dto.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -594,7 +594,7 @@ abstract class BaseItemDto implements Built<BaseItemDto, BaseItemDtoBuilder> {
 
   /// Gets or sets the trickplay manifest.
   @BuiltValueField(wireName: r'Trickplay')
-  BuiltMap<String, BuiltMap<String, TrickplayInfo>>? get trickplay;
+  BuiltMap<String, BuiltMap<String, TrickplayInfoDto>>? get trickplay;
 
   /// Gets or sets the type of the location.
   @BuiltValueField(wireName: r'LocationType')
@@ -783,7 +783,7 @@ abstract class BaseItemDto implements Built<BaseItemDto, BaseItemDtoBuilder> {
   factory BaseItemDto([void updates(BaseItemDtoBuilder b)]) = _$BaseItemDto;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BaseItemDtoBuilder b) => b;
+  static void _defaults(BaseItemDtoBuilder b) => b..mediaType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<BaseItemDto> get serializer => _$BaseItemDtoSerializer();
@@ -1547,7 +1547,7 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
         object.trickplay,
         specifiedType: const FullType.nullable(BuiltMap, [
           FullType(String),
-          FullType(BuiltMap, [FullType(String), FullType(TrickplayInfo)])
+          FullType(BuiltMap, [FullType(String), FullType(TrickplayInfoDto)])
         ]),
       );
     }
@@ -2769,9 +2769,9 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
             value,
             specifiedType: const FullType.nullable(BuiltMap, [
               FullType(String),
-              FullType(BuiltMap, [FullType(String), FullType(TrickplayInfo)])
+              FullType(BuiltMap, [FullType(String), FullType(TrickplayInfoDto)])
             ]),
-          ) as BuiltMap<String, BuiltMap<String, TrickplayInfo>>?;
+          ) as BuiltMap<String, BuiltMap<String, TrickplayInfoDto>>?;
           if (valueDes == null) continue;
           result.trickplay.replace(valueDes);
           break;

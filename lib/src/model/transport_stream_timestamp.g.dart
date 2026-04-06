@@ -22,12 +22,12 @@ TransportStreamTimestamp _$valueOf(String name) {
     case 'valid':
       return _$valid;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<TransportStreamTimestamp> _$values =
-    new BuiltSet<TransportStreamTimestamp>(const <TransportStreamTimestamp>[
+    BuiltSet<TransportStreamTimestamp>(const <TransportStreamTimestamp>[
   _$none,
   _$zero,
   _$valid,
@@ -49,7 +49,7 @@ mixin _$TransportStreamTimestampMixin {
 }
 
 Serializer<TransportStreamTimestamp> _$transportStreamTimestampSerializer =
-    new _$TransportStreamTimestampSerializer();
+    _$TransportStreamTimestampSerializer();
 
 class _$TransportStreamTimestampSerializer
     implements PrimitiveSerializer<TransportStreamTimestamp> {

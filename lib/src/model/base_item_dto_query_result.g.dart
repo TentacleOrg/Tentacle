@@ -16,12 +16,11 @@ class _$BaseItemDtoQueryResult extends BaseItemDtoQueryResult {
 
   factory _$BaseItemDtoQueryResult(
           [void Function(BaseItemDtoQueryResultBuilder)? updates]) =>
-      (new BaseItemDtoQueryResultBuilder()..update(updates))._build();
+      (BaseItemDtoQueryResultBuilder()..update(updates))._build();
 
   _$BaseItemDtoQueryResult._(
       {this.items, this.totalRecordCount, this.startIndex})
       : super._();
-
   @override
   BaseItemDtoQueryResult rebuild(
           void Function(BaseItemDtoQueryResultBuilder) updates) =>
@@ -29,7 +28,7 @@ class _$BaseItemDtoQueryResult extends BaseItemDtoQueryResult {
 
   @override
   BaseItemDtoQueryResultBuilder toBuilder() =>
-      new BaseItemDtoQueryResultBuilder()..replace(this);
+      BaseItemDtoQueryResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -66,7 +65,7 @@ class BaseItemDtoQueryResultBuilder
 
   ListBuilder<BaseItemDto>? _items;
   ListBuilder<BaseItemDto> get items =>
-      _$this._items ??= new ListBuilder<BaseItemDto>();
+      _$this._items ??= ListBuilder<BaseItemDto>();
   set items(ListBuilder<BaseItemDto>? items) => _$this._items = items;
 
   int? _totalRecordCount;
@@ -95,7 +94,6 @@ class BaseItemDtoQueryResultBuilder
 
   @override
   void replace(BaseItemDtoQueryResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BaseItemDtoQueryResult;
   }
 
@@ -111,17 +109,18 @@ class BaseItemDtoQueryResultBuilder
     _$BaseItemDtoQueryResult _$result;
     try {
       _$result = _$v ??
-          new _$BaseItemDtoQueryResult._(
-              items: _items?.build(),
-              totalRecordCount: totalRecordCount,
-              startIndex: startIndex);
+          _$BaseItemDtoQueryResult._(
+            items: _items?.build(),
+            totalRecordCount: totalRecordCount,
+            startIndex: startIndex,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         _items?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'BaseItemDtoQueryResult', _$failedField, e.toString());
       }
       rethrow;

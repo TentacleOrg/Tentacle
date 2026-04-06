@@ -16,11 +16,10 @@ class _$UserDeletedMessage extends UserDeletedMessage {
 
   factory _$UserDeletedMessage(
           [void Function(UserDeletedMessageBuilder)? updates]) =>
-      (new UserDeletedMessageBuilder()..update(updates))._build();
+      (UserDeletedMessageBuilder()..update(updates))._build();
 
   _$UserDeletedMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   UserDeletedMessage rebuild(
           void Function(UserDeletedMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$UserDeletedMessage extends UserDeletedMessage {
 
   @override
   UserDeletedMessageBuilder toBuilder() =>
-      new UserDeletedMessageBuilder()..replace(this);
+      UserDeletedMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -93,7 +92,6 @@ class UserDeletedMessageBuilder
 
   @override
   void replace(UserDeletedMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserDeletedMessage;
   }
 
@@ -107,8 +105,11 @@ class UserDeletedMessageBuilder
 
   _$UserDeletedMessage _build() {
     final _$result = _$v ??
-        new _$UserDeletedMessage._(
-            data: data, messageId: messageId, messageType: messageType);
+        _$UserDeletedMessage._(
+          data: data,
+          messageId: messageId,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

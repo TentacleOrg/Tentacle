@@ -13,16 +13,15 @@ class _$Genre extends Genre {
   final String? name;
 
   factory _$Genre([void Function(GenreBuilder)? updates]) =>
-      (new GenreBuilder()..update(updates))._build();
+      (GenreBuilder()..update(updates))._build();
 
   _$Genre._({this.id, this.name}) : super._();
-
   @override
   Genre rebuild(void Function(GenreBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GenreBuilder toBuilder() => new GenreBuilder()..replace(this);
+  GenreBuilder toBuilder() => GenreBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +74,6 @@ class GenreBuilder implements Builder<Genre, GenreBuilder> {
 
   @override
   void replace(Genre other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Genre;
   }
 
@@ -88,7 +86,11 @@ class GenreBuilder implements Builder<Genre, GenreBuilder> {
   Genre build() => _build();
 
   _$Genre _build() {
-    final _$result = _$v ?? new _$Genre._(id: id, name: name);
+    final _$result = _$v ??
+        _$Genre._(
+          id: id,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

@@ -22,11 +22,11 @@ VideoType _$valueOf(String name) {
     case 'bluRay':
       return _$bluRay;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<VideoType> _$values = new BuiltSet<VideoType>(const <VideoType>[
+final BuiltSet<VideoType> _$values = BuiltSet<VideoType>(const <VideoType>[
   _$videoFile,
   _$iso,
   _$dvd,
@@ -48,7 +48,7 @@ mixin _$VideoTypeMixin {
   _$VideoTypeMeta get VideoType => const _$VideoTypeMeta();
 }
 
-Serializer<VideoType> _$videoTypeSerializer = new _$VideoTypeSerializer();
+Serializer<VideoType> _$videoTypeSerializer = _$VideoTypeSerializer();
 
 class _$VideoTypeSerializer implements PrimitiveSerializer<VideoType> {
   static const Map<String, Object> _toWire = const <String, Object>{

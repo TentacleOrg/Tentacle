@@ -14,10 +14,9 @@ class _$StatusAppdataGet200Response extends StatusAppdataGet200Response {
 
   factory _$StatusAppdataGet200Response(
           [void Function(StatusAppdataGet200ResponseBuilder)? updates]) =>
-      (new StatusAppdataGet200ResponseBuilder()..update(updates))._build();
+      (StatusAppdataGet200ResponseBuilder()..update(updates))._build();
 
   _$StatusAppdataGet200Response._({this.appData, this.appDataPath}) : super._();
-
   @override
   StatusAppdataGet200Response rebuild(
           void Function(StatusAppdataGet200ResponseBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$StatusAppdataGet200Response extends StatusAppdataGet200Response {
 
   @override
   StatusAppdataGet200ResponseBuilder toBuilder() =>
-      new StatusAppdataGet200ResponseBuilder()..replace(this);
+      StatusAppdataGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -83,7 +82,6 @@ class StatusAppdataGet200ResponseBuilder
 
   @override
   void replace(StatusAppdataGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StatusAppdataGet200Response;
   }
 
@@ -97,8 +95,10 @@ class StatusAppdataGet200ResponseBuilder
 
   _$StatusAppdataGet200Response _build() {
     final _$result = _$v ??
-        new _$StatusAppdataGet200Response._(
-            appData: appData, appDataPath: appDataPath);
+        _$StatusAppdataGet200Response._(
+          appData: appData,
+          appDataPath: appDataPath,
+        );
     replace(_$result);
     return _$result;
   }

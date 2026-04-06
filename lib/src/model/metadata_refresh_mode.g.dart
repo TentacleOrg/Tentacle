@@ -24,12 +24,12 @@ MetadataRefreshMode _$valueOf(String name) {
     case 'fullRefresh':
       return _$fullRefresh;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<MetadataRefreshMode> _$values =
-    new BuiltSet<MetadataRefreshMode>(const <MetadataRefreshMode>[
+    BuiltSet<MetadataRefreshMode>(const <MetadataRefreshMode>[
   _$none,
   _$validationOnly,
   _$default_,
@@ -53,7 +53,7 @@ mixin _$MetadataRefreshModeMixin {
 }
 
 Serializer<MetadataRefreshMode> _$metadataRefreshModeSerializer =
-    new _$MetadataRefreshModeSerializer();
+    _$MetadataRefreshModeSerializer();
 
 class _$MetadataRefreshModeSerializer
     implements PrimitiveSerializer<MetadataRefreshMode> {

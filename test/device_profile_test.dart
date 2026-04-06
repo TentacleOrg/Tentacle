@@ -7,13 +7,13 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(DeviceProfile, () {
-    // Gets or sets the name of this device profile.
+    // Gets or sets the name of this device profile. User profiles must have a unique name.
     // String name
     test('to test the property `name`', () async {
       // TODO
     });
 
-    // Gets or sets the Id.
+    // Gets or sets the unique internal identifier.
     // String id
     test('to test the property `id`', () async {
       // TODO
@@ -55,7 +55,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets the container profiles.
+    // Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
     // BuiltList<ContainerProfile> containerProfiles
     test('to test the property `containerProfiles`', () async {
       // TODO

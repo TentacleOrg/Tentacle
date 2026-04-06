@@ -13,17 +13,15 @@ class _$UserPutRequest extends UserPutRequest {
   final int? permissions;
 
   factory _$UserPutRequest([void Function(UserPutRequestBuilder)? updates]) =>
-      (new UserPutRequestBuilder()..update(updates))._build();
+      (UserPutRequestBuilder()..update(updates))._build();
 
   _$UserPutRequest._({this.ids, this.permissions}) : super._();
-
   @override
   UserPutRequest rebuild(void Function(UserPutRequestBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserPutRequestBuilder toBuilder() =>
-      new UserPutRequestBuilder()..replace(this);
+  UserPutRequestBuilder toBuilder() => UserPutRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -56,7 +54,7 @@ class UserPutRequestBuilder
   _$UserPutRequest? _$v;
 
   ListBuilder<int>? _ids;
-  ListBuilder<int> get ids => _$this._ids ??= new ListBuilder<int>();
+  ListBuilder<int> get ids => _$this._ids ??= ListBuilder<int>();
   set ids(ListBuilder<int>? ids) => _$this._ids = ids;
 
   int? _permissions;
@@ -79,7 +77,6 @@ class UserPutRequestBuilder
 
   @override
   void replace(UserPutRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserPutRequest;
   }
 
@@ -95,14 +92,17 @@ class UserPutRequestBuilder
     _$UserPutRequest _$result;
     try {
       _$result = _$v ??
-          new _$UserPutRequest._(ids: _ids?.build(), permissions: permissions);
+          _$UserPutRequest._(
+            ids: _ids?.build(),
+            permissions: permissions,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'ids';
         _ids?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserPutRequest', _$failedField, e.toString());
       }
       rethrow;

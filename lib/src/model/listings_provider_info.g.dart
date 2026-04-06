@@ -46,7 +46,7 @@ class _$ListingsProviderInfo extends ListingsProviderInfo {
 
   factory _$ListingsProviderInfo(
           [void Function(ListingsProviderInfoBuilder)? updates]) =>
-      (new ListingsProviderInfoBuilder()..update(updates))._build();
+      (ListingsProviderInfoBuilder()..update(updates))._build();
 
   _$ListingsProviderInfo._(
       {this.id,
@@ -68,7 +68,6 @@ class _$ListingsProviderInfo extends ListingsProviderInfo {
       this.preferredLanguage,
       this.userAgent})
       : super._();
-
   @override
   ListingsProviderInfo rebuild(
           void Function(ListingsProviderInfoBuilder) updates) =>
@@ -76,7 +75,7 @@ class _$ListingsProviderInfo extends ListingsProviderInfo {
 
   @override
   ListingsProviderInfoBuilder toBuilder() =>
-      new ListingsProviderInfoBuilder()..replace(this);
+      ListingsProviderInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -190,7 +189,7 @@ class ListingsProviderInfoBuilder
 
   ListBuilder<String>? _enabledTuners;
   ListBuilder<String> get enabledTuners =>
-      _$this._enabledTuners ??= new ListBuilder<String>();
+      _$this._enabledTuners ??= ListBuilder<String>();
   set enabledTuners(ListBuilder<String>? enabledTuners) =>
       _$this._enabledTuners = enabledTuners;
 
@@ -201,31 +200,31 @@ class ListingsProviderInfoBuilder
 
   ListBuilder<String>? _newsCategories;
   ListBuilder<String> get newsCategories =>
-      _$this._newsCategories ??= new ListBuilder<String>();
+      _$this._newsCategories ??= ListBuilder<String>();
   set newsCategories(ListBuilder<String>? newsCategories) =>
       _$this._newsCategories = newsCategories;
 
   ListBuilder<String>? _sportsCategories;
   ListBuilder<String> get sportsCategories =>
-      _$this._sportsCategories ??= new ListBuilder<String>();
+      _$this._sportsCategories ??= ListBuilder<String>();
   set sportsCategories(ListBuilder<String>? sportsCategories) =>
       _$this._sportsCategories = sportsCategories;
 
   ListBuilder<String>? _kidsCategories;
   ListBuilder<String> get kidsCategories =>
-      _$this._kidsCategories ??= new ListBuilder<String>();
+      _$this._kidsCategories ??= ListBuilder<String>();
   set kidsCategories(ListBuilder<String>? kidsCategories) =>
       _$this._kidsCategories = kidsCategories;
 
   ListBuilder<String>? _movieCategories;
   ListBuilder<String> get movieCategories =>
-      _$this._movieCategories ??= new ListBuilder<String>();
+      _$this._movieCategories ??= ListBuilder<String>();
   set movieCategories(ListBuilder<String>? movieCategories) =>
       _$this._movieCategories = movieCategories;
 
   ListBuilder<NameValuePair>? _channelMappings;
   ListBuilder<NameValuePair> get channelMappings =>
-      _$this._channelMappings ??= new ListBuilder<NameValuePair>();
+      _$this._channelMappings ??= ListBuilder<NameValuePair>();
   set channelMappings(ListBuilder<NameValuePair>? channelMappings) =>
       _$this._channelMappings = channelMappings;
 
@@ -274,7 +273,6 @@ class ListingsProviderInfoBuilder
 
   @override
   void replace(ListingsProviderInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ListingsProviderInfo;
   }
 
@@ -290,25 +288,26 @@ class ListingsProviderInfoBuilder
     _$ListingsProviderInfo _$result;
     try {
       _$result = _$v ??
-          new _$ListingsProviderInfo._(
-              id: id,
-              type: type,
-              username: username,
-              password: password,
-              listingsId: listingsId,
-              zipCode: zipCode,
-              country: country,
-              path: path,
-              enabledTuners: _enabledTuners?.build(),
-              enableAllTuners: enableAllTuners,
-              newsCategories: _newsCategories?.build(),
-              sportsCategories: _sportsCategories?.build(),
-              kidsCategories: _kidsCategories?.build(),
-              movieCategories: _movieCategories?.build(),
-              channelMappings: _channelMappings?.build(),
-              moviePrefix: moviePrefix,
-              preferredLanguage: preferredLanguage,
-              userAgent: userAgent);
+          _$ListingsProviderInfo._(
+            id: id,
+            type: type,
+            username: username,
+            password: password,
+            listingsId: listingsId,
+            zipCode: zipCode,
+            country: country,
+            path: path,
+            enabledTuners: _enabledTuners?.build(),
+            enableAllTuners: enableAllTuners,
+            newsCategories: _newsCategories?.build(),
+            sportsCategories: _sportsCategories?.build(),
+            kidsCategories: _kidsCategories?.build(),
+            movieCategories: _movieCategories?.build(),
+            channelMappings: _channelMappings?.build(),
+            moviePrefix: moviePrefix,
+            preferredLanguage: preferredLanguage,
+            userAgent: userAgent,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -326,7 +325,7 @@ class ListingsProviderInfoBuilder
         _$failedField = 'channelMappings';
         _channelMappings?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ListingsProviderInfo', _$failedField, e.toString());
       }
       rethrow;

@@ -19,18 +19,17 @@ class _$PersonResult extends PersonResult {
   final BuiltList<PersonResultKnownForInner>? knownFor;
 
   factory _$PersonResult([void Function(PersonResultBuilder)? updates]) =>
-      (new PersonResultBuilder()..update(updates))._build();
+      (PersonResultBuilder()..update(updates))._build();
 
   _$PersonResult._(
       {this.id, this.profilePath, this.adult, this.mediaType, this.knownFor})
       : super._();
-
   @override
   PersonResult rebuild(void Function(PersonResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PersonResultBuilder toBuilder() => new PersonResultBuilder()..replace(this);
+  PersonResultBuilder toBuilder() => PersonResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -89,7 +88,7 @@ class PersonResultBuilder
 
   ListBuilder<PersonResultKnownForInner>? _knownFor;
   ListBuilder<PersonResultKnownForInner> get knownFor =>
-      _$this._knownFor ??= new ListBuilder<PersonResultKnownForInner>();
+      _$this._knownFor ??= ListBuilder<PersonResultKnownForInner>();
   set knownFor(ListBuilder<PersonResultKnownForInner>? knownFor) =>
       _$this._knownFor = knownFor;
 
@@ -112,7 +111,6 @@ class PersonResultBuilder
 
   @override
   void replace(PersonResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PersonResult;
   }
 
@@ -128,19 +126,20 @@ class PersonResultBuilder
     _$PersonResult _$result;
     try {
       _$result = _$v ??
-          new _$PersonResult._(
-              id: id,
-              profilePath: profilePath,
-              adult: adult,
-              mediaType: mediaType,
-              knownFor: _knownFor?.build());
+          _$PersonResult._(
+            id: id,
+            profilePath: profilePath,
+            adult: adult,
+            mediaType: mediaType,
+            knownFor: _knownFor?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'knownFor';
         _knownFor?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PersonResult', _$failedField, e.toString());
       }
       rethrow;

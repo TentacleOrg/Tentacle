@@ -63,7 +63,7 @@ class _$GetProgramsDto extends GetProgramsDto {
   final BuiltList<ItemFields>? fields;
 
   factory _$GetProgramsDto([void Function(GetProgramsDtoBuilder)? updates]) =>
-      (new GetProgramsDtoBuilder()..update(updates))._build();
+      (GetProgramsDtoBuilder()..update(updates))._build();
 
   _$GetProgramsDto._(
       {this.channelIds,
@@ -94,14 +94,12 @@ class _$GetProgramsDto extends GetProgramsDto {
       this.librarySeriesId,
       this.fields})
       : super._();
-
   @override
   GetProgramsDto rebuild(void Function(GetProgramsDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GetProgramsDtoBuilder toBuilder() =>
-      new GetProgramsDtoBuilder()..replace(this);
+  GetProgramsDtoBuilder toBuilder() => GetProgramsDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -210,7 +208,7 @@ class GetProgramsDtoBuilder
 
   ListBuilder<String>? _channelIds;
   ListBuilder<String> get channelIds =>
-      _$this._channelIds ??= new ListBuilder<String>();
+      _$this._channelIds ??= ListBuilder<String>();
   set channelIds(ListBuilder<String>? channelIds) =>
       _$this._channelIds = channelIds;
 
@@ -274,23 +272,22 @@ class GetProgramsDtoBuilder
 
   ListBuilder<ItemSortBy>? _sortBy;
   ListBuilder<ItemSortBy> get sortBy =>
-      _$this._sortBy ??= new ListBuilder<ItemSortBy>();
+      _$this._sortBy ??= ListBuilder<ItemSortBy>();
   set sortBy(ListBuilder<ItemSortBy>? sortBy) => _$this._sortBy = sortBy;
 
   ListBuilder<SortOrder>? _sortOrder;
   ListBuilder<SortOrder> get sortOrder =>
-      _$this._sortOrder ??= new ListBuilder<SortOrder>();
+      _$this._sortOrder ??= ListBuilder<SortOrder>();
   set sortOrder(ListBuilder<SortOrder>? sortOrder) =>
       _$this._sortOrder = sortOrder;
 
   ListBuilder<String>? _genres;
-  ListBuilder<String> get genres =>
-      _$this._genres ??= new ListBuilder<String>();
+  ListBuilder<String> get genres => _$this._genres ??= ListBuilder<String>();
   set genres(ListBuilder<String>? genres) => _$this._genres = genres;
 
   ListBuilder<String>? _genreIds;
   ListBuilder<String> get genreIds =>
-      _$this._genreIds ??= new ListBuilder<String>();
+      _$this._genreIds ??= ListBuilder<String>();
   set genreIds(ListBuilder<String>? genreIds) => _$this._genreIds = genreIds;
 
   bool? _enableImages;
@@ -309,7 +306,7 @@ class GetProgramsDtoBuilder
 
   ListBuilder<ImageType>? _enableImageTypes;
   ListBuilder<ImageType> get enableImageTypes =>
-      _$this._enableImageTypes ??= new ListBuilder<ImageType>();
+      _$this._enableImageTypes ??= ListBuilder<ImageType>();
   set enableImageTypes(ListBuilder<ImageType>? enableImageTypes) =>
       _$this._enableImageTypes = enableImageTypes;
 
@@ -330,7 +327,7 @@ class GetProgramsDtoBuilder
 
   ListBuilder<ItemFields>? _fields;
   ListBuilder<ItemFields> get fields =>
-      _$this._fields ??= new ListBuilder<ItemFields>();
+      _$this._fields ??= ListBuilder<ItemFields>();
   set fields(ListBuilder<ItemFields>? fields) => _$this._fields = fields;
 
   GetProgramsDtoBuilder() {
@@ -374,7 +371,6 @@ class GetProgramsDtoBuilder
 
   @override
   void replace(GetProgramsDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GetProgramsDto;
   }
 
@@ -390,34 +386,35 @@ class GetProgramsDtoBuilder
     _$GetProgramsDto _$result;
     try {
       _$result = _$v ??
-          new _$GetProgramsDto._(
-              channelIds: _channelIds?.build(),
-              userId: userId,
-              minStartDate: minStartDate,
-              hasAired: hasAired,
-              isAiring: isAiring,
-              maxStartDate: maxStartDate,
-              minEndDate: minEndDate,
-              maxEndDate: maxEndDate,
-              isMovie: isMovie,
-              isSeries: isSeries,
-              isNews: isNews,
-              isKids: isKids,
-              isSports: isSports,
-              startIndex: startIndex,
-              limit: limit,
-              sortBy: _sortBy?.build(),
-              sortOrder: _sortOrder?.build(),
-              genres: _genres?.build(),
-              genreIds: _genreIds?.build(),
-              enableImages: enableImages,
-              enableTotalRecordCount: enableTotalRecordCount,
-              imageTypeLimit: imageTypeLimit,
-              enableImageTypes: _enableImageTypes?.build(),
-              enableUserData: enableUserData,
-              seriesTimerId: seriesTimerId,
-              librarySeriesId: librarySeriesId,
-              fields: _fields?.build());
+          _$GetProgramsDto._(
+            channelIds: _channelIds?.build(),
+            userId: userId,
+            minStartDate: minStartDate,
+            hasAired: hasAired,
+            isAiring: isAiring,
+            maxStartDate: maxStartDate,
+            minEndDate: minEndDate,
+            maxEndDate: maxEndDate,
+            isMovie: isMovie,
+            isSeries: isSeries,
+            isNews: isNews,
+            isKids: isKids,
+            isSports: isSports,
+            startIndex: startIndex,
+            limit: limit,
+            sortBy: _sortBy?.build(),
+            sortOrder: _sortOrder?.build(),
+            genres: _genres?.build(),
+            genreIds: _genreIds?.build(),
+            enableImages: enableImages,
+            enableTotalRecordCount: enableTotalRecordCount,
+            imageTypeLimit: imageTypeLimit,
+            enableImageTypes: _enableImageTypes?.build(),
+            enableUserData: enableUserData,
+            seriesTimerId: seriesTimerId,
+            librarySeriesId: librarySeriesId,
+            fields: _fields?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -439,7 +436,7 @@ class GetProgramsDtoBuilder
         _$failedField = 'fields';
         _fields?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'GetProgramsDto', _$failedField, e.toString());
       }
       rethrow;

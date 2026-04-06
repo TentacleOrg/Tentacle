@@ -18,7 +18,7 @@ class _$MovieInfoRemoteSearchQuery extends MovieInfoRemoteSearchQuery {
 
   factory _$MovieInfoRemoteSearchQuery(
           [void Function(MovieInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new MovieInfoRemoteSearchQueryBuilder()..update(updates))._build();
+      (MovieInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
   _$MovieInfoRemoteSearchQuery._(
       {this.searchInfo,
@@ -26,7 +26,6 @@ class _$MovieInfoRemoteSearchQuery extends MovieInfoRemoteSearchQuery {
       this.searchProviderName,
       this.includeDisabledProviders})
       : super._();
-
   @override
   MovieInfoRemoteSearchQuery rebuild(
           void Function(MovieInfoRemoteSearchQueryBuilder) updates) =>
@@ -34,7 +33,7 @@ class _$MovieInfoRemoteSearchQuery extends MovieInfoRemoteSearchQuery {
 
   @override
   MovieInfoRemoteSearchQueryBuilder toBuilder() =>
-      new MovieInfoRemoteSearchQueryBuilder()..replace(this);
+      MovieInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,8 +73,7 @@ class MovieInfoRemoteSearchQueryBuilder
   _$MovieInfoRemoteSearchQuery? _$v;
 
   MovieInfoBuilder? _searchInfo;
-  MovieInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new MovieInfoBuilder();
+  MovieInfoBuilder get searchInfo => _$this._searchInfo ??= MovieInfoBuilder();
   set searchInfo(MovieInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
@@ -111,7 +109,6 @@ class MovieInfoRemoteSearchQueryBuilder
 
   @override
   void replace(MovieInfoRemoteSearchQuery other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieInfoRemoteSearchQuery;
   }
 
@@ -127,18 +124,19 @@ class MovieInfoRemoteSearchQueryBuilder
     _$MovieInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$MovieInfoRemoteSearchQuery._(
-              searchInfo: _searchInfo?.build(),
-              itemId: itemId,
-              searchProviderName: searchProviderName,
-              includeDisabledProviders: includeDisabledProviders);
+          _$MovieInfoRemoteSearchQuery._(
+            searchInfo: _searchInfo?.build(),
+            itemId: itemId,
+            searchProviderName: searchProviderName,
+            includeDisabledProviders: includeDisabledProviders,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'searchInfo';
         _searchInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MovieInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;

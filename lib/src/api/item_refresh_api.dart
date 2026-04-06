@@ -10,7 +10,6 @@ import 'package:dio/dio.dart';
 import 'package:tentacle/src/api_util.dart';
 import 'package:tentacle/src/model/metadata_refresh_mode.dart';
 import 'package:tentacle/src/model/problem_details.dart';
-import 'package:tentacle/tentacle.dart';
 
 class ItemRefreshApi {
   final Dio _dio;
@@ -28,6 +27,7 @@ class ItemRefreshApi {
   /// * [imageRefreshMode] - (Optional) Specifies the image refresh mode.
   /// * [replaceAllMetadata] - (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh.
   /// * [replaceAllImages] - (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh.
+  /// * [regenerateTrickplay] - (Optional) Determines if trickplay images should be replaced. Only applicable if mode is FullRefresh.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -43,6 +43,7 @@ class ItemRefreshApi {
     MetadataRefreshMode? imageRefreshMode = MetadataRefreshMode.none,
     bool? replaceAllMetadata = false,
     bool? replaceAllImages = false,
+    bool? regenerateTrickplay = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -86,6 +87,9 @@ class ItemRefreshApi {
       if (replaceAllImages != null)
         r'replaceAllImages': encodeQueryParameter(
             _serializers, replaceAllImages, const FullType(bool)),
+      if (regenerateTrickplay != null)
+        r'regenerateTrickplay': encodeQueryParameter(
+            _serializers, regenerateTrickplay, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(

@@ -14,10 +14,9 @@ class _$ServerRestartingMessage extends ServerRestartingMessage {
 
   factory _$ServerRestartingMessage(
           [void Function(ServerRestartingMessageBuilder)? updates]) =>
-      (new ServerRestartingMessageBuilder()..update(updates))._build();
+      (ServerRestartingMessageBuilder()..update(updates))._build();
 
   _$ServerRestartingMessage._({this.messageId, this.messageType}) : super._();
-
   @override
   ServerRestartingMessage rebuild(
           void Function(ServerRestartingMessageBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$ServerRestartingMessage extends ServerRestartingMessage {
 
   @override
   ServerRestartingMessageBuilder toBuilder() =>
-      new ServerRestartingMessageBuilder()..replace(this);
+      ServerRestartingMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -83,7 +82,6 @@ class ServerRestartingMessageBuilder
 
   @override
   void replace(ServerRestartingMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServerRestartingMessage;
   }
 
@@ -97,8 +95,10 @@ class ServerRestartingMessageBuilder
 
   _$ServerRestartingMessage _build() {
     final _$result = _$v ??
-        new _$ServerRestartingMessage._(
-            messageId: messageId, messageType: messageType);
+        _$ServerRestartingMessage._(
+          messageId: messageId,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

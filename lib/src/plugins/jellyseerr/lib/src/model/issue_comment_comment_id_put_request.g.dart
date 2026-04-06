@@ -13,10 +13,9 @@ class _$IssueCommentCommentIdPutRequest
 
   factory _$IssueCommentCommentIdPutRequest(
           [void Function(IssueCommentCommentIdPutRequestBuilder)? updates]) =>
-      (new IssueCommentCommentIdPutRequestBuilder()..update(updates))._build();
+      (IssueCommentCommentIdPutRequestBuilder()..update(updates))._build();
 
   _$IssueCommentCommentIdPutRequest._({this.message}) : super._();
-
   @override
   IssueCommentCommentIdPutRequest rebuild(
           void Function(IssueCommentCommentIdPutRequestBuilder) updates) =>
@@ -24,7 +23,7 @@ class _$IssueCommentCommentIdPutRequest
 
   @override
   IssueCommentCommentIdPutRequestBuilder toBuilder() =>
-      new IssueCommentCommentIdPutRequestBuilder()..replace(this);
+      IssueCommentCommentIdPutRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -73,7 +72,6 @@ class IssueCommentCommentIdPutRequestBuilder
 
   @override
   void replace(IssueCommentCommentIdPutRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IssueCommentCommentIdPutRequest;
   }
 
@@ -86,8 +84,10 @@ class IssueCommentCommentIdPutRequestBuilder
   IssueCommentCommentIdPutRequest build() => _build();
 
   _$IssueCommentCommentIdPutRequest _build() {
-    final _$result =
-        _$v ?? new _$IssueCommentCommentIdPutRequest._(message: message);
+    final _$result = _$v ??
+        _$IssueCommentCommentIdPutRequest._(
+          message: message,
+        );
     replace(_$result);
     return _$result;
   }

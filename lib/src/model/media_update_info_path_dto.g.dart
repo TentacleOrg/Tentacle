@@ -14,10 +14,9 @@ class _$MediaUpdateInfoPathDto extends MediaUpdateInfoPathDto {
 
   factory _$MediaUpdateInfoPathDto(
           [void Function(MediaUpdateInfoPathDtoBuilder)? updates]) =>
-      (new MediaUpdateInfoPathDtoBuilder()..update(updates))._build();
+      (MediaUpdateInfoPathDtoBuilder()..update(updates))._build();
 
   _$MediaUpdateInfoPathDto._({this.path, this.updateType}) : super._();
-
   @override
   MediaUpdateInfoPathDto rebuild(
           void Function(MediaUpdateInfoPathDtoBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$MediaUpdateInfoPathDto extends MediaUpdateInfoPathDto {
 
   @override
   MediaUpdateInfoPathDtoBuilder toBuilder() =>
-      new MediaUpdateInfoPathDtoBuilder()..replace(this);
+      MediaUpdateInfoPathDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -81,7 +80,6 @@ class MediaUpdateInfoPathDtoBuilder
 
   @override
   void replace(MediaUpdateInfoPathDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaUpdateInfoPathDto;
   }
 
@@ -95,7 +93,10 @@ class MediaUpdateInfoPathDtoBuilder
 
   _$MediaUpdateInfoPathDto _build() {
     final _$result = _$v ??
-        new _$MediaUpdateInfoPathDto._(path: path, updateType: updateType);
+        _$MediaUpdateInfoPathDto._(
+          path: path,
+          updateType: updateType,
+        );
     replace(_$result);
     return _$result;
   }

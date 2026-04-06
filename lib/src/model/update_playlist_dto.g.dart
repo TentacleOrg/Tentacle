@@ -18,18 +18,17 @@ class _$UpdatePlaylistDto extends UpdatePlaylistDto {
 
   factory _$UpdatePlaylistDto(
           [void Function(UpdatePlaylistDtoBuilder)? updates]) =>
-      (new UpdatePlaylistDtoBuilder()..update(updates))._build();
+      (UpdatePlaylistDtoBuilder()..update(updates))._build();
 
   _$UpdatePlaylistDto._({this.name, this.ids, this.users, this.isPublic})
       : super._();
-
   @override
   UpdatePlaylistDto rebuild(void Function(UpdatePlaylistDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   UpdatePlaylistDtoBuilder toBuilder() =>
-      new UpdatePlaylistDtoBuilder()..replace(this);
+      UpdatePlaylistDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,12 +71,12 @@ class UpdatePlaylistDtoBuilder
   set name(String? name) => _$this._name = name;
 
   ListBuilder<String>? _ids;
-  ListBuilder<String> get ids => _$this._ids ??= new ListBuilder<String>();
+  ListBuilder<String> get ids => _$this._ids ??= ListBuilder<String>();
   set ids(ListBuilder<String>? ids) => _$this._ids = ids;
 
   ListBuilder<PlaylistUserPermissions>? _users;
   ListBuilder<PlaylistUserPermissions> get users =>
-      _$this._users ??= new ListBuilder<PlaylistUserPermissions>();
+      _$this._users ??= ListBuilder<PlaylistUserPermissions>();
   set users(ListBuilder<PlaylistUserPermissions>? users) =>
       _$this._users = users;
 
@@ -103,7 +102,6 @@ class UpdatePlaylistDtoBuilder
 
   @override
   void replace(UpdatePlaylistDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdatePlaylistDto;
   }
 
@@ -119,11 +117,12 @@ class UpdatePlaylistDtoBuilder
     _$UpdatePlaylistDto _$result;
     try {
       _$result = _$v ??
-          new _$UpdatePlaylistDto._(
-              name: name,
-              ids: _ids?.build(),
-              users: _users?.build(),
-              isPublic: isPublic);
+          _$UpdatePlaylistDto._(
+            name: name,
+            ids: _ids?.build(),
+            users: _users?.build(),
+            isPublic: isPublic,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -132,7 +131,7 @@ class UpdatePlaylistDtoBuilder
         _$failedField = 'users';
         _users?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UpdatePlaylistDto', _$failedField, e.toString());
       }
       rethrow;

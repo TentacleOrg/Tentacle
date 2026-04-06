@@ -18,12 +18,11 @@ class _$TvDetailsCreatedByInner extends TvDetailsCreatedByInner {
 
   factory _$TvDetailsCreatedByInner(
           [void Function(TvDetailsCreatedByInnerBuilder)? updates]) =>
-      (new TvDetailsCreatedByInnerBuilder()..update(updates))._build();
+      (TvDetailsCreatedByInnerBuilder()..update(updates))._build();
 
   _$TvDetailsCreatedByInner._(
       {this.id, this.name, this.gender, this.profilePath})
       : super._();
-
   @override
   TvDetailsCreatedByInner rebuild(
           void Function(TvDetailsCreatedByInnerBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$TvDetailsCreatedByInner extends TvDetailsCreatedByInner {
 
   @override
   TvDetailsCreatedByInnerBuilder toBuilder() =>
-      new TvDetailsCreatedByInnerBuilder()..replace(this);
+      TvDetailsCreatedByInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +103,6 @@ class TvDetailsCreatedByInnerBuilder
 
   @override
   void replace(TvDetailsCreatedByInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TvDetailsCreatedByInner;
   }
 
@@ -118,8 +116,12 @@ class TvDetailsCreatedByInnerBuilder
 
   _$TvDetailsCreatedByInner _build() {
     final _$result = _$v ??
-        new _$TvDetailsCreatedByInner._(
-            id: id, name: name, gender: gender, profilePath: profilePath);
+        _$TvDetailsCreatedByInner._(
+          id: id,
+          name: name,
+          gender: gender,
+          profilePath: profilePath,
+        );
     replace(_$result);
     return _$result;
   }

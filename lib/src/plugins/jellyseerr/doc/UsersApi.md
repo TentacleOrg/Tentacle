@@ -12,16 +12,17 @@ Method | HTTP request | Description
 [**authMeGet**](UsersApi.md#authmeget) | **GET** /auth/me | Get logged-in user
 [**authResetPasswordGuidPost**](UsersApi.md#authresetpasswordguidpost) | **POST** /auth/reset-password/{guid} | Reset the password for a user
 [**authResetPasswordPost**](UsersApi.md#authresetpasswordpost) | **POST** /auth/reset-password | Send a reset password email
-[**settingsJellyfinUsersGet**](UsersApi.md#settingsjellyfinusersget) | **GET** /settings/jellyfin/users | Get Jellyfin Users
 [**settingsPlexUsersGet**](UsersApi.md#settingsplexusersget) | **GET** /settings/plex/users | Get Plex users
 [**userGet**](UsersApi.md#userget) | **GET** /user | Get all users
-[**userImportFromJellyfinPost**](UsersApi.md#userimportfromjellyfinpost) | **POST** /user/import-from-jellyfin | Import all users from Jellyfin
 [**userImportFromPlexPost**](UsersApi.md#userimportfromplexpost) | **POST** /user/import-from-plex | Import all users from Plex
 [**userPost**](UsersApi.md#userpost) | **POST** /user | Create new user
 [**userPut**](UsersApi.md#userput) | **PUT** /user | Update batch of users
 [**userRegisterPushSubscriptionPost**](UsersApi.md#userregisterpushsubscriptionpost) | **POST** /user/registerPushSubscription | Register a web push /user/registerPushSubscription
 [**userUserIdDelete**](UsersApi.md#useruseriddelete) | **DELETE** /user/{userId} | Delete user by ID
 [**userUserIdGet**](UsersApi.md#useruseridget) | **GET** /user/{userId} | Get user by ID
+[**userUserIdPushSubscriptionEndpointDelete**](UsersApi.md#useruseridpushsubscriptionendpointdelete) | **DELETE** /user/{userId}/pushSubscription/{endpoint} | Delete user push subscription by key
+[**userUserIdPushSubscriptionEndpointGet**](UsersApi.md#useruseridpushsubscriptionendpointget) | **GET** /user/{userId}/pushSubscription/{endpoint} | Get web push notification settings for a user
+[**userUserIdPushSubscriptionsGet**](UsersApi.md#useruseridpushsubscriptionsget) | **GET** /user/{userId}/pushSubscriptions | Get all web push notification settings for a user
 [**userUserIdPut**](UsersApi.md#useruseridput) | **PUT** /user/{userId} | Update a user by user ID
 [**userUserIdQuotaGet**](UsersApi.md#useruseridquotaget) | **GET** /user/{userId}/quota | Get quotas for a specific user
 [**userUserIdRequestsGet**](UsersApi.md#useruseridrequestsget) | **GET** /user/{userId}/requests | Get requests for a specific user
@@ -172,53 +173,6 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **settingsJellyfinUsersGet**
-> BuiltList<SettingsJellyfinUsersGet200ResponseInner> settingsJellyfinUsersGet()
-
-Get Jellyfin Users
-
-Returns a list of Jellyfin Users in a JSON array.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getUsersApi();
-
-try {
-    final response = api.settingsJellyfinUsersGet();
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling UsersApi->settingsJellyfinUsersGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**BuiltList&lt;SettingsJellyfinUsersGet200ResponseInner&gt;**](SettingsJellyfinUsersGet200ResponseInner.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **settingsPlexUsersGet**
 > BuiltList<SettingsPlexUsersGet200ResponseInner> settingsPlexUsersGet()
 
@@ -317,57 +271,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **userImportFromJellyfinPost**
-> BuiltList<User> userImportFromJellyfinPost(userImportFromJellyfinPostRequest)
-
-Import all users from Jellyfin
-
-Fetches and imports users from the Jellyfin server.  Requires the `MANAGE_USERS` permission. 
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getUsersApi();
-final UserImportFromJellyfinPostRequest userImportFromJellyfinPostRequest = ; // UserImportFromJellyfinPostRequest | 
-
-try {
-    final response = api.userImportFromJellyfinPost(userImportFromJellyfinPostRequest);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling UsersApi->userImportFromJellyfinPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userImportFromJellyfinPostRequest** | [**UserImportFromJellyfinPostRequest**](UserImportFromJellyfinPostRequest.md)|  | [optional] 
-
-### Return type
-
-[**BuiltList&lt;User&gt;**](User.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -665,6 +568,162 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**User**](User.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userUserIdPushSubscriptionEndpointDelete**
+> userUserIdPushSubscriptionEndpointDelete(userId, endpoint)
+
+Delete user push subscription by key
+
+Deletes the user push subscription with the provided key.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getUsersApi();
+final num userId = 8.14; // num | 
+final String endpoint = endpoint_example; // String | 
+
+try {
+    api.userUserIdPushSubscriptionEndpointDelete(userId, endpoint);
+} catch on DioException (e) {
+    print('Exception when calling UsersApi->userUserIdPushSubscriptionEndpointDelete: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **num**|  | 
+ **endpoint** | **String**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userUserIdPushSubscriptionEndpointGet**
+> UserUserIdPushSubscriptionsGet200Response userUserIdPushSubscriptionEndpointGet(userId, endpoint)
+
+Get web push notification settings for a user
+
+Returns web push notification settings for a user in a JSON object. 
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getUsersApi();
+final num userId = 8.14; // num | 
+final String endpoint = endpoint_example; // String | 
+
+try {
+    final response = api.userUserIdPushSubscriptionEndpointGet(userId, endpoint);
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling UsersApi->userUserIdPushSubscriptionEndpointGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **num**|  | 
+ **endpoint** | **String**|  | 
+
+### Return type
+
+[**UserUserIdPushSubscriptionsGet200Response**](UserUserIdPushSubscriptionsGet200Response.md)
+
+### Authorization
+
+[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **userUserIdPushSubscriptionsGet**
+> UserUserIdPushSubscriptionsGet200Response userUserIdPushSubscriptionsGet(userId)
+
+Get all web push notification settings for a user
+
+Returns all web push notification settings for a user in a JSON object. 
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: apiKey
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
+// TODO Configure API key authorization: cookieAuth
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getUsersApi();
+final num userId = 8.14; // num | 
+
+try {
+    final response = api.userUserIdPushSubscriptionsGet(userId);
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling UsersApi->userUserIdPushSubscriptionsGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **num**|  | 
+
+### Return type
+
+[**UserUserIdPushSubscriptionsGet200Response**](UserUserIdPushSubscriptionsGet200Response.md)
 
 ### Authorization
 

@@ -8,25 +8,23 @@ part of 'sessions_message.dart';
 
 class _$SessionsMessage extends SessionsMessage {
   @override
-  final BuiltList<SessionInfo>? data;
+  final BuiltList<SessionInfoDto>? data;
   @override
   final String? messageId;
   @override
   final SessionMessageType? messageType;
 
   factory _$SessionsMessage([void Function(SessionsMessageBuilder)? updates]) =>
-      (new SessionsMessageBuilder()..update(updates))._build();
+      (SessionsMessageBuilder()..update(updates))._build();
 
   _$SessionsMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   SessionsMessage rebuild(void Function(SessionsMessageBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SessionsMessageBuilder toBuilder() =>
-      new SessionsMessageBuilder()..replace(this);
+  SessionsMessageBuilder toBuilder() => SessionsMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -61,10 +59,10 @@ class SessionsMessageBuilder
     implements Builder<SessionsMessage, SessionsMessageBuilder> {
   _$SessionsMessage? _$v;
 
-  ListBuilder<SessionInfo>? _data;
-  ListBuilder<SessionInfo> get data =>
-      _$this._data ??= new ListBuilder<SessionInfo>();
-  set data(ListBuilder<SessionInfo>? data) => _$this._data = data;
+  ListBuilder<SessionInfoDto>? _data;
+  ListBuilder<SessionInfoDto> get data =>
+      _$this._data ??= ListBuilder<SessionInfoDto>();
+  set data(ListBuilder<SessionInfoDto>? data) => _$this._data = data;
 
   String? _messageId;
   String? get messageId => _$this._messageId;
@@ -92,7 +90,6 @@ class SessionsMessageBuilder
 
   @override
   void replace(SessionsMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SessionsMessage;
   }
 
@@ -108,17 +105,18 @@ class SessionsMessageBuilder
     _$SessionsMessage _$result;
     try {
       _$result = _$v ??
-          new _$SessionsMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$SessionsMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SessionsMessage', _$failedField, e.toString());
       }
       rethrow;

@@ -10,7 +10,7 @@ class _$AuthenticationResult extends AuthenticationResult {
   @override
   final UserDto? user;
   @override
-  final SessionInfo? sessionInfo;
+  final SessionInfoDto? sessionInfo;
   @override
   final String? accessToken;
   @override
@@ -18,12 +18,11 @@ class _$AuthenticationResult extends AuthenticationResult {
 
   factory _$AuthenticationResult(
           [void Function(AuthenticationResultBuilder)? updates]) =>
-      (new AuthenticationResultBuilder()..update(updates))._build();
+      (AuthenticationResultBuilder()..update(updates))._build();
 
   _$AuthenticationResult._(
       {this.user, this.sessionInfo, this.accessToken, this.serverId})
       : super._();
-
   @override
   AuthenticationResult rebuild(
           void Function(AuthenticationResultBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$AuthenticationResult extends AuthenticationResult {
 
   @override
   AuthenticationResultBuilder toBuilder() =>
-      new AuthenticationResultBuilder()..replace(this);
+      AuthenticationResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,13 +69,13 @@ class AuthenticationResultBuilder
   _$AuthenticationResult? _$v;
 
   UserDtoBuilder? _user;
-  UserDtoBuilder get user => _$this._user ??= new UserDtoBuilder();
+  UserDtoBuilder get user => _$this._user ??= UserDtoBuilder();
   set user(UserDtoBuilder? user) => _$this._user = user;
 
-  SessionInfoBuilder? _sessionInfo;
-  SessionInfoBuilder get sessionInfo =>
-      _$this._sessionInfo ??= new SessionInfoBuilder();
-  set sessionInfo(SessionInfoBuilder? sessionInfo) =>
+  SessionInfoDtoBuilder? _sessionInfo;
+  SessionInfoDtoBuilder get sessionInfo =>
+      _$this._sessionInfo ??= SessionInfoDtoBuilder();
+  set sessionInfo(SessionInfoDtoBuilder? sessionInfo) =>
       _$this._sessionInfo = sessionInfo;
 
   String? _accessToken;
@@ -105,7 +104,6 @@ class AuthenticationResultBuilder
 
   @override
   void replace(AuthenticationResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthenticationResult;
   }
 
@@ -121,11 +119,12 @@ class AuthenticationResultBuilder
     _$AuthenticationResult _$result;
     try {
       _$result = _$v ??
-          new _$AuthenticationResult._(
-              user: _user?.build(),
-              sessionInfo: _sessionInfo?.build(),
-              accessToken: accessToken,
-              serverId: serverId);
+          _$AuthenticationResult._(
+            user: _user?.build(),
+            sessionInfo: _sessionInfo?.build(),
+            accessToken: accessToken,
+            serverId: serverId,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -134,7 +133,7 @@ class AuthenticationResultBuilder
         _$failedField = 'sessionInfo';
         _sessionInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'AuthenticationResult', _$failedField, e.toString());
       }
       rethrow;

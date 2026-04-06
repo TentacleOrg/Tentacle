@@ -23,7 +23,7 @@ class _$MediaInfo extends MediaInfo {
   final String? updatedAt;
 
   factory _$MediaInfo([void Function(MediaInfoBuilder)? updates]) =>
-      (new MediaInfoBuilder()..update(updates))._build();
+      (MediaInfoBuilder()..update(updates))._build();
 
   _$MediaInfo._(
       {this.id,
@@ -34,13 +34,12 @@ class _$MediaInfo extends MediaInfo {
       this.createdAt,
       this.updatedAt})
       : super._();
-
   @override
   MediaInfo rebuild(void Function(MediaInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MediaInfoBuilder toBuilder() => new MediaInfoBuilder()..replace(this);
+  MediaInfoBuilder toBuilder() => MediaInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +103,7 @@ class MediaInfoBuilder implements Builder<MediaInfo, MediaInfoBuilder> {
 
   ListBuilder<MediaRequest>? _requests;
   ListBuilder<MediaRequest> get requests =>
-      _$this._requests ??= new ListBuilder<MediaRequest>();
+      _$this._requests ??= ListBuilder<MediaRequest>();
   set requests(ListBuilder<MediaRequest>? requests) =>
       _$this._requests = requests;
 
@@ -137,7 +136,6 @@ class MediaInfoBuilder implements Builder<MediaInfo, MediaInfoBuilder> {
 
   @override
   void replace(MediaInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaInfo;
   }
 
@@ -153,21 +151,22 @@ class MediaInfoBuilder implements Builder<MediaInfo, MediaInfoBuilder> {
     _$MediaInfo _$result;
     try {
       _$result = _$v ??
-          new _$MediaInfo._(
-              id: id,
-              tmdbId: tmdbId,
-              tvdbId: tvdbId,
-              status: status,
-              requests: _requests?.build(),
-              createdAt: createdAt,
-              updatedAt: updatedAt);
+          _$MediaInfo._(
+            id: id,
+            tmdbId: tmdbId,
+            tvdbId: tvdbId,
+            status: status,
+            requests: _requests?.build(),
+            createdAt: createdAt,
+            updatedAt: updatedAt,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'requests';
         _requests?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MediaInfo', _$failedField, e.toString());
       }
       rethrow;

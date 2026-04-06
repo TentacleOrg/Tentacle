@@ -30,13 +30,15 @@ class _$OpenLiveStreamDto extends OpenLiveStreamDto {
   @override
   final bool? enableDirectStream;
   @override
+  final bool? alwaysBurnInSubtitleWhenTranscoding;
+  @override
   final DeviceProfile? deviceProfile;
   @override
   final BuiltList<MediaProtocol>? directPlayProtocols;
 
   factory _$OpenLiveStreamDto(
           [void Function(OpenLiveStreamDtoBuilder)? updates]) =>
-      (new OpenLiveStreamDtoBuilder()..update(updates))._build();
+      (OpenLiveStreamDtoBuilder()..update(updates))._build();
 
   _$OpenLiveStreamDto._(
       {this.openToken,
@@ -50,17 +52,17 @@ class _$OpenLiveStreamDto extends OpenLiveStreamDto {
       this.itemId,
       this.enableDirectPlay,
       this.enableDirectStream,
+      this.alwaysBurnInSubtitleWhenTranscoding,
       this.deviceProfile,
       this.directPlayProtocols})
       : super._();
-
   @override
   OpenLiveStreamDto rebuild(void Function(OpenLiveStreamDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   OpenLiveStreamDtoBuilder toBuilder() =>
-      new OpenLiveStreamDtoBuilder()..replace(this);
+      OpenLiveStreamDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -77,6 +79,8 @@ class _$OpenLiveStreamDto extends OpenLiveStreamDto {
         itemId == other.itemId &&
         enableDirectPlay == other.enableDirectPlay &&
         enableDirectStream == other.enableDirectStream &&
+        alwaysBurnInSubtitleWhenTranscoding ==
+            other.alwaysBurnInSubtitleWhenTranscoding &&
         deviceProfile == other.deviceProfile &&
         directPlayProtocols == other.directPlayProtocols;
   }
@@ -95,6 +99,7 @@ class _$OpenLiveStreamDto extends OpenLiveStreamDto {
     _$hash = $jc(_$hash, itemId.hashCode);
     _$hash = $jc(_$hash, enableDirectPlay.hashCode);
     _$hash = $jc(_$hash, enableDirectStream.hashCode);
+    _$hash = $jc(_$hash, alwaysBurnInSubtitleWhenTranscoding.hashCode);
     _$hash = $jc(_$hash, deviceProfile.hashCode);
     _$hash = $jc(_$hash, directPlayProtocols.hashCode);
     _$hash = $jf(_$hash);
@@ -115,6 +120,8 @@ class _$OpenLiveStreamDto extends OpenLiveStreamDto {
           ..add('itemId', itemId)
           ..add('enableDirectPlay', enableDirectPlay)
           ..add('enableDirectStream', enableDirectStream)
+          ..add('alwaysBurnInSubtitleWhenTranscoding',
+              alwaysBurnInSubtitleWhenTranscoding)
           ..add('deviceProfile', deviceProfile)
           ..add('directPlayProtocols', directPlayProtocols))
         .toString();
@@ -177,15 +184,23 @@ class OpenLiveStreamDtoBuilder
   set enableDirectStream(bool? enableDirectStream) =>
       _$this._enableDirectStream = enableDirectStream;
 
+  bool? _alwaysBurnInSubtitleWhenTranscoding;
+  bool? get alwaysBurnInSubtitleWhenTranscoding =>
+      _$this._alwaysBurnInSubtitleWhenTranscoding;
+  set alwaysBurnInSubtitleWhenTranscoding(
+          bool? alwaysBurnInSubtitleWhenTranscoding) =>
+      _$this._alwaysBurnInSubtitleWhenTranscoding =
+          alwaysBurnInSubtitleWhenTranscoding;
+
   DeviceProfileBuilder? _deviceProfile;
   DeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new DeviceProfileBuilder();
+      _$this._deviceProfile ??= DeviceProfileBuilder();
   set deviceProfile(DeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
   ListBuilder<MediaProtocol>? _directPlayProtocols;
   ListBuilder<MediaProtocol> get directPlayProtocols =>
-      _$this._directPlayProtocols ??= new ListBuilder<MediaProtocol>();
+      _$this._directPlayProtocols ??= ListBuilder<MediaProtocol>();
   set directPlayProtocols(ListBuilder<MediaProtocol>? directPlayProtocols) =>
       _$this._directPlayProtocols = directPlayProtocols;
 
@@ -207,6 +222,8 @@ class OpenLiveStreamDtoBuilder
       _itemId = $v.itemId;
       _enableDirectPlay = $v.enableDirectPlay;
       _enableDirectStream = $v.enableDirectStream;
+      _alwaysBurnInSubtitleWhenTranscoding =
+          $v.alwaysBurnInSubtitleWhenTranscoding;
       _deviceProfile = $v.deviceProfile?.toBuilder();
       _directPlayProtocols = $v.directPlayProtocols?.toBuilder();
       _$v = null;
@@ -216,7 +233,6 @@ class OpenLiveStreamDtoBuilder
 
   @override
   void replace(OpenLiveStreamDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OpenLiveStreamDto;
   }
 
@@ -232,20 +248,23 @@ class OpenLiveStreamDtoBuilder
     _$OpenLiveStreamDto _$result;
     try {
       _$result = _$v ??
-          new _$OpenLiveStreamDto._(
-              openToken: openToken,
-              userId: userId,
-              playSessionId: playSessionId,
-              maxStreamingBitrate: maxStreamingBitrate,
-              startTimeTicks: startTimeTicks,
-              audioStreamIndex: audioStreamIndex,
-              subtitleStreamIndex: subtitleStreamIndex,
-              maxAudioChannels: maxAudioChannels,
-              itemId: itemId,
-              enableDirectPlay: enableDirectPlay,
-              enableDirectStream: enableDirectStream,
-              deviceProfile: _deviceProfile?.build(),
-              directPlayProtocols: _directPlayProtocols?.build());
+          _$OpenLiveStreamDto._(
+            openToken: openToken,
+            userId: userId,
+            playSessionId: playSessionId,
+            maxStreamingBitrate: maxStreamingBitrate,
+            startTimeTicks: startTimeTicks,
+            audioStreamIndex: audioStreamIndex,
+            subtitleStreamIndex: subtitleStreamIndex,
+            maxAudioChannels: maxAudioChannels,
+            itemId: itemId,
+            enableDirectPlay: enableDirectPlay,
+            enableDirectStream: enableDirectStream,
+            alwaysBurnInSubtitleWhenTranscoding:
+                alwaysBurnInSubtitleWhenTranscoding,
+            deviceProfile: _deviceProfile?.build(),
+            directPlayProtocols: _directPlayProtocols?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -254,7 +273,7 @@ class OpenLiveStreamDtoBuilder
         _$failedField = 'directPlayProtocols';
         _directPlayProtocols?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'OpenLiveStreamDto', _$failedField, e.toString());
       }
       rethrow;

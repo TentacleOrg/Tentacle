@@ -97,6 +97,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the Rotation in degrees.
+    // int rotation
+    test('to test the property `rotation`', () async {
+      // TODO
+    });
+
     // Gets or sets the comment.
     // String comment
     test('to test the property `comment`', () async {
@@ -121,14 +127,19 @@ void main() {
       // TODO
     });
 
+    // bool hdr10PlusPresentFlag
+    test('to test the property `hdr10PlusPresentFlag`', () async {
+      // TODO
+    });
+
     // Gets the video range.
-    // VideoRange videoRange
+    // VideoRange videoRange (default value: 'Unknown')
     test('to test the property `videoRange`', () async {
       // TODO
     });
 
     // Gets the video range type.
-    // VideoRangeType videoRangeType
+    // VideoRangeType videoRangeType (default value: 'Unknown')
     test('to test the property `videoRangeType`', () async {
       // TODO
     });
@@ -272,6 +283,12 @@ void main() {
     // Gets or sets the real frame rate.
     // double realFrameRate
     test('to test the property `realFrameRate`', () async {
+      // TODO
+    });
+
+    // Gets the framerate used as reference.  Prefer AverageFrameRate, if that is null or an unrealistic value  then fallback to RealFrameRate.
+    // double referenceFrameRate
+    test('to test the property `referenceFrameRate`', () async {
       // TODO
     });
 

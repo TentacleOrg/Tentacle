@@ -20,7 +20,7 @@ class _$UploadSubtitleDto extends UploadSubtitleDto {
 
   factory _$UploadSubtitleDto(
           [void Function(UploadSubtitleDtoBuilder)? updates]) =>
-      (new UploadSubtitleDtoBuilder()..update(updates))._build();
+      (UploadSubtitleDtoBuilder()..update(updates))._build();
 
   _$UploadSubtitleDto._(
       {required this.language,
@@ -28,25 +28,14 @@ class _$UploadSubtitleDto extends UploadSubtitleDto {
       required this.isForced,
       required this.isHearingImpaired,
       required this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        language, r'UploadSubtitleDto', 'language');
-    BuiltValueNullFieldError.checkNotNull(
-        format, r'UploadSubtitleDto', 'format');
-    BuiltValueNullFieldError.checkNotNull(
-        isForced, r'UploadSubtitleDto', 'isForced');
-    BuiltValueNullFieldError.checkNotNull(
-        isHearingImpaired, r'UploadSubtitleDto', 'isHearingImpaired');
-    BuiltValueNullFieldError.checkNotNull(data, r'UploadSubtitleDto', 'data');
-  }
-
+      : super._();
   @override
   UploadSubtitleDto rebuild(void Function(UploadSubtitleDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   UploadSubtitleDtoBuilder toBuilder() =>
-      new UploadSubtitleDtoBuilder()..replace(this);
+      UploadSubtitleDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -127,7 +116,6 @@ class UploadSubtitleDtoBuilder
 
   @override
   void replace(UploadSubtitleDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UploadSubtitleDto;
   }
 
@@ -141,17 +129,18 @@ class UploadSubtitleDtoBuilder
 
   _$UploadSubtitleDto _build() {
     final _$result = _$v ??
-        new _$UploadSubtitleDto._(
-            language: BuiltValueNullFieldError.checkNotNull(
-                language, r'UploadSubtitleDto', 'language'),
-            format: BuiltValueNullFieldError.checkNotNull(
-                format, r'UploadSubtitleDto', 'format'),
-            isForced: BuiltValueNullFieldError.checkNotNull(
-                isForced, r'UploadSubtitleDto', 'isForced'),
-            isHearingImpaired: BuiltValueNullFieldError.checkNotNull(
-                isHearingImpaired, r'UploadSubtitleDto', 'isHearingImpaired'),
-            data: BuiltValueNullFieldError.checkNotNull(
-                data, r'UploadSubtitleDto', 'data'));
+        _$UploadSubtitleDto._(
+          language: BuiltValueNullFieldError.checkNotNull(
+              language, r'UploadSubtitleDto', 'language'),
+          format: BuiltValueNullFieldError.checkNotNull(
+              format, r'UploadSubtitleDto', 'format'),
+          isForced: BuiltValueNullFieldError.checkNotNull(
+              isForced, r'UploadSubtitleDto', 'isForced'),
+          isHearingImpaired: BuiltValueNullFieldError.checkNotNull(
+              isHearingImpaired, r'UploadSubtitleDto', 'isHearingImpaired'),
+          data: BuiltValueNullFieldError.checkNotNull(
+              data, r'UploadSubtitleDto', 'data'),
+        );
     replace(_$result);
     return _$result;
   }

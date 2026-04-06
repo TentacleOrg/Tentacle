@@ -32,8 +32,6 @@ class _$ServerConfiguration extends ServerConfiguration {
   @override
   final String? metadataPath;
   @override
-  final String? metadataNetworkPath;
-  @override
   final String? preferredMetadataLanguage;
   @override
   final String? metadataCountryCode;
@@ -60,6 +58,8 @@ class _$ServerConfiguration extends ServerConfiguration {
   @override
   final int? libraryUpdateDuration;
   @override
+  final int? cacheSize;
+  @override
   final ImageSavingConvention? imageSavingConvention;
   @override
   final BuiltList<MetadataOptions>? metadataOptions;
@@ -78,7 +78,9 @@ class _$ServerConfiguration extends ServerConfiguration {
   @override
   final bool? enableFolderView;
   @override
-  final bool? enableGroupingIntoCollections;
+  final bool? enableGroupingMoviesIntoCollections;
+  @override
+  final bool? enableGroupingShowsIntoCollections;
   @override
   final bool? displaySpecialsWithinSeasons;
   @override
@@ -104,8 +106,6 @@ class _$ServerConfiguration extends ServerConfiguration {
   @override
   final int? libraryMetadataRefreshConcurrency;
   @override
-  final bool? removeOldPlugins;
-  @override
   final bool? allowClientLogUpload;
   @override
   final int? dummyChapterDuration;
@@ -117,10 +117,12 @@ class _$ServerConfiguration extends ServerConfiguration {
   final BuiltList<CastReceiverApplication>? castReceiverApplications;
   @override
   final TrickplayOptions? trickplayOptions;
+  @override
+  final bool? enableLegacyAuthorization;
 
   factory _$ServerConfiguration(
           [void Function(ServerConfigurationBuilder)? updates]) =>
-      (new ServerConfigurationBuilder()..update(updates))._build();
+      (ServerConfigurationBuilder()..update(updates))._build();
 
   _$ServerConfiguration._(
       {this.logFileRetentionDays,
@@ -135,7 +137,6 @@ class _$ServerConfiguration extends ServerConfiguration {
       this.enableCaseSensitiveItemIds,
       this.disableLiveTvChannelUserDataName,
       this.metadataPath,
-      this.metadataNetworkPath,
       this.preferredMetadataLanguage,
       this.metadataCountryCode,
       this.sortReplaceCharacters,
@@ -149,6 +150,7 @@ class _$ServerConfiguration extends ServerConfiguration {
       this.inactiveSessionThreshold,
       this.libraryMonitorDelay,
       this.libraryUpdateDuration,
+      this.cacheSize,
       this.imageSavingConvention,
       this.metadataOptions,
       this.skipDeserializationForBasicTypes,
@@ -158,7 +160,8 @@ class _$ServerConfiguration extends ServerConfiguration {
       this.contentTypes,
       this.remoteClientBitrateLimit,
       this.enableFolderView,
-      this.enableGroupingIntoCollections,
+      this.enableGroupingMoviesIntoCollections,
+      this.enableGroupingShowsIntoCollections,
       this.displaySpecialsWithinSeasons,
       this.codecsUsed,
       this.pluginRepositories,
@@ -171,15 +174,14 @@ class _$ServerConfiguration extends ServerConfiguration {
       this.activityLogRetentionDays,
       this.libraryScanFanoutConcurrency,
       this.libraryMetadataRefreshConcurrency,
-      this.removeOldPlugins,
       this.allowClientLogUpload,
       this.dummyChapterDuration,
       this.chapterImageResolution,
       this.parallelImageEncodingLimit,
       this.castReceiverApplications,
-      this.trickplayOptions})
+      this.trickplayOptions,
+      this.enableLegacyAuthorization})
       : super._();
-
   @override
   ServerConfiguration rebuild(
           void Function(ServerConfigurationBuilder) updates) =>
@@ -187,7 +189,7 @@ class _$ServerConfiguration extends ServerConfiguration {
 
   @override
   ServerConfigurationBuilder toBuilder() =>
-      new ServerConfigurationBuilder()..replace(this);
+      ServerConfigurationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -206,7 +208,6 @@ class _$ServerConfiguration extends ServerConfiguration {
         disableLiveTvChannelUserDataName ==
             other.disableLiveTvChannelUserDataName &&
         metadataPath == other.metadataPath &&
-        metadataNetworkPath == other.metadataNetworkPath &&
         preferredMetadataLanguage == other.preferredMetadataLanguage &&
         metadataCountryCode == other.metadataCountryCode &&
         sortReplaceCharacters == other.sortReplaceCharacters &&
@@ -220,6 +221,7 @@ class _$ServerConfiguration extends ServerConfiguration {
         inactiveSessionThreshold == other.inactiveSessionThreshold &&
         libraryMonitorDelay == other.libraryMonitorDelay &&
         libraryUpdateDuration == other.libraryUpdateDuration &&
+        cacheSize == other.cacheSize &&
         imageSavingConvention == other.imageSavingConvention &&
         metadataOptions == other.metadataOptions &&
         skipDeserializationForBasicTypes ==
@@ -230,7 +232,10 @@ class _$ServerConfiguration extends ServerConfiguration {
         contentTypes == other.contentTypes &&
         remoteClientBitrateLimit == other.remoteClientBitrateLimit &&
         enableFolderView == other.enableFolderView &&
-        enableGroupingIntoCollections == other.enableGroupingIntoCollections &&
+        enableGroupingMoviesIntoCollections ==
+            other.enableGroupingMoviesIntoCollections &&
+        enableGroupingShowsIntoCollections ==
+            other.enableGroupingShowsIntoCollections &&
         displaySpecialsWithinSeasons == other.displaySpecialsWithinSeasons &&
         codecsUsed == other.codecsUsed &&
         pluginRepositories == other.pluginRepositories &&
@@ -245,13 +250,13 @@ class _$ServerConfiguration extends ServerConfiguration {
         libraryScanFanoutConcurrency == other.libraryScanFanoutConcurrency &&
         libraryMetadataRefreshConcurrency ==
             other.libraryMetadataRefreshConcurrency &&
-        removeOldPlugins == other.removeOldPlugins &&
         allowClientLogUpload == other.allowClientLogUpload &&
         dummyChapterDuration == other.dummyChapterDuration &&
         chapterImageResolution == other.chapterImageResolution &&
         parallelImageEncodingLimit == other.parallelImageEncodingLimit &&
         castReceiverApplications == other.castReceiverApplications &&
-        trickplayOptions == other.trickplayOptions;
+        trickplayOptions == other.trickplayOptions &&
+        enableLegacyAuthorization == other.enableLegacyAuthorization;
   }
 
   @override
@@ -269,7 +274,6 @@ class _$ServerConfiguration extends ServerConfiguration {
     _$hash = $jc(_$hash, enableCaseSensitiveItemIds.hashCode);
     _$hash = $jc(_$hash, disableLiveTvChannelUserDataName.hashCode);
     _$hash = $jc(_$hash, metadataPath.hashCode);
-    _$hash = $jc(_$hash, metadataNetworkPath.hashCode);
     _$hash = $jc(_$hash, preferredMetadataLanguage.hashCode);
     _$hash = $jc(_$hash, metadataCountryCode.hashCode);
     _$hash = $jc(_$hash, sortReplaceCharacters.hashCode);
@@ -283,6 +287,7 @@ class _$ServerConfiguration extends ServerConfiguration {
     _$hash = $jc(_$hash, inactiveSessionThreshold.hashCode);
     _$hash = $jc(_$hash, libraryMonitorDelay.hashCode);
     _$hash = $jc(_$hash, libraryUpdateDuration.hashCode);
+    _$hash = $jc(_$hash, cacheSize.hashCode);
     _$hash = $jc(_$hash, imageSavingConvention.hashCode);
     _$hash = $jc(_$hash, metadataOptions.hashCode);
     _$hash = $jc(_$hash, skipDeserializationForBasicTypes.hashCode);
@@ -292,7 +297,8 @@ class _$ServerConfiguration extends ServerConfiguration {
     _$hash = $jc(_$hash, contentTypes.hashCode);
     _$hash = $jc(_$hash, remoteClientBitrateLimit.hashCode);
     _$hash = $jc(_$hash, enableFolderView.hashCode);
-    _$hash = $jc(_$hash, enableGroupingIntoCollections.hashCode);
+    _$hash = $jc(_$hash, enableGroupingMoviesIntoCollections.hashCode);
+    _$hash = $jc(_$hash, enableGroupingShowsIntoCollections.hashCode);
     _$hash = $jc(_$hash, displaySpecialsWithinSeasons.hashCode);
     _$hash = $jc(_$hash, codecsUsed.hashCode);
     _$hash = $jc(_$hash, pluginRepositories.hashCode);
@@ -305,13 +311,13 @@ class _$ServerConfiguration extends ServerConfiguration {
     _$hash = $jc(_$hash, activityLogRetentionDays.hashCode);
     _$hash = $jc(_$hash, libraryScanFanoutConcurrency.hashCode);
     _$hash = $jc(_$hash, libraryMetadataRefreshConcurrency.hashCode);
-    _$hash = $jc(_$hash, removeOldPlugins.hashCode);
     _$hash = $jc(_$hash, allowClientLogUpload.hashCode);
     _$hash = $jc(_$hash, dummyChapterDuration.hashCode);
     _$hash = $jc(_$hash, chapterImageResolution.hashCode);
     _$hash = $jc(_$hash, parallelImageEncodingLimit.hashCode);
     _$hash = $jc(_$hash, castReceiverApplications.hashCode);
     _$hash = $jc(_$hash, trickplayOptions.hashCode);
+    _$hash = $jc(_$hash, enableLegacyAuthorization.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -332,7 +338,6 @@ class _$ServerConfiguration extends ServerConfiguration {
           ..add('disableLiveTvChannelUserDataName',
               disableLiveTvChannelUserDataName)
           ..add('metadataPath', metadataPath)
-          ..add('metadataNetworkPath', metadataNetworkPath)
           ..add('preferredMetadataLanguage', preferredMetadataLanguage)
           ..add('metadataCountryCode', metadataCountryCode)
           ..add('sortReplaceCharacters', sortReplaceCharacters)
@@ -346,6 +351,7 @@ class _$ServerConfiguration extends ServerConfiguration {
           ..add('inactiveSessionThreshold', inactiveSessionThreshold)
           ..add('libraryMonitorDelay', libraryMonitorDelay)
           ..add('libraryUpdateDuration', libraryUpdateDuration)
+          ..add('cacheSize', cacheSize)
           ..add('imageSavingConvention', imageSavingConvention)
           ..add('metadataOptions', metadataOptions)
           ..add('skipDeserializationForBasicTypes',
@@ -356,7 +362,10 @@ class _$ServerConfiguration extends ServerConfiguration {
           ..add('contentTypes', contentTypes)
           ..add('remoteClientBitrateLimit', remoteClientBitrateLimit)
           ..add('enableFolderView', enableFolderView)
-          ..add('enableGroupingIntoCollections', enableGroupingIntoCollections)
+          ..add('enableGroupingMoviesIntoCollections',
+              enableGroupingMoviesIntoCollections)
+          ..add('enableGroupingShowsIntoCollections',
+              enableGroupingShowsIntoCollections)
           ..add('displaySpecialsWithinSeasons', displaySpecialsWithinSeasons)
           ..add('codecsUsed', codecsUsed)
           ..add('pluginRepositories', pluginRepositories)
@@ -371,13 +380,13 @@ class _$ServerConfiguration extends ServerConfiguration {
           ..add('libraryScanFanoutConcurrency', libraryScanFanoutConcurrency)
           ..add('libraryMetadataRefreshConcurrency',
               libraryMetadataRefreshConcurrency)
-          ..add('removeOldPlugins', removeOldPlugins)
           ..add('allowClientLogUpload', allowClientLogUpload)
           ..add('dummyChapterDuration', dummyChapterDuration)
           ..add('chapterImageResolution', chapterImageResolution)
           ..add('parallelImageEncodingLimit', parallelImageEncodingLimit)
           ..add('castReceiverApplications', castReceiverApplications)
-          ..add('trickplayOptions', trickplayOptions))
+          ..add('trickplayOptions', trickplayOptions)
+          ..add('enableLegacyAuthorization', enableLegacyAuthorization))
         .toString();
   }
 }
@@ -448,11 +457,6 @@ class ServerConfigurationBuilder
   String? get metadataPath => _$this._metadataPath;
   set metadataPath(String? metadataPath) => _$this._metadataPath = metadataPath;
 
-  String? _metadataNetworkPath;
-  String? get metadataNetworkPath => _$this._metadataNetworkPath;
-  set metadataNetworkPath(String? metadataNetworkPath) =>
-      _$this._metadataNetworkPath = metadataNetworkPath;
-
   String? _preferredMetadataLanguage;
   String? get preferredMetadataLanguage => _$this._preferredMetadataLanguage;
   set preferredMetadataLanguage(String? preferredMetadataLanguage) =>
@@ -465,19 +469,19 @@ class ServerConfigurationBuilder
 
   ListBuilder<String>? _sortReplaceCharacters;
   ListBuilder<String> get sortReplaceCharacters =>
-      _$this._sortReplaceCharacters ??= new ListBuilder<String>();
+      _$this._sortReplaceCharacters ??= ListBuilder<String>();
   set sortReplaceCharacters(ListBuilder<String>? sortReplaceCharacters) =>
       _$this._sortReplaceCharacters = sortReplaceCharacters;
 
   ListBuilder<String>? _sortRemoveCharacters;
   ListBuilder<String> get sortRemoveCharacters =>
-      _$this._sortRemoveCharacters ??= new ListBuilder<String>();
+      _$this._sortRemoveCharacters ??= ListBuilder<String>();
   set sortRemoveCharacters(ListBuilder<String>? sortRemoveCharacters) =>
       _$this._sortRemoveCharacters = sortRemoveCharacters;
 
   ListBuilder<String>? _sortRemoveWords;
   ListBuilder<String> get sortRemoveWords =>
-      _$this._sortRemoveWords ??= new ListBuilder<String>();
+      _$this._sortRemoveWords ??= ListBuilder<String>();
   set sortRemoveWords(ListBuilder<String>? sortRemoveWords) =>
       _$this._sortRemoveWords = sortRemoveWords;
 
@@ -519,6 +523,10 @@ class ServerConfigurationBuilder
   set libraryUpdateDuration(int? libraryUpdateDuration) =>
       _$this._libraryUpdateDuration = libraryUpdateDuration;
 
+  int? _cacheSize;
+  int? get cacheSize => _$this._cacheSize;
+  set cacheSize(int? cacheSize) => _$this._cacheSize = cacheSize;
+
   ImageSavingConvention? _imageSavingConvention;
   ImageSavingConvention? get imageSavingConvention =>
       _$this._imageSavingConvention;
@@ -527,7 +535,7 @@ class ServerConfigurationBuilder
 
   ListBuilder<MetadataOptions>? _metadataOptions;
   ListBuilder<MetadataOptions> get metadataOptions =>
-      _$this._metadataOptions ??= new ListBuilder<MetadataOptions>();
+      _$this._metadataOptions ??= ListBuilder<MetadataOptions>();
   set metadataOptions(ListBuilder<MetadataOptions>? metadataOptions) =>
       _$this._metadataOptions = metadataOptions;
 
@@ -554,7 +562,7 @@ class ServerConfigurationBuilder
 
   ListBuilder<NameValuePair>? _contentTypes;
   ListBuilder<NameValuePair> get contentTypes =>
-      _$this._contentTypes ??= new ListBuilder<NameValuePair>();
+      _$this._contentTypes ??= ListBuilder<NameValuePair>();
   set contentTypes(ListBuilder<NameValuePair>? contentTypes) =>
       _$this._contentTypes = contentTypes;
 
@@ -568,11 +576,21 @@ class ServerConfigurationBuilder
   set enableFolderView(bool? enableFolderView) =>
       _$this._enableFolderView = enableFolderView;
 
-  bool? _enableGroupingIntoCollections;
-  bool? get enableGroupingIntoCollections =>
-      _$this._enableGroupingIntoCollections;
-  set enableGroupingIntoCollections(bool? enableGroupingIntoCollections) =>
-      _$this._enableGroupingIntoCollections = enableGroupingIntoCollections;
+  bool? _enableGroupingMoviesIntoCollections;
+  bool? get enableGroupingMoviesIntoCollections =>
+      _$this._enableGroupingMoviesIntoCollections;
+  set enableGroupingMoviesIntoCollections(
+          bool? enableGroupingMoviesIntoCollections) =>
+      _$this._enableGroupingMoviesIntoCollections =
+          enableGroupingMoviesIntoCollections;
+
+  bool? _enableGroupingShowsIntoCollections;
+  bool? get enableGroupingShowsIntoCollections =>
+      _$this._enableGroupingShowsIntoCollections;
+  set enableGroupingShowsIntoCollections(
+          bool? enableGroupingShowsIntoCollections) =>
+      _$this._enableGroupingShowsIntoCollections =
+          enableGroupingShowsIntoCollections;
 
   bool? _displaySpecialsWithinSeasons;
   bool? get displaySpecialsWithinSeasons =>
@@ -582,13 +600,13 @@ class ServerConfigurationBuilder
 
   ListBuilder<String>? _codecsUsed;
   ListBuilder<String> get codecsUsed =>
-      _$this._codecsUsed ??= new ListBuilder<String>();
+      _$this._codecsUsed ??= ListBuilder<String>();
   set codecsUsed(ListBuilder<String>? codecsUsed) =>
       _$this._codecsUsed = codecsUsed;
 
   ListBuilder<RepositoryInfo>? _pluginRepositories;
   ListBuilder<RepositoryInfo> get pluginRepositories =>
-      _$this._pluginRepositories ??= new ListBuilder<RepositoryInfo>();
+      _$this._pluginRepositories ??= ListBuilder<RepositoryInfo>();
   set pluginRepositories(ListBuilder<RepositoryInfo>? pluginRepositories) =>
       _$this._pluginRepositories = pluginRepositories;
 
@@ -607,7 +625,7 @@ class ServerConfigurationBuilder
 
   ListBuilder<PathSubstitution>? _pathSubstitutions;
   ListBuilder<PathSubstitution> get pathSubstitutions =>
-      _$this._pathSubstitutions ??= new ListBuilder<PathSubstitution>();
+      _$this._pathSubstitutions ??= ListBuilder<PathSubstitution>();
   set pathSubstitutions(ListBuilder<PathSubstitution>? pathSubstitutions) =>
       _$this._pathSubstitutions = pathSubstitutions;
 
@@ -623,7 +641,7 @@ class ServerConfigurationBuilder
 
   ListBuilder<String>? _corsHosts;
   ListBuilder<String> get corsHosts =>
-      _$this._corsHosts ??= new ListBuilder<String>();
+      _$this._corsHosts ??= ListBuilder<String>();
   set corsHosts(ListBuilder<String>? corsHosts) =>
       _$this._corsHosts = corsHosts;
 
@@ -644,11 +662,6 @@ class ServerConfigurationBuilder
           int? libraryMetadataRefreshConcurrency) =>
       _$this._libraryMetadataRefreshConcurrency =
           libraryMetadataRefreshConcurrency;
-
-  bool? _removeOldPlugins;
-  bool? get removeOldPlugins => _$this._removeOldPlugins;
-  set removeOldPlugins(bool? removeOldPlugins) =>
-      _$this._removeOldPlugins = removeOldPlugins;
 
   bool? _allowClientLogUpload;
   bool? get allowClientLogUpload => _$this._allowClientLogUpload;
@@ -673,16 +686,21 @@ class ServerConfigurationBuilder
   ListBuilder<CastReceiverApplication>? _castReceiverApplications;
   ListBuilder<CastReceiverApplication> get castReceiverApplications =>
       _$this._castReceiverApplications ??=
-          new ListBuilder<CastReceiverApplication>();
+          ListBuilder<CastReceiverApplication>();
   set castReceiverApplications(
           ListBuilder<CastReceiverApplication>? castReceiverApplications) =>
       _$this._castReceiverApplications = castReceiverApplications;
 
   TrickplayOptionsBuilder? _trickplayOptions;
   TrickplayOptionsBuilder get trickplayOptions =>
-      _$this._trickplayOptions ??= new TrickplayOptionsBuilder();
+      _$this._trickplayOptions ??= TrickplayOptionsBuilder();
   set trickplayOptions(TrickplayOptionsBuilder? trickplayOptions) =>
       _$this._trickplayOptions = trickplayOptions;
+
+  bool? _enableLegacyAuthorization;
+  bool? get enableLegacyAuthorization => _$this._enableLegacyAuthorization;
+  set enableLegacyAuthorization(bool? enableLegacyAuthorization) =>
+      _$this._enableLegacyAuthorization = enableLegacyAuthorization;
 
   ServerConfigurationBuilder() {
     ServerConfiguration._defaults(this);
@@ -703,7 +721,6 @@ class ServerConfigurationBuilder
       _enableCaseSensitiveItemIds = $v.enableCaseSensitiveItemIds;
       _disableLiveTvChannelUserDataName = $v.disableLiveTvChannelUserDataName;
       _metadataPath = $v.metadataPath;
-      _metadataNetworkPath = $v.metadataNetworkPath;
       _preferredMetadataLanguage = $v.preferredMetadataLanguage;
       _metadataCountryCode = $v.metadataCountryCode;
       _sortReplaceCharacters = $v.sortReplaceCharacters?.toBuilder();
@@ -717,6 +734,7 @@ class ServerConfigurationBuilder
       _inactiveSessionThreshold = $v.inactiveSessionThreshold;
       _libraryMonitorDelay = $v.libraryMonitorDelay;
       _libraryUpdateDuration = $v.libraryUpdateDuration;
+      _cacheSize = $v.cacheSize;
       _imageSavingConvention = $v.imageSavingConvention;
       _metadataOptions = $v.metadataOptions?.toBuilder();
       _skipDeserializationForBasicTypes = $v.skipDeserializationForBasicTypes;
@@ -726,7 +744,10 @@ class ServerConfigurationBuilder
       _contentTypes = $v.contentTypes?.toBuilder();
       _remoteClientBitrateLimit = $v.remoteClientBitrateLimit;
       _enableFolderView = $v.enableFolderView;
-      _enableGroupingIntoCollections = $v.enableGroupingIntoCollections;
+      _enableGroupingMoviesIntoCollections =
+          $v.enableGroupingMoviesIntoCollections;
+      _enableGroupingShowsIntoCollections =
+          $v.enableGroupingShowsIntoCollections;
       _displaySpecialsWithinSeasons = $v.displaySpecialsWithinSeasons;
       _codecsUsed = $v.codecsUsed?.toBuilder();
       _pluginRepositories = $v.pluginRepositories?.toBuilder();
@@ -740,13 +761,13 @@ class ServerConfigurationBuilder
       _activityLogRetentionDays = $v.activityLogRetentionDays;
       _libraryScanFanoutConcurrency = $v.libraryScanFanoutConcurrency;
       _libraryMetadataRefreshConcurrency = $v.libraryMetadataRefreshConcurrency;
-      _removeOldPlugins = $v.removeOldPlugins;
       _allowClientLogUpload = $v.allowClientLogUpload;
       _dummyChapterDuration = $v.dummyChapterDuration;
       _chapterImageResolution = $v.chapterImageResolution;
       _parallelImageEncodingLimit = $v.parallelImageEncodingLimit;
       _castReceiverApplications = $v.castReceiverApplications?.toBuilder();
       _trickplayOptions = $v.trickplayOptions?.toBuilder();
+      _enableLegacyAuthorization = $v.enableLegacyAuthorization;
       _$v = null;
     }
     return this;
@@ -754,7 +775,6 @@ class ServerConfigurationBuilder
 
   @override
   void replace(ServerConfiguration other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServerConfiguration;
   }
 
@@ -770,66 +790,68 @@ class ServerConfigurationBuilder
     _$ServerConfiguration _$result;
     try {
       _$result = _$v ??
-          new _$ServerConfiguration._(
-              logFileRetentionDays: logFileRetentionDays,
-              isStartupWizardCompleted: isStartupWizardCompleted,
-              cachePath: cachePath,
-              previousVersion: previousVersion,
-              previousVersionStr: previousVersionStr,
-              enableMetrics: enableMetrics,
-              enableNormalizedItemByNameIds: enableNormalizedItemByNameIds,
-              isPortAuthorized: isPortAuthorized,
-              quickConnectAvailable: quickConnectAvailable,
-              enableCaseSensitiveItemIds: enableCaseSensitiveItemIds,
-              disableLiveTvChannelUserDataName:
-                  disableLiveTvChannelUserDataName,
-              metadataPath: metadataPath,
-              metadataNetworkPath: metadataNetworkPath,
-              preferredMetadataLanguage: preferredMetadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              sortReplaceCharacters: _sortReplaceCharacters?.build(),
-              sortRemoveCharacters: _sortRemoveCharacters?.build(),
-              sortRemoveWords: _sortRemoveWords?.build(),
-              minResumePct: minResumePct,
-              maxResumePct: maxResumePct,
-              minResumeDurationSeconds: minResumeDurationSeconds,
-              minAudiobookResume: minAudiobookResume,
-              maxAudiobookResume: maxAudiobookResume,
-              inactiveSessionThreshold: inactiveSessionThreshold,
-              libraryMonitorDelay: libraryMonitorDelay,
-              libraryUpdateDuration: libraryUpdateDuration,
-              imageSavingConvention: imageSavingConvention,
-              metadataOptions: _metadataOptions?.build(),
-              skipDeserializationForBasicTypes:
-                  skipDeserializationForBasicTypes,
-              serverName: serverName,
-              uICulture: uICulture,
-              saveMetadataHidden: saveMetadataHidden,
-              contentTypes: _contentTypes?.build(),
-              remoteClientBitrateLimit: remoteClientBitrateLimit,
-              enableFolderView: enableFolderView,
-              enableGroupingIntoCollections: enableGroupingIntoCollections,
-              displaySpecialsWithinSeasons: displaySpecialsWithinSeasons,
-              codecsUsed: _codecsUsed?.build(),
-              pluginRepositories: _pluginRepositories?.build(),
-              enableExternalContentInSuggestions:
-                  enableExternalContentInSuggestions,
-              imageExtractionTimeoutMs: imageExtractionTimeoutMs,
-              pathSubstitutions: _pathSubstitutions?.build(),
-              enableSlowResponseWarning: enableSlowResponseWarning,
-              slowResponseThresholdMs: slowResponseThresholdMs,
-              corsHosts: _corsHosts?.build(),
-              activityLogRetentionDays: activityLogRetentionDays,
-              libraryScanFanoutConcurrency: libraryScanFanoutConcurrency,
-              libraryMetadataRefreshConcurrency:
-                  libraryMetadataRefreshConcurrency,
-              removeOldPlugins: removeOldPlugins,
-              allowClientLogUpload: allowClientLogUpload,
-              dummyChapterDuration: dummyChapterDuration,
-              chapterImageResolution: chapterImageResolution,
-              parallelImageEncodingLimit: parallelImageEncodingLimit,
-              castReceiverApplications: _castReceiverApplications?.build(),
-              trickplayOptions: _trickplayOptions?.build());
+          _$ServerConfiguration._(
+            logFileRetentionDays: logFileRetentionDays,
+            isStartupWizardCompleted: isStartupWizardCompleted,
+            cachePath: cachePath,
+            previousVersion: previousVersion,
+            previousVersionStr: previousVersionStr,
+            enableMetrics: enableMetrics,
+            enableNormalizedItemByNameIds: enableNormalizedItemByNameIds,
+            isPortAuthorized: isPortAuthorized,
+            quickConnectAvailable: quickConnectAvailable,
+            enableCaseSensitiveItemIds: enableCaseSensitiveItemIds,
+            disableLiveTvChannelUserDataName: disableLiveTvChannelUserDataName,
+            metadataPath: metadataPath,
+            preferredMetadataLanguage: preferredMetadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            sortReplaceCharacters: _sortReplaceCharacters?.build(),
+            sortRemoveCharacters: _sortRemoveCharacters?.build(),
+            sortRemoveWords: _sortRemoveWords?.build(),
+            minResumePct: minResumePct,
+            maxResumePct: maxResumePct,
+            minResumeDurationSeconds: minResumeDurationSeconds,
+            minAudiobookResume: minAudiobookResume,
+            maxAudiobookResume: maxAudiobookResume,
+            inactiveSessionThreshold: inactiveSessionThreshold,
+            libraryMonitorDelay: libraryMonitorDelay,
+            libraryUpdateDuration: libraryUpdateDuration,
+            cacheSize: cacheSize,
+            imageSavingConvention: imageSavingConvention,
+            metadataOptions: _metadataOptions?.build(),
+            skipDeserializationForBasicTypes: skipDeserializationForBasicTypes,
+            serverName: serverName,
+            uICulture: uICulture,
+            saveMetadataHidden: saveMetadataHidden,
+            contentTypes: _contentTypes?.build(),
+            remoteClientBitrateLimit: remoteClientBitrateLimit,
+            enableFolderView: enableFolderView,
+            enableGroupingMoviesIntoCollections:
+                enableGroupingMoviesIntoCollections,
+            enableGroupingShowsIntoCollections:
+                enableGroupingShowsIntoCollections,
+            displaySpecialsWithinSeasons: displaySpecialsWithinSeasons,
+            codecsUsed: _codecsUsed?.build(),
+            pluginRepositories: _pluginRepositories?.build(),
+            enableExternalContentInSuggestions:
+                enableExternalContentInSuggestions,
+            imageExtractionTimeoutMs: imageExtractionTimeoutMs,
+            pathSubstitutions: _pathSubstitutions?.build(),
+            enableSlowResponseWarning: enableSlowResponseWarning,
+            slowResponseThresholdMs: slowResponseThresholdMs,
+            corsHosts: _corsHosts?.build(),
+            activityLogRetentionDays: activityLogRetentionDays,
+            libraryScanFanoutConcurrency: libraryScanFanoutConcurrency,
+            libraryMetadataRefreshConcurrency:
+                libraryMetadataRefreshConcurrency,
+            allowClientLogUpload: allowClientLogUpload,
+            dummyChapterDuration: dummyChapterDuration,
+            chapterImageResolution: chapterImageResolution,
+            parallelImageEncodingLimit: parallelImageEncodingLimit,
+            castReceiverApplications: _castReceiverApplications?.build(),
+            trickplayOptions: _trickplayOptions?.build(),
+            enableLegacyAuthorization: enableLegacyAuthorization,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -862,7 +884,7 @@ class ServerConfigurationBuilder
         _$failedField = 'trickplayOptions';
         _trickplayOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ServerConfiguration', _$failedField, e.toString());
       }
       rethrow;

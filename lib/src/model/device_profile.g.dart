@@ -31,7 +31,7 @@ class _$DeviceProfile extends DeviceProfile {
   final BuiltList<SubtitleProfile>? subtitleProfiles;
 
   factory _$DeviceProfile([void Function(DeviceProfileBuilder)? updates]) =>
-      (new DeviceProfileBuilder()..update(updates))._build();
+      (DeviceProfileBuilder()..update(updates))._build();
 
   _$DeviceProfile._(
       {this.name,
@@ -46,13 +46,12 @@ class _$DeviceProfile extends DeviceProfile {
       this.codecProfiles,
       this.subtitleProfiles})
       : super._();
-
   @override
   DeviceProfile rebuild(void Function(DeviceProfileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DeviceProfileBuilder toBuilder() => new DeviceProfileBuilder()..replace(this);
+  DeviceProfileBuilder toBuilder() => DeviceProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -145,32 +144,32 @@ class DeviceProfileBuilder
 
   ListBuilder<DirectPlayProfile>? _directPlayProfiles;
   ListBuilder<DirectPlayProfile> get directPlayProfiles =>
-      _$this._directPlayProfiles ??= new ListBuilder<DirectPlayProfile>();
+      _$this._directPlayProfiles ??= ListBuilder<DirectPlayProfile>();
   set directPlayProfiles(ListBuilder<DirectPlayProfile>? directPlayProfiles) =>
       _$this._directPlayProfiles = directPlayProfiles;
 
   ListBuilder<TranscodingProfile>? _transcodingProfiles;
   ListBuilder<TranscodingProfile> get transcodingProfiles =>
-      _$this._transcodingProfiles ??= new ListBuilder<TranscodingProfile>();
+      _$this._transcodingProfiles ??= ListBuilder<TranscodingProfile>();
   set transcodingProfiles(
           ListBuilder<TranscodingProfile>? transcodingProfiles) =>
       _$this._transcodingProfiles = transcodingProfiles;
 
   ListBuilder<ContainerProfile>? _containerProfiles;
   ListBuilder<ContainerProfile> get containerProfiles =>
-      _$this._containerProfiles ??= new ListBuilder<ContainerProfile>();
+      _$this._containerProfiles ??= ListBuilder<ContainerProfile>();
   set containerProfiles(ListBuilder<ContainerProfile>? containerProfiles) =>
       _$this._containerProfiles = containerProfiles;
 
   ListBuilder<CodecProfile>? _codecProfiles;
   ListBuilder<CodecProfile> get codecProfiles =>
-      _$this._codecProfiles ??= new ListBuilder<CodecProfile>();
+      _$this._codecProfiles ??= ListBuilder<CodecProfile>();
   set codecProfiles(ListBuilder<CodecProfile>? codecProfiles) =>
       _$this._codecProfiles = codecProfiles;
 
   ListBuilder<SubtitleProfile>? _subtitleProfiles;
   ListBuilder<SubtitleProfile> get subtitleProfiles =>
-      _$this._subtitleProfiles ??= new ListBuilder<SubtitleProfile>();
+      _$this._subtitleProfiles ??= ListBuilder<SubtitleProfile>();
   set subtitleProfiles(ListBuilder<SubtitleProfile>? subtitleProfiles) =>
       _$this._subtitleProfiles = subtitleProfiles;
 
@@ -199,7 +198,6 @@ class DeviceProfileBuilder
 
   @override
   void replace(DeviceProfile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DeviceProfile;
   }
 
@@ -215,19 +213,19 @@ class DeviceProfileBuilder
     _$DeviceProfile _$result;
     try {
       _$result = _$v ??
-          new _$DeviceProfile._(
-              name: name,
-              id: id,
-              maxStreamingBitrate: maxStreamingBitrate,
-              maxStaticBitrate: maxStaticBitrate,
-              musicStreamingTranscodingBitrate:
-                  musicStreamingTranscodingBitrate,
-              maxStaticMusicBitrate: maxStaticMusicBitrate,
-              directPlayProfiles: _directPlayProfiles?.build(),
-              transcodingProfiles: _transcodingProfiles?.build(),
-              containerProfiles: _containerProfiles?.build(),
-              codecProfiles: _codecProfiles?.build(),
-              subtitleProfiles: _subtitleProfiles?.build());
+          _$DeviceProfile._(
+            name: name,
+            id: id,
+            maxStreamingBitrate: maxStreamingBitrate,
+            maxStaticBitrate: maxStaticBitrate,
+            musicStreamingTranscodingBitrate: musicStreamingTranscodingBitrate,
+            maxStaticMusicBitrate: maxStaticMusicBitrate,
+            directPlayProfiles: _directPlayProfiles?.build(),
+            transcodingProfiles: _transcodingProfiles?.build(),
+            containerProfiles: _containerProfiles?.build(),
+            codecProfiles: _codecProfiles?.build(),
+            subtitleProfiles: _subtitleProfiles?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -242,7 +240,7 @@ class DeviceProfileBuilder
         _$failedField = 'subtitleProfiles';
         _subtitleProfiles?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DeviceProfile', _$failedField, e.toString());
       }
       rethrow;

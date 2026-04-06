@@ -12,10 +12,9 @@ class _$LiveStreamResponse extends LiveStreamResponse {
 
   factory _$LiveStreamResponse(
           [void Function(LiveStreamResponseBuilder)? updates]) =>
-      (new LiveStreamResponseBuilder()..update(updates))._build();
+      (LiveStreamResponseBuilder()..update(updates))._build();
 
   _$LiveStreamResponse._({this.mediaSource}) : super._();
-
   @override
   LiveStreamResponse rebuild(
           void Function(LiveStreamResponseBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$LiveStreamResponse extends LiveStreamResponse {
 
   @override
   LiveStreamResponseBuilder toBuilder() =>
-      new LiveStreamResponseBuilder()..replace(this);
+      LiveStreamResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -53,7 +52,7 @@ class LiveStreamResponseBuilder
 
   MediaSourceInfoBuilder? _mediaSource;
   MediaSourceInfoBuilder get mediaSource =>
-      _$this._mediaSource ??= new MediaSourceInfoBuilder();
+      _$this._mediaSource ??= MediaSourceInfoBuilder();
   set mediaSource(MediaSourceInfoBuilder? mediaSource) =>
       _$this._mediaSource = mediaSource;
 
@@ -72,7 +71,6 @@ class LiveStreamResponseBuilder
 
   @override
   void replace(LiveStreamResponse other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LiveStreamResponse;
   }
 
@@ -87,15 +85,17 @@ class LiveStreamResponseBuilder
   _$LiveStreamResponse _build() {
     _$LiveStreamResponse _$result;
     try {
-      _$result =
-          _$v ?? new _$LiveStreamResponse._(mediaSource: _mediaSource?.build());
+      _$result = _$v ??
+          _$LiveStreamResponse._(
+            mediaSource: _mediaSource?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'mediaSource';
         _mediaSource?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LiveStreamResponse', _$failedField, e.toString());
       }
       rethrow;

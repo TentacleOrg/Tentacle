@@ -48,6 +48,8 @@ class _$MediaSourceInfo extends MediaSourceInfo {
   @override
   final bool? isInfiniteStream;
   @override
+  final bool? useMostCompatibleTranscodingProfile;
+  @override
   final bool? requiresOpening;
   @override
   final String? openToken;
@@ -76,6 +78,8 @@ class _$MediaSourceInfo extends MediaSourceInfo {
   @override
   final int? bitrate;
   @override
+  final int? fallbackMaxStreamingBitrate;
+  @override
   final TransportStreamTimestamp? timestamp;
   @override
   final BuiltMap<String, String?>? requiredHttpHeaders;
@@ -91,9 +95,11 @@ class _$MediaSourceInfo extends MediaSourceInfo {
   final int? defaultAudioStreamIndex;
   @override
   final int? defaultSubtitleStreamIndex;
+  @override
+  final bool? hasSegments;
 
   factory _$MediaSourceInfo([void Function(MediaSourceInfoBuilder)? updates]) =>
-      (new MediaSourceInfoBuilder()..update(updates))._build();
+      (MediaSourceInfoBuilder()..update(updates))._build();
 
   _$MediaSourceInfo._(
       {this.protocol,
@@ -116,6 +122,7 @@ class _$MediaSourceInfo extends MediaSourceInfo {
       this.supportsDirectStream,
       this.supportsDirectPlay,
       this.isInfiniteStream,
+      this.useMostCompatibleTranscodingProfile,
       this.requiresOpening,
       this.openToken,
       this.requiresClosing,
@@ -130,6 +137,7 @@ class _$MediaSourceInfo extends MediaSourceInfo {
       this.mediaAttachments,
       this.formats,
       this.bitrate,
+      this.fallbackMaxStreamingBitrate,
       this.timestamp,
       this.requiredHttpHeaders,
       this.transcodingUrl,
@@ -137,16 +145,15 @@ class _$MediaSourceInfo extends MediaSourceInfo {
       this.transcodingContainer,
       this.analyzeDurationMs,
       this.defaultAudioStreamIndex,
-      this.defaultSubtitleStreamIndex})
+      this.defaultSubtitleStreamIndex,
+      this.hasSegments})
       : super._();
-
   @override
   MediaSourceInfo rebuild(void Function(MediaSourceInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MediaSourceInfoBuilder toBuilder() =>
-      new MediaSourceInfoBuilder()..replace(this);
+  MediaSourceInfoBuilder toBuilder() => MediaSourceInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -172,6 +179,8 @@ class _$MediaSourceInfo extends MediaSourceInfo {
         supportsDirectStream == other.supportsDirectStream &&
         supportsDirectPlay == other.supportsDirectPlay &&
         isInfiniteStream == other.isInfiniteStream &&
+        useMostCompatibleTranscodingProfile ==
+            other.useMostCompatibleTranscodingProfile &&
         requiresOpening == other.requiresOpening &&
         openToken == other.openToken &&
         requiresClosing == other.requiresClosing &&
@@ -186,6 +195,7 @@ class _$MediaSourceInfo extends MediaSourceInfo {
         mediaAttachments == other.mediaAttachments &&
         formats == other.formats &&
         bitrate == other.bitrate &&
+        fallbackMaxStreamingBitrate == other.fallbackMaxStreamingBitrate &&
         timestamp == other.timestamp &&
         requiredHttpHeaders == other.requiredHttpHeaders &&
         transcodingUrl == other.transcodingUrl &&
@@ -193,7 +203,8 @@ class _$MediaSourceInfo extends MediaSourceInfo {
         transcodingContainer == other.transcodingContainer &&
         analyzeDurationMs == other.analyzeDurationMs &&
         defaultAudioStreamIndex == other.defaultAudioStreamIndex &&
-        defaultSubtitleStreamIndex == other.defaultSubtitleStreamIndex;
+        defaultSubtitleStreamIndex == other.defaultSubtitleStreamIndex &&
+        hasSegments == other.hasSegments;
   }
 
   @override
@@ -219,6 +230,7 @@ class _$MediaSourceInfo extends MediaSourceInfo {
     _$hash = $jc(_$hash, supportsDirectStream.hashCode);
     _$hash = $jc(_$hash, supportsDirectPlay.hashCode);
     _$hash = $jc(_$hash, isInfiniteStream.hashCode);
+    _$hash = $jc(_$hash, useMostCompatibleTranscodingProfile.hashCode);
     _$hash = $jc(_$hash, requiresOpening.hashCode);
     _$hash = $jc(_$hash, openToken.hashCode);
     _$hash = $jc(_$hash, requiresClosing.hashCode);
@@ -233,6 +245,7 @@ class _$MediaSourceInfo extends MediaSourceInfo {
     _$hash = $jc(_$hash, mediaAttachments.hashCode);
     _$hash = $jc(_$hash, formats.hashCode);
     _$hash = $jc(_$hash, bitrate.hashCode);
+    _$hash = $jc(_$hash, fallbackMaxStreamingBitrate.hashCode);
     _$hash = $jc(_$hash, timestamp.hashCode);
     _$hash = $jc(_$hash, requiredHttpHeaders.hashCode);
     _$hash = $jc(_$hash, transcodingUrl.hashCode);
@@ -241,6 +254,7 @@ class _$MediaSourceInfo extends MediaSourceInfo {
     _$hash = $jc(_$hash, analyzeDurationMs.hashCode);
     _$hash = $jc(_$hash, defaultAudioStreamIndex.hashCode);
     _$hash = $jc(_$hash, defaultSubtitleStreamIndex.hashCode);
+    _$hash = $jc(_$hash, hasSegments.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -268,6 +282,8 @@ class _$MediaSourceInfo extends MediaSourceInfo {
           ..add('supportsDirectStream', supportsDirectStream)
           ..add('supportsDirectPlay', supportsDirectPlay)
           ..add('isInfiniteStream', isInfiniteStream)
+          ..add('useMostCompatibleTranscodingProfile',
+              useMostCompatibleTranscodingProfile)
           ..add('requiresOpening', requiresOpening)
           ..add('openToken', openToken)
           ..add('requiresClosing', requiresClosing)
@@ -282,6 +298,7 @@ class _$MediaSourceInfo extends MediaSourceInfo {
           ..add('mediaAttachments', mediaAttachments)
           ..add('formats', formats)
           ..add('bitrate', bitrate)
+          ..add('fallbackMaxStreamingBitrate', fallbackMaxStreamingBitrate)
           ..add('timestamp', timestamp)
           ..add('requiredHttpHeaders', requiredHttpHeaders)
           ..add('transcodingUrl', transcodingUrl)
@@ -289,7 +306,8 @@ class _$MediaSourceInfo extends MediaSourceInfo {
           ..add('transcodingContainer', transcodingContainer)
           ..add('analyzeDurationMs', analyzeDurationMs)
           ..add('defaultAudioStreamIndex', defaultAudioStreamIndex)
-          ..add('defaultSubtitleStreamIndex', defaultSubtitleStreamIndex))
+          ..add('defaultSubtitleStreamIndex', defaultSubtitleStreamIndex)
+          ..add('hasSegments', hasSegments))
         .toString();
   }
 }
@@ -384,6 +402,14 @@ class MediaSourceInfoBuilder
   set isInfiniteStream(bool? isInfiniteStream) =>
       _$this._isInfiniteStream = isInfiniteStream;
 
+  bool? _useMostCompatibleTranscodingProfile;
+  bool? get useMostCompatibleTranscodingProfile =>
+      _$this._useMostCompatibleTranscodingProfile;
+  set useMostCompatibleTranscodingProfile(
+          bool? useMostCompatibleTranscodingProfile) =>
+      _$this._useMostCompatibleTranscodingProfile =
+          useMostCompatibleTranscodingProfile;
+
   bool? _requiresOpening;
   bool? get requiresOpening => _$this._requiresOpening;
   set requiresOpening(bool? requiresOpening) =>
@@ -431,24 +457,28 @@ class MediaSourceInfoBuilder
 
   ListBuilder<MediaStream>? _mediaStreams;
   ListBuilder<MediaStream> get mediaStreams =>
-      _$this._mediaStreams ??= new ListBuilder<MediaStream>();
+      _$this._mediaStreams ??= ListBuilder<MediaStream>();
   set mediaStreams(ListBuilder<MediaStream>? mediaStreams) =>
       _$this._mediaStreams = mediaStreams;
 
   ListBuilder<MediaAttachment>? _mediaAttachments;
   ListBuilder<MediaAttachment> get mediaAttachments =>
-      _$this._mediaAttachments ??= new ListBuilder<MediaAttachment>();
+      _$this._mediaAttachments ??= ListBuilder<MediaAttachment>();
   set mediaAttachments(ListBuilder<MediaAttachment>? mediaAttachments) =>
       _$this._mediaAttachments = mediaAttachments;
 
   ListBuilder<String>? _formats;
-  ListBuilder<String> get formats =>
-      _$this._formats ??= new ListBuilder<String>();
+  ListBuilder<String> get formats => _$this._formats ??= ListBuilder<String>();
   set formats(ListBuilder<String>? formats) => _$this._formats = formats;
 
   int? _bitrate;
   int? get bitrate => _$this._bitrate;
   set bitrate(int? bitrate) => _$this._bitrate = bitrate;
+
+  int? _fallbackMaxStreamingBitrate;
+  int? get fallbackMaxStreamingBitrate => _$this._fallbackMaxStreamingBitrate;
+  set fallbackMaxStreamingBitrate(int? fallbackMaxStreamingBitrate) =>
+      _$this._fallbackMaxStreamingBitrate = fallbackMaxStreamingBitrate;
 
   TransportStreamTimestamp? _timestamp;
   TransportStreamTimestamp? get timestamp => _$this._timestamp;
@@ -457,7 +487,7 @@ class MediaSourceInfoBuilder
 
   MapBuilder<String, String?>? _requiredHttpHeaders;
   MapBuilder<String, String?> get requiredHttpHeaders =>
-      _$this._requiredHttpHeaders ??= new MapBuilder<String, String?>();
+      _$this._requiredHttpHeaders ??= MapBuilder<String, String?>();
   set requiredHttpHeaders(MapBuilder<String, String?>? requiredHttpHeaders) =>
       _$this._requiredHttpHeaders = requiredHttpHeaders;
 
@@ -492,6 +522,10 @@ class MediaSourceInfoBuilder
   set defaultSubtitleStreamIndex(int? defaultSubtitleStreamIndex) =>
       _$this._defaultSubtitleStreamIndex = defaultSubtitleStreamIndex;
 
+  bool? _hasSegments;
+  bool? get hasSegments => _$this._hasSegments;
+  set hasSegments(bool? hasSegments) => _$this._hasSegments = hasSegments;
+
   MediaSourceInfoBuilder() {
     MediaSourceInfo._defaults(this);
   }
@@ -519,6 +553,8 @@ class MediaSourceInfoBuilder
       _supportsDirectStream = $v.supportsDirectStream;
       _supportsDirectPlay = $v.supportsDirectPlay;
       _isInfiniteStream = $v.isInfiniteStream;
+      _useMostCompatibleTranscodingProfile =
+          $v.useMostCompatibleTranscodingProfile;
       _requiresOpening = $v.requiresOpening;
       _openToken = $v.openToken;
       _requiresClosing = $v.requiresClosing;
@@ -533,6 +569,7 @@ class MediaSourceInfoBuilder
       _mediaAttachments = $v.mediaAttachments?.toBuilder();
       _formats = $v.formats?.toBuilder();
       _bitrate = $v.bitrate;
+      _fallbackMaxStreamingBitrate = $v.fallbackMaxStreamingBitrate;
       _timestamp = $v.timestamp;
       _requiredHttpHeaders = $v.requiredHttpHeaders?.toBuilder();
       _transcodingUrl = $v.transcodingUrl;
@@ -541,6 +578,7 @@ class MediaSourceInfoBuilder
       _analyzeDurationMs = $v.analyzeDurationMs;
       _defaultAudioStreamIndex = $v.defaultAudioStreamIndex;
       _defaultSubtitleStreamIndex = $v.defaultSubtitleStreamIndex;
+      _hasSegments = $v.hasSegments;
       _$v = null;
     }
     return this;
@@ -548,7 +586,6 @@ class MediaSourceInfoBuilder
 
   @override
   void replace(MediaSourceInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaSourceInfo;
   }
 
@@ -564,49 +601,54 @@ class MediaSourceInfoBuilder
     _$MediaSourceInfo _$result;
     try {
       _$result = _$v ??
-          new _$MediaSourceInfo._(
-              protocol: protocol,
-              id: id,
-              path: path,
-              encoderPath: encoderPath,
-              encoderProtocol: encoderProtocol,
-              type: type,
-              container: container,
-              size: size,
-              name: name,
-              isRemote: isRemote,
-              eTag: eTag,
-              runTimeTicks: runTimeTicks,
-              readAtNativeFramerate: readAtNativeFramerate,
-              ignoreDts: ignoreDts,
-              ignoreIndex: ignoreIndex,
-              genPtsInput: genPtsInput,
-              supportsTranscoding: supportsTranscoding,
-              supportsDirectStream: supportsDirectStream,
-              supportsDirectPlay: supportsDirectPlay,
-              isInfiniteStream: isInfiniteStream,
-              requiresOpening: requiresOpening,
-              openToken: openToken,
-              requiresClosing: requiresClosing,
-              liveStreamId: liveStreamId,
-              bufferMs: bufferMs,
-              requiresLooping: requiresLooping,
-              supportsProbing: supportsProbing,
-              videoType: videoType,
-              isoType: isoType,
-              video3DFormat: video3DFormat,
-              mediaStreams: _mediaStreams?.build(),
-              mediaAttachments: _mediaAttachments?.build(),
-              formats: _formats?.build(),
-              bitrate: bitrate,
-              timestamp: timestamp,
-              requiredHttpHeaders: _requiredHttpHeaders?.build(),
-              transcodingUrl: transcodingUrl,
-              transcodingSubProtocol: transcodingSubProtocol,
-              transcodingContainer: transcodingContainer,
-              analyzeDurationMs: analyzeDurationMs,
-              defaultAudioStreamIndex: defaultAudioStreamIndex,
-              defaultSubtitleStreamIndex: defaultSubtitleStreamIndex);
+          _$MediaSourceInfo._(
+            protocol: protocol,
+            id: id,
+            path: path,
+            encoderPath: encoderPath,
+            encoderProtocol: encoderProtocol,
+            type: type,
+            container: container,
+            size: size,
+            name: name,
+            isRemote: isRemote,
+            eTag: eTag,
+            runTimeTicks: runTimeTicks,
+            readAtNativeFramerate: readAtNativeFramerate,
+            ignoreDts: ignoreDts,
+            ignoreIndex: ignoreIndex,
+            genPtsInput: genPtsInput,
+            supportsTranscoding: supportsTranscoding,
+            supportsDirectStream: supportsDirectStream,
+            supportsDirectPlay: supportsDirectPlay,
+            isInfiniteStream: isInfiniteStream,
+            useMostCompatibleTranscodingProfile:
+                useMostCompatibleTranscodingProfile,
+            requiresOpening: requiresOpening,
+            openToken: openToken,
+            requiresClosing: requiresClosing,
+            liveStreamId: liveStreamId,
+            bufferMs: bufferMs,
+            requiresLooping: requiresLooping,
+            supportsProbing: supportsProbing,
+            videoType: videoType,
+            isoType: isoType,
+            video3DFormat: video3DFormat,
+            mediaStreams: _mediaStreams?.build(),
+            mediaAttachments: _mediaAttachments?.build(),
+            formats: _formats?.build(),
+            bitrate: bitrate,
+            fallbackMaxStreamingBitrate: fallbackMaxStreamingBitrate,
+            timestamp: timestamp,
+            requiredHttpHeaders: _requiredHttpHeaders?.build(),
+            transcodingUrl: transcodingUrl,
+            transcodingSubProtocol: transcodingSubProtocol,
+            transcodingContainer: transcodingContainer,
+            analyzeDurationMs: analyzeDurationMs,
+            defaultAudioStreamIndex: defaultAudioStreamIndex,
+            defaultSubtitleStreamIndex: defaultSubtitleStreamIndex,
+            hasSegments: hasSegments,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -620,7 +662,7 @@ class MediaSourceInfoBuilder
         _$failedField = 'requiredHttpHeaders';
         _requiredHttpHeaders?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MediaSourceInfo', _$failedField, e.toString());
       }
       rethrow;

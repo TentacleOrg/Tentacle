@@ -38,6 +38,8 @@ class _$MediaStream extends MediaStream {
   @override
   final int? dvBlSignalCompatibilityId;
   @override
+  final int? rotation;
+  @override
   final String? comment;
   @override
   final String? timeBase;
@@ -45,6 +47,8 @@ class _$MediaStream extends MediaStream {
   final String? codecTimeBase;
   @override
   final String? title;
+  @override
+  final bool? hdr10PlusPresentFlag;
   @override
   final VideoRange? videoRange;
   @override
@@ -100,6 +104,8 @@ class _$MediaStream extends MediaStream {
   @override
   final double? realFrameRate;
   @override
+  final double? referenceFrameRate;
+  @override
   final String? profile;
   @override
   final MediaStreamType? type;
@@ -131,7 +137,7 @@ class _$MediaStream extends MediaStream {
   final bool? isAnamorphic;
 
   factory _$MediaStream([void Function(MediaStreamBuilder)? updates]) =>
-      (new MediaStreamBuilder()..update(updates))._build();
+      (MediaStreamBuilder()..update(updates))._build();
 
   _$MediaStream._(
       {this.codec,
@@ -149,10 +155,12 @@ class _$MediaStream extends MediaStream {
       this.elPresentFlag,
       this.blPresentFlag,
       this.dvBlSignalCompatibilityId,
+      this.rotation,
       this.comment,
       this.timeBase,
       this.codecTimeBase,
       this.title,
+      this.hdr10PlusPresentFlag,
       this.videoRange,
       this.videoRangeType,
       this.videoDoViTitle,
@@ -180,6 +188,7 @@ class _$MediaStream extends MediaStream {
       this.width,
       this.averageFrameRate,
       this.realFrameRate,
+      this.referenceFrameRate,
       this.profile,
       this.type,
       this.aspectRatio,
@@ -196,13 +205,12 @@ class _$MediaStream extends MediaStream {
       this.level,
       this.isAnamorphic})
       : super._();
-
   @override
   MediaStream rebuild(void Function(MediaStreamBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MediaStreamBuilder toBuilder() => new MediaStreamBuilder()..replace(this);
+  MediaStreamBuilder toBuilder() => MediaStreamBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -223,10 +231,12 @@ class _$MediaStream extends MediaStream {
         elPresentFlag == other.elPresentFlag &&
         blPresentFlag == other.blPresentFlag &&
         dvBlSignalCompatibilityId == other.dvBlSignalCompatibilityId &&
+        rotation == other.rotation &&
         comment == other.comment &&
         timeBase == other.timeBase &&
         codecTimeBase == other.codecTimeBase &&
         title == other.title &&
+        hdr10PlusPresentFlag == other.hdr10PlusPresentFlag &&
         videoRange == other.videoRange &&
         videoRangeType == other.videoRangeType &&
         videoDoViTitle == other.videoDoViTitle &&
@@ -254,6 +264,7 @@ class _$MediaStream extends MediaStream {
         width == other.width &&
         averageFrameRate == other.averageFrameRate &&
         realFrameRate == other.realFrameRate &&
+        referenceFrameRate == other.referenceFrameRate &&
         profile == other.profile &&
         type == other.type &&
         aspectRatio == other.aspectRatio &&
@@ -289,10 +300,12 @@ class _$MediaStream extends MediaStream {
     _$hash = $jc(_$hash, elPresentFlag.hashCode);
     _$hash = $jc(_$hash, blPresentFlag.hashCode);
     _$hash = $jc(_$hash, dvBlSignalCompatibilityId.hashCode);
+    _$hash = $jc(_$hash, rotation.hashCode);
     _$hash = $jc(_$hash, comment.hashCode);
     _$hash = $jc(_$hash, timeBase.hashCode);
     _$hash = $jc(_$hash, codecTimeBase.hashCode);
     _$hash = $jc(_$hash, title.hashCode);
+    _$hash = $jc(_$hash, hdr10PlusPresentFlag.hashCode);
     _$hash = $jc(_$hash, videoRange.hashCode);
     _$hash = $jc(_$hash, videoRangeType.hashCode);
     _$hash = $jc(_$hash, videoDoViTitle.hashCode);
@@ -320,6 +333,7 @@ class _$MediaStream extends MediaStream {
     _$hash = $jc(_$hash, width.hashCode);
     _$hash = $jc(_$hash, averageFrameRate.hashCode);
     _$hash = $jc(_$hash, realFrameRate.hashCode);
+    _$hash = $jc(_$hash, referenceFrameRate.hashCode);
     _$hash = $jc(_$hash, profile.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, aspectRatio.hashCode);
@@ -357,10 +371,12 @@ class _$MediaStream extends MediaStream {
           ..add('elPresentFlag', elPresentFlag)
           ..add('blPresentFlag', blPresentFlag)
           ..add('dvBlSignalCompatibilityId', dvBlSignalCompatibilityId)
+          ..add('rotation', rotation)
           ..add('comment', comment)
           ..add('timeBase', timeBase)
           ..add('codecTimeBase', codecTimeBase)
           ..add('title', title)
+          ..add('hdr10PlusPresentFlag', hdr10PlusPresentFlag)
           ..add('videoRange', videoRange)
           ..add('videoRangeType', videoRangeType)
           ..add('videoDoViTitle', videoDoViTitle)
@@ -388,6 +404,7 @@ class _$MediaStream extends MediaStream {
           ..add('width', width)
           ..add('averageFrameRate', averageFrameRate)
           ..add('realFrameRate', realFrameRate)
+          ..add('referenceFrameRate', referenceFrameRate)
           ..add('profile', profile)
           ..add('type', type)
           ..add('aspectRatio', aspectRatio)
@@ -478,6 +495,10 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
   set dvBlSignalCompatibilityId(int? dvBlSignalCompatibilityId) =>
       _$this._dvBlSignalCompatibilityId = dvBlSignalCompatibilityId;
 
+  int? _rotation;
+  int? get rotation => _$this._rotation;
+  set rotation(int? rotation) => _$this._rotation = rotation;
+
   String? _comment;
   String? get comment => _$this._comment;
   set comment(String? comment) => _$this._comment = comment;
@@ -494,6 +515,11 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
   String? _title;
   String? get title => _$this._title;
   set title(String? title) => _$this._title = title;
+
+  bool? _hdr10PlusPresentFlag;
+  bool? get hdr10PlusPresentFlag => _$this._hdr10PlusPresentFlag;
+  set hdr10PlusPresentFlag(bool? hdr10PlusPresentFlag) =>
+      _$this._hdr10PlusPresentFlag = hdr10PlusPresentFlag;
 
   VideoRange? _videoRange;
   VideoRange? get videoRange => _$this._videoRange;
@@ -616,6 +642,11 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
   set realFrameRate(double? realFrameRate) =>
       _$this._realFrameRate = realFrameRate;
 
+  double? _referenceFrameRate;
+  double? get referenceFrameRate => _$this._referenceFrameRate;
+  set referenceFrameRate(double? referenceFrameRate) =>
+      _$this._referenceFrameRate = referenceFrameRate;
+
   String? _profile;
   String? get profile => _$this._profile;
   set profile(String? profile) => _$this._profile = profile;
@@ -702,10 +733,12 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
       _elPresentFlag = $v.elPresentFlag;
       _blPresentFlag = $v.blPresentFlag;
       _dvBlSignalCompatibilityId = $v.dvBlSignalCompatibilityId;
+      _rotation = $v.rotation;
       _comment = $v.comment;
       _timeBase = $v.timeBase;
       _codecTimeBase = $v.codecTimeBase;
       _title = $v.title;
+      _hdr10PlusPresentFlag = $v.hdr10PlusPresentFlag;
       _videoRange = $v.videoRange;
       _videoRangeType = $v.videoRangeType;
       _videoDoViTitle = $v.videoDoViTitle;
@@ -733,6 +766,7 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
       _width = $v.width;
       _averageFrameRate = $v.averageFrameRate;
       _realFrameRate = $v.realFrameRate;
+      _referenceFrameRate = $v.referenceFrameRate;
       _profile = $v.profile;
       _type = $v.type;
       _aspectRatio = $v.aspectRatio;
@@ -755,7 +789,6 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
 
   @override
   void replace(MediaStream other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaStream;
   }
 
@@ -769,68 +802,72 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
 
   _$MediaStream _build() {
     final _$result = _$v ??
-        new _$MediaStream._(
-            codec: codec,
-            codecTag: codecTag,
-            language: language,
-            colorRange: colorRange,
-            colorSpace: colorSpace,
-            colorTransfer: colorTransfer,
-            colorPrimaries: colorPrimaries,
-            dvVersionMajor: dvVersionMajor,
-            dvVersionMinor: dvVersionMinor,
-            dvProfile: dvProfile,
-            dvLevel: dvLevel,
-            rpuPresentFlag: rpuPresentFlag,
-            elPresentFlag: elPresentFlag,
-            blPresentFlag: blPresentFlag,
-            dvBlSignalCompatibilityId: dvBlSignalCompatibilityId,
-            comment: comment,
-            timeBase: timeBase,
-            codecTimeBase: codecTimeBase,
-            title: title,
-            videoRange: videoRange,
-            videoRangeType: videoRangeType,
-            videoDoViTitle: videoDoViTitle,
-            audioSpatialFormat: audioSpatialFormat,
-            localizedUndefined: localizedUndefined,
-            localizedDefault: localizedDefault,
-            localizedForced: localizedForced,
-            localizedExternal: localizedExternal,
-            localizedHearingImpaired: localizedHearingImpaired,
-            displayTitle: displayTitle,
-            nalLengthSize: nalLengthSize,
-            isInterlaced: isInterlaced,
-            isAVC: isAVC,
-            channelLayout: channelLayout,
-            bitRate: bitRate,
-            bitDepth: bitDepth,
-            refFrames: refFrames,
-            packetLength: packetLength,
-            channels: channels,
-            sampleRate: sampleRate,
-            isDefault: isDefault,
-            isForced: isForced,
-            isHearingImpaired: isHearingImpaired,
-            height: height,
-            width: width,
-            averageFrameRate: averageFrameRate,
-            realFrameRate: realFrameRate,
-            profile: profile,
-            type: type,
-            aspectRatio: aspectRatio,
-            index: index,
-            score: score,
-            isExternal: isExternal,
-            deliveryMethod: deliveryMethod,
-            deliveryUrl: deliveryUrl,
-            isExternalUrl: isExternalUrl,
-            isTextSubtitleStream: isTextSubtitleStream,
-            supportsExternalStream: supportsExternalStream,
-            path: path,
-            pixelFormat: pixelFormat,
-            level: level,
-            isAnamorphic: isAnamorphic);
+        _$MediaStream._(
+          codec: codec,
+          codecTag: codecTag,
+          language: language,
+          colorRange: colorRange,
+          colorSpace: colorSpace,
+          colorTransfer: colorTransfer,
+          colorPrimaries: colorPrimaries,
+          dvVersionMajor: dvVersionMajor,
+          dvVersionMinor: dvVersionMinor,
+          dvProfile: dvProfile,
+          dvLevel: dvLevel,
+          rpuPresentFlag: rpuPresentFlag,
+          elPresentFlag: elPresentFlag,
+          blPresentFlag: blPresentFlag,
+          dvBlSignalCompatibilityId: dvBlSignalCompatibilityId,
+          rotation: rotation,
+          comment: comment,
+          timeBase: timeBase,
+          codecTimeBase: codecTimeBase,
+          title: title,
+          hdr10PlusPresentFlag: hdr10PlusPresentFlag,
+          videoRange: videoRange,
+          videoRangeType: videoRangeType,
+          videoDoViTitle: videoDoViTitle,
+          audioSpatialFormat: audioSpatialFormat,
+          localizedUndefined: localizedUndefined,
+          localizedDefault: localizedDefault,
+          localizedForced: localizedForced,
+          localizedExternal: localizedExternal,
+          localizedHearingImpaired: localizedHearingImpaired,
+          displayTitle: displayTitle,
+          nalLengthSize: nalLengthSize,
+          isInterlaced: isInterlaced,
+          isAVC: isAVC,
+          channelLayout: channelLayout,
+          bitRate: bitRate,
+          bitDepth: bitDepth,
+          refFrames: refFrames,
+          packetLength: packetLength,
+          channels: channels,
+          sampleRate: sampleRate,
+          isDefault: isDefault,
+          isForced: isForced,
+          isHearingImpaired: isHearingImpaired,
+          height: height,
+          width: width,
+          averageFrameRate: averageFrameRate,
+          realFrameRate: realFrameRate,
+          referenceFrameRate: referenceFrameRate,
+          profile: profile,
+          type: type,
+          aspectRatio: aspectRatio,
+          index: index,
+          score: score,
+          isExternal: isExternal,
+          deliveryMethod: deliveryMethod,
+          deliveryUrl: deliveryUrl,
+          isExternalUrl: isExternalUrl,
+          isTextSubtitleStream: isTextSubtitleStream,
+          supportsExternalStream: supportsExternalStream,
+          path: path,
+          pixelFormat: pixelFormat,
+          level: level,
+          isAnamorphic: isAnamorphic,
+        );
     replace(_$result);
     return _$result;
   }

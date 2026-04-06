@@ -40,12 +40,12 @@ ChannelMediaContentType _$valueOf(String name) {
     case 'tvExtra':
       return _$tvExtra;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ChannelMediaContentType> _$values =
-    new BuiltSet<ChannelMediaContentType>(const <ChannelMediaContentType>[
+    BuiltSet<ChannelMediaContentType>(const <ChannelMediaContentType>[
   _$clip,
   _$podcast,
   _$trailer,
@@ -77,7 +77,7 @@ mixin _$ChannelMediaContentTypeMixin {
 }
 
 Serializer<ChannelMediaContentType> _$channelMediaContentTypeSerializer =
-    new _$ChannelMediaContentTypeSerializer();
+    _$ChannelMediaContentTypeSerializer();
 
 class _$ChannelMediaContentTypeSerializer
     implements PrimitiveSerializer<ChannelMediaContentType> {

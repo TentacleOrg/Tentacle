@@ -14,10 +14,9 @@ class _$OutboundKeepAliveMessage extends OutboundKeepAliveMessage {
 
   factory _$OutboundKeepAliveMessage(
           [void Function(OutboundKeepAliveMessageBuilder)? updates]) =>
-      (new OutboundKeepAliveMessageBuilder()..update(updates))._build();
+      (OutboundKeepAliveMessageBuilder()..update(updates))._build();
 
   _$OutboundKeepAliveMessage._({this.messageId, this.messageType}) : super._();
-
   @override
   OutboundKeepAliveMessage rebuild(
           void Function(OutboundKeepAliveMessageBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$OutboundKeepAliveMessage extends OutboundKeepAliveMessage {
 
   @override
   OutboundKeepAliveMessageBuilder toBuilder() =>
-      new OutboundKeepAliveMessageBuilder()..replace(this);
+      OutboundKeepAliveMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -83,7 +82,6 @@ class OutboundKeepAliveMessageBuilder
 
   @override
   void replace(OutboundKeepAliveMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$OutboundKeepAliveMessage;
   }
 
@@ -97,8 +95,10 @@ class OutboundKeepAliveMessageBuilder
 
   _$OutboundKeepAliveMessage _build() {
     final _$result = _$v ??
-        new _$OutboundKeepAliveMessage._(
-            messageId: messageId, messageType: messageType);
+        _$OutboundKeepAliveMessage._(
+          messageId: messageId,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

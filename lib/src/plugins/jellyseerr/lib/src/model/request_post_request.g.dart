@@ -19,12 +19,12 @@ RequestPostRequestMediaTypeEnum _$requestPostRequestMediaTypeEnumValueOf(
     case 'tv':
       return _$requestPostRequestMediaTypeEnum_tv;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<RequestPostRequestMediaTypeEnum>
-    _$requestPostRequestMediaTypeEnumValues = new BuiltSet<
+    _$requestPostRequestMediaTypeEnumValues = BuiltSet<
         RequestPostRequestMediaTypeEnum>(const <RequestPostRequestMediaTypeEnum>[
   _$requestPostRequestMediaTypeEnum_movie,
   _$requestPostRequestMediaTypeEnum_tv,
@@ -32,7 +32,7 @@ final BuiltSet<RequestPostRequestMediaTypeEnum>
 
 Serializer<RequestPostRequestMediaTypeEnum>
     _$requestPostRequestMediaTypeEnumSerializer =
-    new _$RequestPostRequestMediaTypeEnumSerializer();
+    _$RequestPostRequestMediaTypeEnumSerializer();
 
 class _$RequestPostRequestMediaTypeEnumSerializer
     implements PrimitiveSerializer<RequestPostRequestMediaTypeEnum> {
@@ -88,7 +88,7 @@ class _$RequestPostRequest extends RequestPostRequest {
 
   factory _$RequestPostRequest(
           [void Function(RequestPostRequestBuilder)? updates]) =>
-      (new RequestPostRequestBuilder()..update(updates))._build();
+      (RequestPostRequestBuilder()..update(updates))._build();
 
   _$RequestPostRequest._(
       {required this.mediaType,
@@ -101,13 +101,7 @@ class _$RequestPostRequest extends RequestPostRequest {
       this.rootFolder,
       this.languageProfileId,
       this.userId})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        mediaType, r'RequestPostRequest', 'mediaType');
-    BuiltValueNullFieldError.checkNotNull(
-        mediaId, r'RequestPostRequest', 'mediaId');
-  }
-
+      : super._();
   @override
   RequestPostRequest rebuild(
           void Function(RequestPostRequestBuilder) updates) =>
@@ -115,7 +109,7 @@ class _$RequestPostRequest extends RequestPostRequest {
 
   @override
   RequestPostRequestBuilder toBuilder() =>
-      new RequestPostRequestBuilder()..replace(this);
+      RequestPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -186,7 +180,7 @@ class RequestPostRequestBuilder
 
   RequestPostRequestSeasonsBuilder? _seasons;
   RequestPostRequestSeasonsBuilder get seasons =>
-      _$this._seasons ??= new RequestPostRequestSeasonsBuilder();
+      _$this._seasons ??= RequestPostRequestSeasonsBuilder();
   set seasons(RequestPostRequestSeasonsBuilder? seasons) =>
       _$this._seasons = seasons;
 
@@ -239,7 +233,6 @@ class RequestPostRequestBuilder
 
   @override
   void replace(RequestPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RequestPostRequest;
   }
 
@@ -255,26 +248,27 @@ class RequestPostRequestBuilder
     _$RequestPostRequest _$result;
     try {
       _$result = _$v ??
-          new _$RequestPostRequest._(
-              mediaType: BuiltValueNullFieldError.checkNotNull(
-                  mediaType, r'RequestPostRequest', 'mediaType'),
-              mediaId: BuiltValueNullFieldError.checkNotNull(
-                  mediaId, r'RequestPostRequest', 'mediaId'),
-              tvdbId: tvdbId,
-              seasons: _seasons?.build(),
-              is4k: is4k,
-              serverId: serverId,
-              profileId: profileId,
-              rootFolder: rootFolder,
-              languageProfileId: languageProfileId,
-              userId: userId);
+          _$RequestPostRequest._(
+            mediaType: BuiltValueNullFieldError.checkNotNull(
+                mediaType, r'RequestPostRequest', 'mediaType'),
+            mediaId: BuiltValueNullFieldError.checkNotNull(
+                mediaId, r'RequestPostRequest', 'mediaId'),
+            tvdbId: tvdbId,
+            seasons: _seasons?.build(),
+            is4k: is4k,
+            serverId: serverId,
+            profileId: profileId,
+            rootFolder: rootFolder,
+            languageProfileId: languageProfileId,
+            userId: userId,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'seasons';
         _seasons?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'RequestPostRequest', _$failedField, e.toString());
       }
       rethrow;

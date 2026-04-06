@@ -14,7 +14,6 @@ import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:tentacle/src/date_serializer.dart';
 import 'package:tentacle/src/model/date.dart';
 
-import 'package:tentacle/src/model/auth_jellyfin_post_request.dart';
 import 'package:tentacle/src/model/auth_local_post_request.dart';
 import 'package:tentacle/src/model/auth_logout_post200_response.dart';
 import 'package:tentacle/src/model/auth_plex_post_request.dart';
@@ -52,8 +51,6 @@ import 'package:tentacle/src/model/issue_count_get200_response.dart';
 import 'package:tentacle/src/model/issue_get200_response.dart';
 import 'package:tentacle/src/model/issue_issue_id_comment_post_request.dart';
 import 'package:tentacle/src/model/issue_post_request.dart';
-import 'package:tentacle/src/model/jellyfin_library.dart';
-import 'package:tentacle/src/model/jellyfin_settings.dart';
 import 'package:tentacle/src/model/job.dart';
 import 'package:tentacle/src/model/keyword.dart';
 import 'package:tentacle/src/model/languages_get200_response_inner.dart';
@@ -121,13 +118,11 @@ import 'package:tentacle/src/model/settings_cache_get200_response_image_cache.da
 import 'package:tentacle/src/model/settings_cache_get200_response_image_cache_tmdb.dart';
 import 'package:tentacle/src/model/settings_discover_add_post_request.dart';
 import 'package:tentacle/src/model/settings_discover_slider_id_put_request.dart';
-import 'package:tentacle/src/model/settings_jellyfin_sync_get200_response.dart';
-import 'package:tentacle/src/model/settings_jellyfin_sync_post_request.dart';
-import 'package:tentacle/src/model/settings_jellyfin_users_get200_response_inner.dart';
 import 'package:tentacle/src/model/settings_jobs_job_id_schedule_post_request.dart';
 import 'package:tentacle/src/model/settings_logs_get200_response_inner.dart';
 import 'package:tentacle/src/model/settings_notifications_pushover_sounds_get200_response_inner.dart';
 import 'package:tentacle/src/model/settings_plex_sync_get200_response.dart';
+import 'package:tentacle/src/model/settings_plex_sync_post_request.dart';
 import 'package:tentacle/src/model/settings_plex_users_get200_response_inner.dart';
 import 'package:tentacle/src/model/settings_radarr_test_post200_response.dart';
 import 'package:tentacle/src/model/settings_radarr_test_post_request.dart';
@@ -154,13 +149,13 @@ import 'package:tentacle/src/model/tv_result.dart';
 import 'package:tentacle/src/model/tv_tv_id_ratings_get200_response.dart';
 import 'package:tentacle/src/model/user.dart';
 import 'package:tentacle/src/model/user_get200_response.dart';
-import 'package:tentacle/src/model/user_import_from_jellyfin_post_request.dart';
 import 'package:tentacle/src/model/user_import_from_plex_post_request.dart';
 import 'package:tentacle/src/model/user_post_request.dart';
 import 'package:tentacle/src/model/user_put_request.dart';
 import 'package:tentacle/src/model/user_register_push_subscription_post_request.dart';
 import 'package:tentacle/src/model/user_settings.dart';
 import 'package:tentacle/src/model/user_settings_notifications.dart';
+import 'package:tentacle/src/model/user_user_id_push_subscriptions_get200_response.dart';
 import 'package:tentacle/src/model/user_user_id_quota_get200_response.dart';
 import 'package:tentacle/src/model/user_user_id_quota_get200_response_movie.dart';
 import 'package:tentacle/src/model/user_user_id_requests_get200_response.dart';
@@ -176,7 +171,6 @@ import 'package:tentacle/src/model/user_user_id_watchlist_get200_response_result
 import 'package:tentacle/src/model/watch_provider_details.dart';
 import 'package:tentacle/src/model/watch_provider_region.dart';
 import 'package:tentacle/src/model/watch_providers_inner.dart';
-import 'package:tentacle/src/model/watchlist.dart';
 import 'package:tentacle/src/model/web_push_settings.dart';
 import 'package:tentacle/src/model/webhook_settings.dart';
 import 'package:tentacle/src/model/webhook_settings_options.dart';
@@ -184,7 +178,6 @@ import 'package:tentacle/src/model/webhook_settings_options.dart';
 part 'serializers.g.dart';
 
 @SerializersFor([
-  AuthJellyfinPostRequest,
   AuthLocalPostRequest,
   AuthLogoutPost200Response,
   AuthPlexPostRequest,
@@ -222,8 +215,6 @@ part 'serializers.g.dart';
   IssueGet200Response,
   IssueIssueIdCommentPostRequest,
   IssuePostRequest,
-  JellyfinLibrary,
-  JellyfinSettings,
   Job,
   Keyword,
   LanguagesGet200ResponseInner,
@@ -291,13 +282,11 @@ part 'serializers.g.dart';
   SettingsCacheGet200ResponseImageCacheTmdb,
   SettingsDiscoverAddPostRequest,
   SettingsDiscoverSliderIdPutRequest,
-  SettingsJellyfinSyncGet200Response,
-  SettingsJellyfinSyncPostRequest,
-  SettingsJellyfinUsersGet200ResponseInner,
   SettingsJobsJobIdSchedulePostRequest,
   SettingsLogsGet200ResponseInner,
   SettingsNotificationsPushoverSoundsGet200ResponseInner,
   SettingsPlexSyncGet200Response,
+  SettingsPlexSyncPostRequest,
   SettingsPlexUsersGet200ResponseInner,
   SettingsRadarrTestPost200Response,
   SettingsRadarrTestPostRequest,
@@ -324,13 +313,13 @@ part 'serializers.g.dart';
   TvTvIdRatingsGet200Response,
   User,
   UserGet200Response,
-  UserImportFromJellyfinPostRequest,
   UserImportFromPlexPostRequest,
   UserPostRequest,
   UserPutRequest,
   UserRegisterPushSubscriptionPostRequest,
   UserSettings,
   UserSettingsNotifications,
+  UserUserIdPushSubscriptionsGet200Response,
   UserUserIdQuotaGet200Response,
   UserUserIdQuotaGet200ResponseMovie,
   UserUserIdRequestsGet200Response,
@@ -346,7 +335,6 @@ part 'serializers.g.dart';
   WatchProviderDetails,
   WatchProviderRegion,
   WatchProvidersInner,
-  Watchlist,
   WebPushSettings,
   WebhookSettings,
   WebhookSettingsOptions,
@@ -355,11 +343,6 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(WatchProviderRegion)]),
         () => ListBuilder<WatchProviderRegion>(),
-      )
-      ..addBuilderFactory(
-        const FullType(
-            BuiltList, [FullType(SettingsJellyfinUsersGet200ResponseInner)]),
-        () => ListBuilder<SettingsJellyfinUsersGet200ResponseInner>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(User)]),
@@ -416,10 +399,6 @@ Serializers serializers = (_$serializers.toBuilder()
         const FullType(
             BuiltList, [FullType(DiscoverGenresliderMovieGet200ResponseInner)]),
         () => ListBuilder<DiscoverGenresliderMovieGet200ResponseInner>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(JellyfinLibrary)]),
-        () => ListBuilder<JellyfinLibrary>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SonarrSettings)]),

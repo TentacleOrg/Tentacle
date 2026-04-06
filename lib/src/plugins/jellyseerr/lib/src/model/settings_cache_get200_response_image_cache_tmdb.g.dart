@@ -16,12 +16,11 @@ class _$SettingsCacheGet200ResponseImageCacheTmdb
   factory _$SettingsCacheGet200ResponseImageCacheTmdb(
           [void Function(SettingsCacheGet200ResponseImageCacheTmdbBuilder)?
               updates]) =>
-      (new SettingsCacheGet200ResponseImageCacheTmdbBuilder()..update(updates))
+      (SettingsCacheGet200ResponseImageCacheTmdbBuilder()..update(updates))
           ._build();
 
   _$SettingsCacheGet200ResponseImageCacheTmdb._({this.size, this.imageCount})
       : super._();
-
   @override
   SettingsCacheGet200ResponseImageCacheTmdb rebuild(
           void Function(SettingsCacheGet200ResponseImageCacheTmdbBuilder)
@@ -30,7 +29,7 @@ class _$SettingsCacheGet200ResponseImageCacheTmdb
 
   @override
   SettingsCacheGet200ResponseImageCacheTmdbBuilder toBuilder() =>
-      new SettingsCacheGet200ResponseImageCacheTmdbBuilder()..replace(this);
+      SettingsCacheGet200ResponseImageCacheTmdbBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -89,7 +88,6 @@ class SettingsCacheGet200ResponseImageCacheTmdbBuilder
 
   @override
   void replace(SettingsCacheGet200ResponseImageCacheTmdb other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsCacheGet200ResponseImageCacheTmdb;
   }
 
@@ -105,8 +103,10 @@ class SettingsCacheGet200ResponseImageCacheTmdbBuilder
 
   _$SettingsCacheGet200ResponseImageCacheTmdb _build() {
     final _$result = _$v ??
-        new _$SettingsCacheGet200ResponseImageCacheTmdb._(
-            size: size, imageCount: imageCount);
+        _$SettingsCacheGet200ResponseImageCacheTmdb._(
+          size: size,
+          imageCount: imageCount,
+        );
     replace(_$result);
     return _$result;
   }

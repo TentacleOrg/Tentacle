@@ -16,11 +16,10 @@ class _$ScheduledTaskEndedMessage extends ScheduledTaskEndedMessage {
 
   factory _$ScheduledTaskEndedMessage(
           [void Function(ScheduledTaskEndedMessageBuilder)? updates]) =>
-      (new ScheduledTaskEndedMessageBuilder()..update(updates))._build();
+      (ScheduledTaskEndedMessageBuilder()..update(updates))._build();
 
   _$ScheduledTaskEndedMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   ScheduledTaskEndedMessage rebuild(
           void Function(ScheduledTaskEndedMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$ScheduledTaskEndedMessage extends ScheduledTaskEndedMessage {
 
   @override
   ScheduledTaskEndedMessageBuilder toBuilder() =>
-      new ScheduledTaskEndedMessageBuilder()..replace(this);
+      ScheduledTaskEndedMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,7 +64,7 @@ class ScheduledTaskEndedMessageBuilder
   _$ScheduledTaskEndedMessage? _$v;
 
   TaskResultBuilder? _data;
-  TaskResultBuilder get data => _$this._data ??= new TaskResultBuilder();
+  TaskResultBuilder get data => _$this._data ??= TaskResultBuilder();
   set data(TaskResultBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -94,7 +93,6 @@ class ScheduledTaskEndedMessageBuilder
 
   @override
   void replace(ScheduledTaskEndedMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ScheduledTaskEndedMessage;
   }
 
@@ -110,17 +108,18 @@ class ScheduledTaskEndedMessageBuilder
     _$ScheduledTaskEndedMessage _$result;
     try {
       _$result = _$v ??
-          new _$ScheduledTaskEndedMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$ScheduledTaskEndedMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ScheduledTaskEndedMessage', _$failedField, e.toString());
       }
       rethrow;

@@ -16,21 +16,13 @@ class _$SetChannelMappingDto extends SetChannelMappingDto {
 
   factory _$SetChannelMappingDto(
           [void Function(SetChannelMappingDtoBuilder)? updates]) =>
-      (new SetChannelMappingDtoBuilder()..update(updates))._build();
+      (SetChannelMappingDtoBuilder()..update(updates))._build();
 
   _$SetChannelMappingDto._(
       {required this.providerId,
       required this.tunerChannelId,
       required this.providerChannelId})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        providerId, r'SetChannelMappingDto', 'providerId');
-    BuiltValueNullFieldError.checkNotNull(
-        tunerChannelId, r'SetChannelMappingDto', 'tunerChannelId');
-    BuiltValueNullFieldError.checkNotNull(
-        providerChannelId, r'SetChannelMappingDto', 'providerChannelId');
-  }
-
+      : super._();
   @override
   SetChannelMappingDto rebuild(
           void Function(SetChannelMappingDtoBuilder) updates) =>
@@ -38,7 +30,7 @@ class _$SetChannelMappingDto extends SetChannelMappingDto {
 
   @override
   SetChannelMappingDtoBuilder toBuilder() =>
-      new SetChannelMappingDtoBuilder()..replace(this);
+      SetChannelMappingDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +96,6 @@ class SetChannelMappingDtoBuilder
 
   @override
   void replace(SetChannelMappingDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetChannelMappingDto;
   }
 
@@ -118,15 +109,14 @@ class SetChannelMappingDtoBuilder
 
   _$SetChannelMappingDto _build() {
     final _$result = _$v ??
-        new _$SetChannelMappingDto._(
-            providerId: BuiltValueNullFieldError.checkNotNull(
-                providerId, r'SetChannelMappingDto', 'providerId'),
-            tunerChannelId: BuiltValueNullFieldError.checkNotNull(
-                tunerChannelId, r'SetChannelMappingDto', 'tunerChannelId'),
-            providerChannelId: BuiltValueNullFieldError.checkNotNull(
-                providerChannelId,
-                r'SetChannelMappingDto',
-                'providerChannelId'));
+        _$SetChannelMappingDto._(
+          providerId: BuiltValueNullFieldError.checkNotNull(
+              providerId, r'SetChannelMappingDto', 'providerId'),
+          tunerChannelId: BuiltValueNullFieldError.checkNotNull(
+              tunerChannelId, r'SetChannelMappingDto', 'tunerChannelId'),
+          providerChannelId: BuiltValueNullFieldError.checkNotNull(
+              providerChannelId, r'SetChannelMappingDto', 'providerChannelId'),
+        );
     replace(_$result);
     return _$result;
   }

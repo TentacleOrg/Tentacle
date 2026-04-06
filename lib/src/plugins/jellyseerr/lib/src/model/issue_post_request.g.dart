@@ -16,18 +16,17 @@ class _$IssuePostRequest extends IssuePostRequest {
 
   factory _$IssuePostRequest(
           [void Function(IssuePostRequestBuilder)? updates]) =>
-      (new IssuePostRequestBuilder()..update(updates))._build();
+      (IssuePostRequestBuilder()..update(updates))._build();
 
   _$IssuePostRequest._({this.issueType, this.message, this.mediaId})
       : super._();
-
   @override
   IssuePostRequest rebuild(void Function(IssuePostRequestBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   IssuePostRequestBuilder toBuilder() =>
-      new IssuePostRequestBuilder()..replace(this);
+      IssuePostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -91,7 +90,6 @@ class IssuePostRequestBuilder
 
   @override
   void replace(IssuePostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IssuePostRequest;
   }
 
@@ -105,8 +103,11 @@ class IssuePostRequestBuilder
 
   _$IssuePostRequest _build() {
     final _$result = _$v ??
-        new _$IssuePostRequest._(
-            issueType: issueType, message: message, mediaId: mediaId);
+        _$IssuePostRequest._(
+          issueType: issueType,
+          message: message,
+          mediaId: mediaId,
+        );
     replace(_$result);
     return _$result;
   }

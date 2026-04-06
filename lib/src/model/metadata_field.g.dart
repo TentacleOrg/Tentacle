@@ -38,12 +38,12 @@ MetadataField _$valueOf(String name) {
     case 'officialRating':
       return _$officialRating;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<MetadataField> _$values =
-    new BuiltSet<MetadataField>(const <MetadataField>[
+    BuiltSet<MetadataField>(const <MetadataField>[
   _$cast,
   _$genres,
   _$productionLocations,
@@ -76,7 +76,7 @@ mixin _$MetadataFieldMixin {
 }
 
 Serializer<MetadataField> _$metadataFieldSerializer =
-    new _$MetadataFieldSerializer();
+    _$MetadataFieldSerializer();
 
 class _$MetadataFieldSerializer implements PrimitiveSerializer<MetadataField> {
   static const Map<String, Object> _toWire = const <String, Object>{

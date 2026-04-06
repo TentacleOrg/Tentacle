@@ -16,11 +16,10 @@ class _$ForceKeepAliveMessage extends ForceKeepAliveMessage {
 
   factory _$ForceKeepAliveMessage(
           [void Function(ForceKeepAliveMessageBuilder)? updates]) =>
-      (new ForceKeepAliveMessageBuilder()..update(updates))._build();
+      (ForceKeepAliveMessageBuilder()..update(updates))._build();
 
   _$ForceKeepAliveMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   ForceKeepAliveMessage rebuild(
           void Function(ForceKeepAliveMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$ForceKeepAliveMessage extends ForceKeepAliveMessage {
 
   @override
   ForceKeepAliveMessageBuilder toBuilder() =>
-      new ForceKeepAliveMessageBuilder()..replace(this);
+      ForceKeepAliveMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -93,7 +92,6 @@ class ForceKeepAliveMessageBuilder
 
   @override
   void replace(ForceKeepAliveMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ForceKeepAliveMessage;
   }
 
@@ -107,8 +105,11 @@ class ForceKeepAliveMessageBuilder
 
   _$ForceKeepAliveMessage _build() {
     final _$result = _$v ??
-        new _$ForceKeepAliveMessage._(
-            data: data, messageId: messageId, messageType: messageType);
+        _$ForceKeepAliveMessage._(
+          data: data,
+          messageId: messageId,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

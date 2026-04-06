@@ -96,5 +96,12 @@ void main() {
     test('to test the property `autoOpenLiveStream`', () async {
       // TODO
     });
+
+    // Gets or sets a value indicating whether always burn in subtitles when transcoding.
+    // bool alwaysBurnInSubtitleWhenTranscoding
+    test('to test the property `alwaysBurnInSubtitleWhenTranscoding`',
+        () async {
+      // TODO
+    });
   });
 }

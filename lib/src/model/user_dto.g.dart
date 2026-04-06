@@ -37,7 +37,7 @@ class _$UserDto extends UserDto {
   final double? primaryImageAspectRatio;
 
   factory _$UserDto([void Function(UserDtoBuilder)? updates]) =>
-      (new UserDtoBuilder()..update(updates))._build();
+      (UserDtoBuilder()..update(updates))._build();
 
   _$UserDto._(
       {this.name,
@@ -55,13 +55,12 @@ class _$UserDto extends UserDto {
       this.policy,
       this.primaryImageAspectRatio})
       : super._();
-
   @override
   UserDto rebuild(void Function(UserDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserDtoBuilder toBuilder() => new UserDtoBuilder()..replace(this);
+  UserDtoBuilder toBuilder() => UserDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -180,12 +179,12 @@ class UserDtoBuilder implements Builder<UserDto, UserDtoBuilder> {
 
   UserConfigurationBuilder? _configuration;
   UserConfigurationBuilder get configuration =>
-      _$this._configuration ??= new UserConfigurationBuilder();
+      _$this._configuration ??= UserConfigurationBuilder();
   set configuration(UserConfigurationBuilder? configuration) =>
       _$this._configuration = configuration;
 
   UserPolicyBuilder? _policy;
-  UserPolicyBuilder get policy => _$this._policy ??= new UserPolicyBuilder();
+  UserPolicyBuilder get policy => _$this._policy ??= UserPolicyBuilder();
   set policy(UserPolicyBuilder? policy) => _$this._policy = policy;
 
   double? _primaryImageAspectRatio;
@@ -221,7 +220,6 @@ class UserDtoBuilder implements Builder<UserDto, UserDtoBuilder> {
 
   @override
   void replace(UserDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserDto;
   }
 
@@ -237,21 +235,22 @@ class UserDtoBuilder implements Builder<UserDto, UserDtoBuilder> {
     _$UserDto _$result;
     try {
       _$result = _$v ??
-          new _$UserDto._(
-              name: name,
-              serverId: serverId,
-              serverName: serverName,
-              id: id,
-              primaryImageTag: primaryImageTag,
-              hasPassword: hasPassword,
-              hasConfiguredPassword: hasConfiguredPassword,
-              hasConfiguredEasyPassword: hasConfiguredEasyPassword,
-              enableAutoLogin: enableAutoLogin,
-              lastLoginDate: lastLoginDate,
-              lastActivityDate: lastActivityDate,
-              configuration: _configuration?.build(),
-              policy: _policy?.build(),
-              primaryImageAspectRatio: primaryImageAspectRatio);
+          _$UserDto._(
+            name: name,
+            serverId: serverId,
+            serverName: serverName,
+            id: id,
+            primaryImageTag: primaryImageTag,
+            hasPassword: hasPassword,
+            hasConfiguredPassword: hasConfiguredPassword,
+            hasConfiguredEasyPassword: hasConfiguredEasyPassword,
+            enableAutoLogin: enableAutoLogin,
+            lastLoginDate: lastLoginDate,
+            lastActivityDate: lastActivityDate,
+            configuration: _configuration?.build(),
+            policy: _policy?.build(),
+            primaryImageAspectRatio: primaryImageAspectRatio,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -260,7 +259,7 @@ class UserDtoBuilder implements Builder<UserDto, UserDtoBuilder> {
         _$failedField = 'policy';
         _policy?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserDto', _$failedField, e.toString());
       }
       rethrow;

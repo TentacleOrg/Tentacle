@@ -9,25 +9,29 @@ import 'package:built_value/serializer.dart';
 
 part 'direct_play_profile.g.dart';
 
-/// DirectPlayProfile
+/// Defines the MediaBrowser.Model.Dlna.DirectPlayProfile.
 ///
 /// Properties:
-/// * [container]
-/// * [audioCodec]
-/// * [videoCodec]
-/// * [type]
+/// * [container] - Gets or sets the container.
+/// * [audioCodec] - Gets or sets the audio codec.
+/// * [videoCodec] - Gets or sets the video codec.
+/// * [type] - Gets or sets the Dlna profile type.
 @BuiltValue()
 abstract class DirectPlayProfile
     implements Built<DirectPlayProfile, DirectPlayProfileBuilder> {
+  /// Gets or sets the container.
   @BuiltValueField(wireName: r'Container')
   String? get container;
 
+  /// Gets or sets the audio codec.
   @BuiltValueField(wireName: r'AudioCodec')
   String? get audioCodec;
 
+  /// Gets or sets the video codec.
   @BuiltValueField(wireName: r'VideoCodec')
   String? get videoCodec;
 
+  /// Gets or sets the Dlna profile type.
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
   // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  Lyric,  };
@@ -62,7 +66,7 @@ class _$DirectPlayProfileSerializer
       yield r'Container';
       yield serializers.serialize(
         object.container,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
     if (object.audioCodec != null) {
@@ -114,9 +118,8 @@ class _$DirectPlayProfileSerializer
         case r'Container':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.container = valueDes;
           break;
         case r'AudioCodec':

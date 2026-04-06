@@ -17,17 +17,16 @@ class _$FontFile extends FontFile {
   final DateTime? dateModified;
 
   factory _$FontFile([void Function(FontFileBuilder)? updates]) =>
-      (new FontFileBuilder()..update(updates))._build();
+      (FontFileBuilder()..update(updates))._build();
 
   _$FontFile._({this.name, this.size, this.dateCreated, this.dateModified})
       : super._();
-
   @override
   FontFile rebuild(void Function(FontFileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  FontFileBuilder toBuilder() => new FontFileBuilder()..replace(this);
+  FontFileBuilder toBuilder() => FontFileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -99,7 +98,6 @@ class FontFileBuilder implements Builder<FontFile, FontFileBuilder> {
 
   @override
   void replace(FontFile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FontFile;
   }
 
@@ -113,11 +111,12 @@ class FontFileBuilder implements Builder<FontFile, FontFileBuilder> {
 
   _$FontFile _build() {
     final _$result = _$v ??
-        new _$FontFile._(
-            name: name,
-            size: size,
-            dateCreated: dateCreated,
-            dateModified: dateModified);
+        _$FontFile._(
+          name: name,
+          size: size,
+          dateCreated: dateCreated,
+          dateModified: dateModified,
+        );
     replace(_$result);
     return _$result;
   }

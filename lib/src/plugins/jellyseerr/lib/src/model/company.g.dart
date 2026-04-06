@@ -15,16 +15,15 @@ class _$Company extends Company {
   final String? name;
 
   factory _$Company([void Function(CompanyBuilder)? updates]) =>
-      (new CompanyBuilder()..update(updates))._build();
+      (CompanyBuilder()..update(updates))._build();
 
   _$Company._({this.id, this.logoPath, this.name}) : super._();
-
   @override
   Company rebuild(void Function(CompanyBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CompanyBuilder toBuilder() => new CompanyBuilder()..replace(this);
+  CompanyBuilder toBuilder() => CompanyBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -87,7 +86,6 @@ class CompanyBuilder implements Builder<Company, CompanyBuilder> {
 
   @override
   void replace(Company other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Company;
   }
 
@@ -100,8 +98,12 @@ class CompanyBuilder implements Builder<Company, CompanyBuilder> {
   Company build() => _build();
 
   _$Company _build() {
-    final _$result =
-        _$v ?? new _$Company._(id: id, logoPath: logoPath, name: name);
+    final _$result = _$v ??
+        _$Company._(
+          id: id,
+          logoPath: logoPath,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

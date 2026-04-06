@@ -29,7 +29,7 @@ class _$LyricMetadata extends LyricMetadata {
   final bool? isSynced;
 
   factory _$LyricMetadata([void Function(LyricMetadataBuilder)? updates]) =>
-      (new LyricMetadataBuilder()..update(updates))._build();
+      (LyricMetadataBuilder()..update(updates))._build();
 
   _$LyricMetadata._(
       {this.artist,
@@ -43,13 +43,12 @@ class _$LyricMetadata extends LyricMetadata {
       this.version,
       this.isSynced})
       : super._();
-
   @override
   LyricMetadata rebuild(void Function(LyricMetadataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LyricMetadataBuilder toBuilder() => new LyricMetadataBuilder()..replace(this);
+  LyricMetadataBuilder toBuilder() => LyricMetadataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -169,7 +168,6 @@ class LyricMetadataBuilder
 
   @override
   void replace(LyricMetadata other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LyricMetadata;
   }
 
@@ -183,17 +181,18 @@ class LyricMetadataBuilder
 
   _$LyricMetadata _build() {
     final _$result = _$v ??
-        new _$LyricMetadata._(
-            artist: artist,
-            album: album,
-            title: title,
-            author: author,
-            length: length,
-            by: by,
-            offset: offset,
-            creator: creator,
-            version: version,
-            isSynced: isSynced);
+        _$LyricMetadata._(
+          artist: artist,
+          album: album,
+          title: title,
+          author: author,
+          length: length,
+          by: by,
+          offset: offset,
+          creator: creator,
+          version: version,
+          isSynced: isSynced,
+        );
     replace(_$result);
     return _$result;
   }

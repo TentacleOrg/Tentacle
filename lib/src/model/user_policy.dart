@@ -22,6 +22,7 @@ part 'user_policy.g.dart';
 /// * [enableLyricManagement] - Gets or sets a value indicating whether this user can manage lyrics.
 /// * [isDisabled] - Gets or sets a value indicating whether this instance is disabled.
 /// * [maxParentalRating] - Gets or sets the max parental rating.
+/// * [maxParentalSubRating]
 /// * [blockedTags]
 /// * [allowedTags]
 /// * [enableUserPreferenceAccess]
@@ -87,6 +88,9 @@ abstract class UserPolicy implements Built<UserPolicy, UserPolicyBuilder> {
   /// Gets or sets the max parental rating.
   @BuiltValueField(wireName: r'MaxParentalRating')
   int? get maxParentalRating;
+
+  @BuiltValueField(wireName: r'MaxParentalSubRating')
+  int? get maxParentalSubRating;
 
   @BuiltValueField(wireName: r'BlockedTags')
   BuiltList<String>? get blockedTags;
@@ -271,6 +275,13 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
       yield r'MaxParentalRating';
       yield serializers.serialize(
         object.maxParentalRating,
+        specifiedType: const FullType.nullable(int),
+      );
+    }
+    if (object.maxParentalSubRating != null) {
+      yield r'MaxParentalSubRating';
+      yield serializers.serialize(
+        object.maxParentalSubRating,
         specifiedType: const FullType.nullable(int),
       );
     }
@@ -598,6 +609,14 @@ class _$UserPolicySerializer implements PrimitiveSerializer<UserPolicy> {
           ) as int?;
           if (valueDes == null) continue;
           result.maxParentalRating = valueDes;
+          break;
+        case r'MaxParentalSubRating':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
+          result.maxParentalSubRating = valueDes;
           break;
         case r'BlockedTags':
           final valueDes = serializers.deserialize(

@@ -18,7 +18,7 @@ class _$RecommendationDto extends RecommendationDto {
 
   factory _$RecommendationDto(
           [void Function(RecommendationDtoBuilder)? updates]) =>
-      (new RecommendationDtoBuilder()..update(updates))._build();
+      (RecommendationDtoBuilder()..update(updates))._build();
 
   _$RecommendationDto._(
       {this.items,
@@ -26,14 +26,13 @@ class _$RecommendationDto extends RecommendationDto {
       this.baselineItemName,
       this.categoryId})
       : super._();
-
   @override
   RecommendationDto rebuild(void Function(RecommendationDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   RecommendationDtoBuilder toBuilder() =>
-      new RecommendationDtoBuilder()..replace(this);
+      RecommendationDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -73,7 +72,7 @@ class RecommendationDtoBuilder
 
   ListBuilder<BaseItemDto>? _items;
   ListBuilder<BaseItemDto> get items =>
-      _$this._items ??= new ListBuilder<BaseItemDto>();
+      _$this._items ??= ListBuilder<BaseItemDto>();
   set items(ListBuilder<BaseItemDto>? items) => _$this._items = items;
 
   RecommendationType? _recommendationType;
@@ -108,7 +107,6 @@ class RecommendationDtoBuilder
 
   @override
   void replace(RecommendationDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RecommendationDto;
   }
 
@@ -124,18 +122,19 @@ class RecommendationDtoBuilder
     _$RecommendationDto _$result;
     try {
       _$result = _$v ??
-          new _$RecommendationDto._(
-              items: _items?.build(),
-              recommendationType: recommendationType,
-              baselineItemName: baselineItemName,
-              categoryId: categoryId);
+          _$RecommendationDto._(
+            items: _items?.build(),
+            recommendationType: recommendationType,
+            baselineItemName: baselineItemName,
+            categoryId: categoryId,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         _items?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'RecommendationDto', _$failedField, e.toString());
       }
       rethrow;

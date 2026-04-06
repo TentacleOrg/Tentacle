@@ -12,13 +12,9 @@ class _$MediaRequestModifiedBy extends MediaRequestModifiedBy {
 
   factory _$MediaRequestModifiedBy(
           [void Function(MediaRequestModifiedByBuilder)? updates]) =>
-      (new MediaRequestModifiedByBuilder()..update(updates))._build();
+      (MediaRequestModifiedByBuilder()..update(updates))._build();
 
-  _$MediaRequestModifiedBy._({required this.anyOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        anyOf, r'MediaRequestModifiedBy', 'anyOf');
-  }
-
+  _$MediaRequestModifiedBy._({required this.anyOf}) : super._();
   @override
   MediaRequestModifiedBy rebuild(
           void Function(MediaRequestModifiedByBuilder) updates) =>
@@ -26,7 +22,7 @@ class _$MediaRequestModifiedBy extends MediaRequestModifiedBy {
 
   @override
   MediaRequestModifiedByBuilder toBuilder() =>
-      new MediaRequestModifiedByBuilder()..replace(this);
+      MediaRequestModifiedByBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -73,7 +69,6 @@ class MediaRequestModifiedByBuilder
 
   @override
   void replace(MediaRequestModifiedBy other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaRequestModifiedBy;
   }
 
@@ -87,9 +82,10 @@ class MediaRequestModifiedByBuilder
 
   _$MediaRequestModifiedBy _build() {
     final _$result = _$v ??
-        new _$MediaRequestModifiedBy._(
-            anyOf: BuiltValueNullFieldError.checkNotNull(
-                anyOf, r'MediaRequestModifiedBy', 'anyOf'));
+        _$MediaRequestModifiedBy._(
+          anyOf: BuiltValueNullFieldError.checkNotNull(
+              anyOf, r'MediaRequestModifiedBy', 'anyOf'),
+        );
     replace(_$result);
     return _$result;
   }

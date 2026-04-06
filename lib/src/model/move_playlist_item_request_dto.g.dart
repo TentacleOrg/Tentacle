@@ -14,11 +14,10 @@ class _$MovePlaylistItemRequestDto extends MovePlaylistItemRequestDto {
 
   factory _$MovePlaylistItemRequestDto(
           [void Function(MovePlaylistItemRequestDtoBuilder)? updates]) =>
-      (new MovePlaylistItemRequestDtoBuilder()..update(updates))._build();
+      (MovePlaylistItemRequestDtoBuilder()..update(updates))._build();
 
   _$MovePlaylistItemRequestDto._({this.playlistItemId, this.newIndex})
       : super._();
-
   @override
   MovePlaylistItemRequestDto rebuild(
           void Function(MovePlaylistItemRequestDtoBuilder) updates) =>
@@ -26,7 +25,7 @@ class _$MovePlaylistItemRequestDto extends MovePlaylistItemRequestDto {
 
   @override
   MovePlaylistItemRequestDtoBuilder toBuilder() =>
-      new MovePlaylistItemRequestDtoBuilder()..replace(this);
+      MovePlaylistItemRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -84,7 +83,6 @@ class MovePlaylistItemRequestDtoBuilder
 
   @override
   void replace(MovePlaylistItemRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovePlaylistItemRequestDto;
   }
 
@@ -98,8 +96,10 @@ class MovePlaylistItemRequestDtoBuilder
 
   _$MovePlaylistItemRequestDto _build() {
     final _$result = _$v ??
-        new _$MovePlaylistItemRequestDto._(
-            playlistItemId: playlistItemId, newIndex: newIndex);
+        _$MovePlaylistItemRequestDto._(
+          playlistItemId: playlistItemId,
+          newIndex: newIndex,
+        );
     replace(_$result);
     return _$result;
   }

@@ -14,10 +14,9 @@ class _$MediaGet200Response extends MediaGet200Response {
 
   factory _$MediaGet200Response(
           [void Function(MediaGet200ResponseBuilder)? updates]) =>
-      (new MediaGet200ResponseBuilder()..update(updates))._build();
+      (MediaGet200ResponseBuilder()..update(updates))._build();
 
   _$MediaGet200Response._({this.pageInfo, this.results}) : super._();
-
   @override
   MediaGet200Response rebuild(
           void Function(MediaGet200ResponseBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$MediaGet200Response extends MediaGet200Response {
 
   @override
   MediaGet200ResponseBuilder toBuilder() =>
-      new MediaGet200ResponseBuilder()..replace(this);
+      MediaGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -58,12 +57,12 @@ class MediaGet200ResponseBuilder
   _$MediaGet200Response? _$v;
 
   PageInfoBuilder? _pageInfo;
-  PageInfoBuilder get pageInfo => _$this._pageInfo ??= new PageInfoBuilder();
+  PageInfoBuilder get pageInfo => _$this._pageInfo ??= PageInfoBuilder();
   set pageInfo(PageInfoBuilder? pageInfo) => _$this._pageInfo = pageInfo;
 
   ListBuilder<MediaInfo>? _results;
   ListBuilder<MediaInfo> get results =>
-      _$this._results ??= new ListBuilder<MediaInfo>();
+      _$this._results ??= ListBuilder<MediaInfo>();
   set results(ListBuilder<MediaInfo>? results) => _$this._results = results;
 
   MediaGet200ResponseBuilder() {
@@ -82,7 +81,6 @@ class MediaGet200ResponseBuilder
 
   @override
   void replace(MediaGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaGet200Response;
   }
 
@@ -98,8 +96,10 @@ class MediaGet200ResponseBuilder
     _$MediaGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$MediaGet200Response._(
-              pageInfo: _pageInfo?.build(), results: _results?.build());
+          _$MediaGet200Response._(
+            pageInfo: _pageInfo?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -108,7 +108,7 @@ class MediaGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MediaGet200Response', _$failedField, e.toString());
       }
       rethrow;

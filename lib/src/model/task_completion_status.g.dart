@@ -24,12 +24,12 @@ TaskCompletionStatus _$valueOf(String name) {
     case 'aborted':
       return _$aborted;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<TaskCompletionStatus> _$values =
-    new BuiltSet<TaskCompletionStatus>(const <TaskCompletionStatus>[
+    BuiltSet<TaskCompletionStatus>(const <TaskCompletionStatus>[
   _$completed,
   _$failed,
   _$cancelled,
@@ -53,7 +53,7 @@ mixin _$TaskCompletionStatusMixin {
 }
 
 Serializer<TaskCompletionStatus> _$taskCompletionStatusSerializer =
-    new _$TaskCompletionStatusSerializer();
+    _$TaskCompletionStatusSerializer();
 
 class _$TaskCompletionStatusSerializer
     implements PrimitiveSerializer<TaskCompletionStatus> {

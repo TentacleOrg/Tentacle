@@ -6,7 +6,7 @@ part of 'serializers.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializers _$serializers = (new Serializers().toBuilder()
+Serializers _$serializers = (Serializers().toBuilder()
       ..add(AccessSchedule.serializer)
       ..add(ActivityLogEntry.serializer)
       ..add(ActivityLogEntryMessage.serializer)
@@ -24,6 +24,9 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AuthenticationInfo.serializer)
       ..add(AuthenticationInfoQueryResult.serializer)
       ..add(AuthenticationResult.serializer)
+      ..add(BackupManifestDto.serializer)
+      ..add(BackupOptionsDto.serializer)
+      ..add(BackupRestoreRequestDto.serializer)
       ..add(BaseItemDto.serializer)
       ..add(BaseItemDtoImageBlurHashes.serializer)
       ..add(BaseItemDtoQueryResult.serializer)
@@ -34,7 +37,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(BookInfoRemoteSearchQuery.serializer)
       ..add(BoxSetInfo.serializer)
       ..add(BoxSetInfoRemoteSearchQuery.serializer)
-      ..add(BrandingOptions.serializer)
+      ..add(BrandingOptionsDto.serializer)
       ..add(BufferRequestDto.serializer)
       ..add(CastReceiverApplication.serializer)
       ..add(ChannelFeatures.serializer)
@@ -44,7 +47,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ChannelMediaType.serializer)
       ..add(ChannelType.serializer)
       ..add(ChapterInfo.serializer)
-      ..add(ClientCapabilities.serializer)
       ..add(ClientCapabilitiesDto.serializer)
       ..add(ClientLogDocumentResponseDto.serializer)
       ..add(CodecProfile.serializer)
@@ -59,12 +61,16 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(CreatePlaylistDto.serializer)
       ..add(CreateUserByName.serializer)
       ..add(CultureDto.serializer)
+      ..add(CustomDatabaseOption.serializer)
+      ..add(CustomDatabaseOptions.serializer)
+      ..add(DatabaseConfigurationOptions.serializer)
+      ..add(DatabaseLockingBehaviorTypes.serializer)
       ..add(DayOfWeek.serializer)
       ..add(DayPattern.serializer)
       ..add(DefaultDirectoryBrowserInfoDto.serializer)
-      ..add(DeviceInfo.serializer)
-      ..add(DeviceInfoQueryResult.serializer)
-      ..add(DeviceOptions.serializer)
+      ..add(DeinterlaceMethod.serializer)
+      ..add(DeviceInfoDto.serializer)
+      ..add(DeviceInfoDtoQueryResult.serializer)
       ..add(DeviceOptionsDto.serializer)
       ..add(DeviceProfile.serializer)
       ..add(DirectPlayProfile.serializer)
@@ -73,6 +79,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(DownMixStereoAlgorithms.serializer)
       ..add(DynamicDayOfWeek.serializer)
       ..add(EmbeddedSubtitleOptions.serializer)
+      ..add(EncoderPreset.serializer)
       ..add(EncodingContext.serializer)
       ..add(EncodingOptions.serializer)
       ..add(EndPointInfo.serializer)
@@ -82,6 +89,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ExtraType.serializer)
       ..add(FileSystemEntryInfo.serializer)
       ..add(FileSystemEntryType.serializer)
+      ..add(FolderStorageDto.serializer)
       ..add(FontFile.serializer)
       ..add(ForceKeepAliveMessage.serializer)
       ..add(ForgotPasswordAction.serializer)
@@ -93,17 +101,15 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GeneralCommandType.serializer)
       ..add(GetProgramsDto.serializer)
       ..add(GroupInfoDto.serializer)
-      ..add(GroupInfoDtoGroupUpdate.serializer)
       ..add(GroupQueueMode.serializer)
       ..add(GroupRepeatMode.serializer)
       ..add(GroupShuffleMode.serializer)
       ..add(GroupStateType.serializer)
       ..add(GroupStateUpdate.serializer)
-      ..add(GroupStateUpdateGroupUpdate.serializer)
       ..add(GroupUpdate.serializer)
       ..add(GroupUpdateType.serializer)
       ..add(GuideInfo.serializer)
-      ..add(HardwareEncodingType.serializer)
+      ..add(HardwareAccelerationType.serializer)
       ..add(IPlugin.serializer)
       ..add(IgnoreWaitRequestDto.serializer)
       ..add(ImageFormat.serializer)
@@ -128,6 +134,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(LibraryOptionInfoDto.serializer)
       ..add(LibraryOptions.serializer)
       ..add(LibraryOptionsResultDto.serializer)
+      ..add(LibraryStorageDto.serializer)
       ..add(LibraryTypeOptionsDto.serializer)
       ..add(LibraryUpdateInfo.serializer)
       ..add(ListingsProviderInfo.serializer)
@@ -142,11 +149,15 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(LogLevel.serializer)
       ..add(LyricDto.serializer)
       ..add(LyricLine.serializer)
+      ..add(LyricLineCue.serializer)
       ..add(LyricMetadata.serializer)
       ..add(MediaAttachment.serializer)
       ..add(MediaPathDto.serializer)
       ..add(MediaPathInfo.serializer)
       ..add(MediaProtocol.serializer)
+      ..add(MediaSegmentDto.serializer)
+      ..add(MediaSegmentDtoQueryResult.serializer)
+      ..add(MediaSegmentType.serializer)
       ..add(MediaSourceInfo.serializer)
       ..add(MediaSourceType.serializer)
       ..add(MediaStream.serializer)
@@ -178,6 +189,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(OutboundWebSocketMessage.serializer)
       ..add(PackageInfo.serializer)
       ..add(ParentalRating.serializer)
+      ..add(ParentalRatingScore.serializer)
       ..add(PathSubstitution.serializer)
       ..add(PersonKind.serializer)
       ..add(PersonLookupInfo.serializer)
@@ -189,7 +201,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(PlayMessage.serializer)
       ..add(PlayMethod.serializer)
       ..add(PlayQueueUpdate.serializer)
-      ..add(PlayQueueUpdateGroupUpdate.serializer)
       ..add(PlayQueueUpdateReason.serializer)
       ..add(PlayRequest.serializer)
       ..add(PlayRequestDto.serializer)
@@ -203,6 +214,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(PlaybackStopInfo.serializer)
       ..add(PlayerStateInfo.serializer)
       ..add(PlaylistCreationResult.serializer)
+      ..add(PlaylistDto.serializer)
       ..add(PlaylistUserPermissions.serializer)
       ..add(PlaystateCommand.serializer)
       ..add(PlaystateMessage.serializer)
@@ -264,7 +276,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ServerDiscoveryInfo.serializer)
       ..add(ServerRestartingMessage.serializer)
       ..add(ServerShuttingDownMessage.serializer)
-      ..add(SessionInfo.serializer)
+      ..add(SessionInfoDto.serializer)
       ..add(SessionMessageType.serializer)
       ..add(SessionUserInfo.serializer)
       ..add(SessionsMessage.serializer)
@@ -280,27 +292,40 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(StartupConfigurationDto.serializer)
       ..add(StartupRemoteAccessDto.serializer)
       ..add(StartupUserDto.serializer)
-      ..add(StringGroupUpdate.serializer)
       ..add(SubtitleDeliveryMethod.serializer)
       ..add(SubtitleOptions.serializer)
       ..add(SubtitlePlaybackMode.serializer)
       ..add(SubtitleProfile.serializer)
       ..add(SyncPlayCommandMessage.serializer)
-      ..add(SyncPlayGroupUpdateCommandMessage.serializer)
+      ..add(SyncPlayGroupDoesNotExistUpdate.serializer)
+      ..add(SyncPlayGroupJoinedUpdate.serializer)
+      ..add(SyncPlayGroupLeftUpdate.serializer)
+      ..add(SyncPlayGroupUpdateMessage.serializer)
+      ..add(SyncPlayLibraryAccessDeniedUpdate.serializer)
+      ..add(SyncPlayNotInGroupUpdate.serializer)
+      ..add(SyncPlayPlayQueueUpdate.serializer)
       ..add(SyncPlayQueueItem.serializer)
+      ..add(SyncPlayStateUpdate.serializer)
       ..add(SyncPlayUserAccessType.serializer)
+      ..add(SyncPlayUserJoinedUpdate.serializer)
+      ..add(SyncPlayUserLeftUpdate.serializer)
       ..add(SystemInfo.serializer)
+      ..add(SystemStorageDto.serializer)
       ..add(TaskCompletionStatus.serializer)
       ..add(TaskInfo.serializer)
       ..add(TaskResult.serializer)
       ..add(TaskState.serializer)
       ..add(TaskTriggerInfo.serializer)
+      ..add(TaskTriggerInfoType.serializer)
       ..add(ThemeMediaResult.serializer)
       ..add(TimerCancelledMessage.serializer)
       ..add(TimerCreatedMessage.serializer)
       ..add(TimerEventInfo.serializer)
       ..add(TimerInfoDto.serializer)
       ..add(TimerInfoDtoQueryResult.serializer)
+      ..add(TonemappingAlgorithm.serializer)
+      ..add(TonemappingMode.serializer)
+      ..add(TonemappingRange.serializer)
       ..add(TrailerInfo.serializer)
       ..add(TrailerInfoRemoteSearchQuery.serializer)
       ..add(TranscodeReason.serializer)
@@ -309,7 +334,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TranscodingInfoTranscodeReasonsEnum.serializer)
       ..add(TranscodingProfile.serializer)
       ..add(TransportStreamTimestamp.serializer)
-      ..add(TrickplayInfo.serializer)
+      ..add(TrickplayInfoDto.serializer)
       ..add(TrickplayOptions.serializer)
       ..add(TrickplayScanBehavior.serializer)
       ..add(TunerChannelMapping.serializer)
@@ -339,815 +364,859 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(VideoRangeType.serializer)
       ..add(VideoType.serializer)
       ..add(VirtualFolderInfo.serializer)
-      ..add(WakeOnLanInfo.serializer)
       ..add(WebSocketMessage.serializer)
       ..add(XbmcMetadataOptions.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ActivityLogEntry)]),
-          () => new ListBuilder<ActivityLogEntry>())
+          () => ListBuilder<ActivityLogEntry>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ActivityLogEntry)]),
-          () => new ListBuilder<ActivityLogEntry>())
+          () => ListBuilder<ActivityLogEntry>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AuthenticationInfo)]),
-          () => new ListBuilder<AuthenticationInfo>())
+          () => ListBuilder<AuthenticationInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(BaseItemDto)]),
-          () => new ListBuilder<BaseItemDto>())
+          () => ListBuilder<BaseItemDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(BaseItemDto)]),
-          () => new ListBuilder<BaseItemDto>())
+          () => ListBuilder<BaseItemDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(BaseItemDto)]),
-          () => new ListBuilder<BaseItemDto>())
+          () => ListBuilder<BaseItemDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ChannelMediaType)]),
-          () => new ListBuilder<ChannelMediaType>())
+          () => ListBuilder<ChannelMediaType>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(ChannelMediaContentType)]),
-          () => new ListBuilder<ChannelMediaContentType>())
+          () => ListBuilder<ChannelMediaContentType>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(ChannelItemSortField)]),
-          () => new ListBuilder<ChannelItemSortField>())
+          () => ListBuilder<ChannelItemSortField>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(DeviceInfo)]),
-          () => new ListBuilder<DeviceInfo>())
+          const FullType(
+              BuiltList, const [const FullType(CustomDatabaseOption)]),
+          () => ListBuilder<CustomDatabaseOption>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DeviceInfoDto)]),
+          () => ListBuilder<DeviceInfoDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(DirectPlayProfile)]),
-          () => new ListBuilder<DirectPlayProfile>())
+          () => ListBuilder<DirectPlayProfile>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TranscodingProfile)]),
-          () => new ListBuilder<TranscodingProfile>())
+          () => ListBuilder<TranscodingProfile>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ContainerProfile)]),
-          () => new ListBuilder<ContainerProfile>())
+          () => ListBuilder<ContainerProfile>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(CodecProfile)]),
-          () => new ListBuilder<CodecProfile>())
+          () => ListBuilder<CodecProfile>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SubtitleProfile)]),
-          () => new ListBuilder<SubtitleProfile>())
+          () => ListBuilder<SubtitleProfile>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ExternalUrl)]),
-          () => new ListBuilder<ExternalUrl>())
+          () => ListBuilder<ExternalUrl>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaSourceInfo)]),
-          () => new ListBuilder<MediaSourceInfo>())
+          () => ListBuilder<MediaSourceInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaUrl)]),
-          () => new ListBuilder<MediaUrl>())
+          () => ListBuilder<MediaUrl>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(BaseItemPerson)]),
-          () => new ListBuilder<BaseItemPerson>())
+          () => ListBuilder<BaseItemPerson>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
+          () => ListBuilder<NameGuidPair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
+          () => ListBuilder<NameGuidPair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(DayOfWeek)]),
-          () => new ListBuilder<DayOfWeek>())
+          () => ListBuilder<DayOfWeek>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
+          () => ListBuilder<NameGuidPair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
+          () => ListBuilder<NameGuidPair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaStream)]),
-          () => new ListBuilder<MediaStream>())
+          () => ListBuilder<MediaStream>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ChapterInfo)]),
-          () => new ListBuilder<ChapterInfo>())
+          () => ListBuilder<ChapterInfo>())
       ..addBuilderFactory(
           const FullType(BuiltMap, const [
             const FullType(String),
-            const FullType(BuiltMap,
-                const [const FullType(String), const FullType(TrickplayInfo)])
+            const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(TrickplayInfoDto)
+            ])
           ]),
-          () => new MapBuilder<String, BuiltMap<String, TrickplayInfo>>())
+          () => MapBuilder<String, BuiltMap<String, TrickplayInfoDto>>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MetadataField)]),
-          () => new ListBuilder<MetadataField>())
+          () => ListBuilder<MetadataField>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(FolderStorageDto)]),
+          () => ListBuilder<FolderStorageDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ImageType)]),
-          () => new ListBuilder<ImageType>())
+          () => ListBuilder<ImageType>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(InstallationInfo)]),
-          () => new ListBuilder<InstallationInfo>())
+          () => ListBuilder<InstallationInfo>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(CastReceiverApplication)]),
-          () => new ListBuilder<CastReceiverApplication>())
+          () => ListBuilder<CastReceiverApplication>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(LibraryOptionInfoDto)]),
-          () => new ListBuilder<LibraryOptionInfoDto>())
+          () => ListBuilder<LibraryOptionInfoDto>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(LibraryOptionInfoDto)]),
-          () => new ListBuilder<LibraryOptionInfoDto>())
+          () => ListBuilder<LibraryOptionInfoDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ImageType)]),
-          () => new ListBuilder<ImageType>())
+          () => ListBuilder<ImageType>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ImageOption)]),
-          () => new ListBuilder<ImageOption>())
+          () => ListBuilder<ImageOption>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(LibraryOptionInfoDto)]),
-          () => new ListBuilder<LibraryOptionInfoDto>())
+          () => ListBuilder<LibraryOptionInfoDto>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(LibraryOptionInfoDto)]),
-          () => new ListBuilder<LibraryOptionInfoDto>())
+          () => ListBuilder<LibraryOptionInfoDto>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(LibraryOptionInfoDto)]),
-          () => new ListBuilder<LibraryOptionInfoDto>())
+          () => ListBuilder<LibraryOptionInfoDto>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(LibraryOptionInfoDto)]),
+          () => ListBuilder<LibraryOptionInfoDto>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(LibraryOptionInfoDto)]),
+          () => ListBuilder<LibraryOptionInfoDto>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(LibraryTypeOptionsDto)]),
-          () => new ListBuilder<LibraryTypeOptionsDto>())
+          () => ListBuilder<LibraryTypeOptionsDto>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(LibraryStorageDto)]),
+          () => ListBuilder<LibraryStorageDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(LiveTvServiceInfo)]),
-          () => new ListBuilder<LiveTvServiceInfo>())
+          () => ListBuilder<LiveTvServiceInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(LyricLine)]),
-          () => new ListBuilder<LyricLine>())
+          () => ListBuilder<LyricLine>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(LyricLineCue)]),
+          () => ListBuilder<LyricLineCue>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaPathInfo)]),
-          () => new ListBuilder<MediaPathInfo>())
+          () => ListBuilder<MediaPathInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TypeOptions)]),
-          () => new ListBuilder<TypeOptions>())
+          () => ListBuilder<TypeOptions>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaProtocol)]),
-          () => new ListBuilder<MediaProtocol>())
+          () => ListBuilder<MediaProtocol>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(MediaSegmentDto)]),
+          () => ListBuilder<MediaSegmentDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaSourceInfo)]),
-          () => new ListBuilder<MediaSourceInfo>())
+          () => ListBuilder<MediaSourceInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaStream)]),
-          () => new ListBuilder<MediaStream>())
+          () => ListBuilder<MediaStream>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaAttachment)]),
-          () => new ListBuilder<MediaAttachment>())
+          () => ListBuilder<MediaAttachment>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaType)]),
-          () => new ListBuilder<MediaType>())
+          () => ListBuilder<MediaType>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GeneralCommandType)]),
-          () => new ListBuilder<GeneralCommandType>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(MediaType)]),
-          () => new ListBuilder<MediaType>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GeneralCommandType)]),
-          () => new ListBuilder<GeneralCommandType>())
+          () => ListBuilder<GeneralCommandType>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(MediaUpdateInfoPathDto)]),
-          () => new ListBuilder<MediaUpdateInfoPathDto>())
+          () => ListBuilder<MediaUpdateInfoPathDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameGuidPair)]),
-          () => new ListBuilder<NameGuidPair>())
+          () => ListBuilder<NameGuidPair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ParentalRating)]),
-          () => new ListBuilder<ParentalRating>())
+          () => ListBuilder<ParentalRating>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(CountryInfo)]),
-          () => new ListBuilder<CountryInfo>())
+          () => ListBuilder<CountryInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(CultureDto)]),
-          () => new ListBuilder<CultureDto>())
+          () => ListBuilder<CultureDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ExternalIdInfo)]),
-          () => new ListBuilder<ExternalIdInfo>())
+          () => ListBuilder<ExternalIdInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameValuePair)]),
-          () => new ListBuilder<NameValuePair>())
+          () => ListBuilder<NameValuePair>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(PlaylistUserPermissions)]),
+          () => ListBuilder<PlaylistUserPermissions>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProfileCondition)]),
-          () => new ListBuilder<ProfileCondition>())
+          () => ListBuilder<ProfileCondition>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProfileCondition)]),
-          () => new ListBuilder<ProfileCondition>())
+          () => ListBuilder<ProfileCondition>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProfileCondition)]),
-          () => new ListBuilder<ProfileCondition>())
+          () => ListBuilder<ProfileCondition>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProfileCondition)]),
-          () => new ListBuilder<ProfileCondition>())
+          () => ListBuilder<ProfileCondition>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(QueueItem)]),
-          () => new ListBuilder<QueueItem>())
+          () => ListBuilder<QueueItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(QueueItem)]),
-          () => new ListBuilder<QueueItem>())
+          () => ListBuilder<QueueItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(QueueItem)]),
-          () => new ListBuilder<QueueItem>())
+          () => ListBuilder<QueueItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(RemoteImageInfo)]),
-          () => new ListBuilder<RemoteImageInfo>())
+          () => ListBuilder<RemoteImageInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SearchHint)]),
-          () => new ListBuilder<SearchHint>())
+          () => ListBuilder<SearchHint>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SeriesTimerInfoDto)]),
-          () => new ListBuilder<SeriesTimerInfoDto>())
+          () => ListBuilder<SeriesTimerInfoDto>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(SessionInfo)]),
-          () => new ListBuilder<SessionInfo>())
+          const FullType(BuiltList, const [const FullType(SessionInfoDto)]),
+          () => ListBuilder<SessionInfoDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SessionUserInfo)]),
-          () => new ListBuilder<SessionUserInfo>())
+          () => ListBuilder<SessionUserInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaType)]),
-          () => new ListBuilder<MediaType>())
+          () => ListBuilder<MediaType>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(QueueItem)]),
-          () => new ListBuilder<QueueItem>())
+          () => ListBuilder<QueueItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(BaseItemDto)]),
-          () => new ListBuilder<BaseItemDto>())
+          () => ListBuilder<BaseItemDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GeneralCommandType)]),
-          () => new ListBuilder<GeneralCommandType>())
+          () => ListBuilder<GeneralCommandType>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(DayOfWeek)]),
-          () => new ListBuilder<DayOfWeek>())
+          () => ListBuilder<DayOfWeek>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ItemSortBy)]),
-          () => new ListBuilder<ItemSortBy>())
+          () => ListBuilder<ItemSortBy>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SortOrder)]),
-          () => new ListBuilder<SortOrder>())
+          () => ListBuilder<SortOrder>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ImageType)]),
-          () => new ListBuilder<ImageType>())
+          () => ListBuilder<ImageType>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ItemFields)]),
-          () => new ListBuilder<ItemFields>())
+          () => ListBuilder<ItemFields>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(PlaylistUserPermissions)]),
-          () => new ListBuilder<PlaylistUserPermissions>())
+          () => ListBuilder<PlaylistUserPermissions>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(PlaylistUserPermissions)]),
-          () => new ListBuilder<PlaylistUserPermissions>())
+          () => ListBuilder<PlaylistUserPermissions>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(AccessSchedule)]),
-          () => new ListBuilder<AccessSchedule>())
+          () => ListBuilder<AccessSchedule>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(UnratedItem)]),
-          () => new ListBuilder<UnratedItem>())
+          () => ListBuilder<UnratedItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MetadataOptions)]),
-          () => new ListBuilder<MetadataOptions>())
+          () => ListBuilder<MetadataOptions>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameValuePair)]),
-          () => new ListBuilder<NameValuePair>())
+          () => ListBuilder<NameValuePair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(RepositoryInfo)]),
-          () => new ListBuilder<RepositoryInfo>())
+          () => ListBuilder<RepositoryInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PathSubstitution)]),
-          () => new ListBuilder<PathSubstitution>())
+          () => ListBuilder<PathSubstitution>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(CastReceiverApplication)]),
-          () => new ListBuilder<CastReceiverApplication>())
+          () => ListBuilder<CastReceiverApplication>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ImageOption)]),
-          () => new ListBuilder<ImageOption>())
+          () => ListBuilder<ImageOption>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameValuePair)]),
-          () => new ListBuilder<NameValuePair>())
+          () => ListBuilder<NameValuePair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
+          () => ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SyncPlayQueueItem)]),
-          () => new ListBuilder<SyncPlayQueueItem>())
+          () => ListBuilder<SyncPlayQueueItem>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TaskInfo)]),
-          () => new ListBuilder<TaskInfo>())
+          () => ListBuilder<TaskInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TaskTriggerInfo)]),
-          () => new ListBuilder<TaskTriggerInfo>())
+          () => ListBuilder<TaskTriggerInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TimerInfoDto)]),
-          () => new ListBuilder<TimerInfoDto>())
+          () => ListBuilder<TimerInfoDto>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(TranscodingInfoTranscodeReasonsEnum)]),
-          () => new ListBuilder<TranscodingInfoTranscodeReasonsEnum>())
+          () => ListBuilder<TranscodingInfoTranscodeReasonsEnum>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(TunerChannelMapping)]),
-          () => new ListBuilder<TunerChannelMapping>())
+          () => ListBuilder<TunerChannelMapping>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameIdPair)]),
-          () => new ListBuilder<NameIdPair>())
+          () => ListBuilder<NameIdPair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NameValuePair)]),
-          () => new ListBuilder<NameValuePair>())
+          () => ListBuilder<NameValuePair>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TunerHostInfo)]),
-          () => new ListBuilder<TunerHostInfo>())
+          () => ListBuilder<TunerHostInfo>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(ListingsProviderInfo)]),
-          () => new ListBuilder<ListingsProviderInfo>())
+          () => ListBuilder<ListingsProviderInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(UserItemDataDto)]),
-          () => new ListBuilder<UserItemDataDto>())
+          () => ListBuilder<UserItemDataDto>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(VersionInfo)]),
-          () => new ListBuilder<VersionInfo>())
+          () => ListBuilder<VersionInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
+          () => ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(String)]),
-          () => new MapBuilder<String, String>())
+          () => MapBuilder<String, String>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(RemoteSearchResult)]),
-          () => new ListBuilder<RemoteSearchResult>())
+          () => ListBuilder<RemoteSearchResult>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SongInfo)]),
-          () => new ListBuilder<SongInfo>())
+          () => ListBuilder<SongInfo>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType.nullable(String)]),
-          () => new MapBuilder<String, String?>())
+          () => MapBuilder<String, String?>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SongInfo)]),
-          () => new ListBuilder<SongInfo>()))
+          () => ListBuilder<SongInfo>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

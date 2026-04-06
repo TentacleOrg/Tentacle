@@ -24,7 +24,7 @@ class _$LibraryUpdateInfo extends LibraryUpdateInfo {
 
   factory _$LibraryUpdateInfo(
           [void Function(LibraryUpdateInfoBuilder)? updates]) =>
-      (new LibraryUpdateInfoBuilder()..update(updates))._build();
+      (LibraryUpdateInfoBuilder()..update(updates))._build();
 
   _$LibraryUpdateInfo._(
       {this.foldersAddedTo,
@@ -35,14 +35,13 @@ class _$LibraryUpdateInfo extends LibraryUpdateInfo {
       this.collectionFolders,
       this.isEmpty})
       : super._();
-
   @override
   LibraryUpdateInfo rebuild(void Function(LibraryUpdateInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   LibraryUpdateInfoBuilder toBuilder() =>
-      new LibraryUpdateInfoBuilder()..replace(this);
+      LibraryUpdateInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -91,37 +90,37 @@ class LibraryUpdateInfoBuilder
 
   ListBuilder<String>? _foldersAddedTo;
   ListBuilder<String> get foldersAddedTo =>
-      _$this._foldersAddedTo ??= new ListBuilder<String>();
+      _$this._foldersAddedTo ??= ListBuilder<String>();
   set foldersAddedTo(ListBuilder<String>? foldersAddedTo) =>
       _$this._foldersAddedTo = foldersAddedTo;
 
   ListBuilder<String>? _foldersRemovedFrom;
   ListBuilder<String> get foldersRemovedFrom =>
-      _$this._foldersRemovedFrom ??= new ListBuilder<String>();
+      _$this._foldersRemovedFrom ??= ListBuilder<String>();
   set foldersRemovedFrom(ListBuilder<String>? foldersRemovedFrom) =>
       _$this._foldersRemovedFrom = foldersRemovedFrom;
 
   ListBuilder<String>? _itemsAdded;
   ListBuilder<String> get itemsAdded =>
-      _$this._itemsAdded ??= new ListBuilder<String>();
+      _$this._itemsAdded ??= ListBuilder<String>();
   set itemsAdded(ListBuilder<String>? itemsAdded) =>
       _$this._itemsAdded = itemsAdded;
 
   ListBuilder<String>? _itemsRemoved;
   ListBuilder<String> get itemsRemoved =>
-      _$this._itemsRemoved ??= new ListBuilder<String>();
+      _$this._itemsRemoved ??= ListBuilder<String>();
   set itemsRemoved(ListBuilder<String>? itemsRemoved) =>
       _$this._itemsRemoved = itemsRemoved;
 
   ListBuilder<String>? _itemsUpdated;
   ListBuilder<String> get itemsUpdated =>
-      _$this._itemsUpdated ??= new ListBuilder<String>();
+      _$this._itemsUpdated ??= ListBuilder<String>();
   set itemsUpdated(ListBuilder<String>? itemsUpdated) =>
       _$this._itemsUpdated = itemsUpdated;
 
   ListBuilder<String>? _collectionFolders;
   ListBuilder<String> get collectionFolders =>
-      _$this._collectionFolders ??= new ListBuilder<String>();
+      _$this._collectionFolders ??= ListBuilder<String>();
   set collectionFolders(ListBuilder<String>? collectionFolders) =>
       _$this._collectionFolders = collectionFolders;
 
@@ -150,7 +149,6 @@ class LibraryUpdateInfoBuilder
 
   @override
   void replace(LibraryUpdateInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LibraryUpdateInfo;
   }
 
@@ -166,14 +164,15 @@ class LibraryUpdateInfoBuilder
     _$LibraryUpdateInfo _$result;
     try {
       _$result = _$v ??
-          new _$LibraryUpdateInfo._(
-              foldersAddedTo: _foldersAddedTo?.build(),
-              foldersRemovedFrom: _foldersRemovedFrom?.build(),
-              itemsAdded: _itemsAdded?.build(),
-              itemsRemoved: _itemsRemoved?.build(),
-              itemsUpdated: _itemsUpdated?.build(),
-              collectionFolders: _collectionFolders?.build(),
-              isEmpty: isEmpty);
+          _$LibraryUpdateInfo._(
+            foldersAddedTo: _foldersAddedTo?.build(),
+            foldersRemovedFrom: _foldersRemovedFrom?.build(),
+            itemsAdded: _itemsAdded?.build(),
+            itemsRemoved: _itemsRemoved?.build(),
+            itemsUpdated: _itemsUpdated?.build(),
+            collectionFolders: _collectionFolders?.build(),
+            isEmpty: isEmpty,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -190,7 +189,7 @@ class LibraryUpdateInfoBuilder
         _$failedField = 'collectionFolders';
         _collectionFolders?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LibraryUpdateInfo', _$failedField, e.toString());
       }
       rethrow;

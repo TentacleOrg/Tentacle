@@ -22,6 +22,8 @@ class _$UserPolicy extends UserPolicy {
   @override
   final int? maxParentalRating;
   @override
+  final int? maxParentalSubRating;
+  @override
   final BuiltList<String>? blockedTags;
   @override
   final BuiltList<String>? allowedTags;
@@ -95,7 +97,7 @@ class _$UserPolicy extends UserPolicy {
   final SyncPlayUserAccessType? syncPlayAccess;
 
   factory _$UserPolicy([void Function(UserPolicyBuilder)? updates]) =>
-      (new UserPolicyBuilder()..update(updates))._build();
+      (UserPolicyBuilder()..update(updates))._build();
 
   _$UserPolicy._(
       {this.isAdministrator,
@@ -105,6 +107,7 @@ class _$UserPolicy extends UserPolicy {
       this.enableLyricManagement,
       this.isDisabled,
       this.maxParentalRating,
+      this.maxParentalSubRating,
       this.blockedTags,
       this.allowedTags,
       this.enableUserPreferenceAccess,
@@ -141,19 +144,13 @@ class _$UserPolicy extends UserPolicy {
       required this.authenticationProviderId,
       required this.passwordResetProviderId,
       this.syncPlayAccess})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        authenticationProviderId, r'UserPolicy', 'authenticationProviderId');
-    BuiltValueNullFieldError.checkNotNull(
-        passwordResetProviderId, r'UserPolicy', 'passwordResetProviderId');
-  }
-
+      : super._();
   @override
   UserPolicy rebuild(void Function(UserPolicyBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserPolicyBuilder toBuilder() => new UserPolicyBuilder()..replace(this);
+  UserPolicyBuilder toBuilder() => UserPolicyBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -166,6 +163,7 @@ class _$UserPolicy extends UserPolicy {
         enableLyricManagement == other.enableLyricManagement &&
         isDisabled == other.isDisabled &&
         maxParentalRating == other.maxParentalRating &&
+        maxParentalSubRating == other.maxParentalSubRating &&
         blockedTags == other.blockedTags &&
         allowedTags == other.allowedTags &&
         enableUserPreferenceAccess == other.enableUserPreferenceAccess &&
@@ -218,6 +216,7 @@ class _$UserPolicy extends UserPolicy {
     _$hash = $jc(_$hash, enableLyricManagement.hashCode);
     _$hash = $jc(_$hash, isDisabled.hashCode);
     _$hash = $jc(_$hash, maxParentalRating.hashCode);
+    _$hash = $jc(_$hash, maxParentalSubRating.hashCode);
     _$hash = $jc(_$hash, blockedTags.hashCode);
     _$hash = $jc(_$hash, allowedTags.hashCode);
     _$hash = $jc(_$hash, enableUserPreferenceAccess.hashCode);
@@ -268,6 +267,7 @@ class _$UserPolicy extends UserPolicy {
           ..add('enableLyricManagement', enableLyricManagement)
           ..add('isDisabled', isDisabled)
           ..add('maxParentalRating', maxParentalRating)
+          ..add('maxParentalSubRating', maxParentalSubRating)
           ..add('blockedTags', blockedTags)
           ..add('allowedTags', allowedTags)
           ..add('enableUserPreferenceAccess', enableUserPreferenceAccess)
@@ -348,15 +348,20 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
   set maxParentalRating(int? maxParentalRating) =>
       _$this._maxParentalRating = maxParentalRating;
 
+  int? _maxParentalSubRating;
+  int? get maxParentalSubRating => _$this._maxParentalSubRating;
+  set maxParentalSubRating(int? maxParentalSubRating) =>
+      _$this._maxParentalSubRating = maxParentalSubRating;
+
   ListBuilder<String>? _blockedTags;
   ListBuilder<String> get blockedTags =>
-      _$this._blockedTags ??= new ListBuilder<String>();
+      _$this._blockedTags ??= ListBuilder<String>();
   set blockedTags(ListBuilder<String>? blockedTags) =>
       _$this._blockedTags = blockedTags;
 
   ListBuilder<String>? _allowedTags;
   ListBuilder<String> get allowedTags =>
-      _$this._allowedTags ??= new ListBuilder<String>();
+      _$this._allowedTags ??= ListBuilder<String>();
   set allowedTags(ListBuilder<String>? allowedTags) =>
       _$this._allowedTags = allowedTags;
 
@@ -367,13 +372,13 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
 
   ListBuilder<AccessSchedule>? _accessSchedules;
   ListBuilder<AccessSchedule> get accessSchedules =>
-      _$this._accessSchedules ??= new ListBuilder<AccessSchedule>();
+      _$this._accessSchedules ??= ListBuilder<AccessSchedule>();
   set accessSchedules(ListBuilder<AccessSchedule>? accessSchedules) =>
       _$this._accessSchedules = accessSchedules;
 
   ListBuilder<UnratedItem>? _blockUnratedItems;
   ListBuilder<UnratedItem> get blockUnratedItems =>
-      _$this._blockUnratedItems ??= new ListBuilder<UnratedItem>();
+      _$this._blockUnratedItems ??= ListBuilder<UnratedItem>();
   set blockUnratedItems(ListBuilder<UnratedItem>? blockUnratedItems) =>
       _$this._blockUnratedItems = blockUnratedItems;
 
@@ -438,7 +443,7 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
 
   ListBuilder<String>? _enableContentDeletionFromFolders;
   ListBuilder<String> get enableContentDeletionFromFolders =>
-      _$this._enableContentDeletionFromFolders ??= new ListBuilder<String>();
+      _$this._enableContentDeletionFromFolders ??= ListBuilder<String>();
   set enableContentDeletionFromFolders(
           ListBuilder<String>? enableContentDeletionFromFolders) =>
       _$this._enableContentDeletionFromFolders =
@@ -461,7 +466,7 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
 
   ListBuilder<String>? _enabledDevices;
   ListBuilder<String> get enabledDevices =>
-      _$this._enabledDevices ??= new ListBuilder<String>();
+      _$this._enabledDevices ??= ListBuilder<String>();
   set enabledDevices(ListBuilder<String>? enabledDevices) =>
       _$this._enabledDevices = enabledDevices;
 
@@ -472,7 +477,7 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
 
   ListBuilder<String>? _enabledChannels;
   ListBuilder<String> get enabledChannels =>
-      _$this._enabledChannels ??= new ListBuilder<String>();
+      _$this._enabledChannels ??= ListBuilder<String>();
   set enabledChannels(ListBuilder<String>? enabledChannels) =>
       _$this._enabledChannels = enabledChannels;
 
@@ -483,7 +488,7 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
 
   ListBuilder<String>? _enabledFolders;
   ListBuilder<String> get enabledFolders =>
-      _$this._enabledFolders ??= new ListBuilder<String>();
+      _$this._enabledFolders ??= ListBuilder<String>();
   set enabledFolders(ListBuilder<String>? enabledFolders) =>
       _$this._enabledFolders = enabledFolders;
 
@@ -514,13 +519,13 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
 
   ListBuilder<String>? _blockedMediaFolders;
   ListBuilder<String> get blockedMediaFolders =>
-      _$this._blockedMediaFolders ??= new ListBuilder<String>();
+      _$this._blockedMediaFolders ??= ListBuilder<String>();
   set blockedMediaFolders(ListBuilder<String>? blockedMediaFolders) =>
       _$this._blockedMediaFolders = blockedMediaFolders;
 
   ListBuilder<String>? _blockedChannels;
   ListBuilder<String> get blockedChannels =>
-      _$this._blockedChannels ??= new ListBuilder<String>();
+      _$this._blockedChannels ??= ListBuilder<String>();
   set blockedChannels(ListBuilder<String>? blockedChannels) =>
       _$this._blockedChannels = blockedChannels;
 
@@ -558,6 +563,7 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
       _enableLyricManagement = $v.enableLyricManagement;
       _isDisabled = $v.isDisabled;
       _maxParentalRating = $v.maxParentalRating;
+      _maxParentalSubRating = $v.maxParentalSubRating;
       _blockedTags = $v.blockedTags?.toBuilder();
       _allowedTags = $v.allowedTags?.toBuilder();
       _enableUserPreferenceAccess = $v.enableUserPreferenceAccess;
@@ -602,7 +608,6 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
 
   @override
   void replace(UserPolicy other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserPolicy;
   }
 
@@ -618,57 +623,59 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
     _$UserPolicy _$result;
     try {
       _$result = _$v ??
-          new _$UserPolicy._(
-              isAdministrator: isAdministrator,
-              isHidden: isHidden,
-              enableCollectionManagement: enableCollectionManagement,
-              enableSubtitleManagement: enableSubtitleManagement,
-              enableLyricManagement: enableLyricManagement,
-              isDisabled: isDisabled,
-              maxParentalRating: maxParentalRating,
-              blockedTags: _blockedTags?.build(),
-              allowedTags: _allowedTags?.build(),
-              enableUserPreferenceAccess: enableUserPreferenceAccess,
-              accessSchedules: _accessSchedules?.build(),
-              blockUnratedItems: _blockUnratedItems?.build(),
-              enableRemoteControlOfOtherUsers: enableRemoteControlOfOtherUsers,
-              enableSharedDeviceControl: enableSharedDeviceControl,
-              enableRemoteAccess: enableRemoteAccess,
-              enableLiveTvManagement: enableLiveTvManagement,
-              enableLiveTvAccess: enableLiveTvAccess,
-              enableMediaPlayback: enableMediaPlayback,
-              enableAudioPlaybackTranscoding: enableAudioPlaybackTranscoding,
-              enableVideoPlaybackTranscoding: enableVideoPlaybackTranscoding,
-              enablePlaybackRemuxing: enablePlaybackRemuxing,
-              forceRemoteSourceTranscoding: forceRemoteSourceTranscoding,
-              enableContentDeletion: enableContentDeletion,
-              enableContentDeletionFromFolders:
-                  _enableContentDeletionFromFolders?.build(),
-              enableContentDownloading: enableContentDownloading,
-              enableSyncTranscoding: enableSyncTranscoding,
-              enableMediaConversion: enableMediaConversion,
-              enabledDevices: _enabledDevices?.build(),
-              enableAllDevices: enableAllDevices,
-              enabledChannels: _enabledChannels?.build(),
-              enableAllChannels: enableAllChannels,
-              enabledFolders: _enabledFolders?.build(),
-              enableAllFolders: enableAllFolders,
-              invalidLoginAttemptCount: invalidLoginAttemptCount,
-              loginAttemptsBeforeLockout: loginAttemptsBeforeLockout,
-              maxActiveSessions: maxActiveSessions,
-              enablePublicSharing: enablePublicSharing,
-              blockedMediaFolders: _blockedMediaFolders?.build(),
-              blockedChannels: _blockedChannels?.build(),
-              remoteClientBitrateLimit: remoteClientBitrateLimit,
-              authenticationProviderId: BuiltValueNullFieldError.checkNotNull(
-                  authenticationProviderId,
-                  r'UserPolicy',
-                  'authenticationProviderId'),
-              passwordResetProviderId: BuiltValueNullFieldError.checkNotNull(
-                  passwordResetProviderId,
-                  r'UserPolicy',
-                  'passwordResetProviderId'),
-              syncPlayAccess: syncPlayAccess);
+          _$UserPolicy._(
+            isAdministrator: isAdministrator,
+            isHidden: isHidden,
+            enableCollectionManagement: enableCollectionManagement,
+            enableSubtitleManagement: enableSubtitleManagement,
+            enableLyricManagement: enableLyricManagement,
+            isDisabled: isDisabled,
+            maxParentalRating: maxParentalRating,
+            maxParentalSubRating: maxParentalSubRating,
+            blockedTags: _blockedTags?.build(),
+            allowedTags: _allowedTags?.build(),
+            enableUserPreferenceAccess: enableUserPreferenceAccess,
+            accessSchedules: _accessSchedules?.build(),
+            blockUnratedItems: _blockUnratedItems?.build(),
+            enableRemoteControlOfOtherUsers: enableRemoteControlOfOtherUsers,
+            enableSharedDeviceControl: enableSharedDeviceControl,
+            enableRemoteAccess: enableRemoteAccess,
+            enableLiveTvManagement: enableLiveTvManagement,
+            enableLiveTvAccess: enableLiveTvAccess,
+            enableMediaPlayback: enableMediaPlayback,
+            enableAudioPlaybackTranscoding: enableAudioPlaybackTranscoding,
+            enableVideoPlaybackTranscoding: enableVideoPlaybackTranscoding,
+            enablePlaybackRemuxing: enablePlaybackRemuxing,
+            forceRemoteSourceTranscoding: forceRemoteSourceTranscoding,
+            enableContentDeletion: enableContentDeletion,
+            enableContentDeletionFromFolders:
+                _enableContentDeletionFromFolders?.build(),
+            enableContentDownloading: enableContentDownloading,
+            enableSyncTranscoding: enableSyncTranscoding,
+            enableMediaConversion: enableMediaConversion,
+            enabledDevices: _enabledDevices?.build(),
+            enableAllDevices: enableAllDevices,
+            enabledChannels: _enabledChannels?.build(),
+            enableAllChannels: enableAllChannels,
+            enabledFolders: _enabledFolders?.build(),
+            enableAllFolders: enableAllFolders,
+            invalidLoginAttemptCount: invalidLoginAttemptCount,
+            loginAttemptsBeforeLockout: loginAttemptsBeforeLockout,
+            maxActiveSessions: maxActiveSessions,
+            enablePublicSharing: enablePublicSharing,
+            blockedMediaFolders: _blockedMediaFolders?.build(),
+            blockedChannels: _blockedChannels?.build(),
+            remoteClientBitrateLimit: remoteClientBitrateLimit,
+            authenticationProviderId: BuiltValueNullFieldError.checkNotNull(
+                authenticationProviderId,
+                r'UserPolicy',
+                'authenticationProviderId'),
+            passwordResetProviderId: BuiltValueNullFieldError.checkNotNull(
+                passwordResetProviderId,
+                r'UserPolicy',
+                'passwordResetProviderId'),
+            syncPlayAccess: syncPlayAccess,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -699,7 +706,7 @@ class UserPolicyBuilder implements Builder<UserPolicy, UserPolicyBuilder> {
         _$failedField = 'blockedChannels';
         _blockedChannels?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserPolicy', _$failedField, e.toString());
       }
       rethrow;

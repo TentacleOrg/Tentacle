@@ -11,23 +11,27 @@ class _$LyricLine extends LyricLine {
   final String? text;
   @override
   final int? start;
+  @override
+  final BuiltList<LyricLineCue>? cues;
 
   factory _$LyricLine([void Function(LyricLineBuilder)? updates]) =>
-      (new LyricLineBuilder()..update(updates))._build();
+      (LyricLineBuilder()..update(updates))._build();
 
-  _$LyricLine._({this.text, this.start}) : super._();
-
+  _$LyricLine._({this.text, this.start, this.cues}) : super._();
   @override
   LyricLine rebuild(void Function(LyricLineBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LyricLineBuilder toBuilder() => new LyricLineBuilder()..replace(this);
+  LyricLineBuilder toBuilder() => LyricLineBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is LyricLine && text == other.text && start == other.start;
+    return other is LyricLine &&
+        text == other.text &&
+        start == other.start &&
+        cues == other.cues;
   }
 
   @override
@@ -35,6 +39,7 @@ class _$LyricLine extends LyricLine {
     var _$hash = 0;
     _$hash = $jc(_$hash, text.hashCode);
     _$hash = $jc(_$hash, start.hashCode);
+    _$hash = $jc(_$hash, cues.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -43,7 +48,8 @@ class _$LyricLine extends LyricLine {
   String toString() {
     return (newBuiltValueToStringHelper(r'LyricLine')
           ..add('text', text)
-          ..add('start', start))
+          ..add('start', start)
+          ..add('cues', cues))
         .toString();
   }
 }
@@ -59,6 +65,11 @@ class LyricLineBuilder implements Builder<LyricLine, LyricLineBuilder> {
   int? get start => _$this._start;
   set start(int? start) => _$this._start = start;
 
+  ListBuilder<LyricLineCue>? _cues;
+  ListBuilder<LyricLineCue> get cues =>
+      _$this._cues ??= ListBuilder<LyricLineCue>();
+  set cues(ListBuilder<LyricLineCue>? cues) => _$this._cues = cues;
+
   LyricLineBuilder() {
     LyricLine._defaults(this);
   }
@@ -68,6 +79,7 @@ class LyricLineBuilder implements Builder<LyricLine, LyricLineBuilder> {
     if ($v != null) {
       _text = $v.text;
       _start = $v.start;
+      _cues = $v.cues?.toBuilder();
       _$v = null;
     }
     return this;
@@ -75,7 +87,6 @@ class LyricLineBuilder implements Builder<LyricLine, LyricLineBuilder> {
 
   @override
   void replace(LyricLine other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LyricLine;
   }
 
@@ -88,7 +99,25 @@ class LyricLineBuilder implements Builder<LyricLine, LyricLineBuilder> {
   LyricLine build() => _build();
 
   _$LyricLine _build() {
-    final _$result = _$v ?? new _$LyricLine._(text: text, start: start);
+    _$LyricLine _$result;
+    try {
+      _$result = _$v ??
+          _$LyricLine._(
+            text: text,
+            start: start,
+            cues: _cues?.build(),
+          );
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'cues';
+        _cues?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'LyricLine', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

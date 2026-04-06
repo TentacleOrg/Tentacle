@@ -14,17 +14,16 @@ class _$PathSubstitution extends PathSubstitution {
 
   factory _$PathSubstitution(
           [void Function(PathSubstitutionBuilder)? updates]) =>
-      (new PathSubstitutionBuilder()..update(updates))._build();
+      (PathSubstitutionBuilder()..update(updates))._build();
 
   _$PathSubstitution._({this.from, this.to}) : super._();
-
   @override
   PathSubstitution rebuild(void Function(PathSubstitutionBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   PathSubstitutionBuilder toBuilder() =>
-      new PathSubstitutionBuilder()..replace(this);
+      PathSubstitutionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -78,7 +77,6 @@ class PathSubstitutionBuilder
 
   @override
   void replace(PathSubstitution other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PathSubstitution;
   }
 
@@ -91,7 +89,11 @@ class PathSubstitutionBuilder
   PathSubstitution build() => _build();
 
   _$PathSubstitution _build() {
-    final _$result = _$v ?? new _$PathSubstitution._(from: from, to: to);
+    final _$result = _$v ??
+        _$PathSubstitution._(
+          from: from,
+          to: to,
+        );
     replace(_$result);
     return _$result;
   }

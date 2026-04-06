@@ -22,7 +22,7 @@ void main() {
 
     // Gets branding configuration.
     //
-    //Future<BrandingOptions> getBrandingOptions() async
+    //Future<BrandingOptionsDto> getBrandingOptions() async
     test('test getBrandingOptions', () async {
       // TODO
     });

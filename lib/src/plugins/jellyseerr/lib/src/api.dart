@@ -24,7 +24,6 @@ import 'package:tentacle/src/api/settings_api.dart';
 import 'package:tentacle/src/api/tmdb_api.dart';
 import 'package:tentacle/src/api/tv_api.dart';
 import 'package:tentacle/src/api/users_api.dart';
-import 'package:tentacle/src/api/watchlist_api.dart';
 
 class Tentacle {
   static const String basePath = r'http://localhost:5055/api/v1';
@@ -179,11 +178,5 @@ class Tentacle {
   /// by doing that all interceptors will not be executed
   UsersApi getUsersApi() {
     return UsersApi(dio, serializers);
-  }
-
-  /// Get WatchlistApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  WatchlistApi getWatchlistApi() {
-    return WatchlistApi(dio, serializers);
   }
 }

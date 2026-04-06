@@ -41,6 +41,7 @@ part 'media_source_info.g.dart';
 /// * [supportsDirectStream]
 /// * [supportsDirectPlay]
 /// * [isInfiniteStream]
+/// * [useMostCompatibleTranscodingProfile]
 /// * [requiresOpening]
 /// * [openToken]
 /// * [requiresClosing]
@@ -55,6 +56,7 @@ part 'media_source_info.g.dart';
 /// * [mediaAttachments]
 /// * [formats]
 /// * [bitrate]
+/// * [fallbackMaxStreamingBitrate]
 /// * [timestamp]
 /// * [requiredHttpHeaders]
 /// * [transcodingUrl]
@@ -63,6 +65,7 @@ part 'media_source_info.g.dart';
 /// * [analyzeDurationMs]
 /// * [defaultAudioStreamIndex]
 /// * [defaultSubtitleStreamIndex]
+/// * [hasSegments]
 @BuiltValue()
 abstract class MediaSourceInfo
     implements Built<MediaSourceInfo, MediaSourceInfoBuilder> {
@@ -130,6 +133,9 @@ abstract class MediaSourceInfo
   @BuiltValueField(wireName: r'IsInfiniteStream')
   bool? get isInfiniteStream;
 
+  @BuiltValueField(wireName: r'UseMostCompatibleTranscodingProfile')
+  bool? get useMostCompatibleTranscodingProfile;
+
   @BuiltValueField(wireName: r'RequiresOpening')
   bool? get requiresOpening;
 
@@ -175,6 +181,9 @@ abstract class MediaSourceInfo
   @BuiltValueField(wireName: r'Bitrate')
   int? get bitrate;
 
+  @BuiltValueField(wireName: r'FallbackMaxStreamingBitrate')
+  int? get fallbackMaxStreamingBitrate;
+
   @BuiltValueField(wireName: r'Timestamp')
   TransportStreamTimestamp? get timestamp;
   // enum timestampEnum {  None,  Zero,  Valid,  };
@@ -202,13 +211,17 @@ abstract class MediaSourceInfo
   @BuiltValueField(wireName: r'DefaultSubtitleStreamIndex')
   int? get defaultSubtitleStreamIndex;
 
+  @BuiltValueField(wireName: r'HasSegments')
+  bool? get hasSegments;
+
   MediaSourceInfo._();
 
   factory MediaSourceInfo([void updates(MediaSourceInfoBuilder b)]) =
       _$MediaSourceInfo;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MediaSourceInfoBuilder b) => b;
+  static void _defaults(MediaSourceInfoBuilder b) =>
+      b..useMostCompatibleTranscodingProfile = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MediaSourceInfo> get serializer =>
@@ -368,6 +381,13 @@ class _$MediaSourceInfoSerializer
         specifiedType: const FullType(bool),
       );
     }
+    if (object.useMostCompatibleTranscodingProfile != null) {
+      yield r'UseMostCompatibleTranscodingProfile';
+      yield serializers.serialize(
+        object.useMostCompatibleTranscodingProfile,
+        specifiedType: const FullType(bool),
+      );
+    }
     if (object.requiresOpening != null) {
       yield r'RequiresOpening';
       yield serializers.serialize(
@@ -468,6 +488,13 @@ class _$MediaSourceInfoSerializer
         specifiedType: const FullType.nullable(int),
       );
     }
+    if (object.fallbackMaxStreamingBitrate != null) {
+      yield r'FallbackMaxStreamingBitrate';
+      yield serializers.serialize(
+        object.fallbackMaxStreamingBitrate,
+        specifiedType: const FullType.nullable(int),
+      );
+    }
     if (object.timestamp != null) {
       yield r'Timestamp';
       yield serializers.serialize(
@@ -523,6 +550,13 @@ class _$MediaSourceInfoSerializer
       yield serializers.serialize(
         object.defaultSubtitleStreamIndex,
         specifiedType: const FullType.nullable(int),
+      );
+    }
+    if (object.hasSegments != null) {
+      yield r'HasSegments';
+      yield serializers.serialize(
+        object.hasSegments,
+        specifiedType: const FullType(bool),
       );
     }
   }
@@ -699,6 +733,13 @@ class _$MediaSourceInfoSerializer
           ) as bool;
           result.isInfiniteStream = valueDes;
           break;
+        case r'UseMostCompatibleTranscodingProfile':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.useMostCompatibleTranscodingProfile = valueDes;
+          break;
         case r'RequiresOpening':
           final valueDes = serializers.deserialize(
             value,
@@ -810,6 +851,14 @@ class _$MediaSourceInfoSerializer
           if (valueDes == null) continue;
           result.bitrate = valueDes;
           break;
+        case r'FallbackMaxStreamingBitrate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
+          result.fallbackMaxStreamingBitrate = valueDes;
+          break;
         case r'Timestamp':
           final valueDes = serializers.deserialize(
             value,
@@ -873,6 +922,13 @@ class _$MediaSourceInfoSerializer
           ) as int?;
           if (valueDes == null) continue;
           result.defaultSubtitleStreamIndex = valueDes;
+          break;
+        case r'HasSegments':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.hasSegments = valueDes;
           break;
         default:
           unhandled.add(key);

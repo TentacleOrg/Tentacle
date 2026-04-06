@@ -25,7 +25,7 @@ class _$PlayRequest extends PlayRequest {
   final int? startIndex;
 
   factory _$PlayRequest([void Function(PlayRequestBuilder)? updates]) =>
-      (new PlayRequestBuilder()..update(updates))._build();
+      (PlayRequestBuilder()..update(updates))._build();
 
   _$PlayRequest._(
       {this.itemIds,
@@ -37,13 +37,12 @@ class _$PlayRequest extends PlayRequest {
       this.mediaSourceId,
       this.startIndex})
       : super._();
-
   @override
   PlayRequest rebuild(void Function(PlayRequestBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlayRequestBuilder toBuilder() => new PlayRequestBuilder()..replace(this);
+  PlayRequestBuilder toBuilder() => PlayRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -93,8 +92,7 @@ class PlayRequestBuilder implements Builder<PlayRequest, PlayRequestBuilder> {
   _$PlayRequest? _$v;
 
   ListBuilder<String>? _itemIds;
-  ListBuilder<String> get itemIds =>
-      _$this._itemIds ??= new ListBuilder<String>();
+  ListBuilder<String> get itemIds => _$this._itemIds ??= ListBuilder<String>();
   set itemIds(ListBuilder<String>? itemIds) => _$this._itemIds = itemIds;
 
   int? _startPositionTicks;
@@ -153,7 +151,6 @@ class PlayRequestBuilder implements Builder<PlayRequest, PlayRequestBuilder> {
 
   @override
   void replace(PlayRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlayRequest;
   }
 
@@ -169,22 +166,23 @@ class PlayRequestBuilder implements Builder<PlayRequest, PlayRequestBuilder> {
     _$PlayRequest _$result;
     try {
       _$result = _$v ??
-          new _$PlayRequest._(
-              itemIds: _itemIds?.build(),
-              startPositionTicks: startPositionTicks,
-              playCommand: playCommand,
-              controllingUserId: controllingUserId,
-              subtitleStreamIndex: subtitleStreamIndex,
-              audioStreamIndex: audioStreamIndex,
-              mediaSourceId: mediaSourceId,
-              startIndex: startIndex);
+          _$PlayRequest._(
+            itemIds: _itemIds?.build(),
+            startPositionTicks: startPositionTicks,
+            playCommand: playCommand,
+            controllingUserId: controllingUserId,
+            subtitleStreamIndex: subtitleStreamIndex,
+            audioStreamIndex: audioStreamIndex,
+            mediaSourceId: mediaSourceId,
+            startIndex: startIndex,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'itemIds';
         _itemIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlayRequest', _$failedField, e.toString());
       }
       rethrow;

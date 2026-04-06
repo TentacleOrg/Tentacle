@@ -12,10 +12,9 @@ class _$NewGroupRequestDto extends NewGroupRequestDto {
 
   factory _$NewGroupRequestDto(
           [void Function(NewGroupRequestDtoBuilder)? updates]) =>
-      (new NewGroupRequestDtoBuilder()..update(updates))._build();
+      (NewGroupRequestDtoBuilder()..update(updates))._build();
 
   _$NewGroupRequestDto._({this.groupName}) : super._();
-
   @override
   NewGroupRequestDto rebuild(
           void Function(NewGroupRequestDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$NewGroupRequestDto extends NewGroupRequestDto {
 
   @override
   NewGroupRequestDtoBuilder toBuilder() =>
-      new NewGroupRequestDtoBuilder()..replace(this);
+      NewGroupRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +69,6 @@ class NewGroupRequestDtoBuilder
 
   @override
   void replace(NewGroupRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NewGroupRequestDto;
   }
 
@@ -83,7 +81,10 @@ class NewGroupRequestDtoBuilder
   NewGroupRequestDto build() => _build();
 
   _$NewGroupRequestDto _build() {
-    final _$result = _$v ?? new _$NewGroupRequestDto._(groupName: groupName);
+    final _$result = _$v ??
+        _$NewGroupRequestDto._(
+          groupName: groupName,
+        );
     replace(_$result);
     return _$result;
   }

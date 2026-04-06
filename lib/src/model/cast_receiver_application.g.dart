@@ -14,10 +14,9 @@ class _$CastReceiverApplication extends CastReceiverApplication {
 
   factory _$CastReceiverApplication(
           [void Function(CastReceiverApplicationBuilder)? updates]) =>
-      (new CastReceiverApplicationBuilder()..update(updates))._build();
+      (CastReceiverApplicationBuilder()..update(updates))._build();
 
   _$CastReceiverApplication._({this.id, this.name}) : super._();
-
   @override
   CastReceiverApplication rebuild(
           void Function(CastReceiverApplicationBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$CastReceiverApplication extends CastReceiverApplication {
 
   @override
   CastReceiverApplicationBuilder toBuilder() =>
-      new CastReceiverApplicationBuilder()..replace(this);
+      CastReceiverApplicationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class CastReceiverApplicationBuilder
 
   @override
   void replace(CastReceiverApplication other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CastReceiverApplication;
   }
 
@@ -95,7 +93,11 @@ class CastReceiverApplicationBuilder
   CastReceiverApplication build() => _build();
 
   _$CastReceiverApplication _build() {
-    final _$result = _$v ?? new _$CastReceiverApplication._(id: id, name: name);
+    final _$result = _$v ??
+        _$CastReceiverApplication._(
+          id: id,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

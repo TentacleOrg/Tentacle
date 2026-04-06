@@ -27,12 +27,12 @@ MovieMovieIdRatingsGet200ResponseCriticsRatingEnum
     case 'certifiedFresh':
       return _$movieMovieIdRatingsGet200ResponseCriticsRatingEnum_certifiedFresh;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<MovieMovieIdRatingsGet200ResponseCriticsRatingEnum>
-    _$movieMovieIdRatingsGet200ResponseCriticsRatingEnumValues = new BuiltSet<
+    _$movieMovieIdRatingsGet200ResponseCriticsRatingEnumValues = BuiltSet<
         MovieMovieIdRatingsGet200ResponseCriticsRatingEnum>(const <MovieMovieIdRatingsGet200ResponseCriticsRatingEnum>[
   _$movieMovieIdRatingsGet200ResponseCriticsRatingEnum_rotten,
   _$movieMovieIdRatingsGet200ResponseCriticsRatingEnum_fresh,
@@ -54,12 +54,12 @@ MovieMovieIdRatingsGet200ResponseAudienceRatingEnum
     case 'upright':
       return _$movieMovieIdRatingsGet200ResponseAudienceRatingEnum_upright;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<MovieMovieIdRatingsGet200ResponseAudienceRatingEnum>
-    _$movieMovieIdRatingsGet200ResponseAudienceRatingEnumValues = new BuiltSet<
+    _$movieMovieIdRatingsGet200ResponseAudienceRatingEnumValues = BuiltSet<
         MovieMovieIdRatingsGet200ResponseAudienceRatingEnum>(const <MovieMovieIdRatingsGet200ResponseAudienceRatingEnum>[
   _$movieMovieIdRatingsGet200ResponseAudienceRatingEnum_spilled,
   _$movieMovieIdRatingsGet200ResponseAudienceRatingEnum_upright,
@@ -67,10 +67,10 @@ final BuiltSet<MovieMovieIdRatingsGet200ResponseAudienceRatingEnum>
 
 Serializer<MovieMovieIdRatingsGet200ResponseCriticsRatingEnum>
     _$movieMovieIdRatingsGet200ResponseCriticsRatingEnumSerializer =
-    new _$MovieMovieIdRatingsGet200ResponseCriticsRatingEnumSerializer();
+    _$MovieMovieIdRatingsGet200ResponseCriticsRatingEnumSerializer();
 Serializer<MovieMovieIdRatingsGet200ResponseAudienceRatingEnum>
     _$movieMovieIdRatingsGet200ResponseAudienceRatingEnumSerializer =
-    new _$MovieMovieIdRatingsGet200ResponseAudienceRatingEnumSerializer();
+    _$MovieMovieIdRatingsGet200ResponseAudienceRatingEnumSerializer();
 
 class _$MovieMovieIdRatingsGet200ResponseCriticsRatingEnumSerializer
     implements
@@ -161,8 +161,7 @@ class _$MovieMovieIdRatingsGet200Response
 
   factory _$MovieMovieIdRatingsGet200Response(
           [void Function(MovieMovieIdRatingsGet200ResponseBuilder)? updates]) =>
-      (new MovieMovieIdRatingsGet200ResponseBuilder()..update(updates))
-          ._build();
+      (MovieMovieIdRatingsGet200ResponseBuilder()..update(updates))._build();
 
   _$MovieMovieIdRatingsGet200Response._(
       {this.title,
@@ -173,7 +172,6 @@ class _$MovieMovieIdRatingsGet200Response
       this.audienceScore,
       this.audienceRating})
       : super._();
-
   @override
   MovieMovieIdRatingsGet200Response rebuild(
           void Function(MovieMovieIdRatingsGet200ResponseBuilder) updates) =>
@@ -181,7 +179,7 @@ class _$MovieMovieIdRatingsGet200Response
 
   @override
   MovieMovieIdRatingsGet200ResponseBuilder toBuilder() =>
-      new MovieMovieIdRatingsGet200ResponseBuilder()..replace(this);
+      MovieMovieIdRatingsGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -287,7 +285,6 @@ class MovieMovieIdRatingsGet200ResponseBuilder
 
   @override
   void replace(MovieMovieIdRatingsGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieMovieIdRatingsGet200Response;
   }
 
@@ -302,14 +299,15 @@ class MovieMovieIdRatingsGet200ResponseBuilder
 
   _$MovieMovieIdRatingsGet200Response _build() {
     final _$result = _$v ??
-        new _$MovieMovieIdRatingsGet200Response._(
-            title: title,
-            year: year,
-            url: url,
-            criticsScore: criticsScore,
-            criticsRating: criticsRating,
-            audienceScore: audienceScore,
-            audienceRating: audienceRating);
+        _$MovieMovieIdRatingsGet200Response._(
+          title: title,
+          year: year,
+          url: url,
+          criticsScore: criticsScore,
+          criticsRating: criticsRating,
+          audienceScore: audienceScore,
+          audienceRating: audienceRating,
+        );
     replace(_$result);
     return _$result;
   }

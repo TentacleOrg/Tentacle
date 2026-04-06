@@ -38,7 +38,7 @@ class _$DisplayPreferencesDto extends DisplayPreferencesDto {
 
   factory _$DisplayPreferencesDto(
           [void Function(DisplayPreferencesDtoBuilder)? updates]) =>
-      (new DisplayPreferencesDtoBuilder()..update(updates))._build();
+      (DisplayPreferencesDtoBuilder()..update(updates))._build();
 
   _$DisplayPreferencesDto._(
       {this.id,
@@ -56,7 +56,6 @@ class _$DisplayPreferencesDto extends DisplayPreferencesDto {
       this.showSidebar,
       this.client})
       : super._();
-
   @override
   DisplayPreferencesDto rebuild(
           void Function(DisplayPreferencesDtoBuilder) updates) =>
@@ -64,7 +63,7 @@ class _$DisplayPreferencesDto extends DisplayPreferencesDto {
 
   @override
   DisplayPreferencesDtoBuilder toBuilder() =>
-      new DisplayPreferencesDtoBuilder()..replace(this);
+      DisplayPreferencesDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -165,7 +164,7 @@ class DisplayPreferencesDtoBuilder
 
   MapBuilder<String, String?>? _customPrefs;
   MapBuilder<String, String?> get customPrefs =>
-      _$this._customPrefs ??= new MapBuilder<String, String?>();
+      _$this._customPrefs ??= MapBuilder<String, String?>();
   set customPrefs(MapBuilder<String, String?>? customPrefs) =>
       _$this._customPrefs = customPrefs;
 
@@ -223,7 +222,6 @@ class DisplayPreferencesDtoBuilder
 
   @override
   void replace(DisplayPreferencesDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DisplayPreferencesDto;
   }
 
@@ -239,28 +237,29 @@ class DisplayPreferencesDtoBuilder
     _$DisplayPreferencesDto _$result;
     try {
       _$result = _$v ??
-          new _$DisplayPreferencesDto._(
-              id: id,
-              viewType: viewType,
-              sortBy: sortBy,
-              indexBy: indexBy,
-              rememberIndexing: rememberIndexing,
-              primaryImageHeight: primaryImageHeight,
-              primaryImageWidth: primaryImageWidth,
-              customPrefs: _customPrefs?.build(),
-              scrollDirection: scrollDirection,
-              showBackdrop: showBackdrop,
-              rememberSorting: rememberSorting,
-              sortOrder: sortOrder,
-              showSidebar: showSidebar,
-              client: client);
+          _$DisplayPreferencesDto._(
+            id: id,
+            viewType: viewType,
+            sortBy: sortBy,
+            indexBy: indexBy,
+            rememberIndexing: rememberIndexing,
+            primaryImageHeight: primaryImageHeight,
+            primaryImageWidth: primaryImageWidth,
+            customPrefs: _customPrefs?.build(),
+            scrollDirection: scrollDirection,
+            showBackdrop: showBackdrop,
+            rememberSorting: rememberSorting,
+            sortOrder: sortOrder,
+            showSidebar: showSidebar,
+            client: client,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'customPrefs';
         _customPrefs?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DisplayPreferencesDto', _$failedField, e.toString());
       }
       rethrow;

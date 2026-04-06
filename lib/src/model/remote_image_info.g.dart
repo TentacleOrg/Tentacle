@@ -29,7 +29,7 @@ class _$RemoteImageInfo extends RemoteImageInfo {
   final RatingType? ratingType;
 
   factory _$RemoteImageInfo([void Function(RemoteImageInfoBuilder)? updates]) =>
-      (new RemoteImageInfoBuilder()..update(updates))._build();
+      (RemoteImageInfoBuilder()..update(updates))._build();
 
   _$RemoteImageInfo._(
       {this.providerName,
@@ -43,14 +43,12 @@ class _$RemoteImageInfo extends RemoteImageInfo {
       this.type,
       this.ratingType})
       : super._();
-
   @override
   RemoteImageInfo rebuild(void Function(RemoteImageInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RemoteImageInfoBuilder toBuilder() =>
-      new RemoteImageInfoBuilder()..replace(this);
+  RemoteImageInfoBuilder toBuilder() => RemoteImageInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -171,7 +169,6 @@ class RemoteImageInfoBuilder
 
   @override
   void replace(RemoteImageInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RemoteImageInfo;
   }
 
@@ -185,17 +182,18 @@ class RemoteImageInfoBuilder
 
   _$RemoteImageInfo _build() {
     final _$result = _$v ??
-        new _$RemoteImageInfo._(
-            providerName: providerName,
-            url: url,
-            thumbnailUrl: thumbnailUrl,
-            height: height,
-            width: width,
-            communityRating: communityRating,
-            voteCount: voteCount,
-            language: language,
-            type: type,
-            ratingType: ratingType);
+        _$RemoteImageInfo._(
+          providerName: providerName,
+          url: url,
+          thumbnailUrl: thumbnailUrl,
+          height: height,
+          width: width,
+          communityRating: communityRating,
+          voteCount: voteCount,
+          language: language,
+          type: type,
+          ratingType: ratingType,
+        );
     replace(_$result);
     return _$result;
   }

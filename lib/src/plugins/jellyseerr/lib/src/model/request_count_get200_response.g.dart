@@ -26,7 +26,7 @@ class _$RequestCountGet200Response extends RequestCountGet200Response {
 
   factory _$RequestCountGet200Response(
           [void Function(RequestCountGet200ResponseBuilder)? updates]) =>
-      (new RequestCountGet200ResponseBuilder()..update(updates))._build();
+      (RequestCountGet200ResponseBuilder()..update(updates))._build();
 
   _$RequestCountGet200Response._(
       {this.total,
@@ -38,7 +38,6 @@ class _$RequestCountGet200Response extends RequestCountGet200Response {
       this.processing,
       this.available})
       : super._();
-
   @override
   RequestCountGet200Response rebuild(
           void Function(RequestCountGet200ResponseBuilder) updates) =>
@@ -46,7 +45,7 @@ class _$RequestCountGet200Response extends RequestCountGet200Response {
 
   @override
   RequestCountGet200ResponseBuilder toBuilder() =>
-      new RequestCountGet200ResponseBuilder()..replace(this);
+      RequestCountGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -151,7 +150,6 @@ class RequestCountGet200ResponseBuilder
 
   @override
   void replace(RequestCountGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RequestCountGet200Response;
   }
 
@@ -165,15 +163,16 @@ class RequestCountGet200ResponseBuilder
 
   _$RequestCountGet200Response _build() {
     final _$result = _$v ??
-        new _$RequestCountGet200Response._(
-            total: total,
-            movie: movie,
-            tv: tv,
-            pending: pending,
-            approved: approved,
-            declined: declined,
-            processing: processing,
-            available: available);
+        _$RequestCountGet200Response._(
+          total: total,
+          movie: movie,
+          tv: tv,
+          pending: pending,
+          approved: approved,
+          declined: declined,
+          processing: processing,
+          available: available,
+        );
     replace(_$result);
     return _$result;
   }

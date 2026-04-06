@@ -14,10 +14,9 @@ class _$GenresMovieGet200ResponseInner extends GenresMovieGet200ResponseInner {
 
   factory _$GenresMovieGet200ResponseInner(
           [void Function(GenresMovieGet200ResponseInnerBuilder)? updates]) =>
-      (new GenresMovieGet200ResponseInnerBuilder()..update(updates))._build();
+      (GenresMovieGet200ResponseInnerBuilder()..update(updates))._build();
 
   _$GenresMovieGet200ResponseInner._({this.id, this.name}) : super._();
-
   @override
   GenresMovieGet200ResponseInner rebuild(
           void Function(GenresMovieGet200ResponseInnerBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$GenresMovieGet200ResponseInner extends GenresMovieGet200ResponseInner {
 
   @override
   GenresMovieGet200ResponseInnerBuilder toBuilder() =>
-      new GenresMovieGet200ResponseInnerBuilder()..replace(this);
+      GenresMovieGet200ResponseInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -83,7 +82,6 @@ class GenresMovieGet200ResponseInnerBuilder
 
   @override
   void replace(GenresMovieGet200ResponseInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GenresMovieGet200ResponseInner;
   }
 
@@ -96,8 +94,11 @@ class GenresMovieGet200ResponseInnerBuilder
   GenresMovieGet200ResponseInner build() => _build();
 
   _$GenresMovieGet200ResponseInner _build() {
-    final _$result =
-        _$v ?? new _$GenresMovieGet200ResponseInner._(id: id, name: name);
+    final _$result = _$v ??
+        _$GenresMovieGet200ResponseInner._(
+          id: id,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

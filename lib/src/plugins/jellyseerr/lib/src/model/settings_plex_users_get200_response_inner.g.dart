@@ -22,13 +22,11 @@ class _$SettingsPlexUsersGet200ResponseInner
   factory _$SettingsPlexUsersGet200ResponseInner(
           [void Function(SettingsPlexUsersGet200ResponseInnerBuilder)?
               updates]) =>
-      (new SettingsPlexUsersGet200ResponseInnerBuilder()..update(updates))
-          ._build();
+      (SettingsPlexUsersGet200ResponseInnerBuilder()..update(updates))._build();
 
   _$SettingsPlexUsersGet200ResponseInner._(
       {this.id, this.title, this.username, this.email, this.thumb})
       : super._();
-
   @override
   SettingsPlexUsersGet200ResponseInner rebuild(
           void Function(SettingsPlexUsersGet200ResponseInnerBuilder) updates) =>
@@ -36,7 +34,7 @@ class _$SettingsPlexUsersGet200ResponseInner
 
   @override
   SettingsPlexUsersGet200ResponseInnerBuilder toBuilder() =>
-      new SettingsPlexUsersGet200ResponseInnerBuilder()..replace(this);
+      SettingsPlexUsersGet200ResponseInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -118,7 +116,6 @@ class SettingsPlexUsersGet200ResponseInnerBuilder
 
   @override
   void replace(SettingsPlexUsersGet200ResponseInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsPlexUsersGet200ResponseInner;
   }
 
@@ -133,12 +130,13 @@ class SettingsPlexUsersGet200ResponseInnerBuilder
 
   _$SettingsPlexUsersGet200ResponseInner _build() {
     final _$result = _$v ??
-        new _$SettingsPlexUsersGet200ResponseInner._(
-            id: id,
-            title: title,
-            username: username,
-            email: email,
-            thumb: thumb);
+        _$SettingsPlexUsersGet200ResponseInner._(
+          id: id,
+          title: title,
+          username: username,
+          email: email,
+          thumb: thumb,
+        );
     replace(_$result);
     return _$result;
   }

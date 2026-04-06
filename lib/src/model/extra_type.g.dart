@@ -46,11 +46,11 @@ ExtraType _$valueOf(String name) {
     case 'short':
       return _$short;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ExtraType> _$values = new BuiltSet<ExtraType>(const <ExtraType>[
+final BuiltSet<ExtraType> _$values = BuiltSet<ExtraType>(const <ExtraType>[
   _$unknown,
   _$clip,
   _$trailer,
@@ -88,7 +88,7 @@ mixin _$ExtraTypeMixin {
   _$ExtraTypeMeta get ExtraType => const _$ExtraTypeMeta();
 }
 
-Serializer<ExtraType> _$extraTypeSerializer = new _$ExtraTypeSerializer();
+Serializer<ExtraType> _$extraTypeSerializer = _$ExtraTypeSerializer();
 
 class _$ExtraTypeSerializer implements PrimitiveSerializer<ExtraType> {
   static const Map<String, Object> _toWire = const <String, Object>{

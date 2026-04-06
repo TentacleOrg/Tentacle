@@ -16,17 +16,16 @@ class _$DeviceOptionsDto extends DeviceOptionsDto {
 
   factory _$DeviceOptionsDto(
           [void Function(DeviceOptionsDtoBuilder)? updates]) =>
-      (new DeviceOptionsDtoBuilder()..update(updates))._build();
+      (DeviceOptionsDtoBuilder()..update(updates))._build();
 
   _$DeviceOptionsDto._({this.id, this.deviceId, this.customName}) : super._();
-
   @override
   DeviceOptionsDto rebuild(void Function(DeviceOptionsDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   DeviceOptionsDtoBuilder toBuilder() =>
-      new DeviceOptionsDtoBuilder()..replace(this);
+      DeviceOptionsDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -90,7 +89,6 @@ class DeviceOptionsDtoBuilder
 
   @override
   void replace(DeviceOptionsDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DeviceOptionsDto;
   }
 
@@ -104,8 +102,11 @@ class DeviceOptionsDtoBuilder
 
   _$DeviceOptionsDto _build() {
     final _$result = _$v ??
-        new _$DeviceOptionsDto._(
-            id: id, deviceId: deviceId, customName: customName);
+        _$DeviceOptionsDto._(
+          id: id,
+          deviceId: deviceId,
+          customName: customName,
+        );
     replace(_$result);
     return _$result;
   }

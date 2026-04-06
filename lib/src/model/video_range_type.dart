@@ -43,6 +43,22 @@ class VideoRangeType extends EnumClass {
   static const VideoRangeType dOVIWithSDR = _$dOVIWithSDR;
 
   /// An enum representing types of video ranges.
+  @BuiltValueEnumConst(wireName: r'DOVIWithEL')
+  static const VideoRangeType dOVIWithEL = _$dOVIWithEL;
+
+  /// An enum representing types of video ranges.
+  @BuiltValueEnumConst(wireName: r'DOVIWithHDR10Plus')
+  static const VideoRangeType dOVIWithHDR10Plus = _$dOVIWithHDR10Plus;
+
+  /// An enum representing types of video ranges.
+  @BuiltValueEnumConst(wireName: r'DOVIWithELHDR10Plus')
+  static const VideoRangeType dOVIWithELHDR10Plus = _$dOVIWithELHDR10Plus;
+
+  /// An enum representing types of video ranges.
+  @BuiltValueEnumConst(wireName: r'DOVIInvalid')
+  static const VideoRangeType dOVIInvalid = _$dOVIInvalid;
+
+  /// An enum representing types of video ranges.
   @BuiltValueEnumConst(wireName: r'HDR10Plus')
   static const VideoRangeType hDR10Plus = _$hDR10Plus;
 

@@ -12,10 +12,9 @@ class _$SetRepeatModeRequestDto extends SetRepeatModeRequestDto {
 
   factory _$SetRepeatModeRequestDto(
           [void Function(SetRepeatModeRequestDtoBuilder)? updates]) =>
-      (new SetRepeatModeRequestDtoBuilder()..update(updates))._build();
+      (SetRepeatModeRequestDtoBuilder()..update(updates))._build();
 
   _$SetRepeatModeRequestDto._({this.mode}) : super._();
-
   @override
   SetRepeatModeRequestDto rebuild(
           void Function(SetRepeatModeRequestDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$SetRepeatModeRequestDto extends SetRepeatModeRequestDto {
 
   @override
   SetRepeatModeRequestDtoBuilder toBuilder() =>
-      new SetRepeatModeRequestDtoBuilder()..replace(this);
+      SetRepeatModeRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +70,6 @@ class SetRepeatModeRequestDtoBuilder
 
   @override
   void replace(SetRepeatModeRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetRepeatModeRequestDto;
   }
 
@@ -84,7 +82,10 @@ class SetRepeatModeRequestDtoBuilder
   SetRepeatModeRequestDto build() => _build();
 
   _$SetRepeatModeRequestDto _build() {
-    final _$result = _$v ?? new _$SetRepeatModeRequestDto._(mode: mode);
+    final _$result = _$v ??
+        _$SetRepeatModeRequestDto._(
+          mode: mode,
+        );
     replace(_$result);
     return _$result;
   }

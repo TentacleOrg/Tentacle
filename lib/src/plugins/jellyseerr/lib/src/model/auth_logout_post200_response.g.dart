@@ -12,10 +12,9 @@ class _$AuthLogoutPost200Response extends AuthLogoutPost200Response {
 
   factory _$AuthLogoutPost200Response(
           [void Function(AuthLogoutPost200ResponseBuilder)? updates]) =>
-      (new AuthLogoutPost200ResponseBuilder()..update(updates))._build();
+      (AuthLogoutPost200ResponseBuilder()..update(updates))._build();
 
   _$AuthLogoutPost200Response._({this.status}) : super._();
-
   @override
   AuthLogoutPost200Response rebuild(
           void Function(AuthLogoutPost200ResponseBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$AuthLogoutPost200Response extends AuthLogoutPost200Response {
 
   @override
   AuthLogoutPost200ResponseBuilder toBuilder() =>
-      new AuthLogoutPost200ResponseBuilder()..replace(this);
+      AuthLogoutPost200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +70,6 @@ class AuthLogoutPost200ResponseBuilder
 
   @override
   void replace(AuthLogoutPost200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthLogoutPost200Response;
   }
 
@@ -84,7 +82,10 @@ class AuthLogoutPost200ResponseBuilder
   AuthLogoutPost200Response build() => _build();
 
   _$AuthLogoutPost200Response _build() {
-    final _$result = _$v ?? new _$AuthLogoutPost200Response._(status: status);
+    final _$result = _$v ??
+        _$AuthLogoutPost200Response._(
+          status: status,
+        );
     replace(_$result);
     return _$result;
   }

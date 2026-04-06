@@ -38,12 +38,12 @@ PlaystateCommand _$valueOf(String name) {
     case 'playPause':
       return _$playPause;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<PlaystateCommand> _$values =
-    new BuiltSet<PlaystateCommand>(const <PlaystateCommand>[
+    BuiltSet<PlaystateCommand>(const <PlaystateCommand>[
   _$stop,
   _$pause,
   _$unpause,
@@ -76,7 +76,7 @@ mixin _$PlaystateCommandMixin {
 }
 
 Serializer<PlaystateCommand> _$playstateCommandSerializer =
-    new _$PlaystateCommandSerializer();
+    _$PlaystateCommandSerializer();
 
 class _$PlaystateCommandSerializer
     implements PrimitiveSerializer<PlaystateCommand> {

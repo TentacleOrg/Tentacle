@@ -10,7 +10,7 @@ import 'package:built_value/serializer.dart';
 
 part 'timer_info_dto_query_result.g.dart';
 
-/// TimerInfoDtoQueryResult
+/// Query result container.
 ///
 /// Properties:
 /// * [items] - Gets or sets the items.
@@ -65,8 +65,7 @@ class _$TimerInfoDtoQueryResultSerializer
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType:
-            const FullType.nullable(BuiltList, [FullType(TimerInfoDto)]),
+        specifiedType: const FullType(BuiltList, [FullType(TimerInfoDto)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -111,10 +110,8 @@ class _$TimerInfoDtoQueryResultSerializer
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(BuiltList, [FullType(TimerInfoDto)]),
-          ) as BuiltList<TimerInfoDto>?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(BuiltList, [FullType(TimerInfoDto)]),
+          ) as BuiltList<TimerInfoDto>;
           result.items.replace(valueDes);
           break;
         case r'TotalRecordCount':

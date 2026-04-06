@@ -23,6 +23,10 @@ class PluginStatus extends EnumClass {
   static const PluginStatus deleted = _$deleted;
 
   /// Plugin load status.
+  @BuiltValueEnumConst(wireName: r'Superseded')
+  static const PluginStatus superseded = _$superseded;
+
+  /// Plugin load status.
   @BuiltValueEnumConst(wireName: r'Superceded')
   static const PluginStatus superceded = _$superceded;
 

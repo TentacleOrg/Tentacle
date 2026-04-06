@@ -25,7 +25,7 @@ class _$ImageInfo extends ImageInfo {
   final int? size;
 
   factory _$ImageInfo([void Function(ImageInfoBuilder)? updates]) =>
-      (new ImageInfoBuilder()..update(updates))._build();
+      (ImageInfoBuilder()..update(updates))._build();
 
   _$ImageInfo._(
       {this.imageType,
@@ -37,13 +37,12 @@ class _$ImageInfo extends ImageInfo {
       this.width,
       this.size})
       : super._();
-
   @override
   ImageInfo rebuild(void Function(ImageInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ImageInfoBuilder toBuilder() => new ImageInfoBuilder()..replace(this);
+  ImageInfoBuilder toBuilder() => ImageInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -146,7 +145,6 @@ class ImageInfoBuilder implements Builder<ImageInfo, ImageInfoBuilder> {
 
   @override
   void replace(ImageInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ImageInfo;
   }
 
@@ -160,15 +158,16 @@ class ImageInfoBuilder implements Builder<ImageInfo, ImageInfoBuilder> {
 
   _$ImageInfo _build() {
     final _$result = _$v ??
-        new _$ImageInfo._(
-            imageType: imageType,
-            imageIndex: imageIndex,
-            imageTag: imageTag,
-            path: path,
-            blurHash: blurHash,
-            height: height,
-            width: width,
-            size: size);
+        _$ImageInfo._(
+          imageType: imageType,
+          imageIndex: imageIndex,
+          imageTag: imageTag,
+          path: path,
+          blurHash: blurHash,
+          height: height,
+          width: width,
+          size: size,
+        );
     replace(_$result);
     return _$result;
   }

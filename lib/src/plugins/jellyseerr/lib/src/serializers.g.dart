@@ -6,8 +6,7 @@ part of 'serializers.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializers _$serializers = (new Serializers().toBuilder()
-      ..add(AuthJellyfinPostRequest.serializer)
+Serializers _$serializers = (Serializers().toBuilder()
       ..add(AuthLocalPostRequest.serializer)
       ..add(AuthLogoutPost200Response.serializer)
       ..add(AuthPlexPostRequest.serializer)
@@ -45,8 +44,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(IssueGet200Response.serializer)
       ..add(IssueIssueIdCommentPostRequest.serializer)
       ..add(IssuePostRequest.serializer)
-      ..add(JellyfinLibrary.serializer)
-      ..add(JellyfinSettings.serializer)
       ..add(Job.serializer)
       ..add(JobIntervalEnum.serializer)
       ..add(JobTypeEnum.serializer)
@@ -122,13 +119,11 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(SettingsCacheGet200ResponseImageCacheTmdb.serializer)
       ..add(SettingsDiscoverAddPostRequest.serializer)
       ..add(SettingsDiscoverSliderIdPutRequest.serializer)
-      ..add(SettingsJellyfinSyncGet200Response.serializer)
-      ..add(SettingsJellyfinSyncPostRequest.serializer)
-      ..add(SettingsJellyfinUsersGet200ResponseInner.serializer)
       ..add(SettingsJobsJobIdSchedulePostRequest.serializer)
       ..add(SettingsLogsGet200ResponseInner.serializer)
       ..add(SettingsNotificationsPushoverSoundsGet200ResponseInner.serializer)
       ..add(SettingsPlexSyncGet200Response.serializer)
+      ..add(SettingsPlexSyncPostRequest.serializer)
       ..add(SettingsPlexUsersGet200ResponseInner.serializer)
       ..add(SettingsRadarrTestPost200Response.serializer)
       ..add(SettingsRadarrTestPostRequest.serializer)
@@ -156,13 +151,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(TvTvIdRatingsGet200ResponseCriticsRatingEnum.serializer)
       ..add(User.serializer)
       ..add(UserGet200Response.serializer)
-      ..add(UserImportFromJellyfinPostRequest.serializer)
       ..add(UserImportFromPlexPostRequest.serializer)
       ..add(UserPostRequest.serializer)
       ..add(UserPutRequest.serializer)
       ..add(UserRegisterPushSubscriptionPostRequest.serializer)
       ..add(UserSettings.serializer)
       ..add(UserSettingsNotifications.serializer)
+      ..add(UserUserIdPushSubscriptionsGet200Response.serializer)
       ..add(UserUserIdQuotaGet200Response.serializer)
       ..add(UserUserIdQuotaGet200ResponseMovie.serializer)
       ..add(UserUserIdRequestsGet200Response.serializer)
@@ -178,268 +173,257 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(WatchProviderDetails.serializer)
       ..add(WatchProviderRegion.serializer)
       ..add(WatchProvidersInner.serializer)
-      ..add(Watchlist.serializer)
       ..add(WebPushSettings.serializer)
       ..add(WebhookSettings.serializer)
       ..add(WebhookSettingsOptions.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Cast)]),
-          () => new ListBuilder<Cast>())
+          () => ListBuilder<Cast>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Crew)]),
-          () => new ListBuilder<Crew>())
+          () => ListBuilder<Crew>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Company)]),
-          () => new ListBuilder<Company>())
+          () => ListBuilder<Company>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(CreditCast)]),
-          () => new ListBuilder<CreditCast>())
+          () => ListBuilder<CreditCast>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(CreditCrew)]),
-          () => new ListBuilder<CreditCrew>())
+          () => ListBuilder<CreditCrew>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Episode)]),
-          () => new ListBuilder<Episode>())
+          () => ListBuilder<Episode>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Genre)]),
-          () => new ListBuilder<Genre>())
+          () => ListBuilder<Genre>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(RelatedVideo)]),
-          () => new ListBuilder<RelatedVideo>())
+          () => ListBuilder<RelatedVideo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProductionCompany)]),
-          () => new ListBuilder<ProductionCompany>())
+          () => ListBuilder<ProductionCompany>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(MovieDetailsProductionCountriesInner)]),
-          () => new ListBuilder<MovieDetailsProductionCountriesInner>())
+          () => ListBuilder<MovieDetailsProductionCountriesInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SpokenLanguage)]),
-          () => new ListBuilder<SpokenLanguage>())
+          () => ListBuilder<SpokenLanguage>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType(
                 BuiltList, const [const FullType(WatchProvidersInner)])
           ]),
-          () => new ListBuilder<BuiltList<WatchProvidersInner>>())
+          () => ListBuilder<BuiltList<WatchProvidersInner>>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Issue)]),
-          () => new ListBuilder<Issue>())
+          () => ListBuilder<Issue>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(IssueComment)]),
-          () => new ListBuilder<IssueComment>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(JellyfinLibrary)]),
-          () => new ListBuilder<JellyfinLibrary>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(JellyfinLibrary)]),
-          () => new ListBuilder<JellyfinLibrary>())
+          () => ListBuilder<IssueComment>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Keyword)]),
-          () => new ListBuilder<Keyword>())
+          () => ListBuilder<Keyword>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaInfo)]),
-          () => new ListBuilder<MediaInfo>())
+          () => ListBuilder<MediaInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaInfo)]),
-          () => new ListBuilder<MediaInfo>())
+          () => ListBuilder<MediaInfo>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaRequest)]),
-          () => new ListBuilder<MediaRequest>())
+          () => ListBuilder<MediaRequest>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MediaRequest)]),
-          () => new ListBuilder<MediaRequest>())
+          () => ListBuilder<MediaRequest>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(MovieDetailsReleasesResultsInner)]),
-          () => new ListBuilder<MovieDetailsReleasesResultsInner>())
+          () => ListBuilder<MovieDetailsReleasesResultsInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType(MovieDetailsReleasesResultsInnerReleaseDatesInner)
           ]),
-          () => new ListBuilder<
-              MovieDetailsReleasesResultsInnerReleaseDatesInner>())
+          () =>
+              ListBuilder<MovieDetailsReleasesResultsInnerReleaseDatesInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MovieResult)]),
-          () => new ListBuilder<MovieResult>())
+          () => ListBuilder<MovieResult>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MovieResult)]),
-          () => new ListBuilder<MovieResult>())
+          () => ListBuilder<MovieResult>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MovieResult)]),
-          () => new ListBuilder<MovieResult>())
+          () => ListBuilder<MovieResult>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MovieResult)]),
-          () => new ListBuilder<MovieResult>())
+          () => ListBuilder<MovieResult>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(MovieResult)]),
-          () => new ListBuilder<MovieResult>())
+          () => ListBuilder<MovieResult>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(PersonResultKnownForInner)]),
-          () => new ListBuilder<PersonResultKnownForInner>())
+          () => ListBuilder<PersonResultKnownForInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PlexLibrary)]),
-          () => new ListBuilder<PlexLibrary>())
+          () => ListBuilder<PlexLibrary>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PlexLibrary)]),
-          () => new ListBuilder<PlexLibrary>())
+          () => ListBuilder<PlexLibrary>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(SearchGet200ResponseResultsInner)]),
-          () => new ListBuilder<SearchGet200ResponseResultsInner>())
+          () => ListBuilder<SearchGet200ResponseResultsInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ServiceProfile)]),
-          () => new ListBuilder<ServiceProfile>())
+          () => ListBuilder<ServiceProfile>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType(SettingsCacheGet200ResponseApiCachesInner)
           ]),
-          () => new ListBuilder<SettingsCacheGet200ResponseApiCachesInner>())
+          () => ListBuilder<SettingsCacheGet200ResponseApiCachesInner>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(SonarrSeriesImagesInner)]),
-          () => new ListBuilder<SonarrSeriesImagesInner>())
+          () => ListBuilder<SonarrSeriesImagesInner>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(SonarrSeriesSeasonsInner)]),
-          () => new ListBuilder<SonarrSeriesSeasonsInner>())
+          () => ListBuilder<SonarrSeriesSeasonsInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(SonarrSeriesRatingsInner)]),
-          () => new ListBuilder<SonarrSeriesRatingsInner>())
+          () => ListBuilder<SonarrSeriesRatingsInner>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(SonarrSeriesAddOptionsInner)]),
-          () => new ListBuilder<SonarrSeriesAddOptionsInner>())
+          () => ListBuilder<SonarrSeriesAddOptionsInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PlexConnection)]),
-          () => new ListBuilder<PlexConnection>())
+          () => ListBuilder<PlexConnection>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(num)]),
-          () => new ListBuilder<num>())
+          () => ListBuilder<num>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(num)]),
-          () => new ListBuilder<num>())
+          () => ListBuilder<num>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(TvDetailsContentRatingsResultsInner)]),
-          () => new ListBuilder<TvDetailsContentRatingsResultsInner>())
+          () => ListBuilder<TvDetailsContentRatingsResultsInner>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(TvDetailsCreatedByInner)]),
-          () => new ListBuilder<TvDetailsCreatedByInner>())
+          () => ListBuilder<TvDetailsCreatedByInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(num)]),
-          () => new ListBuilder<num>())
+          () => ListBuilder<num>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Genre)]),
-          () => new ListBuilder<Genre>())
+          () => ListBuilder<Genre>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProductionCompany)]),
-          () => new ListBuilder<ProductionCompany>())
+          () => ListBuilder<ProductionCompany>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
+          () => ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(ProductionCompany)]),
-          () => new ListBuilder<ProductionCompany>())
+          () => ListBuilder<ProductionCompany>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(MovieDetailsProductionCountriesInner)]),
-          () => new ListBuilder<MovieDetailsProductionCountriesInner>())
+          () => ListBuilder<MovieDetailsProductionCountriesInner>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(SpokenLanguage)]),
-          () => new ListBuilder<SpokenLanguage>())
+          () => ListBuilder<SpokenLanguage>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Season)]),
-          () => new ListBuilder<Season>())
+          () => ListBuilder<Season>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Keyword)]),
-          () => new ListBuilder<Keyword>())
+          () => ListBuilder<Keyword>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType(
                 BuiltList, const [const FullType(WatchProvidersInner)])
           ]),
-          () => new ListBuilder<BuiltList<WatchProvidersInner>>())
+          () => ListBuilder<BuiltList<WatchProvidersInner>>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TvResult)]),
-          () => new ListBuilder<TvResult>())
+          () => ListBuilder<TvResult>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TvResult)]),
-          () => new ListBuilder<TvResult>())
+          () => ListBuilder<TvResult>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TvResult)]),
-          () => new ListBuilder<TvResult>())
+          () => ListBuilder<TvResult>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(TvResult)]),
-          () => new ListBuilder<TvResult>())
+          () => ListBuilder<TvResult>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(User)]),
-          () => new ListBuilder<User>())
+          () => ListBuilder<User>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(User)]),
-          () => new ListBuilder<User>())
+          () => ListBuilder<User>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
             const FullType(UserUserIdWatchlistGet200ResponseResultsInner)
           ]),
-          () =>
-              new ListBuilder<UserUserIdWatchlistGet200ResponseResultsInner>())
+          () => ListBuilder<UserUserIdWatchlistGet200ResponseResultsInner>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(WatchProviderDetails)]),
-          () => new ListBuilder<WatchProviderDetails>())
+          () => ListBuilder<WatchProviderDetails>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(WatchProviderDetails)]),
-          () => new ListBuilder<WatchProviderDetails>())
+          () => ListBuilder<WatchProviderDetails>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
+          () => ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(num)]),
-          () => new ListBuilder<num>())
+          () => ListBuilder<num>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(num)]),
-          () => new ListBuilder<num>())
+          () => ListBuilder<num>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(num)]),
-          () => new ListBuilder<num>())
+          () => ListBuilder<num>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>()))
+          () => ListBuilder<String>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

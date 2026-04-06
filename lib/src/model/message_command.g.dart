@@ -15,20 +15,16 @@ class _$MessageCommand extends MessageCommand {
   final int? timeoutMs;
 
   factory _$MessageCommand([void Function(MessageCommandBuilder)? updates]) =>
-      (new MessageCommandBuilder()..update(updates))._build();
+      (MessageCommandBuilder()..update(updates))._build();
 
   _$MessageCommand._({this.header, required this.text, this.timeoutMs})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(text, r'MessageCommand', 'text');
-  }
-
+      : super._();
   @override
   MessageCommand rebuild(void Function(MessageCommandBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MessageCommandBuilder toBuilder() =>
-      new MessageCommandBuilder()..replace(this);
+  MessageCommandBuilder toBuilder() => MessageCommandBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -92,7 +88,6 @@ class MessageCommandBuilder
 
   @override
   void replace(MessageCommand other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MessageCommand;
   }
 
@@ -106,11 +101,12 @@ class MessageCommandBuilder
 
   _$MessageCommand _build() {
     final _$result = _$v ??
-        new _$MessageCommand._(
-            header: header,
-            text: BuiltValueNullFieldError.checkNotNull(
-                text, r'MessageCommand', 'text'),
-            timeoutMs: timeoutMs);
+        _$MessageCommand._(
+          header: header,
+          text: BuiltValueNullFieldError.checkNotNull(
+              text, r'MessageCommand', 'text'),
+          timeoutMs: timeoutMs,
+        );
     replace(_$result);
     return _$result;
   }

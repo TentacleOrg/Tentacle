@@ -13,16 +13,15 @@ class _$EndPointInfo extends EndPointInfo {
   final bool? isInNetwork;
 
   factory _$EndPointInfo([void Function(EndPointInfoBuilder)? updates]) =>
-      (new EndPointInfoBuilder()..update(updates))._build();
+      (EndPointInfoBuilder()..update(updates))._build();
 
   _$EndPointInfo._({this.isLocal, this.isInNetwork}) : super._();
-
   @override
   EndPointInfo rebuild(void Function(EndPointInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  EndPointInfoBuilder toBuilder() => new EndPointInfoBuilder()..replace(this);
+  EndPointInfoBuilder toBuilder() => EndPointInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -78,7 +77,6 @@ class EndPointInfoBuilder
 
   @override
   void replace(EndPointInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$EndPointInfo;
   }
 
@@ -91,8 +89,11 @@ class EndPointInfoBuilder
   EndPointInfo build() => _build();
 
   _$EndPointInfo _build() {
-    final _$result =
-        _$v ?? new _$EndPointInfo._(isLocal: isLocal, isInNetwork: isInNetwork);
+    final _$result = _$v ??
+        _$EndPointInfo._(
+          isLocal: isLocal,
+          isInNetwork: isInNetwork,
+        );
     replace(_$result);
     return _$result;
   }

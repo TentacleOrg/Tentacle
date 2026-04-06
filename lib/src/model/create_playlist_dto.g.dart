@@ -22,7 +22,7 @@ class _$CreatePlaylistDto extends CreatePlaylistDto {
 
   factory _$CreatePlaylistDto(
           [void Function(CreatePlaylistDtoBuilder)? updates]) =>
-      (new CreatePlaylistDtoBuilder()..update(updates))._build();
+      (CreatePlaylistDtoBuilder()..update(updates))._build();
 
   _$CreatePlaylistDto._(
       {this.name,
@@ -32,14 +32,13 @@ class _$CreatePlaylistDto extends CreatePlaylistDto {
       this.users,
       this.isPublic})
       : super._();
-
   @override
   CreatePlaylistDto rebuild(void Function(CreatePlaylistDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   CreatePlaylistDtoBuilder toBuilder() =>
-      new CreatePlaylistDtoBuilder()..replace(this);
+      CreatePlaylistDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -88,7 +87,7 @@ class CreatePlaylistDtoBuilder
   set name(String? name) => _$this._name = name;
 
   ListBuilder<String>? _ids;
-  ListBuilder<String> get ids => _$this._ids ??= new ListBuilder<String>();
+  ListBuilder<String> get ids => _$this._ids ??= ListBuilder<String>();
   set ids(ListBuilder<String>? ids) => _$this._ids = ids;
 
   String? _userId;
@@ -101,7 +100,7 @@ class CreatePlaylistDtoBuilder
 
   ListBuilder<PlaylistUserPermissions>? _users;
   ListBuilder<PlaylistUserPermissions> get users =>
-      _$this._users ??= new ListBuilder<PlaylistUserPermissions>();
+      _$this._users ??= ListBuilder<PlaylistUserPermissions>();
   set users(ListBuilder<PlaylistUserPermissions>? users) =>
       _$this._users = users;
 
@@ -129,7 +128,6 @@ class CreatePlaylistDtoBuilder
 
   @override
   void replace(CreatePlaylistDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CreatePlaylistDto;
   }
 
@@ -145,13 +143,14 @@ class CreatePlaylistDtoBuilder
     _$CreatePlaylistDto _$result;
     try {
       _$result = _$v ??
-          new _$CreatePlaylistDto._(
-              name: name,
-              ids: _ids?.build(),
-              userId: userId,
-              mediaType: mediaType,
-              users: _users?.build(),
-              isPublic: isPublic);
+          _$CreatePlaylistDto._(
+            name: name,
+            ids: _ids?.build(),
+            userId: userId,
+            mediaType: mediaType,
+            users: _users?.build(),
+            isPublic: isPublic,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -161,7 +160,7 @@ class CreatePlaylistDtoBuilder
         _$failedField = 'users';
         _users?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'CreatePlaylistDto', _$failedField, e.toString());
       }
       rethrow;

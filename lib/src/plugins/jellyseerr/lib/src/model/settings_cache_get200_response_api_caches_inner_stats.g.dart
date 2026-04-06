@@ -22,14 +22,12 @@ class _$SettingsCacheGet200ResponseApiCachesInnerStats
   factory _$SettingsCacheGet200ResponseApiCachesInnerStats(
           [void Function(SettingsCacheGet200ResponseApiCachesInnerStatsBuilder)?
               updates]) =>
-      (new SettingsCacheGet200ResponseApiCachesInnerStatsBuilder()
-            ..update(updates))
+      (SettingsCacheGet200ResponseApiCachesInnerStatsBuilder()..update(updates))
           ._build();
 
   _$SettingsCacheGet200ResponseApiCachesInnerStats._(
       {this.hits, this.misses, this.keys, this.ksize, this.vsize})
       : super._();
-
   @override
   SettingsCacheGet200ResponseApiCachesInnerStats rebuild(
           void Function(SettingsCacheGet200ResponseApiCachesInnerStatsBuilder)
@@ -38,8 +36,7 @@ class _$SettingsCacheGet200ResponseApiCachesInnerStats
 
   @override
   SettingsCacheGet200ResponseApiCachesInnerStatsBuilder toBuilder() =>
-      new SettingsCacheGet200ResponseApiCachesInnerStatsBuilder()
-        ..replace(this);
+      SettingsCacheGet200ResponseApiCachesInnerStatsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -122,7 +119,6 @@ class SettingsCacheGet200ResponseApiCachesInnerStatsBuilder
 
   @override
   void replace(SettingsCacheGet200ResponseApiCachesInnerStats other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsCacheGet200ResponseApiCachesInnerStats;
   }
 
@@ -138,8 +134,13 @@ class SettingsCacheGet200ResponseApiCachesInnerStatsBuilder
 
   _$SettingsCacheGet200ResponseApiCachesInnerStats _build() {
     final _$result = _$v ??
-        new _$SettingsCacheGet200ResponseApiCachesInnerStats._(
-            hits: hits, misses: misses, keys: keys, ksize: ksize, vsize: vsize);
+        _$SettingsCacheGet200ResponseApiCachesInnerStats._(
+          hits: hits,
+          misses: misses,
+          keys: keys,
+          ksize: ksize,
+          vsize: vsize,
+        );
     replace(_$result);
     return _$result;
   }

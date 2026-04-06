@@ -16,12 +16,10 @@ class _$ServiceRadarrRadarrIdGet200Response
   factory _$ServiceRadarrRadarrIdGet200Response(
           [void Function(ServiceRadarrRadarrIdGet200ResponseBuilder)?
               updates]) =>
-      (new ServiceRadarrRadarrIdGet200ResponseBuilder()..update(updates))
-          ._build();
+      (ServiceRadarrRadarrIdGet200ResponseBuilder()..update(updates))._build();
 
   _$ServiceRadarrRadarrIdGet200Response._({this.server, this.profiles})
       : super._();
-
   @override
   ServiceRadarrRadarrIdGet200Response rebuild(
           void Function(ServiceRadarrRadarrIdGet200ResponseBuilder) updates) =>
@@ -29,7 +27,7 @@ class _$ServiceRadarrRadarrIdGet200Response
 
   @override
   ServiceRadarrRadarrIdGet200ResponseBuilder toBuilder() =>
-      new ServiceRadarrRadarrIdGet200ResponseBuilder()..replace(this);
+      ServiceRadarrRadarrIdGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,12 +63,12 @@ class ServiceRadarrRadarrIdGet200ResponseBuilder
 
   RadarrSettingsBuilder? _server;
   RadarrSettingsBuilder get server =>
-      _$this._server ??= new RadarrSettingsBuilder();
+      _$this._server ??= RadarrSettingsBuilder();
   set server(RadarrSettingsBuilder? server) => _$this._server = server;
 
   ServiceProfileBuilder? _profiles;
   ServiceProfileBuilder get profiles =>
-      _$this._profiles ??= new ServiceProfileBuilder();
+      _$this._profiles ??= ServiceProfileBuilder();
   set profiles(ServiceProfileBuilder? profiles) => _$this._profiles = profiles;
 
   ServiceRadarrRadarrIdGet200ResponseBuilder() {
@@ -89,7 +87,6 @@ class ServiceRadarrRadarrIdGet200ResponseBuilder
 
   @override
   void replace(ServiceRadarrRadarrIdGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServiceRadarrRadarrIdGet200Response;
   }
 
@@ -106,8 +103,10 @@ class ServiceRadarrRadarrIdGet200ResponseBuilder
     _$ServiceRadarrRadarrIdGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$ServiceRadarrRadarrIdGet200Response._(
-              server: _server?.build(), profiles: _profiles?.build());
+          _$ServiceRadarrRadarrIdGet200Response._(
+            server: _server?.build(),
+            profiles: _profiles?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -116,10 +115,8 @@ class ServiceRadarrRadarrIdGet200ResponseBuilder
         _$failedField = 'profiles';
         _profiles?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'ServiceRadarrRadarrIdGet200Response',
-            _$failedField,
-            e.toString());
+        throw BuiltValueNestedFieldError(r'ServiceRadarrRadarrIdGet200Response',
+            _$failedField, e.toString());
       }
       rethrow;
     }

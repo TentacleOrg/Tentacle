@@ -11,19 +11,15 @@ class _$QuickConnectDto extends QuickConnectDto {
   final String secret;
 
   factory _$QuickConnectDto([void Function(QuickConnectDtoBuilder)? updates]) =>
-      (new QuickConnectDtoBuilder()..update(updates))._build();
+      (QuickConnectDtoBuilder()..update(updates))._build();
 
-  _$QuickConnectDto._({required this.secret}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(secret, r'QuickConnectDto', 'secret');
-  }
-
+  _$QuickConnectDto._({required this.secret}) : super._();
   @override
   QuickConnectDto rebuild(void Function(QuickConnectDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  QuickConnectDtoBuilder toBuilder() =>
-      new QuickConnectDtoBuilder()..replace(this);
+  QuickConnectDtoBuilder toBuilder() => QuickConnectDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +66,6 @@ class QuickConnectDtoBuilder
 
   @override
   void replace(QuickConnectDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$QuickConnectDto;
   }
 
@@ -84,9 +79,10 @@ class QuickConnectDtoBuilder
 
   _$QuickConnectDto _build() {
     final _$result = _$v ??
-        new _$QuickConnectDto._(
-            secret: BuiltValueNullFieldError.checkNotNull(
-                secret, r'QuickConnectDto', 'secret'));
+        _$QuickConnectDto._(
+          secret: BuiltValueNullFieldError.checkNotNull(
+              secret, r'QuickConnectDto', 'secret'),
+        );
     replace(_$result);
     return _$result;
   }

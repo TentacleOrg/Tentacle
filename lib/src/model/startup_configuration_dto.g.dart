@@ -8,6 +8,8 @@ part of 'startup_configuration_dto.dart';
 
 class _$StartupConfigurationDto extends StartupConfigurationDto {
   @override
+  final String? serverName;
+  @override
   final String? uICulture;
   @override
   final String? metadataCountryCode;
@@ -16,14 +18,14 @@ class _$StartupConfigurationDto extends StartupConfigurationDto {
 
   factory _$StartupConfigurationDto(
           [void Function(StartupConfigurationDtoBuilder)? updates]) =>
-      (new StartupConfigurationDtoBuilder()..update(updates))._build();
+      (StartupConfigurationDtoBuilder()..update(updates))._build();
 
   _$StartupConfigurationDto._(
-      {this.uICulture,
+      {this.serverName,
+      this.uICulture,
       this.metadataCountryCode,
       this.preferredMetadataLanguage})
       : super._();
-
   @override
   StartupConfigurationDto rebuild(
           void Function(StartupConfigurationDtoBuilder) updates) =>
@@ -31,12 +33,13 @@ class _$StartupConfigurationDto extends StartupConfigurationDto {
 
   @override
   StartupConfigurationDtoBuilder toBuilder() =>
-      new StartupConfigurationDtoBuilder()..replace(this);
+      StartupConfigurationDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is StartupConfigurationDto &&
+        serverName == other.serverName &&
         uICulture == other.uICulture &&
         metadataCountryCode == other.metadataCountryCode &&
         preferredMetadataLanguage == other.preferredMetadataLanguage;
@@ -45,6 +48,7 @@ class _$StartupConfigurationDto extends StartupConfigurationDto {
   @override
   int get hashCode {
     var _$hash = 0;
+    _$hash = $jc(_$hash, serverName.hashCode);
     _$hash = $jc(_$hash, uICulture.hashCode);
     _$hash = $jc(_$hash, metadataCountryCode.hashCode);
     _$hash = $jc(_$hash, preferredMetadataLanguage.hashCode);
@@ -55,6 +59,7 @@ class _$StartupConfigurationDto extends StartupConfigurationDto {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'StartupConfigurationDto')
+          ..add('serverName', serverName)
           ..add('uICulture', uICulture)
           ..add('metadataCountryCode', metadataCountryCode)
           ..add('preferredMetadataLanguage', preferredMetadataLanguage))
@@ -66,6 +71,10 @@ class StartupConfigurationDtoBuilder
     implements
         Builder<StartupConfigurationDto, StartupConfigurationDtoBuilder> {
   _$StartupConfigurationDto? _$v;
+
+  String? _serverName;
+  String? get serverName => _$this._serverName;
+  set serverName(String? serverName) => _$this._serverName = serverName;
 
   String? _uICulture;
   String? get uICulture => _$this._uICulture;
@@ -88,6 +97,7 @@ class StartupConfigurationDtoBuilder
   StartupConfigurationDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
+      _serverName = $v.serverName;
       _uICulture = $v.uICulture;
       _metadataCountryCode = $v.metadataCountryCode;
       _preferredMetadataLanguage = $v.preferredMetadataLanguage;
@@ -98,7 +108,6 @@ class StartupConfigurationDtoBuilder
 
   @override
   void replace(StartupConfigurationDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StartupConfigurationDto;
   }
 
@@ -112,10 +121,12 @@ class StartupConfigurationDtoBuilder
 
   _$StartupConfigurationDto _build() {
     final _$result = _$v ??
-        new _$StartupConfigurationDto._(
-            uICulture: uICulture,
-            metadataCountryCode: metadataCountryCode,
-            preferredMetadataLanguage: preferredMetadataLanguage);
+        _$StartupConfigurationDto._(
+          serverName: serverName,
+          uICulture: uICulture,
+          metadataCountryCode: metadataCountryCode,
+          preferredMetadataLanguage: preferredMetadataLanguage,
+        );
     replace(_$result);
     return _$result;
   }

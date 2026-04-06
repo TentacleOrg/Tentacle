@@ -25,12 +25,12 @@ FileSystemEntryType _$valueOf(String name) {
     case 'networkShare':
       return _$networkShare;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<FileSystemEntryType> _$values =
-    new BuiltSet<FileSystemEntryType>(const <FileSystemEntryType>[
+    BuiltSet<FileSystemEntryType>(const <FileSystemEntryType>[
   _$file,
   _$directory,
   _$networkComputer,
@@ -54,7 +54,7 @@ mixin _$FileSystemEntryTypeMixin {
 }
 
 Serializer<FileSystemEntryType> _$fileSystemEntryTypeSerializer =
-    new _$FileSystemEntryTypeSerializer();
+    _$FileSystemEntryTypeSerializer();
 
 class _$FileSystemEntryTypeSerializer
     implements PrimitiveSerializer<FileSystemEntryType> {

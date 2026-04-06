@@ -18,12 +18,11 @@ class _$SearchKeywordGet200Response extends SearchKeywordGet200Response {
 
   factory _$SearchKeywordGet200Response(
           [void Function(SearchKeywordGet200ResponseBuilder)? updates]) =>
-      (new SearchKeywordGet200ResponseBuilder()..update(updates))._build();
+      (SearchKeywordGet200ResponseBuilder()..update(updates))._build();
 
   _$SearchKeywordGet200Response._(
       {this.page, this.totalPages, this.totalResults, this.results})
       : super._();
-
   @override
   SearchKeywordGet200Response rebuild(
           void Function(SearchKeywordGet200ResponseBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$SearchKeywordGet200Response extends SearchKeywordGet200Response {
 
   @override
   SearchKeywordGet200ResponseBuilder toBuilder() =>
-      new SearchKeywordGet200ResponseBuilder()..replace(this);
+      SearchKeywordGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -85,7 +84,7 @@ class SearchKeywordGet200ResponseBuilder
 
   ListBuilder<Keyword>? _results;
   ListBuilder<Keyword> get results =>
-      _$this._results ??= new ListBuilder<Keyword>();
+      _$this._results ??= ListBuilder<Keyword>();
   set results(ListBuilder<Keyword>? results) => _$this._results = results;
 
   SearchKeywordGet200ResponseBuilder() {
@@ -106,7 +105,6 @@ class SearchKeywordGet200ResponseBuilder
 
   @override
   void replace(SearchKeywordGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SearchKeywordGet200Response;
   }
 
@@ -122,18 +120,19 @@ class SearchKeywordGet200ResponseBuilder
     _$SearchKeywordGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$SearchKeywordGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              results: _results?.build());
+          _$SearchKeywordGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SearchKeywordGet200Response', _$failedField, e.toString());
       }
       rethrow;

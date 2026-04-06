@@ -21,7 +21,7 @@ class _$DiscoverSlider extends DiscoverSlider {
   final String? data;
 
   factory _$DiscoverSlider([void Function(DiscoverSliderBuilder)? updates]) =>
-      (new DiscoverSliderBuilder()..update(updates))._build();
+      (DiscoverSliderBuilder()..update(updates))._build();
 
   _$DiscoverSlider._(
       {this.id,
@@ -30,19 +30,13 @@ class _$DiscoverSlider extends DiscoverSlider {
       this.isBuiltIn,
       required this.enabled,
       this.data})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(type, r'DiscoverSlider', 'type');
-    BuiltValueNullFieldError.checkNotNull(
-        enabled, r'DiscoverSlider', 'enabled');
-  }
-
+      : super._();
   @override
   DiscoverSlider rebuild(void Function(DiscoverSliderBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DiscoverSliderBuilder toBuilder() =>
-      new DiscoverSliderBuilder()..replace(this);
+  DiscoverSliderBuilder toBuilder() => DiscoverSliderBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -130,7 +124,6 @@ class DiscoverSliderBuilder
 
   @override
   void replace(DiscoverSlider other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverSlider;
   }
 
@@ -144,15 +137,16 @@ class DiscoverSliderBuilder
 
   _$DiscoverSlider _build() {
     final _$result = _$v ??
-        new _$DiscoverSlider._(
-            id: id,
-            type: BuiltValueNullFieldError.checkNotNull(
-                type, r'DiscoverSlider', 'type'),
-            title: title,
-            isBuiltIn: isBuiltIn,
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'DiscoverSlider', 'enabled'),
-            data: data);
+        _$DiscoverSlider._(
+          id: id,
+          type: BuiltValueNullFieldError.checkNotNull(
+              type, r'DiscoverSlider', 'type'),
+          title: title,
+          isBuiltIn: isBuiltIn,
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'DiscoverSlider', 'enabled'),
+          data: data,
+        );
     replace(_$result);
     return _$result;
   }

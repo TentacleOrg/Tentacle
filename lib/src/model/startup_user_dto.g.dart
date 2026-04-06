@@ -13,17 +13,15 @@ class _$StartupUserDto extends StartupUserDto {
   final String? password;
 
   factory _$StartupUserDto([void Function(StartupUserDtoBuilder)? updates]) =>
-      (new StartupUserDtoBuilder()..update(updates))._build();
+      (StartupUserDtoBuilder()..update(updates))._build();
 
   _$StartupUserDto._({this.name, this.password}) : super._();
-
   @override
   StartupUserDto rebuild(void Function(StartupUserDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  StartupUserDtoBuilder toBuilder() =>
-      new StartupUserDtoBuilder()..replace(this);
+  StartupUserDtoBuilder toBuilder() => StartupUserDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -79,7 +77,6 @@ class StartupUserDtoBuilder
 
   @override
   void replace(StartupUserDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StartupUserDto;
   }
 
@@ -92,8 +89,11 @@ class StartupUserDtoBuilder
   StartupUserDto build() => _build();
 
   _$StartupUserDto _build() {
-    final _$result =
-        _$v ?? new _$StartupUserDto._(name: name, password: password);
+    final _$result = _$v ??
+        _$StartupUserDto._(
+          name: name,
+          password: password,
+        );
     replace(_$result);
     return _$result;
   }

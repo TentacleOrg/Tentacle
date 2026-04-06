@@ -14,11 +14,10 @@ class _$SettingsCacheGet200Response extends SettingsCacheGet200Response {
 
   factory _$SettingsCacheGet200Response(
           [void Function(SettingsCacheGet200ResponseBuilder)? updates]) =>
-      (new SettingsCacheGet200ResponseBuilder()..update(updates))._build();
+      (SettingsCacheGet200ResponseBuilder()..update(updates))._build();
 
   _$SettingsCacheGet200Response._({this.imageCache, this.apiCaches})
       : super._();
-
   @override
   SettingsCacheGet200Response rebuild(
           void Function(SettingsCacheGet200ResponseBuilder) updates) =>
@@ -26,7 +25,7 @@ class _$SettingsCacheGet200Response extends SettingsCacheGet200Response {
 
   @override
   SettingsCacheGet200ResponseBuilder toBuilder() =>
-      new SettingsCacheGet200ResponseBuilder()..replace(this);
+      SettingsCacheGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -62,14 +61,14 @@ class SettingsCacheGet200ResponseBuilder
 
   SettingsCacheGet200ResponseImageCacheBuilder? _imageCache;
   SettingsCacheGet200ResponseImageCacheBuilder get imageCache =>
-      _$this._imageCache ??= new SettingsCacheGet200ResponseImageCacheBuilder();
+      _$this._imageCache ??= SettingsCacheGet200ResponseImageCacheBuilder();
   set imageCache(SettingsCacheGet200ResponseImageCacheBuilder? imageCache) =>
       _$this._imageCache = imageCache;
 
   ListBuilder<SettingsCacheGet200ResponseApiCachesInner>? _apiCaches;
   ListBuilder<SettingsCacheGet200ResponseApiCachesInner> get apiCaches =>
       _$this._apiCaches ??=
-          new ListBuilder<SettingsCacheGet200ResponseApiCachesInner>();
+          ListBuilder<SettingsCacheGet200ResponseApiCachesInner>();
   set apiCaches(
           ListBuilder<SettingsCacheGet200ResponseApiCachesInner>? apiCaches) =>
       _$this._apiCaches = apiCaches;
@@ -90,7 +89,6 @@ class SettingsCacheGet200ResponseBuilder
 
   @override
   void replace(SettingsCacheGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsCacheGet200Response;
   }
 
@@ -106,8 +104,10 @@ class SettingsCacheGet200ResponseBuilder
     _$SettingsCacheGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$SettingsCacheGet200Response._(
-              imageCache: _imageCache?.build(), apiCaches: _apiCaches?.build());
+          _$SettingsCacheGet200Response._(
+            imageCache: _imageCache?.build(),
+            apiCaches: _apiCaches?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -116,7 +116,7 @@ class SettingsCacheGet200ResponseBuilder
         _$failedField = 'apiCaches';
         _apiCaches?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SettingsCacheGet200Response', _$failedField, e.toString());
       }
       rethrow;

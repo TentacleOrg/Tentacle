@@ -16,17 +16,16 @@ class _$PushoverSettings extends PushoverSettings {
 
   factory _$PushoverSettings(
           [void Function(PushoverSettingsBuilder)? updates]) =>
-      (new PushoverSettingsBuilder()..update(updates))._build();
+      (PushoverSettingsBuilder()..update(updates))._build();
 
   _$PushoverSettings._({this.enabled, this.types, this.options}) : super._();
-
   @override
   PushoverSettings rebuild(void Function(PushoverSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   PushoverSettingsBuilder toBuilder() =>
-      new PushoverSettingsBuilder()..replace(this);
+      PushoverSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +70,7 @@ class PushoverSettingsBuilder
 
   PushoverSettingsOptionsBuilder? _options;
   PushoverSettingsOptionsBuilder get options =>
-      _$this._options ??= new PushoverSettingsOptionsBuilder();
+      _$this._options ??= PushoverSettingsOptionsBuilder();
   set options(PushoverSettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -92,7 +91,6 @@ class PushoverSettingsBuilder
 
   @override
   void replace(PushoverSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PushoverSettings;
   }
 
@@ -108,15 +106,18 @@ class PushoverSettingsBuilder
     _$PushoverSettings _$result;
     try {
       _$result = _$v ??
-          new _$PushoverSettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$PushoverSettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PushoverSettings', _$failedField, e.toString());
       }
       rethrow;

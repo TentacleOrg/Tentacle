@@ -19,7 +19,7 @@ class _$CultureDto extends CultureDto {
   final BuiltList<String>? threeLetterISOLanguageNames;
 
   factory _$CultureDto([void Function(CultureDtoBuilder)? updates]) =>
-      (new CultureDtoBuilder()..update(updates))._build();
+      (CultureDtoBuilder()..update(updates))._build();
 
   _$CultureDto._(
       {this.name,
@@ -28,13 +28,12 @@ class _$CultureDto extends CultureDto {
       this.threeLetterISOLanguageName,
       this.threeLetterISOLanguageNames})
       : super._();
-
   @override
   CultureDto rebuild(void Function(CultureDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CultureDtoBuilder toBuilder() => new CultureDtoBuilder()..replace(this);
+  CultureDtoBuilder toBuilder() => CultureDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -94,7 +93,7 @@ class CultureDtoBuilder implements Builder<CultureDto, CultureDtoBuilder> {
 
   ListBuilder<String>? _threeLetterISOLanguageNames;
   ListBuilder<String> get threeLetterISOLanguageNames =>
-      _$this._threeLetterISOLanguageNames ??= new ListBuilder<String>();
+      _$this._threeLetterISOLanguageNames ??= ListBuilder<String>();
   set threeLetterISOLanguageNames(
           ListBuilder<String>? threeLetterISOLanguageNames) =>
       _$this._threeLetterISOLanguageNames = threeLetterISOLanguageNames;
@@ -119,7 +118,6 @@ class CultureDtoBuilder implements Builder<CultureDto, CultureDtoBuilder> {
 
   @override
   void replace(CultureDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CultureDto;
   }
 
@@ -135,20 +133,20 @@ class CultureDtoBuilder implements Builder<CultureDto, CultureDtoBuilder> {
     _$CultureDto _$result;
     try {
       _$result = _$v ??
-          new _$CultureDto._(
-              name: name,
-              displayName: displayName,
-              twoLetterISOLanguageName: twoLetterISOLanguageName,
-              threeLetterISOLanguageName: threeLetterISOLanguageName,
-              threeLetterISOLanguageNames:
-                  _threeLetterISOLanguageNames?.build());
+          _$CultureDto._(
+            name: name,
+            displayName: displayName,
+            twoLetterISOLanguageName: twoLetterISOLanguageName,
+            threeLetterISOLanguageName: threeLetterISOLanguageName,
+            threeLetterISOLanguageNames: _threeLetterISOLanguageNames?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'threeLetterISOLanguageNames';
         _threeLetterISOLanguageNames?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'CultureDto', _$failedField, e.toString());
       }
       rethrow;

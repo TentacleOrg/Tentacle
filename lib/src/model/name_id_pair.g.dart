@@ -13,16 +13,15 @@ class _$NameIdPair extends NameIdPair {
   final String? id;
 
   factory _$NameIdPair([void Function(NameIdPairBuilder)? updates]) =>
-      (new NameIdPairBuilder()..update(updates))._build();
+      (NameIdPairBuilder()..update(updates))._build();
 
   _$NameIdPair._({this.name, this.id}) : super._();
-
   @override
   NameIdPair rebuild(void Function(NameIdPairBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NameIdPairBuilder toBuilder() => new NameIdPairBuilder()..replace(this);
+  NameIdPairBuilder toBuilder() => NameIdPairBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +74,6 @@ class NameIdPairBuilder implements Builder<NameIdPair, NameIdPairBuilder> {
 
   @override
   void replace(NameIdPair other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NameIdPair;
   }
 
@@ -88,7 +86,11 @@ class NameIdPairBuilder implements Builder<NameIdPair, NameIdPairBuilder> {
   NameIdPair build() => _build();
 
   _$NameIdPair _build() {
-    final _$result = _$v ?? new _$NameIdPair._(name: name, id: id);
+    final _$result = _$v ??
+        _$NameIdPair._(
+          name: name,
+          id: id,
+        );
     replace(_$result);
     return _$result;
   }

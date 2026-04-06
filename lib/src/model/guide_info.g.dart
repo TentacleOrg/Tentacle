@@ -13,16 +13,15 @@ class _$GuideInfo extends GuideInfo {
   final DateTime? endDate;
 
   factory _$GuideInfo([void Function(GuideInfoBuilder)? updates]) =>
-      (new GuideInfoBuilder()..update(updates))._build();
+      (GuideInfoBuilder()..update(updates))._build();
 
   _$GuideInfo._({this.startDate, this.endDate}) : super._();
-
   @override
   GuideInfo rebuild(void Function(GuideInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GuideInfoBuilder toBuilder() => new GuideInfoBuilder()..replace(this);
+  GuideInfoBuilder toBuilder() => GuideInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -77,7 +76,6 @@ class GuideInfoBuilder implements Builder<GuideInfo, GuideInfoBuilder> {
 
   @override
   void replace(GuideInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GuideInfo;
   }
 
@@ -90,8 +88,11 @@ class GuideInfoBuilder implements Builder<GuideInfo, GuideInfoBuilder> {
   GuideInfo build() => _build();
 
   _$GuideInfo _build() {
-    final _$result =
-        _$v ?? new _$GuideInfo._(startDate: startDate, endDate: endDate);
+    final _$result = _$v ??
+        _$GuideInfo._(
+          startDate: startDate,
+          endDate: endDate,
+        );
     replace(_$result);
     return _$result;
   }

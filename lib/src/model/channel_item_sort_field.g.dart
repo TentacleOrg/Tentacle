@@ -36,12 +36,12 @@ ChannelItemSortField _$valueOf(String name) {
     case 'communityPlayCount':
       return _$communityPlayCount;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ChannelItemSortField> _$values =
-    new BuiltSet<ChannelItemSortField>(const <ChannelItemSortField>[
+    BuiltSet<ChannelItemSortField>(const <ChannelItemSortField>[
   _$name,
   _$communityRating,
   _$premiereDate,
@@ -71,7 +71,7 @@ mixin _$ChannelItemSortFieldMixin {
 }
 
 Serializer<ChannelItemSortField> _$channelItemSortFieldSerializer =
-    new _$ChannelItemSortFieldSerializer();
+    _$ChannelItemSortFieldSerializer();
 
 class _$ChannelItemSortFieldSerializer
     implements PrimitiveSerializer<ChannelItemSortField> {

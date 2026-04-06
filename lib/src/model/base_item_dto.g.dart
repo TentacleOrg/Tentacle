@@ -216,7 +216,7 @@ class _$BaseItemDto extends BaseItemDto {
   @override
   final BuiltList<ChapterInfo>? chapters;
   @override
-  final BuiltMap<String, BuiltMap<String, TrickplayInfo>>? trickplay;
+  final BuiltMap<String, BuiltMap<String, TrickplayInfoDto>>? trickplay;
   @override
   final LocationType? locationType;
   @override
@@ -315,7 +315,7 @@ class _$BaseItemDto extends BaseItemDto {
   final BaseItemDto? currentProgram;
 
   factory _$BaseItemDto([void Function(BaseItemDtoBuilder)? updates]) =>
-      (new BaseItemDtoBuilder()..update(updates))._build();
+      (BaseItemDtoBuilder()..update(updates))._build();
 
   _$BaseItemDto._(
       {this.name,
@@ -472,13 +472,12 @@ class _$BaseItemDto extends BaseItemDto {
       this.normalizationGain,
       this.currentProgram})
       : super._();
-
   @override
   BaseItemDto rebuild(void Function(BaseItemDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  BaseItemDtoBuilder toBuilder() => new BaseItemDtoBuilder()..replace(this);
+  BaseItemDtoBuilder toBuilder() => BaseItemDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -1072,13 +1071,13 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<ExternalUrl>? _externalUrls;
   ListBuilder<ExternalUrl> get externalUrls =>
-      _$this._externalUrls ??= new ListBuilder<ExternalUrl>();
+      _$this._externalUrls ??= ListBuilder<ExternalUrl>();
   set externalUrls(ListBuilder<ExternalUrl>? externalUrls) =>
       _$this._externalUrls = externalUrls;
 
   ListBuilder<MediaSourceInfo>? _mediaSources;
   ListBuilder<MediaSourceInfo> get mediaSources =>
-      _$this._mediaSources ??= new ListBuilder<MediaSourceInfo>();
+      _$this._mediaSources ??= ListBuilder<MediaSourceInfo>();
   set mediaSources(ListBuilder<MediaSourceInfo>? mediaSources) =>
       _$this._mediaSources = mediaSources;
 
@@ -1088,7 +1087,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<String>? _productionLocations;
   ListBuilder<String> get productionLocations =>
-      _$this._productionLocations ??= new ListBuilder<String>();
+      _$this._productionLocations ??= ListBuilder<String>();
   set productionLocations(ListBuilder<String>? productionLocations) =>
       _$this._productionLocations = productionLocations;
 
@@ -1124,12 +1123,11 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<String>? _taglines;
   ListBuilder<String> get taglines =>
-      _$this._taglines ??= new ListBuilder<String>();
+      _$this._taglines ??= ListBuilder<String>();
   set taglines(ListBuilder<String>? taglines) => _$this._taglines = taglines;
 
   ListBuilder<String>? _genres;
-  ListBuilder<String> get genres =>
-      _$this._genres ??= new ListBuilder<String>();
+  ListBuilder<String> get genres => _$this._genres ??= ListBuilder<String>();
   set genres(ListBuilder<String>? genres) => _$this._genres = genres;
 
   double? _communityRating;
@@ -1189,13 +1187,13 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<MediaUrl>? _remoteTrailers;
   ListBuilder<MediaUrl> get remoteTrailers =>
-      _$this._remoteTrailers ??= new ListBuilder<MediaUrl>();
+      _$this._remoteTrailers ??= ListBuilder<MediaUrl>();
   set remoteTrailers(ListBuilder<MediaUrl>? remoteTrailers) =>
       _$this._remoteTrailers = remoteTrailers;
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -1217,17 +1215,17 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<BaseItemPerson>? _people;
   ListBuilder<BaseItemPerson> get people =>
-      _$this._people ??= new ListBuilder<BaseItemPerson>();
+      _$this._people ??= ListBuilder<BaseItemPerson>();
   set people(ListBuilder<BaseItemPerson>? people) => _$this._people = people;
 
   ListBuilder<NameGuidPair>? _studios;
   ListBuilder<NameGuidPair> get studios =>
-      _$this._studios ??= new ListBuilder<NameGuidPair>();
+      _$this._studios ??= ListBuilder<NameGuidPair>();
   set studios(ListBuilder<NameGuidPair>? studios) => _$this._studios = studios;
 
   ListBuilder<NameGuidPair>? _genreItems;
   ListBuilder<NameGuidPair> get genreItems =>
-      _$this._genreItems ??= new ListBuilder<NameGuidPair>();
+      _$this._genreItems ??= ListBuilder<NameGuidPair>();
   set genreItems(ListBuilder<NameGuidPair>? genreItems) =>
       _$this._genreItems = genreItems;
 
@@ -1243,7 +1241,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<String>? _parentBackdropImageTags;
   ListBuilder<String> get parentBackdropImageTags =>
-      _$this._parentBackdropImageTags ??= new ListBuilder<String>();
+      _$this._parentBackdropImageTags ??= ListBuilder<String>();
   set parentBackdropImageTags(ListBuilder<String>? parentBackdropImageTags) =>
       _$this._parentBackdropImageTags = parentBackdropImageTags;
 
@@ -1254,7 +1252,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   UserItemDataDtoBuilder? _userData;
   UserItemDataDtoBuilder get userData =>
-      _$this._userData ??= new UserItemDataDtoBuilder();
+      _$this._userData ??= UserItemDataDtoBuilder();
   set userData(UserItemDataDtoBuilder? userData) => _$this._userData = userData;
 
   int? _recursiveItemCount;
@@ -1298,11 +1296,11 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<DayOfWeek>? _airDays;
   ListBuilder<DayOfWeek> get airDays =>
-      _$this._airDays ??= new ListBuilder<DayOfWeek>();
+      _$this._airDays ??= ListBuilder<DayOfWeek>();
   set airDays(ListBuilder<DayOfWeek>? airDays) => _$this._airDays = airDays;
 
   ListBuilder<String>? _tags;
-  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  ListBuilder<String> get tags => _$this._tags ??= ListBuilder<String>();
   set tags(ListBuilder<String>? tags) => _$this._tags = tags;
 
   double? _primaryImageAspectRatio;
@@ -1311,13 +1309,12 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
       _$this._primaryImageAspectRatio = primaryImageAspectRatio;
 
   ListBuilder<String>? _artists;
-  ListBuilder<String> get artists =>
-      _$this._artists ??= new ListBuilder<String>();
+  ListBuilder<String> get artists => _$this._artists ??= ListBuilder<String>();
   set artists(ListBuilder<String>? artists) => _$this._artists = artists;
 
   ListBuilder<NameGuidPair>? _artistItems;
   ListBuilder<NameGuidPair> get artistItems =>
-      _$this._artistItems ??= new ListBuilder<NameGuidPair>();
+      _$this._artistItems ??= ListBuilder<NameGuidPair>();
   set artistItems(ListBuilder<NameGuidPair>? artistItems) =>
       _$this._artistItems = artistItems;
 
@@ -1354,7 +1351,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<NameGuidPair>? _albumArtists;
   ListBuilder<NameGuidPair> get albumArtists =>
-      _$this._albumArtists ??= new ListBuilder<NameGuidPair>();
+      _$this._albumArtists ??= ListBuilder<NameGuidPair>();
   set albumArtists(ListBuilder<NameGuidPair>? albumArtists) =>
       _$this._albumArtists = albumArtists;
 
@@ -1364,7 +1361,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<MediaStream>? _mediaStreams;
   ListBuilder<MediaStream> get mediaStreams =>
-      _$this._mediaStreams ??= new ListBuilder<MediaStream>();
+      _$this._mediaStreams ??= ListBuilder<MediaStream>();
   set mediaStreams(ListBuilder<MediaStream>? mediaStreams) =>
       _$this._mediaStreams = mediaStreams;
 
@@ -1383,19 +1380,19 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   MapBuilder<String, String>? _imageTags;
   MapBuilder<String, String> get imageTags =>
-      _$this._imageTags ??= new MapBuilder<String, String>();
+      _$this._imageTags ??= MapBuilder<String, String>();
   set imageTags(MapBuilder<String, String>? imageTags) =>
       _$this._imageTags = imageTags;
 
   ListBuilder<String>? _backdropImageTags;
   ListBuilder<String> get backdropImageTags =>
-      _$this._backdropImageTags ??= new ListBuilder<String>();
+      _$this._backdropImageTags ??= ListBuilder<String>();
   set backdropImageTags(ListBuilder<String>? backdropImageTags) =>
       _$this._backdropImageTags = backdropImageTags;
 
   ListBuilder<String>? _screenshotImageTags;
   ListBuilder<String> get screenshotImageTags =>
-      _$this._screenshotImageTags ??= new ListBuilder<String>();
+      _$this._screenshotImageTags ??= ListBuilder<String>();
   set screenshotImageTags(ListBuilder<String>? screenshotImageTags) =>
       _$this._screenshotImageTags = screenshotImageTags;
 
@@ -1421,7 +1418,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   BaseItemDtoImageBlurHashesBuilder? _imageBlurHashes;
   BaseItemDtoImageBlurHashesBuilder get imageBlurHashes =>
-      _$this._imageBlurHashes ??= new BaseItemDtoImageBlurHashesBuilder();
+      _$this._imageBlurHashes ??= BaseItemDtoImageBlurHashesBuilder();
   set imageBlurHashes(BaseItemDtoImageBlurHashesBuilder? imageBlurHashes) =>
       _$this._imageBlurHashes = imageBlurHashes;
 
@@ -1451,16 +1448,16 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<ChapterInfo>? _chapters;
   ListBuilder<ChapterInfo> get chapters =>
-      _$this._chapters ??= new ListBuilder<ChapterInfo>();
+      _$this._chapters ??= ListBuilder<ChapterInfo>();
   set chapters(ListBuilder<ChapterInfo>? chapters) =>
       _$this._chapters = chapters;
 
-  MapBuilder<String, BuiltMap<String, TrickplayInfo>>? _trickplay;
-  MapBuilder<String, BuiltMap<String, TrickplayInfo>> get trickplay =>
+  MapBuilder<String, BuiltMap<String, TrickplayInfoDto>>? _trickplay;
+  MapBuilder<String, BuiltMap<String, TrickplayInfoDto>> get trickplay =>
       _$this._trickplay ??=
-          new MapBuilder<String, BuiltMap<String, TrickplayInfo>>();
+          MapBuilder<String, BuiltMap<String, TrickplayInfoDto>>();
   set trickplay(
-          MapBuilder<String, BuiltMap<String, TrickplayInfo>>? trickplay) =>
+          MapBuilder<String, BuiltMap<String, TrickplayInfoDto>>? trickplay) =>
       _$this._trickplay = trickplay;
 
   LocationType? _locationType;
@@ -1482,7 +1479,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   ListBuilder<MetadataField>? _lockedFields;
   ListBuilder<MetadataField> get lockedFields =>
-      _$this._lockedFields ??= new ListBuilder<MetadataField>();
+      _$this._lockedFields ??= ListBuilder<MetadataField>();
   set lockedFields(ListBuilder<MetadataField>? lockedFields) =>
       _$this._lockedFields = lockedFields;
 
@@ -1664,7 +1661,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   BaseItemDtoBuilder? _currentProgram;
   BaseItemDtoBuilder get currentProgram =>
-      _$this._currentProgram ??= new BaseItemDtoBuilder();
+      _$this._currentProgram ??= BaseItemDtoBuilder();
   set currentProgram(BaseItemDtoBuilder? currentProgram) =>
       _$this._currentProgram = currentProgram;
 
@@ -1835,7 +1832,6 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
 
   @override
   void replace(BaseItemDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BaseItemDto;
   }
 
@@ -1851,160 +1847,161 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
     _$BaseItemDto _$result;
     try {
       _$result = _$v ??
-          new _$BaseItemDto._(
-              name: name,
-              originalTitle: originalTitle,
-              serverId: serverId,
-              id: id,
-              etag: etag,
-              sourceType: sourceType,
-              playlistItemId: playlistItemId,
-              dateCreated: dateCreated,
-              dateLastMediaAdded: dateLastMediaAdded,
-              extraType: extraType,
-              airsBeforeSeasonNumber: airsBeforeSeasonNumber,
-              airsAfterSeasonNumber: airsAfterSeasonNumber,
-              airsBeforeEpisodeNumber: airsBeforeEpisodeNumber,
-              canDelete: canDelete,
-              canDownload: canDownload,
-              hasLyrics: hasLyrics,
-              hasSubtitles: hasSubtitles,
-              preferredMetadataLanguage: preferredMetadataLanguage,
-              preferredMetadataCountryCode: preferredMetadataCountryCode,
-              container: container,
-              sortName: sortName,
-              forcedSortName: forcedSortName,
-              video3DFormat: video3DFormat,
-              premiereDate: premiereDate,
-              externalUrls: _externalUrls?.build(),
-              mediaSources: _mediaSources?.build(),
-              criticRating: criticRating,
-              productionLocations: _productionLocations?.build(),
-              path: path,
-              enableMediaSourceDisplay: enableMediaSourceDisplay,
-              officialRating: officialRating,
-              customRating: customRating,
-              channelId: channelId,
-              channelName: channelName,
-              overview: overview,
-              taglines: _taglines?.build(),
-              genres: _genres?.build(),
-              communityRating: communityRating,
-              cumulativeRunTimeTicks: cumulativeRunTimeTicks,
-              runTimeTicks: runTimeTicks,
-              playAccess: playAccess,
-              aspectRatio: aspectRatio,
-              productionYear: productionYear,
-              isPlaceHolder: isPlaceHolder,
-              number: number,
-              channelNumber: channelNumber,
-              indexNumber: indexNumber,
-              indexNumberEnd: indexNumberEnd,
-              parentIndexNumber: parentIndexNumber,
-              remoteTrailers: _remoteTrailers?.build(),
-              providerIds: _providerIds?.build(),
-              isHD: isHD,
-              isFolder: isFolder,
-              parentId: parentId,
-              type: type,
-              people: _people?.build(),
-              studios: _studios?.build(),
-              genreItems: _genreItems?.build(),
-              parentLogoItemId: parentLogoItemId,
-              parentBackdropItemId: parentBackdropItemId,
-              parentBackdropImageTags: _parentBackdropImageTags?.build(),
-              localTrailerCount: localTrailerCount,
-              userData: _userData?.build(),
-              recursiveItemCount: recursiveItemCount,
-              childCount: childCount,
-              seriesName: seriesName,
-              seriesId: seriesId,
-              seasonId: seasonId,
-              specialFeatureCount: specialFeatureCount,
-              displayPreferencesId: displayPreferencesId,
-              status: status,
-              airTime: airTime,
-              airDays: _airDays?.build(),
-              tags: _tags?.build(),
-              primaryImageAspectRatio: primaryImageAspectRatio,
-              artists: _artists?.build(),
-              artistItems: _artistItems?.build(),
-              album: album,
-              collectionType: collectionType,
-              displayOrder: displayOrder,
-              albumId: albumId,
-              albumPrimaryImageTag: albumPrimaryImageTag,
-              seriesPrimaryImageTag: seriesPrimaryImageTag,
-              albumArtist: albumArtist,
-              albumArtists: _albumArtists?.build(),
-              seasonName: seasonName,
-              mediaStreams: _mediaStreams?.build(),
-              videoType: videoType,
-              partCount: partCount,
-              mediaSourceCount: mediaSourceCount,
-              imageTags: _imageTags?.build(),
-              backdropImageTags: _backdropImageTags?.build(),
-              screenshotImageTags: _screenshotImageTags?.build(),
-              parentLogoImageTag: parentLogoImageTag,
-              parentArtItemId: parentArtItemId,
-              parentArtImageTag: parentArtImageTag,
-              seriesThumbImageTag: seriesThumbImageTag,
-              imageBlurHashes: _imageBlurHashes?.build(),
-              seriesStudio: seriesStudio,
-              parentThumbItemId: parentThumbItemId,
-              parentThumbImageTag: parentThumbImageTag,
-              parentPrimaryImageItemId: parentPrimaryImageItemId,
-              parentPrimaryImageTag: parentPrimaryImageTag,
-              chapters: _chapters?.build(),
-              trickplay: _trickplay?.build(),
-              locationType: locationType,
-              isoType: isoType,
-              mediaType: mediaType,
-              endDate: endDate,
-              lockedFields: _lockedFields?.build(),
-              trailerCount: trailerCount,
-              movieCount: movieCount,
-              seriesCount: seriesCount,
-              programCount: programCount,
-              episodeCount: episodeCount,
-              songCount: songCount,
-              albumCount: albumCount,
-              artistCount: artistCount,
-              musicVideoCount: musicVideoCount,
-              lockData: lockData,
-              width: width,
-              height: height,
-              cameraMake: cameraMake,
-              cameraModel: cameraModel,
-              software: software,
-              exposureTime: exposureTime,
-              focalLength: focalLength,
-              imageOrientation: imageOrientation,
-              aperture: aperture,
-              shutterSpeed: shutterSpeed,
-              latitude: latitude,
-              longitude: longitude,
-              altitude: altitude,
-              isoSpeedRating: isoSpeedRating,
-              seriesTimerId: seriesTimerId,
-              programId: programId,
-              channelPrimaryImageTag: channelPrimaryImageTag,
-              startDate: startDate,
-              completionPercentage: completionPercentage,
-              isRepeat: isRepeat,
-              episodeTitle: episodeTitle,
-              channelType: channelType,
-              audio: audio,
-              isMovie: isMovie,
-              isSports: isSports,
-              isSeries: isSeries,
-              isLive: isLive,
-              isNews: isNews,
-              isKids: isKids,
-              isPremiere: isPremiere,
-              timerId: timerId,
-              normalizationGain: normalizationGain,
-              currentProgram: _currentProgram?.build());
+          _$BaseItemDto._(
+            name: name,
+            originalTitle: originalTitle,
+            serverId: serverId,
+            id: id,
+            etag: etag,
+            sourceType: sourceType,
+            playlistItemId: playlistItemId,
+            dateCreated: dateCreated,
+            dateLastMediaAdded: dateLastMediaAdded,
+            extraType: extraType,
+            airsBeforeSeasonNumber: airsBeforeSeasonNumber,
+            airsAfterSeasonNumber: airsAfterSeasonNumber,
+            airsBeforeEpisodeNumber: airsBeforeEpisodeNumber,
+            canDelete: canDelete,
+            canDownload: canDownload,
+            hasLyrics: hasLyrics,
+            hasSubtitles: hasSubtitles,
+            preferredMetadataLanguage: preferredMetadataLanguage,
+            preferredMetadataCountryCode: preferredMetadataCountryCode,
+            container: container,
+            sortName: sortName,
+            forcedSortName: forcedSortName,
+            video3DFormat: video3DFormat,
+            premiereDate: premiereDate,
+            externalUrls: _externalUrls?.build(),
+            mediaSources: _mediaSources?.build(),
+            criticRating: criticRating,
+            productionLocations: _productionLocations?.build(),
+            path: path,
+            enableMediaSourceDisplay: enableMediaSourceDisplay,
+            officialRating: officialRating,
+            customRating: customRating,
+            channelId: channelId,
+            channelName: channelName,
+            overview: overview,
+            taglines: _taglines?.build(),
+            genres: _genres?.build(),
+            communityRating: communityRating,
+            cumulativeRunTimeTicks: cumulativeRunTimeTicks,
+            runTimeTicks: runTimeTicks,
+            playAccess: playAccess,
+            aspectRatio: aspectRatio,
+            productionYear: productionYear,
+            isPlaceHolder: isPlaceHolder,
+            number: number,
+            channelNumber: channelNumber,
+            indexNumber: indexNumber,
+            indexNumberEnd: indexNumberEnd,
+            parentIndexNumber: parentIndexNumber,
+            remoteTrailers: _remoteTrailers?.build(),
+            providerIds: _providerIds?.build(),
+            isHD: isHD,
+            isFolder: isFolder,
+            parentId: parentId,
+            type: type,
+            people: _people?.build(),
+            studios: _studios?.build(),
+            genreItems: _genreItems?.build(),
+            parentLogoItemId: parentLogoItemId,
+            parentBackdropItemId: parentBackdropItemId,
+            parentBackdropImageTags: _parentBackdropImageTags?.build(),
+            localTrailerCount: localTrailerCount,
+            userData: _userData?.build(),
+            recursiveItemCount: recursiveItemCount,
+            childCount: childCount,
+            seriesName: seriesName,
+            seriesId: seriesId,
+            seasonId: seasonId,
+            specialFeatureCount: specialFeatureCount,
+            displayPreferencesId: displayPreferencesId,
+            status: status,
+            airTime: airTime,
+            airDays: _airDays?.build(),
+            tags: _tags?.build(),
+            primaryImageAspectRatio: primaryImageAspectRatio,
+            artists: _artists?.build(),
+            artistItems: _artistItems?.build(),
+            album: album,
+            collectionType: collectionType,
+            displayOrder: displayOrder,
+            albumId: albumId,
+            albumPrimaryImageTag: albumPrimaryImageTag,
+            seriesPrimaryImageTag: seriesPrimaryImageTag,
+            albumArtist: albumArtist,
+            albumArtists: _albumArtists?.build(),
+            seasonName: seasonName,
+            mediaStreams: _mediaStreams?.build(),
+            videoType: videoType,
+            partCount: partCount,
+            mediaSourceCount: mediaSourceCount,
+            imageTags: _imageTags?.build(),
+            backdropImageTags: _backdropImageTags?.build(),
+            screenshotImageTags: _screenshotImageTags?.build(),
+            parentLogoImageTag: parentLogoImageTag,
+            parentArtItemId: parentArtItemId,
+            parentArtImageTag: parentArtImageTag,
+            seriesThumbImageTag: seriesThumbImageTag,
+            imageBlurHashes: _imageBlurHashes?.build(),
+            seriesStudio: seriesStudio,
+            parentThumbItemId: parentThumbItemId,
+            parentThumbImageTag: parentThumbImageTag,
+            parentPrimaryImageItemId: parentPrimaryImageItemId,
+            parentPrimaryImageTag: parentPrimaryImageTag,
+            chapters: _chapters?.build(),
+            trickplay: _trickplay?.build(),
+            locationType: locationType,
+            isoType: isoType,
+            mediaType: mediaType,
+            endDate: endDate,
+            lockedFields: _lockedFields?.build(),
+            trailerCount: trailerCount,
+            movieCount: movieCount,
+            seriesCount: seriesCount,
+            programCount: programCount,
+            episodeCount: episodeCount,
+            songCount: songCount,
+            albumCount: albumCount,
+            artistCount: artistCount,
+            musicVideoCount: musicVideoCount,
+            lockData: lockData,
+            width: width,
+            height: height,
+            cameraMake: cameraMake,
+            cameraModel: cameraModel,
+            software: software,
+            exposureTime: exposureTime,
+            focalLength: focalLength,
+            imageOrientation: imageOrientation,
+            aperture: aperture,
+            shutterSpeed: shutterSpeed,
+            latitude: latitude,
+            longitude: longitude,
+            altitude: altitude,
+            isoSpeedRating: isoSpeedRating,
+            seriesTimerId: seriesTimerId,
+            programId: programId,
+            channelPrimaryImageTag: channelPrimaryImageTag,
+            startDate: startDate,
+            completionPercentage: completionPercentage,
+            isRepeat: isRepeat,
+            episodeTitle: episodeTitle,
+            channelType: channelType,
+            audio: audio,
+            isMovie: isMovie,
+            isSports: isSports,
+            isSeries: isSeries,
+            isLive: isLive,
+            isNews: isNews,
+            isKids: isKids,
+            isPremiere: isPremiere,
+            timerId: timerId,
+            normalizationGain: normalizationGain,
+            currentProgram: _currentProgram?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2076,7 +2073,7 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
         _$failedField = 'currentProgram';
         _currentProgram?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'BaseItemDto', _$failedField, e.toString());
       }
       rethrow;

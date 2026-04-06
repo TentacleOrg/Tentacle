@@ -14,11 +14,10 @@ class _$PushbulletSettingsOptions extends PushbulletSettingsOptions {
 
   factory _$PushbulletSettingsOptions(
           [void Function(PushbulletSettingsOptionsBuilder)? updates]) =>
-      (new PushbulletSettingsOptionsBuilder()..update(updates))._build();
+      (PushbulletSettingsOptionsBuilder()..update(updates))._build();
 
   _$PushbulletSettingsOptions._({this.accessToken, this.channelTag})
       : super._();
-
   @override
   PushbulletSettingsOptions rebuild(
           void Function(PushbulletSettingsOptionsBuilder) updates) =>
@@ -26,7 +25,7 @@ class _$PushbulletSettingsOptions extends PushbulletSettingsOptions {
 
   @override
   PushbulletSettingsOptionsBuilder toBuilder() =>
-      new PushbulletSettingsOptionsBuilder()..replace(this);
+      PushbulletSettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -83,7 +82,6 @@ class PushbulletSettingsOptionsBuilder
 
   @override
   void replace(PushbulletSettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PushbulletSettingsOptions;
   }
 
@@ -97,8 +95,10 @@ class PushbulletSettingsOptionsBuilder
 
   _$PushbulletSettingsOptions _build() {
     final _$result = _$v ??
-        new _$PushbulletSettingsOptions._(
-            accessToken: accessToken, channelTag: channelTag);
+        _$PushbulletSettingsOptions._(
+          accessToken: accessToken,
+          channelTag: channelTag,
+        );
     replace(_$result);
     return _$result;
   }

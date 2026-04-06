@@ -13,15 +13,15 @@ void main() {
       // TODO
     });
 
-    // Gets the update type.
-    // GroupUpdateType type
-    test('to test the property `type`', () async {
+    // Gets the update data.
+    // String data
+    test('to test the property `data`', () async {
       // TODO
     });
 
-    // Gets the update data.
-    // PlayQueueUpdate data
-    test('to test the property `data`', () async {
+    // Enum GroupUpdateType.
+    // GroupUpdateType type (default value: 'UserLeft')
+    test('to test the property `type`', () async {
       // TODO
     });
   });

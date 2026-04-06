@@ -35,7 +35,7 @@ class _$PersonDetails extends PersonDetails {
   final String? homepage;
 
   factory _$PersonDetails([void Function(PersonDetailsBuilder)? updates]) =>
-      (new PersonDetailsBuilder()..update(updates))._build();
+      (PersonDetailsBuilder()..update(updates))._build();
 
   _$PersonDetails._(
       {this.id,
@@ -52,13 +52,12 @@ class _$PersonDetails extends PersonDetails {
       this.imdbId,
       this.homepage})
       : super._();
-
   @override
   PersonDetails rebuild(void Function(PersonDetailsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PersonDetailsBuilder toBuilder() => new PersonDetailsBuilder()..replace(this);
+  PersonDetailsBuilder toBuilder() => PersonDetailsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -142,7 +141,7 @@ class PersonDetailsBuilder
 
   ListBuilder<String>? _alsoKnownAs;
   ListBuilder<String> get alsoKnownAs =>
-      _$this._alsoKnownAs ??= new ListBuilder<String>();
+      _$this._alsoKnownAs ??= ListBuilder<String>();
   set alsoKnownAs(ListBuilder<String>? alsoKnownAs) =>
       _$this._alsoKnownAs = alsoKnownAs;
 
@@ -205,7 +204,6 @@ class PersonDetailsBuilder
 
   @override
   void replace(PersonDetails other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PersonDetails;
   }
 
@@ -221,27 +219,28 @@ class PersonDetailsBuilder
     _$PersonDetails _$result;
     try {
       _$result = _$v ??
-          new _$PersonDetails._(
-              id: id,
-              name: name,
-              deathday: deathday,
-              knownForDepartment: knownForDepartment,
-              alsoKnownAs: _alsoKnownAs?.build(),
-              gender: gender,
-              biography: biography,
-              popularity: popularity,
-              placeOfBirth: placeOfBirth,
-              profilePath: profilePath,
-              adult: adult,
-              imdbId: imdbId,
-              homepage: homepage);
+          _$PersonDetails._(
+            id: id,
+            name: name,
+            deathday: deathday,
+            knownForDepartment: knownForDepartment,
+            alsoKnownAs: _alsoKnownAs?.build(),
+            gender: gender,
+            biography: biography,
+            popularity: popularity,
+            placeOfBirth: placeOfBirth,
+            profilePath: profilePath,
+            adult: adult,
+            imdbId: imdbId,
+            homepage: homepage,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'alsoKnownAs';
         _alsoKnownAs?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PersonDetails', _$failedField, e.toString());
       }
       rethrow;

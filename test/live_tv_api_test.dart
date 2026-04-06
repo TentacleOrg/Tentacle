@@ -111,7 +111,7 @@ void main() {
       // TODO
     });
 
-    // Get guid info.
+    // Get guide info.
     //
     //Future<GuideInfo> getGuideInfo() async
     test('test getGuideInfo', () async {
@@ -176,7 +176,7 @@ void main() {
 
     // Gets recommended live tv epgs.
     //
-    //Future<BaseItemDtoQueryResult> getRecommendedPrograms({ String userId, int limit, bool isAiring, bool hasAired, bool isSeries, bool isMovie, bool isNews, bool isKids, bool isSports, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<String> genreIds, BuiltList<ItemFields> fields, bool enableUserData, bool enableTotalRecordCount }) async
+    //Future<BaseItemDtoQueryResult> getRecommendedPrograms({ String userId, int startIndex, int limit, bool isAiring, bool hasAired, bool isSeries, bool isMovie, bool isNews, bool isKids, bool isSports, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<String> genreIds, BuiltList<ItemFields> fields, bool enableUserData, bool enableTotalRecordCount }) async
     test('test getRecommendedPrograms', () async {
       // TODO
     });

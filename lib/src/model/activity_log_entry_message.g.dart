@@ -16,11 +16,10 @@ class _$ActivityLogEntryMessage extends ActivityLogEntryMessage {
 
   factory _$ActivityLogEntryMessage(
           [void Function(ActivityLogEntryMessageBuilder)? updates]) =>
-      (new ActivityLogEntryMessageBuilder()..update(updates))._build();
+      (ActivityLogEntryMessageBuilder()..update(updates))._build();
 
   _$ActivityLogEntryMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   ActivityLogEntryMessage rebuild(
           void Function(ActivityLogEntryMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$ActivityLogEntryMessage extends ActivityLogEntryMessage {
 
   @override
   ActivityLogEntryMessageBuilder toBuilder() =>
-      new ActivityLogEntryMessageBuilder()..replace(this);
+      ActivityLogEntryMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -66,7 +65,7 @@ class ActivityLogEntryMessageBuilder
 
   ListBuilder<ActivityLogEntry>? _data;
   ListBuilder<ActivityLogEntry> get data =>
-      _$this._data ??= new ListBuilder<ActivityLogEntry>();
+      _$this._data ??= ListBuilder<ActivityLogEntry>();
   set data(ListBuilder<ActivityLogEntry>? data) => _$this._data = data;
 
   String? _messageId;
@@ -95,7 +94,6 @@ class ActivityLogEntryMessageBuilder
 
   @override
   void replace(ActivityLogEntryMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ActivityLogEntryMessage;
   }
 
@@ -111,17 +109,18 @@ class ActivityLogEntryMessageBuilder
     _$ActivityLogEntryMessage _$result;
     try {
       _$result = _$v ??
-          new _$ActivityLogEntryMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$ActivityLogEntryMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ActivityLogEntryMessage', _$failedField, e.toString());
       }
       rethrow;

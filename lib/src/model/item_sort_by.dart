@@ -56,7 +56,7 @@ class ItemSortBy extends EnumClass {
 
   /// These represent sort orders.
   @BuiltValueEnumConst(wireName: r'Name')
-  static const ItemSortBy _name = _$name;
+  static const ItemSortBy itemName = _$name;
 
   /// These represent sort orders.
   @BuiltValueEnumConst(wireName: r'Random')
@@ -129,14 +129,6 @@ class ItemSortBy extends EnumClass {
   /// These represent sort orders.
   @BuiltValueEnumConst(wireName: r'IndexNumber')
   static const ItemSortBy indexNumber = _$indexNumber;
-
-  /// These represent sort orders.
-  @BuiltValueEnumConst(wireName: r'SimilarityScore')
-  static const ItemSortBy similarityScore = _$similarityScore;
-
-  /// These represent sort orders.
-  @BuiltValueEnumConst(wireName: r'SearchScore')
-  static const ItemSortBy searchScore = _$searchScore;
 
   static Serializer<ItemSortBy> get serializer => _$itemSortBySerializer;
 

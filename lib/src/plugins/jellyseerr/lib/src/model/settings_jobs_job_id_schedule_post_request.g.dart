@@ -14,11 +14,9 @@ class _$SettingsJobsJobIdSchedulePostRequest
   factory _$SettingsJobsJobIdSchedulePostRequest(
           [void Function(SettingsJobsJobIdSchedulePostRequestBuilder)?
               updates]) =>
-      (new SettingsJobsJobIdSchedulePostRequestBuilder()..update(updates))
-          ._build();
+      (SettingsJobsJobIdSchedulePostRequestBuilder()..update(updates))._build();
 
   _$SettingsJobsJobIdSchedulePostRequest._({this.schedule}) : super._();
-
   @override
   SettingsJobsJobIdSchedulePostRequest rebuild(
           void Function(SettingsJobsJobIdSchedulePostRequestBuilder) updates) =>
@@ -26,7 +24,7 @@ class _$SettingsJobsJobIdSchedulePostRequest
 
   @override
   SettingsJobsJobIdSchedulePostRequestBuilder toBuilder() =>
-      new SettingsJobsJobIdSchedulePostRequestBuilder()..replace(this);
+      SettingsJobsJobIdSchedulePostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,7 +74,6 @@ class SettingsJobsJobIdSchedulePostRequestBuilder
 
   @override
   void replace(SettingsJobsJobIdSchedulePostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsJobsJobIdSchedulePostRequest;
   }
 
@@ -90,8 +87,10 @@ class SettingsJobsJobIdSchedulePostRequestBuilder
   SettingsJobsJobIdSchedulePostRequest build() => _build();
 
   _$SettingsJobsJobIdSchedulePostRequest _build() {
-    final _$result =
-        _$v ?? new _$SettingsJobsJobIdSchedulePostRequest._(schedule: schedule);
+    final _$result = _$v ??
+        _$SettingsJobsJobIdSchedulePostRequest._(
+          schedule: schedule,
+        );
     replace(_$result);
     return _$result;
   }

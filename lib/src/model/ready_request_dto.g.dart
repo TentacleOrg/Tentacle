@@ -17,19 +17,17 @@ class _$ReadyRequestDto extends ReadyRequestDto {
   final String? playlistItemId;
 
   factory _$ReadyRequestDto([void Function(ReadyRequestDtoBuilder)? updates]) =>
-      (new ReadyRequestDtoBuilder()..update(updates))._build();
+      (ReadyRequestDtoBuilder()..update(updates))._build();
 
   _$ReadyRequestDto._(
       {this.when_, this.positionTicks, this.isPlaying, this.playlistItemId})
       : super._();
-
   @override
   ReadyRequestDto rebuild(void Function(ReadyRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ReadyRequestDtoBuilder toBuilder() =>
-      new ReadyRequestDtoBuilder()..replace(this);
+  ReadyRequestDtoBuilder toBuilder() => ReadyRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -103,7 +101,6 @@ class ReadyRequestDtoBuilder
 
   @override
   void replace(ReadyRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ReadyRequestDto;
   }
 
@@ -117,11 +114,12 @@ class ReadyRequestDtoBuilder
 
   _$ReadyRequestDto _build() {
     final _$result = _$v ??
-        new _$ReadyRequestDto._(
-            when_: when_,
-            positionTicks: positionTicks,
-            isPlaying: isPlaying,
-            playlistItemId: playlistItemId);
+        _$ReadyRequestDto._(
+          when_: when_,
+          positionTicks: positionTicks,
+          isPlaying: isPlaying,
+          playlistItemId: playlistItemId,
+        );
     replace(_$result);
     return _$result;
   }

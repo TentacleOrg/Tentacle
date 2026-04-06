@@ -81,6 +81,12 @@ const TranscodingInfoTranscodeReasonsEnum
 const TranscodingInfoTranscodeReasonsEnum
     _$transcodingInfoTranscodeReasonsEnum_videoRangeTypeNotSupported =
     const TranscodingInfoTranscodeReasonsEnum._('videoRangeTypeNotSupported');
+const TranscodingInfoTranscodeReasonsEnum
+    _$transcodingInfoTranscodeReasonsEnum_videoCodecTagNotSupported =
+    const TranscodingInfoTranscodeReasonsEnum._('videoCodecTagNotSupported');
+const TranscodingInfoTranscodeReasonsEnum
+    _$transcodingInfoTranscodeReasonsEnum_streamCountExceedsLimit =
+    const TranscodingInfoTranscodeReasonsEnum._('streamCountExceedsLimit');
 
 TranscodingInfoTranscodeReasonsEnum
     _$transcodingInfoTranscodeReasonsEnumValueOf(String name) {
@@ -135,13 +141,17 @@ TranscodingInfoTranscodeReasonsEnum
       return _$transcodingInfoTranscodeReasonsEnum_directPlayError;
     case 'videoRangeTypeNotSupported':
       return _$transcodingInfoTranscodeReasonsEnum_videoRangeTypeNotSupported;
+    case 'videoCodecTagNotSupported':
+      return _$transcodingInfoTranscodeReasonsEnum_videoCodecTagNotSupported;
+    case 'streamCountExceedsLimit':
+      return _$transcodingInfoTranscodeReasonsEnum_streamCountExceedsLimit;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<TranscodingInfoTranscodeReasonsEnum>
-    _$transcodingInfoTranscodeReasonsEnumValues = new BuiltSet<
+    _$transcodingInfoTranscodeReasonsEnumValues = BuiltSet<
         TranscodingInfoTranscodeReasonsEnum>(const <TranscodingInfoTranscodeReasonsEnum>[
   _$transcodingInfoTranscodeReasonsEnum_containerNotSupported,
   _$transcodingInfoTranscodeReasonsEnum_videoCodecNotSupported,
@@ -168,11 +178,13 @@ final BuiltSet<TranscodingInfoTranscodeReasonsEnum>
   _$transcodingInfoTranscodeReasonsEnum_unknownAudioStreamInfo,
   _$transcodingInfoTranscodeReasonsEnum_directPlayError,
   _$transcodingInfoTranscodeReasonsEnum_videoRangeTypeNotSupported,
+  _$transcodingInfoTranscodeReasonsEnum_videoCodecTagNotSupported,
+  _$transcodingInfoTranscodeReasonsEnum_streamCountExceedsLimit,
 ]);
 
 Serializer<TranscodingInfoTranscodeReasonsEnum>
     _$transcodingInfoTranscodeReasonsEnumSerializer =
-    new _$TranscodingInfoTranscodeReasonsEnumSerializer();
+    _$TranscodingInfoTranscodeReasonsEnumSerializer();
 
 class _$TranscodingInfoTranscodeReasonsEnumSerializer
     implements PrimitiveSerializer<TranscodingInfoTranscodeReasonsEnum> {
@@ -202,6 +214,8 @@ class _$TranscodingInfoTranscodeReasonsEnumSerializer
     'unknownAudioStreamInfo': 'UnknownAudioStreamInfo',
     'directPlayError': 'DirectPlayError',
     'videoRangeTypeNotSupported': 'VideoRangeTypeNotSupported',
+    'videoCodecTagNotSupported': 'VideoCodecTagNotSupported',
+    'streamCountExceedsLimit': 'StreamCountExceedsLimit',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'ContainerNotSupported': 'containerNotSupported',
@@ -229,6 +243,8 @@ class _$TranscodingInfoTranscodeReasonsEnumSerializer
     'UnknownAudioStreamInfo': 'unknownAudioStreamInfo',
     'DirectPlayError': 'directPlayError',
     'VideoRangeTypeNotSupported': 'videoRangeTypeNotSupported',
+    'VideoCodecTagNotSupported': 'videoCodecTagNotSupported',
+    'StreamCountExceedsLimit': 'streamCountExceedsLimit',
   };
 
   @override
@@ -276,12 +292,12 @@ class _$TranscodingInfo extends TranscodingInfo {
   @override
   final int? audioChannels;
   @override
-  final HardwareEncodingType? hardwareAccelerationType;
+  final HardwareAccelerationType? hardwareAccelerationType;
   @override
   final BuiltList<TranscodingInfoTranscodeReasonsEnum>? transcodeReasons;
 
   factory _$TranscodingInfo([void Function(TranscodingInfoBuilder)? updates]) =>
-      (new TranscodingInfoBuilder()..update(updates))._build();
+      (TranscodingInfoBuilder()..update(updates))._build();
 
   _$TranscodingInfo._(
       {this.audioCodec,
@@ -298,14 +314,12 @@ class _$TranscodingInfo extends TranscodingInfo {
       this.hardwareAccelerationType,
       this.transcodeReasons})
       : super._();
-
   @override
   TranscodingInfo rebuild(void Function(TranscodingInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TranscodingInfoBuilder toBuilder() =>
-      new TranscodingInfoBuilder()..replace(this);
+  TranscodingInfoBuilder toBuilder() => TranscodingInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -418,17 +432,17 @@ class TranscodingInfoBuilder
   set audioChannels(int? audioChannels) =>
       _$this._audioChannels = audioChannels;
 
-  HardwareEncodingType? _hardwareAccelerationType;
-  HardwareEncodingType? get hardwareAccelerationType =>
+  HardwareAccelerationType? _hardwareAccelerationType;
+  HardwareAccelerationType? get hardwareAccelerationType =>
       _$this._hardwareAccelerationType;
   set hardwareAccelerationType(
-          HardwareEncodingType? hardwareAccelerationType) =>
+          HardwareAccelerationType? hardwareAccelerationType) =>
       _$this._hardwareAccelerationType = hardwareAccelerationType;
 
   ListBuilder<TranscodingInfoTranscodeReasonsEnum>? _transcodeReasons;
   ListBuilder<TranscodingInfoTranscodeReasonsEnum> get transcodeReasons =>
       _$this._transcodeReasons ??=
-          new ListBuilder<TranscodingInfoTranscodeReasonsEnum>();
+          ListBuilder<TranscodingInfoTranscodeReasonsEnum>();
   set transcodeReasons(
           ListBuilder<TranscodingInfoTranscodeReasonsEnum>? transcodeReasons) =>
       _$this._transcodeReasons = transcodeReasons;
@@ -460,7 +474,6 @@ class TranscodingInfoBuilder
 
   @override
   void replace(TranscodingInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TranscodingInfo;
   }
 
@@ -476,27 +489,28 @@ class TranscodingInfoBuilder
     _$TranscodingInfo _$result;
     try {
       _$result = _$v ??
-          new _$TranscodingInfo._(
-              audioCodec: audioCodec,
-              videoCodec: videoCodec,
-              container: container,
-              isVideoDirect: isVideoDirect,
-              isAudioDirect: isAudioDirect,
-              bitrate: bitrate,
-              framerate: framerate,
-              completionPercentage: completionPercentage,
-              width: width,
-              height: height,
-              audioChannels: audioChannels,
-              hardwareAccelerationType: hardwareAccelerationType,
-              transcodeReasons: _transcodeReasons?.build());
+          _$TranscodingInfo._(
+            audioCodec: audioCodec,
+            videoCodec: videoCodec,
+            container: container,
+            isVideoDirect: isVideoDirect,
+            isAudioDirect: isAudioDirect,
+            bitrate: bitrate,
+            framerate: framerate,
+            completionPercentage: completionPercentage,
+            width: width,
+            height: height,
+            audioChannels: audioChannels,
+            hardwareAccelerationType: hardwareAccelerationType,
+            transcodeReasons: _transcodeReasons?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'transcodeReasons';
         _transcodeReasons?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TranscodingInfo', _$failedField, e.toString());
       }
       rethrow;

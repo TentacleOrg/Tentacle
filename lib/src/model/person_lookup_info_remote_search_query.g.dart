@@ -19,8 +19,7 @@ class _$PersonLookupInfoRemoteSearchQuery
 
   factory _$PersonLookupInfoRemoteSearchQuery(
           [void Function(PersonLookupInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new PersonLookupInfoRemoteSearchQueryBuilder()..update(updates))
-          ._build();
+      (PersonLookupInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
   _$PersonLookupInfoRemoteSearchQuery._(
       {this.searchInfo,
@@ -28,7 +27,6 @@ class _$PersonLookupInfoRemoteSearchQuery
       this.searchProviderName,
       this.includeDisabledProviders})
       : super._();
-
   @override
   PersonLookupInfoRemoteSearchQuery rebuild(
           void Function(PersonLookupInfoRemoteSearchQueryBuilder) updates) =>
@@ -36,7 +34,7 @@ class _$PersonLookupInfoRemoteSearchQuery
 
   @override
   PersonLookupInfoRemoteSearchQueryBuilder toBuilder() =>
-      new PersonLookupInfoRemoteSearchQueryBuilder()..replace(this);
+      PersonLookupInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -78,7 +76,7 @@ class PersonLookupInfoRemoteSearchQueryBuilder
 
   PersonLookupInfoBuilder? _searchInfo;
   PersonLookupInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new PersonLookupInfoBuilder();
+      _$this._searchInfo ??= PersonLookupInfoBuilder();
   set searchInfo(PersonLookupInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
@@ -114,7 +112,6 @@ class PersonLookupInfoRemoteSearchQueryBuilder
 
   @override
   void replace(PersonLookupInfoRemoteSearchQuery other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PersonLookupInfoRemoteSearchQuery;
   }
 
@@ -131,18 +128,19 @@ class PersonLookupInfoRemoteSearchQueryBuilder
     _$PersonLookupInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$PersonLookupInfoRemoteSearchQuery._(
-              searchInfo: _searchInfo?.build(),
-              itemId: itemId,
-              searchProviderName: searchProviderName,
-              includeDisabledProviders: includeDisabledProviders);
+          _$PersonLookupInfoRemoteSearchQuery._(
+            searchInfo: _searchInfo?.build(),
+            itemId: itemId,
+            searchProviderName: searchProviderName,
+            includeDisabledProviders: includeDisabledProviders,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'searchInfo';
         _searchInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PersonLookupInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;

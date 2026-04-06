@@ -20,14 +20,12 @@ class _$UserUserIdWatchlistGet200ResponseResultsInner
   factory _$UserUserIdWatchlistGet200ResponseResultsInner(
           [void Function(UserUserIdWatchlistGet200ResponseResultsInnerBuilder)?
               updates]) =>
-      (new UserUserIdWatchlistGet200ResponseResultsInnerBuilder()
-            ..update(updates))
+      (UserUserIdWatchlistGet200ResponseResultsInnerBuilder()..update(updates))
           ._build();
 
   _$UserUserIdWatchlistGet200ResponseResultsInner._(
       {this.tmdbId, this.ratingKey, this.type, this.title})
       : super._();
-
   @override
   UserUserIdWatchlistGet200ResponseResultsInner rebuild(
           void Function(UserUserIdWatchlistGet200ResponseResultsInnerBuilder)
@@ -36,7 +34,7 @@ class _$UserUserIdWatchlistGet200ResponseResultsInner
 
   @override
   UserUserIdWatchlistGet200ResponseResultsInnerBuilder toBuilder() =>
-      new UserUserIdWatchlistGet200ResponseResultsInnerBuilder()..replace(this);
+      UserUserIdWatchlistGet200ResponseResultsInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -111,7 +109,6 @@ class UserUserIdWatchlistGet200ResponseResultsInnerBuilder
 
   @override
   void replace(UserUserIdWatchlistGet200ResponseResultsInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdWatchlistGet200ResponseResultsInner;
   }
 
@@ -127,8 +124,12 @@ class UserUserIdWatchlistGet200ResponseResultsInnerBuilder
 
   _$UserUserIdWatchlistGet200ResponseResultsInner _build() {
     final _$result = _$v ??
-        new _$UserUserIdWatchlistGet200ResponseResultsInner._(
-            tmdbId: tmdbId, ratingKey: ratingKey, type: type, title: title);
+        _$UserUserIdWatchlistGet200ResponseResultsInner._(
+          tmdbId: tmdbId,
+          ratingKey: ratingKey,
+          type: type,
+          title: title,
+        );
     replace(_$result);
     return _$result;
   }

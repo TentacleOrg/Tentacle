@@ -58,6 +58,8 @@ class ProfileConditionValue extends EnumClass {
   static const ProfileConditionValue audioBitDepth = _$audioBitDepth;
   @BuiltValueEnumConst(wireName: r'VideoRangeType')
   static const ProfileConditionValue videoRangeType = _$videoRangeType;
+  @BuiltValueEnumConst(wireName: r'NumStreams')
+  static const ProfileConditionValue numStreams = _$numStreams;
 
   static Serializer<ProfileConditionValue> get serializer =>
       _$profileConditionValueSerializer;

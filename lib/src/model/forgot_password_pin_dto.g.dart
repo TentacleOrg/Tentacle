@@ -12,12 +12,9 @@ class _$ForgotPasswordPinDto extends ForgotPasswordPinDto {
 
   factory _$ForgotPasswordPinDto(
           [void Function(ForgotPasswordPinDtoBuilder)? updates]) =>
-      (new ForgotPasswordPinDtoBuilder()..update(updates))._build();
+      (ForgotPasswordPinDtoBuilder()..update(updates))._build();
 
-  _$ForgotPasswordPinDto._({required this.pin}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(pin, r'ForgotPasswordPinDto', 'pin');
-  }
-
+  _$ForgotPasswordPinDto._({required this.pin}) : super._();
   @override
   ForgotPasswordPinDto rebuild(
           void Function(ForgotPasswordPinDtoBuilder) updates) =>
@@ -25,7 +22,7 @@ class _$ForgotPasswordPinDto extends ForgotPasswordPinDto {
 
   @override
   ForgotPasswordPinDtoBuilder toBuilder() =>
-      new ForgotPasswordPinDtoBuilder()..replace(this);
+      ForgotPasswordPinDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +69,6 @@ class ForgotPasswordPinDtoBuilder
 
   @override
   void replace(ForgotPasswordPinDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ForgotPasswordPinDto;
   }
 
@@ -86,9 +82,10 @@ class ForgotPasswordPinDtoBuilder
 
   _$ForgotPasswordPinDto _build() {
     final _$result = _$v ??
-        new _$ForgotPasswordPinDto._(
-            pin: BuiltValueNullFieldError.checkNotNull(
-                pin, r'ForgotPasswordPinDto', 'pin'));
+        _$ForgotPasswordPinDto._(
+          pin: BuiltValueNullFieldError.checkNotNull(
+              pin, r'ForgotPasswordPinDto', 'pin'),
+        );
     replace(_$result);
     return _$result;
   }

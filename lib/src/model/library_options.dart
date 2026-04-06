@@ -39,12 +39,21 @@ part 'library_options.g.dart';
 /// * [localMetadataReaderOrder]
 /// * [disabledSubtitleFetchers]
 /// * [subtitleFetcherOrder]
+/// * [disabledMediaSegmentProviders]
+/// * [mediaSegmentProviderOrder]
 /// * [skipSubtitlesIfEmbeddedSubtitlesPresent]
 /// * [skipSubtitlesIfAudioTrackMatches]
 /// * [subtitleDownloadLanguages]
 /// * [requirePerfectSubtitleMatch]
 /// * [saveSubtitlesWithMedia]
 /// * [saveLyricsWithMedia]
+/// * [saveTrickplayWithMedia]
+/// * [disabledLyricFetchers]
+/// * [lyricFetcherOrder]
+/// * [preferNonstandardArtistsTag]
+/// * [useCustomTagDelimiters]
+/// * [customTagDelimiters]
+/// * [delimiterWhitelist]
 /// * [automaticallyAddToCollection]
 /// * [allowEmbeddedSubtitles] - An enum representing the options to disable embedded subs.
 /// * [typeOptions]
@@ -126,6 +135,12 @@ abstract class LibraryOptions
   @BuiltValueField(wireName: r'SubtitleFetcherOrder')
   BuiltList<String>? get subtitleFetcherOrder;
 
+  @BuiltValueField(wireName: r'DisabledMediaSegmentProviders')
+  BuiltList<String>? get disabledMediaSegmentProviders;
+
+  @BuiltValueField(wireName: r'MediaSegmentProviderOrder')
+  BuiltList<String>? get mediaSegmentProviderOrder;
+
   @BuiltValueField(wireName: r'SkipSubtitlesIfEmbeddedSubtitlesPresent')
   bool? get skipSubtitlesIfEmbeddedSubtitlesPresent;
 
@@ -144,6 +159,27 @@ abstract class LibraryOptions
   @BuiltValueField(wireName: r'SaveLyricsWithMedia')
   bool? get saveLyricsWithMedia;
 
+  @BuiltValueField(wireName: r'SaveTrickplayWithMedia')
+  bool? get saveTrickplayWithMedia;
+
+  @BuiltValueField(wireName: r'DisabledLyricFetchers')
+  BuiltList<String>? get disabledLyricFetchers;
+
+  @BuiltValueField(wireName: r'LyricFetcherOrder')
+  BuiltList<String>? get lyricFetcherOrder;
+
+  @BuiltValueField(wireName: r'PreferNonstandardArtistsTag')
+  bool? get preferNonstandardArtistsTag;
+
+  @BuiltValueField(wireName: r'UseCustomTagDelimiters')
+  bool? get useCustomTagDelimiters;
+
+  @BuiltValueField(wireName: r'CustomTagDelimiters')
+  BuiltList<String>? get customTagDelimiters;
+
+  @BuiltValueField(wireName: r'DelimiterWhitelist')
+  BuiltList<String>? get delimiterWhitelist;
+
   @BuiltValueField(wireName: r'AutomaticallyAddToCollection')
   bool? get automaticallyAddToCollection;
 
@@ -161,8 +197,11 @@ abstract class LibraryOptions
       _$LibraryOptions;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(LibraryOptionsBuilder b) =>
-      b..saveLyricsWithMedia = false;
+  static void _defaults(LibraryOptionsBuilder b) => b
+    ..saveLyricsWithMedia = false
+    ..saveTrickplayWithMedia = false
+    ..preferNonstandardArtistsTag = false
+    ..useCustomTagDelimiters = false;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<LibraryOptions> get serializer =>
@@ -350,6 +389,20 @@ class _$LibraryOptionsSerializer
         specifiedType: const FullType(BuiltList, [FullType(String)]),
       );
     }
+    if (object.disabledMediaSegmentProviders != null) {
+      yield r'DisabledMediaSegmentProviders';
+      yield serializers.serialize(
+        object.disabledMediaSegmentProviders,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      );
+    }
+    if (object.mediaSegmentProviderOrder != null) {
+      yield r'MediaSegmentProviderOrder';
+      yield serializers.serialize(
+        object.mediaSegmentProviderOrder,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      );
+    }
     if (object.skipSubtitlesIfEmbeddedSubtitlesPresent != null) {
       yield r'SkipSubtitlesIfEmbeddedSubtitlesPresent';
       yield serializers.serialize(
@@ -390,6 +443,55 @@ class _$LibraryOptionsSerializer
       yield serializers.serialize(
         object.saveLyricsWithMedia,
         specifiedType: const FullType(bool),
+      );
+    }
+    if (object.saveTrickplayWithMedia != null) {
+      yield r'SaveTrickplayWithMedia';
+      yield serializers.serialize(
+        object.saveTrickplayWithMedia,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.disabledLyricFetchers != null) {
+      yield r'DisabledLyricFetchers';
+      yield serializers.serialize(
+        object.disabledLyricFetchers,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      );
+    }
+    if (object.lyricFetcherOrder != null) {
+      yield r'LyricFetcherOrder';
+      yield serializers.serialize(
+        object.lyricFetcherOrder,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      );
+    }
+    if (object.preferNonstandardArtistsTag != null) {
+      yield r'PreferNonstandardArtistsTag';
+      yield serializers.serialize(
+        object.preferNonstandardArtistsTag,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.useCustomTagDelimiters != null) {
+      yield r'UseCustomTagDelimiters';
+      yield serializers.serialize(
+        object.useCustomTagDelimiters,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.customTagDelimiters != null) {
+      yield r'CustomTagDelimiters';
+      yield serializers.serialize(
+        object.customTagDelimiters,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
+      );
+    }
+    if (object.delimiterWhitelist != null) {
+      yield r'DelimiterWhitelist';
+      yield serializers.serialize(
+        object.delimiterWhitelist,
+        specifiedType: const FullType(BuiltList, [FullType(String)]),
       );
     }
     if (object.automaticallyAddToCollection != null) {
@@ -612,6 +714,20 @@ class _$LibraryOptionsSerializer
           ) as BuiltList<String>;
           result.subtitleFetcherOrder.replace(valueDes);
           break;
+        case r'DisabledMediaSegmentProviders':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.disabledMediaSegmentProviders.replace(valueDes);
+          break;
+        case r'MediaSegmentProviderOrder':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.mediaSegmentProviderOrder.replace(valueDes);
+          break;
         case r'SkipSubtitlesIfEmbeddedSubtitlesPresent':
           final valueDes = serializers.deserialize(
             value,
@@ -655,6 +771,55 @@ class _$LibraryOptionsSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.saveLyricsWithMedia = valueDes;
+          break;
+        case r'SaveTrickplayWithMedia':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.saveTrickplayWithMedia = valueDes;
+          break;
+        case r'DisabledLyricFetchers':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.disabledLyricFetchers.replace(valueDes);
+          break;
+        case r'LyricFetcherOrder':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.lyricFetcherOrder.replace(valueDes);
+          break;
+        case r'PreferNonstandardArtistsTag':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.preferNonstandardArtistsTag = valueDes;
+          break;
+        case r'UseCustomTagDelimiters':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.useCustomTagDelimiters = valueDes;
+          break;
+        case r'CustomTagDelimiters':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.customTagDelimiters.replace(valueDes);
+          break;
+        case r'DelimiterWhitelist':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>;
+          result.delimiterWhitelist.replace(valueDes);
           break;
         case r'AutomaticallyAddToCollection':
           final valueDes = serializers.deserialize(

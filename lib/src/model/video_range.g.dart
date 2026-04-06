@@ -19,12 +19,11 @@ VideoRange _$valueOf(String name) {
     case 'HDR':
       return _$HDR;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<VideoRange> _$values =
-    new BuiltSet<VideoRange>(const <VideoRange>[
+final BuiltSet<VideoRange> _$values = BuiltSet<VideoRange>(const <VideoRange>[
   _$unknown,
   _$SDR,
   _$HDR,
@@ -44,7 +43,7 @@ mixin _$VideoRangeMixin {
   _$VideoRangeMeta get VideoRange => const _$VideoRangeMeta();
 }
 
-Serializer<VideoRange> _$videoRangeSerializer = new _$VideoRangeSerializer();
+Serializer<VideoRange> _$videoRangeSerializer = _$VideoRangeSerializer();
 
 class _$VideoRangeSerializer implements PrimitiveSerializer<VideoRange> {
   static const Map<String, Object> _toWire = const <String, Object>{

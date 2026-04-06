@@ -12,10 +12,9 @@ class _$MetadataConfiguration extends MetadataConfiguration {
 
   factory _$MetadataConfiguration(
           [void Function(MetadataConfigurationBuilder)? updates]) =>
-      (new MetadataConfigurationBuilder()..update(updates))._build();
+      (MetadataConfigurationBuilder()..update(updates))._build();
 
   _$MetadataConfiguration._({this.useFileCreationTimeForDateAdded}) : super._();
-
   @override
   MetadataConfiguration rebuild(
           void Function(MetadataConfigurationBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$MetadataConfiguration extends MetadataConfiguration {
 
   @override
   MetadataConfigurationBuilder toBuilder() =>
-      new MetadataConfigurationBuilder()..replace(this);
+      MetadataConfigurationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +74,6 @@ class MetadataConfigurationBuilder
 
   @override
   void replace(MetadataConfiguration other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MetadataConfiguration;
   }
 
@@ -89,8 +87,9 @@ class MetadataConfigurationBuilder
 
   _$MetadataConfiguration _build() {
     final _$result = _$v ??
-        new _$MetadataConfiguration._(
-            useFileCreationTimeForDateAdded: useFileCreationTimeForDateAdded);
+        _$MetadataConfiguration._(
+          useFileCreationTimeForDateAdded: useFileCreationTimeForDateAdded,
+        );
     replace(_$result);
     return _$result;
   }

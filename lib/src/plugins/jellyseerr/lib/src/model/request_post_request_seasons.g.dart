@@ -12,13 +12,9 @@ class _$RequestPostRequestSeasons extends RequestPostRequestSeasons {
 
   factory _$RequestPostRequestSeasons(
           [void Function(RequestPostRequestSeasonsBuilder)? updates]) =>
-      (new RequestPostRequestSeasonsBuilder()..update(updates))._build();
+      (RequestPostRequestSeasonsBuilder()..update(updates))._build();
 
-  _$RequestPostRequestSeasons._({required this.oneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        oneOf, r'RequestPostRequestSeasons', 'oneOf');
-  }
-
+  _$RequestPostRequestSeasons._({required this.oneOf}) : super._();
   @override
   RequestPostRequestSeasons rebuild(
           void Function(RequestPostRequestSeasonsBuilder) updates) =>
@@ -26,7 +22,7 @@ class _$RequestPostRequestSeasons extends RequestPostRequestSeasons {
 
   @override
   RequestPostRequestSeasonsBuilder toBuilder() =>
-      new RequestPostRequestSeasonsBuilder()..replace(this);
+      RequestPostRequestSeasonsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,7 +70,6 @@ class RequestPostRequestSeasonsBuilder
 
   @override
   void replace(RequestPostRequestSeasons other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RequestPostRequestSeasons;
   }
 
@@ -88,9 +83,10 @@ class RequestPostRequestSeasonsBuilder
 
   _$RequestPostRequestSeasons _build() {
     final _$result = _$v ??
-        new _$RequestPostRequestSeasons._(
-            oneOf: BuiltValueNullFieldError.checkNotNull(
-                oneOf, r'RequestPostRequestSeasons', 'oneOf'));
+        _$RequestPostRequestSeasons._(
+          oneOf: BuiltValueNullFieldError.checkNotNull(
+              oneOf, r'RequestPostRequestSeasons', 'oneOf'),
+        );
     replace(_$result);
     return _$result;
   }

@@ -14,10 +14,9 @@ class _$LocalizationOption extends LocalizationOption {
 
   factory _$LocalizationOption(
           [void Function(LocalizationOptionBuilder)? updates]) =>
-      (new LocalizationOptionBuilder()..update(updates))._build();
+      (LocalizationOptionBuilder()..update(updates))._build();
 
   _$LocalizationOption._({this.name, this.value}) : super._();
-
   @override
   LocalizationOption rebuild(
           void Function(LocalizationOptionBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$LocalizationOption extends LocalizationOption {
 
   @override
   LocalizationOptionBuilder toBuilder() =>
-      new LocalizationOptionBuilder()..replace(this);
+      LocalizationOptionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -81,7 +80,6 @@ class LocalizationOptionBuilder
 
   @override
   void replace(LocalizationOption other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LocalizationOption;
   }
 
@@ -94,8 +92,11 @@ class LocalizationOptionBuilder
   LocalizationOption build() => _build();
 
   _$LocalizationOption _build() {
-    final _$result =
-        _$v ?? new _$LocalizationOption._(name: name, value: value);
+    final _$result = _$v ??
+        _$LocalizationOption._(
+          name: name,
+          value: value,
+        );
     replace(_$result);
     return _$result;
   }

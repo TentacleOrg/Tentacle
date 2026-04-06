@@ -15,17 +15,15 @@ class _$SpokenLanguage extends SpokenLanguage {
   final String? name;
 
   factory _$SpokenLanguage([void Function(SpokenLanguageBuilder)? updates]) =>
-      (new SpokenLanguageBuilder()..update(updates))._build();
+      (SpokenLanguageBuilder()..update(updates))._build();
 
   _$SpokenLanguage._({this.englishName, this.iso6391, this.name}) : super._();
-
   @override
   SpokenLanguage rebuild(void Function(SpokenLanguageBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SpokenLanguageBuilder toBuilder() =>
-      new SpokenLanguageBuilder()..replace(this);
+  SpokenLanguageBuilder toBuilder() => SpokenLanguageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -89,7 +87,6 @@ class SpokenLanguageBuilder
 
   @override
   void replace(SpokenLanguage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SpokenLanguage;
   }
 
@@ -103,8 +100,11 @@ class SpokenLanguageBuilder
 
   _$SpokenLanguage _build() {
     final _$result = _$v ??
-        new _$SpokenLanguage._(
-            englishName: englishName, iso6391: iso6391, name: name);
+        _$SpokenLanguage._(
+          englishName: englishName,
+          iso6391: iso6391,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

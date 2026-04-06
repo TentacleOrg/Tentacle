@@ -10,7 +10,7 @@ import 'package:built_value/serializer.dart';
 
 part 'activity_log_entry_query_result.g.dart';
 
-/// ActivityLogEntryQueryResult
+/// Query result container.
 ///
 /// Properties:
 /// * [items] - Gets or sets the items.
@@ -66,8 +66,7 @@ class _$ActivityLogEntryQueryResultSerializer
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType:
-            const FullType.nullable(BuiltList, [FullType(ActivityLogEntry)]),
+        specifiedType: const FullType(BuiltList, [FullType(ActivityLogEntry)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -112,10 +111,9 @@ class _$ActivityLogEntryQueryResultSerializer
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(
-                BuiltList, [FullType(ActivityLogEntry)]),
-          ) as BuiltList<ActivityLogEntry>?;
-          if (valueDes == null) continue;
+            specifiedType:
+                const FullType(BuiltList, [FullType(ActivityLogEntry)]),
+          ) as BuiltList<ActivityLogEntry>;
           result.items.replace(valueDes);
           break;
         case r'TotalRecordCount':

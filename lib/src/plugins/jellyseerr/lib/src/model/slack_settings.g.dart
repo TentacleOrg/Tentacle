@@ -15,16 +15,15 @@ class _$SlackSettings extends SlackSettings {
   final SlackSettingsOptions? options;
 
   factory _$SlackSettings([void Function(SlackSettingsBuilder)? updates]) =>
-      (new SlackSettingsBuilder()..update(updates))._build();
+      (SlackSettingsBuilder()..update(updates))._build();
 
   _$SlackSettings._({this.enabled, this.types, this.options}) : super._();
-
   @override
   SlackSettings rebuild(void Function(SlackSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SlackSettingsBuilder toBuilder() => new SlackSettingsBuilder()..replace(this);
+  SlackSettingsBuilder toBuilder() => SlackSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -69,7 +68,7 @@ class SlackSettingsBuilder
 
   SlackSettingsOptionsBuilder? _options;
   SlackSettingsOptionsBuilder get options =>
-      _$this._options ??= new SlackSettingsOptionsBuilder();
+      _$this._options ??= SlackSettingsOptionsBuilder();
   set options(SlackSettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -90,7 +89,6 @@ class SlackSettingsBuilder
 
   @override
   void replace(SlackSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SlackSettings;
   }
 
@@ -106,15 +104,18 @@ class SlackSettingsBuilder
     _$SlackSettings _$result;
     try {
       _$result = _$v ??
-          new _$SlackSettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$SlackSettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SlackSettings', _$failedField, e.toString());
       }
       rethrow;

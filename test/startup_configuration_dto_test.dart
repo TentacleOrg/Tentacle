@@ -7,6 +7,12 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(StartupConfigurationDto, () {
+    // Gets or sets the server name.
+    // String serverName
+    test('to test the property `serverName`', () async {
+      // TODO
+    });
+
     // Gets or sets UI language culture.
     // String uICulture
     test('to test the property `uICulture`', () async {

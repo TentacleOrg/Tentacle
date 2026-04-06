@@ -13,13 +13,13 @@ part 'user_updated_message.g.dart';
 /// User updated message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Class UserDto.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class UserUpdatedMessage
     implements Built<UserUpdatedMessage, UserUpdatedMessageBuilder> {
-  /// Gets or sets the data.
+  /// Class UserDto.
   @BuiltValueField(wireName: r'Data')
   UserDto? get data;
 

@@ -19,12 +19,11 @@ RepeatMode _$valueOf(String name) {
     case 'repeatOne':
       return _$repeatOne;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<RepeatMode> _$values =
-    new BuiltSet<RepeatMode>(const <RepeatMode>[
+final BuiltSet<RepeatMode> _$values = BuiltSet<RepeatMode>(const <RepeatMode>[
   _$repeatNone,
   _$repeatAll,
   _$repeatOne,
@@ -44,7 +43,7 @@ mixin _$RepeatModeMixin {
   _$RepeatModeMeta get RepeatMode => const _$RepeatModeMeta();
 }
 
-Serializer<RepeatMode> _$repeatModeSerializer = new _$RepeatModeSerializer();
+Serializer<RepeatMode> _$repeatModeSerializer = _$RepeatModeSerializer();
 
 class _$RepeatModeSerializer implements PrimitiveSerializer<RepeatMode> {
   static const Map<String, Object> _toWire = const <String, Object>{

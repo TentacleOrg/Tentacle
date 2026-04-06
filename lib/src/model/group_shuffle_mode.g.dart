@@ -16,12 +16,12 @@ GroupShuffleMode _$valueOf(String name) {
     case 'shuffle':
       return _$shuffle;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<GroupShuffleMode> _$values =
-    new BuiltSet<GroupShuffleMode>(const <GroupShuffleMode>[
+    BuiltSet<GroupShuffleMode>(const <GroupShuffleMode>[
   _$sorted,
   _$shuffle,
 ]);
@@ -40,7 +40,7 @@ mixin _$GroupShuffleModeMixin {
 }
 
 Serializer<GroupShuffleMode> _$groupShuffleModeSerializer =
-    new _$GroupShuffleModeSerializer();
+    _$GroupShuffleModeSerializer();
 
 class _$GroupShuffleModeSerializer
     implements PrimitiveSerializer<GroupShuffleMode> {

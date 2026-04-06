@@ -12,20 +12,16 @@ class _$ForgotPasswordDto extends ForgotPasswordDto {
 
   factory _$ForgotPasswordDto(
           [void Function(ForgotPasswordDtoBuilder)? updates]) =>
-      (new ForgotPasswordDtoBuilder()..update(updates))._build();
+      (ForgotPasswordDtoBuilder()..update(updates))._build();
 
-  _$ForgotPasswordDto._({required this.enteredUsername}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        enteredUsername, r'ForgotPasswordDto', 'enteredUsername');
-  }
-
+  _$ForgotPasswordDto._({required this.enteredUsername}) : super._();
   @override
   ForgotPasswordDto rebuild(void Function(ForgotPasswordDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   ForgotPasswordDtoBuilder toBuilder() =>
-      new ForgotPasswordDtoBuilder()..replace(this);
+      ForgotPasswordDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,7 +70,6 @@ class ForgotPasswordDtoBuilder
 
   @override
   void replace(ForgotPasswordDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ForgotPasswordDto;
   }
 
@@ -88,9 +83,10 @@ class ForgotPasswordDtoBuilder
 
   _$ForgotPasswordDto _build() {
     final _$result = _$v ??
-        new _$ForgotPasswordDto._(
-            enteredUsername: BuiltValueNullFieldError.checkNotNull(
-                enteredUsername, r'ForgotPasswordDto', 'enteredUsername'));
+        _$ForgotPasswordDto._(
+          enteredUsername: BuiltValueNullFieldError.checkNotNull(
+              enteredUsername, r'ForgotPasswordDto', 'enteredUsername'),
+        );
     replace(_$result);
     return _$result;
   }

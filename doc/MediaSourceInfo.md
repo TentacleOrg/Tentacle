@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **supportsDirectStream** | **bool** |  | [optional] 
 **supportsDirectPlay** | **bool** |  | [optional] 
 **isInfiniteStream** | **bool** |  | [optional] 
+**useMostCompatibleTranscodingProfile** | **bool** |  | [optional] [default to false]
 **requiresOpening** | **bool** |  | [optional] 
 **openToken** | **String** |  | [optional] 
 **requiresClosing** | **bool** |  | [optional] 
@@ -42,6 +43,7 @@ Name | Type | Description | Notes
 **mediaAttachments** | [**BuiltList&lt;MediaAttachment&gt;**](MediaAttachment.md) |  | [optional] 
 **formats** | **BuiltList&lt;String&gt;** |  | [optional] 
 **bitrate** | **int** |  | [optional] 
+**fallbackMaxStreamingBitrate** | **int** |  | [optional] 
 **timestamp** | [**TransportStreamTimestamp**](TransportStreamTimestamp.md) |  | [optional] 
 **requiredHttpHeaders** | **BuiltMap&lt;String, String&gt;** |  | [optional] 
 **transcodingUrl** | **String** |  | [optional] 
@@ -50,6 +52,7 @@ Name | Type | Description | Notes
 **analyzeDurationMs** | **int** |  | [optional] 
 **defaultAudioStreamIndex** | **int** |  | [optional] 
 **defaultSubtitleStreamIndex** | **int** |  | [optional] 
+**hasSegments** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

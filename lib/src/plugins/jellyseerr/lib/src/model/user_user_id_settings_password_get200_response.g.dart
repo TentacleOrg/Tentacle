@@ -14,11 +14,10 @@ class _$UserUserIdSettingsPasswordGet200Response
   factory _$UserUserIdSettingsPasswordGet200Response(
           [void Function(UserUserIdSettingsPasswordGet200ResponseBuilder)?
               updates]) =>
-      (new UserUserIdSettingsPasswordGet200ResponseBuilder()..update(updates))
+      (UserUserIdSettingsPasswordGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$UserUserIdSettingsPasswordGet200Response._({this.hasPassword}) : super._();
-
   @override
   UserUserIdSettingsPasswordGet200Response rebuild(
           void Function(UserUserIdSettingsPasswordGet200ResponseBuilder)
@@ -27,7 +26,7 @@ class _$UserUserIdSettingsPasswordGet200Response
 
   @override
   UserUserIdSettingsPasswordGet200ResponseBuilder toBuilder() =>
-      new UserUserIdSettingsPasswordGet200ResponseBuilder()..replace(this);
+      UserUserIdSettingsPasswordGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -78,7 +77,6 @@ class UserUserIdSettingsPasswordGet200ResponseBuilder
 
   @override
   void replace(UserUserIdSettingsPasswordGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdSettingsPasswordGet200Response;
   }
 
@@ -93,8 +91,9 @@ class UserUserIdSettingsPasswordGet200ResponseBuilder
 
   _$UserUserIdSettingsPasswordGet200Response _build() {
     final _$result = _$v ??
-        new _$UserUserIdSettingsPasswordGet200Response._(
-            hasPassword: hasPassword);
+        _$UserUserIdSettingsPasswordGet200Response._(
+          hasPassword: hasPassword,
+        );
     replace(_$result);
     return _$result;
   }

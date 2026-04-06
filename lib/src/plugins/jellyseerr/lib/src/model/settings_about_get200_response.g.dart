@@ -20,7 +20,7 @@ class _$SettingsAboutGet200Response extends SettingsAboutGet200Response {
 
   factory _$SettingsAboutGet200Response(
           [void Function(SettingsAboutGet200ResponseBuilder)? updates]) =>
-      (new SettingsAboutGet200ResponseBuilder()..update(updates))._build();
+      (SettingsAboutGet200ResponseBuilder()..update(updates))._build();
 
   _$SettingsAboutGet200Response._(
       {this.version,
@@ -29,7 +29,6 @@ class _$SettingsAboutGet200Response extends SettingsAboutGet200Response {
       this.tz,
       this.appDataPath})
       : super._();
-
   @override
   SettingsAboutGet200Response rebuild(
           void Function(SettingsAboutGet200ResponseBuilder) updates) =>
@@ -37,7 +36,7 @@ class _$SettingsAboutGet200Response extends SettingsAboutGet200Response {
 
   @override
   SettingsAboutGet200ResponseBuilder toBuilder() =>
-      new SettingsAboutGet200ResponseBuilder()..replace(this);
+      SettingsAboutGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -121,7 +120,6 @@ class SettingsAboutGet200ResponseBuilder
 
   @override
   void replace(SettingsAboutGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsAboutGet200Response;
   }
 
@@ -135,12 +133,13 @@ class SettingsAboutGet200ResponseBuilder
 
   _$SettingsAboutGet200Response _build() {
     final _$result = _$v ??
-        new _$SettingsAboutGet200Response._(
-            version: version,
-            totalRequests: totalRequests,
-            totalMediaItems: totalMediaItems,
-            tz: tz,
-            appDataPath: appDataPath);
+        _$SettingsAboutGet200Response._(
+          version: version,
+          totalRequests: totalRequests,
+          totalMediaItems: totalMediaItems,
+          tz: tz,
+          appDataPath: appDataPath,
+        );
     replace(_$result);
     return _$result;
   }

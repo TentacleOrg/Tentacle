@@ -21,12 +21,12 @@ SyncPlayUserAccessType _$valueOf(String name) {
     case 'none':
       return _$none;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<SyncPlayUserAccessType> _$values =
-    new BuiltSet<SyncPlayUserAccessType>(const <SyncPlayUserAccessType>[
+    BuiltSet<SyncPlayUserAccessType>(const <SyncPlayUserAccessType>[
   _$createAndJoinGroups,
   _$joinGroups,
   _$none,
@@ -48,7 +48,7 @@ mixin _$SyncPlayUserAccessTypeMixin {
 }
 
 Serializer<SyncPlayUserAccessType> _$syncPlayUserAccessTypeSerializer =
-    new _$SyncPlayUserAccessTypeSerializer();
+    _$SyncPlayUserAccessTypeSerializer();
 
 class _$SyncPlayUserAccessTypeSerializer
     implements PrimitiveSerializer<SyncPlayUserAccessType> {

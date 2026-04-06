@@ -16,11 +16,10 @@ class _$SettingsDiscoverAddPostRequest extends SettingsDiscoverAddPostRequest {
 
   factory _$SettingsDiscoverAddPostRequest(
           [void Function(SettingsDiscoverAddPostRequestBuilder)? updates]) =>
-      (new SettingsDiscoverAddPostRequestBuilder()..update(updates))._build();
+      (SettingsDiscoverAddPostRequestBuilder()..update(updates))._build();
 
   _$SettingsDiscoverAddPostRequest._({this.title, this.type, this.data})
       : super._();
-
   @override
   SettingsDiscoverAddPostRequest rebuild(
           void Function(SettingsDiscoverAddPostRequestBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$SettingsDiscoverAddPostRequest extends SettingsDiscoverAddPostRequest {
 
   @override
   SettingsDiscoverAddPostRequestBuilder toBuilder() =>
-      new SettingsDiscoverAddPostRequestBuilder()..replace(this);
+      SettingsDiscoverAddPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -94,7 +93,6 @@ class SettingsDiscoverAddPostRequestBuilder
 
   @override
   void replace(SettingsDiscoverAddPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsDiscoverAddPostRequest;
   }
 
@@ -108,8 +106,11 @@ class SettingsDiscoverAddPostRequestBuilder
 
   _$SettingsDiscoverAddPostRequest _build() {
     final _$result = _$v ??
-        new _$SettingsDiscoverAddPostRequest._(
-            title: title, type: type, data: data);
+        _$SettingsDiscoverAddPostRequest._(
+          title: title,
+          type: type,
+          data: data,
+        );
     replace(_$result);
     return _$result;
   }

@@ -18,19 +18,18 @@ class _$DirectPlayProfile extends DirectPlayProfile {
 
   factory _$DirectPlayProfile(
           [void Function(DirectPlayProfileBuilder)? updates]) =>
-      (new DirectPlayProfileBuilder()..update(updates))._build();
+      (DirectPlayProfileBuilder()..update(updates))._build();
 
   _$DirectPlayProfile._(
       {this.container, this.audioCodec, this.videoCodec, this.type})
       : super._();
-
   @override
   DirectPlayProfile rebuild(void Function(DirectPlayProfileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   DirectPlayProfileBuilder toBuilder() =>
-      new DirectPlayProfileBuilder()..replace(this);
+      DirectPlayProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -102,7 +101,6 @@ class DirectPlayProfileBuilder
 
   @override
   void replace(DirectPlayProfile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DirectPlayProfile;
   }
 
@@ -116,11 +114,12 @@ class DirectPlayProfileBuilder
 
   _$DirectPlayProfile _build() {
     final _$result = _$v ??
-        new _$DirectPlayProfile._(
-            container: container,
-            audioCodec: audioCodec,
-            videoCodec: videoCodec,
-            type: type);
+        _$DirectPlayProfile._(
+          container: container,
+          audioCodec: audioCodec,
+          videoCodec: videoCodec,
+          type: type,
+        );
     replace(_$result);
     return _$result;
   }

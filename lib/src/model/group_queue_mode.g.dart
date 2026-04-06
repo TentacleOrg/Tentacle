@@ -16,12 +16,12 @@ GroupQueueMode _$valueOf(String name) {
     case 'queueNext':
       return _$queueNext;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<GroupQueueMode> _$values =
-    new BuiltSet<GroupQueueMode>(const <GroupQueueMode>[
+    BuiltSet<GroupQueueMode>(const <GroupQueueMode>[
   _$queue,
   _$queueNext,
 ]);
@@ -40,7 +40,7 @@ mixin _$GroupQueueModeMixin {
 }
 
 Serializer<GroupQueueMode> _$groupQueueModeSerializer =
-    new _$GroupQueueModeSerializer();
+    _$GroupQueueModeSerializer();
 
 class _$GroupQueueModeSerializer
     implements PrimitiveSerializer<GroupQueueMode> {

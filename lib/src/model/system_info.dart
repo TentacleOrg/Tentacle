@@ -110,30 +110,37 @@ abstract class SystemInfo implements Built<SystemInfo, SystemInfoBuilder> {
   bool? get canLaunchWebBrowser;
 
   /// Gets or sets the program data path.
+  @Deprecated('programDataPath has been deprecated')
   @BuiltValueField(wireName: r'ProgramDataPath')
   String? get programDataPath;
 
   /// Gets or sets the web UI resources path.
+  @Deprecated('webPath has been deprecated')
   @BuiltValueField(wireName: r'WebPath')
   String? get webPath;
 
   /// Gets or sets the items by name path.
+  @Deprecated('itemsByNamePath has been deprecated')
   @BuiltValueField(wireName: r'ItemsByNamePath')
   String? get itemsByNamePath;
 
   /// Gets or sets the cache path.
+  @Deprecated('cachePath has been deprecated')
   @BuiltValueField(wireName: r'CachePath')
   String? get cachePath;
 
   /// Gets or sets the log path.
+  @Deprecated('logPath has been deprecated')
   @BuiltValueField(wireName: r'LogPath')
   String? get logPath;
 
   /// Gets or sets the internal metadata path.
+  @Deprecated('internalMetadataPath has been deprecated')
   @BuiltValueField(wireName: r'InternalMetadataPath')
   String? get internalMetadataPath;
 
   /// Gets or sets the transcode path.
+  @Deprecated('transcodingTempPath has been deprecated')
   @BuiltValueField(wireName: r'TranscodingTempPath')
   String? get transcodingTempPath;
 

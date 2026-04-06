@@ -25,7 +25,7 @@ class _$PlayQueueUpdate extends PlayQueueUpdate {
   final GroupRepeatMode? repeatMode;
 
   factory _$PlayQueueUpdate([void Function(PlayQueueUpdateBuilder)? updates]) =>
-      (new PlayQueueUpdateBuilder()..update(updates))._build();
+      (PlayQueueUpdateBuilder()..update(updates))._build();
 
   _$PlayQueueUpdate._(
       {this.reason,
@@ -37,14 +37,12 @@ class _$PlayQueueUpdate extends PlayQueueUpdate {
       this.shuffleMode,
       this.repeatMode})
       : super._();
-
   @override
   PlayQueueUpdate rebuild(void Function(PlayQueueUpdateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlayQueueUpdateBuilder toBuilder() =>
-      new PlayQueueUpdateBuilder()..replace(this);
+  PlayQueueUpdateBuilder toBuilder() => PlayQueueUpdateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +102,7 @@ class PlayQueueUpdateBuilder
 
   ListBuilder<SyncPlayQueueItem>? _playlist;
   ListBuilder<SyncPlayQueueItem> get playlist =>
-      _$this._playlist ??= new ListBuilder<SyncPlayQueueItem>();
+      _$this._playlist ??= ListBuilder<SyncPlayQueueItem>();
   set playlist(ListBuilder<SyncPlayQueueItem>? playlist) =>
       _$this._playlist = playlist;
 
@@ -154,7 +152,6 @@ class PlayQueueUpdateBuilder
 
   @override
   void replace(PlayQueueUpdate other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlayQueueUpdate;
   }
 
@@ -170,22 +167,23 @@ class PlayQueueUpdateBuilder
     _$PlayQueueUpdate _$result;
     try {
       _$result = _$v ??
-          new _$PlayQueueUpdate._(
-              reason: reason,
-              lastUpdate: lastUpdate,
-              playlist: _playlist?.build(),
-              playingItemIndex: playingItemIndex,
-              startPositionTicks: startPositionTicks,
-              isPlaying: isPlaying,
-              shuffleMode: shuffleMode,
-              repeatMode: repeatMode);
+          _$PlayQueueUpdate._(
+            reason: reason,
+            lastUpdate: lastUpdate,
+            playlist: _playlist?.build(),
+            playingItemIndex: playingItemIndex,
+            startPositionTicks: startPositionTicks,
+            isPlaying: isPlaying,
+            shuffleMode: shuffleMode,
+            repeatMode: repeatMode,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'playlist';
         _playlist?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlayQueueUpdate', _$failedField, e.toString());
       }
       rethrow;

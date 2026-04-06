@@ -18,12 +18,10 @@ class _$SettingsDiscoverSliderIdPutRequest
   factory _$SettingsDiscoverSliderIdPutRequest(
           [void Function(SettingsDiscoverSliderIdPutRequestBuilder)?
               updates]) =>
-      (new SettingsDiscoverSliderIdPutRequestBuilder()..update(updates))
-          ._build();
+      (SettingsDiscoverSliderIdPutRequestBuilder()..update(updates))._build();
 
   _$SettingsDiscoverSliderIdPutRequest._({this.title, this.type, this.data})
       : super._();
-
   @override
   SettingsDiscoverSliderIdPutRequest rebuild(
           void Function(SettingsDiscoverSliderIdPutRequestBuilder) updates) =>
@@ -31,7 +29,7 @@ class _$SettingsDiscoverSliderIdPutRequest
 
   @override
   SettingsDiscoverSliderIdPutRequestBuilder toBuilder() =>
-      new SettingsDiscoverSliderIdPutRequestBuilder()..replace(this);
+      SettingsDiscoverSliderIdPutRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -97,7 +95,6 @@ class SettingsDiscoverSliderIdPutRequestBuilder
 
   @override
   void replace(SettingsDiscoverSliderIdPutRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsDiscoverSliderIdPutRequest;
   }
 
@@ -112,8 +109,11 @@ class SettingsDiscoverSliderIdPutRequestBuilder
 
   _$SettingsDiscoverSliderIdPutRequest _build() {
     final _$result = _$v ??
-        new _$SettingsDiscoverSliderIdPutRequest._(
-            title: title, type: type, data: data);
+        _$SettingsDiscoverSliderIdPutRequest._(
+          title: title,
+          type: type,
+          data: data,
+        );
     replace(_$result);
     return _$result;
   }

@@ -22,11 +22,11 @@ KeepUntil _$valueOf(String name) {
     case 'untilDate':
       return _$untilDate;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<KeepUntil> _$values = new BuiltSet<KeepUntil>(const <KeepUntil>[
+final BuiltSet<KeepUntil> _$values = BuiltSet<KeepUntil>(const <KeepUntil>[
   _$untilDeleted,
   _$untilSpaceNeeded,
   _$untilWatched,
@@ -48,7 +48,7 @@ mixin _$KeepUntilMixin {
   _$KeepUntilMeta get KeepUntil => const _$KeepUntilMeta();
 }
 
-Serializer<KeepUntil> _$keepUntilSerializer = new _$KeepUntilSerializer();
+Serializer<KeepUntil> _$keepUntilSerializer = _$KeepUntilSerializer();
 
 class _$KeepUntilSerializer implements PrimitiveSerializer<KeepUntil> {
   static const Map<String, Object> _toWire = const <String, Object>{

@@ -20,7 +20,7 @@ class _$StatusGet200Response extends StatusGet200Response {
 
   factory _$StatusGet200Response(
           [void Function(StatusGet200ResponseBuilder)? updates]) =>
-      (new StatusGet200ResponseBuilder()..update(updates))._build();
+      (StatusGet200ResponseBuilder()..update(updates))._build();
 
   _$StatusGet200Response._(
       {this.version,
@@ -29,7 +29,6 @@ class _$StatusGet200Response extends StatusGet200Response {
       this.commitsBehind,
       this.restartRequired})
       : super._();
-
   @override
   StatusGet200Response rebuild(
           void Function(StatusGet200ResponseBuilder) updates) =>
@@ -37,7 +36,7 @@ class _$StatusGet200Response extends StatusGet200Response {
 
   @override
   StatusGet200ResponseBuilder toBuilder() =>
-      new StatusGet200ResponseBuilder()..replace(this);
+      StatusGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -120,7 +119,6 @@ class StatusGet200ResponseBuilder
 
   @override
   void replace(StatusGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StatusGet200Response;
   }
 
@@ -134,12 +132,13 @@ class StatusGet200ResponseBuilder
 
   _$StatusGet200Response _build() {
     final _$result = _$v ??
-        new _$StatusGet200Response._(
-            version: version,
-            commitTag: commitTag,
-            updateAvailable: updateAvailable,
-            commitsBehind: commitsBehind,
-            restartRequired: restartRequired);
+        _$StatusGet200Response._(
+          version: version,
+          commitTag: commitTag,
+          updateAvailable: updateAvailable,
+          commitsBehind: commitsBehind,
+          restartRequired: restartRequired,
+        );
     replace(_$result);
     return _$result;
   }

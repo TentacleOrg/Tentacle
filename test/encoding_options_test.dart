@@ -80,7 +80,7 @@ void main() {
     });
 
     // Gets or sets the hardware acceleration type.
-    // String hardwareAccelerationType
+    // HardwareAccelerationType hardwareAccelerationType
     test('to test the property `hardwareAccelerationType`', () async {
       // TODO
     });
@@ -103,6 +103,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the QSV device.
+    // String qsvDevice
+    test('to test the property `qsvDevice`', () async {
+      // TODO
+    });
+
     // Gets or sets a value indicating whether tonemapping is enabled.
     // bool enableTonemapping
     test('to test the property `enableTonemapping`', () async {
@@ -122,19 +128,19 @@ void main() {
     });
 
     // Gets or sets the tone-mapping algorithm.
-    // String tonemappingAlgorithm
+    // TonemappingAlgorithm tonemappingAlgorithm
     test('to test the property `tonemappingAlgorithm`', () async {
       // TODO
     });
 
     // Gets or sets the tone-mapping mode.
-    // String tonemappingMode
+    // TonemappingMode tonemappingMode
     test('to test the property `tonemappingMode`', () async {
       // TODO
     });
 
     // Gets or sets the tone-mapping range.
-    // String tonemappingRange
+    // TonemappingRange tonemappingRange
     test('to test the property `tonemappingRange`', () async {
       // TODO
     });
@@ -182,7 +188,7 @@ void main() {
     });
 
     // Gets or sets the encoder preset.
-    // String encoderPreset
+    // EncoderPreset encoderPreset
     test('to test the property `encoderPreset`', () async {
       // TODO
     });
@@ -194,7 +200,7 @@ void main() {
     });
 
     // Gets or sets the deinterlace method.
-    // String deinterlaceMethod
+    // DeinterlaceMethod deinterlaceMethod
     test('to test the property `deinterlaceMethod`', () async {
       // TODO
     });
@@ -208,6 +214,18 @@ void main() {
     // Gets or sets a value indicating whether 10bit VP9 decoding is enabled.
     // bool enableDecodingColorDepth10Vp9
     test('to test the property `enableDecodingColorDepth10Vp9`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether 8/10bit HEVC RExt decoding is enabled.
+    // bool enableDecodingColorDepth10HevcRext
+    test('to test the property `enableDecodingColorDepth10HevcRext`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether 12bit HEVC RExt decoding is enabled.
+    // bool enableDecodingColorDepth12HevcRext
+    test('to test the property `enableDecodingColorDepth12HevcRext`', () async {
       // TODO
     });
 

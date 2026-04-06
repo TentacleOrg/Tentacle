@@ -25,7 +25,7 @@ class _$ExternalIds extends ExternalIds {
   final String? twitterId;
 
   factory _$ExternalIds([void Function(ExternalIdsBuilder)? updates]) =>
-      (new ExternalIdsBuilder()..update(updates))._build();
+      (ExternalIdsBuilder()..update(updates))._build();
 
   _$ExternalIds._(
       {this.facebookId,
@@ -37,13 +37,12 @@ class _$ExternalIds extends ExternalIds {
       this.tvrageId,
       this.twitterId})
       : super._();
-
   @override
   ExternalIds rebuild(void Function(ExternalIdsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ExternalIdsBuilder toBuilder() => new ExternalIdsBuilder()..replace(this);
+  ExternalIdsBuilder toBuilder() => ExternalIdsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -146,7 +145,6 @@ class ExternalIdsBuilder implements Builder<ExternalIds, ExternalIdsBuilder> {
 
   @override
   void replace(ExternalIds other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ExternalIds;
   }
 
@@ -160,15 +158,16 @@ class ExternalIdsBuilder implements Builder<ExternalIds, ExternalIdsBuilder> {
 
   _$ExternalIds _build() {
     final _$result = _$v ??
-        new _$ExternalIds._(
-            facebookId: facebookId,
-            freebaseId: freebaseId,
-            freebaseMid: freebaseMid,
-            imdbId: imdbId,
-            instagramId: instagramId,
-            tvdbId: tvdbId,
-            tvrageId: tvrageId,
-            twitterId: twitterId);
+        _$ExternalIds._(
+          facebookId: facebookId,
+          freebaseId: freebaseId,
+          freebaseMid: freebaseMid,
+          imdbId: imdbId,
+          instagramId: instagramId,
+          tvdbId: tvdbId,
+          tvrageId: tvrageId,
+          twitterId: twitterId,
+        );
     replace(_$result);
     return _$result;
   }

@@ -13,11 +13,9 @@ class _$UserUserIdSettingsMainPostRequest
 
   factory _$UserUserIdSettingsMainPostRequest(
           [void Function(UserUserIdSettingsMainPostRequestBuilder)? updates]) =>
-      (new UserUserIdSettingsMainPostRequestBuilder()..update(updates))
-          ._build();
+      (UserUserIdSettingsMainPostRequestBuilder()..update(updates))._build();
 
   _$UserUserIdSettingsMainPostRequest._({this.username}) : super._();
-
   @override
   UserUserIdSettingsMainPostRequest rebuild(
           void Function(UserUserIdSettingsMainPostRequestBuilder) updates) =>
@@ -25,7 +23,7 @@ class _$UserUserIdSettingsMainPostRequest
 
   @override
   UserUserIdSettingsMainPostRequestBuilder toBuilder() =>
-      new UserUserIdSettingsMainPostRequestBuilder()..replace(this);
+      UserUserIdSettingsMainPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +73,6 @@ class UserUserIdSettingsMainPostRequestBuilder
 
   @override
   void replace(UserUserIdSettingsMainPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdSettingsMainPostRequest;
   }
 
@@ -89,8 +86,10 @@ class UserUserIdSettingsMainPostRequestBuilder
   UserUserIdSettingsMainPostRequest build() => _build();
 
   _$UserUserIdSettingsMainPostRequest _build() {
-    final _$result =
-        _$v ?? new _$UserUserIdSettingsMainPostRequest._(username: username);
+    final _$result = _$v ??
+        _$UserUserIdSettingsMainPostRequest._(
+          username: username,
+        );
     replace(_$result);
     return _$result;
   }

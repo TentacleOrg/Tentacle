@@ -15,11 +15,10 @@ class _$UserUserIdRequestsGet200Response
 
   factory _$UserUserIdRequestsGet200Response(
           [void Function(UserUserIdRequestsGet200ResponseBuilder)? updates]) =>
-      (new UserUserIdRequestsGet200ResponseBuilder()..update(updates))._build();
+      (UserUserIdRequestsGet200ResponseBuilder()..update(updates))._build();
 
   _$UserUserIdRequestsGet200Response._({this.pageInfo, this.results})
       : super._();
-
   @override
   UserUserIdRequestsGet200Response rebuild(
           void Function(UserUserIdRequestsGet200ResponseBuilder) updates) =>
@@ -27,7 +26,7 @@ class _$UserUserIdRequestsGet200Response
 
   @override
   UserUserIdRequestsGet200ResponseBuilder toBuilder() =>
-      new UserUserIdRequestsGet200ResponseBuilder()..replace(this);
+      UserUserIdRequestsGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -62,12 +61,12 @@ class UserUserIdRequestsGet200ResponseBuilder
   _$UserUserIdRequestsGet200Response? _$v;
 
   PageInfoBuilder? _pageInfo;
-  PageInfoBuilder get pageInfo => _$this._pageInfo ??= new PageInfoBuilder();
+  PageInfoBuilder get pageInfo => _$this._pageInfo ??= PageInfoBuilder();
   set pageInfo(PageInfoBuilder? pageInfo) => _$this._pageInfo = pageInfo;
 
   ListBuilder<MediaRequest>? _results;
   ListBuilder<MediaRequest> get results =>
-      _$this._results ??= new ListBuilder<MediaRequest>();
+      _$this._results ??= ListBuilder<MediaRequest>();
   set results(ListBuilder<MediaRequest>? results) => _$this._results = results;
 
   UserUserIdRequestsGet200ResponseBuilder() {
@@ -86,7 +85,6 @@ class UserUserIdRequestsGet200ResponseBuilder
 
   @override
   void replace(UserUserIdRequestsGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdRequestsGet200Response;
   }
 
@@ -102,8 +100,10 @@ class UserUserIdRequestsGet200ResponseBuilder
     _$UserUserIdRequestsGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$UserUserIdRequestsGet200Response._(
-              pageInfo: _pageInfo?.build(), results: _results?.build());
+          _$UserUserIdRequestsGet200Response._(
+            pageInfo: _pageInfo?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -112,7 +112,7 @@ class UserUserIdRequestsGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserUserIdRequestsGet200Response', _$failedField, e.toString());
       }
       rethrow;

@@ -83,7 +83,7 @@ class _$TvDetails extends TvDetails {
   final BuiltList<BuiltList<WatchProvidersInner>>? watchProviders;
 
   factory _$TvDetails([void Function(TvDetailsBuilder)? updates]) =>
-      (new TvDetailsBuilder()..update(updates))._build();
+      (TvDetailsBuilder()..update(updates))._build();
 
   _$TvDetails._(
       {this.id,
@@ -124,13 +124,12 @@ class _$TvDetails extends TvDetails {
       this.mediaInfo,
       this.watchProviders})
       : super._();
-
   @override
   TvDetails rebuild(void Function(TvDetailsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TvDetailsBuilder toBuilder() => new TvDetailsBuilder()..replace(this);
+  TvDetailsBuilder toBuilder() => TvDetailsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -280,19 +279,19 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   TvDetailsContentRatingsBuilder? _contentRatings;
   TvDetailsContentRatingsBuilder get contentRatings =>
-      _$this._contentRatings ??= new TvDetailsContentRatingsBuilder();
+      _$this._contentRatings ??= TvDetailsContentRatingsBuilder();
   set contentRatings(TvDetailsContentRatingsBuilder? contentRatings) =>
       _$this._contentRatings = contentRatings;
 
   ListBuilder<TvDetailsCreatedByInner>? _createdBy;
   ListBuilder<TvDetailsCreatedByInner> get createdBy =>
-      _$this._createdBy ??= new ListBuilder<TvDetailsCreatedByInner>();
+      _$this._createdBy ??= ListBuilder<TvDetailsCreatedByInner>();
   set createdBy(ListBuilder<TvDetailsCreatedByInner>? createdBy) =>
       _$this._createdBy = createdBy;
 
   ListBuilder<num>? _episodeRunTime;
   ListBuilder<num> get episodeRunTime =>
-      _$this._episodeRunTime ??= new ListBuilder<num>();
+      _$this._episodeRunTime ??= ListBuilder<num>();
   set episodeRunTime(ListBuilder<num>? episodeRunTime) =>
       _$this._episodeRunTime = episodeRunTime;
 
@@ -301,7 +300,7 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
   set firstAirDate(String? firstAirDate) => _$this._firstAirDate = firstAirDate;
 
   ListBuilder<Genre>? _genres;
-  ListBuilder<Genre> get genres => _$this._genres ??= new ListBuilder<Genre>();
+  ListBuilder<Genre> get genres => _$this._genres ??= ListBuilder<Genre>();
   set genres(ListBuilder<Genre>? genres) => _$this._genres = genres;
 
   String? _homepage;
@@ -314,7 +313,7 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   ListBuilder<String>? _languages;
   ListBuilder<String> get languages =>
-      _$this._languages ??= new ListBuilder<String>();
+      _$this._languages ??= ListBuilder<String>();
   set languages(ListBuilder<String>? languages) =>
       _$this._languages = languages;
 
@@ -324,7 +323,7 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   EpisodeBuilder? _lastEpisodeToAir;
   EpisodeBuilder get lastEpisodeToAir =>
-      _$this._lastEpisodeToAir ??= new EpisodeBuilder();
+      _$this._lastEpisodeToAir ??= EpisodeBuilder();
   set lastEpisodeToAir(EpisodeBuilder? lastEpisodeToAir) =>
       _$this._lastEpisodeToAir = lastEpisodeToAir;
 
@@ -334,13 +333,13 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   EpisodeBuilder? _nextEpisodeToAir;
   EpisodeBuilder get nextEpisodeToAir =>
-      _$this._nextEpisodeToAir ??= new EpisodeBuilder();
+      _$this._nextEpisodeToAir ??= EpisodeBuilder();
   set nextEpisodeToAir(EpisodeBuilder? nextEpisodeToAir) =>
       _$this._nextEpisodeToAir = nextEpisodeToAir;
 
   ListBuilder<ProductionCompany>? _networks;
   ListBuilder<ProductionCompany> get networks =>
-      _$this._networks ??= new ListBuilder<ProductionCompany>();
+      _$this._networks ??= ListBuilder<ProductionCompany>();
   set networks(ListBuilder<ProductionCompany>? networks) =>
       _$this._networks = networks;
 
@@ -356,7 +355,7 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   ListBuilder<String>? _originCountry;
   ListBuilder<String> get originCountry =>
-      _$this._originCountry ??= new ListBuilder<String>();
+      _$this._originCountry ??= ListBuilder<String>();
   set originCountry(ListBuilder<String>? originCountry) =>
       _$this._originCountry = originCountry;
 
@@ -379,7 +378,7 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   ListBuilder<ProductionCompany>? _productionCompanies;
   ListBuilder<ProductionCompany> get productionCompanies =>
-      _$this._productionCompanies ??= new ListBuilder<ProductionCompany>();
+      _$this._productionCompanies ??= ListBuilder<ProductionCompany>();
   set productionCompanies(
           ListBuilder<ProductionCompany>? productionCompanies) =>
       _$this._productionCompanies = productionCompanies;
@@ -387,7 +386,7 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
   ListBuilder<MovieDetailsProductionCountriesInner>? _productionCountries;
   ListBuilder<MovieDetailsProductionCountriesInner> get productionCountries =>
       _$this._productionCountries ??=
-          new ListBuilder<MovieDetailsProductionCountriesInner>();
+          ListBuilder<MovieDetailsProductionCountriesInner>();
   set productionCountries(
           ListBuilder<MovieDetailsProductionCountriesInner>?
               productionCountries) =>
@@ -395,13 +394,12 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   ListBuilder<SpokenLanguage>? _spokenLanguages;
   ListBuilder<SpokenLanguage> get spokenLanguages =>
-      _$this._spokenLanguages ??= new ListBuilder<SpokenLanguage>();
+      _$this._spokenLanguages ??= ListBuilder<SpokenLanguage>();
   set spokenLanguages(ListBuilder<SpokenLanguage>? spokenLanguages) =>
       _$this._spokenLanguages = spokenLanguages;
 
   ListBuilder<Season>? _seasons;
-  ListBuilder<Season> get seasons =>
-      _$this._seasons ??= new ListBuilder<Season>();
+  ListBuilder<Season> get seasons => _$this._seasons ??= ListBuilder<Season>();
   set seasons(ListBuilder<Season>? seasons) => _$this._seasons = seasons;
 
   String? _status;
@@ -426,29 +424,27 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   MovieDetailsCreditsBuilder? _credits;
   MovieDetailsCreditsBuilder get credits =>
-      _$this._credits ??= new MovieDetailsCreditsBuilder();
+      _$this._credits ??= MovieDetailsCreditsBuilder();
   set credits(MovieDetailsCreditsBuilder? credits) => _$this._credits = credits;
 
   ExternalIdsBuilder? _externalIds;
   ExternalIdsBuilder get externalIds =>
-      _$this._externalIds ??= new ExternalIdsBuilder();
+      _$this._externalIds ??= ExternalIdsBuilder();
   set externalIds(ExternalIdsBuilder? externalIds) =>
       _$this._externalIds = externalIds;
 
   ListBuilder<Keyword>? _keywords;
   ListBuilder<Keyword> get keywords =>
-      _$this._keywords ??= new ListBuilder<Keyword>();
+      _$this._keywords ??= ListBuilder<Keyword>();
   set keywords(ListBuilder<Keyword>? keywords) => _$this._keywords = keywords;
 
   MediaInfoBuilder? _mediaInfo;
-  MediaInfoBuilder get mediaInfo =>
-      _$this._mediaInfo ??= new MediaInfoBuilder();
+  MediaInfoBuilder get mediaInfo => _$this._mediaInfo ??= MediaInfoBuilder();
   set mediaInfo(MediaInfoBuilder? mediaInfo) => _$this._mediaInfo = mediaInfo;
 
   ListBuilder<BuiltList<WatchProvidersInner>>? _watchProviders;
   ListBuilder<BuiltList<WatchProvidersInner>> get watchProviders =>
-      _$this._watchProviders ??=
-          new ListBuilder<BuiltList<WatchProvidersInner>>();
+      _$this._watchProviders ??= ListBuilder<BuiltList<WatchProvidersInner>>();
   set watchProviders(
           ListBuilder<BuiltList<WatchProvidersInner>>? watchProviders) =>
       _$this._watchProviders = watchProviders;
@@ -504,7 +500,6 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
 
   @override
   void replace(TvDetails other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TvDetails;
   }
 
@@ -520,44 +515,45 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
     _$TvDetails _$result;
     try {
       _$result = _$v ??
-          new _$TvDetails._(
-              id: id,
-              backdropPath: backdropPath,
-              posterPath: posterPath,
-              contentRatings: _contentRatings?.build(),
-              createdBy: _createdBy?.build(),
-              episodeRunTime: _episodeRunTime?.build(),
-              firstAirDate: firstAirDate,
-              genres: _genres?.build(),
-              homepage: homepage,
-              inProduction: inProduction,
-              languages: _languages?.build(),
-              lastAirDate: lastAirDate,
-              lastEpisodeToAir: _lastEpisodeToAir?.build(),
-              name: name,
-              nextEpisodeToAir: _nextEpisodeToAir?.build(),
-              networks: _networks?.build(),
-              numberOfEpisodes: numberOfEpisodes,
-              numberOfSeason: numberOfSeason,
-              originCountry: _originCountry?.build(),
-              originalLanguage: originalLanguage,
-              originalName: originalName,
-              overview: overview,
-              popularity: popularity,
-              productionCompanies: _productionCompanies?.build(),
-              productionCountries: _productionCountries?.build(),
-              spokenLanguages: _spokenLanguages?.build(),
-              seasons: _seasons?.build(),
-              status: status,
-              tagline: tagline,
-              type: type,
-              voteAverage: voteAverage,
-              voteCount: voteCount,
-              credits: _credits?.build(),
-              externalIds: _externalIds?.build(),
-              keywords: _keywords?.build(),
-              mediaInfo: _mediaInfo?.build(),
-              watchProviders: _watchProviders?.build());
+          _$TvDetails._(
+            id: id,
+            backdropPath: backdropPath,
+            posterPath: posterPath,
+            contentRatings: _contentRatings?.build(),
+            createdBy: _createdBy?.build(),
+            episodeRunTime: _episodeRunTime?.build(),
+            firstAirDate: firstAirDate,
+            genres: _genres?.build(),
+            homepage: homepage,
+            inProduction: inProduction,
+            languages: _languages?.build(),
+            lastAirDate: lastAirDate,
+            lastEpisodeToAir: _lastEpisodeToAir?.build(),
+            name: name,
+            nextEpisodeToAir: _nextEpisodeToAir?.build(),
+            networks: _networks?.build(),
+            numberOfEpisodes: numberOfEpisodes,
+            numberOfSeason: numberOfSeason,
+            originCountry: _originCountry?.build(),
+            originalLanguage: originalLanguage,
+            originalName: originalName,
+            overview: overview,
+            popularity: popularity,
+            productionCompanies: _productionCompanies?.build(),
+            productionCountries: _productionCountries?.build(),
+            spokenLanguages: _spokenLanguages?.build(),
+            seasons: _seasons?.build(),
+            status: status,
+            tagline: tagline,
+            type: type,
+            voteAverage: voteAverage,
+            voteCount: voteCount,
+            credits: _credits?.build(),
+            externalIds: _externalIds?.build(),
+            keywords: _keywords?.build(),
+            mediaInfo: _mediaInfo?.build(),
+            watchProviders: _watchProviders?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -605,7 +601,7 @@ class TvDetailsBuilder implements Builder<TvDetails, TvDetailsBuilder> {
         _$failedField = 'watchProviders';
         _watchProviders?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TvDetails', _$failedField, e.toString());
       }
       rethrow;

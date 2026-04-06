@@ -15,17 +15,16 @@ class _$UserSettings extends UserSettings {
   final String? originalLanguage;
 
   factory _$UserSettings([void Function(UserSettingsBuilder)? updates]) =>
-      (new UserSettingsBuilder()..update(updates))._build();
+      (UserSettingsBuilder()..update(updates))._build();
 
   _$UserSettings._({this.locale, this.region, this.originalLanguage})
       : super._();
-
   @override
   UserSettings rebuild(void Function(UserSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserSettingsBuilder toBuilder() => new UserSettingsBuilder()..replace(this);
+  UserSettingsBuilder toBuilder() => UserSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -90,7 +89,6 @@ class UserSettingsBuilder
 
   @override
   void replace(UserSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserSettings;
   }
 
@@ -104,8 +102,11 @@ class UserSettingsBuilder
 
   _$UserSettings _build() {
     final _$result = _$v ??
-        new _$UserSettings._(
-            locale: locale, region: region, originalLanguage: originalLanguage);
+        _$UserSettings._(
+          locale: locale,
+          region: region,
+          originalLanguage: originalLanguage,
+        );
     replace(_$result);
     return _$result;
   }

@@ -22,7 +22,7 @@ class _$DiscoverTvNetworkNetworkIdGet200Response
   factory _$DiscoverTvNetworkNetworkIdGet200Response(
           [void Function(DiscoverTvNetworkNetworkIdGet200ResponseBuilder)?
               updates]) =>
-      (new DiscoverTvNetworkNetworkIdGet200ResponseBuilder()..update(updates))
+      (DiscoverTvNetworkNetworkIdGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$DiscoverTvNetworkNetworkIdGet200Response._(
@@ -32,7 +32,6 @@ class _$DiscoverTvNetworkNetworkIdGet200Response
       this.network,
       this.results})
       : super._();
-
   @override
   DiscoverTvNetworkNetworkIdGet200Response rebuild(
           void Function(DiscoverTvNetworkNetworkIdGet200ResponseBuilder)
@@ -41,7 +40,7 @@ class _$DiscoverTvNetworkNetworkIdGet200Response
 
   @override
   DiscoverTvNetworkNetworkIdGet200ResponseBuilder toBuilder() =>
-      new DiscoverTvNetworkNetworkIdGet200ResponseBuilder()..replace(this);
+      DiscoverTvNetworkNetworkIdGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -98,12 +97,12 @@ class DiscoverTvNetworkNetworkIdGet200ResponseBuilder
   set totalResults(num? totalResults) => _$this._totalResults = totalResults;
 
   NetworkBuilder? _network;
-  NetworkBuilder get network => _$this._network ??= new NetworkBuilder();
+  NetworkBuilder get network => _$this._network ??= NetworkBuilder();
   set network(NetworkBuilder? network) => _$this._network = network;
 
   ListBuilder<TvResult>? _results;
   ListBuilder<TvResult> get results =>
-      _$this._results ??= new ListBuilder<TvResult>();
+      _$this._results ??= ListBuilder<TvResult>();
   set results(ListBuilder<TvResult>? results) => _$this._results = results;
 
   DiscoverTvNetworkNetworkIdGet200ResponseBuilder() {
@@ -125,7 +124,6 @@ class DiscoverTvNetworkNetworkIdGet200ResponseBuilder
 
   @override
   void replace(DiscoverTvNetworkNetworkIdGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverTvNetworkNetworkIdGet200Response;
   }
 
@@ -142,12 +140,13 @@ class DiscoverTvNetworkNetworkIdGet200ResponseBuilder
     _$DiscoverTvNetworkNetworkIdGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverTvNetworkNetworkIdGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              network: _network?.build(),
-              results: _results?.build());
+          _$DiscoverTvNetworkNetworkIdGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            network: _network?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -156,7 +155,7 @@ class DiscoverTvNetworkNetworkIdGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverTvNetworkNetworkIdGet200Response',
             _$failedField,
             e.toString());

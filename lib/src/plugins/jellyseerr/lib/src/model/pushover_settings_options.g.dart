@@ -16,11 +16,10 @@ class _$PushoverSettingsOptions extends PushoverSettingsOptions {
 
   factory _$PushoverSettingsOptions(
           [void Function(PushoverSettingsOptionsBuilder)? updates]) =>
-      (new PushoverSettingsOptionsBuilder()..update(updates))._build();
+      (PushoverSettingsOptionsBuilder()..update(updates))._build();
 
   _$PushoverSettingsOptions._({this.accessToken, this.userToken, this.sound})
       : super._();
-
   @override
   PushoverSettingsOptions rebuild(
           void Function(PushoverSettingsOptionsBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$PushoverSettingsOptions extends PushoverSettingsOptions {
 
   @override
   PushoverSettingsOptionsBuilder toBuilder() =>
-      new PushoverSettingsOptionsBuilder()..replace(this);
+      PushoverSettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -93,7 +92,6 @@ class PushoverSettingsOptionsBuilder
 
   @override
   void replace(PushoverSettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PushoverSettingsOptions;
   }
 
@@ -107,8 +105,11 @@ class PushoverSettingsOptionsBuilder
 
   _$PushoverSettingsOptions _build() {
     final _$result = _$v ??
-        new _$PushoverSettingsOptions._(
-            accessToken: accessToken, userToken: userToken, sound: sound);
+        _$PushoverSettingsOptions._(
+          accessToken: accessToken,
+          userToken: userToken,
+          sound: sound,
+        );
     replace(_$result);
     return _$result;
   }

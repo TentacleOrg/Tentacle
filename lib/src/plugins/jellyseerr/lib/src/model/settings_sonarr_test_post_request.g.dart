@@ -20,7 +20,7 @@ class _$SettingsSonarrTestPostRequest extends SettingsSonarrTestPostRequest {
 
   factory _$SettingsSonarrTestPostRequest(
           [void Function(SettingsSonarrTestPostRequestBuilder)? updates]) =>
-      (new SettingsSonarrTestPostRequestBuilder()..update(updates))._build();
+      (SettingsSonarrTestPostRequestBuilder()..update(updates))._build();
 
   _$SettingsSonarrTestPostRequest._(
       {required this.hostname,
@@ -28,17 +28,7 @@ class _$SettingsSonarrTestPostRequest extends SettingsSonarrTestPostRequest {
       required this.apiKey,
       required this.useSsl,
       this.baseUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        hostname, r'SettingsSonarrTestPostRequest', 'hostname');
-    BuiltValueNullFieldError.checkNotNull(
-        port, r'SettingsSonarrTestPostRequest', 'port');
-    BuiltValueNullFieldError.checkNotNull(
-        apiKey, r'SettingsSonarrTestPostRequest', 'apiKey');
-    BuiltValueNullFieldError.checkNotNull(
-        useSsl, r'SettingsSonarrTestPostRequest', 'useSsl');
-  }
-
+      : super._();
   @override
   SettingsSonarrTestPostRequest rebuild(
           void Function(SettingsSonarrTestPostRequestBuilder) updates) =>
@@ -46,7 +36,7 @@ class _$SettingsSonarrTestPostRequest extends SettingsSonarrTestPostRequest {
 
   @override
   SettingsSonarrTestPostRequestBuilder toBuilder() =>
-      new SettingsSonarrTestPostRequestBuilder()..replace(this);
+      SettingsSonarrTestPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -128,7 +118,6 @@ class SettingsSonarrTestPostRequestBuilder
 
   @override
   void replace(SettingsSonarrTestPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsSonarrTestPostRequest;
   }
 
@@ -142,16 +131,17 @@ class SettingsSonarrTestPostRequestBuilder
 
   _$SettingsSonarrTestPostRequest _build() {
     final _$result = _$v ??
-        new _$SettingsSonarrTestPostRequest._(
-            hostname: BuiltValueNullFieldError.checkNotNull(
-                hostname, r'SettingsSonarrTestPostRequest', 'hostname'),
-            port: BuiltValueNullFieldError.checkNotNull(
-                port, r'SettingsSonarrTestPostRequest', 'port'),
-            apiKey: BuiltValueNullFieldError.checkNotNull(
-                apiKey, r'SettingsSonarrTestPostRequest', 'apiKey'),
-            useSsl: BuiltValueNullFieldError.checkNotNull(
-                useSsl, r'SettingsSonarrTestPostRequest', 'useSsl'),
-            baseUrl: baseUrl);
+        _$SettingsSonarrTestPostRequest._(
+          hostname: BuiltValueNullFieldError.checkNotNull(
+              hostname, r'SettingsSonarrTestPostRequest', 'hostname'),
+          port: BuiltValueNullFieldError.checkNotNull(
+              port, r'SettingsSonarrTestPostRequest', 'port'),
+          apiKey: BuiltValueNullFieldError.checkNotNull(
+              apiKey, r'SettingsSonarrTestPostRequest', 'apiKey'),
+          useSsl: BuiltValueNullFieldError.checkNotNull(
+              useSsl, r'SettingsSonarrTestPostRequest', 'useSsl'),
+          baseUrl: baseUrl,
+        );
     replace(_$result);
     return _$result;
   }

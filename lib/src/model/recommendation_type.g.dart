@@ -34,12 +34,12 @@ RecommendationType _$valueOf(String name) {
     case 'hasLikedActor':
       return _$hasLikedActor;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<RecommendationType> _$values =
-    new BuiltSet<RecommendationType>(const <RecommendationType>[
+    BuiltSet<RecommendationType>(const <RecommendationType>[
   _$similarToRecentlyPlayed,
   _$similarToLikedItem,
   _$hasDirectorFromRecentlyPlayed,
@@ -69,7 +69,7 @@ mixin _$RecommendationTypeMixin {
 }
 
 Serializer<RecommendationType> _$recommendationTypeSerializer =
-    new _$RecommendationTypeSerializer();
+    _$RecommendationTypeSerializer();
 
 class _$RecommendationTypeSerializer
     implements PrimitiveSerializer<RecommendationType> {

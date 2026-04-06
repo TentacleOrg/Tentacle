@@ -15,17 +15,15 @@ class _$WebhookSettings extends WebhookSettings {
   final WebhookSettingsOptions? options;
 
   factory _$WebhookSettings([void Function(WebhookSettingsBuilder)? updates]) =>
-      (new WebhookSettingsBuilder()..update(updates))._build();
+      (WebhookSettingsBuilder()..update(updates))._build();
 
   _$WebhookSettings._({this.enabled, this.types, this.options}) : super._();
-
   @override
   WebhookSettings rebuild(void Function(WebhookSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  WebhookSettingsBuilder toBuilder() =>
-      new WebhookSettingsBuilder()..replace(this);
+  WebhookSettingsBuilder toBuilder() => WebhookSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +68,7 @@ class WebhookSettingsBuilder
 
   WebhookSettingsOptionsBuilder? _options;
   WebhookSettingsOptionsBuilder get options =>
-      _$this._options ??= new WebhookSettingsOptionsBuilder();
+      _$this._options ??= WebhookSettingsOptionsBuilder();
   set options(WebhookSettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -91,7 +89,6 @@ class WebhookSettingsBuilder
 
   @override
   void replace(WebhookSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhookSettings;
   }
 
@@ -107,15 +104,18 @@ class WebhookSettingsBuilder
     _$WebhookSettings _$result;
     try {
       _$result = _$v ??
-          new _$WebhookSettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$WebhookSettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'WebhookSettings', _$failedField, e.toString());
       }
       rethrow;

@@ -9,31 +9,35 @@ import 'package:built_value/serializer.dart';
 
 part 'subtitle_profile.g.dart';
 
-/// SubtitleProfile
+/// A class for subtitle profile information.
 ///
 /// Properties:
-/// * [format]
-/// * [method] - Delivery method to use during playback of a specific subtitle format.
-/// * [didlMode]
-/// * [language]
-/// * [container]
+/// * [format] - Gets or sets the format.
+/// * [method] - Gets or sets the delivery method.
+/// * [didlMode] - Gets or sets the DIDL mode.
+/// * [language] - Gets or sets the language.
+/// * [container] - Gets or sets the container.
 @BuiltValue()
 abstract class SubtitleProfile
     implements Built<SubtitleProfile, SubtitleProfileBuilder> {
+  /// Gets or sets the format.
   @BuiltValueField(wireName: r'Format')
   String? get format;
 
-  /// Delivery method to use during playback of a specific subtitle format.
+  /// Gets or sets the delivery method.
   @BuiltValueField(wireName: r'Method')
   SubtitleDeliveryMethod? get method;
   // enum methodEnum {  Encode,  Embed,  External,  Hls,  Drop,  };
 
+  /// Gets or sets the DIDL mode.
   @BuiltValueField(wireName: r'DidlMode')
   String? get didlMode;
 
+  /// Gets or sets the language.
   @BuiltValueField(wireName: r'Language')
   String? get language;
 
+  /// Gets or sets the container.
   @BuiltValueField(wireName: r'Container')
   String? get container;
 

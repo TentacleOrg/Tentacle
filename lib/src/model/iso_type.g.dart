@@ -16,11 +16,11 @@ IsoType _$valueOf(String name) {
     case 'bluRay':
       return _$bluRay;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<IsoType> _$values = new BuiltSet<IsoType>(const <IsoType>[
+final BuiltSet<IsoType> _$values = BuiltSet<IsoType>(const <IsoType>[
   _$dvd,
   _$bluRay,
 ]);
@@ -38,7 +38,7 @@ mixin _$IsoTypeMixin {
   _$IsoTypeMeta get IsoType => const _$IsoTypeMeta();
 }
 
-Serializer<IsoType> _$isoTypeSerializer = new _$IsoTypeSerializer();
+Serializer<IsoType> _$isoTypeSerializer = _$IsoTypeSerializer();
 
 class _$IsoTypeSerializer implements PrimitiveSerializer<IsoType> {
   static const Map<String, Object> _toWire = const <String, Object>{

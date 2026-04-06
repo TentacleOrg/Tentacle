@@ -19,11 +19,11 @@ CodecType _$valueOf(String name) {
     case 'audio':
       return _$audio;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<CodecType> _$values = new BuiltSet<CodecType>(const <CodecType>[
+final BuiltSet<CodecType> _$values = BuiltSet<CodecType>(const <CodecType>[
   _$video,
   _$videoAudio,
   _$audio,
@@ -43,7 +43,7 @@ mixin _$CodecTypeMixin {
   _$CodecTypeMeta get CodecType => const _$CodecTypeMeta();
 }
 
-Serializer<CodecType> _$codecTypeSerializer = new _$CodecTypeSerializer();
+Serializer<CodecType> _$codecTypeSerializer = _$CodecTypeSerializer();
 
 class _$CodecTypeSerializer implements PrimitiveSerializer<CodecType> {
   static const Map<String, Object> _toWire = const <String, Object>{

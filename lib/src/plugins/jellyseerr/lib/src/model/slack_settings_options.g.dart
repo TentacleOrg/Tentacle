@@ -12,10 +12,9 @@ class _$SlackSettingsOptions extends SlackSettingsOptions {
 
   factory _$SlackSettingsOptions(
           [void Function(SlackSettingsOptionsBuilder)? updates]) =>
-      (new SlackSettingsOptionsBuilder()..update(updates))._build();
+      (SlackSettingsOptionsBuilder()..update(updates))._build();
 
   _$SlackSettingsOptions._({this.webhookUrl}) : super._();
-
   @override
   SlackSettingsOptions rebuild(
           void Function(SlackSettingsOptionsBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$SlackSettingsOptions extends SlackSettingsOptions {
 
   @override
   SlackSettingsOptionsBuilder toBuilder() =>
-      new SlackSettingsOptionsBuilder()..replace(this);
+      SlackSettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +69,6 @@ class SlackSettingsOptionsBuilder
 
   @override
   void replace(SlackSettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SlackSettingsOptions;
   }
 
@@ -83,8 +81,10 @@ class SlackSettingsOptionsBuilder
   SlackSettingsOptions build() => _build();
 
   _$SlackSettingsOptions _build() {
-    final _$result =
-        _$v ?? new _$SlackSettingsOptions._(webhookUrl: webhookUrl);
+    final _$result = _$v ??
+        _$SlackSettingsOptions._(
+          webhookUrl: webhookUrl,
+        );
     replace(_$result);
     return _$result;
   }

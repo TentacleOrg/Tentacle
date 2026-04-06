@@ -17,7 +17,7 @@ class _$CountryInfo extends CountryInfo {
   final String? threeLetterISORegionName;
 
   factory _$CountryInfo([void Function(CountryInfoBuilder)? updates]) =>
-      (new CountryInfoBuilder()..update(updates))._build();
+      (CountryInfoBuilder()..update(updates))._build();
 
   _$CountryInfo._(
       {this.name,
@@ -25,13 +25,12 @@ class _$CountryInfo extends CountryInfo {
       this.twoLetterISORegionName,
       this.threeLetterISORegionName})
       : super._();
-
   @override
   CountryInfo rebuild(void Function(CountryInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CountryInfoBuilder toBuilder() => new CountryInfoBuilder()..replace(this);
+  CountryInfoBuilder toBuilder() => CountryInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +103,6 @@ class CountryInfoBuilder implements Builder<CountryInfo, CountryInfoBuilder> {
 
   @override
   void replace(CountryInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CountryInfo;
   }
 
@@ -118,11 +116,12 @@ class CountryInfoBuilder implements Builder<CountryInfo, CountryInfoBuilder> {
 
   _$CountryInfo _build() {
     final _$result = _$v ??
-        new _$CountryInfo._(
-            name: name,
-            displayName: displayName,
-            twoLetterISORegionName: twoLetterISORegionName,
-            threeLetterISORegionName: threeLetterISORegionName);
+        _$CountryInfo._(
+          name: name,
+          displayName: displayName,
+          twoLetterISORegionName: twoLetterISORegionName,
+          threeLetterISORegionName: threeLetterISORegionName,
+        );
     replace(_$result);
     return _$result;
   }

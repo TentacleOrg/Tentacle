@@ -21,7 +21,7 @@ class _$TypeOptions extends TypeOptions {
   final BuiltList<ImageOption>? imageOptions;
 
   factory _$TypeOptions([void Function(TypeOptionsBuilder)? updates]) =>
-      (new TypeOptionsBuilder()..update(updates))._build();
+      (TypeOptionsBuilder()..update(updates))._build();
 
   _$TypeOptions._(
       {this.type,
@@ -31,13 +31,12 @@ class _$TypeOptions extends TypeOptions {
       this.imageFetcherOrder,
       this.imageOptions})
       : super._();
-
   @override
   TypeOptions rebuild(void Function(TypeOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TypeOptionsBuilder toBuilder() => new TypeOptionsBuilder()..replace(this);
+  TypeOptionsBuilder toBuilder() => TypeOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -86,31 +85,31 @@ class TypeOptionsBuilder implements Builder<TypeOptions, TypeOptionsBuilder> {
 
   ListBuilder<String>? _metadataFetchers;
   ListBuilder<String> get metadataFetchers =>
-      _$this._metadataFetchers ??= new ListBuilder<String>();
+      _$this._metadataFetchers ??= ListBuilder<String>();
   set metadataFetchers(ListBuilder<String>? metadataFetchers) =>
       _$this._metadataFetchers = metadataFetchers;
 
   ListBuilder<String>? _metadataFetcherOrder;
   ListBuilder<String> get metadataFetcherOrder =>
-      _$this._metadataFetcherOrder ??= new ListBuilder<String>();
+      _$this._metadataFetcherOrder ??= ListBuilder<String>();
   set metadataFetcherOrder(ListBuilder<String>? metadataFetcherOrder) =>
       _$this._metadataFetcherOrder = metadataFetcherOrder;
 
   ListBuilder<String>? _imageFetchers;
   ListBuilder<String> get imageFetchers =>
-      _$this._imageFetchers ??= new ListBuilder<String>();
+      _$this._imageFetchers ??= ListBuilder<String>();
   set imageFetchers(ListBuilder<String>? imageFetchers) =>
       _$this._imageFetchers = imageFetchers;
 
   ListBuilder<String>? _imageFetcherOrder;
   ListBuilder<String> get imageFetcherOrder =>
-      _$this._imageFetcherOrder ??= new ListBuilder<String>();
+      _$this._imageFetcherOrder ??= ListBuilder<String>();
   set imageFetcherOrder(ListBuilder<String>? imageFetcherOrder) =>
       _$this._imageFetcherOrder = imageFetcherOrder;
 
   ListBuilder<ImageOption>? _imageOptions;
   ListBuilder<ImageOption> get imageOptions =>
-      _$this._imageOptions ??= new ListBuilder<ImageOption>();
+      _$this._imageOptions ??= ListBuilder<ImageOption>();
   set imageOptions(ListBuilder<ImageOption>? imageOptions) =>
       _$this._imageOptions = imageOptions;
 
@@ -134,7 +133,6 @@ class TypeOptionsBuilder implements Builder<TypeOptions, TypeOptionsBuilder> {
 
   @override
   void replace(TypeOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TypeOptions;
   }
 
@@ -150,13 +148,14 @@ class TypeOptionsBuilder implements Builder<TypeOptions, TypeOptionsBuilder> {
     _$TypeOptions _$result;
     try {
       _$result = _$v ??
-          new _$TypeOptions._(
-              type: type,
-              metadataFetchers: _metadataFetchers?.build(),
-              metadataFetcherOrder: _metadataFetcherOrder?.build(),
-              imageFetchers: _imageFetchers?.build(),
-              imageFetcherOrder: _imageFetcherOrder?.build(),
-              imageOptions: _imageOptions?.build());
+          _$TypeOptions._(
+            type: type,
+            metadataFetchers: _metadataFetchers?.build(),
+            metadataFetcherOrder: _metadataFetcherOrder?.build(),
+            imageFetchers: _imageFetchers?.build(),
+            imageFetcherOrder: _imageFetcherOrder?.build(),
+            imageOptions: _imageOptions?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -171,7 +170,7 @@ class TypeOptionsBuilder implements Builder<TypeOptions, TypeOptionsBuilder> {
         _$failedField = 'imageOptions';
         _imageOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TypeOptions', _$failedField, e.toString());
       }
       rethrow;

@@ -37,7 +37,7 @@ class _$AlbumInfo extends AlbumInfo {
   final BuiltList<SongInfo>? songInfos;
 
   factory _$AlbumInfo([void Function(AlbumInfoBuilder)? updates]) =>
-      (new AlbumInfoBuilder()..update(updates))._build();
+      (AlbumInfoBuilder()..update(updates))._build();
 
   _$AlbumInfo._(
       {this.name,
@@ -55,13 +55,12 @@ class _$AlbumInfo extends AlbumInfo {
       this.artistProviderIds,
       this.songInfos})
       : super._();
-
   @override
   AlbumInfo rebuild(void Function(AlbumInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AlbumInfoBuilder toBuilder() => new AlbumInfoBuilder()..replace(this);
+  AlbumInfoBuilder toBuilder() => AlbumInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -153,7 +152,7 @@ class AlbumInfoBuilder implements Builder<AlbumInfo, AlbumInfoBuilder> {
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -181,19 +180,19 @@ class AlbumInfoBuilder implements Builder<AlbumInfo, AlbumInfoBuilder> {
 
   ListBuilder<String>? _albumArtists;
   ListBuilder<String> get albumArtists =>
-      _$this._albumArtists ??= new ListBuilder<String>();
+      _$this._albumArtists ??= ListBuilder<String>();
   set albumArtists(ListBuilder<String>? albumArtists) =>
       _$this._albumArtists = albumArtists;
 
   MapBuilder<String, String?>? _artistProviderIds;
   MapBuilder<String, String?> get artistProviderIds =>
-      _$this._artistProviderIds ??= new MapBuilder<String, String?>();
+      _$this._artistProviderIds ??= MapBuilder<String, String?>();
   set artistProviderIds(MapBuilder<String, String?>? artistProviderIds) =>
       _$this._artistProviderIds = artistProviderIds;
 
   ListBuilder<SongInfo>? _songInfos;
   ListBuilder<SongInfo> get songInfos =>
-      _$this._songInfos ??= new ListBuilder<SongInfo>();
+      _$this._songInfos ??= ListBuilder<SongInfo>();
   set songInfos(ListBuilder<SongInfo>? songInfos) =>
       _$this._songInfos = songInfos;
 
@@ -225,7 +224,6 @@ class AlbumInfoBuilder implements Builder<AlbumInfo, AlbumInfoBuilder> {
 
   @override
   void replace(AlbumInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AlbumInfo;
   }
 
@@ -241,21 +239,22 @@ class AlbumInfoBuilder implements Builder<AlbumInfo, AlbumInfoBuilder> {
     _$AlbumInfo _$result;
     try {
       _$result = _$v ??
-          new _$AlbumInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated,
-              albumArtists: _albumArtists?.build(),
-              artistProviderIds: _artistProviderIds?.build(),
-              songInfos: _songInfos?.build());
+          _$AlbumInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+            albumArtists: _albumArtists?.build(),
+            artistProviderIds: _artistProviderIds?.build(),
+            songInfos: _songInfos?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -269,7 +268,7 @@ class AlbumInfoBuilder implements Builder<AlbumInfo, AlbumInfoBuilder> {
         _$failedField = 'songInfos';
         _songInfos?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'AlbumInfo', _$failedField, e.toString());
       }
       rethrow;

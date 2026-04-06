@@ -17,12 +17,11 @@ class _$PluginInstallationFailedMessage
 
   factory _$PluginInstallationFailedMessage(
           [void Function(PluginInstallationFailedMessageBuilder)? updates]) =>
-      (new PluginInstallationFailedMessageBuilder()..update(updates))._build();
+      (PluginInstallationFailedMessageBuilder()..update(updates))._build();
 
   _$PluginInstallationFailedMessage._(
       {this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   PluginInstallationFailedMessage rebuild(
           void Function(PluginInstallationFailedMessageBuilder) updates) =>
@@ -30,7 +29,7 @@ class _$PluginInstallationFailedMessage
 
   @override
   PluginInstallationFailedMessageBuilder toBuilder() =>
-      new PluginInstallationFailedMessageBuilder()..replace(this);
+      PluginInstallationFailedMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -69,7 +68,7 @@ class PluginInstallationFailedMessageBuilder
 
   InstallationInfoBuilder? _data;
   InstallationInfoBuilder get data =>
-      _$this._data ??= new InstallationInfoBuilder();
+      _$this._data ??= InstallationInfoBuilder();
   set data(InstallationInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -98,7 +97,6 @@ class PluginInstallationFailedMessageBuilder
 
   @override
   void replace(PluginInstallationFailedMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PluginInstallationFailedMessage;
   }
 
@@ -114,17 +112,18 @@ class PluginInstallationFailedMessageBuilder
     _$PluginInstallationFailedMessage _$result;
     try {
       _$result = _$v ??
-          new _$PluginInstallationFailedMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$PluginInstallationFailedMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PluginInstallationFailedMessage', _$failedField, e.toString());
       }
       rethrow;

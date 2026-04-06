@@ -11,10 +11,5 @@ void main() {
     test('to test the property `path`', () async {
       // TODO
     });
-
-    // String networkPath
-    test('to test the property `networkPath`', () async {
-      // TODO
-    });
   });
 }

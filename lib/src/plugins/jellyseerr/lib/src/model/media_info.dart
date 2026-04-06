@@ -16,7 +16,7 @@ part 'media_info.g.dart';
 /// * [id]
 /// * [tmdbId]
 /// * [tvdbId]
-/// * [status] - Availability of the media. 1 = `UNKNOWN`, 2 = `PENDING`, 3 = `PROCESSING`, 4 = `PARTIALLY_AVAILABLE`, 5 = `AVAILABLE`
+/// * [status] - Availability of the media. 1 = `UNKNOWN`, 2 = `PENDING`, 3 = `PROCESSING`, 4 = `PARTIALLY_AVAILABLE`, 5 = `AVAILABLE`, 6 = `DELETED`
 /// * [requests]
 /// * [createdAt]
 /// * [updatedAt]
@@ -31,7 +31,7 @@ abstract class MediaInfo implements Built<MediaInfo, MediaInfoBuilder> {
   @BuiltValueField(wireName: r'tvdbId')
   num? get tvdbId;
 
-  /// Availability of the media. 1 = `UNKNOWN`, 2 = `PENDING`, 3 = `PROCESSING`, 4 = `PARTIALLY_AVAILABLE`, 5 = `AVAILABLE`
+  /// Availability of the media. 1 = `UNKNOWN`, 2 = `PENDING`, 3 = `PROCESSING`, 4 = `PARTIALLY_AVAILABLE`, 5 = `AVAILABLE`, 6 = `DELETED`
   @BuiltValueField(wireName: r'status')
   num? get status;
 

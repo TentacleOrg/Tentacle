@@ -19,12 +19,12 @@ MediaSourceType _$valueOf(String name) {
     case 'placeholder':
       return _$placeholder;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<MediaSourceType> _$values =
-    new BuiltSet<MediaSourceType>(const <MediaSourceType>[
+    BuiltSet<MediaSourceType>(const <MediaSourceType>[
   _$default_,
   _$grouping,
   _$placeholder,
@@ -45,7 +45,7 @@ mixin _$MediaSourceTypeMixin {
 }
 
 Serializer<MediaSourceType> _$mediaSourceTypeSerializer =
-    new _$MediaSourceTypeSerializer();
+    _$MediaSourceTypeSerializer();
 
 class _$MediaSourceTypeSerializer
     implements PrimitiveSerializer<MediaSourceType> {

@@ -14,10 +14,9 @@ class _$GotifySettingsOptions extends GotifySettingsOptions {
 
   factory _$GotifySettingsOptions(
           [void Function(GotifySettingsOptionsBuilder)? updates]) =>
-      (new GotifySettingsOptionsBuilder()..update(updates))._build();
+      (GotifySettingsOptionsBuilder()..update(updates))._build();
 
   _$GotifySettingsOptions._({this.url, this.token}) : super._();
-
   @override
   GotifySettingsOptions rebuild(
           void Function(GotifySettingsOptionsBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$GotifySettingsOptions extends GotifySettingsOptions {
 
   @override
   GotifySettingsOptionsBuilder toBuilder() =>
-      new GotifySettingsOptionsBuilder()..replace(this);
+      GotifySettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -81,7 +80,6 @@ class GotifySettingsOptionsBuilder
 
   @override
   void replace(GotifySettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GotifySettingsOptions;
   }
 
@@ -94,8 +92,11 @@ class GotifySettingsOptionsBuilder
   GotifySettingsOptions build() => _build();
 
   _$GotifySettingsOptions _build() {
-    final _$result =
-        _$v ?? new _$GotifySettingsOptions._(url: url, token: token);
+    final _$result = _$v ??
+        _$GotifySettingsOptions._(
+          url: url,
+          token: token,
+        );
     replace(_$result);
     return _$result;
   }

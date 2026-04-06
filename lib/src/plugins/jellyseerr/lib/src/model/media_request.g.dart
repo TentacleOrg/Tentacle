@@ -31,7 +31,7 @@ class _$MediaRequest extends MediaRequest {
   final String? rootFolder;
 
   factory _$MediaRequest([void Function(MediaRequestBuilder)? updates]) =>
-      (new MediaRequestBuilder()..update(updates))._build();
+      (MediaRequestBuilder()..update(updates))._build();
 
   _$MediaRequest._(
       {required this.id,
@@ -45,17 +45,13 @@ class _$MediaRequest extends MediaRequest {
       this.serverId,
       this.profileId,
       this.rootFolder})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'MediaRequest', 'id');
-    BuiltValueNullFieldError.checkNotNull(status, r'MediaRequest', 'status');
-  }
-
+      : super._();
   @override
   MediaRequest rebuild(void Function(MediaRequestBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MediaRequestBuilder toBuilder() => new MediaRequestBuilder()..replace(this);
+  MediaRequestBuilder toBuilder() => MediaRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -123,7 +119,7 @@ class MediaRequestBuilder
   set status(num? status) => _$this._status = status;
 
   MediaInfoBuilder? _media;
-  MediaInfoBuilder get media => _$this._media ??= new MediaInfoBuilder();
+  MediaInfoBuilder get media => _$this._media ??= MediaInfoBuilder();
   set media(MediaInfoBuilder? media) => _$this._media = media;
 
   String? _createdAt;
@@ -135,13 +131,13 @@ class MediaRequestBuilder
   set updatedAt(String? updatedAt) => _$this._updatedAt = updatedAt;
 
   UserBuilder? _requestedBy;
-  UserBuilder get requestedBy => _$this._requestedBy ??= new UserBuilder();
+  UserBuilder get requestedBy => _$this._requestedBy ??= UserBuilder();
   set requestedBy(UserBuilder? requestedBy) =>
       _$this._requestedBy = requestedBy;
 
   MediaRequestModifiedByBuilder? _modifiedBy;
   MediaRequestModifiedByBuilder get modifiedBy =>
-      _$this._modifiedBy ??= new MediaRequestModifiedByBuilder();
+      _$this._modifiedBy ??= MediaRequestModifiedByBuilder();
   set modifiedBy(MediaRequestModifiedByBuilder? modifiedBy) =>
       _$this._modifiedBy = modifiedBy;
 
@@ -186,7 +182,6 @@ class MediaRequestBuilder
 
   @override
   void replace(MediaRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaRequest;
   }
 
@@ -202,20 +197,21 @@ class MediaRequestBuilder
     _$MediaRequest _$result;
     try {
       _$result = _$v ??
-          new _$MediaRequest._(
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'MediaRequest', 'id'),
-              status: BuiltValueNullFieldError.checkNotNull(
-                  status, r'MediaRequest', 'status'),
-              media: _media?.build(),
-              createdAt: createdAt,
-              updatedAt: updatedAt,
-              requestedBy: _requestedBy?.build(),
-              modifiedBy: _modifiedBy?.build(),
-              is4k: is4k,
-              serverId: serverId,
-              profileId: profileId,
-              rootFolder: rootFolder);
+          _$MediaRequest._(
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'MediaRequest', 'id'),
+            status: BuiltValueNullFieldError.checkNotNull(
+                status, r'MediaRequest', 'status'),
+            media: _media?.build(),
+            createdAt: createdAt,
+            updatedAt: updatedAt,
+            requestedBy: _requestedBy?.build(),
+            modifiedBy: _modifiedBy?.build(),
+            is4k: is4k,
+            serverId: serverId,
+            profileId: profileId,
+            rootFolder: rootFolder,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -227,7 +223,7 @@ class MediaRequestBuilder
         _$failedField = 'modifiedBy';
         _modifiedBy?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MediaRequest', _$failedField, e.toString());
       }
       rethrow;

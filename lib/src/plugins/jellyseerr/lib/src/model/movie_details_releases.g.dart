@@ -12,10 +12,9 @@ class _$MovieDetailsReleases extends MovieDetailsReleases {
 
   factory _$MovieDetailsReleases(
           [void Function(MovieDetailsReleasesBuilder)? updates]) =>
-      (new MovieDetailsReleasesBuilder()..update(updates))._build();
+      (MovieDetailsReleasesBuilder()..update(updates))._build();
 
   _$MovieDetailsReleases._({this.results}) : super._();
-
   @override
   MovieDetailsReleases rebuild(
           void Function(MovieDetailsReleasesBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$MovieDetailsReleases extends MovieDetailsReleases {
 
   @override
   MovieDetailsReleasesBuilder toBuilder() =>
-      new MovieDetailsReleasesBuilder()..replace(this);
+      MovieDetailsReleasesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -53,7 +52,7 @@ class MovieDetailsReleasesBuilder
 
   ListBuilder<MovieDetailsReleasesResultsInner>? _results;
   ListBuilder<MovieDetailsReleasesResultsInner> get results =>
-      _$this._results ??= new ListBuilder<MovieDetailsReleasesResultsInner>();
+      _$this._results ??= ListBuilder<MovieDetailsReleasesResultsInner>();
   set results(ListBuilder<MovieDetailsReleasesResultsInner>? results) =>
       _$this._results = results;
 
@@ -72,7 +71,6 @@ class MovieDetailsReleasesBuilder
 
   @override
   void replace(MovieDetailsReleases other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieDetailsReleases;
   }
 
@@ -87,15 +85,17 @@ class MovieDetailsReleasesBuilder
   _$MovieDetailsReleases _build() {
     _$MovieDetailsReleases _$result;
     try {
-      _$result =
-          _$v ?? new _$MovieDetailsReleases._(results: _results?.build());
+      _$result = _$v ??
+          _$MovieDetailsReleases._(
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MovieDetailsReleases', _$failedField, e.toString());
       }
       rethrow;

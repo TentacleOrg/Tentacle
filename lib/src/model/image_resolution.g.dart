@@ -37,12 +37,12 @@ ImageResolution _$valueOf(String name) {
     case 'p2160':
       return _$p2160;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ImageResolution> _$values =
-    new BuiltSet<ImageResolution>(const <ImageResolution>[
+    BuiltSet<ImageResolution>(const <ImageResolution>[
   _$matchSource,
   _$p144,
   _$p240,
@@ -75,7 +75,7 @@ mixin _$ImageResolutionMixin {
 }
 
 Serializer<ImageResolution> _$imageResolutionSerializer =
-    new _$ImageResolutionSerializer();
+    _$ImageResolutionSerializer();
 
 class _$ImageResolutionSerializer
     implements PrimitiveSerializer<ImageResolution> {

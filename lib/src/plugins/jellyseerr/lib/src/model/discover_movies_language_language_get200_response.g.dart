@@ -22,8 +22,7 @@ class _$DiscoverMoviesLanguageLanguageGet200Response
   factory _$DiscoverMoviesLanguageLanguageGet200Response(
           [void Function(DiscoverMoviesLanguageLanguageGet200ResponseBuilder)?
               updates]) =>
-      (new DiscoverMoviesLanguageLanguageGet200ResponseBuilder()
-            ..update(updates))
+      (DiscoverMoviesLanguageLanguageGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$DiscoverMoviesLanguageLanguageGet200Response._(
@@ -33,7 +32,6 @@ class _$DiscoverMoviesLanguageLanguageGet200Response
       this.language,
       this.results})
       : super._();
-
   @override
   DiscoverMoviesLanguageLanguageGet200Response rebuild(
           void Function(DiscoverMoviesLanguageLanguageGet200ResponseBuilder)
@@ -42,7 +40,7 @@ class _$DiscoverMoviesLanguageLanguageGet200Response
 
   @override
   DiscoverMoviesLanguageLanguageGet200ResponseBuilder toBuilder() =>
-      new DiscoverMoviesLanguageLanguageGet200ResponseBuilder()..replace(this);
+      DiscoverMoviesLanguageLanguageGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -100,12 +98,12 @@ class DiscoverMoviesLanguageLanguageGet200ResponseBuilder
 
   SpokenLanguageBuilder? _language;
   SpokenLanguageBuilder get language =>
-      _$this._language ??= new SpokenLanguageBuilder();
+      _$this._language ??= SpokenLanguageBuilder();
   set language(SpokenLanguageBuilder? language) => _$this._language = language;
 
   ListBuilder<MovieResult>? _results;
   ListBuilder<MovieResult> get results =>
-      _$this._results ??= new ListBuilder<MovieResult>();
+      _$this._results ??= ListBuilder<MovieResult>();
   set results(ListBuilder<MovieResult>? results) => _$this._results = results;
 
   DiscoverMoviesLanguageLanguageGet200ResponseBuilder() {
@@ -127,7 +125,6 @@ class DiscoverMoviesLanguageLanguageGet200ResponseBuilder
 
   @override
   void replace(DiscoverMoviesLanguageLanguageGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverMoviesLanguageLanguageGet200Response;
   }
 
@@ -145,12 +142,13 @@ class DiscoverMoviesLanguageLanguageGet200ResponseBuilder
     _$DiscoverMoviesLanguageLanguageGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverMoviesLanguageLanguageGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              language: _language?.build(),
-              results: _results?.build());
+          _$DiscoverMoviesLanguageLanguageGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            language: _language?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -159,7 +157,7 @@ class DiscoverMoviesLanguageLanguageGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverMoviesLanguageLanguageGet200Response',
             _$failedField,
             e.toString());

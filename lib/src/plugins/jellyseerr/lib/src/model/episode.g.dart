@@ -31,7 +31,7 @@ class _$Episode extends Episode {
   final num? voteCount;
 
   factory _$Episode([void Function(EpisodeBuilder)? updates]) =>
-      (new EpisodeBuilder()..update(updates))._build();
+      (EpisodeBuilder()..update(updates))._build();
 
   _$Episode._(
       {this.id,
@@ -46,13 +46,12 @@ class _$Episode extends Episode {
       this.voteAverage,
       this.voteCount})
       : super._();
-
   @override
   Episode rebuild(void Function(EpisodeBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  EpisodeBuilder toBuilder() => new EpisodeBuilder()..replace(this);
+  EpisodeBuilder toBuilder() => EpisodeBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -181,7 +180,6 @@ class EpisodeBuilder implements Builder<Episode, EpisodeBuilder> {
 
   @override
   void replace(Episode other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Episode;
   }
 
@@ -195,18 +193,19 @@ class EpisodeBuilder implements Builder<Episode, EpisodeBuilder> {
 
   _$Episode _build() {
     final _$result = _$v ??
-        new _$Episode._(
-            id: id,
-            name: name,
-            airDate: airDate,
-            episodeNumber: episodeNumber,
-            overview: overview,
-            productionCode: productionCode,
-            seasonNumber: seasonNumber,
-            showId: showId,
-            stillPath: stillPath,
-            voteAverage: voteAverage,
-            voteCount: voteCount);
+        _$Episode._(
+          id: id,
+          name: name,
+          airDate: airDate,
+          episodeNumber: episodeNumber,
+          overview: overview,
+          productionCode: productionCode,
+          seasonNumber: seasonNumber,
+          showId: showId,
+          stillPath: stillPath,
+          voteAverage: voteAverage,
+          voteCount: voteCount,
+        );
     replace(_$result);
     return _$result;
   }

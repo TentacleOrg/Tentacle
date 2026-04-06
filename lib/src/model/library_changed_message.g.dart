@@ -16,11 +16,10 @@ class _$LibraryChangedMessage extends LibraryChangedMessage {
 
   factory _$LibraryChangedMessage(
           [void Function(LibraryChangedMessageBuilder)? updates]) =>
-      (new LibraryChangedMessageBuilder()..update(updates))._build();
+      (LibraryChangedMessageBuilder()..update(updates))._build();
 
   _$LibraryChangedMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   LibraryChangedMessage rebuild(
           void Function(LibraryChangedMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$LibraryChangedMessage extends LibraryChangedMessage {
 
   @override
   LibraryChangedMessageBuilder toBuilder() =>
-      new LibraryChangedMessageBuilder()..replace(this);
+      LibraryChangedMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,7 +64,7 @@ class LibraryChangedMessageBuilder
 
   LibraryUpdateInfoBuilder? _data;
   LibraryUpdateInfoBuilder get data =>
-      _$this._data ??= new LibraryUpdateInfoBuilder();
+      _$this._data ??= LibraryUpdateInfoBuilder();
   set data(LibraryUpdateInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -94,7 +93,6 @@ class LibraryChangedMessageBuilder
 
   @override
   void replace(LibraryChangedMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LibraryChangedMessage;
   }
 
@@ -110,17 +108,18 @@ class LibraryChangedMessageBuilder
     _$LibraryChangedMessage _$result;
     try {
       _$result = _$v ??
-          new _$LibraryChangedMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$LibraryChangedMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LibraryChangedMessage', _$failedField, e.toString());
       }
       rethrow;

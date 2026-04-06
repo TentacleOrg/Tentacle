@@ -25,11 +25,11 @@ MediaType _$valueOf(String name) {
     case 'book':
       return _$book;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<MediaType> _$values = new BuiltSet<MediaType>(const <MediaType>[
+final BuiltSet<MediaType> _$values = BuiltSet<MediaType>(const <MediaType>[
   _$unknown,
   _$video,
   _$audio,
@@ -53,7 +53,7 @@ mixin _$MediaTypeMixin {
   _$MediaTypeMeta get MediaType => const _$MediaTypeMeta();
 }
 
-Serializer<MediaType> _$mediaTypeSerializer = new _$MediaTypeSerializer();
+Serializer<MediaType> _$mediaTypeSerializer = _$MediaTypeSerializer();
 
 class _$MediaTypeSerializer implements PrimitiveSerializer<MediaType> {
   static const Map<String, Object> _toWire = const <String, Object>{

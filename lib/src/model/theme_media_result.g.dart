@@ -18,19 +18,18 @@ class _$ThemeMediaResult extends ThemeMediaResult {
 
   factory _$ThemeMediaResult(
           [void Function(ThemeMediaResultBuilder)? updates]) =>
-      (new ThemeMediaResultBuilder()..update(updates))._build();
+      (ThemeMediaResultBuilder()..update(updates))._build();
 
   _$ThemeMediaResult._(
       {this.items, this.totalRecordCount, this.startIndex, this.ownerId})
       : super._();
-
   @override
   ThemeMediaResult rebuild(void Function(ThemeMediaResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   ThemeMediaResultBuilder toBuilder() =>
-      new ThemeMediaResultBuilder()..replace(this);
+      ThemeMediaResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +69,7 @@ class ThemeMediaResultBuilder
 
   ListBuilder<BaseItemDto>? _items;
   ListBuilder<BaseItemDto> get items =>
-      _$this._items ??= new ListBuilder<BaseItemDto>();
+      _$this._items ??= ListBuilder<BaseItemDto>();
   set items(ListBuilder<BaseItemDto>? items) => _$this._items = items;
 
   int? _totalRecordCount;
@@ -104,7 +103,6 @@ class ThemeMediaResultBuilder
 
   @override
   void replace(ThemeMediaResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ThemeMediaResult;
   }
 
@@ -120,18 +118,19 @@ class ThemeMediaResultBuilder
     _$ThemeMediaResult _$result;
     try {
       _$result = _$v ??
-          new _$ThemeMediaResult._(
-              items: _items?.build(),
-              totalRecordCount: totalRecordCount,
-              startIndex: startIndex,
-              ownerId: ownerId);
+          _$ThemeMediaResult._(
+            items: _items?.build(),
+            totalRecordCount: totalRecordCount,
+            startIndex: startIndex,
+            ownerId: ownerId,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         _items?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ThemeMediaResult', _$failedField, e.toString());
       }
       rethrow;

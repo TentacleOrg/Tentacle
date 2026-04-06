@@ -28,12 +28,12 @@ ProgramAudio _$valueOf(String name) {
     case 'atmos':
       return _$atmos;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ProgramAudio> _$values =
-    new BuiltSet<ProgramAudio>(const <ProgramAudio>[
+    BuiltSet<ProgramAudio>(const <ProgramAudio>[
   _$mono,
   _$stereo,
   _$dolby,
@@ -59,8 +59,7 @@ mixin _$ProgramAudioMixin {
   _$ProgramAudioMeta get ProgramAudio => const _$ProgramAudioMeta();
 }
 
-Serializer<ProgramAudio> _$programAudioSerializer =
-    new _$ProgramAudioSerializer();
+Serializer<ProgramAudio> _$programAudioSerializer = _$ProgramAudioSerializer();
 
 class _$ProgramAudioSerializer implements PrimitiveSerializer<ProgramAudio> {
   static const Map<String, Object> _toWire = const <String, Object>{

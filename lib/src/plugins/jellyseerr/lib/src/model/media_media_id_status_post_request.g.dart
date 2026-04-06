@@ -12,10 +12,9 @@ class _$MediaMediaIdStatusPostRequest extends MediaMediaIdStatusPostRequest {
 
   factory _$MediaMediaIdStatusPostRequest(
           [void Function(MediaMediaIdStatusPostRequestBuilder)? updates]) =>
-      (new MediaMediaIdStatusPostRequestBuilder()..update(updates))._build();
+      (MediaMediaIdStatusPostRequestBuilder()..update(updates))._build();
 
   _$MediaMediaIdStatusPostRequest._({this.is4k}) : super._();
-
   @override
   MediaMediaIdStatusPostRequest rebuild(
           void Function(MediaMediaIdStatusPostRequestBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$MediaMediaIdStatusPostRequest extends MediaMediaIdStatusPostRequest {
 
   @override
   MediaMediaIdStatusPostRequestBuilder toBuilder() =>
-      new MediaMediaIdStatusPostRequestBuilder()..replace(this);
+      MediaMediaIdStatusPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +71,6 @@ class MediaMediaIdStatusPostRequestBuilder
 
   @override
   void replace(MediaMediaIdStatusPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaMediaIdStatusPostRequest;
   }
 
@@ -85,7 +83,10 @@ class MediaMediaIdStatusPostRequestBuilder
   MediaMediaIdStatusPostRequest build() => _build();
 
   _$MediaMediaIdStatusPostRequest _build() {
-    final _$result = _$v ?? new _$MediaMediaIdStatusPostRequest._(is4k: is4k);
+    final _$result = _$v ??
+        _$MediaMediaIdStatusPostRequest._(
+          is4k: is4k,
+        );
     replace(_$result);
     return _$result;
   }

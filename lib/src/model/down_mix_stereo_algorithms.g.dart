@@ -11,6 +11,9 @@ const DownMixStereoAlgorithms _$dave750 =
     const DownMixStereoAlgorithms._('dave750');
 const DownMixStereoAlgorithms _$nightmodeDialogue =
     const DownMixStereoAlgorithms._('nightmodeDialogue');
+const DownMixStereoAlgorithms _$rfc7845 =
+    const DownMixStereoAlgorithms._('rfc7845');
+const DownMixStereoAlgorithms _$ac4 = const DownMixStereoAlgorithms._('ac4');
 
 DownMixStereoAlgorithms _$valueOf(String name) {
   switch (name) {
@@ -20,16 +23,22 @@ DownMixStereoAlgorithms _$valueOf(String name) {
       return _$dave750;
     case 'nightmodeDialogue':
       return _$nightmodeDialogue;
+    case 'rfc7845':
+      return _$rfc7845;
+    case 'ac4':
+      return _$ac4;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<DownMixStereoAlgorithms> _$values =
-    new BuiltSet<DownMixStereoAlgorithms>(const <DownMixStereoAlgorithms>[
+    BuiltSet<DownMixStereoAlgorithms>(const <DownMixStereoAlgorithms>[
   _$none,
   _$dave750,
   _$nightmodeDialogue,
+  _$rfc7845,
+  _$ac4,
 ]);
 
 class _$DownMixStereoAlgorithmsMeta {
@@ -37,6 +46,8 @@ class _$DownMixStereoAlgorithmsMeta {
   DownMixStereoAlgorithms get none => _$none;
   DownMixStereoAlgorithms get dave750 => _$dave750;
   DownMixStereoAlgorithms get nightmodeDialogue => _$nightmodeDialogue;
+  DownMixStereoAlgorithms get rfc7845 => _$rfc7845;
+  DownMixStereoAlgorithms get ac4 => _$ac4;
   DownMixStereoAlgorithms valueOf(String name) => _$valueOf(name);
   BuiltSet<DownMixStereoAlgorithms> get values => _$values;
 }
@@ -48,7 +59,7 @@ mixin _$DownMixStereoAlgorithmsMixin {
 }
 
 Serializer<DownMixStereoAlgorithms> _$downMixStereoAlgorithmsSerializer =
-    new _$DownMixStereoAlgorithmsSerializer();
+    _$DownMixStereoAlgorithmsSerializer();
 
 class _$DownMixStereoAlgorithmsSerializer
     implements PrimitiveSerializer<DownMixStereoAlgorithms> {
@@ -56,11 +67,15 @@ class _$DownMixStereoAlgorithmsSerializer
     'none': 'None',
     'dave750': 'Dave750',
     'nightmodeDialogue': 'NightmodeDialogue',
+    'rfc7845': 'Rfc7845',
+    'ac4': 'Ac4',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'None': 'none',
     'Dave750': 'dave750',
     'NightmodeDialogue': 'nightmodeDialogue',
+    'Rfc7845': 'rfc7845',
+    'Ac4': 'ac4',
   };
 
   @override

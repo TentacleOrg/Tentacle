@@ -16,12 +16,10 @@ class _$MovieDetailsProductionCountriesInner
   factory _$MovieDetailsProductionCountriesInner(
           [void Function(MovieDetailsProductionCountriesInnerBuilder)?
               updates]) =>
-      (new MovieDetailsProductionCountriesInnerBuilder()..update(updates))
-          ._build();
+      (MovieDetailsProductionCountriesInnerBuilder()..update(updates))._build();
 
   _$MovieDetailsProductionCountriesInner._({this.iso31661, this.name})
       : super._();
-
   @override
   MovieDetailsProductionCountriesInner rebuild(
           void Function(MovieDetailsProductionCountriesInnerBuilder) updates) =>
@@ -29,7 +27,7 @@ class _$MovieDetailsProductionCountriesInner
 
   @override
   MovieDetailsProductionCountriesInnerBuilder toBuilder() =>
-      new MovieDetailsProductionCountriesInnerBuilder()..replace(this);
+      MovieDetailsProductionCountriesInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -87,7 +85,6 @@ class MovieDetailsProductionCountriesInnerBuilder
 
   @override
   void replace(MovieDetailsProductionCountriesInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieDetailsProductionCountriesInner;
   }
 
@@ -102,8 +99,10 @@ class MovieDetailsProductionCountriesInnerBuilder
 
   _$MovieDetailsProductionCountriesInner _build() {
     final _$result = _$v ??
-        new _$MovieDetailsProductionCountriesInner._(
-            iso31661: iso31661, name: name);
+        _$MovieDetailsProductionCountriesInner._(
+          iso31661: iso31661,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

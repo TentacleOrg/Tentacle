@@ -31,7 +31,7 @@ class _$SeriesInfo extends SeriesInfo {
   final bool? isAutomated;
 
   factory _$SeriesInfo([void Function(SeriesInfoBuilder)? updates]) =>
-      (new SeriesInfoBuilder()..update(updates))._build();
+      (SeriesInfoBuilder()..update(updates))._build();
 
   _$SeriesInfo._(
       {this.name,
@@ -46,13 +46,12 @@ class _$SeriesInfo extends SeriesInfo {
       this.premiereDate,
       this.isAutomated})
       : super._();
-
   @override
   SeriesInfo rebuild(void Function(SeriesInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SeriesInfoBuilder toBuilder() => new SeriesInfoBuilder()..replace(this);
+  SeriesInfoBuilder toBuilder() => SeriesInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -135,7 +134,7 @@ class SeriesInfoBuilder implements Builder<SeriesInfo, SeriesInfoBuilder> {
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -186,7 +185,6 @@ class SeriesInfoBuilder implements Builder<SeriesInfo, SeriesInfoBuilder> {
 
   @override
   void replace(SeriesInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SeriesInfo;
   }
 
@@ -202,25 +200,26 @@ class SeriesInfoBuilder implements Builder<SeriesInfo, SeriesInfoBuilder> {
     _$SeriesInfo _$result;
     try {
       _$result = _$v ??
-          new _$SeriesInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated);
+          _$SeriesInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'providerIds';
         _providerIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SeriesInfo', _$failedField, e.toString());
       }
       rethrow;

@@ -30,7 +30,7 @@ class _$ActivityLogEntry extends ActivityLogEntry {
 
   factory _$ActivityLogEntry(
           [void Function(ActivityLogEntryBuilder)? updates]) =>
-      (new ActivityLogEntryBuilder()..update(updates))._build();
+      (ActivityLogEntryBuilder()..update(updates))._build();
 
   _$ActivityLogEntry._(
       {this.id,
@@ -44,14 +44,13 @@ class _$ActivityLogEntry extends ActivityLogEntry {
       this.userPrimaryImageTag,
       this.severity})
       : super._();
-
   @override
   ActivityLogEntry rebuild(void Function(ActivityLogEntryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   ActivityLogEntryBuilder toBuilder() =>
-      new ActivityLogEntryBuilder()..replace(this);
+      ActivityLogEntryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -173,7 +172,6 @@ class ActivityLogEntryBuilder
 
   @override
   void replace(ActivityLogEntry other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ActivityLogEntry;
   }
 
@@ -187,17 +185,18 @@ class ActivityLogEntryBuilder
 
   _$ActivityLogEntry _build() {
     final _$result = _$v ??
-        new _$ActivityLogEntry._(
-            id: id,
-            name: name,
-            overview: overview,
-            shortOverview: shortOverview,
-            type: type,
-            itemId: itemId,
-            date: date,
-            userId: userId,
-            userPrimaryImageTag: userPrimaryImageTag,
-            severity: severity);
+        _$ActivityLogEntry._(
+          id: id,
+          name: name,
+          overview: overview,
+          shortOverview: shortOverview,
+          type: type,
+          itemId: itemId,
+          date: date,
+          userId: userId,
+          userPrimaryImageTag: userPrimaryImageTag,
+          severity: severity,
+        );
     replace(_$result);
     return _$result;
   }

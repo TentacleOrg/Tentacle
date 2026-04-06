@@ -32,7 +32,7 @@ class _$EncodingOptions extends EncodingOptions {
   @override
   final int? segmentKeepSeconds;
   @override
-  final String? hardwareAccelerationType;
+  final HardwareAccelerationType? hardwareAccelerationType;
   @override
   final String? encoderAppPath;
   @override
@@ -40,17 +40,19 @@ class _$EncodingOptions extends EncodingOptions {
   @override
   final String? vaapiDevice;
   @override
+  final String? qsvDevice;
+  @override
   final bool? enableTonemapping;
   @override
   final bool? enableVppTonemapping;
   @override
   final bool? enableVideoToolboxTonemapping;
   @override
-  final String? tonemappingAlgorithm;
+  final TonemappingAlgorithm? tonemappingAlgorithm;
   @override
-  final String? tonemappingMode;
+  final TonemappingMode? tonemappingMode;
   @override
-  final String? tonemappingRange;
+  final TonemappingRange? tonemappingRange;
   @override
   final double? tonemappingDesat;
   @override
@@ -66,15 +68,19 @@ class _$EncodingOptions extends EncodingOptions {
   @override
   final int? h265Crf;
   @override
-  final String? encoderPreset;
+  final EncoderPreset? encoderPreset;
   @override
   final bool? deinterlaceDoubleRate;
   @override
-  final String? deinterlaceMethod;
+  final DeinterlaceMethod? deinterlaceMethod;
   @override
   final bool? enableDecodingColorDepth10Hevc;
   @override
   final bool? enableDecodingColorDepth10Vp9;
+  @override
+  final bool? enableDecodingColorDepth10HevcRext;
+  @override
+  final bool? enableDecodingColorDepth12HevcRext;
   @override
   final bool? enableEnhancedNvdecDecoder;
   @override
@@ -98,7 +104,7 @@ class _$EncodingOptions extends EncodingOptions {
       allowOnDemandMetadataBasedKeyframeExtractionForExtensions;
 
   factory _$EncodingOptions([void Function(EncodingOptionsBuilder)? updates]) =>
-      (new EncodingOptionsBuilder()..update(updates))._build();
+      (EncodingOptionsBuilder()..update(updates))._build();
 
   _$EncodingOptions._(
       {this.encodingThreadCount,
@@ -117,6 +123,7 @@ class _$EncodingOptions extends EncodingOptions {
       this.encoderAppPath,
       this.encoderAppPathDisplay,
       this.vaapiDevice,
+      this.qsvDevice,
       this.enableTonemapping,
       this.enableVppTonemapping,
       this.enableVideoToolboxTonemapping,
@@ -135,6 +142,8 @@ class _$EncodingOptions extends EncodingOptions {
       this.deinterlaceMethod,
       this.enableDecodingColorDepth10Hevc,
       this.enableDecodingColorDepth10Vp9,
+      this.enableDecodingColorDepth10HevcRext,
+      this.enableDecodingColorDepth12HevcRext,
       this.enableEnhancedNvdecDecoder,
       this.preferSystemNativeHwDecoder,
       this.enableIntelLowPowerH264HwEncoder,
@@ -146,14 +155,12 @@ class _$EncodingOptions extends EncodingOptions {
       this.hardwareDecodingCodecs,
       this.allowOnDemandMetadataBasedKeyframeExtractionForExtensions})
       : super._();
-
   @override
   EncodingOptions rebuild(void Function(EncodingOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  EncodingOptionsBuilder toBuilder() =>
-      new EncodingOptionsBuilder()..replace(this);
+  EncodingOptionsBuilder toBuilder() => EncodingOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -175,6 +182,7 @@ class _$EncodingOptions extends EncodingOptions {
         encoderAppPath == other.encoderAppPath &&
         encoderAppPathDisplay == other.encoderAppPathDisplay &&
         vaapiDevice == other.vaapiDevice &&
+        qsvDevice == other.qsvDevice &&
         enableTonemapping == other.enableTonemapping &&
         enableVppTonemapping == other.enableVppTonemapping &&
         enableVideoToolboxTonemapping == other.enableVideoToolboxTonemapping &&
@@ -194,6 +202,10 @@ class _$EncodingOptions extends EncodingOptions {
         enableDecodingColorDepth10Hevc ==
             other.enableDecodingColorDepth10Hevc &&
         enableDecodingColorDepth10Vp9 == other.enableDecodingColorDepth10Vp9 &&
+        enableDecodingColorDepth10HevcRext ==
+            other.enableDecodingColorDepth10HevcRext &&
+        enableDecodingColorDepth12HevcRext ==
+            other.enableDecodingColorDepth12HevcRext &&
         enableEnhancedNvdecDecoder == other.enableEnhancedNvdecDecoder &&
         preferSystemNativeHwDecoder == other.preferSystemNativeHwDecoder &&
         enableIntelLowPowerH264HwEncoder ==
@@ -228,6 +240,7 @@ class _$EncodingOptions extends EncodingOptions {
     _$hash = $jc(_$hash, encoderAppPath.hashCode);
     _$hash = $jc(_$hash, encoderAppPathDisplay.hashCode);
     _$hash = $jc(_$hash, vaapiDevice.hashCode);
+    _$hash = $jc(_$hash, qsvDevice.hashCode);
     _$hash = $jc(_$hash, enableTonemapping.hashCode);
     _$hash = $jc(_$hash, enableVppTonemapping.hashCode);
     _$hash = $jc(_$hash, enableVideoToolboxTonemapping.hashCode);
@@ -246,6 +259,8 @@ class _$EncodingOptions extends EncodingOptions {
     _$hash = $jc(_$hash, deinterlaceMethod.hashCode);
     _$hash = $jc(_$hash, enableDecodingColorDepth10Hevc.hashCode);
     _$hash = $jc(_$hash, enableDecodingColorDepth10Vp9.hashCode);
+    _$hash = $jc(_$hash, enableDecodingColorDepth10HevcRext.hashCode);
+    _$hash = $jc(_$hash, enableDecodingColorDepth12HevcRext.hashCode);
     _$hash = $jc(_$hash, enableEnhancedNvdecDecoder.hashCode);
     _$hash = $jc(_$hash, preferSystemNativeHwDecoder.hashCode);
     _$hash = $jc(_$hash, enableIntelLowPowerH264HwEncoder.hashCode);
@@ -280,6 +295,7 @@ class _$EncodingOptions extends EncodingOptions {
           ..add('encoderAppPath', encoderAppPath)
           ..add('encoderAppPathDisplay', encoderAppPathDisplay)
           ..add('vaapiDevice', vaapiDevice)
+          ..add('qsvDevice', qsvDevice)
           ..add('enableTonemapping', enableTonemapping)
           ..add('enableVppTonemapping', enableVppTonemapping)
           ..add('enableVideoToolboxTonemapping', enableVideoToolboxTonemapping)
@@ -299,6 +315,10 @@ class _$EncodingOptions extends EncodingOptions {
           ..add(
               'enableDecodingColorDepth10Hevc', enableDecodingColorDepth10Hevc)
           ..add('enableDecodingColorDepth10Vp9', enableDecodingColorDepth10Vp9)
+          ..add('enableDecodingColorDepth10HevcRext',
+              enableDecodingColorDepth10HevcRext)
+          ..add('enableDecodingColorDepth12HevcRext',
+              enableDecodingColorDepth12HevcRext)
           ..add('enableEnhancedNvdecDecoder', enableEnhancedNvdecDecoder)
           ..add('preferSystemNativeHwDecoder', preferSystemNativeHwDecoder)
           ..add('enableIntelLowPowerH264HwEncoder',
@@ -381,9 +401,11 @@ class EncodingOptionsBuilder
   set segmentKeepSeconds(int? segmentKeepSeconds) =>
       _$this._segmentKeepSeconds = segmentKeepSeconds;
 
-  String? _hardwareAccelerationType;
-  String? get hardwareAccelerationType => _$this._hardwareAccelerationType;
-  set hardwareAccelerationType(String? hardwareAccelerationType) =>
+  HardwareAccelerationType? _hardwareAccelerationType;
+  HardwareAccelerationType? get hardwareAccelerationType =>
+      _$this._hardwareAccelerationType;
+  set hardwareAccelerationType(
+          HardwareAccelerationType? hardwareAccelerationType) =>
       _$this._hardwareAccelerationType = hardwareAccelerationType;
 
   String? _encoderAppPath;
@@ -399,6 +421,10 @@ class EncodingOptionsBuilder
   String? _vaapiDevice;
   String? get vaapiDevice => _$this._vaapiDevice;
   set vaapiDevice(String? vaapiDevice) => _$this._vaapiDevice = vaapiDevice;
+
+  String? _qsvDevice;
+  String? get qsvDevice => _$this._qsvDevice;
+  set qsvDevice(String? qsvDevice) => _$this._qsvDevice = qsvDevice;
 
   bool? _enableTonemapping;
   bool? get enableTonemapping => _$this._enableTonemapping;
@@ -416,19 +442,20 @@ class EncodingOptionsBuilder
   set enableVideoToolboxTonemapping(bool? enableVideoToolboxTonemapping) =>
       _$this._enableVideoToolboxTonemapping = enableVideoToolboxTonemapping;
 
-  String? _tonemappingAlgorithm;
-  String? get tonemappingAlgorithm => _$this._tonemappingAlgorithm;
-  set tonemappingAlgorithm(String? tonemappingAlgorithm) =>
+  TonemappingAlgorithm? _tonemappingAlgorithm;
+  TonemappingAlgorithm? get tonemappingAlgorithm =>
+      _$this._tonemappingAlgorithm;
+  set tonemappingAlgorithm(TonemappingAlgorithm? tonemappingAlgorithm) =>
       _$this._tonemappingAlgorithm = tonemappingAlgorithm;
 
-  String? _tonemappingMode;
-  String? get tonemappingMode => _$this._tonemappingMode;
-  set tonemappingMode(String? tonemappingMode) =>
+  TonemappingMode? _tonemappingMode;
+  TonemappingMode? get tonemappingMode => _$this._tonemappingMode;
+  set tonemappingMode(TonemappingMode? tonemappingMode) =>
       _$this._tonemappingMode = tonemappingMode;
 
-  String? _tonemappingRange;
-  String? get tonemappingRange => _$this._tonemappingRange;
-  set tonemappingRange(String? tonemappingRange) =>
+  TonemappingRange? _tonemappingRange;
+  TonemappingRange? get tonemappingRange => _$this._tonemappingRange;
+  set tonemappingRange(TonemappingRange? tonemappingRange) =>
       _$this._tonemappingRange = tonemappingRange;
 
   double? _tonemappingDesat;
@@ -464,9 +491,9 @@ class EncodingOptionsBuilder
   int? get h265Crf => _$this._h265Crf;
   set h265Crf(int? h265Crf) => _$this._h265Crf = h265Crf;
 
-  String? _encoderPreset;
-  String? get encoderPreset => _$this._encoderPreset;
-  set encoderPreset(String? encoderPreset) =>
+  EncoderPreset? _encoderPreset;
+  EncoderPreset? get encoderPreset => _$this._encoderPreset;
+  set encoderPreset(EncoderPreset? encoderPreset) =>
       _$this._encoderPreset = encoderPreset;
 
   bool? _deinterlaceDoubleRate;
@@ -474,9 +501,9 @@ class EncodingOptionsBuilder
   set deinterlaceDoubleRate(bool? deinterlaceDoubleRate) =>
       _$this._deinterlaceDoubleRate = deinterlaceDoubleRate;
 
-  String? _deinterlaceMethod;
-  String? get deinterlaceMethod => _$this._deinterlaceMethod;
-  set deinterlaceMethod(String? deinterlaceMethod) =>
+  DeinterlaceMethod? _deinterlaceMethod;
+  DeinterlaceMethod? get deinterlaceMethod => _$this._deinterlaceMethod;
+  set deinterlaceMethod(DeinterlaceMethod? deinterlaceMethod) =>
       _$this._deinterlaceMethod = deinterlaceMethod;
 
   bool? _enableDecodingColorDepth10Hevc;
@@ -490,6 +517,22 @@ class EncodingOptionsBuilder
       _$this._enableDecodingColorDepth10Vp9;
   set enableDecodingColorDepth10Vp9(bool? enableDecodingColorDepth10Vp9) =>
       _$this._enableDecodingColorDepth10Vp9 = enableDecodingColorDepth10Vp9;
+
+  bool? _enableDecodingColorDepth10HevcRext;
+  bool? get enableDecodingColorDepth10HevcRext =>
+      _$this._enableDecodingColorDepth10HevcRext;
+  set enableDecodingColorDepth10HevcRext(
+          bool? enableDecodingColorDepth10HevcRext) =>
+      _$this._enableDecodingColorDepth10HevcRext =
+          enableDecodingColorDepth10HevcRext;
+
+  bool? _enableDecodingColorDepth12HevcRext;
+  bool? get enableDecodingColorDepth12HevcRext =>
+      _$this._enableDecodingColorDepth12HevcRext;
+  set enableDecodingColorDepth12HevcRext(
+          bool? enableDecodingColorDepth12HevcRext) =>
+      _$this._enableDecodingColorDepth12HevcRext =
+          enableDecodingColorDepth12HevcRext;
 
   bool? _enableEnhancedNvdecDecoder;
   bool? get enableEnhancedNvdecDecoder => _$this._enableEnhancedNvdecDecoder;
@@ -539,7 +582,7 @@ class EncodingOptionsBuilder
 
   ListBuilder<String>? _hardwareDecodingCodecs;
   ListBuilder<String> get hardwareDecodingCodecs =>
-      _$this._hardwareDecodingCodecs ??= new ListBuilder<String>();
+      _$this._hardwareDecodingCodecs ??= ListBuilder<String>();
   set hardwareDecodingCodecs(ListBuilder<String>? hardwareDecodingCodecs) =>
       _$this._hardwareDecodingCodecs = hardwareDecodingCodecs;
 
@@ -548,7 +591,7 @@ class EncodingOptionsBuilder
   ListBuilder<String>
       get allowOnDemandMetadataBasedKeyframeExtractionForExtensions =>
           _$this._allowOnDemandMetadataBasedKeyframeExtractionForExtensions ??=
-              new ListBuilder<String>();
+              ListBuilder<String>();
   set allowOnDemandMetadataBasedKeyframeExtractionForExtensions(
           ListBuilder<String>?
               allowOnDemandMetadataBasedKeyframeExtractionForExtensions) =>
@@ -578,6 +621,7 @@ class EncodingOptionsBuilder
       _encoderAppPath = $v.encoderAppPath;
       _encoderAppPathDisplay = $v.encoderAppPathDisplay;
       _vaapiDevice = $v.vaapiDevice;
+      _qsvDevice = $v.qsvDevice;
       _enableTonemapping = $v.enableTonemapping;
       _enableVppTonemapping = $v.enableVppTonemapping;
       _enableVideoToolboxTonemapping = $v.enableVideoToolboxTonemapping;
@@ -596,6 +640,10 @@ class EncodingOptionsBuilder
       _deinterlaceMethod = $v.deinterlaceMethod;
       _enableDecodingColorDepth10Hevc = $v.enableDecodingColorDepth10Hevc;
       _enableDecodingColorDepth10Vp9 = $v.enableDecodingColorDepth10Vp9;
+      _enableDecodingColorDepth10HevcRext =
+          $v.enableDecodingColorDepth10HevcRext;
+      _enableDecodingColorDepth12HevcRext =
+          $v.enableDecodingColorDepth12HevcRext;
       _enableEnhancedNvdecDecoder = $v.enableEnhancedNvdecDecoder;
       _preferSystemNativeHwDecoder = $v.preferSystemNativeHwDecoder;
       _enableIntelLowPowerH264HwEncoder = $v.enableIntelLowPowerH264HwEncoder;
@@ -615,7 +663,6 @@ class EncodingOptionsBuilder
 
   @override
   void replace(EncodingOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$EncodingOptions;
   }
 
@@ -631,55 +678,59 @@ class EncodingOptionsBuilder
     _$EncodingOptions _$result;
     try {
       _$result = _$v ??
-          new _$EncodingOptions._(
-              encodingThreadCount: encodingThreadCount,
-              transcodingTempPath: transcodingTempPath,
-              fallbackFontPath: fallbackFontPath,
-              enableFallbackFont: enableFallbackFont,
-              enableAudioVbr: enableAudioVbr,
-              downMixAudioBoost: downMixAudioBoost,
-              downMixStereoAlgorithm: downMixStereoAlgorithm,
-              maxMuxingQueueSize: maxMuxingQueueSize,
-              enableThrottling: enableThrottling,
-              throttleDelaySeconds: throttleDelaySeconds,
-              enableSegmentDeletion: enableSegmentDeletion,
-              segmentKeepSeconds: segmentKeepSeconds,
-              hardwareAccelerationType: hardwareAccelerationType,
-              encoderAppPath: encoderAppPath,
-              encoderAppPathDisplay: encoderAppPathDisplay,
-              vaapiDevice: vaapiDevice,
-              enableTonemapping: enableTonemapping,
-              enableVppTonemapping: enableVppTonemapping,
-              enableVideoToolboxTonemapping: enableVideoToolboxTonemapping,
-              tonemappingAlgorithm: tonemappingAlgorithm,
-              tonemappingMode: tonemappingMode,
-              tonemappingRange: tonemappingRange,
-              tonemappingDesat: tonemappingDesat,
-              tonemappingPeak: tonemappingPeak,
-              tonemappingParam: tonemappingParam,
-              vppTonemappingBrightness: vppTonemappingBrightness,
-              vppTonemappingContrast: vppTonemappingContrast,
-              h264Crf: h264Crf,
-              h265Crf: h265Crf,
-              encoderPreset: encoderPreset,
-              deinterlaceDoubleRate: deinterlaceDoubleRate,
-              deinterlaceMethod: deinterlaceMethod,
-              enableDecodingColorDepth10Hevc: enableDecodingColorDepth10Hevc,
-              enableDecodingColorDepth10Vp9: enableDecodingColorDepth10Vp9,
-              enableEnhancedNvdecDecoder: enableEnhancedNvdecDecoder,
-              preferSystemNativeHwDecoder: preferSystemNativeHwDecoder,
-              enableIntelLowPowerH264HwEncoder:
-                  enableIntelLowPowerH264HwEncoder,
-              enableIntelLowPowerHevcHwEncoder:
-                  enableIntelLowPowerHevcHwEncoder,
-              enableHardwareEncoding: enableHardwareEncoding,
-              allowHevcEncoding: allowHevcEncoding,
-              allowAv1Encoding: allowAv1Encoding,
-              enableSubtitleExtraction: enableSubtitleExtraction,
-              hardwareDecodingCodecs: _hardwareDecodingCodecs?.build(),
-              allowOnDemandMetadataBasedKeyframeExtractionForExtensions:
-                  _allowOnDemandMetadataBasedKeyframeExtractionForExtensions
-                      ?.build());
+          _$EncodingOptions._(
+            encodingThreadCount: encodingThreadCount,
+            transcodingTempPath: transcodingTempPath,
+            fallbackFontPath: fallbackFontPath,
+            enableFallbackFont: enableFallbackFont,
+            enableAudioVbr: enableAudioVbr,
+            downMixAudioBoost: downMixAudioBoost,
+            downMixStereoAlgorithm: downMixStereoAlgorithm,
+            maxMuxingQueueSize: maxMuxingQueueSize,
+            enableThrottling: enableThrottling,
+            throttleDelaySeconds: throttleDelaySeconds,
+            enableSegmentDeletion: enableSegmentDeletion,
+            segmentKeepSeconds: segmentKeepSeconds,
+            hardwareAccelerationType: hardwareAccelerationType,
+            encoderAppPath: encoderAppPath,
+            encoderAppPathDisplay: encoderAppPathDisplay,
+            vaapiDevice: vaapiDevice,
+            qsvDevice: qsvDevice,
+            enableTonemapping: enableTonemapping,
+            enableVppTonemapping: enableVppTonemapping,
+            enableVideoToolboxTonemapping: enableVideoToolboxTonemapping,
+            tonemappingAlgorithm: tonemappingAlgorithm,
+            tonemappingMode: tonemappingMode,
+            tonemappingRange: tonemappingRange,
+            tonemappingDesat: tonemappingDesat,
+            tonemappingPeak: tonemappingPeak,
+            tonemappingParam: tonemappingParam,
+            vppTonemappingBrightness: vppTonemappingBrightness,
+            vppTonemappingContrast: vppTonemappingContrast,
+            h264Crf: h264Crf,
+            h265Crf: h265Crf,
+            encoderPreset: encoderPreset,
+            deinterlaceDoubleRate: deinterlaceDoubleRate,
+            deinterlaceMethod: deinterlaceMethod,
+            enableDecodingColorDepth10Hevc: enableDecodingColorDepth10Hevc,
+            enableDecodingColorDepth10Vp9: enableDecodingColorDepth10Vp9,
+            enableDecodingColorDepth10HevcRext:
+                enableDecodingColorDepth10HevcRext,
+            enableDecodingColorDepth12HevcRext:
+                enableDecodingColorDepth12HevcRext,
+            enableEnhancedNvdecDecoder: enableEnhancedNvdecDecoder,
+            preferSystemNativeHwDecoder: preferSystemNativeHwDecoder,
+            enableIntelLowPowerH264HwEncoder: enableIntelLowPowerH264HwEncoder,
+            enableIntelLowPowerHevcHwEncoder: enableIntelLowPowerHevcHwEncoder,
+            enableHardwareEncoding: enableHardwareEncoding,
+            allowHevcEncoding: allowHevcEncoding,
+            allowAv1Encoding: allowAv1Encoding,
+            enableSubtitleExtraction: enableSubtitleExtraction,
+            hardwareDecodingCodecs: _hardwareDecodingCodecs?.build(),
+            allowOnDemandMetadataBasedKeyframeExtractionForExtensions:
+                _allowOnDemandMetadataBasedKeyframeExtractionForExtensions
+                    ?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -689,7 +740,7 @@ class EncodingOptionsBuilder
             'allowOnDemandMetadataBasedKeyframeExtractionForExtensions';
         _allowOnDemandMetadataBasedKeyframeExtractionForExtensions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'EncodingOptions', _$failedField, e.toString());
       }
       rethrow;

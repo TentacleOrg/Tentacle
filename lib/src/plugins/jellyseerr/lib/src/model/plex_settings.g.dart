@@ -23,7 +23,7 @@ class _$PlexSettings extends PlexSettings {
   final String? webAppUrl;
 
   factory _$PlexSettings([void Function(PlexSettingsBuilder)? updates]) =>
-      (new PlexSettingsBuilder()..update(updates))._build();
+      (PlexSettingsBuilder()..update(updates))._build();
 
   _$PlexSettings._(
       {required this.name,
@@ -33,20 +33,13 @@ class _$PlexSettings extends PlexSettings {
       this.useSsl,
       this.libraries,
       this.webAppUrl})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'PlexSettings', 'name');
-    BuiltValueNullFieldError.checkNotNull(
-        machineId, r'PlexSettings', 'machineId');
-    BuiltValueNullFieldError.checkNotNull(ip, r'PlexSettings', 'ip');
-    BuiltValueNullFieldError.checkNotNull(port, r'PlexSettings', 'port');
-  }
-
+      : super._();
   @override
   PlexSettings rebuild(void Function(PlexSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlexSettingsBuilder toBuilder() => new PlexSettingsBuilder()..replace(this);
+  PlexSettingsBuilder toBuilder() => PlexSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -115,7 +108,7 @@ class PlexSettingsBuilder
 
   ListBuilder<PlexLibrary>? _libraries;
   ListBuilder<PlexLibrary> get libraries =>
-      _$this._libraries ??= new ListBuilder<PlexLibrary>();
+      _$this._libraries ??= ListBuilder<PlexLibrary>();
   set libraries(ListBuilder<PlexLibrary>? libraries) =>
       _$this._libraries = libraries;
 
@@ -144,7 +137,6 @@ class PlexSettingsBuilder
 
   @override
   void replace(PlexSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlexSettings;
   }
 
@@ -160,25 +152,26 @@ class PlexSettingsBuilder
     _$PlexSettings _$result;
     try {
       _$result = _$v ??
-          new _$PlexSettings._(
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'PlexSettings', 'name'),
-              machineId: BuiltValueNullFieldError.checkNotNull(
-                  machineId, r'PlexSettings', 'machineId'),
-              ip: BuiltValueNullFieldError.checkNotNull(
-                  ip, r'PlexSettings', 'ip'),
-              port: BuiltValueNullFieldError.checkNotNull(
-                  port, r'PlexSettings', 'port'),
-              useSsl: useSsl,
-              libraries: _libraries?.build(),
-              webAppUrl: webAppUrl);
+          _$PlexSettings._(
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'PlexSettings', 'name'),
+            machineId: BuiltValueNullFieldError.checkNotNull(
+                machineId, r'PlexSettings', 'machineId'),
+            ip: BuiltValueNullFieldError.checkNotNull(
+                ip, r'PlexSettings', 'ip'),
+            port: BuiltValueNullFieldError.checkNotNull(
+                port, r'PlexSettings', 'port'),
+            useSsl: useSsl,
+            libraries: _libraries?.build(),
+            webAppUrl: webAppUrl,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'libraries';
         _libraries?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlexSettings', _$failedField, e.toString());
       }
       rethrow;

@@ -81,7 +81,7 @@ class _$SonarrSeries extends SonarrSeries {
   final BuiltList<SonarrSeriesAddOptionsInner>? addOptions;
 
   factory _$SonarrSeries([void Function(SonarrSeriesBuilder)? updates]) =>
-      (new SonarrSeriesBuilder()..update(updates))._build();
+      (SonarrSeriesBuilder()..update(updates))._build();
 
   _$SonarrSeries._(
       {this.title,
@@ -121,13 +121,12 @@ class _$SonarrSeries extends SonarrSeries {
       this.rootFolderPath,
       this.addOptions})
       : super._();
-
   @override
   SonarrSeries rebuild(void Function(SonarrSeriesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SonarrSeriesBuilder toBuilder() => new SonarrSeriesBuilder()..replace(this);
+  SonarrSeriesBuilder toBuilder() => SonarrSeriesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -291,7 +290,7 @@ class SonarrSeriesBuilder
 
   ListBuilder<SonarrSeriesImagesInner>? _images;
   ListBuilder<SonarrSeriesImagesInner> get images =>
-      _$this._images ??= new ListBuilder<SonarrSeriesImagesInner>();
+      _$this._images ??= ListBuilder<SonarrSeriesImagesInner>();
   set images(ListBuilder<SonarrSeriesImagesInner>? images) =>
       _$this._images = images;
 
@@ -301,7 +300,7 @@ class SonarrSeriesBuilder
 
   ListBuilder<SonarrSeriesSeasonsInner>? _seasons;
   ListBuilder<SonarrSeriesSeasonsInner> get seasons =>
-      _$this._seasons ??= new ListBuilder<SonarrSeriesSeasonsInner>();
+      _$this._seasons ??= ListBuilder<SonarrSeriesSeasonsInner>();
   set seasons(ListBuilder<SonarrSeriesSeasonsInner>? seasons) =>
       _$this._seasons = seasons;
 
@@ -381,12 +380,11 @@ class SonarrSeriesBuilder
       _$this._certification = certification;
 
   ListBuilder<String>? _genres;
-  ListBuilder<String> get genres =>
-      _$this._genres ??= new ListBuilder<String>();
+  ListBuilder<String> get genres => _$this._genres ??= ListBuilder<String>();
   set genres(ListBuilder<String>? genres) => _$this._genres = genres;
 
   ListBuilder<String>? _tags;
-  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  ListBuilder<String> get tags => _$this._tags ??= ListBuilder<String>();
   set tags(ListBuilder<String>? tags) => _$this._tags = tags;
 
   String? _added;
@@ -395,7 +393,7 @@ class SonarrSeriesBuilder
 
   ListBuilder<SonarrSeriesRatingsInner>? _ratings;
   ListBuilder<SonarrSeriesRatingsInner> get ratings =>
-      _$this._ratings ??= new ListBuilder<SonarrSeriesRatingsInner>();
+      _$this._ratings ??= ListBuilder<SonarrSeriesRatingsInner>();
   set ratings(ListBuilder<SonarrSeriesRatingsInner>? ratings) =>
       _$this._ratings = ratings;
 
@@ -415,7 +413,7 @@ class SonarrSeriesBuilder
 
   ListBuilder<SonarrSeriesAddOptionsInner>? _addOptions;
   ListBuilder<SonarrSeriesAddOptionsInner> get addOptions =>
-      _$this._addOptions ??= new ListBuilder<SonarrSeriesAddOptionsInner>();
+      _$this._addOptions ??= ListBuilder<SonarrSeriesAddOptionsInner>();
   set addOptions(ListBuilder<SonarrSeriesAddOptionsInner>? addOptions) =>
       _$this._addOptions = addOptions;
 
@@ -469,7 +467,6 @@ class SonarrSeriesBuilder
 
   @override
   void replace(SonarrSeries other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SonarrSeries;
   }
 
@@ -485,43 +482,44 @@ class SonarrSeriesBuilder
     _$SonarrSeries _$result;
     try {
       _$result = _$v ??
-          new _$SonarrSeries._(
-              title: title,
-              sortTitle: sortTitle,
-              seasonCount: seasonCount,
-              status: status,
-              overview: overview,
-              network: network,
-              airTime: airTime,
-              images: _images?.build(),
-              remotePoster: remotePoster,
-              seasons: _seasons?.build(),
-              year: year,
-              path: path,
-              profileId: profileId,
-              languageProfileId: languageProfileId,
-              seasonFolder: seasonFolder,
-              monitored: monitored,
-              useSceneNumbering: useSceneNumbering,
-              runtime: runtime,
-              tvdbId: tvdbId,
-              tvRageId: tvRageId,
-              tvMazeId: tvMazeId,
-              firstAired: firstAired,
-              lastInfoSync: lastInfoSync,
-              seriesType: seriesType,
-              cleanTitle: cleanTitle,
-              imdbId: imdbId,
-              titleSlug: titleSlug,
-              certification: certification,
-              genres: _genres?.build(),
-              tags: _tags?.build(),
-              added: added,
-              ratings: _ratings?.build(),
-              qualityProfileId: qualityProfileId,
-              id: id,
-              rootFolderPath: rootFolderPath,
-              addOptions: _addOptions?.build());
+          _$SonarrSeries._(
+            title: title,
+            sortTitle: sortTitle,
+            seasonCount: seasonCount,
+            status: status,
+            overview: overview,
+            network: network,
+            airTime: airTime,
+            images: _images?.build(),
+            remotePoster: remotePoster,
+            seasons: _seasons?.build(),
+            year: year,
+            path: path,
+            profileId: profileId,
+            languageProfileId: languageProfileId,
+            seasonFolder: seasonFolder,
+            monitored: monitored,
+            useSceneNumbering: useSceneNumbering,
+            runtime: runtime,
+            tvdbId: tvdbId,
+            tvRageId: tvRageId,
+            tvMazeId: tvMazeId,
+            firstAired: firstAired,
+            lastInfoSync: lastInfoSync,
+            seriesType: seriesType,
+            cleanTitle: cleanTitle,
+            imdbId: imdbId,
+            titleSlug: titleSlug,
+            certification: certification,
+            genres: _genres?.build(),
+            tags: _tags?.build(),
+            added: added,
+            ratings: _ratings?.build(),
+            qualityProfileId: qualityProfileId,
+            id: id,
+            rootFolderPath: rootFolderPath,
+            addOptions: _addOptions?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -542,7 +540,7 @@ class SonarrSeriesBuilder
         _$failedField = 'addOptions';
         _addOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SonarrSeries', _$failedField, e.toString());
       }
       rethrow;

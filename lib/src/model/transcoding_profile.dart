@@ -14,80 +14,100 @@ import 'package:built_value/serializer.dart';
 
 part 'transcoding_profile.g.dart';
 
-/// TranscodingProfile
+/// A class for transcoding profile information.  Note for client developers: Conditions defined in MediaBrowser.Model.Dlna.CodecProfile has higher priority and can override values defined here.
 ///
 /// Properties:
-/// * [container]
-/// * [type]
-/// * [videoCodec]
-/// * [audioCodec]
-/// * [protocol] - Media streaming protocol.  Lowercase for backwards compatibility.
-/// * [estimateContentLength]
-/// * [enableMpegtsM2TsMode]
-/// * [transcodeSeekInfo]
-/// * [copyTimestamps]
-/// * [context]
-/// * [enableSubtitlesInManifest]
-/// * [maxAudioChannels]
-/// * [minSegments]
-/// * [segmentLength]
-/// * [breakOnNonKeyFrames]
-/// * [conditions]
+/// * [container] - Gets or sets the container.
+/// * [type] - Gets or sets the DLNA profile type.
+/// * [videoCodec] - Gets or sets the video codec.
+/// * [audioCodec] - Gets or sets the audio codec.
+/// * [protocol] - Gets or sets the protocol.
+/// * [estimateContentLength] - Gets or sets a value indicating whether the content length should be estimated.
+/// * [enableMpegtsM2TsMode] - Gets or sets a value indicating whether M2TS mode is enabled.
+/// * [transcodeSeekInfo] - Gets or sets the transcoding seek info mode.
+/// * [copyTimestamps] - Gets or sets a value indicating whether timestamps should be copied.
+/// * [context] - Gets or sets the encoding context.
+/// * [enableSubtitlesInManifest] - Gets or sets a value indicating whether subtitles are allowed in the manifest.
+/// * [maxAudioChannels] - Gets or sets the maximum audio channels.
+/// * [minSegments] - Gets or sets the minimum amount of segments.
+/// * [segmentLength] - Gets or sets the segment length.
+/// * [breakOnNonKeyFrames] - Gets or sets a value indicating whether breaking the video stream on non-keyframes is supported.
+/// * [conditions] - Gets or sets the profile conditions.
+/// * [enableAudioVbrEncoding] - Gets or sets a value indicating whether variable bitrate encoding is supported.
 @BuiltValue()
 abstract class TranscodingProfile
     implements Built<TranscodingProfile, TranscodingProfileBuilder> {
+  /// Gets or sets the container.
   @BuiltValueField(wireName: r'Container')
   String? get container;
 
+  /// Gets or sets the DLNA profile type.
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
   // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  Lyric,  };
 
+  /// Gets or sets the video codec.
   @BuiltValueField(wireName: r'VideoCodec')
   String? get videoCodec;
 
+  /// Gets or sets the audio codec.
   @BuiltValueField(wireName: r'AudioCodec')
   String? get audioCodec;
 
-  /// Media streaming protocol.  Lowercase for backwards compatibility.
+  /// Gets or sets the protocol.
   @BuiltValueField(wireName: r'Protocol')
   MediaStreamProtocol? get protocol;
   // enum protocolEnum {  http,  hls,  };
 
+  /// Gets or sets a value indicating whether the content length should be estimated.
   @BuiltValueField(wireName: r'EstimateContentLength')
   bool? get estimateContentLength;
 
+  /// Gets or sets a value indicating whether M2TS mode is enabled.
   @BuiltValueField(wireName: r'EnableMpegtsM2TsMode')
   bool? get enableMpegtsM2TsMode;
 
+  /// Gets or sets the transcoding seek info mode.
   @BuiltValueField(wireName: r'TranscodeSeekInfo')
   TranscodeSeekInfo? get transcodeSeekInfo;
   // enum transcodeSeekInfoEnum {  Auto,  Bytes,  };
 
+  /// Gets or sets a value indicating whether timestamps should be copied.
   @BuiltValueField(wireName: r'CopyTimestamps')
   bool? get copyTimestamps;
 
+  /// Gets or sets the encoding context.
   @BuiltValueField(wireName: r'Context')
   EncodingContext? get context;
   // enum contextEnum {  Streaming,  Static,  };
 
+  /// Gets or sets a value indicating whether subtitles are allowed in the manifest.
   @BuiltValueField(wireName: r'EnableSubtitlesInManifest')
   bool? get enableSubtitlesInManifest;
 
+  /// Gets or sets the maximum audio channels.
   @BuiltValueField(wireName: r'MaxAudioChannels')
   String? get maxAudioChannels;
 
+  /// Gets or sets the minimum amount of segments.
   @BuiltValueField(wireName: r'MinSegments')
   int? get minSegments;
 
+  /// Gets or sets the segment length.
   @BuiltValueField(wireName: r'SegmentLength')
   int? get segmentLength;
 
+  /// Gets or sets a value indicating whether breaking the video stream on non-keyframes is supported.
   @BuiltValueField(wireName: r'BreakOnNonKeyFrames')
   bool? get breakOnNonKeyFrames;
 
+  /// Gets or sets the profile conditions.
   @BuiltValueField(wireName: r'Conditions')
   BuiltList<ProfileCondition>? get conditions;
+
+  /// Gets or sets a value indicating whether variable bitrate encoding is supported.
+  @BuiltValueField(wireName: r'EnableAudioVbrEncoding')
+  bool? get enableAudioVbrEncoding;
 
   TranscodingProfile._();
 
@@ -98,13 +118,14 @@ abstract class TranscodingProfile
   static void _defaults(TranscodingProfileBuilder b) => b
     ..estimateContentLength = false
     ..enableMpegtsM2TsMode = false
-    ..transcodeSeekInfo = TranscodeSeekInfo.auto
+    ..transcodeSeekInfo = null
     ..copyTimestamps = false
-    ..context = EncodingContext.streaming
+    ..context = null
     ..enableSubtitlesInManifest = false
     ..minSegments = 0
     ..segmentLength = 0
-    ..breakOnNonKeyFrames = false;
+    ..breakOnNonKeyFrames = false
+    ..enableAudioVbrEncoding = true;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TranscodingProfile> get serializer =>
@@ -234,6 +255,13 @@ class _$TranscodingProfileSerializer
       yield serializers.serialize(
         object.conditions,
         specifiedType: const FullType(BuiltList, [FullType(ProfileCondition)]),
+      );
+    }
+    if (object.enableAudioVbrEncoding != null) {
+      yield r'EnableAudioVbrEncoding';
+      yield serializers.serialize(
+        object.enableAudioVbrEncoding,
+        specifiedType: const FullType(bool),
       );
     }
   }
@@ -374,6 +402,13 @@ class _$TranscodingProfileSerializer
                 const FullType(BuiltList, [FullType(ProfileCondition)]),
           ) as BuiltList<ProfileCondition>;
           result.conditions.replace(valueDes);
+          break;
+        case r'EnableAudioVbrEncoding':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableAudioVbrEncoding = valueDes;
           break;
         default:
           unhandled.add(key);

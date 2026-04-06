@@ -27,7 +27,7 @@ class _$VersionInfo extends VersionInfo {
   final String? repositoryUrl;
 
   factory _$VersionInfo([void Function(VersionInfoBuilder)? updates]) =>
-      (new VersionInfoBuilder()..update(updates))._build();
+      (VersionInfoBuilder()..update(updates))._build();
 
   _$VersionInfo._(
       {this.version,
@@ -40,13 +40,12 @@ class _$VersionInfo extends VersionInfo {
       this.repositoryName,
       this.repositoryUrl})
       : super._();
-
   @override
   VersionInfo rebuild(void Function(VersionInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  VersionInfoBuilder toBuilder() => new VersionInfoBuilder()..replace(this);
+  VersionInfoBuilder toBuilder() => VersionInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -160,7 +159,6 @@ class VersionInfoBuilder implements Builder<VersionInfo, VersionInfoBuilder> {
 
   @override
   void replace(VersionInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$VersionInfo;
   }
 
@@ -174,16 +172,17 @@ class VersionInfoBuilder implements Builder<VersionInfo, VersionInfoBuilder> {
 
   _$VersionInfo _build() {
     final _$result = _$v ??
-        new _$VersionInfo._(
-            version: version,
-            versionNumber: versionNumber,
-            changelog: changelog,
-            targetAbi: targetAbi,
-            sourceUrl: sourceUrl,
-            checksum: checksum,
-            timestamp: timestamp,
-            repositoryName: repositoryName,
-            repositoryUrl: repositoryUrl);
+        _$VersionInfo._(
+          version: version,
+          versionNumber: versionNumber,
+          changelog: changelog,
+          targetAbi: targetAbi,
+          sourceUrl: sourceUrl,
+          checksum: checksum,
+          timestamp: timestamp,
+          repositoryName: repositoryName,
+          repositoryUrl: repositoryUrl,
+        );
     replace(_$result);
     return _$result;
   }

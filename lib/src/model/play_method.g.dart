@@ -19,12 +19,11 @@ PlayMethod _$valueOf(String name) {
     case 'directPlay':
       return _$directPlay;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<PlayMethod> _$values =
-    new BuiltSet<PlayMethod>(const <PlayMethod>[
+final BuiltSet<PlayMethod> _$values = BuiltSet<PlayMethod>(const <PlayMethod>[
   _$transcode,
   _$directStream,
   _$directPlay,
@@ -44,7 +43,7 @@ mixin _$PlayMethodMixin {
   _$PlayMethodMeta get PlayMethod => const _$PlayMethodMeta();
 }
 
-Serializer<PlayMethod> _$playMethodSerializer = new _$PlayMethodSerializer();
+Serializer<PlayMethod> _$playMethodSerializer = _$PlayMethodSerializer();
 
 class _$PlayMethodSerializer implements PrimitiveSerializer<PlayMethod> {
   static const Map<String, Object> _toWire = const <String, Object>{

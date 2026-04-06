@@ -52,7 +52,7 @@ class _$PlaybackStartInfo extends PlaybackStartInfo {
 
   factory _$PlaybackStartInfo(
           [void Function(PlaybackStartInfoBuilder)? updates]) =>
-      (new PlaybackStartInfoBuilder()..update(updates))._build();
+      (PlaybackStartInfoBuilder()..update(updates))._build();
 
   _$PlaybackStartInfo._(
       {this.canSeek,
@@ -77,14 +77,13 @@ class _$PlaybackStartInfo extends PlaybackStartInfo {
       this.nowPlayingQueue,
       this.playlistItemId})
       : super._();
-
   @override
   PlaybackStartInfo rebuild(void Function(PlaybackStartInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   PlaybackStartInfoBuilder toBuilder() =>
-      new PlaybackStartInfoBuilder()..replace(this);
+      PlaybackStartInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -178,7 +177,7 @@ class PlaybackStartInfoBuilder
   set canSeek(bool? canSeek) => _$this._canSeek = canSeek;
 
   BaseItemDtoBuilder? _item;
-  BaseItemDtoBuilder get item => _$this._item ??= new BaseItemDtoBuilder();
+  BaseItemDtoBuilder get item => _$this._item ??= BaseItemDtoBuilder();
   set item(BaseItemDtoBuilder? item) => _$this._item = item;
 
   String? _itemId;
@@ -258,7 +257,7 @@ class PlaybackStartInfoBuilder
 
   ListBuilder<QueueItem>? _nowPlayingQueue;
   ListBuilder<QueueItem> get nowPlayingQueue =>
-      _$this._nowPlayingQueue ??= new ListBuilder<QueueItem>();
+      _$this._nowPlayingQueue ??= ListBuilder<QueueItem>();
   set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue) =>
       _$this._nowPlayingQueue = nowPlayingQueue;
 
@@ -302,7 +301,6 @@ class PlaybackStartInfoBuilder
 
   @override
   void replace(PlaybackStartInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlaybackStartInfo;
   }
 
@@ -318,28 +316,29 @@ class PlaybackStartInfoBuilder
     _$PlaybackStartInfo _$result;
     try {
       _$result = _$v ??
-          new _$PlaybackStartInfo._(
-              canSeek: canSeek,
-              item: _item?.build(),
-              itemId: itemId,
-              sessionId: sessionId,
-              mediaSourceId: mediaSourceId,
-              audioStreamIndex: audioStreamIndex,
-              subtitleStreamIndex: subtitleStreamIndex,
-              isPaused: isPaused,
-              isMuted: isMuted,
-              positionTicks: positionTicks,
-              playbackStartTimeTicks: playbackStartTimeTicks,
-              volumeLevel: volumeLevel,
-              brightness: brightness,
-              aspectRatio: aspectRatio,
-              playMethod: playMethod,
-              liveStreamId: liveStreamId,
-              playSessionId: playSessionId,
-              repeatMode: repeatMode,
-              playbackOrder: playbackOrder,
-              nowPlayingQueue: _nowPlayingQueue?.build(),
-              playlistItemId: playlistItemId);
+          _$PlaybackStartInfo._(
+            canSeek: canSeek,
+            item: _item?.build(),
+            itemId: itemId,
+            sessionId: sessionId,
+            mediaSourceId: mediaSourceId,
+            audioStreamIndex: audioStreamIndex,
+            subtitleStreamIndex: subtitleStreamIndex,
+            isPaused: isPaused,
+            isMuted: isMuted,
+            positionTicks: positionTicks,
+            playbackStartTimeTicks: playbackStartTimeTicks,
+            volumeLevel: volumeLevel,
+            brightness: brightness,
+            aspectRatio: aspectRatio,
+            playMethod: playMethod,
+            liveStreamId: liveStreamId,
+            playSessionId: playSessionId,
+            repeatMode: repeatMode,
+            playbackOrder: playbackOrder,
+            nowPlayingQueue: _nowPlayingQueue?.build(),
+            playlistItemId: playlistItemId,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -349,7 +348,7 @@ class PlaybackStartInfoBuilder
         _$failedField = 'nowPlayingQueue';
         _nowPlayingQueue?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlaybackStartInfo', _$failedField, e.toString());
       }
       rethrow;

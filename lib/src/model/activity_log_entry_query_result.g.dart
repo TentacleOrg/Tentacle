@@ -16,12 +16,11 @@ class _$ActivityLogEntryQueryResult extends ActivityLogEntryQueryResult {
 
   factory _$ActivityLogEntryQueryResult(
           [void Function(ActivityLogEntryQueryResultBuilder)? updates]) =>
-      (new ActivityLogEntryQueryResultBuilder()..update(updates))._build();
+      (ActivityLogEntryQueryResultBuilder()..update(updates))._build();
 
   _$ActivityLogEntryQueryResult._(
       {this.items, this.totalRecordCount, this.startIndex})
       : super._();
-
   @override
   ActivityLogEntryQueryResult rebuild(
           void Function(ActivityLogEntryQueryResultBuilder) updates) =>
@@ -29,7 +28,7 @@ class _$ActivityLogEntryQueryResult extends ActivityLogEntryQueryResult {
 
   @override
   ActivityLogEntryQueryResultBuilder toBuilder() =>
-      new ActivityLogEntryQueryResultBuilder()..replace(this);
+      ActivityLogEntryQueryResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -68,7 +67,7 @@ class ActivityLogEntryQueryResultBuilder
 
   ListBuilder<ActivityLogEntry>? _items;
   ListBuilder<ActivityLogEntry> get items =>
-      _$this._items ??= new ListBuilder<ActivityLogEntry>();
+      _$this._items ??= ListBuilder<ActivityLogEntry>();
   set items(ListBuilder<ActivityLogEntry>? items) => _$this._items = items;
 
   int? _totalRecordCount;
@@ -97,7 +96,6 @@ class ActivityLogEntryQueryResultBuilder
 
   @override
   void replace(ActivityLogEntryQueryResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ActivityLogEntryQueryResult;
   }
 
@@ -113,17 +111,18 @@ class ActivityLogEntryQueryResultBuilder
     _$ActivityLogEntryQueryResult _$result;
     try {
       _$result = _$v ??
-          new _$ActivityLogEntryQueryResult._(
-              items: _items?.build(),
-              totalRecordCount: totalRecordCount,
-              startIndex: startIndex);
+          _$ActivityLogEntryQueryResult._(
+            items: _items?.build(),
+            totalRecordCount: totalRecordCount,
+            startIndex: startIndex,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         _items?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ActivityLogEntryQueryResult', _$failedField, e.toString());
       }
       rethrow;

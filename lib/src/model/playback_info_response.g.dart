@@ -16,12 +16,11 @@ class _$PlaybackInfoResponse extends PlaybackInfoResponse {
 
   factory _$PlaybackInfoResponse(
           [void Function(PlaybackInfoResponseBuilder)? updates]) =>
-      (new PlaybackInfoResponseBuilder()..update(updates))._build();
+      (PlaybackInfoResponseBuilder()..update(updates))._build();
 
   _$PlaybackInfoResponse._(
       {this.mediaSources, this.playSessionId, this.errorCode})
       : super._();
-
   @override
   PlaybackInfoResponse rebuild(
           void Function(PlaybackInfoResponseBuilder) updates) =>
@@ -29,7 +28,7 @@ class _$PlaybackInfoResponse extends PlaybackInfoResponse {
 
   @override
   PlaybackInfoResponseBuilder toBuilder() =>
-      new PlaybackInfoResponseBuilder()..replace(this);
+      PlaybackInfoResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -66,7 +65,7 @@ class PlaybackInfoResponseBuilder
 
   ListBuilder<MediaSourceInfo>? _mediaSources;
   ListBuilder<MediaSourceInfo> get mediaSources =>
-      _$this._mediaSources ??= new ListBuilder<MediaSourceInfo>();
+      _$this._mediaSources ??= ListBuilder<MediaSourceInfo>();
   set mediaSources(ListBuilder<MediaSourceInfo>? mediaSources) =>
       _$this._mediaSources = mediaSources;
 
@@ -96,7 +95,6 @@ class PlaybackInfoResponseBuilder
 
   @override
   void replace(PlaybackInfoResponse other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlaybackInfoResponse;
   }
 
@@ -112,17 +110,18 @@ class PlaybackInfoResponseBuilder
     _$PlaybackInfoResponse _$result;
     try {
       _$result = _$v ??
-          new _$PlaybackInfoResponse._(
-              mediaSources: _mediaSources?.build(),
-              playSessionId: playSessionId,
-              errorCode: errorCode);
+          _$PlaybackInfoResponse._(
+            mediaSources: _mediaSources?.build(),
+            playSessionId: playSessionId,
+            errorCode: errorCode,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'mediaSources';
         _mediaSources?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlaybackInfoResponse', _$failedField, e.toString());
       }
       rethrow;

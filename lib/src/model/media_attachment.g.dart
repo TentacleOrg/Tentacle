@@ -23,7 +23,7 @@ class _$MediaAttachment extends MediaAttachment {
   final String? deliveryUrl;
 
   factory _$MediaAttachment([void Function(MediaAttachmentBuilder)? updates]) =>
-      (new MediaAttachmentBuilder()..update(updates))._build();
+      (MediaAttachmentBuilder()..update(updates))._build();
 
   _$MediaAttachment._(
       {this.codec,
@@ -34,14 +34,12 @@ class _$MediaAttachment extends MediaAttachment {
       this.mimeType,
       this.deliveryUrl})
       : super._();
-
   @override
   MediaAttachment rebuild(void Function(MediaAttachmentBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MediaAttachmentBuilder toBuilder() =>
-      new MediaAttachmentBuilder()..replace(this);
+  MediaAttachmentBuilder toBuilder() => MediaAttachmentBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -137,7 +135,6 @@ class MediaAttachmentBuilder
 
   @override
   void replace(MediaAttachment other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaAttachment;
   }
 
@@ -151,14 +148,15 @@ class MediaAttachmentBuilder
 
   _$MediaAttachment _build() {
     final _$result = _$v ??
-        new _$MediaAttachment._(
-            codec: codec,
-            codecTag: codecTag,
-            comment: comment,
-            index: index,
-            fileName: fileName,
-            mimeType: mimeType,
-            deliveryUrl: deliveryUrl);
+        _$MediaAttachment._(
+          codec: codec,
+          codecTag: codecTag,
+          comment: comment,
+          index: index,
+          fileName: fileName,
+          mimeType: mimeType,
+          deliveryUrl: deliveryUrl,
+        );
     replace(_$result);
     return _$result;
   }

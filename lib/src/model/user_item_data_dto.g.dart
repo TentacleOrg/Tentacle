@@ -31,7 +31,7 @@ class _$UserItemDataDto extends UserItemDataDto {
   final String? itemId;
 
   factory _$UserItemDataDto([void Function(UserItemDataDtoBuilder)? updates]) =>
-      (new UserItemDataDtoBuilder()..update(updates))._build();
+      (UserItemDataDtoBuilder()..update(updates))._build();
 
   _$UserItemDataDto._(
       {this.rating,
@@ -46,14 +46,12 @@ class _$UserItemDataDto extends UserItemDataDto {
       this.key,
       this.itemId})
       : super._();
-
   @override
   UserItemDataDto rebuild(void Function(UserItemDataDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserItemDataDtoBuilder toBuilder() =>
-      new UserItemDataDtoBuilder()..replace(this);
+  UserItemDataDtoBuilder toBuilder() => UserItemDataDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -185,7 +183,6 @@ class UserItemDataDtoBuilder
 
   @override
   void replace(UserItemDataDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserItemDataDto;
   }
 
@@ -199,18 +196,19 @@ class UserItemDataDtoBuilder
 
   _$UserItemDataDto _build() {
     final _$result = _$v ??
-        new _$UserItemDataDto._(
-            rating: rating,
-            playedPercentage: playedPercentage,
-            unplayedItemCount: unplayedItemCount,
-            playbackPositionTicks: playbackPositionTicks,
-            playCount: playCount,
-            isFavorite: isFavorite,
-            likes: likes,
-            lastPlayedDate: lastPlayedDate,
-            played: played,
-            key: key,
-            itemId: itemId);
+        _$UserItemDataDto._(
+          rating: rating,
+          playedPercentage: playedPercentage,
+          unplayedItemCount: unplayedItemCount,
+          playbackPositionTicks: playbackPositionTicks,
+          playCount: playCount,
+          isFavorite: isFavorite,
+          likes: likes,
+          lastPlayedDate: lastPlayedDate,
+          played: played,
+          key: key,
+          itemId: itemId,
+        );
     replace(_$result);
     return _$result;
   }

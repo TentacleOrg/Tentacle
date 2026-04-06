@@ -18,19 +18,18 @@ class _$ProfileCondition extends ProfileCondition {
 
   factory _$ProfileCondition(
           [void Function(ProfileConditionBuilder)? updates]) =>
-      (new ProfileConditionBuilder()..update(updates))._build();
+      (ProfileConditionBuilder()..update(updates))._build();
 
   _$ProfileCondition._(
       {this.condition, this.property, this.value, this.isRequired})
       : super._();
-
   @override
   ProfileCondition rebuild(void Function(ProfileConditionBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   ProfileConditionBuilder toBuilder() =>
-      new ProfileConditionBuilder()..replace(this);
+      ProfileConditionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -103,7 +102,6 @@ class ProfileConditionBuilder
 
   @override
   void replace(ProfileCondition other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProfileCondition;
   }
 
@@ -117,11 +115,12 @@ class ProfileConditionBuilder
 
   _$ProfileCondition _build() {
     final _$result = _$v ??
-        new _$ProfileCondition._(
-            condition: condition,
-            property: property,
-            value: value,
-            isRequired: isRequired);
+        _$ProfileCondition._(
+          condition: condition,
+          property: property,
+          value: value,
+          isRequired: isRequired,
+        );
     replace(_$result);
     return _$result;
   }

@@ -20,7 +20,6 @@ part 'main_settings.g.dart';
 /// * [hideAvailable]
 /// * [partialRequestsEnabled]
 /// * [localLogin]
-/// * [mediaServerType]
 /// * [newPlexLogin]
 /// * [defaultPermissions]
 @BuiltValue()
@@ -52,9 +51,6 @@ abstract class MainSettings
 
   @BuiltValueField(wireName: r'localLogin')
   bool? get localLogin;
-
-  @BuiltValueField(wireName: r'mediaServerType')
-  num? get mediaServerType;
 
   @BuiltValueField(wireName: r'newPlexLogin')
   bool? get newPlexLogin;
@@ -146,13 +142,6 @@ class _$MainSettingsSerializer implements PrimitiveSerializer<MainSettings> {
       yield serializers.serialize(
         object.localLogin,
         specifiedType: const FullType(bool),
-      );
-    }
-    if (object.mediaServerType != null) {
-      yield r'mediaServerType';
-      yield serializers.serialize(
-        object.mediaServerType,
-        specifiedType: const FullType(num),
       );
     }
     if (object.newPlexLogin != null) {
@@ -256,13 +245,6 @@ class _$MainSettingsSerializer implements PrimitiveSerializer<MainSettings> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.localLogin = valueDes;
-          break;
-        case r'mediaServerType':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(num),
-          ) as num;
-          result.mediaServerType = valueDes;
           break;
         case r'newPlexLogin':
           final valueDes = serializers.deserialize(

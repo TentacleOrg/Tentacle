@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**getConfiguration**](ConfigurationApi.md#getconfiguration) | **GET** /System/Configuration | Gets application configuration.
 [**getDefaultMetadataOptions**](ConfigurationApi.md#getdefaultmetadataoptions) | **GET** /System/Configuration/MetadataOptions/Default | Gets a default MetadataOptions object.
 [**getNamedConfiguration**](ConfigurationApi.md#getnamedconfiguration) | **GET** /System/Configuration/{key} | Gets a named configuration.
+[**updateBrandingConfiguration**](ConfigurationApi.md#updatebrandingconfiguration) | **POST** /System/Configuration/Branding | Updates branding configuration.
 [**updateConfiguration**](ConfigurationApi.md#updateconfiguration) | **POST** /System/Configuration | Updates application configuration.
 [**updateNamedConfiguration**](ConfigurationApi.md#updatenamedconfiguration) | **POST** /System/Configuration/{key} | Updates named configuration.
 
@@ -53,7 +54,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -94,7 +95,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -139,7 +140,51 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/json, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **updateBrandingConfiguration**
+> updateBrandingConfiguration(brandingOptionsDto)
+
+Updates branding configuration.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getConfigurationApi();
+final BrandingOptionsDto brandingOptionsDto = ; // BrandingOptionsDto | Branding configuration.
+
+try {
+    api.updateBrandingConfiguration(brandingOptionsDto);
+} catch on DioException (e) {
+    print('Exception when calling ConfigurationApi->updateBrandingConfiguration: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandingOptionsDto** | [**BrandingOptionsDto**](BrandingOptionsDto.md)| Branding configuration. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -183,7 +228,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -229,7 +274,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

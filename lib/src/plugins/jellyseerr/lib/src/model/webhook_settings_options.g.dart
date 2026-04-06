@@ -16,12 +16,11 @@ class _$WebhookSettingsOptions extends WebhookSettingsOptions {
 
   factory _$WebhookSettingsOptions(
           [void Function(WebhookSettingsOptionsBuilder)? updates]) =>
-      (new WebhookSettingsOptionsBuilder()..update(updates))._build();
+      (WebhookSettingsOptionsBuilder()..update(updates))._build();
 
   _$WebhookSettingsOptions._(
       {this.webhookUrl, this.authHeader, this.jsonPayload})
       : super._();
-
   @override
   WebhookSettingsOptions rebuild(
           void Function(WebhookSettingsOptionsBuilder) updates) =>
@@ -29,7 +28,7 @@ class _$WebhookSettingsOptions extends WebhookSettingsOptions {
 
   @override
   WebhookSettingsOptionsBuilder toBuilder() =>
-      new WebhookSettingsOptionsBuilder()..replace(this);
+      WebhookSettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -93,7 +92,6 @@ class WebhookSettingsOptionsBuilder
 
   @override
   void replace(WebhookSettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebhookSettingsOptions;
   }
 
@@ -107,10 +105,11 @@ class WebhookSettingsOptionsBuilder
 
   _$WebhookSettingsOptions _build() {
     final _$result = _$v ??
-        new _$WebhookSettingsOptions._(
-            webhookUrl: webhookUrl,
-            authHeader: authHeader,
-            jsonPayload: jsonPayload);
+        _$WebhookSettingsOptions._(
+          webhookUrl: webhookUrl,
+          authHeader: authHeader,
+          jsonPayload: jsonPayload,
+        );
     replace(_$result);
     return _$result;
   }

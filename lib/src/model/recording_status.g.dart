@@ -32,12 +32,12 @@ RecordingStatus _$valueOf(String name) {
     case 'error':
       return _$error;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<RecordingStatus> _$values =
-    new BuiltSet<RecordingStatus>(const <RecordingStatus>[
+    BuiltSet<RecordingStatus>(const <RecordingStatus>[
   _$new_,
   _$inProgress,
   _$completed,
@@ -66,7 +66,7 @@ mixin _$RecordingStatusMixin {
 }
 
 Serializer<RecordingStatus> _$recordingStatusSerializer =
-    new _$RecordingStatusSerializer();
+    _$RecordingStatusSerializer();
 
 class _$RecordingStatusSerializer
     implements PrimitiveSerializer<RecordingStatus> {

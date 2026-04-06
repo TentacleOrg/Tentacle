@@ -32,7 +32,7 @@ class _$PlaybackStopInfo extends PlaybackStopInfo {
 
   factory _$PlaybackStopInfo(
           [void Function(PlaybackStopInfoBuilder)? updates]) =>
-      (new PlaybackStopInfoBuilder()..update(updates))._build();
+      (PlaybackStopInfoBuilder()..update(updates))._build();
 
   _$PlaybackStopInfo._(
       {this.item,
@@ -47,14 +47,13 @@ class _$PlaybackStopInfo extends PlaybackStopInfo {
       this.playlistItemId,
       this.nowPlayingQueue})
       : super._();
-
   @override
   PlaybackStopInfo rebuild(void Function(PlaybackStopInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   PlaybackStopInfoBuilder toBuilder() =>
-      new PlaybackStopInfoBuilder()..replace(this);
+      PlaybackStopInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -114,7 +113,7 @@ class PlaybackStopInfoBuilder
   _$PlaybackStopInfo? _$v;
 
   BaseItemDtoBuilder? _item;
-  BaseItemDtoBuilder get item => _$this._item ??= new BaseItemDtoBuilder();
+  BaseItemDtoBuilder get item => _$this._item ??= BaseItemDtoBuilder();
   set item(BaseItemDtoBuilder? item) => _$this._item = item;
 
   String? _itemId;
@@ -160,7 +159,7 @@ class PlaybackStopInfoBuilder
 
   ListBuilder<QueueItem>? _nowPlayingQueue;
   ListBuilder<QueueItem> get nowPlayingQueue =>
-      _$this._nowPlayingQueue ??= new ListBuilder<QueueItem>();
+      _$this._nowPlayingQueue ??= ListBuilder<QueueItem>();
   set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue) =>
       _$this._nowPlayingQueue = nowPlayingQueue;
 
@@ -189,7 +188,6 @@ class PlaybackStopInfoBuilder
 
   @override
   void replace(PlaybackStopInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlaybackStopInfo;
   }
 
@@ -205,18 +203,19 @@ class PlaybackStopInfoBuilder
     _$PlaybackStopInfo _$result;
     try {
       _$result = _$v ??
-          new _$PlaybackStopInfo._(
-              item: _item?.build(),
-              itemId: itemId,
-              sessionId: sessionId,
-              mediaSourceId: mediaSourceId,
-              positionTicks: positionTicks,
-              liveStreamId: liveStreamId,
-              playSessionId: playSessionId,
-              failed: failed,
-              nextMediaType: nextMediaType,
-              playlistItemId: playlistItemId,
-              nowPlayingQueue: _nowPlayingQueue?.build());
+          _$PlaybackStopInfo._(
+            item: _item?.build(),
+            itemId: itemId,
+            sessionId: sessionId,
+            mediaSourceId: mediaSourceId,
+            positionTicks: positionTicks,
+            liveStreamId: liveStreamId,
+            playSessionId: playSessionId,
+            failed: failed,
+            nextMediaType: nextMediaType,
+            playlistItemId: playlistItemId,
+            nowPlayingQueue: _nowPlayingQueue?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -226,7 +225,7 @@ class PlaybackStopInfoBuilder
         _$failedField = 'nowPlayingQueue';
         _nowPlayingQueue?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlaybackStopInfo', _$failedField, e.toString());
       }
       rethrow;

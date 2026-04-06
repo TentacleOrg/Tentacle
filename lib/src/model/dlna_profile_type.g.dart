@@ -25,12 +25,12 @@ DlnaProfileType _$valueOf(String name) {
     case 'lyric':
       return _$lyric;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<DlnaProfileType> _$values =
-    new BuiltSet<DlnaProfileType>(const <DlnaProfileType>[
+    BuiltSet<DlnaProfileType>(const <DlnaProfileType>[
   _$audio,
   _$video,
   _$photo,
@@ -55,7 +55,7 @@ mixin _$DlnaProfileTypeMixin {
 }
 
 Serializer<DlnaProfileType> _$dlnaProfileTypeSerializer =
-    new _$DlnaProfileTypeSerializer();
+    _$DlnaProfileTypeSerializer();
 
 class _$DlnaProfileTypeSerializer
     implements PrimitiveSerializer<DlnaProfileType> {

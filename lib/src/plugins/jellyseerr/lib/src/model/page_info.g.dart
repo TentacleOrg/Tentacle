@@ -15,16 +15,15 @@ class _$PageInfo extends PageInfo {
   final num? results;
 
   factory _$PageInfo([void Function(PageInfoBuilder)? updates]) =>
-      (new PageInfoBuilder()..update(updates))._build();
+      (PageInfoBuilder()..update(updates))._build();
 
   _$PageInfo._({this.page, this.pages, this.results}) : super._();
-
   @override
   PageInfo rebuild(void Function(PageInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PageInfoBuilder toBuilder() => new PageInfoBuilder()..replace(this);
+  PageInfoBuilder toBuilder() => PageInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -87,7 +86,6 @@ class PageInfoBuilder implements Builder<PageInfo, PageInfoBuilder> {
 
   @override
   void replace(PageInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PageInfo;
   }
 
@@ -100,8 +98,12 @@ class PageInfoBuilder implements Builder<PageInfo, PageInfoBuilder> {
   PageInfo build() => _build();
 
   _$PageInfo _build() {
-    final _$result =
-        _$v ?? new _$PageInfo._(page: page, pages: pages, results: results);
+    final _$result = _$v ??
+        _$PageInfo._(
+          page: page,
+          pages: pages,
+          results: results,
+        );
     replace(_$result);
     return _$result;
   }

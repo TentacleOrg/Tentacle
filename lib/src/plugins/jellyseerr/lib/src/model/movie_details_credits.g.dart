@@ -14,10 +14,9 @@ class _$MovieDetailsCredits extends MovieDetailsCredits {
 
   factory _$MovieDetailsCredits(
           [void Function(MovieDetailsCreditsBuilder)? updates]) =>
-      (new MovieDetailsCreditsBuilder()..update(updates))._build();
+      (MovieDetailsCreditsBuilder()..update(updates))._build();
 
   _$MovieDetailsCredits._({this.cast, this.crew}) : super._();
-
   @override
   MovieDetailsCredits rebuild(
           void Function(MovieDetailsCreditsBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$MovieDetailsCredits extends MovieDetailsCredits {
 
   @override
   MovieDetailsCreditsBuilder toBuilder() =>
-      new MovieDetailsCreditsBuilder()..replace(this);
+      MovieDetailsCreditsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -58,11 +57,11 @@ class MovieDetailsCreditsBuilder
   _$MovieDetailsCredits? _$v;
 
   ListBuilder<Cast>? _cast;
-  ListBuilder<Cast> get cast => _$this._cast ??= new ListBuilder<Cast>();
+  ListBuilder<Cast> get cast => _$this._cast ??= ListBuilder<Cast>();
   set cast(ListBuilder<Cast>? cast) => _$this._cast = cast;
 
   ListBuilder<Crew>? _crew;
-  ListBuilder<Crew> get crew => _$this._crew ??= new ListBuilder<Crew>();
+  ListBuilder<Crew> get crew => _$this._crew ??= ListBuilder<Crew>();
   set crew(ListBuilder<Crew>? crew) => _$this._crew = crew;
 
   MovieDetailsCreditsBuilder() {
@@ -81,7 +80,6 @@ class MovieDetailsCreditsBuilder
 
   @override
   void replace(MovieDetailsCredits other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieDetailsCredits;
   }
 
@@ -97,8 +95,10 @@ class MovieDetailsCreditsBuilder
     _$MovieDetailsCredits _$result;
     try {
       _$result = _$v ??
-          new _$MovieDetailsCredits._(
-              cast: _cast?.build(), crew: _crew?.build());
+          _$MovieDetailsCredits._(
+            cast: _cast?.build(),
+            crew: _crew?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -107,7 +107,7 @@ class MovieDetailsCreditsBuilder
         _$failedField = 'crew';
         _crew?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MovieDetailsCredits', _$failedField, e.toString());
       }
       rethrow;

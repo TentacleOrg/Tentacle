@@ -18,5 +18,11 @@ void main() {
     test('to test the property `start`', () async {
       // TODO
     });
+
+    // Gets the time-aligned cues for the song's lyrics.
+    // BuiltList<LyricLineCue> cues
+    test('to test the property `cues`', () async {
+      // TODO
+    });
   });
 }

@@ -23,7 +23,7 @@ class _$MetadataOptions extends MetadataOptions {
   final BuiltList<String>? imageFetcherOrder;
 
   factory _$MetadataOptions([void Function(MetadataOptionsBuilder)? updates]) =>
-      (new MetadataOptionsBuilder()..update(updates))._build();
+      (MetadataOptionsBuilder()..update(updates))._build();
 
   _$MetadataOptions._(
       {this.itemType,
@@ -34,14 +34,12 @@ class _$MetadataOptions extends MetadataOptions {
       this.disabledImageFetchers,
       this.imageFetcherOrder})
       : super._();
-
   @override
   MetadataOptions rebuild(void Function(MetadataOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MetadataOptionsBuilder toBuilder() =>
-      new MetadataOptionsBuilder()..replace(this);
+  MetadataOptionsBuilder toBuilder() => MetadataOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -94,37 +92,37 @@ class MetadataOptionsBuilder
 
   ListBuilder<String>? _disabledMetadataSavers;
   ListBuilder<String> get disabledMetadataSavers =>
-      _$this._disabledMetadataSavers ??= new ListBuilder<String>();
+      _$this._disabledMetadataSavers ??= ListBuilder<String>();
   set disabledMetadataSavers(ListBuilder<String>? disabledMetadataSavers) =>
       _$this._disabledMetadataSavers = disabledMetadataSavers;
 
   ListBuilder<String>? _localMetadataReaderOrder;
   ListBuilder<String> get localMetadataReaderOrder =>
-      _$this._localMetadataReaderOrder ??= new ListBuilder<String>();
+      _$this._localMetadataReaderOrder ??= ListBuilder<String>();
   set localMetadataReaderOrder(ListBuilder<String>? localMetadataReaderOrder) =>
       _$this._localMetadataReaderOrder = localMetadataReaderOrder;
 
   ListBuilder<String>? _disabledMetadataFetchers;
   ListBuilder<String> get disabledMetadataFetchers =>
-      _$this._disabledMetadataFetchers ??= new ListBuilder<String>();
+      _$this._disabledMetadataFetchers ??= ListBuilder<String>();
   set disabledMetadataFetchers(ListBuilder<String>? disabledMetadataFetchers) =>
       _$this._disabledMetadataFetchers = disabledMetadataFetchers;
 
   ListBuilder<String>? _metadataFetcherOrder;
   ListBuilder<String> get metadataFetcherOrder =>
-      _$this._metadataFetcherOrder ??= new ListBuilder<String>();
+      _$this._metadataFetcherOrder ??= ListBuilder<String>();
   set metadataFetcherOrder(ListBuilder<String>? metadataFetcherOrder) =>
       _$this._metadataFetcherOrder = metadataFetcherOrder;
 
   ListBuilder<String>? _disabledImageFetchers;
   ListBuilder<String> get disabledImageFetchers =>
-      _$this._disabledImageFetchers ??= new ListBuilder<String>();
+      _$this._disabledImageFetchers ??= ListBuilder<String>();
   set disabledImageFetchers(ListBuilder<String>? disabledImageFetchers) =>
       _$this._disabledImageFetchers = disabledImageFetchers;
 
   ListBuilder<String>? _imageFetcherOrder;
   ListBuilder<String> get imageFetcherOrder =>
-      _$this._imageFetcherOrder ??= new ListBuilder<String>();
+      _$this._imageFetcherOrder ??= ListBuilder<String>();
   set imageFetcherOrder(ListBuilder<String>? imageFetcherOrder) =>
       _$this._imageFetcherOrder = imageFetcherOrder;
 
@@ -149,7 +147,6 @@ class MetadataOptionsBuilder
 
   @override
   void replace(MetadataOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MetadataOptions;
   }
 
@@ -165,14 +162,15 @@ class MetadataOptionsBuilder
     _$MetadataOptions _$result;
     try {
       _$result = _$v ??
-          new _$MetadataOptions._(
-              itemType: itemType,
-              disabledMetadataSavers: _disabledMetadataSavers?.build(),
-              localMetadataReaderOrder: _localMetadataReaderOrder?.build(),
-              disabledMetadataFetchers: _disabledMetadataFetchers?.build(),
-              metadataFetcherOrder: _metadataFetcherOrder?.build(),
-              disabledImageFetchers: _disabledImageFetchers?.build(),
-              imageFetcherOrder: _imageFetcherOrder?.build());
+          _$MetadataOptions._(
+            itemType: itemType,
+            disabledMetadataSavers: _disabledMetadataSavers?.build(),
+            localMetadataReaderOrder: _localMetadataReaderOrder?.build(),
+            disabledMetadataFetchers: _disabledMetadataFetchers?.build(),
+            metadataFetcherOrder: _metadataFetcherOrder?.build(),
+            disabledImageFetchers: _disabledImageFetchers?.build(),
+            imageFetcherOrder: _imageFetcherOrder?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -189,7 +187,7 @@ class MetadataOptionsBuilder
         _$failedField = 'imageFetcherOrder';
         _imageFetcherOrder?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MetadataOptions', _$failedField, e.toString());
       }
       rethrow;

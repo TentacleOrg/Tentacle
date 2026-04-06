@@ -32,7 +32,7 @@ class _$UpdateUserItemDataDto extends UpdateUserItemDataDto {
 
   factory _$UpdateUserItemDataDto(
           [void Function(UpdateUserItemDataDtoBuilder)? updates]) =>
-      (new UpdateUserItemDataDtoBuilder()..update(updates))._build();
+      (UpdateUserItemDataDtoBuilder()..update(updates))._build();
 
   _$UpdateUserItemDataDto._(
       {this.rating,
@@ -47,7 +47,6 @@ class _$UpdateUserItemDataDto extends UpdateUserItemDataDto {
       this.key,
       this.itemId})
       : super._();
-
   @override
   UpdateUserItemDataDto rebuild(
           void Function(UpdateUserItemDataDtoBuilder) updates) =>
@@ -55,7 +54,7 @@ class _$UpdateUserItemDataDto extends UpdateUserItemDataDto {
 
   @override
   UpdateUserItemDataDtoBuilder toBuilder() =>
-      new UpdateUserItemDataDtoBuilder()..replace(this);
+      UpdateUserItemDataDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -187,7 +186,6 @@ class UpdateUserItemDataDtoBuilder
 
   @override
   void replace(UpdateUserItemDataDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdateUserItemDataDto;
   }
 
@@ -201,18 +199,19 @@ class UpdateUserItemDataDtoBuilder
 
   _$UpdateUserItemDataDto _build() {
     final _$result = _$v ??
-        new _$UpdateUserItemDataDto._(
-            rating: rating,
-            playedPercentage: playedPercentage,
-            unplayedItemCount: unplayedItemCount,
-            playbackPositionTicks: playbackPositionTicks,
-            playCount: playCount,
-            isFavorite: isFavorite,
-            likes: likes,
-            lastPlayedDate: lastPlayedDate,
-            played: played,
-            key: key,
-            itemId: itemId);
+        _$UpdateUserItemDataDto._(
+          rating: rating,
+          playedPercentage: playedPercentage,
+          unplayedItemCount: unplayedItemCount,
+          playbackPositionTicks: playbackPositionTicks,
+          playCount: playCount,
+          isFavorite: isFavorite,
+          likes: likes,
+          lastPlayedDate: lastPlayedDate,
+          played: played,
+          key: key,
+          itemId: itemId,
+        );
     replace(_$result);
     return _$result;
   }

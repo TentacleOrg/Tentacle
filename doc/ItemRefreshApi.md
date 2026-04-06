@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **refreshItem**
-> refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages)
+> refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages, regenerateTrickplay)
 
 Refreshes metadata for an item.
 
@@ -31,9 +31,10 @@ final MetadataRefreshMode metadataRefreshMode = metadataRefreshMode_example; // 
 final MetadataRefreshMode imageRefreshMode = imageRefreshMode_example; // MetadataRefreshMode | (Optional) Specifies the image refresh mode.
 final bool replaceAllMetadata = true; // bool | (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh.
 final bool replaceAllImages = true; // bool | (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh.
+final bool regenerateTrickplay = true; // bool | (Optional) Determines if trickplay images should be replaced. Only applicable if mode is FullRefresh.
 
 try {
-    api.refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages);
+    api.refreshItem(itemId, metadataRefreshMode, imageRefreshMode, replaceAllMetadata, replaceAllImages, regenerateTrickplay);
 } catch on DioException (e) {
     print('Exception when calling ItemRefreshApi->refreshItem: $e\n');
 }
@@ -48,6 +49,7 @@ Name | Type | Description  | Notes
  **imageRefreshMode** | **MetadataRefreshMode**| (Optional) Specifies the image refresh mode. | [optional] [default to 'None']
  **replaceAllMetadata** | **bool**| (Optional) Determines if metadata should be replaced. Only applicable if mode is FullRefresh. | [optional] [default to false]
  **replaceAllImages** | **bool**| (Optional) Determines if images should be replaced. Only applicable if mode is FullRefresh. | [optional] [default to false]
+ **regenerateTrickplay** | **bool**| (Optional) Determines if trickplay images should be replaced. Only applicable if mode is FullRefresh. | [optional] [default to false]
 
 ### Return type
 
@@ -60,7 +62,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

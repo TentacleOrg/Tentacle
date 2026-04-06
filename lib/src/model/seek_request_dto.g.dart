@@ -11,17 +11,15 @@ class _$SeekRequestDto extends SeekRequestDto {
   final int? positionTicks;
 
   factory _$SeekRequestDto([void Function(SeekRequestDtoBuilder)? updates]) =>
-      (new SeekRequestDtoBuilder()..update(updates))._build();
+      (SeekRequestDtoBuilder()..update(updates))._build();
 
   _$SeekRequestDto._({this.positionTicks}) : super._();
-
   @override
   SeekRequestDto rebuild(void Function(SeekRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SeekRequestDtoBuilder toBuilder() =>
-      new SeekRequestDtoBuilder()..replace(this);
+  SeekRequestDtoBuilder toBuilder() => SeekRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -69,7 +67,6 @@ class SeekRequestDtoBuilder
 
   @override
   void replace(SeekRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SeekRequestDto;
   }
 
@@ -82,8 +79,10 @@ class SeekRequestDtoBuilder
   SeekRequestDto build() => _build();
 
   _$SeekRequestDto _build() {
-    final _$result =
-        _$v ?? new _$SeekRequestDto._(positionTicks: positionTicks);
+    final _$result = _$v ??
+        _$SeekRequestDto._(
+          positionTicks: positionTicks,
+        );
     replace(_$result);
     return _$result;
   }

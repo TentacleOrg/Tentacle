@@ -22,7 +22,7 @@ class _$DiscoverMoviesStudioStudioIdGet200Response
   factory _$DiscoverMoviesStudioStudioIdGet200Response(
           [void Function(DiscoverMoviesStudioStudioIdGet200ResponseBuilder)?
               updates]) =>
-      (new DiscoverMoviesStudioStudioIdGet200ResponseBuilder()..update(updates))
+      (DiscoverMoviesStudioStudioIdGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$DiscoverMoviesStudioStudioIdGet200Response._(
@@ -32,7 +32,6 @@ class _$DiscoverMoviesStudioStudioIdGet200Response
       this.studio,
       this.results})
       : super._();
-
   @override
   DiscoverMoviesStudioStudioIdGet200Response rebuild(
           void Function(DiscoverMoviesStudioStudioIdGet200ResponseBuilder)
@@ -41,7 +40,7 @@ class _$DiscoverMoviesStudioStudioIdGet200Response
 
   @override
   DiscoverMoviesStudioStudioIdGet200ResponseBuilder toBuilder() =>
-      new DiscoverMoviesStudioStudioIdGet200ResponseBuilder()..replace(this);
+      DiscoverMoviesStudioStudioIdGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -99,12 +98,12 @@ class DiscoverMoviesStudioStudioIdGet200ResponseBuilder
 
   ProductionCompanyBuilder? _studio;
   ProductionCompanyBuilder get studio =>
-      _$this._studio ??= new ProductionCompanyBuilder();
+      _$this._studio ??= ProductionCompanyBuilder();
   set studio(ProductionCompanyBuilder? studio) => _$this._studio = studio;
 
   ListBuilder<MovieResult>? _results;
   ListBuilder<MovieResult> get results =>
-      _$this._results ??= new ListBuilder<MovieResult>();
+      _$this._results ??= ListBuilder<MovieResult>();
   set results(ListBuilder<MovieResult>? results) => _$this._results = results;
 
   DiscoverMoviesStudioStudioIdGet200ResponseBuilder() {
@@ -126,7 +125,6 @@ class DiscoverMoviesStudioStudioIdGet200ResponseBuilder
 
   @override
   void replace(DiscoverMoviesStudioStudioIdGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverMoviesStudioStudioIdGet200Response;
   }
 
@@ -144,12 +142,13 @@ class DiscoverMoviesStudioStudioIdGet200ResponseBuilder
     _$DiscoverMoviesStudioStudioIdGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverMoviesStudioStudioIdGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              studio: _studio?.build(),
-              results: _results?.build());
+          _$DiscoverMoviesStudioStudioIdGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            studio: _studio?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -158,7 +157,7 @@ class DiscoverMoviesStudioStudioIdGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverMoviesStudioStudioIdGet200Response',
             _$failedField,
             e.toString());

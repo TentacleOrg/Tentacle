@@ -12,10 +12,9 @@ class _$ScheduledTasksInfoStopMessage extends ScheduledTasksInfoStopMessage {
 
   factory _$ScheduledTasksInfoStopMessage(
           [void Function(ScheduledTasksInfoStopMessageBuilder)? updates]) =>
-      (new ScheduledTasksInfoStopMessageBuilder()..update(updates))._build();
+      (ScheduledTasksInfoStopMessageBuilder()..update(updates))._build();
 
   _$ScheduledTasksInfoStopMessage._({this.messageType}) : super._();
-
   @override
   ScheduledTasksInfoStopMessage rebuild(
           void Function(ScheduledTasksInfoStopMessageBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$ScheduledTasksInfoStopMessage extends ScheduledTasksInfoStopMessage {
 
   @override
   ScheduledTasksInfoStopMessageBuilder toBuilder() =>
-      new ScheduledTasksInfoStopMessageBuilder()..replace(this);
+      ScheduledTasksInfoStopMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,7 +73,6 @@ class ScheduledTasksInfoStopMessageBuilder
 
   @override
   void replace(ScheduledTasksInfoStopMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ScheduledTasksInfoStopMessage;
   }
 
@@ -87,8 +85,10 @@ class ScheduledTasksInfoStopMessageBuilder
   ScheduledTasksInfoStopMessage build() => _build();
 
   _$ScheduledTasksInfoStopMessage _build() {
-    final _$result =
-        _$v ?? new _$ScheduledTasksInfoStopMessage._(messageType: messageType);
+    final _$result = _$v ??
+        _$ScheduledTasksInfoStopMessage._(
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

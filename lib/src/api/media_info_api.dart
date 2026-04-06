@@ -463,6 +463,7 @@ class MediaInfoApi {
   /// * [itemId] - The item id.
   /// * [enableDirectPlay] - Whether to enable direct play. Default: true.
   /// * [enableDirectStream] - Whether to enable direct stream. Default: true.
+  /// * [alwaysBurnInSubtitleWhenTranscoding] - Always burn-in subtitle when transcoding.
   /// * [openLiveStreamDto] - The open live stream dto.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
@@ -485,6 +486,7 @@ class MediaInfoApi {
     String? itemId,
     bool? enableDirectPlay,
     bool? enableDirectStream,
+    bool? alwaysBurnInSubtitleWhenTranscoding,
     OpenLiveStreamDto? openLiveStreamDto,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -548,6 +550,11 @@ class MediaInfoApi {
       if (enableDirectStream != null)
         r'enableDirectStream': encodeQueryParameter(
             _serializers, enableDirectStream, const FullType(bool)),
+      if (alwaysBurnInSubtitleWhenTranscoding != null)
+        r'alwaysBurnInSubtitleWhenTranscoding': encodeQueryParameter(
+            _serializers,
+            alwaysBurnInSubtitleWhenTranscoding,
+            const FullType(bool)),
     };
 
     dynamic _bodyData;

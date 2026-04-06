@@ -20,12 +20,12 @@ AudioSpatialFormat _$valueOf(String name) {
     case 'DTSX':
       return _$DTSX;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<AudioSpatialFormat> _$values =
-    new BuiltSet<AudioSpatialFormat>(const <AudioSpatialFormat>[
+    BuiltSet<AudioSpatialFormat>(const <AudioSpatialFormat>[
   _$none,
   _$dolbyAtmos,
   _$DTSX,
@@ -47,7 +47,7 @@ mixin _$AudioSpatialFormatMixin {
 }
 
 Serializer<AudioSpatialFormat> _$audioSpatialFormatSerializer =
-    new _$AudioSpatialFormatSerializer();
+    _$AudioSpatialFormatSerializer();
 
 class _$AudioSpatialFormatSerializer
     implements PrimitiveSerializer<AudioSpatialFormat> {

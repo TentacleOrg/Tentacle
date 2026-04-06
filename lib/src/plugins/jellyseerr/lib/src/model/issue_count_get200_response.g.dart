@@ -24,7 +24,7 @@ class _$IssueCountGet200Response extends IssueCountGet200Response {
 
   factory _$IssueCountGet200Response(
           [void Function(IssueCountGet200ResponseBuilder)? updates]) =>
-      (new IssueCountGet200ResponseBuilder()..update(updates))._build();
+      (IssueCountGet200ResponseBuilder()..update(updates))._build();
 
   _$IssueCountGet200Response._(
       {this.total,
@@ -35,7 +35,6 @@ class _$IssueCountGet200Response extends IssueCountGet200Response {
       this.open,
       this.closed})
       : super._();
-
   @override
   IssueCountGet200Response rebuild(
           void Function(IssueCountGet200ResponseBuilder) updates) =>
@@ -43,7 +42,7 @@ class _$IssueCountGet200Response extends IssueCountGet200Response {
 
   @override
   IssueCountGet200ResponseBuilder toBuilder() =>
-      new IssueCountGet200ResponseBuilder()..replace(this);
+      IssueCountGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -140,7 +139,6 @@ class IssueCountGet200ResponseBuilder
 
   @override
   void replace(IssueCountGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IssueCountGet200Response;
   }
 
@@ -154,14 +152,15 @@ class IssueCountGet200ResponseBuilder
 
   _$IssueCountGet200Response _build() {
     final _$result = _$v ??
-        new _$IssueCountGet200Response._(
-            total: total,
-            video: video,
-            audio: audio,
-            subtitles: subtitles,
-            others: others,
-            open: open,
-            closed: closed);
+        _$IssueCountGet200Response._(
+          total: total,
+          video: video,
+          audio: audio,
+          subtitles: subtitles,
+          others: others,
+          open: open,
+          closed: closed,
+        );
     replace(_$result);
     return _$result;
   }

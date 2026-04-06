@@ -21,7 +21,7 @@ class _$BaseItemPerson extends BaseItemPerson {
   final BaseItemPersonImageBlurHashes? imageBlurHashes;
 
   factory _$BaseItemPerson([void Function(BaseItemPersonBuilder)? updates]) =>
-      (new BaseItemPersonBuilder()..update(updates))._build();
+      (BaseItemPersonBuilder()..update(updates))._build();
 
   _$BaseItemPerson._(
       {this.name,
@@ -31,14 +31,12 @@ class _$BaseItemPerson extends BaseItemPerson {
       this.primaryImageTag,
       this.imageBlurHashes})
       : super._();
-
   @override
   BaseItemPerson rebuild(void Function(BaseItemPersonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  BaseItemPersonBuilder toBuilder() =>
-      new BaseItemPersonBuilder()..replace(this);
+  BaseItemPersonBuilder toBuilder() => BaseItemPersonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -105,7 +103,7 @@ class BaseItemPersonBuilder
 
   BaseItemPersonImageBlurHashesBuilder? _imageBlurHashes;
   BaseItemPersonImageBlurHashesBuilder get imageBlurHashes =>
-      _$this._imageBlurHashes ??= new BaseItemPersonImageBlurHashesBuilder();
+      _$this._imageBlurHashes ??= BaseItemPersonImageBlurHashesBuilder();
   set imageBlurHashes(BaseItemPersonImageBlurHashesBuilder? imageBlurHashes) =>
       _$this._imageBlurHashes = imageBlurHashes;
 
@@ -129,7 +127,6 @@ class BaseItemPersonBuilder
 
   @override
   void replace(BaseItemPerson other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BaseItemPerson;
   }
 
@@ -145,20 +142,21 @@ class BaseItemPersonBuilder
     _$BaseItemPerson _$result;
     try {
       _$result = _$v ??
-          new _$BaseItemPerson._(
-              name: name,
-              id: id,
-              role: role,
-              type: type,
-              primaryImageTag: primaryImageTag,
-              imageBlurHashes: _imageBlurHashes?.build());
+          _$BaseItemPerson._(
+            name: name,
+            id: id,
+            role: role,
+            type: type,
+            primaryImageTag: primaryImageTag,
+            imageBlurHashes: _imageBlurHashes?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'imageBlurHashes';
         _imageBlurHashes?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'BaseItemPerson', _$failedField, e.toString());
       }
       rethrow;

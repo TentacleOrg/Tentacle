@@ -16,11 +16,10 @@ class _$WatchProviderRegion extends WatchProviderRegion {
 
   factory _$WatchProviderRegion(
           [void Function(WatchProviderRegionBuilder)? updates]) =>
-      (new WatchProviderRegionBuilder()..update(updates))._build();
+      (WatchProviderRegionBuilder()..update(updates))._build();
 
   _$WatchProviderRegion._({this.iso31661, this.englishName, this.nativeName})
       : super._();
-
   @override
   WatchProviderRegion rebuild(
           void Function(WatchProviderRegionBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$WatchProviderRegion extends WatchProviderRegion {
 
   @override
   WatchProviderRegionBuilder toBuilder() =>
-      new WatchProviderRegionBuilder()..replace(this);
+      WatchProviderRegionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -92,7 +91,6 @@ class WatchProviderRegionBuilder
 
   @override
   void replace(WatchProviderRegion other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WatchProviderRegion;
   }
 
@@ -106,10 +104,11 @@ class WatchProviderRegionBuilder
 
   _$WatchProviderRegion _build() {
     final _$result = _$v ??
-        new _$WatchProviderRegion._(
-            iso31661: iso31661,
-            englishName: englishName,
-            nativeName: nativeName);
+        _$WatchProviderRegion._(
+          iso31661: iso31661,
+          englishName: englishName,
+          nativeName: nativeName,
+        );
     replace(_$result);
     return _$result;
   }

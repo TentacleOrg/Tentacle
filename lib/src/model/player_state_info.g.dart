@@ -33,7 +33,7 @@ class _$PlayerStateInfo extends PlayerStateInfo {
   final String? liveStreamId;
 
   factory _$PlayerStateInfo([void Function(PlayerStateInfoBuilder)? updates]) =>
-      (new PlayerStateInfoBuilder()..update(updates))._build();
+      (PlayerStateInfoBuilder()..update(updates))._build();
 
   _$PlayerStateInfo._(
       {this.positionTicks,
@@ -49,14 +49,12 @@ class _$PlayerStateInfo extends PlayerStateInfo {
       this.playbackOrder,
       this.liveStreamId})
       : super._();
-
   @override
   PlayerStateInfo rebuild(void Function(PlayerStateInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlayerStateInfoBuilder toBuilder() =>
-      new PlayerStateInfoBuilder()..replace(this);
+  PlayerStateInfoBuilder toBuilder() => PlayerStateInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -197,7 +195,6 @@ class PlayerStateInfoBuilder
 
   @override
   void replace(PlayerStateInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlayerStateInfo;
   }
 
@@ -211,19 +208,20 @@ class PlayerStateInfoBuilder
 
   _$PlayerStateInfo _build() {
     final _$result = _$v ??
-        new _$PlayerStateInfo._(
-            positionTicks: positionTicks,
-            canSeek: canSeek,
-            isPaused: isPaused,
-            isMuted: isMuted,
-            volumeLevel: volumeLevel,
-            audioStreamIndex: audioStreamIndex,
-            subtitleStreamIndex: subtitleStreamIndex,
-            mediaSourceId: mediaSourceId,
-            playMethod: playMethod,
-            repeatMode: repeatMode,
-            playbackOrder: playbackOrder,
-            liveStreamId: liveStreamId);
+        _$PlayerStateInfo._(
+          positionTicks: positionTicks,
+          canSeek: canSeek,
+          isPaused: isPaused,
+          isMuted: isMuted,
+          volumeLevel: volumeLevel,
+          audioStreamIndex: audioStreamIndex,
+          subtitleStreamIndex: subtitleStreamIndex,
+          mediaSourceId: mediaSourceId,
+          playMethod: playMethod,
+          repeatMode: repeatMode,
+          playbackOrder: playbackOrder,
+          liveStreamId: liveStreamId,
+        );
     replace(_$result);
     return _$result;
   }

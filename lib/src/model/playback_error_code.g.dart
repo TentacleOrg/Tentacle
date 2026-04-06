@@ -21,12 +21,12 @@ PlaybackErrorCode _$valueOf(String name) {
     case 'rateLimitExceeded':
       return _$rateLimitExceeded;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<PlaybackErrorCode> _$values =
-    new BuiltSet<PlaybackErrorCode>(const <PlaybackErrorCode>[
+    BuiltSet<PlaybackErrorCode>(const <PlaybackErrorCode>[
   _$notAllowed,
   _$noCompatibleStream,
   _$rateLimitExceeded,
@@ -48,7 +48,7 @@ mixin _$PlaybackErrorCodeMixin {
 }
 
 Serializer<PlaybackErrorCode> _$playbackErrorCodeSerializer =
-    new _$PlaybackErrorCodeSerializer();
+    _$PlaybackErrorCodeSerializer();
 
 class _$PlaybackErrorCodeSerializer
     implements PrimitiveSerializer<PlaybackErrorCode> {
