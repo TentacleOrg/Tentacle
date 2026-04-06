@@ -19,12 +19,11 @@ DayPattern _$valueOf(String name) {
     case 'weekends':
       return _$weekends;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<DayPattern> _$values =
-    new BuiltSet<DayPattern>(const <DayPattern>[
+final BuiltSet<DayPattern> _$values = BuiltSet<DayPattern>(const <DayPattern>[
   _$daily,
   _$weekdays,
   _$weekends,
@@ -44,7 +43,7 @@ mixin _$DayPatternMixin {
   _$DayPatternMeta get DayPattern => const _$DayPatternMeta();
 }
 
-Serializer<DayPattern> _$dayPatternSerializer = new _$DayPatternSerializer();
+Serializer<DayPattern> _$dayPatternSerializer = _$DayPatternSerializer();
 
 class _$DayPatternSerializer implements PrimitiveSerializer<DayPattern> {
   static const Map<String, Object> _toWire = const <String, Object>{

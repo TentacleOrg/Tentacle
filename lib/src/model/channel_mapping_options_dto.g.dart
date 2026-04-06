@@ -18,7 +18,7 @@ class _$ChannelMappingOptionsDto extends ChannelMappingOptionsDto {
 
   factory _$ChannelMappingOptionsDto(
           [void Function(ChannelMappingOptionsDtoBuilder)? updates]) =>
-      (new ChannelMappingOptionsDtoBuilder()..update(updates))._build();
+      (ChannelMappingOptionsDtoBuilder()..update(updates))._build();
 
   _$ChannelMappingOptionsDto._(
       {this.tunerChannels,
@@ -26,7 +26,6 @@ class _$ChannelMappingOptionsDto extends ChannelMappingOptionsDto {
       this.mappings,
       this.providerName})
       : super._();
-
   @override
   ChannelMappingOptionsDto rebuild(
           void Function(ChannelMappingOptionsDtoBuilder) updates) =>
@@ -34,7 +33,7 @@ class _$ChannelMappingOptionsDto extends ChannelMappingOptionsDto {
 
   @override
   ChannelMappingOptionsDtoBuilder toBuilder() =>
-      new ChannelMappingOptionsDtoBuilder()..replace(this);
+      ChannelMappingOptionsDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,19 +74,19 @@ class ChannelMappingOptionsDtoBuilder
 
   ListBuilder<TunerChannelMapping>? _tunerChannels;
   ListBuilder<TunerChannelMapping> get tunerChannels =>
-      _$this._tunerChannels ??= new ListBuilder<TunerChannelMapping>();
+      _$this._tunerChannels ??= ListBuilder<TunerChannelMapping>();
   set tunerChannels(ListBuilder<TunerChannelMapping>? tunerChannels) =>
       _$this._tunerChannels = tunerChannels;
 
   ListBuilder<NameIdPair>? _providerChannels;
   ListBuilder<NameIdPair> get providerChannels =>
-      _$this._providerChannels ??= new ListBuilder<NameIdPair>();
+      _$this._providerChannels ??= ListBuilder<NameIdPair>();
   set providerChannels(ListBuilder<NameIdPair>? providerChannels) =>
       _$this._providerChannels = providerChannels;
 
   ListBuilder<NameValuePair>? _mappings;
   ListBuilder<NameValuePair> get mappings =>
-      _$this._mappings ??= new ListBuilder<NameValuePair>();
+      _$this._mappings ??= ListBuilder<NameValuePair>();
   set mappings(ListBuilder<NameValuePair>? mappings) =>
       _$this._mappings = mappings;
 
@@ -113,7 +112,6 @@ class ChannelMappingOptionsDtoBuilder
 
   @override
   void replace(ChannelMappingOptionsDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ChannelMappingOptionsDto;
   }
 
@@ -129,11 +127,12 @@ class ChannelMappingOptionsDtoBuilder
     _$ChannelMappingOptionsDto _$result;
     try {
       _$result = _$v ??
-          new _$ChannelMappingOptionsDto._(
-              tunerChannels: _tunerChannels?.build(),
-              providerChannels: _providerChannels?.build(),
-              mappings: _mappings?.build(),
-              providerName: providerName);
+          _$ChannelMappingOptionsDto._(
+            tunerChannels: _tunerChannels?.build(),
+            providerChannels: _providerChannels?.build(),
+            mappings: _mappings?.build(),
+            providerName: providerName,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -144,7 +143,7 @@ class ChannelMappingOptionsDtoBuilder
         _$failedField = 'mappings';
         _mappings?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ChannelMappingOptionsDto', _$failedField, e.toString());
       }
       rethrow;

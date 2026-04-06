@@ -15,16 +15,15 @@ class _$ImageOption extends ImageOption {
   final int? minWidth;
 
   factory _$ImageOption([void Function(ImageOptionBuilder)? updates]) =>
-      (new ImageOptionBuilder()..update(updates))._build();
+      (ImageOptionBuilder()..update(updates))._build();
 
   _$ImageOption._({this.type, this.limit, this.minWidth}) : super._();
-
   @override
   ImageOption rebuild(void Function(ImageOptionBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ImageOptionBuilder toBuilder() => new ImageOptionBuilder()..replace(this);
+  ImageOptionBuilder toBuilder() => ImageOptionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -87,7 +86,6 @@ class ImageOptionBuilder implements Builder<ImageOption, ImageOptionBuilder> {
 
   @override
   void replace(ImageOption other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ImageOption;
   }
 
@@ -101,7 +99,11 @@ class ImageOptionBuilder implements Builder<ImageOption, ImageOptionBuilder> {
 
   _$ImageOption _build() {
     final _$result = _$v ??
-        new _$ImageOption._(type: type, limit: limit, minWidth: minWidth);
+        _$ImageOption._(
+          type: type,
+          limit: limit,
+          minWidth: minWidth,
+        );
     replace(_$result);
     return _$result;
   }

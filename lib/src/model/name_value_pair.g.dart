@@ -13,16 +13,15 @@ class _$NameValuePair extends NameValuePair {
   final String? value;
 
   factory _$NameValuePair([void Function(NameValuePairBuilder)? updates]) =>
-      (new NameValuePairBuilder()..update(updates))._build();
+      (NameValuePairBuilder()..update(updates))._build();
 
   _$NameValuePair._({this.name, this.value}) : super._();
-
   @override
   NameValuePair rebuild(void Function(NameValuePairBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NameValuePairBuilder toBuilder() => new NameValuePairBuilder()..replace(this);
+  NameValuePairBuilder toBuilder() => NameValuePairBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,7 +75,6 @@ class NameValuePairBuilder
 
   @override
   void replace(NameValuePair other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NameValuePair;
   }
 
@@ -89,7 +87,11 @@ class NameValuePairBuilder
   NameValuePair build() => _build();
 
   _$NameValuePair _build() {
-    final _$result = _$v ?? new _$NameValuePair._(name: name, value: value);
+    final _$result = _$v ??
+        _$NameValuePair._(
+          name: name,
+          value: value,
+        );
     replace(_$result);
     return _$result;
   }

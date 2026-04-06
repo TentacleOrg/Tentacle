@@ -13,13 +13,13 @@ part 'sync_play_command_message.g.dart';
 /// Sync play command.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Class SendCommand.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class SyncPlayCommandMessage
     implements Built<SyncPlayCommandMessage, SyncPlayCommandMessageBuilder> {
-  /// Gets or sets the data.
+  /// Class SendCommand.
   @BuiltValueField(wireName: r'Data')
   SendCommand? get data;
 

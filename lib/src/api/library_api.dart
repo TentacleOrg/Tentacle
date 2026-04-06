@@ -16,9 +16,11 @@ import 'package:tentacle/src/model/base_item_dto_query_result.dart';
 import 'package:tentacle/src/model/collection_type.dart';
 import 'package:tentacle/src/model/item_counts.dart';
 import 'package:tentacle/src/model/item_fields.dart';
+import 'package:tentacle/src/model/item_sort_by.dart';
 import 'package:tentacle/src/model/library_options_result_dto.dart';
 import 'package:tentacle/src/model/media_update_info_dto.dart';
 import 'package:tentacle/src/model/problem_details.dart';
+import 'package:tentacle/src/model/sort_order.dart';
 import 'package:tentacle/src/model/theme_media_result.dart';
 
 class LibraryApi {
@@ -1572,6 +1574,8 @@ class LibraryApi {
   /// * [itemId] - The item id.
   /// * [userId] - Optional. Filter by user id, and attach user data.
   /// * [inheritFromParent] - Optional. Determines whether or not parent items should be searched for theme media.
+  /// * [sortBy] - Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+  /// * [sortOrder] - Optional. Sort Order - Ascending, Descending.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1585,6 +1589,8 @@ class LibraryApi {
     required String itemId,
     String? userId,
     bool? inheritFromParent = false,
+    BuiltList<ItemSortBy>? sortBy,
+    BuiltList<SortOrder>? sortOrder,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1622,6 +1628,20 @@ class LibraryApi {
       if (inheritFromParent != null)
         r'inheritFromParent': encodeQueryParameter(
             _serializers, inheritFromParent, const FullType(bool)),
+      if (sortBy != null)
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
+          _serializers,
+          sortBy,
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
+          format: ListFormat.multi,
+        ),
+      if (sortOrder != null)
+        r'sortOrder': encodeCollectionQueryParameter<SortOrder>(
+          _serializers,
+          sortOrder,
+          const FullType(BuiltList, [FullType(SortOrder)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -1672,6 +1692,8 @@ class LibraryApi {
   /// * [itemId] - The item id.
   /// * [userId] - Optional. Filter by user id, and attach user data.
   /// * [inheritFromParent] - Optional. Determines whether or not parent items should be searched for theme media.
+  /// * [sortBy] - Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+  /// * [sortOrder] - Optional. Sort Order - Ascending, Descending.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1685,6 +1707,8 @@ class LibraryApi {
     required String itemId,
     String? userId,
     bool? inheritFromParent = false,
+    BuiltList<ItemSortBy>? sortBy,
+    BuiltList<SortOrder>? sortOrder,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1722,6 +1746,20 @@ class LibraryApi {
       if (inheritFromParent != null)
         r'inheritFromParent': encodeQueryParameter(
             _serializers, inheritFromParent, const FullType(bool)),
+      if (sortBy != null)
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
+          _serializers,
+          sortBy,
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
+          format: ListFormat.multi,
+        ),
+      if (sortOrder != null)
+        r'sortOrder': encodeCollectionQueryParameter<SortOrder>(
+          _serializers,
+          sortOrder,
+          const FullType(BuiltList, [FullType(SortOrder)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(
@@ -1772,6 +1810,8 @@ class LibraryApi {
   /// * [itemId] - The item id.
   /// * [userId] - Optional. Filter by user id, and attach user data.
   /// * [inheritFromParent] - Optional. Determines whether or not parent items should be searched for theme media.
+  /// * [sortBy] - Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+  /// * [sortOrder] - Optional. Sort Order - Ascending, Descending.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1785,6 +1825,8 @@ class LibraryApi {
     required String itemId,
     String? userId,
     bool? inheritFromParent = false,
+    BuiltList<ItemSortBy>? sortBy,
+    BuiltList<SortOrder>? sortOrder,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1822,6 +1864,20 @@ class LibraryApi {
       if (inheritFromParent != null)
         r'inheritFromParent': encodeQueryParameter(
             _serializers, inheritFromParent, const FullType(bool)),
+      if (sortBy != null)
+        r'sortBy': encodeCollectionQueryParameter<ItemSortBy>(
+          _serializers,
+          sortBy,
+          const FullType(BuiltList, [FullType(ItemSortBy)]),
+          format: ListFormat.multi,
+        ),
+      if (sortOrder != null)
+        r'sortOrder': encodeCollectionQueryParameter<SortOrder>(
+          _serializers,
+          sortOrder,
+          const FullType(BuiltList, [FullType(SortOrder)]),
+          format: ListFormat.multi,
+        ),
     };
 
     final _response = await _dio.request<Object>(

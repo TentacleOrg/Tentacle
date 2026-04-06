@@ -18,19 +18,18 @@ class _$BufferRequestDto extends BufferRequestDto {
 
   factory _$BufferRequestDto(
           [void Function(BufferRequestDtoBuilder)? updates]) =>
-      (new BufferRequestDtoBuilder()..update(updates))._build();
+      (BufferRequestDtoBuilder()..update(updates))._build();
 
   _$BufferRequestDto._(
       {this.when_, this.positionTicks, this.isPlaying, this.playlistItemId})
       : super._();
-
   @override
   BufferRequestDto rebuild(void Function(BufferRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   BufferRequestDtoBuilder toBuilder() =>
-      new BufferRequestDtoBuilder()..replace(this);
+      BufferRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +103,6 @@ class BufferRequestDtoBuilder
 
   @override
   void replace(BufferRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BufferRequestDto;
   }
 
@@ -118,11 +116,12 @@ class BufferRequestDtoBuilder
 
   _$BufferRequestDto _build() {
     final _$result = _$v ??
-        new _$BufferRequestDto._(
-            when_: when_,
-            positionTicks: positionTicks,
-            isPlaying: isPlaying,
-            playlistItemId: playlistItemId);
+        _$BufferRequestDto._(
+          when_: when_,
+          positionTicks: positionTicks,
+          isPlaying: isPlaying,
+          playlistItemId: playlistItemId,
+        );
     replace(_$result);
     return _$result;
   }

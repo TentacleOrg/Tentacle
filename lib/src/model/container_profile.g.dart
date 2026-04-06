@@ -13,21 +13,23 @@ class _$ContainerProfile extends ContainerProfile {
   final BuiltList<ProfileCondition>? conditions;
   @override
   final String? container;
+  @override
+  final String? subContainer;
 
   factory _$ContainerProfile(
           [void Function(ContainerProfileBuilder)? updates]) =>
-      (new ContainerProfileBuilder()..update(updates))._build();
+      (ContainerProfileBuilder()..update(updates))._build();
 
-  _$ContainerProfile._({this.type, this.conditions, this.container})
+  _$ContainerProfile._(
+      {this.type, this.conditions, this.container, this.subContainer})
       : super._();
-
   @override
   ContainerProfile rebuild(void Function(ContainerProfileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   ContainerProfileBuilder toBuilder() =>
-      new ContainerProfileBuilder()..replace(this);
+      ContainerProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -35,7 +37,8 @@ class _$ContainerProfile extends ContainerProfile {
     return other is ContainerProfile &&
         type == other.type &&
         conditions == other.conditions &&
-        container == other.container;
+        container == other.container &&
+        subContainer == other.subContainer;
   }
 
   @override
@@ -44,6 +47,7 @@ class _$ContainerProfile extends ContainerProfile {
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, conditions.hashCode);
     _$hash = $jc(_$hash, container.hashCode);
+    _$hash = $jc(_$hash, subContainer.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -53,7 +57,8 @@ class _$ContainerProfile extends ContainerProfile {
     return (newBuiltValueToStringHelper(r'ContainerProfile')
           ..add('type', type)
           ..add('conditions', conditions)
-          ..add('container', container))
+          ..add('container', container)
+          ..add('subContainer', subContainer))
         .toString();
   }
 }
@@ -68,13 +73,17 @@ class ContainerProfileBuilder
 
   ListBuilder<ProfileCondition>? _conditions;
   ListBuilder<ProfileCondition> get conditions =>
-      _$this._conditions ??= new ListBuilder<ProfileCondition>();
+      _$this._conditions ??= ListBuilder<ProfileCondition>();
   set conditions(ListBuilder<ProfileCondition>? conditions) =>
       _$this._conditions = conditions;
 
   String? _container;
   String? get container => _$this._container;
   set container(String? container) => _$this._container = container;
+
+  String? _subContainer;
+  String? get subContainer => _$this._subContainer;
+  set subContainer(String? subContainer) => _$this._subContainer = subContainer;
 
   ContainerProfileBuilder() {
     ContainerProfile._defaults(this);
@@ -86,6 +95,7 @@ class ContainerProfileBuilder
       _type = $v.type;
       _conditions = $v.conditions?.toBuilder();
       _container = $v.container;
+      _subContainer = $v.subContainer;
       _$v = null;
     }
     return this;
@@ -93,7 +103,6 @@ class ContainerProfileBuilder
 
   @override
   void replace(ContainerProfile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ContainerProfile;
   }
 
@@ -109,17 +118,19 @@ class ContainerProfileBuilder
     _$ContainerProfile _$result;
     try {
       _$result = _$v ??
-          new _$ContainerProfile._(
-              type: type,
-              conditions: _conditions?.build(),
-              container: container);
+          _$ContainerProfile._(
+            type: type,
+            conditions: _conditions?.build(),
+            container: container,
+            subContainer: subContainer,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'conditions';
         _conditions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ContainerProfile', _$failedField, e.toString());
       }
       rethrow;

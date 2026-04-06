@@ -40,7 +40,7 @@ class DynamicHlsApi {
   /// * [minSegments] - The minimum number of segments.
   /// * [mediaSourceId] - The media version id, if playing an alternate version.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -71,13 +71,14 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
   /// * [videoStreamIndex] - Optional. The index of the video stream to use. If omitted the first video stream will be used.
   /// * [context] - Optional. The MediaBrowser.Model.Dlna.EncodingContext.
   /// * [streamOptions] - Optional. The streaming options.
+  /// * [enableAudioVbrEncoding] - Optional. Whether to enable Audio Encoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -142,6 +143,7 @@ class DynamicHlsApi {
     int? videoStreamIndex,
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
+    bool? enableAudioVbrEncoding = true,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -339,6 +341,9 @@ class DynamicHlsApi {
           streamOptions,
           const FullType(BuiltMap, [FullType(String), FullType(String)]),
         ),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -397,7 +402,7 @@ class DynamicHlsApi {
   /// * [minSegments] - The minimum number of segments.
   /// * [mediaSourceId] - The media version id, if playing an alternate version.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -429,13 +434,15 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
   /// * [videoStreamIndex] - Optional. The index of the video stream to use. If omitted the first video stream will be used.
   /// * [context] - Optional. The MediaBrowser.Model.Dlna.EncodingContext.
   /// * [streamOptions] - Optional. The streaming options.
+  /// * [enableAudioVbrEncoding] - Optional. Whether to enable Audio Encoding.
+  /// * [alwaysBurnInSubtitleWhenTranscoding] - Whether to always burn in subtitles when transcoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -501,6 +508,8 @@ class DynamicHlsApi {
     int? videoStreamIndex,
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
+    bool? enableAudioVbrEncoding = true,
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -701,6 +710,14 @@ class DynamicHlsApi {
           streamOptions,
           const FullType(BuiltMap, [FullType(String), FullType(String)]),
         ),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
+      if (alwaysBurnInSubtitleWhenTranscoding != null)
+        r'alwaysBurnInSubtitleWhenTranscoding': encodeQueryParameter(
+            _serializers,
+            alwaysBurnInSubtitleWhenTranscoding,
+            const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -755,7 +772,7 @@ class DynamicHlsApi {
   /// * [minSegments] - The minimum number of segments.
   /// * [mediaSourceId] - The media version id, if playing an alternate version.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -785,7 +802,7 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
@@ -795,6 +812,8 @@ class DynamicHlsApi {
   /// * [maxWidth] - Optional. The max width.
   /// * [maxHeight] - Optional. The max height.
   /// * [enableSubtitlesInManifest] - Optional. Whether to enable subtitles in the manifest.
+  /// * [enableAudioVbrEncoding] - Optional. Whether to enable Audio Encoding.
+  /// * [alwaysBurnInSubtitleWhenTranscoding] - Whether to always burn in subtitles when transcoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -857,6 +876,8 @@ class DynamicHlsApi {
     int? maxWidth,
     int? maxHeight,
     bool? enableSubtitlesInManifest,
+    bool? enableAudioVbrEncoding = true,
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1044,6 +1065,14 @@ class DynamicHlsApi {
       if (enableSubtitlesInManifest != null)
         r'enableSubtitlesInManifest': encodeQueryParameter(
             _serializers, enableSubtitlesInManifest, const FullType(bool)),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
+      if (alwaysBurnInSubtitleWhenTranscoding != null)
+        r'alwaysBurnInSubtitleWhenTranscoding': encodeQueryParameter(
+            _serializers,
+            alwaysBurnInSubtitleWhenTranscoding,
+            const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1097,7 +1126,7 @@ class DynamicHlsApi {
   /// * [segmentLength] - The segment length.
   /// * [minSegments] - The minimum number of segments.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -1128,7 +1157,7 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
@@ -1136,6 +1165,7 @@ class DynamicHlsApi {
   /// * [context] - Optional. The MediaBrowser.Model.Dlna.EncodingContext.
   /// * [streamOptions] - Optional. The streaming options.
   /// * [enableAdaptiveBitrateStreaming] - Enable adaptive bitrate streaming.
+  /// * [enableAudioVbrEncoding] - Optional. Whether to enable Audio Encoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1195,7 +1225,8 @@ class DynamicHlsApi {
     int? videoStreamIndex,
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
-    bool? enableAdaptiveBitrateStreaming = true,
+    bool? enableAdaptiveBitrateStreaming = false,
+    bool? enableAudioVbrEncoding = true,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1376,6 +1407,9 @@ class DynamicHlsApi {
       if (enableAdaptiveBitrateStreaming != null)
         r'enableAdaptiveBitrateStreaming': encodeQueryParameter(
             _serializers, enableAdaptiveBitrateStreaming, const FullType(bool)),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1429,7 +1463,7 @@ class DynamicHlsApi {
   /// * [segmentLength] - The segment length.
   /// * [minSegments] - The minimum number of segments.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -1461,7 +1495,7 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
@@ -1470,6 +1504,8 @@ class DynamicHlsApi {
   /// * [streamOptions] - Optional. The streaming options.
   /// * [enableAdaptiveBitrateStreaming] - Enable adaptive bitrate streaming.
   /// * [enableTrickplay] - Enable trickplay image playlists being added to master playlist.
+  /// * [enableAudioVbrEncoding] - Whether to enable Audio Encoding.
+  /// * [alwaysBurnInSubtitleWhenTranscoding] - Whether to always burn in subtitles when transcoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1530,8 +1566,10 @@ class DynamicHlsApi {
     int? videoStreamIndex,
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
-    bool? enableAdaptiveBitrateStreaming = true,
+    bool? enableAdaptiveBitrateStreaming = false,
     bool? enableTrickplay = true,
+    bool? enableAudioVbrEncoding = true,
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -1718,6 +1756,14 @@ class DynamicHlsApi {
       if (enableTrickplay != null)
         r'enableTrickplay': encodeQueryParameter(
             _serializers, enableTrickplay, const FullType(bool)),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
+      if (alwaysBurnInSubtitleWhenTranscoding != null)
+        r'alwaysBurnInSubtitleWhenTranscoding': encodeQueryParameter(
+            _serializers,
+            alwaysBurnInSubtitleWhenTranscoding,
+            const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -1771,7 +1817,7 @@ class DynamicHlsApi {
   /// * [minSegments] - The minimum number of segments.
   /// * [mediaSourceId] - The media version id, if playing an alternate version.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -1802,13 +1848,14 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vpx, wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
   /// * [videoStreamIndex] - Optional. The index of the video stream to use. If omitted the first video stream will be used.
   /// * [context] - Optional. The MediaBrowser.Model.Dlna.EncodingContext.
   /// * [streamOptions] - Optional. The streaming options.
+  /// * [enableAudioVbrEncoding] - Optional. Whether to enable Audio Encoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -1868,6 +1915,7 @@ class DynamicHlsApi {
     int? videoStreamIndex,
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
+    bool? enableAudioVbrEncoding = true,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -2046,6 +2094,9 @@ class DynamicHlsApi {
           streamOptions,
           const FullType(BuiltMap, [FullType(String), FullType(String)]),
         ),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2099,7 +2150,7 @@ class DynamicHlsApi {
   /// * [minSegments] - The minimum number of segments.
   /// * [mediaSourceId] - The media version id, if playing an alternate version.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -2131,13 +2182,15 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
   /// * [videoStreamIndex] - Optional. The index of the video stream to use. If omitted the first video stream will be used.
   /// * [context] - Optional. The MediaBrowser.Model.Dlna.EncodingContext.
   /// * [streamOptions] - Optional. The streaming options.
+  /// * [enableAudioVbrEncoding] - Optional. Whether to enable Audio Encoding.
+  /// * [alwaysBurnInSubtitleWhenTranscoding] - Whether to always burn in subtitles when transcoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2198,6 +2251,8 @@ class DynamicHlsApi {
     int? videoStreamIndex,
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
+    bool? enableAudioVbrEncoding = true,
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -2379,6 +2434,14 @@ class DynamicHlsApi {
           streamOptions,
           const FullType(BuiltMap, [FullType(String), FullType(String)]),
         ),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
+      if (alwaysBurnInSubtitleWhenTranscoding != null)
+        r'alwaysBurnInSubtitleWhenTranscoding': encodeQueryParameter(
+            _serializers,
+            alwaysBurnInSubtitleWhenTranscoding,
+            const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2432,7 +2495,7 @@ class DynamicHlsApi {
   /// * [segmentLength] - The segment length.
   /// * [minSegments] - The minimum number of segments.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -2463,7 +2526,7 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
@@ -2471,6 +2534,7 @@ class DynamicHlsApi {
   /// * [context] - Optional. The MediaBrowser.Model.Dlna.EncodingContext.
   /// * [streamOptions] - Optional. The streaming options.
   /// * [enableAdaptiveBitrateStreaming] - Enable adaptive bitrate streaming.
+  /// * [enableAudioVbrEncoding] - Optional. Whether to enable Audio Encoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2530,7 +2594,8 @@ class DynamicHlsApi {
     int? videoStreamIndex,
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
-    bool? enableAdaptiveBitrateStreaming = true,
+    bool? enableAdaptiveBitrateStreaming = false,
+    bool? enableAudioVbrEncoding = true,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -2711,6 +2776,9 @@ class DynamicHlsApi {
       if (enableAdaptiveBitrateStreaming != null)
         r'enableAdaptiveBitrateStreaming': encodeQueryParameter(
             _serializers, enableAdaptiveBitrateStreaming, const FullType(bool)),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(
@@ -2764,7 +2832,7 @@ class DynamicHlsApi {
   /// * [segmentLength] - The segment length.
   /// * [minSegments] - The minimum number of segments.
   /// * [deviceId] - The device id of the client requesting. Used to stop encoding processes when needed.
-  /// * [audioCodec] - Optional. Specify a audio codec to encode to, e.g. mp3. If omitted the server will auto-select using the url's extension. Options: aac, mp3, vorbis, wma.
+  /// * [audioCodec] - Optional. Specify an audio codec to encode to, e.g. mp3.
   /// * [enableAutoStreamCopy] - Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
   /// * [allowVideoStreamCopy] - Whether or not to allow copying of the video stream url.
   /// * [allowAudioStreamCopy] - Whether or not to allow copying of the audio stream url.
@@ -2796,7 +2864,7 @@ class DynamicHlsApi {
   /// * [cpuCoreLimit] - Optional. The limit of how many cpu cores to use.
   /// * [liveStreamId] - The live stream id.
   /// * [enableMpegtsM2TsMode] - Optional. Whether to enable the MpegtsM2Ts mode.
-  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264. If omitted the server will auto-select using the url's extension. Options: h265, h264, mpeg4, theora, vp8, vp9, vpx (deprecated), wmv.
+  /// * [videoCodec] - Optional. Specify a video codec to encode to, e.g. h264.
   /// * [subtitleCodec] - Optional. Specify a subtitle codec to encode to.
   /// * [transcodeReasons] - Optional. The transcoding reason.
   /// * [audioStreamIndex] - Optional. The index of the audio stream to use. If omitted the first audio stream will be used.
@@ -2805,6 +2873,8 @@ class DynamicHlsApi {
   /// * [streamOptions] - Optional. The streaming options.
   /// * [enableAdaptiveBitrateStreaming] - Enable adaptive bitrate streaming.
   /// * [enableTrickplay] - Enable trickplay image playlists being added to master playlist.
+  /// * [enableAudioVbrEncoding] - Whether to enable Audio Encoding.
+  /// * [alwaysBurnInSubtitleWhenTranscoding] - Whether to always burn in subtitles when transcoding.
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -2865,8 +2935,10 @@ class DynamicHlsApi {
     int? videoStreamIndex,
     EncodingContext? context,
     BuiltMap<String, String>? streamOptions,
-    bool? enableAdaptiveBitrateStreaming = true,
+    bool? enableAdaptiveBitrateStreaming = false,
     bool? enableTrickplay = true,
+    bool? enableAudioVbrEncoding = true,
+    bool? alwaysBurnInSubtitleWhenTranscoding = false,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -3053,6 +3125,14 @@ class DynamicHlsApi {
       if (enableTrickplay != null)
         r'enableTrickplay': encodeQueryParameter(
             _serializers, enableTrickplay, const FullType(bool)),
+      if (enableAudioVbrEncoding != null)
+        r'enableAudioVbrEncoding': encodeQueryParameter(
+            _serializers, enableAudioVbrEncoding, const FullType(bool)),
+      if (alwaysBurnInSubtitleWhenTranscoding != null)
+        r'alwaysBurnInSubtitleWhenTranscoding': encodeQueryParameter(
+            _serializers,
+            alwaysBurnInSubtitleWhenTranscoding,
+            const FullType(bool)),
     };
 
     final _response = await _dio.request<Object>(

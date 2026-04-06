@@ -37,12 +37,11 @@ ItemFilter _$valueOf(String name) {
     case 'isFavoriteOrLikes':
       return _$isFavoriteOrLikes;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ItemFilter> _$values =
-    new BuiltSet<ItemFilter>(const <ItemFilter>[
+final BuiltSet<ItemFilter> _$values = BuiltSet<ItemFilter>(const <ItemFilter>[
   _$isFolder,
   _$isNotFolder,
   _$isUnplayed,
@@ -74,7 +73,7 @@ mixin _$ItemFilterMixin {
   _$ItemFilterMeta get ItemFilter => const _$ItemFilterMeta();
 }
 
-Serializer<ItemFilter> _$itemFilterSerializer = new _$ItemFilterSerializer();
+Serializer<ItemFilter> _$itemFilterSerializer = _$ItemFilterSerializer();
 
 class _$ItemFilterSerializer implements PrimitiveSerializer<ItemFilter> {
   static const Map<String, Object> _toWire = const <String, Object>{

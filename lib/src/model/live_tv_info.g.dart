@@ -15,17 +15,16 @@ class _$LiveTvInfo extends LiveTvInfo {
   final BuiltList<String>? enabledUsers;
 
   factory _$LiveTvInfo([void Function(LiveTvInfoBuilder)? updates]) =>
-      (new LiveTvInfoBuilder()..update(updates))._build();
+      (LiveTvInfoBuilder()..update(updates))._build();
 
   _$LiveTvInfo._({this.services, this.isEnabled, this.enabledUsers})
       : super._();
-
   @override
   LiveTvInfo rebuild(void Function(LiveTvInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LiveTvInfoBuilder toBuilder() => new LiveTvInfoBuilder()..replace(this);
+  LiveTvInfoBuilder toBuilder() => LiveTvInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -61,7 +60,7 @@ class LiveTvInfoBuilder implements Builder<LiveTvInfo, LiveTvInfoBuilder> {
 
   ListBuilder<LiveTvServiceInfo>? _services;
   ListBuilder<LiveTvServiceInfo> get services =>
-      _$this._services ??= new ListBuilder<LiveTvServiceInfo>();
+      _$this._services ??= ListBuilder<LiveTvServiceInfo>();
   set services(ListBuilder<LiveTvServiceInfo>? services) =>
       _$this._services = services;
 
@@ -71,7 +70,7 @@ class LiveTvInfoBuilder implements Builder<LiveTvInfo, LiveTvInfoBuilder> {
 
   ListBuilder<String>? _enabledUsers;
   ListBuilder<String> get enabledUsers =>
-      _$this._enabledUsers ??= new ListBuilder<String>();
+      _$this._enabledUsers ??= ListBuilder<String>();
   set enabledUsers(ListBuilder<String>? enabledUsers) =>
       _$this._enabledUsers = enabledUsers;
 
@@ -92,7 +91,6 @@ class LiveTvInfoBuilder implements Builder<LiveTvInfo, LiveTvInfoBuilder> {
 
   @override
   void replace(LiveTvInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LiveTvInfo;
   }
 
@@ -108,10 +106,11 @@ class LiveTvInfoBuilder implements Builder<LiveTvInfo, LiveTvInfoBuilder> {
     _$LiveTvInfo _$result;
     try {
       _$result = _$v ??
-          new _$LiveTvInfo._(
-              services: _services?.build(),
-              isEnabled: isEnabled,
-              enabledUsers: _enabledUsers?.build());
+          _$LiveTvInfo._(
+            services: _services?.build(),
+            isEnabled: isEnabled,
+            enabledUsers: _enabledUsers?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -121,7 +120,7 @@ class LiveTvInfoBuilder implements Builder<LiveTvInfo, LiveTvInfoBuilder> {
         _$failedField = 'enabledUsers';
         _enabledUsers?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LiveTvInfo', _$failedField, e.toString());
       }
       rethrow;

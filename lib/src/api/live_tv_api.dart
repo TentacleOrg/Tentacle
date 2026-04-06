@@ -1246,7 +1246,7 @@ class LiveTvApi {
     );
   }
 
-  /// Get guid info.
+  /// Get guide info.
   ///
   ///
   /// Parameters:
@@ -2324,6 +2324,7 @@ class LiveTvApi {
   ///
   /// Parameters:
   /// * [userId] - Optional. filter by user id.
+  /// * [startIndex] - Optional. The record index to start at. All items with a lower index will be dropped from the results.
   /// * [limit] - Optional. The maximum number of records to return.
   /// * [isAiring] - Optional. Filter by programs that are currently airing, or not.
   /// * [hasAired] - Optional. Filter by programs that have completed airing, or not.
@@ -2350,6 +2351,7 @@ class LiveTvApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<BaseItemDtoQueryResult>> getRecommendedPrograms({
     String? userId,
+    int? startIndex,
     int? limit,
     bool? isAiring,
     bool? hasAired,
@@ -2396,6 +2398,9 @@ class LiveTvApi {
       if (userId != null)
         r'userId':
             encodeQueryParameter(_serializers, userId, const FullType(String)),
+      if (startIndex != null)
+        r'startIndex':
+            encodeQueryParameter(_serializers, startIndex, const FullType(int)),
       if (limit != null)
         r'limit':
             encodeQueryParameter(_serializers, limit, const FullType(int)),

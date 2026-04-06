@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/task_trigger_info_type.dart';
 import 'package:tentacle/src/model/day_of_week.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -22,7 +23,8 @@ abstract class TaskTriggerInfo
     implements Built<TaskTriggerInfo, TaskTriggerInfoBuilder> {
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
-  String? get type;
+  TaskTriggerInfoType? get type;
+  // enum typeEnum {  DailyTrigger,  WeeklyTrigger,  IntervalTrigger,  StartupTrigger,  };
 
   /// Gets or sets the time of day.
   @BuiltValueField(wireName: r'TimeOfDayTicks')
@@ -71,7 +73,7 @@ class _$TaskTriggerInfoSerializer
       yield r'Type';
       yield serializers.serialize(
         object.type,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(TaskTriggerInfoType),
       );
     }
     if (object.timeOfDayTicks != null) {
@@ -130,9 +132,8 @@ class _$TaskTriggerInfoSerializer
         case r'Type':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(TaskTriggerInfoType),
+          ) as TaskTriggerInfoType;
           result.type = valueDes;
           break;
         case r'TimeOfDayTicks':

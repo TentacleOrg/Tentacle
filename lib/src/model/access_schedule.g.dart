@@ -19,19 +19,17 @@ class _$AccessSchedule extends AccessSchedule {
   final double? endHour;
 
   factory _$AccessSchedule([void Function(AccessScheduleBuilder)? updates]) =>
-      (new AccessScheduleBuilder()..update(updates))._build();
+      (AccessScheduleBuilder()..update(updates))._build();
 
   _$AccessSchedule._(
       {this.id, this.userId, this.dayOfWeek, this.startHour, this.endHour})
       : super._();
-
   @override
   AccessSchedule rebuild(void Function(AccessScheduleBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AccessScheduleBuilder toBuilder() =>
-      new AccessScheduleBuilder()..replace(this);
+  AccessScheduleBuilder toBuilder() => AccessScheduleBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -111,7 +109,6 @@ class AccessScheduleBuilder
 
   @override
   void replace(AccessSchedule other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AccessSchedule;
   }
 
@@ -125,12 +122,13 @@ class AccessScheduleBuilder
 
   _$AccessSchedule _build() {
     final _$result = _$v ??
-        new _$AccessSchedule._(
-            id: id,
-            userId: userId,
-            dayOfWeek: dayOfWeek,
-            startHour: startHour,
-            endHour: endHour);
+        _$AccessSchedule._(
+          id: id,
+          userId: userId,
+          dayOfWeek: dayOfWeek,
+          startHour: startHour,
+          endHour: endHour,
+        );
     replace(_$result);
     return _$result;
   }

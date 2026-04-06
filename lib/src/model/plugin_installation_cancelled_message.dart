@@ -13,7 +13,7 @@ part 'plugin_installation_cancelled_message.g.dart';
 /// Plugin installation cancelled message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Class InstallationInfo.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
@@ -21,7 +21,7 @@ abstract class PluginInstallationCancelledMessage
     implements
         Built<PluginInstallationCancelledMessage,
             PluginInstallationCancelledMessageBuilder> {
-  /// Gets or sets the data.
+  /// Class InstallationInfo.
   @BuiltValueField(wireName: r'Data')
   InstallationInfo? get data;
 

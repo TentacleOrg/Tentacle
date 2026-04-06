@@ -13,7 +13,7 @@ part 'plugin_installation_failed_message.g.dart';
 /// Plugin installation failed message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Class InstallationInfo.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
@@ -21,7 +21,7 @@ abstract class PluginInstallationFailedMessage
     implements
         Built<PluginInstallationFailedMessage,
             PluginInstallationFailedMessageBuilder> {
-  /// Gets or sets the data.
+  /// Class InstallationInfo.
   @BuiltValueField(wireName: r'Data')
   InstallationInfo? get data;
 

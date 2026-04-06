@@ -33,7 +33,7 @@ class _$ChannelFeatures extends ChannelFeatures {
   final bool? supportsContentDownloading;
 
   factory _$ChannelFeatures([void Function(ChannelFeaturesBuilder)? updates]) =>
-      (new ChannelFeaturesBuilder()..update(updates))._build();
+      (ChannelFeaturesBuilder()..update(updates))._build();
 
   _$ChannelFeatures._(
       {this.name,
@@ -49,14 +49,12 @@ class _$ChannelFeatures extends ChannelFeatures {
       this.canFilter,
       this.supportsContentDownloading})
       : super._();
-
   @override
   ChannelFeatures rebuild(void Function(ChannelFeaturesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChannelFeaturesBuilder toBuilder() =>
-      new ChannelFeaturesBuilder()..replace(this);
+  ChannelFeaturesBuilder toBuilder() => ChannelFeaturesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -132,13 +130,13 @@ class ChannelFeaturesBuilder
 
   ListBuilder<ChannelMediaType>? _mediaTypes;
   ListBuilder<ChannelMediaType> get mediaTypes =>
-      _$this._mediaTypes ??= new ListBuilder<ChannelMediaType>();
+      _$this._mediaTypes ??= ListBuilder<ChannelMediaType>();
   set mediaTypes(ListBuilder<ChannelMediaType>? mediaTypes) =>
       _$this._mediaTypes = mediaTypes;
 
   ListBuilder<ChannelMediaContentType>? _contentTypes;
   ListBuilder<ChannelMediaContentType> get contentTypes =>
-      _$this._contentTypes ??= new ListBuilder<ChannelMediaContentType>();
+      _$this._contentTypes ??= ListBuilder<ChannelMediaContentType>();
   set contentTypes(ListBuilder<ChannelMediaContentType>? contentTypes) =>
       _$this._contentTypes = contentTypes;
 
@@ -153,7 +151,7 @@ class ChannelFeaturesBuilder
 
   ListBuilder<ChannelItemSortField>? _defaultSortFields;
   ListBuilder<ChannelItemSortField> get defaultSortFields =>
-      _$this._defaultSortFields ??= new ListBuilder<ChannelItemSortField>();
+      _$this._defaultSortFields ??= ListBuilder<ChannelItemSortField>();
   set defaultSortFields(ListBuilder<ChannelItemSortField>? defaultSortFields) =>
       _$this._defaultSortFields = defaultSortFields;
 
@@ -202,7 +200,6 @@ class ChannelFeaturesBuilder
 
   @override
   void replace(ChannelFeatures other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ChannelFeatures;
   }
 
@@ -218,19 +215,20 @@ class ChannelFeaturesBuilder
     _$ChannelFeatures _$result;
     try {
       _$result = _$v ??
-          new _$ChannelFeatures._(
-              name: name,
-              id: id,
-              canSearch: canSearch,
-              mediaTypes: _mediaTypes?.build(),
-              contentTypes: _contentTypes?.build(),
-              maxPageSize: maxPageSize,
-              autoRefreshLevels: autoRefreshLevels,
-              defaultSortFields: _defaultSortFields?.build(),
-              supportsSortOrderToggle: supportsSortOrderToggle,
-              supportsLatestMedia: supportsLatestMedia,
-              canFilter: canFilter,
-              supportsContentDownloading: supportsContentDownloading);
+          _$ChannelFeatures._(
+            name: name,
+            id: id,
+            canSearch: canSearch,
+            mediaTypes: _mediaTypes?.build(),
+            contentTypes: _contentTypes?.build(),
+            maxPageSize: maxPageSize,
+            autoRefreshLevels: autoRefreshLevels,
+            defaultSortFields: _defaultSortFields?.build(),
+            supportsSortOrderToggle: supportsSortOrderToggle,
+            supportsLatestMedia: supportsLatestMedia,
+            canFilter: canFilter,
+            supportsContentDownloading: supportsContentDownloading,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -242,7 +240,7 @@ class ChannelFeaturesBuilder
         _$failedField = 'defaultSortFields';
         _defaultSortFields?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ChannelFeatures', _$failedField, e.toString());
       }
       rethrow;

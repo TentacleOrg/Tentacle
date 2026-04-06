@@ -57,7 +57,7 @@ class _$CreditCrew extends CreditCrew {
   final MediaInfo? mediaInfo;
 
   factory _$CreditCrew([void Function(CreditCrewBuilder)? updates]) =>
-      (new CreditCrewBuilder()..update(updates))._build();
+      (CreditCrewBuilder()..update(updates))._build();
 
   _$CreditCrew._(
       {this.id,
@@ -85,13 +85,12 @@ class _$CreditCrew extends CreditCrew {
       this.job,
       this.mediaInfo})
       : super._();
-
   @override
   CreditCrew rebuild(void Function(CreditCrewBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CreditCrewBuilder toBuilder() => new CreditCrewBuilder()..replace(this);
+  CreditCrewBuilder toBuilder() => CreditCrewBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -207,7 +206,7 @@ class CreditCrewBuilder implements Builder<CreditCrew, CreditCrewBuilder> {
 
   ListBuilder<String>? _originCountry;
   ListBuilder<String> get originCountry =>
-      _$this._originCountry ??= new ListBuilder<String>();
+      _$this._originCountry ??= ListBuilder<String>();
   set originCountry(ListBuilder<String>? originCountry) =>
       _$this._originCountry = originCountry;
 
@@ -248,7 +247,7 @@ class CreditCrewBuilder implements Builder<CreditCrew, CreditCrewBuilder> {
   set voteAverage(num? voteAverage) => _$this._voteAverage = voteAverage;
 
   ListBuilder<num>? _genreIds;
-  ListBuilder<num> get genreIds => _$this._genreIds ??= new ListBuilder<num>();
+  ListBuilder<num> get genreIds => _$this._genreIds ??= ListBuilder<num>();
   set genreIds(ListBuilder<num>? genreIds) => _$this._genreIds = genreIds;
 
   String? _posterPath;
@@ -285,8 +284,7 @@ class CreditCrewBuilder implements Builder<CreditCrew, CreditCrewBuilder> {
   set job(String? job) => _$this._job = job;
 
   MediaInfoBuilder? _mediaInfo;
-  MediaInfoBuilder get mediaInfo =>
-      _$this._mediaInfo ??= new MediaInfoBuilder();
+  MediaInfoBuilder get mediaInfo => _$this._mediaInfo ??= MediaInfoBuilder();
   set mediaInfo(MediaInfoBuilder? mediaInfo) => _$this._mediaInfo = mediaInfo;
 
   CreditCrewBuilder() {
@@ -327,7 +325,6 @@ class CreditCrewBuilder implements Builder<CreditCrew, CreditCrewBuilder> {
 
   @override
   void replace(CreditCrew other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CreditCrew;
   }
 
@@ -343,31 +340,32 @@ class CreditCrewBuilder implements Builder<CreditCrew, CreditCrewBuilder> {
     _$CreditCrew _$result;
     try {
       _$result = _$v ??
-          new _$CreditCrew._(
-              id: id,
-              originalLanguage: originalLanguage,
-              episodeCount: episodeCount,
-              overview: overview,
-              originCountry: _originCountry?.build(),
-              originalName: originalName,
-              voteCount: voteCount,
-              name: name,
-              mediaType: mediaType,
-              popularity: popularity,
-              creditId: creditId,
-              backdropPath: backdropPath,
-              firstAirDate: firstAirDate,
-              voteAverage: voteAverage,
-              genreIds: _genreIds?.build(),
-              posterPath: posterPath,
-              originalTitle: originalTitle,
-              video: video,
-              title: title,
-              adult: adult,
-              releaseDate: releaseDate,
-              department: department,
-              job: job,
-              mediaInfo: _mediaInfo?.build());
+          _$CreditCrew._(
+            id: id,
+            originalLanguage: originalLanguage,
+            episodeCount: episodeCount,
+            overview: overview,
+            originCountry: _originCountry?.build(),
+            originalName: originalName,
+            voteCount: voteCount,
+            name: name,
+            mediaType: mediaType,
+            popularity: popularity,
+            creditId: creditId,
+            backdropPath: backdropPath,
+            firstAirDate: firstAirDate,
+            voteAverage: voteAverage,
+            genreIds: _genreIds?.build(),
+            posterPath: posterPath,
+            originalTitle: originalTitle,
+            video: video,
+            title: title,
+            adult: adult,
+            releaseDate: releaseDate,
+            department: department,
+            job: job,
+            mediaInfo: _mediaInfo?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -380,7 +378,7 @@ class CreditCrewBuilder implements Builder<CreditCrew, CreditCrewBuilder> {
         _$failedField = 'mediaInfo';
         _mediaInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'CreditCrew', _$failedField, e.toString());
       }
       rethrow;

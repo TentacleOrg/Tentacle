@@ -162,12 +162,12 @@ GeneralCommandType _$valueOf(String name) {
     case 'setPlaybackOrder':
       return _$setPlaybackOrder;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<GeneralCommandType> _$values =
-    new BuiltSet<GeneralCommandType>(const <GeneralCommandType>[
+    BuiltSet<GeneralCommandType>(const <GeneralCommandType>[
   _$moveUp,
   _$moveDown,
   _$moveLeft,
@@ -269,7 +269,7 @@ mixin _$GeneralCommandTypeMixin {
 }
 
 Serializer<GeneralCommandType> _$generalCommandTypeSerializer =
-    new _$GeneralCommandTypeSerializer();
+    _$GeneralCommandTypeSerializer();
 
 class _$GeneralCommandTypeSerializer
     implements PrimitiveSerializer<GeneralCommandType> {

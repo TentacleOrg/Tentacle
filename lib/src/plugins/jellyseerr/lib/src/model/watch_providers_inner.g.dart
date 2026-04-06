@@ -18,11 +18,10 @@ class _$WatchProvidersInner extends WatchProvidersInner {
 
   factory _$WatchProvidersInner(
           [void Function(WatchProvidersInnerBuilder)? updates]) =>
-      (new WatchProvidersInnerBuilder()..update(updates))._build();
+      (WatchProvidersInnerBuilder()..update(updates))._build();
 
   _$WatchProvidersInner._({this.iso31661, this.link, this.buy, this.flatrate})
       : super._();
-
   @override
   WatchProvidersInner rebuild(
           void Function(WatchProvidersInnerBuilder) updates) =>
@@ -30,7 +29,7 @@ class _$WatchProvidersInner extends WatchProvidersInner {
 
   @override
   WatchProvidersInnerBuilder toBuilder() =>
-      new WatchProvidersInnerBuilder()..replace(this);
+      WatchProvidersInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -78,12 +77,12 @@ class WatchProvidersInnerBuilder
 
   ListBuilder<WatchProviderDetails>? _buy;
   ListBuilder<WatchProviderDetails> get buy =>
-      _$this._buy ??= new ListBuilder<WatchProviderDetails>();
+      _$this._buy ??= ListBuilder<WatchProviderDetails>();
   set buy(ListBuilder<WatchProviderDetails>? buy) => _$this._buy = buy;
 
   ListBuilder<WatchProviderDetails>? _flatrate;
   ListBuilder<WatchProviderDetails> get flatrate =>
-      _$this._flatrate ??= new ListBuilder<WatchProviderDetails>();
+      _$this._flatrate ??= ListBuilder<WatchProviderDetails>();
   set flatrate(ListBuilder<WatchProviderDetails>? flatrate) =>
       _$this._flatrate = flatrate;
 
@@ -105,7 +104,6 @@ class WatchProvidersInnerBuilder
 
   @override
   void replace(WatchProvidersInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WatchProvidersInner;
   }
 
@@ -121,11 +119,12 @@ class WatchProvidersInnerBuilder
     _$WatchProvidersInner _$result;
     try {
       _$result = _$v ??
-          new _$WatchProvidersInner._(
-              iso31661: iso31661,
-              link: link,
-              buy: _buy?.build(),
-              flatrate: _flatrate?.build());
+          _$WatchProvidersInner._(
+            iso31661: iso31661,
+            link: link,
+            buy: _buy?.build(),
+            flatrate: _flatrate?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -134,7 +133,7 @@ class WatchProvidersInnerBuilder
         _$failedField = 'flatrate';
         _flatrate?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'WatchProvidersInner', _$failedField, e.toString());
       }
       rethrow;

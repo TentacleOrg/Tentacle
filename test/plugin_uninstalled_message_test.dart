@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(PluginUninstalledMessage, () {
-    // Gets or sets the data.
+    // This is a serializable stub class that is used by the api to provide information about installed plugins.
     // PluginInfo data
     test('to test the property `data`', () async {
       // TODO

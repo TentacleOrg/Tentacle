@@ -8,7 +8,7 @@ void main() {
 
   group(TaskTriggerInfo, () {
     // Gets or sets the type.
-    // String type
+    // TaskTriggerInfoType type
     test('to test the property `type`', () async {
       // TODO
     });

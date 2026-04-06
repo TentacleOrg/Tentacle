@@ -15,17 +15,15 @@ class _$LunaSeaSettings extends LunaSeaSettings {
   final LunaSeaSettingsOptions? options;
 
   factory _$LunaSeaSettings([void Function(LunaSeaSettingsBuilder)? updates]) =>
-      (new LunaSeaSettingsBuilder()..update(updates))._build();
+      (LunaSeaSettingsBuilder()..update(updates))._build();
 
   _$LunaSeaSettings._({this.enabled, this.types, this.options}) : super._();
-
   @override
   LunaSeaSettings rebuild(void Function(LunaSeaSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LunaSeaSettingsBuilder toBuilder() =>
-      new LunaSeaSettingsBuilder()..replace(this);
+  LunaSeaSettingsBuilder toBuilder() => LunaSeaSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +68,7 @@ class LunaSeaSettingsBuilder
 
   LunaSeaSettingsOptionsBuilder? _options;
   LunaSeaSettingsOptionsBuilder get options =>
-      _$this._options ??= new LunaSeaSettingsOptionsBuilder();
+      _$this._options ??= LunaSeaSettingsOptionsBuilder();
   set options(LunaSeaSettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -91,7 +89,6 @@ class LunaSeaSettingsBuilder
 
   @override
   void replace(LunaSeaSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LunaSeaSettings;
   }
 
@@ -107,15 +104,18 @@ class LunaSeaSettingsBuilder
     _$LunaSeaSettings _$result;
     try {
       _$result = _$v ??
-          new _$LunaSeaSettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$LunaSeaSettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LunaSeaSettings', _$failedField, e.toString());
       }
       rethrow;

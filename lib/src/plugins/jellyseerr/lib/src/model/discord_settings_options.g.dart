@@ -18,7 +18,7 @@ class _$DiscordSettingsOptions extends DiscordSettingsOptions {
 
   factory _$DiscordSettingsOptions(
           [void Function(DiscordSettingsOptionsBuilder)? updates]) =>
-      (new DiscordSettingsOptionsBuilder()..update(updates))._build();
+      (DiscordSettingsOptionsBuilder()..update(updates))._build();
 
   _$DiscordSettingsOptions._(
       {this.botUsername,
@@ -26,7 +26,6 @@ class _$DiscordSettingsOptions extends DiscordSettingsOptions {
       this.webhookUrl,
       this.enableMentions})
       : super._();
-
   @override
   DiscordSettingsOptions rebuild(
           void Function(DiscordSettingsOptionsBuilder) updates) =>
@@ -34,7 +33,7 @@ class _$DiscordSettingsOptions extends DiscordSettingsOptions {
 
   @override
   DiscordSettingsOptionsBuilder toBuilder() =>
-      new DiscordSettingsOptionsBuilder()..replace(this);
+      DiscordSettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -107,7 +106,6 @@ class DiscordSettingsOptionsBuilder
 
   @override
   void replace(DiscordSettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscordSettingsOptions;
   }
 
@@ -121,11 +119,12 @@ class DiscordSettingsOptionsBuilder
 
   _$DiscordSettingsOptions _build() {
     final _$result = _$v ??
-        new _$DiscordSettingsOptions._(
-            botUsername: botUsername,
-            botAvatarUrl: botAvatarUrl,
-            webhookUrl: webhookUrl,
-            enableMentions: enableMentions);
+        _$DiscordSettingsOptions._(
+          botUsername: botUsername,
+          botAvatarUrl: botAvatarUrl,
+          webhookUrl: webhookUrl,
+          enableMentions: enableMentions,
+        );
     replace(_$result);
     return _$result;
   }

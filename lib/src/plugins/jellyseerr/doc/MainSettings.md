@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 **hideAvailable** | **bool** |  | [optional] 
 **partialRequestsEnabled** | **bool** |  | [optional] 
 **localLogin** | **bool** |  | [optional] 
-**mediaServerType** | **num** |  | [optional] 
 **newPlexLogin** | **bool** |  | [optional] 
 **defaultPermissions** | **num** |  | [optional] 
 

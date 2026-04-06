@@ -10,7 +10,7 @@ import 'package:built_value/serializer.dart';
 
 part 'base_item_dto_query_result.g.dart';
 
-/// BaseItemDtoQueryResult
+/// Query result container.
 ///
 /// Properties:
 /// * [items] - Gets or sets the items.
@@ -65,8 +65,7 @@ class _$BaseItemDtoQueryResultSerializer
       yield r'Items';
       yield serializers.serialize(
         object.items,
-        specifiedType:
-            const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
+        specifiedType: const FullType(BuiltList, [FullType(BaseItemDto)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -111,10 +110,8 @@ class _$BaseItemDtoQueryResultSerializer
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType:
-                const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
-          ) as BuiltList<BaseItemDto>?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(BuiltList, [FullType(BaseItemDto)]),
+          ) as BuiltList<BaseItemDto>;
           result.items.replace(valueDes);
           break;
         case r'TotalRecordCount':

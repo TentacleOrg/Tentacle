@@ -14,10 +14,9 @@ class _$UserUserIdQuotaGet200Response extends UserUserIdQuotaGet200Response {
 
   factory _$UserUserIdQuotaGet200Response(
           [void Function(UserUserIdQuotaGet200ResponseBuilder)? updates]) =>
-      (new UserUserIdQuotaGet200ResponseBuilder()..update(updates))._build();
+      (UserUserIdQuotaGet200ResponseBuilder()..update(updates))._build();
 
   _$UserUserIdQuotaGet200Response._({this.movie, this.tv}) : super._();
-
   @override
   UserUserIdQuotaGet200Response rebuild(
           void Function(UserUserIdQuotaGet200ResponseBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$UserUserIdQuotaGet200Response extends UserUserIdQuotaGet200Response {
 
   @override
   UserUserIdQuotaGet200ResponseBuilder toBuilder() =>
-      new UserUserIdQuotaGet200ResponseBuilder()..replace(this);
+      UserUserIdQuotaGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -61,13 +60,13 @@ class UserUserIdQuotaGet200ResponseBuilder
 
   UserUserIdQuotaGet200ResponseMovieBuilder? _movie;
   UserUserIdQuotaGet200ResponseMovieBuilder get movie =>
-      _$this._movie ??= new UserUserIdQuotaGet200ResponseMovieBuilder();
+      _$this._movie ??= UserUserIdQuotaGet200ResponseMovieBuilder();
   set movie(UserUserIdQuotaGet200ResponseMovieBuilder? movie) =>
       _$this._movie = movie;
 
   UserUserIdQuotaGet200ResponseMovieBuilder? _tv;
   UserUserIdQuotaGet200ResponseMovieBuilder get tv =>
-      _$this._tv ??= new UserUserIdQuotaGet200ResponseMovieBuilder();
+      _$this._tv ??= UserUserIdQuotaGet200ResponseMovieBuilder();
   set tv(UserUserIdQuotaGet200ResponseMovieBuilder? tv) => _$this._tv = tv;
 
   UserUserIdQuotaGet200ResponseBuilder() {
@@ -86,7 +85,6 @@ class UserUserIdQuotaGet200ResponseBuilder
 
   @override
   void replace(UserUserIdQuotaGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdQuotaGet200Response;
   }
 
@@ -102,8 +100,10 @@ class UserUserIdQuotaGet200ResponseBuilder
     _$UserUserIdQuotaGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$UserUserIdQuotaGet200Response._(
-              movie: _movie?.build(), tv: _tv?.build());
+          _$UserUserIdQuotaGet200Response._(
+            movie: _movie?.build(),
+            tv: _tv?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -112,7 +112,7 @@ class UserUserIdQuotaGet200ResponseBuilder
         _$failedField = 'tv';
         _tv?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserUserIdQuotaGet200Response', _$failedField, e.toString());
       }
       rethrow;

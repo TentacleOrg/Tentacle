@@ -42,6 +42,21 @@ void main() {
       // TODO
     });
 
+    // bool allowFmp4TranscodingContainer
+    test('to test the property `allowFmp4TranscodingContainer`', () async {
+      // TODO
+    });
+
+    // bool allowStreamSharing
+    test('to test the property `allowStreamSharing`', () async {
+      // TODO
+    });
+
+    // int fallbackMaxStreamingBitrate
+    test('to test the property `fallbackMaxStreamingBitrate`', () async {
+      // TODO
+    });
+
     // bool enableStreamLooping
     test('to test the property `enableStreamLooping`', () async {
       // TODO
@@ -64,6 +79,11 @@ void main() {
 
     // bool ignoreDts
     test('to test the property `ignoreDts`', () async {
+      // TODO
+    });
+
+    // bool readAtNativeFramerate
+    test('to test the property `readAtNativeFramerate`', () async {
       // TODO
     });
   });

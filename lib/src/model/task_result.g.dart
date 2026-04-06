@@ -25,7 +25,7 @@ class _$TaskResult extends TaskResult {
   final String? longErrorMessage;
 
   factory _$TaskResult([void Function(TaskResultBuilder)? updates]) =>
-      (new TaskResultBuilder()..update(updates))._build();
+      (TaskResultBuilder()..update(updates))._build();
 
   _$TaskResult._(
       {this.startTimeUtc,
@@ -37,13 +37,12 @@ class _$TaskResult extends TaskResult {
       this.errorMessage,
       this.longErrorMessage})
       : super._();
-
   @override
   TaskResult rebuild(void Function(TaskResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TaskResultBuilder toBuilder() => new TaskResultBuilder()..replace(this);
+  TaskResultBuilder toBuilder() => TaskResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -148,7 +147,6 @@ class TaskResultBuilder implements Builder<TaskResult, TaskResultBuilder> {
 
   @override
   void replace(TaskResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TaskResult;
   }
 
@@ -162,15 +160,16 @@ class TaskResultBuilder implements Builder<TaskResult, TaskResultBuilder> {
 
   _$TaskResult _build() {
     final _$result = _$v ??
-        new _$TaskResult._(
-            startTimeUtc: startTimeUtc,
-            endTimeUtc: endTimeUtc,
-            status: status,
-            name: name,
-            key: key,
-            id: id,
-            errorMessage: errorMessage,
-            longErrorMessage: longErrorMessage);
+        _$TaskResult._(
+          startTimeUtc: startTimeUtc,
+          endTimeUtc: endTimeUtc,
+          status: status,
+          name: name,
+          key: key,
+          id: id,
+          errorMessage: errorMessage,
+          longErrorMessage: longErrorMessage,
+        );
     replace(_$result);
     return _$result;
   }

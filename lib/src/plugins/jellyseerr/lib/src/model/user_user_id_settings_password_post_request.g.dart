@@ -16,16 +16,12 @@ class _$UserUserIdSettingsPasswordPostRequest
   factory _$UserUserIdSettingsPasswordPostRequest(
           [void Function(UserUserIdSettingsPasswordPostRequestBuilder)?
               updates]) =>
-      (new UserUserIdSettingsPasswordPostRequestBuilder()..update(updates))
+      (UserUserIdSettingsPasswordPostRequestBuilder()..update(updates))
           ._build();
 
   _$UserUserIdSettingsPasswordPostRequest._(
       {this.currentPassword, required this.newPassword})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        newPassword, r'UserUserIdSettingsPasswordPostRequest', 'newPassword');
-  }
-
+      : super._();
   @override
   UserUserIdSettingsPasswordPostRequest rebuild(
           void Function(UserUserIdSettingsPasswordPostRequestBuilder)
@@ -34,7 +30,7 @@ class _$UserUserIdSettingsPasswordPostRequest
 
   @override
   UserUserIdSettingsPasswordPostRequestBuilder toBuilder() =>
-      new UserUserIdSettingsPasswordPostRequestBuilder()..replace(this);
+      UserUserIdSettingsPasswordPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -94,7 +90,6 @@ class UserUserIdSettingsPasswordPostRequestBuilder
 
   @override
   void replace(UserUserIdSettingsPasswordPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdSettingsPasswordPostRequest;
   }
 
@@ -109,10 +104,11 @@ class UserUserIdSettingsPasswordPostRequestBuilder
 
   _$UserUserIdSettingsPasswordPostRequest _build() {
     final _$result = _$v ??
-        new _$UserUserIdSettingsPasswordPostRequest._(
-            currentPassword: currentPassword,
-            newPassword: BuiltValueNullFieldError.checkNotNull(newPassword,
-                r'UserUserIdSettingsPasswordPostRequest', 'newPassword'));
+        _$UserUserIdSettingsPasswordPostRequest._(
+          currentPassword: currentPassword,
+          newPassword: BuiltValueNullFieldError.checkNotNull(newPassword,
+              r'UserUserIdSettingsPasswordPostRequest', 'newPassword'),
+        );
     replace(_$result);
     return _$result;
   }

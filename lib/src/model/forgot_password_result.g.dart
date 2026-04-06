@@ -16,11 +16,10 @@ class _$ForgotPasswordResult extends ForgotPasswordResult {
 
   factory _$ForgotPasswordResult(
           [void Function(ForgotPasswordResultBuilder)? updates]) =>
-      (new ForgotPasswordResultBuilder()..update(updates))._build();
+      (ForgotPasswordResultBuilder()..update(updates))._build();
 
   _$ForgotPasswordResult._({this.action, this.pinFile, this.pinExpirationDate})
       : super._();
-
   @override
   ForgotPasswordResult rebuild(
           void Function(ForgotPasswordResultBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$ForgotPasswordResult extends ForgotPasswordResult {
 
   @override
   ForgotPasswordResultBuilder toBuilder() =>
-      new ForgotPasswordResultBuilder()..replace(this);
+      ForgotPasswordResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -93,7 +92,6 @@ class ForgotPasswordResultBuilder
 
   @override
   void replace(ForgotPasswordResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ForgotPasswordResult;
   }
 
@@ -107,10 +105,11 @@ class ForgotPasswordResultBuilder
 
   _$ForgotPasswordResult _build() {
     final _$result = _$v ??
-        new _$ForgotPasswordResult._(
-            action: action,
-            pinFile: pinFile,
-            pinExpirationDate: pinExpirationDate);
+        _$ForgotPasswordResult._(
+          action: action,
+          pinFile: pinFile,
+          pinExpirationDate: pinExpirationDate,
+        );
     replace(_$result);
     return _$result;
   }

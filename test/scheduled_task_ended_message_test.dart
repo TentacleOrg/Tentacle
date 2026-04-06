@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(ScheduledTaskEndedMessage, () {
-    // Gets or sets the data.
+    // Class TaskExecutionInfo.
     // TaskResult data
     test('to test the property `data`', () async {
       // TODO

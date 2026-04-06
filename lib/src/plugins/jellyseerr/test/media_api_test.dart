@@ -24,15 +24,6 @@ void main() {
       // TODO
     });
 
-    // Delete media file
-    //
-    // Removes a media file from radarr/sonarr. The `ADMIN` permission is required to perform this action.
-    //
-    //Future mediaMediaIdFileDelete(String mediaId) async
-    test('test mediaMediaIdFileDelete', () async {
-      // TODO
-    });
-
     // Update media status
     //
     // Updates a media item's status and returns the media in JSON format

@@ -16,11 +16,10 @@ class _$NotificationEmailSettings extends NotificationEmailSettings {
 
   factory _$NotificationEmailSettings(
           [void Function(NotificationEmailSettingsBuilder)? updates]) =>
-      (new NotificationEmailSettingsBuilder()..update(updates))._build();
+      (NotificationEmailSettingsBuilder()..update(updates))._build();
 
   _$NotificationEmailSettings._({this.enabled, this.types, this.options})
       : super._();
-
   @override
   NotificationEmailSettings rebuild(
           void Function(NotificationEmailSettingsBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$NotificationEmailSettings extends NotificationEmailSettings {
 
   @override
   NotificationEmailSettingsBuilder toBuilder() =>
-      new NotificationEmailSettingsBuilder()..replace(this);
+      NotificationEmailSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,7 +73,7 @@ class NotificationEmailSettingsBuilder
 
   NotificationEmailSettingsOptionsBuilder? _options;
   NotificationEmailSettingsOptionsBuilder get options =>
-      _$this._options ??= new NotificationEmailSettingsOptionsBuilder();
+      _$this._options ??= NotificationEmailSettingsOptionsBuilder();
   set options(NotificationEmailSettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -95,7 +94,6 @@ class NotificationEmailSettingsBuilder
 
   @override
   void replace(NotificationEmailSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationEmailSettings;
   }
 
@@ -111,15 +109,18 @@ class NotificationEmailSettingsBuilder
     _$NotificationEmailSettings _$result;
     try {
       _$result = _$v ??
-          new _$NotificationEmailSettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$NotificationEmailSettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'NotificationEmailSettings', _$failedField, e.toString());
       }
       rethrow;

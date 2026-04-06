@@ -17,12 +17,12 @@ LiveTvServiceStatus _$valueOf(String name) {
     case 'unavailable':
       return _$unavailable;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<LiveTvServiceStatus> _$values =
-    new BuiltSet<LiveTvServiceStatus>(const <LiveTvServiceStatus>[
+    BuiltSet<LiveTvServiceStatus>(const <LiveTvServiceStatus>[
   _$ok,
   _$unavailable,
 ]);
@@ -42,7 +42,7 @@ mixin _$LiveTvServiceStatusMixin {
 }
 
 Serializer<LiveTvServiceStatus> _$liveTvServiceStatusSerializer =
-    new _$LiveTvServiceStatusSerializer();
+    _$LiveTvServiceStatusSerializer();
 
 class _$LiveTvServiceStatusSerializer
     implements PrimitiveSerializer<LiveTvServiceStatus> {

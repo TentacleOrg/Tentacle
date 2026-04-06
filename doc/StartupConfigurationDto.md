@@ -8,6 +8,7 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**serverName** | **String** | Gets or sets the server name. | [optional] 
 **uICulture** | **String** | Gets or sets UI language culture. | [optional] 
 **metadataCountryCode** | **String** | Gets or sets the metadata country code. | [optional] 
 **preferredMetadataLanguage** | **String** | Gets or sets the preferred language for the metadata. | [optional] 

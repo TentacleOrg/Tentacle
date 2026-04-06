@@ -67,9 +67,16 @@ void main() {
       // TODO
     });
 
-    // Gets or sets a value indicating whether to enale direct stream.
+    // Gets or sets a value indicating whether to enable direct stream.
     // bool enableDirectStream
     test('to test the property `enableDirectStream`', () async {
+      // TODO
+    });
+
+    // Gets or sets a value indicating whether always burn in subtitles when transcoding.
+    // bool alwaysBurnInSubtitleWhenTranscoding
+    test('to test the property `alwaysBurnInSubtitleWhenTranscoding`',
+        () async {
       // TODO
     });
 

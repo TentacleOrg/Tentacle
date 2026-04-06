@@ -14,6 +14,12 @@ const VideoRangeType _$DOVI = const VideoRangeType._('DOVI');
 const VideoRangeType _$dOVIWithHDR10 = const VideoRangeType._('dOVIWithHDR10');
 const VideoRangeType _$dOVIWithHLG = const VideoRangeType._('dOVIWithHLG');
 const VideoRangeType _$dOVIWithSDR = const VideoRangeType._('dOVIWithSDR');
+const VideoRangeType _$dOVIWithEL = const VideoRangeType._('dOVIWithEL');
+const VideoRangeType _$dOVIWithHDR10Plus =
+    const VideoRangeType._('dOVIWithHDR10Plus');
+const VideoRangeType _$dOVIWithELHDR10Plus =
+    const VideoRangeType._('dOVIWithELHDR10Plus');
+const VideoRangeType _$dOVIInvalid = const VideoRangeType._('dOVIInvalid');
 const VideoRangeType _$hDR10Plus = const VideoRangeType._('hDR10Plus');
 
 VideoRangeType _$valueOf(String name) {
@@ -34,15 +40,23 @@ VideoRangeType _$valueOf(String name) {
       return _$dOVIWithHLG;
     case 'dOVIWithSDR':
       return _$dOVIWithSDR;
+    case 'dOVIWithEL':
+      return _$dOVIWithEL;
+    case 'dOVIWithHDR10Plus':
+      return _$dOVIWithHDR10Plus;
+    case 'dOVIWithELHDR10Plus':
+      return _$dOVIWithELHDR10Plus;
+    case 'dOVIInvalid':
+      return _$dOVIInvalid;
     case 'hDR10Plus':
       return _$hDR10Plus;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<VideoRangeType> _$values =
-    new BuiltSet<VideoRangeType>(const <VideoRangeType>[
+    BuiltSet<VideoRangeType>(const <VideoRangeType>[
   _$unknown,
   _$SDR,
   _$hDR10,
@@ -51,6 +65,10 @@ final BuiltSet<VideoRangeType> _$values =
   _$dOVIWithHDR10,
   _$dOVIWithHLG,
   _$dOVIWithSDR,
+  _$dOVIWithEL,
+  _$dOVIWithHDR10Plus,
+  _$dOVIWithELHDR10Plus,
+  _$dOVIInvalid,
   _$hDR10Plus,
 ]);
 
@@ -64,6 +82,10 @@ class _$VideoRangeTypeMeta {
   VideoRangeType get dOVIWithHDR10 => _$dOVIWithHDR10;
   VideoRangeType get dOVIWithHLG => _$dOVIWithHLG;
   VideoRangeType get dOVIWithSDR => _$dOVIWithSDR;
+  VideoRangeType get dOVIWithEL => _$dOVIWithEL;
+  VideoRangeType get dOVIWithHDR10Plus => _$dOVIWithHDR10Plus;
+  VideoRangeType get dOVIWithELHDR10Plus => _$dOVIWithELHDR10Plus;
+  VideoRangeType get dOVIInvalid => _$dOVIInvalid;
   VideoRangeType get hDR10Plus => _$hDR10Plus;
   VideoRangeType valueOf(String name) => _$valueOf(name);
   BuiltSet<VideoRangeType> get values => _$values;
@@ -75,7 +97,7 @@ mixin _$VideoRangeTypeMixin {
 }
 
 Serializer<VideoRangeType> _$videoRangeTypeSerializer =
-    new _$VideoRangeTypeSerializer();
+    _$VideoRangeTypeSerializer();
 
 class _$VideoRangeTypeSerializer
     implements PrimitiveSerializer<VideoRangeType> {
@@ -88,6 +110,10 @@ class _$VideoRangeTypeSerializer
     'dOVIWithHDR10': 'DOVIWithHDR10',
     'dOVIWithHLG': 'DOVIWithHLG',
     'dOVIWithSDR': 'DOVIWithSDR',
+    'dOVIWithEL': 'DOVIWithEL',
+    'dOVIWithHDR10Plus': 'DOVIWithHDR10Plus',
+    'dOVIWithELHDR10Plus': 'DOVIWithELHDR10Plus',
+    'dOVIInvalid': 'DOVIInvalid',
     'hDR10Plus': 'HDR10Plus',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
@@ -99,6 +125,10 @@ class _$VideoRangeTypeSerializer
     'DOVIWithHDR10': 'dOVIWithHDR10',
     'DOVIWithHLG': 'dOVIWithHLG',
     'DOVIWithSDR': 'dOVIWithSDR',
+    'DOVIWithEL': 'dOVIWithEL',
+    'DOVIWithHDR10Plus': 'dOVIWithHDR10Plus',
+    'DOVIWithELHDR10Plus': 'dOVIWithELHDR10Plus',
+    'DOVIInvalid': 'dOVIInvalid',
     'HDR10Plus': 'hDR10Plus',
   };
 

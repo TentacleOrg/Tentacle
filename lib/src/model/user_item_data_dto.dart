@@ -162,14 +162,14 @@ class _$UserItemDataDtoSerializer
       yield r'Key';
       yield serializers.serialize(
         object.key,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
     if (object.itemId != null) {
       yield r'ItemId';
       yield serializers.serialize(
         object.itemId,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
   }
@@ -268,17 +268,15 @@ class _$UserItemDataDtoSerializer
         case r'Key':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.key = valueDes;
           break;
         case r'ItemId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.itemId = valueDes;
           break;
         default:

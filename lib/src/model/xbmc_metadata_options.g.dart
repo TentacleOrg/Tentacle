@@ -20,7 +20,7 @@ class _$XbmcMetadataOptions extends XbmcMetadataOptions {
 
   factory _$XbmcMetadataOptions(
           [void Function(XbmcMetadataOptionsBuilder)? updates]) =>
-      (new XbmcMetadataOptionsBuilder()..update(updates))._build();
+      (XbmcMetadataOptionsBuilder()..update(updates))._build();
 
   _$XbmcMetadataOptions._(
       {this.userId,
@@ -29,7 +29,6 @@ class _$XbmcMetadataOptions extends XbmcMetadataOptions {
       this.enablePathSubstitution,
       this.enableExtraThumbsDuplication})
       : super._();
-
   @override
   XbmcMetadataOptions rebuild(
           void Function(XbmcMetadataOptionsBuilder) updates) =>
@@ -37,7 +36,7 @@ class _$XbmcMetadataOptions extends XbmcMetadataOptions {
 
   @override
   XbmcMetadataOptionsBuilder toBuilder() =>
-      new XbmcMetadataOptionsBuilder()..replace(this);
+      XbmcMetadataOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -122,7 +121,6 @@ class XbmcMetadataOptionsBuilder
 
   @override
   void replace(XbmcMetadataOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$XbmcMetadataOptions;
   }
 
@@ -136,12 +134,13 @@ class XbmcMetadataOptionsBuilder
 
   _$XbmcMetadataOptions _build() {
     final _$result = _$v ??
-        new _$XbmcMetadataOptions._(
-            userId: userId,
-            releaseDateFormat: releaseDateFormat,
-            saveImagePathsInNfo: saveImagePathsInNfo,
-            enablePathSubstitution: enablePathSubstitution,
-            enableExtraThumbsDuplication: enableExtraThumbsDuplication);
+        _$XbmcMetadataOptions._(
+          userId: userId,
+          releaseDateFormat: releaseDateFormat,
+          saveImagePathsInNfo: saveImagePathsInNfo,
+          enablePathSubstitution: enablePathSubstitution,
+          enableExtraThumbsDuplication: enableExtraThumbsDuplication,
+        );
     replace(_$result);
     return _$result;
   }

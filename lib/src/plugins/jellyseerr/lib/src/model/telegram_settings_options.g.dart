@@ -18,12 +18,11 @@ class _$TelegramSettingsOptions extends TelegramSettingsOptions {
 
   factory _$TelegramSettingsOptions(
           [void Function(TelegramSettingsOptionsBuilder)? updates]) =>
-      (new TelegramSettingsOptionsBuilder()..update(updates))._build();
+      (TelegramSettingsOptionsBuilder()..update(updates))._build();
 
   _$TelegramSettingsOptions._(
       {this.botUsername, this.botAPI, this.chatId, this.sendSilently})
       : super._();
-
   @override
   TelegramSettingsOptions rebuild(
           void Function(TelegramSettingsOptionsBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$TelegramSettingsOptions extends TelegramSettingsOptions {
 
   @override
   TelegramSettingsOptionsBuilder toBuilder() =>
-      new TelegramSettingsOptionsBuilder()..replace(this);
+      TelegramSettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +103,6 @@ class TelegramSettingsOptionsBuilder
 
   @override
   void replace(TelegramSettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TelegramSettingsOptions;
   }
 
@@ -118,11 +116,12 @@ class TelegramSettingsOptionsBuilder
 
   _$TelegramSettingsOptions _build() {
     final _$result = _$v ??
-        new _$TelegramSettingsOptions._(
-            botUsername: botUsername,
-            botAPI: botAPI,
-            chatId: chatId,
-            sendSilently: sendSilently);
+        _$TelegramSettingsOptions._(
+          botUsername: botUsername,
+          botAPI: botAPI,
+          chatId: chatId,
+          sendSilently: sendSilently,
+        );
     replace(_$result);
     return _$result;
   }

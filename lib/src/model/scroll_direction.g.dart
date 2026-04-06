@@ -16,12 +16,12 @@ ScrollDirection _$valueOf(String name) {
     case 'vertical':
       return _$vertical;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ScrollDirection> _$values =
-    new BuiltSet<ScrollDirection>(const <ScrollDirection>[
+    BuiltSet<ScrollDirection>(const <ScrollDirection>[
   _$horizontal,
   _$vertical,
 ]);
@@ -40,7 +40,7 @@ mixin _$ScrollDirectionMixin {
 }
 
 Serializer<ScrollDirection> _$scrollDirectionSerializer =
-    new _$ScrollDirectionSerializer();
+    _$ScrollDirectionSerializer();
 
 class _$ScrollDirectionSerializer
     implements PrimitiveSerializer<ScrollDirection> {

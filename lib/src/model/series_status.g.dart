@@ -19,12 +19,12 @@ SeriesStatus _$valueOf(String name) {
     case 'unreleased':
       return _$unreleased;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<SeriesStatus> _$values =
-    new BuiltSet<SeriesStatus>(const <SeriesStatus>[
+    BuiltSet<SeriesStatus>(const <SeriesStatus>[
   _$continuing,
   _$ended,
   _$unreleased,
@@ -44,8 +44,7 @@ mixin _$SeriesStatusMixin {
   _$SeriesStatusMeta get SeriesStatus => const _$SeriesStatusMeta();
 }
 
-Serializer<SeriesStatus> _$seriesStatusSerializer =
-    new _$SeriesStatusSerializer();
+Serializer<SeriesStatus> _$seriesStatusSerializer = _$SeriesStatusSerializer();
 
 class _$SeriesStatusSerializer implements PrimitiveSerializer<SeriesStatus> {
   static const Map<String, Object> _toWire = const <String, Object>{

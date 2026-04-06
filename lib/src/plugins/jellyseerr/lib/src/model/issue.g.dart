@@ -21,7 +21,7 @@ class _$Issue extends Issue {
   final BuiltList<IssueComment>? comments;
 
   factory _$Issue([void Function(IssueBuilder)? updates]) =>
-      (new IssueBuilder()..update(updates))._build();
+      (IssueBuilder()..update(updates))._build();
 
   _$Issue._(
       {this.id,
@@ -31,13 +31,12 @@ class _$Issue extends Issue {
       this.modifiedBy,
       this.comments})
       : super._();
-
   @override
   Issue rebuild(void Function(IssueBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  IssueBuilder toBuilder() => new IssueBuilder()..replace(this);
+  IssueBuilder toBuilder() => IssueBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -89,20 +88,20 @@ class IssueBuilder implements Builder<Issue, IssueBuilder> {
   set issueType(num? issueType) => _$this._issueType = issueType;
 
   MediaInfoBuilder? _media;
-  MediaInfoBuilder get media => _$this._media ??= new MediaInfoBuilder();
+  MediaInfoBuilder get media => _$this._media ??= MediaInfoBuilder();
   set media(MediaInfoBuilder? media) => _$this._media = media;
 
   UserBuilder? _createdBy;
-  UserBuilder get createdBy => _$this._createdBy ??= new UserBuilder();
+  UserBuilder get createdBy => _$this._createdBy ??= UserBuilder();
   set createdBy(UserBuilder? createdBy) => _$this._createdBy = createdBy;
 
   UserBuilder? _modifiedBy;
-  UserBuilder get modifiedBy => _$this._modifiedBy ??= new UserBuilder();
+  UserBuilder get modifiedBy => _$this._modifiedBy ??= UserBuilder();
   set modifiedBy(UserBuilder? modifiedBy) => _$this._modifiedBy = modifiedBy;
 
   ListBuilder<IssueComment>? _comments;
   ListBuilder<IssueComment> get comments =>
-      _$this._comments ??= new ListBuilder<IssueComment>();
+      _$this._comments ??= ListBuilder<IssueComment>();
   set comments(ListBuilder<IssueComment>? comments) =>
       _$this._comments = comments;
 
@@ -126,7 +125,6 @@ class IssueBuilder implements Builder<Issue, IssueBuilder> {
 
   @override
   void replace(Issue other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Issue;
   }
 
@@ -142,13 +140,14 @@ class IssueBuilder implements Builder<Issue, IssueBuilder> {
     _$Issue _$result;
     try {
       _$result = _$v ??
-          new _$Issue._(
-              id: id,
-              issueType: issueType,
-              media: _media?.build(),
-              createdBy: _createdBy?.build(),
-              modifiedBy: _modifiedBy?.build(),
-              comments: _comments?.build());
+          _$Issue._(
+            id: id,
+            issueType: issueType,
+            media: _media?.build(),
+            createdBy: _createdBy?.build(),
+            modifiedBy: _modifiedBy?.build(),
+            comments: _comments?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -161,8 +160,7 @@ class IssueBuilder implements Builder<Issue, IssueBuilder> {
         _$failedField = 'comments';
         _comments?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'Issue', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'Issue', _$failedField, e.toString());
       }
       rethrow;
     }

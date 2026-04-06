@@ -18,14 +18,12 @@ class _$PersonPersonIdCombinedCreditsGet200Response
   factory _$PersonPersonIdCombinedCreditsGet200Response(
           [void Function(PersonPersonIdCombinedCreditsGet200ResponseBuilder)?
               updates]) =>
-      (new PersonPersonIdCombinedCreditsGet200ResponseBuilder()
-            ..update(updates))
+      (PersonPersonIdCombinedCreditsGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$PersonPersonIdCombinedCreditsGet200Response._(
       {this.cast, this.crew, this.id})
       : super._();
-
   @override
   PersonPersonIdCombinedCreditsGet200Response rebuild(
           void Function(PersonPersonIdCombinedCreditsGet200ResponseBuilder)
@@ -34,7 +32,7 @@ class _$PersonPersonIdCombinedCreditsGet200Response
 
   @override
   PersonPersonIdCombinedCreditsGet200ResponseBuilder toBuilder() =>
-      new PersonPersonIdCombinedCreditsGet200ResponseBuilder()..replace(this);
+      PersonPersonIdCombinedCreditsGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,12 +72,12 @@ class PersonPersonIdCombinedCreditsGet200ResponseBuilder
 
   ListBuilder<CreditCast>? _cast;
   ListBuilder<CreditCast> get cast =>
-      _$this._cast ??= new ListBuilder<CreditCast>();
+      _$this._cast ??= ListBuilder<CreditCast>();
   set cast(ListBuilder<CreditCast>? cast) => _$this._cast = cast;
 
   ListBuilder<CreditCrew>? _crew;
   ListBuilder<CreditCrew> get crew =>
-      _$this._crew ??= new ListBuilder<CreditCrew>();
+      _$this._crew ??= ListBuilder<CreditCrew>();
   set crew(ListBuilder<CreditCrew>? crew) => _$this._crew = crew;
 
   num? _id;
@@ -103,7 +101,6 @@ class PersonPersonIdCombinedCreditsGet200ResponseBuilder
 
   @override
   void replace(PersonPersonIdCombinedCreditsGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PersonPersonIdCombinedCreditsGet200Response;
   }
 
@@ -121,8 +118,11 @@ class PersonPersonIdCombinedCreditsGet200ResponseBuilder
     _$PersonPersonIdCombinedCreditsGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$PersonPersonIdCombinedCreditsGet200Response._(
-              cast: _cast?.build(), crew: _crew?.build(), id: id);
+          _$PersonPersonIdCombinedCreditsGet200Response._(
+            cast: _cast?.build(),
+            crew: _crew?.build(),
+            id: id,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -131,7 +131,7 @@ class PersonPersonIdCombinedCreditsGet200ResponseBuilder
         _$failedField = 'crew';
         _crew?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PersonPersonIdCombinedCreditsGet200Response',
             _$failedField,
             e.toString());

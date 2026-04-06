@@ -14,10 +14,9 @@ class _$ActivityLogEntryStartMessage extends ActivityLogEntryStartMessage {
 
   factory _$ActivityLogEntryStartMessage(
           [void Function(ActivityLogEntryStartMessageBuilder)? updates]) =>
-      (new ActivityLogEntryStartMessageBuilder()..update(updates))._build();
+      (ActivityLogEntryStartMessageBuilder()..update(updates))._build();
 
   _$ActivityLogEntryStartMessage._({this.data, this.messageType}) : super._();
-
   @override
   ActivityLogEntryStartMessage rebuild(
           void Function(ActivityLogEntryStartMessageBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$ActivityLogEntryStartMessage extends ActivityLogEntryStartMessage {
 
   @override
   ActivityLogEntryStartMessageBuilder toBuilder() =>
-      new ActivityLogEntryStartMessageBuilder()..replace(this);
+      ActivityLogEntryStartMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -84,7 +83,6 @@ class ActivityLogEntryStartMessageBuilder
 
   @override
   void replace(ActivityLogEntryStartMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ActivityLogEntryStartMessage;
   }
 
@@ -98,8 +96,10 @@ class ActivityLogEntryStartMessageBuilder
 
   _$ActivityLogEntryStartMessage _build() {
     final _$result = _$v ??
-        new _$ActivityLogEntryStartMessage._(
-            data: data, messageType: messageType);
+        _$ActivityLogEntryStartMessage._(
+          data: data,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

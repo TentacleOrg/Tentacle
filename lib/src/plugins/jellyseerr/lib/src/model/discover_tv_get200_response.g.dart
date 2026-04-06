@@ -18,12 +18,11 @@ class _$DiscoverTvGet200Response extends DiscoverTvGet200Response {
 
   factory _$DiscoverTvGet200Response(
           [void Function(DiscoverTvGet200ResponseBuilder)? updates]) =>
-      (new DiscoverTvGet200ResponseBuilder()..update(updates))._build();
+      (DiscoverTvGet200ResponseBuilder()..update(updates))._build();
 
   _$DiscoverTvGet200Response._(
       {this.page, this.totalPages, this.totalResults, this.results})
       : super._();
-
   @override
   DiscoverTvGet200Response rebuild(
           void Function(DiscoverTvGet200ResponseBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$DiscoverTvGet200Response extends DiscoverTvGet200Response {
 
   @override
   DiscoverTvGet200ResponseBuilder toBuilder() =>
-      new DiscoverTvGet200ResponseBuilder()..replace(this);
+      DiscoverTvGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -84,7 +83,7 @@ class DiscoverTvGet200ResponseBuilder
 
   ListBuilder<TvResult>? _results;
   ListBuilder<TvResult> get results =>
-      _$this._results ??= new ListBuilder<TvResult>();
+      _$this._results ??= ListBuilder<TvResult>();
   set results(ListBuilder<TvResult>? results) => _$this._results = results;
 
   DiscoverTvGet200ResponseBuilder() {
@@ -105,7 +104,6 @@ class DiscoverTvGet200ResponseBuilder
 
   @override
   void replace(DiscoverTvGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverTvGet200Response;
   }
 
@@ -121,18 +119,19 @@ class DiscoverTvGet200ResponseBuilder
     _$DiscoverTvGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverTvGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              results: _results?.build());
+          _$DiscoverTvGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverTvGet200Response', _$failedField, e.toString());
       }
       rethrow;

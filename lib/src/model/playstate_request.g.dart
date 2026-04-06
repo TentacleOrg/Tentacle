@@ -16,19 +16,18 @@ class _$PlaystateRequest extends PlaystateRequest {
 
   factory _$PlaystateRequest(
           [void Function(PlaystateRequestBuilder)? updates]) =>
-      (new PlaystateRequestBuilder()..update(updates))._build();
+      (PlaystateRequestBuilder()..update(updates))._build();
 
   _$PlaystateRequest._(
       {this.command, this.seekPositionTicks, this.controllingUserId})
       : super._();
-
   @override
   PlaystateRequest rebuild(void Function(PlaystateRequestBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   PlaystateRequestBuilder toBuilder() =>
-      new PlaystateRequestBuilder()..replace(this);
+      PlaystateRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -94,7 +93,6 @@ class PlaystateRequestBuilder
 
   @override
   void replace(PlaystateRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlaystateRequest;
   }
 
@@ -108,10 +106,11 @@ class PlaystateRequestBuilder
 
   _$PlaystateRequest _build() {
     final _$result = _$v ??
-        new _$PlaystateRequest._(
-            command: command,
-            seekPositionTicks: seekPositionTicks,
-            controllingUserId: controllingUserId);
+        _$PlaystateRequest._(
+          command: command,
+          seekPositionTicks: seekPositionTicks,
+          controllingUserId: controllingUserId,
+        );
     replace(_$result);
     return _$result;
   }

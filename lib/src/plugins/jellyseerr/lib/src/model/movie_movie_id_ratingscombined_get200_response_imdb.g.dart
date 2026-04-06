@@ -18,14 +18,12 @@ class _$MovieMovieIdRatingscombinedGet200ResponseImdb
   factory _$MovieMovieIdRatingscombinedGet200ResponseImdb(
           [void Function(MovieMovieIdRatingscombinedGet200ResponseImdbBuilder)?
               updates]) =>
-      (new MovieMovieIdRatingscombinedGet200ResponseImdbBuilder()
-            ..update(updates))
+      (MovieMovieIdRatingscombinedGet200ResponseImdbBuilder()..update(updates))
           ._build();
 
   _$MovieMovieIdRatingscombinedGet200ResponseImdb._(
       {this.title, this.url, this.criticsScore})
       : super._();
-
   @override
   MovieMovieIdRatingscombinedGet200ResponseImdb rebuild(
           void Function(MovieMovieIdRatingscombinedGet200ResponseImdbBuilder)
@@ -34,7 +32,7 @@ class _$MovieMovieIdRatingscombinedGet200ResponseImdb
 
   @override
   MovieMovieIdRatingscombinedGet200ResponseImdbBuilder toBuilder() =>
-      new MovieMovieIdRatingscombinedGet200ResponseImdbBuilder()..replace(this);
+      MovieMovieIdRatingscombinedGet200ResponseImdbBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -101,7 +99,6 @@ class MovieMovieIdRatingscombinedGet200ResponseImdbBuilder
 
   @override
   void replace(MovieMovieIdRatingscombinedGet200ResponseImdb other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieMovieIdRatingscombinedGet200ResponseImdb;
   }
 
@@ -117,8 +114,11 @@ class MovieMovieIdRatingscombinedGet200ResponseImdbBuilder
 
   _$MovieMovieIdRatingscombinedGet200ResponseImdb _build() {
     final _$result = _$v ??
-        new _$MovieMovieIdRatingscombinedGet200ResponseImdb._(
-            title: title, url: url, criticsScore: criticsScore);
+        _$MovieMovieIdRatingscombinedGet200ResponseImdb._(
+          title: title,
+          url: url,
+          criticsScore: criticsScore,
+        );
     replace(_$result);
     return _$result;
   }

@@ -49,12 +49,12 @@ PlayQueueUpdateReason _$valueOf(String name) {
     case 'shuffleMode':
       return _$shuffleMode;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<PlayQueueUpdateReason> _$values =
-    new BuiltSet<PlayQueueUpdateReason>(const <PlayQueueUpdateReason>[
+    BuiltSet<PlayQueueUpdateReason>(const <PlayQueueUpdateReason>[
   _$newPlaylist,
   _$setCurrentItem,
   _$removeItems,
@@ -90,7 +90,7 @@ mixin _$PlayQueueUpdateReasonMixin {
 }
 
 Serializer<PlayQueueUpdateReason> _$playQueueUpdateReasonSerializer =
-    new _$PlayQueueUpdateReasonSerializer();
+    _$PlayQueueUpdateReasonSerializer();
 
 class _$PlayQueueUpdateReasonSerializer
     implements PrimitiveSerializer<PlayQueueUpdateReason> {

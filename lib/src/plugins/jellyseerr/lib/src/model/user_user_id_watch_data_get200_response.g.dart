@@ -15,12 +15,10 @@ class _$UserUserIdWatchDataGet200Response
 
   factory _$UserUserIdWatchDataGet200Response(
           [void Function(UserUserIdWatchDataGet200ResponseBuilder)? updates]) =>
-      (new UserUserIdWatchDataGet200ResponseBuilder()..update(updates))
-          ._build();
+      (UserUserIdWatchDataGet200ResponseBuilder()..update(updates))._build();
 
   _$UserUserIdWatchDataGet200Response._({this.recentlyWatched, this.playCount})
       : super._();
-
   @override
   UserUserIdWatchDataGet200Response rebuild(
           void Function(UserUserIdWatchDataGet200ResponseBuilder) updates) =>
@@ -28,7 +26,7 @@ class _$UserUserIdWatchDataGet200Response
 
   @override
   UserUserIdWatchDataGet200ResponseBuilder toBuilder() =>
-      new UserUserIdWatchDataGet200ResponseBuilder()..replace(this);
+      UserUserIdWatchDataGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,7 +62,7 @@ class UserUserIdWatchDataGet200ResponseBuilder
 
   ListBuilder<MediaInfo>? _recentlyWatched;
   ListBuilder<MediaInfo> get recentlyWatched =>
-      _$this._recentlyWatched ??= new ListBuilder<MediaInfo>();
+      _$this._recentlyWatched ??= ListBuilder<MediaInfo>();
   set recentlyWatched(ListBuilder<MediaInfo>? recentlyWatched) =>
       _$this._recentlyWatched = recentlyWatched;
 
@@ -88,7 +86,6 @@ class UserUserIdWatchDataGet200ResponseBuilder
 
   @override
   void replace(UserUserIdWatchDataGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdWatchDataGet200Response;
   }
 
@@ -105,15 +102,17 @@ class UserUserIdWatchDataGet200ResponseBuilder
     _$UserUserIdWatchDataGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$UserUserIdWatchDataGet200Response._(
-              recentlyWatched: _recentlyWatched?.build(), playCount: playCount);
+          _$UserUserIdWatchDataGet200Response._(
+            recentlyWatched: _recentlyWatched?.build(),
+            playCount: playCount,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'recentlyWatched';
         _recentlyWatched?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserUserIdWatchDataGet200Response', _$failedField, e.toString());
       }
       rethrow;

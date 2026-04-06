@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(LibraryChangedMessage, () {
-    // Gets or sets the data.
+    // Class LibraryUpdateInfo.
     // LibraryUpdateInfo data
     test('to test the property `data`', () async {
       // TODO

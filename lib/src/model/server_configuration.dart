@@ -29,10 +29,9 @@ part 'server_configuration.g.dart';
 /// * [enableNormalizedItemByNameIds]
 /// * [isPortAuthorized] - Gets or sets a value indicating whether this instance is port authorized.
 /// * [quickConnectAvailable] - Gets or sets a value indicating whether quick connect is available for use on this server.
-/// * [enableCaseSensitiveItemIds] - Gets or sets a value indicating whether [enable case sensitive item ids].
+/// * [enableCaseSensitiveItemIds] - Gets or sets a value indicating whether [enable case-sensitive item ids].
 /// * [disableLiveTvChannelUserDataName]
 /// * [metadataPath] - Gets or sets the metadata path.
-/// * [metadataNetworkPath]
 /// * [preferredMetadataLanguage] - Gets or sets the preferred metadata language.
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [sortReplaceCharacters] - Gets or sets characters to be replaced with a ' ' in strings to create a sort name.
@@ -46,6 +45,7 @@ part 'server_configuration.g.dart';
 /// * [inactiveSessionThreshold] - Gets or sets the threshold in minutes after a inactive session gets closed automatically.  If set to 0 the check for inactive sessions gets disabled.
 /// * [libraryMonitorDelay] - Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files.
 /// * [libraryUpdateDuration] - Gets or sets the duration in seconds that we will wait after a library updated event before executing the library changed notification.
+/// * [cacheSize] - Gets or sets the maximum amount of items to cache.
 /// * [imageSavingConvention] - Gets or sets the image saving convention.
 /// * [metadataOptions]
 /// * [skipDeserializationForBasicTypes]
@@ -55,7 +55,8 @@ part 'server_configuration.g.dart';
 /// * [contentTypes]
 /// * [remoteClientBitrateLimit]
 /// * [enableFolderView]
-/// * [enableGroupingIntoCollections]
+/// * [enableGroupingMoviesIntoCollections]
+/// * [enableGroupingShowsIntoCollections]
 /// * [displaySpecialsWithinSeasons]
 /// * [codecsUsed]
 /// * [pluginRepositories]
@@ -68,13 +69,13 @@ part 'server_configuration.g.dart';
 /// * [activityLogRetentionDays] - Gets or sets the number of days we should retain activity logs.
 /// * [libraryScanFanoutConcurrency] - Gets or sets the how the library scan fans out.
 /// * [libraryMetadataRefreshConcurrency] - Gets or sets the how many metadata refreshes can run concurrently.
-/// * [removeOldPlugins] - Gets or sets a value indicating whether older plugins should automatically be deleted from the plugin folder.
 /// * [allowClientLogUpload] - Gets or sets a value indicating whether clients should be allowed to upload logs.
-/// * [dummyChapterDuration] - Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation alltogether.
+/// * [dummyChapterDuration] - Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation altogether.
 /// * [chapterImageResolution] - Gets or sets the chapter image resolution.
 /// * [parallelImageEncodingLimit] - Gets or sets the limit for parallel image encoding.
 /// * [castReceiverApplications] - Gets or sets the list of cast receiver applications.
 /// * [trickplayOptions] - Gets or sets the trickplay options.
+/// * [enableLegacyAuthorization] - Gets or sets a value indicating whether old authorization methods are allowed.
 @BuiltValue()
 abstract class ServerConfiguration
     implements Built<ServerConfiguration, ServerConfigurationBuilder> {
@@ -113,7 +114,7 @@ abstract class ServerConfiguration
   @BuiltValueField(wireName: r'QuickConnectAvailable')
   bool? get quickConnectAvailable;
 
-  /// Gets or sets a value indicating whether [enable case sensitive item ids].
+  /// Gets or sets a value indicating whether [enable case-sensitive item ids].
   @BuiltValueField(wireName: r'EnableCaseSensitiveItemIds')
   bool? get enableCaseSensitiveItemIds;
 
@@ -123,9 +124,6 @@ abstract class ServerConfiguration
   /// Gets or sets the metadata path.
   @BuiltValueField(wireName: r'MetadataPath')
   String? get metadataPath;
-
-  @BuiltValueField(wireName: r'MetadataNetworkPath')
-  String? get metadataNetworkPath;
 
   /// Gets or sets the preferred metadata language.
   @BuiltValueField(wireName: r'PreferredMetadataLanguage')
@@ -179,6 +177,10 @@ abstract class ServerConfiguration
   @BuiltValueField(wireName: r'LibraryUpdateDuration')
   int? get libraryUpdateDuration;
 
+  /// Gets or sets the maximum amount of items to cache.
+  @BuiltValueField(wireName: r'CacheSize')
+  int? get cacheSize;
+
   /// Gets or sets the image saving convention.
   @BuiltValueField(wireName: r'ImageSavingConvention')
   ImageSavingConvention? get imageSavingConvention;
@@ -208,8 +210,11 @@ abstract class ServerConfiguration
   @BuiltValueField(wireName: r'EnableFolderView')
   bool? get enableFolderView;
 
-  @BuiltValueField(wireName: r'EnableGroupingIntoCollections')
-  bool? get enableGroupingIntoCollections;
+  @BuiltValueField(wireName: r'EnableGroupingMoviesIntoCollections')
+  bool? get enableGroupingMoviesIntoCollections;
+
+  @BuiltValueField(wireName: r'EnableGroupingShowsIntoCollections')
+  bool? get enableGroupingShowsIntoCollections;
 
   @BuiltValueField(wireName: r'DisplaySpecialsWithinSeasons')
   bool? get displaySpecialsWithinSeasons;
@@ -253,15 +258,11 @@ abstract class ServerConfiguration
   @BuiltValueField(wireName: r'LibraryMetadataRefreshConcurrency')
   int? get libraryMetadataRefreshConcurrency;
 
-  /// Gets or sets a value indicating whether older plugins should automatically be deleted from the plugin folder.
-  @BuiltValueField(wireName: r'RemoveOldPlugins')
-  bool? get removeOldPlugins;
-
   /// Gets or sets a value indicating whether clients should be allowed to upload logs.
   @BuiltValueField(wireName: r'AllowClientLogUpload')
   bool? get allowClientLogUpload;
 
-  /// Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation alltogether.
+  /// Gets or sets the dummy chapter duration in seconds, use 0 (zero) or less to disable generation altogether.
   @BuiltValueField(wireName: r'DummyChapterDuration')
   int? get dummyChapterDuration;
 
@@ -281,6 +282,10 @@ abstract class ServerConfiguration
   /// Gets or sets the trickplay options.
   @BuiltValueField(wireName: r'TrickplayOptions')
   TrickplayOptions? get trickplayOptions;
+
+  /// Gets or sets a value indicating whether old authorization methods are allowed.
+  @BuiltValueField(wireName: r'EnableLegacyAuthorization')
+  bool? get enableLegacyAuthorization;
 
   ServerConfiguration._();
 
@@ -395,13 +400,6 @@ class _$ServerConfigurationSerializer
         specifiedType: const FullType(String),
       );
     }
-    if (object.metadataNetworkPath != null) {
-      yield r'MetadataNetworkPath';
-      yield serializers.serialize(
-        object.metadataNetworkPath,
-        specifiedType: const FullType(String),
-      );
-    }
     if (object.preferredMetadataLanguage != null) {
       yield r'PreferredMetadataLanguage';
       yield serializers.serialize(
@@ -493,6 +491,13 @@ class _$ServerConfigurationSerializer
         specifiedType: const FullType(int),
       );
     }
+    if (object.cacheSize != null) {
+      yield r'CacheSize';
+      yield serializers.serialize(
+        object.cacheSize,
+        specifiedType: const FullType(int),
+      );
+    }
     if (object.imageSavingConvention != null) {
       yield r'ImageSavingConvention';
       yield serializers.serialize(
@@ -556,10 +561,17 @@ class _$ServerConfigurationSerializer
         specifiedType: const FullType(bool),
       );
     }
-    if (object.enableGroupingIntoCollections != null) {
-      yield r'EnableGroupingIntoCollections';
+    if (object.enableGroupingMoviesIntoCollections != null) {
+      yield r'EnableGroupingMoviesIntoCollections';
       yield serializers.serialize(
-        object.enableGroupingIntoCollections,
+        object.enableGroupingMoviesIntoCollections,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.enableGroupingShowsIntoCollections != null) {
+      yield r'EnableGroupingShowsIntoCollections';
+      yield serializers.serialize(
+        object.enableGroupingShowsIntoCollections,
         specifiedType: const FullType(bool),
       );
     }
@@ -647,13 +659,6 @@ class _$ServerConfigurationSerializer
         specifiedType: const FullType(int),
       );
     }
-    if (object.removeOldPlugins != null) {
-      yield r'RemoveOldPlugins';
-      yield serializers.serialize(
-        object.removeOldPlugins,
-        specifiedType: const FullType(bool),
-      );
-    }
     if (object.allowClientLogUpload != null) {
       yield r'AllowClientLogUpload';
       yield serializers.serialize(
@@ -695,6 +700,13 @@ class _$ServerConfigurationSerializer
       yield serializers.serialize(
         object.trickplayOptions,
         specifiedType: const FullType(TrickplayOptions),
+      );
+    }
+    if (object.enableLegacyAuthorization != null) {
+      yield r'EnableLegacyAuthorization';
+      yield serializers.serialize(
+        object.enableLegacyAuthorization,
+        specifiedType: const FullType(bool),
       );
     }
   }
@@ -809,13 +821,6 @@ class _$ServerConfigurationSerializer
           ) as String;
           result.metadataPath = valueDes;
           break;
-        case r'MetadataNetworkPath':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.metadataNetworkPath = valueDes;
-          break;
         case r'PreferredMetadataLanguage':
           final valueDes = serializers.deserialize(
             value,
@@ -907,6 +912,13 @@ class _$ServerConfigurationSerializer
           ) as int;
           result.libraryUpdateDuration = valueDes;
           break;
+        case r'CacheSize':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.cacheSize = valueDes;
+          break;
         case r'ImageSavingConvention':
           final valueDes = serializers.deserialize(
             value,
@@ -971,12 +983,19 @@ class _$ServerConfigurationSerializer
           ) as bool;
           result.enableFolderView = valueDes;
           break;
-        case r'EnableGroupingIntoCollections':
+        case r'EnableGroupingMoviesIntoCollections':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(bool),
           ) as bool;
-          result.enableGroupingIntoCollections = valueDes;
+          result.enableGroupingMoviesIntoCollections = valueDes;
+          break;
+        case r'EnableGroupingShowsIntoCollections':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableGroupingShowsIntoCollections = valueDes;
           break;
         case r'DisplaySpecialsWithinSeasons':
           final valueDes = serializers.deserialize(
@@ -1065,13 +1084,6 @@ class _$ServerConfigurationSerializer
           ) as int;
           result.libraryMetadataRefreshConcurrency = valueDes;
           break;
-        case r'RemoveOldPlugins':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.removeOldPlugins = valueDes;
-          break;
         case r'AllowClientLogUpload':
           final valueDes = serializers.deserialize(
             value,
@@ -1114,6 +1126,13 @@ class _$ServerConfigurationSerializer
             specifiedType: const FullType(TrickplayOptions),
           ) as TrickplayOptions;
           result.trickplayOptions.replace(valueDes);
+          break;
+        case r'EnableLegacyAuthorization':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.enableLegacyAuthorization = valueDes;
           break;
         default:
           unhandled.add(key);

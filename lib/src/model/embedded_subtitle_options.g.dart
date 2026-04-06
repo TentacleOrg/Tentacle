@@ -26,12 +26,12 @@ EmbeddedSubtitleOptions _$valueOf(String name) {
     case 'allowNone':
       return _$allowNone;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<EmbeddedSubtitleOptions> _$values =
-    new BuiltSet<EmbeddedSubtitleOptions>(const <EmbeddedSubtitleOptions>[
+    BuiltSet<EmbeddedSubtitleOptions>(const <EmbeddedSubtitleOptions>[
   _$allowAll,
   _$allowText,
   _$allowImage,
@@ -55,7 +55,7 @@ mixin _$EmbeddedSubtitleOptionsMixin {
 }
 
 Serializer<EmbeddedSubtitleOptions> _$embeddedSubtitleOptionsSerializer =
-    new _$EmbeddedSubtitleOptionsSerializer();
+    _$EmbeddedSubtitleOptionsSerializer();
 
 class _$EmbeddedSubtitleOptionsSerializer
     implements PrimitiveSerializer<EmbeddedSubtitleOptions> {

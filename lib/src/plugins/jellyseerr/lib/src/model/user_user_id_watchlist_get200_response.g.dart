@@ -19,13 +19,11 @@ class _$UserUserIdWatchlistGet200Response
 
   factory _$UserUserIdWatchlistGet200Response(
           [void Function(UserUserIdWatchlistGet200ResponseBuilder)? updates]) =>
-      (new UserUserIdWatchlistGet200ResponseBuilder()..update(updates))
-          ._build();
+      (UserUserIdWatchlistGet200ResponseBuilder()..update(updates))._build();
 
   _$UserUserIdWatchlistGet200Response._(
       {this.page, this.totalPages, this.totalResults, this.results})
       : super._();
-
   @override
   UserUserIdWatchlistGet200Response rebuild(
           void Function(UserUserIdWatchlistGet200ResponseBuilder) updates) =>
@@ -33,7 +31,7 @@ class _$UserUserIdWatchlistGet200Response
 
   @override
   UserUserIdWatchlistGet200ResponseBuilder toBuilder() =>
-      new UserUserIdWatchlistGet200ResponseBuilder()..replace(this);
+      UserUserIdWatchlistGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -88,7 +86,7 @@ class UserUserIdWatchlistGet200ResponseBuilder
   ListBuilder<UserUserIdWatchlistGet200ResponseResultsInner>? _results;
   ListBuilder<UserUserIdWatchlistGet200ResponseResultsInner> get results =>
       _$this._results ??=
-          new ListBuilder<UserUserIdWatchlistGet200ResponseResultsInner>();
+          ListBuilder<UserUserIdWatchlistGet200ResponseResultsInner>();
   set results(
           ListBuilder<UserUserIdWatchlistGet200ResponseResultsInner>?
               results) =>
@@ -112,7 +110,6 @@ class UserUserIdWatchlistGet200ResponseBuilder
 
   @override
   void replace(UserUserIdWatchlistGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdWatchlistGet200Response;
   }
 
@@ -129,18 +126,19 @@ class UserUserIdWatchlistGet200ResponseBuilder
     _$UserUserIdWatchlistGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$UserUserIdWatchlistGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              results: _results?.build());
+          _$UserUserIdWatchlistGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserUserIdWatchlistGet200Response', _$failedField, e.toString());
       }
       rethrow;

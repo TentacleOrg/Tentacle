@@ -17,7 +17,7 @@ const ItemSortBy _$datePlayed = const ItemSortBy._('datePlayed');
 const ItemSortBy _$premiereDate = const ItemSortBy._('premiereDate');
 const ItemSortBy _$startDate = const ItemSortBy._('startDate');
 const ItemSortBy _$sortName = const ItemSortBy._('sortName');
-const ItemSortBy _$name = const ItemSortBy._('name');
+const ItemSortBy _$name = const ItemSortBy._('itemName');
 const ItemSortBy _$random = const ItemSortBy._('random');
 const ItemSortBy _$runtime = const ItemSortBy._('runtime');
 const ItemSortBy _$communityRating = const ItemSortBy._('communityRating');
@@ -37,8 +37,6 @@ const ItemSortBy _$dateLastContentAdded =
 const ItemSortBy _$seriesDatePlayed = const ItemSortBy._('seriesDatePlayed');
 const ItemSortBy _$parentIndexNumber = const ItemSortBy._('parentIndexNumber');
 const ItemSortBy _$indexNumber = const ItemSortBy._('indexNumber');
-const ItemSortBy _$similarityScore = const ItemSortBy._('similarityScore');
-const ItemSortBy _$searchScore = const ItemSortBy._('searchScore');
 
 ItemSortBy _$valueOf(String name) {
   switch (name) {
@@ -64,7 +62,7 @@ ItemSortBy _$valueOf(String name) {
       return _$startDate;
     case 'sortName':
       return _$sortName;
-    case 'name':
+    case 'itemName':
       return _$name;
     case 'random':
       return _$random;
@@ -102,17 +100,12 @@ ItemSortBy _$valueOf(String name) {
       return _$parentIndexNumber;
     case 'indexNumber':
       return _$indexNumber;
-    case 'similarityScore':
-      return _$similarityScore;
-    case 'searchScore':
-      return _$searchScore;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ItemSortBy> _$values =
-    new BuiltSet<ItemSortBy>(const <ItemSortBy>[
+final BuiltSet<ItemSortBy> _$values = BuiltSet<ItemSortBy>(const <ItemSortBy>[
   _$default_,
   _$airedEpisodeOrder,
   _$album,
@@ -143,8 +136,6 @@ final BuiltSet<ItemSortBy> _$values =
   _$seriesDatePlayed,
   _$parentIndexNumber,
   _$indexNumber,
-  _$similarityScore,
-  _$searchScore,
 ]);
 
 class _$ItemSortByMeta {
@@ -160,7 +151,7 @@ class _$ItemSortByMeta {
   ItemSortBy get premiereDate => _$premiereDate;
   ItemSortBy get startDate => _$startDate;
   ItemSortBy get sortName => _$sortName;
-  ItemSortBy get name => _$name;
+  ItemSortBy get itemName => _$name;
   ItemSortBy get random => _$random;
   ItemSortBy get runtime => _$runtime;
   ItemSortBy get communityRating => _$communityRating;
@@ -179,8 +170,6 @@ class _$ItemSortByMeta {
   ItemSortBy get seriesDatePlayed => _$seriesDatePlayed;
   ItemSortBy get parentIndexNumber => _$parentIndexNumber;
   ItemSortBy get indexNumber => _$indexNumber;
-  ItemSortBy get similarityScore => _$similarityScore;
-  ItemSortBy get searchScore => _$searchScore;
   ItemSortBy valueOf(String name) => _$valueOf(name);
   BuiltSet<ItemSortBy> get values => _$values;
 }
@@ -190,7 +179,7 @@ mixin _$ItemSortByMixin {
   _$ItemSortByMeta get ItemSortBy => const _$ItemSortByMeta();
 }
 
-Serializer<ItemSortBy> _$itemSortBySerializer = new _$ItemSortBySerializer();
+Serializer<ItemSortBy> _$itemSortBySerializer = _$ItemSortBySerializer();
 
 class _$ItemSortBySerializer implements PrimitiveSerializer<ItemSortBy> {
   static const Map<String, Object> _toWire = const <String, Object>{
@@ -205,7 +194,7 @@ class _$ItemSortBySerializer implements PrimitiveSerializer<ItemSortBy> {
     'premiereDate': 'PremiereDate',
     'startDate': 'StartDate',
     'sortName': 'SortName',
-    'name': 'Name',
+    'itemName': 'Name',
     'random': 'Random',
     'runtime': 'Runtime',
     'communityRating': 'CommunityRating',
@@ -224,8 +213,6 @@ class _$ItemSortBySerializer implements PrimitiveSerializer<ItemSortBy> {
     'seriesDatePlayed': 'SeriesDatePlayed',
     'parentIndexNumber': 'ParentIndexNumber',
     'indexNumber': 'IndexNumber',
-    'similarityScore': 'SimilarityScore',
-    'searchScore': 'SearchScore',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Default': 'default_',
@@ -239,7 +226,7 @@ class _$ItemSortBySerializer implements PrimitiveSerializer<ItemSortBy> {
     'PremiereDate': 'premiereDate',
     'StartDate': 'startDate',
     'SortName': 'sortName',
-    'Name': 'name',
+    'Name': 'itemName',
     'Random': 'random',
     'Runtime': 'runtime',
     'CommunityRating': 'communityRating',
@@ -258,8 +245,6 @@ class _$ItemSortBySerializer implements PrimitiveSerializer<ItemSortBy> {
     'SeriesDatePlayed': 'seriesDatePlayed',
     'ParentIndexNumber': 'parentIndexNumber',
     'IndexNumber': 'indexNumber',
-    'SimilarityScore': 'similarityScore',
-    'SearchScore': 'searchScore',
   };
 
   @override

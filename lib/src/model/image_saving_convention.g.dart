@@ -17,12 +17,12 @@ ImageSavingConvention _$valueOf(String name) {
     case 'compatible':
       return _$compatible;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ImageSavingConvention> _$values =
-    new BuiltSet<ImageSavingConvention>(const <ImageSavingConvention>[
+    BuiltSet<ImageSavingConvention>(const <ImageSavingConvention>[
   _$legacy,
   _$compatible,
 ]);
@@ -42,7 +42,7 @@ mixin _$ImageSavingConventionMixin {
 }
 
 Serializer<ImageSavingConvention> _$imageSavingConventionSerializer =
-    new _$ImageSavingConventionSerializer();
+    _$ImageSavingConventionSerializer();
 
 class _$ImageSavingConventionSerializer
     implements PrimitiveSerializer<ImageSavingConvention> {

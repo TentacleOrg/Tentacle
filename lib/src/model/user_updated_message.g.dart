@@ -16,11 +16,10 @@ class _$UserUpdatedMessage extends UserUpdatedMessage {
 
   factory _$UserUpdatedMessage(
           [void Function(UserUpdatedMessageBuilder)? updates]) =>
-      (new UserUpdatedMessageBuilder()..update(updates))._build();
+      (UserUpdatedMessageBuilder()..update(updates))._build();
 
   _$UserUpdatedMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   UserUpdatedMessage rebuild(
           void Function(UserUpdatedMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$UserUpdatedMessage extends UserUpdatedMessage {
 
   @override
   UserUpdatedMessageBuilder toBuilder() =>
-      new UserUpdatedMessageBuilder()..replace(this);
+      UserUpdatedMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,7 +63,7 @@ class UserUpdatedMessageBuilder
   _$UserUpdatedMessage? _$v;
 
   UserDtoBuilder? _data;
-  UserDtoBuilder get data => _$this._data ??= new UserDtoBuilder();
+  UserDtoBuilder get data => _$this._data ??= UserDtoBuilder();
   set data(UserDtoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -93,7 +92,6 @@ class UserUpdatedMessageBuilder
 
   @override
   void replace(UserUpdatedMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUpdatedMessage;
   }
 
@@ -109,17 +107,18 @@ class UserUpdatedMessageBuilder
     _$UserUpdatedMessage _$result;
     try {
       _$result = _$v ??
-          new _$UserUpdatedMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$UserUpdatedMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserUpdatedMessage', _$failedField, e.toString());
       }
       rethrow;

@@ -15,16 +15,15 @@ class _$IssueComment extends IssueComment {
   final String? message;
 
   factory _$IssueComment([void Function(IssueCommentBuilder)? updates]) =>
-      (new IssueCommentBuilder()..update(updates))._build();
+      (IssueCommentBuilder()..update(updates))._build();
 
   _$IssueComment._({this.id, this.user, this.message}) : super._();
-
   @override
   IssueComment rebuild(void Function(IssueCommentBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  IssueCommentBuilder toBuilder() => new IssueCommentBuilder()..replace(this);
+  IssueCommentBuilder toBuilder() => IssueCommentBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,7 +63,7 @@ class IssueCommentBuilder
   set id(num? id) => _$this._id = id;
 
   UserBuilder? _user;
-  UserBuilder get user => _$this._user ??= new UserBuilder();
+  UserBuilder get user => _$this._user ??= UserBuilder();
   set user(UserBuilder? user) => _$this._user = user;
 
   String? _message;
@@ -88,7 +87,6 @@ class IssueCommentBuilder
 
   @override
   void replace(IssueComment other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IssueComment;
   }
 
@@ -104,14 +102,18 @@ class IssueCommentBuilder
     _$IssueComment _$result;
     try {
       _$result = _$v ??
-          new _$IssueComment._(id: id, user: _user?.build(), message: message);
+          _$IssueComment._(
+            id: id,
+            user: _user?.build(),
+            message: message,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'user';
         _user?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'IssueComment', _$failedField, e.toString());
       }
       rethrow;

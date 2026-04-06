@@ -52,11 +52,6 @@ void main() {
       // TODO
     });
 
-    // num mediaServerType
-    test('to test the property `mediaServerType`', () async {
-      // TODO
-    });
-
     // bool newPlexLogin
     test('to test the property `newPlexLogin`', () async {
       // TODO

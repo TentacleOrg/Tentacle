@@ -13,16 +13,15 @@ class _$ServarrTag extends ServarrTag {
   final String? label;
 
   factory _$ServarrTag([void Function(ServarrTagBuilder)? updates]) =>
-      (new ServarrTagBuilder()..update(updates))._build();
+      (ServarrTagBuilder()..update(updates))._build();
 
   _$ServarrTag._({this.id, this.label}) : super._();
-
   @override
   ServarrTag rebuild(void Function(ServarrTagBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ServarrTagBuilder toBuilder() => new ServarrTagBuilder()..replace(this);
+  ServarrTagBuilder toBuilder() => ServarrTagBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +74,6 @@ class ServarrTagBuilder implements Builder<ServarrTag, ServarrTagBuilder> {
 
   @override
   void replace(ServarrTag other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServarrTag;
   }
 
@@ -88,7 +86,11 @@ class ServarrTagBuilder implements Builder<ServarrTag, ServarrTagBuilder> {
   ServarrTag build() => _build();
 
   _$ServarrTag _build() {
-    final _$result = _$v ?? new _$ServarrTag._(id: id, label: label);
+    final _$result = _$v ??
+        _$ServarrTag._(
+          id: id,
+          label: label,
+        );
     replace(_$result);
     return _$result;
   }

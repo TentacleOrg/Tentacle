@@ -16,11 +16,10 @@ class _$GeneralCommandMessage extends GeneralCommandMessage {
 
   factory _$GeneralCommandMessage(
           [void Function(GeneralCommandMessageBuilder)? updates]) =>
-      (new GeneralCommandMessageBuilder()..update(updates))._build();
+      (GeneralCommandMessageBuilder()..update(updates))._build();
 
   _$GeneralCommandMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   GeneralCommandMessage rebuild(
           void Function(GeneralCommandMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$GeneralCommandMessage extends GeneralCommandMessage {
 
   @override
   GeneralCommandMessageBuilder toBuilder() =>
-      new GeneralCommandMessageBuilder()..replace(this);
+      GeneralCommandMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,8 +63,7 @@ class GeneralCommandMessageBuilder
   _$GeneralCommandMessage? _$v;
 
   GeneralCommandBuilder? _data;
-  GeneralCommandBuilder get data =>
-      _$this._data ??= new GeneralCommandBuilder();
+  GeneralCommandBuilder get data => _$this._data ??= GeneralCommandBuilder();
   set data(GeneralCommandBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -94,7 +92,6 @@ class GeneralCommandMessageBuilder
 
   @override
   void replace(GeneralCommandMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GeneralCommandMessage;
   }
 
@@ -110,17 +107,18 @@ class GeneralCommandMessageBuilder
     _$GeneralCommandMessage _$result;
     try {
       _$result = _$v ??
-          new _$GeneralCommandMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$GeneralCommandMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'GeneralCommandMessage', _$failedField, e.toString());
       }
       rethrow;

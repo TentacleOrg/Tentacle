@@ -12,10 +12,9 @@ class _$ActivityLogEntryStopMessage extends ActivityLogEntryStopMessage {
 
   factory _$ActivityLogEntryStopMessage(
           [void Function(ActivityLogEntryStopMessageBuilder)? updates]) =>
-      (new ActivityLogEntryStopMessageBuilder()..update(updates))._build();
+      (ActivityLogEntryStopMessageBuilder()..update(updates))._build();
 
   _$ActivityLogEntryStopMessage._({this.messageType}) : super._();
-
   @override
   ActivityLogEntryStopMessage rebuild(
           void Function(ActivityLogEntryStopMessageBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$ActivityLogEntryStopMessage extends ActivityLogEntryStopMessage {
 
   @override
   ActivityLogEntryStopMessageBuilder toBuilder() =>
-      new ActivityLogEntryStopMessageBuilder()..replace(this);
+      ActivityLogEntryStopMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,7 +73,6 @@ class ActivityLogEntryStopMessageBuilder
 
   @override
   void replace(ActivityLogEntryStopMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ActivityLogEntryStopMessage;
   }
 
@@ -87,8 +85,10 @@ class ActivityLogEntryStopMessageBuilder
   ActivityLogEntryStopMessage build() => _build();
 
   _$ActivityLogEntryStopMessage _build() {
-    final _$result =
-        _$v ?? new _$ActivityLogEntryStopMessage._(messageType: messageType);
+    final _$result = _$v ??
+        _$ActivityLogEntryStopMessage._(
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

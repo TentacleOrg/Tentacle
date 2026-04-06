@@ -13,17 +13,15 @@ class _$QueueRequestDto extends QueueRequestDto {
   final GroupQueueMode? mode;
 
   factory _$QueueRequestDto([void Function(QueueRequestDtoBuilder)? updates]) =>
-      (new QueueRequestDtoBuilder()..update(updates))._build();
+      (QueueRequestDtoBuilder()..update(updates))._build();
 
   _$QueueRequestDto._({this.itemIds, this.mode}) : super._();
-
   @override
   QueueRequestDto rebuild(void Function(QueueRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  QueueRequestDtoBuilder toBuilder() =>
-      new QueueRequestDtoBuilder()..replace(this);
+  QueueRequestDtoBuilder toBuilder() => QueueRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -56,8 +54,7 @@ class QueueRequestDtoBuilder
   _$QueueRequestDto? _$v;
 
   ListBuilder<String>? _itemIds;
-  ListBuilder<String> get itemIds =>
-      _$this._itemIds ??= new ListBuilder<String>();
+  ListBuilder<String> get itemIds => _$this._itemIds ??= ListBuilder<String>();
   set itemIds(ListBuilder<String>? itemIds) => _$this._itemIds = itemIds;
 
   GroupQueueMode? _mode;
@@ -80,7 +77,6 @@ class QueueRequestDtoBuilder
 
   @override
   void replace(QueueRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$QueueRequestDto;
   }
 
@@ -96,14 +92,17 @@ class QueueRequestDtoBuilder
     _$QueueRequestDto _$result;
     try {
       _$result = _$v ??
-          new _$QueueRequestDto._(itemIds: _itemIds?.build(), mode: mode);
+          _$QueueRequestDto._(
+            itemIds: _itemIds?.build(),
+            mode: mode,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'itemIds';
         _itemIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'QueueRequestDto', _$failedField, e.toString());
       }
       rethrow;

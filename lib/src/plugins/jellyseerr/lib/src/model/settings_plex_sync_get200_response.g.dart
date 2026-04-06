@@ -20,7 +20,7 @@ class _$SettingsPlexSyncGet200Response extends SettingsPlexSyncGet200Response {
 
   factory _$SettingsPlexSyncGet200Response(
           [void Function(SettingsPlexSyncGet200ResponseBuilder)? updates]) =>
-      (new SettingsPlexSyncGet200ResponseBuilder()..update(updates))._build();
+      (SettingsPlexSyncGet200ResponseBuilder()..update(updates))._build();
 
   _$SettingsPlexSyncGet200Response._(
       {this.running,
@@ -29,7 +29,6 @@ class _$SettingsPlexSyncGet200Response extends SettingsPlexSyncGet200Response {
       this.currentLibrary,
       this.libraries})
       : super._();
-
   @override
   SettingsPlexSyncGet200Response rebuild(
           void Function(SettingsPlexSyncGet200ResponseBuilder) updates) =>
@@ -37,7 +36,7 @@ class _$SettingsPlexSyncGet200Response extends SettingsPlexSyncGet200Response {
 
   @override
   SettingsPlexSyncGet200ResponseBuilder toBuilder() =>
-      new SettingsPlexSyncGet200ResponseBuilder()..replace(this);
+      SettingsPlexSyncGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -94,13 +93,13 @@ class SettingsPlexSyncGet200ResponseBuilder
 
   PlexLibraryBuilder? _currentLibrary;
   PlexLibraryBuilder get currentLibrary =>
-      _$this._currentLibrary ??= new PlexLibraryBuilder();
+      _$this._currentLibrary ??= PlexLibraryBuilder();
   set currentLibrary(PlexLibraryBuilder? currentLibrary) =>
       _$this._currentLibrary = currentLibrary;
 
   ListBuilder<PlexLibrary>? _libraries;
   ListBuilder<PlexLibrary> get libraries =>
-      _$this._libraries ??= new ListBuilder<PlexLibrary>();
+      _$this._libraries ??= ListBuilder<PlexLibrary>();
   set libraries(ListBuilder<PlexLibrary>? libraries) =>
       _$this._libraries = libraries;
 
@@ -123,7 +122,6 @@ class SettingsPlexSyncGet200ResponseBuilder
 
   @override
   void replace(SettingsPlexSyncGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsPlexSyncGet200Response;
   }
 
@@ -139,12 +137,13 @@ class SettingsPlexSyncGet200ResponseBuilder
     _$SettingsPlexSyncGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$SettingsPlexSyncGet200Response._(
-              running: running,
-              progress: progress,
-              total: total,
-              currentLibrary: _currentLibrary?.build(),
-              libraries: _libraries?.build());
+          _$SettingsPlexSyncGet200Response._(
+            running: running,
+            progress: progress,
+            total: total,
+            currentLibrary: _currentLibrary?.build(),
+            libraries: _libraries?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -153,7 +152,7 @@ class SettingsPlexSyncGet200ResponseBuilder
         _$failedField = 'libraries';
         _libraries?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SettingsPlexSyncGet200Response', _$failedField, e.toString());
       }
       rethrow;

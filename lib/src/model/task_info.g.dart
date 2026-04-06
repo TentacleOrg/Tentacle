@@ -29,7 +29,7 @@ class _$TaskInfo extends TaskInfo {
   final String? key;
 
   factory _$TaskInfo([void Function(TaskInfoBuilder)? updates]) =>
-      (new TaskInfoBuilder()..update(updates))._build();
+      (TaskInfoBuilder()..update(updates))._build();
 
   _$TaskInfo._(
       {this.name,
@@ -43,13 +43,12 @@ class _$TaskInfo extends TaskInfo {
       this.isHidden,
       this.key})
       : super._();
-
   @override
   TaskInfo rebuild(void Function(TaskInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TaskInfoBuilder toBuilder() => new TaskInfoBuilder()..replace(this);
+  TaskInfoBuilder toBuilder() => TaskInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -123,13 +122,13 @@ class TaskInfoBuilder implements Builder<TaskInfo, TaskInfoBuilder> {
 
   TaskResultBuilder? _lastExecutionResult;
   TaskResultBuilder get lastExecutionResult =>
-      _$this._lastExecutionResult ??= new TaskResultBuilder();
+      _$this._lastExecutionResult ??= TaskResultBuilder();
   set lastExecutionResult(TaskResultBuilder? lastExecutionResult) =>
       _$this._lastExecutionResult = lastExecutionResult;
 
   ListBuilder<TaskTriggerInfo>? _triggers;
   ListBuilder<TaskTriggerInfo> get triggers =>
-      _$this._triggers ??= new ListBuilder<TaskTriggerInfo>();
+      _$this._triggers ??= ListBuilder<TaskTriggerInfo>();
   set triggers(ListBuilder<TaskTriggerInfo>? triggers) =>
       _$this._triggers = triggers;
 
@@ -173,7 +172,6 @@ class TaskInfoBuilder implements Builder<TaskInfo, TaskInfoBuilder> {
 
   @override
   void replace(TaskInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TaskInfo;
   }
 
@@ -189,17 +187,18 @@ class TaskInfoBuilder implements Builder<TaskInfo, TaskInfoBuilder> {
     _$TaskInfo _$result;
     try {
       _$result = _$v ??
-          new _$TaskInfo._(
-              name: name,
-              state: state,
-              currentProgressPercentage: currentProgressPercentage,
-              id: id,
-              lastExecutionResult: _lastExecutionResult?.build(),
-              triggers: _triggers?.build(),
-              description: description,
-              category: category,
-              isHidden: isHidden,
-              key: key);
+          _$TaskInfo._(
+            name: name,
+            state: state,
+            currentProgressPercentage: currentProgressPercentage,
+            id: id,
+            lastExecutionResult: _lastExecutionResult?.build(),
+            triggers: _triggers?.build(),
+            description: description,
+            category: category,
+            isHidden: isHidden,
+            key: key,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -208,7 +207,7 @@ class TaskInfoBuilder implements Builder<TaskInfo, TaskInfoBuilder> {
         _$failedField = 'triggers';
         _triggers?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TaskInfo', _$failedField, e.toString());
       }
       rethrow;

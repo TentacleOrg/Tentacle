@@ -51,7 +51,7 @@ class _$SonarrSettings extends SonarrSettings {
   final bool? preventSearch;
 
   factory _$SonarrSettings([void Function(SonarrSettingsBuilder)? updates]) =>
-      (new SonarrSettingsBuilder()..update(updates))._build();
+      (SonarrSettingsBuilder()..update(updates))._build();
 
   _$SonarrSettings._(
       {this.id,
@@ -75,33 +75,13 @@ class _$SonarrSettings extends SonarrSettings {
       this.externalUrl,
       this.syncEnabled,
       this.preventSearch})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'SonarrSettings', 'name');
-    BuiltValueNullFieldError.checkNotNull(
-        hostname, r'SonarrSettings', 'hostname');
-    BuiltValueNullFieldError.checkNotNull(port, r'SonarrSettings', 'port');
-    BuiltValueNullFieldError.checkNotNull(apiKey, r'SonarrSettings', 'apiKey');
-    BuiltValueNullFieldError.checkNotNull(useSsl, r'SonarrSettings', 'useSsl');
-    BuiltValueNullFieldError.checkNotNull(
-        activeProfileId, r'SonarrSettings', 'activeProfileId');
-    BuiltValueNullFieldError.checkNotNull(
-        activeProfileName, r'SonarrSettings', 'activeProfileName');
-    BuiltValueNullFieldError.checkNotNull(
-        activeDirectory, r'SonarrSettings', 'activeDirectory');
-    BuiltValueNullFieldError.checkNotNull(is4k, r'SonarrSettings', 'is4k');
-    BuiltValueNullFieldError.checkNotNull(
-        enableSeasonFolders, r'SonarrSettings', 'enableSeasonFolders');
-    BuiltValueNullFieldError.checkNotNull(
-        isDefault, r'SonarrSettings', 'isDefault');
-  }
-
+      : super._();
   @override
   SonarrSettings rebuild(void Function(SonarrSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SonarrSettingsBuilder toBuilder() =>
-      new SonarrSettingsBuilder()..replace(this);
+  SonarrSettingsBuilder toBuilder() => SonarrSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -319,7 +299,6 @@ class SonarrSettingsBuilder
 
   @override
   void replace(SonarrSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SonarrSettings;
   }
 
@@ -333,38 +312,40 @@ class SonarrSettingsBuilder
 
   _$SonarrSettings _build() {
     final _$result = _$v ??
-        new _$SonarrSettings._(
-            id: id,
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'SonarrSettings', 'name'),
-            hostname: BuiltValueNullFieldError.checkNotNull(
-                hostname, r'SonarrSettings', 'hostname'),
-            port: BuiltValueNullFieldError.checkNotNull(
-                port, r'SonarrSettings', 'port'),
-            apiKey: BuiltValueNullFieldError.checkNotNull(
-                apiKey, r'SonarrSettings', 'apiKey'),
-            useSsl: BuiltValueNullFieldError.checkNotNull(
-                useSsl, r'SonarrSettings', 'useSsl'),
-            baseUrl: baseUrl,
-            activeProfileId: BuiltValueNullFieldError.checkNotNull(
-                activeProfileId, r'SonarrSettings', 'activeProfileId'),
-            activeProfileName: BuiltValueNullFieldError.checkNotNull(
-                activeProfileName, r'SonarrSettings', 'activeProfileName'),
-            activeDirectory: BuiltValueNullFieldError.checkNotNull(
-                activeDirectory, r'SonarrSettings', 'activeDirectory'),
-            activeLanguageProfileId: activeLanguageProfileId,
-            activeAnimeProfileId: activeAnimeProfileId,
-            activeAnimeLanguageProfileId: activeAnimeLanguageProfileId,
-            activeAnimeProfileName: activeAnimeProfileName,
-            activeAnimeDirectory: activeAnimeDirectory,
-            is4k: BuiltValueNullFieldError.checkNotNull(
-                is4k, r'SonarrSettings', 'is4k'),
-            enableSeasonFolders: BuiltValueNullFieldError.checkNotNull(
-                enableSeasonFolders, r'SonarrSettings', 'enableSeasonFolders'),
-            isDefault: BuiltValueNullFieldError.checkNotNull(isDefault, r'SonarrSettings', 'isDefault'),
-            externalUrl: externalUrl,
-            syncEnabled: syncEnabled,
-            preventSearch: preventSearch);
+        _$SonarrSettings._(
+          id: id,
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'SonarrSettings', 'name'),
+          hostname: BuiltValueNullFieldError.checkNotNull(
+              hostname, r'SonarrSettings', 'hostname'),
+          port: BuiltValueNullFieldError.checkNotNull(
+              port, r'SonarrSettings', 'port'),
+          apiKey: BuiltValueNullFieldError.checkNotNull(
+              apiKey, r'SonarrSettings', 'apiKey'),
+          useSsl: BuiltValueNullFieldError.checkNotNull(
+              useSsl, r'SonarrSettings', 'useSsl'),
+          baseUrl: baseUrl,
+          activeProfileId: BuiltValueNullFieldError.checkNotNull(
+              activeProfileId, r'SonarrSettings', 'activeProfileId'),
+          activeProfileName: BuiltValueNullFieldError.checkNotNull(
+              activeProfileName, r'SonarrSettings', 'activeProfileName'),
+          activeDirectory: BuiltValueNullFieldError.checkNotNull(
+              activeDirectory, r'SonarrSettings', 'activeDirectory'),
+          activeLanguageProfileId: activeLanguageProfileId,
+          activeAnimeProfileId: activeAnimeProfileId,
+          activeAnimeLanguageProfileId: activeAnimeLanguageProfileId,
+          activeAnimeProfileName: activeAnimeProfileName,
+          activeAnimeDirectory: activeAnimeDirectory,
+          is4k: BuiltValueNullFieldError.checkNotNull(
+              is4k, r'SonarrSettings', 'is4k'),
+          enableSeasonFolders: BuiltValueNullFieldError.checkNotNull(
+              enableSeasonFolders, r'SonarrSettings', 'enableSeasonFolders'),
+          isDefault: BuiltValueNullFieldError.checkNotNull(
+              isDefault, r'SonarrSettings', 'isDefault'),
+          externalUrl: externalUrl,
+          syncEnabled: syncEnabled,
+          preventSearch: preventSearch,
+        );
     replace(_$result);
     return _$result;
   }

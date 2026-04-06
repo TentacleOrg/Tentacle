@@ -49,6 +49,11 @@ void main() {
       // TODO
     });
 
+    // int maxParentalSubRating
+    test('to test the property `maxParentalSubRating`', () async {
+      // TODO
+    });
+
     // BuiltList<String> blockedTags
     test('to test the property `blockedTags`', () async {
       // TODO

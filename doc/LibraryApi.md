@@ -76,7 +76,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -120,7 +120,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: video/*, audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: video/*, audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: video/*, audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: video/*, audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -441,7 +441,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -482,7 +482,7 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -588,7 +588,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -641,7 +641,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -694,7 +694,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -800,12 +800,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getThemeMedia**
-> AllThemeMediaResult getThemeMedia(itemId, userId, inheritFromParent)
+> AllThemeMediaResult getThemeMedia(itemId, userId, inheritFromParent, sortBy, sortOrder)
 
 Get theme songs and videos for an item.
 
@@ -821,9 +821,11 @@ final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Optional. Sort Order - Ascending, Descending.
 
 try {
-    final response = api.getThemeMedia(itemId, userId, inheritFromParent);
+    final response = api.getThemeMedia(itemId, userId, inheritFromParent, sortBy, sortOrder);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling LibraryApi->getThemeMedia: $e\n');
@@ -837,6 +839,8 @@ Name | Type | Description  | Notes
  **itemId** | **String**| The item id. | 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **inheritFromParent** | **bool**| Optional. Determines whether or not parent items should be searched for theme media. | [optional] [default to false]
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
+ **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Optional. Sort Order - Ascending, Descending. | [optional] 
 
 ### Return type
 
@@ -849,12 +853,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getThemeSongs**
-> ThemeMediaResult getThemeSongs(itemId, userId, inheritFromParent)
+> ThemeMediaResult getThemeSongs(itemId, userId, inheritFromParent, sortBy, sortOrder)
 
 Get theme songs for an item.
 
@@ -870,9 +874,11 @@ final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Optional. Sort Order - Ascending, Descending.
 
 try {
-    final response = api.getThemeSongs(itemId, userId, inheritFromParent);
+    final response = api.getThemeSongs(itemId, userId, inheritFromParent, sortBy, sortOrder);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling LibraryApi->getThemeSongs: $e\n');
@@ -886,6 +892,8 @@ Name | Type | Description  | Notes
  **itemId** | **String**| The item id. | 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **inheritFromParent** | **bool**| Optional. Determines whether or not parent items should be searched for theme media. | [optional] [default to false]
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
+ **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Optional. Sort Order - Ascending, Descending. | [optional] 
 
 ### Return type
 
@@ -898,12 +906,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getThemeVideos**
-> ThemeMediaResult getThemeVideos(itemId, userId, inheritFromParent)
+> ThemeMediaResult getThemeVideos(itemId, userId, inheritFromParent, sortBy, sortOrder)
 
 Get theme videos for an item.
 
@@ -919,9 +927,11 @@ final api = Tentacle().getLibraryApi();
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user id, and attach user data.
 final bool inheritFromParent = true; // bool | Optional. Determines whether or not parent items should be searched for theme media.
+final BuiltList<ItemSortBy> sortBy = ; // BuiltList<ItemSortBy> | Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime.
+final BuiltList<SortOrder> sortOrder = ; // BuiltList<SortOrder> | Optional. Sort Order - Ascending, Descending.
 
 try {
-    final response = api.getThemeVideos(itemId, userId, inheritFromParent);
+    final response = api.getThemeVideos(itemId, userId, inheritFromParent, sortBy, sortOrder);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling LibraryApi->getThemeVideos: $e\n');
@@ -935,6 +945,8 @@ Name | Type | Description  | Notes
  **itemId** | **String**| The item id. | 
  **userId** | **String**| Optional. Filter by user id, and attach user data. | [optional] 
  **inheritFromParent** | **bool**| Optional. Determines whether or not parent items should be searched for theme media. | [optional] [default to false]
+ **sortBy** | [**BuiltList&lt;ItemSortBy&gt;**](ItemSortBy.md)| Optional. Specify one or more sort orders, comma delimited. Options: Album, AlbumArtist, Artist, Budget, CommunityRating, CriticRating, DateCreated, DatePlayed, PlayCount, PremiereDate, ProductionYear, SortName, Random, Revenue, Runtime. | [optional] 
+ **sortOrder** | [**BuiltList&lt;SortOrder&gt;**](SortOrder.md)| Optional. Sort Order - Ascending, Descending. | [optional] 
 
 ### Return type
 
@@ -947,7 +959,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -993,7 +1005,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1037,7 +1049,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1081,7 +1093,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1127,7 +1139,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1171,7 +1183,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1211,7 +1223,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -15,17 +15,15 @@ class _$DiscordSettings extends DiscordSettings {
   final DiscordSettingsOptions? options;
 
   factory _$DiscordSettings([void Function(DiscordSettingsBuilder)? updates]) =>
-      (new DiscordSettingsBuilder()..update(updates))._build();
+      (DiscordSettingsBuilder()..update(updates))._build();
 
   _$DiscordSettings._({this.enabled, this.types, this.options}) : super._();
-
   @override
   DiscordSettings rebuild(void Function(DiscordSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DiscordSettingsBuilder toBuilder() =>
-      new DiscordSettingsBuilder()..replace(this);
+  DiscordSettingsBuilder toBuilder() => DiscordSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +68,7 @@ class DiscordSettingsBuilder
 
   DiscordSettingsOptionsBuilder? _options;
   DiscordSettingsOptionsBuilder get options =>
-      _$this._options ??= new DiscordSettingsOptionsBuilder();
+      _$this._options ??= DiscordSettingsOptionsBuilder();
   set options(DiscordSettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -91,7 +89,6 @@ class DiscordSettingsBuilder
 
   @override
   void replace(DiscordSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscordSettings;
   }
 
@@ -107,15 +104,18 @@ class DiscordSettingsBuilder
     _$DiscordSettings _$result;
     try {
       _$result = _$v ??
-          new _$DiscordSettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$DiscordSettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscordSettings', _$failedField, e.toString());
       }
       rethrow;

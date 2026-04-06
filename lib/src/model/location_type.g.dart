@@ -22,12 +22,12 @@ LocationType _$valueOf(String name) {
     case 'offline':
       return _$offline;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<LocationType> _$values =
-    new BuiltSet<LocationType>(const <LocationType>[
+    BuiltSet<LocationType>(const <LocationType>[
   _$fileSystem,
   _$remote,
   _$virtual,
@@ -49,8 +49,7 @@ mixin _$LocationTypeMixin {
   _$LocationTypeMeta get LocationType => const _$LocationTypeMeta();
 }
 
-Serializer<LocationType> _$locationTypeSerializer =
-    new _$LocationTypeSerializer();
+Serializer<LocationType> _$locationTypeSerializer = _$LocationTypeSerializer();
 
 class _$LocationTypeSerializer implements PrimitiveSerializer<LocationType> {
   static const Map<String, Object> _toWire = const <String, Object>{

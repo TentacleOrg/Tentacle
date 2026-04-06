@@ -14,10 +14,9 @@ class _$LunaSeaSettingsOptions extends LunaSeaSettingsOptions {
 
   factory _$LunaSeaSettingsOptions(
           [void Function(LunaSeaSettingsOptionsBuilder)? updates]) =>
-      (new LunaSeaSettingsOptionsBuilder()..update(updates))._build();
+      (LunaSeaSettingsOptionsBuilder()..update(updates))._build();
 
   _$LunaSeaSettingsOptions._({this.webhookUrl, this.profileName}) : super._();
-
   @override
   LunaSeaSettingsOptions rebuild(
           void Function(LunaSeaSettingsOptionsBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$LunaSeaSettingsOptions extends LunaSeaSettingsOptions {
 
   @override
   LunaSeaSettingsOptionsBuilder toBuilder() =>
-      new LunaSeaSettingsOptionsBuilder()..replace(this);
+      LunaSeaSettingsOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -81,7 +80,6 @@ class LunaSeaSettingsOptionsBuilder
 
   @override
   void replace(LunaSeaSettingsOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LunaSeaSettingsOptions;
   }
 
@@ -95,8 +93,10 @@ class LunaSeaSettingsOptionsBuilder
 
   _$LunaSeaSettingsOptions _build() {
     final _$result = _$v ??
-        new _$LunaSeaSettingsOptions._(
-            webhookUrl: webhookUrl, profileName: profileName);
+        _$LunaSeaSettingsOptions._(
+          webhookUrl: webhookUrl,
+          profileName: profileName,
+        );
     replace(_$result);
     return _$result;
   }

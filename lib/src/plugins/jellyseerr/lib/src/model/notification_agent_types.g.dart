@@ -26,7 +26,7 @@ class _$NotificationAgentTypes extends NotificationAgentTypes {
 
   factory _$NotificationAgentTypes(
           [void Function(NotificationAgentTypesBuilder)? updates]) =>
-      (new NotificationAgentTypesBuilder()..update(updates))._build();
+      (NotificationAgentTypesBuilder()..update(updates))._build();
 
   _$NotificationAgentTypes._(
       {this.discord,
@@ -38,7 +38,6 @@ class _$NotificationAgentTypes extends NotificationAgentTypes {
       this.webhook,
       this.webpush})
       : super._();
-
   @override
   NotificationAgentTypes rebuild(
           void Function(NotificationAgentTypesBuilder) updates) =>
@@ -46,7 +45,7 @@ class _$NotificationAgentTypes extends NotificationAgentTypes {
 
   @override
   NotificationAgentTypesBuilder toBuilder() =>
-      new NotificationAgentTypesBuilder()..replace(this);
+      NotificationAgentTypesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -150,7 +149,6 @@ class NotificationAgentTypesBuilder
 
   @override
   void replace(NotificationAgentTypes other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NotificationAgentTypes;
   }
 
@@ -164,15 +162,16 @@ class NotificationAgentTypesBuilder
 
   _$NotificationAgentTypes _build() {
     final _$result = _$v ??
-        new _$NotificationAgentTypes._(
-            discord: discord,
-            email: email,
-            pushbullet: pushbullet,
-            pushover: pushover,
-            slack: slack,
-            telegram: telegram,
-            webhook: webhook,
-            webpush: webpush);
+        _$NotificationAgentTypes._(
+          discord: discord,
+          email: email,
+          pushbullet: pushbullet,
+          pushover: pushover,
+          slack: slack,
+          telegram: telegram,
+          webhook: webhook,
+          webpush: webpush,
+        );
     replace(_$result);
     return _$result;
   }

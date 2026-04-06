@@ -11,17 +11,15 @@ class _$PingRequestDto extends PingRequestDto {
   final int? ping;
 
   factory _$PingRequestDto([void Function(PingRequestDtoBuilder)? updates]) =>
-      (new PingRequestDtoBuilder()..update(updates))._build();
+      (PingRequestDtoBuilder()..update(updates))._build();
 
   _$PingRequestDto._({this.ping}) : super._();
-
   @override
   PingRequestDto rebuild(void Function(PingRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PingRequestDtoBuilder toBuilder() =>
-      new PingRequestDtoBuilder()..replace(this);
+  PingRequestDtoBuilder toBuilder() => PingRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -67,7 +65,6 @@ class PingRequestDtoBuilder
 
   @override
   void replace(PingRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PingRequestDto;
   }
 
@@ -80,7 +77,10 @@ class PingRequestDtoBuilder
   PingRequestDto build() => _build();
 
   _$PingRequestDto _build() {
-    final _$result = _$v ?? new _$PingRequestDto._(ping: ping);
+    final _$result = _$v ??
+        _$PingRequestDto._(
+          ping: ping,
+        );
     replace(_$result);
     return _$result;
   }

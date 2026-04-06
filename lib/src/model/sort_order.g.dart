@@ -16,11 +16,11 @@ SortOrder _$valueOf(String name) {
     case 'descending':
       return _$descending;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<SortOrder> _$values = new BuiltSet<SortOrder>(const <SortOrder>[
+final BuiltSet<SortOrder> _$values = BuiltSet<SortOrder>(const <SortOrder>[
   _$ascending,
   _$descending,
 ]);
@@ -38,7 +38,7 @@ mixin _$SortOrderMixin {
   _$SortOrderMeta get SortOrder => const _$SortOrderMeta();
 }
 
-Serializer<SortOrder> _$sortOrderSerializer = new _$SortOrderSerializer();
+Serializer<SortOrder> _$sortOrderSerializer = _$SortOrderSerializer();
 
 class _$SortOrderSerializer implements PrimitiveSerializer<SortOrder> {
   static const Map<String, Object> _toWire = const <String, Object>{

@@ -23,7 +23,7 @@ class _$Crew extends Crew {
   final String? profilePath;
 
   factory _$Crew([void Function(CrewBuilder)? updates]) =>
-      (new CrewBuilder()..update(updates))._build();
+      (CrewBuilder()..update(updates))._build();
 
   _$Crew._(
       {this.id,
@@ -34,13 +34,12 @@ class _$Crew extends Crew {
       this.department,
       this.profilePath})
       : super._();
-
   @override
   Crew rebuild(void Function(CrewBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CrewBuilder toBuilder() => new CrewBuilder()..replace(this);
+  CrewBuilder toBuilder() => CrewBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -135,7 +134,6 @@ class CrewBuilder implements Builder<Crew, CrewBuilder> {
 
   @override
   void replace(Crew other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Crew;
   }
 
@@ -149,14 +147,15 @@ class CrewBuilder implements Builder<Crew, CrewBuilder> {
 
   _$Crew _build() {
     final _$result = _$v ??
-        new _$Crew._(
-            id: id,
-            creditId: creditId,
-            gender: gender,
-            name: name,
-            job: job,
-            department: department,
-            profilePath: profilePath);
+        _$Crew._(
+          id: id,
+          creditId: creditId,
+          gender: gender,
+          name: name,
+          job: job,
+          department: department,
+          profilePath: profilePath,
+        );
     replace(_$result);
     return _$result;
   }

@@ -12,10 +12,9 @@ class _$UserImportFromPlexPostRequest extends UserImportFromPlexPostRequest {
 
   factory _$UserImportFromPlexPostRequest(
           [void Function(UserImportFromPlexPostRequestBuilder)? updates]) =>
-      (new UserImportFromPlexPostRequestBuilder()..update(updates))._build();
+      (UserImportFromPlexPostRequestBuilder()..update(updates))._build();
 
   _$UserImportFromPlexPostRequest._({this.plexIds}) : super._();
-
   @override
   UserImportFromPlexPostRequest rebuild(
           void Function(UserImportFromPlexPostRequestBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$UserImportFromPlexPostRequest extends UserImportFromPlexPostRequest {
 
   @override
   UserImportFromPlexPostRequestBuilder toBuilder() =>
-      new UserImportFromPlexPostRequestBuilder()..replace(this);
+      UserImportFromPlexPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -54,8 +53,7 @@ class UserImportFromPlexPostRequestBuilder
   _$UserImportFromPlexPostRequest? _$v;
 
   ListBuilder<String>? _plexIds;
-  ListBuilder<String> get plexIds =>
-      _$this._plexIds ??= new ListBuilder<String>();
+  ListBuilder<String> get plexIds => _$this._plexIds ??= ListBuilder<String>();
   set plexIds(ListBuilder<String>? plexIds) => _$this._plexIds = plexIds;
 
   UserImportFromPlexPostRequestBuilder() {
@@ -73,7 +71,6 @@ class UserImportFromPlexPostRequestBuilder
 
   @override
   void replace(UserImportFromPlexPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserImportFromPlexPostRequest;
   }
 
@@ -89,14 +86,16 @@ class UserImportFromPlexPostRequestBuilder
     _$UserImportFromPlexPostRequest _$result;
     try {
       _$result = _$v ??
-          new _$UserImportFromPlexPostRequest._(plexIds: _plexIds?.build());
+          _$UserImportFromPlexPostRequest._(
+            plexIds: _plexIds?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'plexIds';
         _plexIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserImportFromPlexPostRequest', _$failedField, e.toString());
       }
       rethrow;

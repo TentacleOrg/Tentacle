@@ -53,7 +53,7 @@ abstract class PluginInfo implements Built<PluginInfo, PluginInfoBuilder> {
   /// Gets or sets a value indicating the status of the plugin.
   @BuiltValueField(wireName: r'Status')
   PluginStatus? get status;
-  // enum statusEnum {  Active,  Restart,  Deleted,  Superceded,  Malfunctioned,  NotSupported,  Disabled,  };
+  // enum statusEnum {  Active,  Restart,  Deleted,  Superseded,  Superceded,  Malfunctioned,  NotSupported,  Disabled,  };
 
   PluginInfo._();
 

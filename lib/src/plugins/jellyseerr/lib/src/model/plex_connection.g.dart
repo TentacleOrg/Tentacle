@@ -23,7 +23,7 @@ class _$PlexConnection extends PlexConnection {
   final String? message;
 
   factory _$PlexConnection([void Function(PlexConnectionBuilder)? updates]) =>
-      (new PlexConnectionBuilder()..update(updates))._build();
+      (PlexConnectionBuilder()..update(updates))._build();
 
   _$PlexConnection._(
       {required this.protocol,
@@ -33,23 +33,13 @@ class _$PlexConnection extends PlexConnection {
       required this.local,
       this.status,
       this.message})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        protocol, r'PlexConnection', 'protocol');
-    BuiltValueNullFieldError.checkNotNull(
-        address, r'PlexConnection', 'address');
-    BuiltValueNullFieldError.checkNotNull(port, r'PlexConnection', 'port');
-    BuiltValueNullFieldError.checkNotNull(uri, r'PlexConnection', 'uri');
-    BuiltValueNullFieldError.checkNotNull(local, r'PlexConnection', 'local');
-  }
-
+      : super._();
   @override
   PlexConnection rebuild(void Function(PlexConnectionBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlexConnectionBuilder toBuilder() =>
-      new PlexConnectionBuilder()..replace(this);
+  PlexConnectionBuilder toBuilder() => PlexConnectionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -145,7 +135,6 @@ class PlexConnectionBuilder
 
   @override
   void replace(PlexConnection other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlexConnection;
   }
 
@@ -159,19 +148,20 @@ class PlexConnectionBuilder
 
   _$PlexConnection _build() {
     final _$result = _$v ??
-        new _$PlexConnection._(
-            protocol: BuiltValueNullFieldError.checkNotNull(
-                protocol, r'PlexConnection', 'protocol'),
-            address: BuiltValueNullFieldError.checkNotNull(
-                address, r'PlexConnection', 'address'),
-            port: BuiltValueNullFieldError.checkNotNull(
-                port, r'PlexConnection', 'port'),
-            uri: BuiltValueNullFieldError.checkNotNull(
-                uri, r'PlexConnection', 'uri'),
-            local: BuiltValueNullFieldError.checkNotNull(
-                local, r'PlexConnection', 'local'),
-            status: status,
-            message: message);
+        _$PlexConnection._(
+          protocol: BuiltValueNullFieldError.checkNotNull(
+              protocol, r'PlexConnection', 'protocol'),
+          address: BuiltValueNullFieldError.checkNotNull(
+              address, r'PlexConnection', 'address'),
+          port: BuiltValueNullFieldError.checkNotNull(
+              port, r'PlexConnection', 'port'),
+          uri: BuiltValueNullFieldError.checkNotNull(
+              uri, r'PlexConnection', 'uri'),
+          local: BuiltValueNullFieldError.checkNotNull(
+              local, r'PlexConnection', 'local'),
+          status: status,
+          message: message,
+        );
     replace(_$result);
     return _$result;
   }

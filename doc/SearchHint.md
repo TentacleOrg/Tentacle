@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **type** | [**BaseItemKind**](BaseItemKind.md) | Gets or sets the type. | [optional] 
 **isFolder** | **bool** | Gets or sets a value indicating whether this instance is folder. | [optional] 
 **runTimeTicks** | **int** | Gets or sets the run time ticks. | [optional] 
-**mediaType** | [**MediaType**](MediaType.md) | Gets or sets the type of the media. | [optional] 
+**mediaType** | [**MediaType**](MediaType.md) | Gets or sets the type of the media. | [optional] [default to 'Unknown']
 **startDate** | [**DateTime**](DateTime.md) | Gets or sets the start date. | [optional] 
 **endDate** | [**DateTime**](DateTime.md) | Gets or sets the end date. | [optional] 
 **series** | **String** | Gets or sets the series. | [optional] 

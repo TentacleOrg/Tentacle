@@ -8,7 +8,7 @@ void main() {
 
   group(SessionsMessage, () {
     // Gets or sets the data.
-    // BuiltList<SessionInfo> data
+    // BuiltList<SessionInfoDto> data
     test('to test the property `data`', () async {
       // TODO
     });

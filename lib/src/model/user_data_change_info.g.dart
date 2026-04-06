@@ -14,10 +14,9 @@ class _$UserDataChangeInfo extends UserDataChangeInfo {
 
   factory _$UserDataChangeInfo(
           [void Function(UserDataChangeInfoBuilder)? updates]) =>
-      (new UserDataChangeInfoBuilder()..update(updates))._build();
+      (UserDataChangeInfoBuilder()..update(updates))._build();
 
   _$UserDataChangeInfo._({this.userId, this.userDataList}) : super._();
-
   @override
   UserDataChangeInfo rebuild(
           void Function(UserDataChangeInfoBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$UserDataChangeInfo extends UserDataChangeInfo {
 
   @override
   UserDataChangeInfoBuilder toBuilder() =>
-      new UserDataChangeInfoBuilder()..replace(this);
+      UserDataChangeInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -63,7 +62,7 @@ class UserDataChangeInfoBuilder
 
   ListBuilder<UserItemDataDto>? _userDataList;
   ListBuilder<UserItemDataDto> get userDataList =>
-      _$this._userDataList ??= new ListBuilder<UserItemDataDto>();
+      _$this._userDataList ??= ListBuilder<UserItemDataDto>();
   set userDataList(ListBuilder<UserItemDataDto>? userDataList) =>
       _$this._userDataList = userDataList;
 
@@ -83,7 +82,6 @@ class UserDataChangeInfoBuilder
 
   @override
   void replace(UserDataChangeInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserDataChangeInfo;
   }
 
@@ -99,15 +97,17 @@ class UserDataChangeInfoBuilder
     _$UserDataChangeInfo _$result;
     try {
       _$result = _$v ??
-          new _$UserDataChangeInfo._(
-              userId: userId, userDataList: _userDataList?.build());
+          _$UserDataChangeInfo._(
+            userId: userId,
+            userDataList: _userDataList?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'userDataList';
         _userDataList?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserDataChangeInfo', _$failedField, e.toString());
       }
       rethrow;

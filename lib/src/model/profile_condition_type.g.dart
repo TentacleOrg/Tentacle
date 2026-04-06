@@ -29,12 +29,12 @@ ProfileConditionType _$valueOf(String name) {
     case 'equalsAny':
       return _$equalsAny;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ProfileConditionType> _$values =
-    new BuiltSet<ProfileConditionType>(const <ProfileConditionType>[
+    BuiltSet<ProfileConditionType>(const <ProfileConditionType>[
   _$equals,
   _$notEquals,
   _$lessThanEqual,
@@ -60,7 +60,7 @@ mixin _$ProfileConditionTypeMixin {
 }
 
 Serializer<ProfileConditionType> _$profileConditionTypeSerializer =
-    new _$ProfileConditionTypeSerializer();
+    _$ProfileConditionTypeSerializer();
 
 class _$ProfileConditionTypeSerializer
     implements PrimitiveSerializer<ProfileConditionType> {

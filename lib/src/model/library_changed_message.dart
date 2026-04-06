@@ -13,13 +13,13 @@ part 'library_changed_message.g.dart';
 /// Library changed message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Class LibraryUpdateInfo.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class LibraryChangedMessage
     implements Built<LibraryChangedMessage, LibraryChangedMessageBuilder> {
-  /// Gets or sets the data.
+  /// Class LibraryUpdateInfo.
   @BuiltValueField(wireName: r'Data')
   LibraryUpdateInfo? get data;
 

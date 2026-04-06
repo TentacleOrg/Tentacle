@@ -16,11 +16,9 @@ class _$MediaMediaIdWatchDataGet200Response
   factory _$MediaMediaIdWatchDataGet200Response(
           [void Function(MediaMediaIdWatchDataGet200ResponseBuilder)?
               updates]) =>
-      (new MediaMediaIdWatchDataGet200ResponseBuilder()..update(updates))
-          ._build();
+      (MediaMediaIdWatchDataGet200ResponseBuilder()..update(updates))._build();
 
   _$MediaMediaIdWatchDataGet200Response._({this.data, this.data4k}) : super._();
-
   @override
   MediaMediaIdWatchDataGet200Response rebuild(
           void Function(MediaMediaIdWatchDataGet200ResponseBuilder) updates) =>
@@ -28,7 +26,7 @@ class _$MediaMediaIdWatchDataGet200Response
 
   @override
   MediaMediaIdWatchDataGet200ResponseBuilder toBuilder() =>
-      new MediaMediaIdWatchDataGet200ResponseBuilder()..replace(this);
+      MediaMediaIdWatchDataGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,13 +62,13 @@ class MediaMediaIdWatchDataGet200ResponseBuilder
 
   MediaMediaIdWatchDataGet200ResponseDataBuilder? _data;
   MediaMediaIdWatchDataGet200ResponseDataBuilder get data =>
-      _$this._data ??= new MediaMediaIdWatchDataGet200ResponseDataBuilder();
+      _$this._data ??= MediaMediaIdWatchDataGet200ResponseDataBuilder();
   set data(MediaMediaIdWatchDataGet200ResponseDataBuilder? data) =>
       _$this._data = data;
 
   MediaMediaIdWatchDataGet200ResponseDataBuilder? _data4k;
   MediaMediaIdWatchDataGet200ResponseDataBuilder get data4k =>
-      _$this._data4k ??= new MediaMediaIdWatchDataGet200ResponseDataBuilder();
+      _$this._data4k ??= MediaMediaIdWatchDataGet200ResponseDataBuilder();
   set data4k(MediaMediaIdWatchDataGet200ResponseDataBuilder? data4k) =>
       _$this._data4k = data4k;
 
@@ -90,7 +88,6 @@ class MediaMediaIdWatchDataGet200ResponseBuilder
 
   @override
   void replace(MediaMediaIdWatchDataGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaMediaIdWatchDataGet200Response;
   }
 
@@ -107,8 +104,10 @@ class MediaMediaIdWatchDataGet200ResponseBuilder
     _$MediaMediaIdWatchDataGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$MediaMediaIdWatchDataGet200Response._(
-              data: _data?.build(), data4k: _data4k?.build());
+          _$MediaMediaIdWatchDataGet200Response._(
+            data: _data?.build(),
+            data4k: _data4k?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -117,10 +116,8 @@ class MediaMediaIdWatchDataGet200ResponseBuilder
         _$failedField = 'data4k';
         _data4k?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'MediaMediaIdWatchDataGet200Response',
-            _$failedField,
-            e.toString());
+        throw BuiltValueNestedFieldError(r'MediaMediaIdWatchDataGet200Response',
+            _$failedField, e.toString());
       }
       rethrow;
     }

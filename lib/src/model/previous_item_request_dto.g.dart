@@ -12,10 +12,9 @@ class _$PreviousItemRequestDto extends PreviousItemRequestDto {
 
   factory _$PreviousItemRequestDto(
           [void Function(PreviousItemRequestDtoBuilder)? updates]) =>
-      (new PreviousItemRequestDtoBuilder()..update(updates))._build();
+      (PreviousItemRequestDtoBuilder()..update(updates))._build();
 
   _$PreviousItemRequestDto._({this.playlistItemId}) : super._();
-
   @override
   PreviousItemRequestDto rebuild(
           void Function(PreviousItemRequestDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$PreviousItemRequestDto extends PreviousItemRequestDto {
 
   @override
   PreviousItemRequestDtoBuilder toBuilder() =>
-      new PreviousItemRequestDtoBuilder()..replace(this);
+      PreviousItemRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +71,6 @@ class PreviousItemRequestDtoBuilder
 
   @override
   void replace(PreviousItemRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PreviousItemRequestDto;
   }
 
@@ -85,8 +83,10 @@ class PreviousItemRequestDtoBuilder
   PreviousItemRequestDto build() => _build();
 
   _$PreviousItemRequestDto _build() {
-    final _$result =
-        _$v ?? new _$PreviousItemRequestDto._(playlistItemId: playlistItemId);
+    final _$result = _$v ??
+        _$PreviousItemRequestDto._(
+          playlistItemId: playlistItemId,
+        );
     replace(_$result);
     return _$result;
   }

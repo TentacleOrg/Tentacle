@@ -56,15 +56,14 @@ class _$UserDataChangeInfoSerializer
       yield r'UserId';
       yield serializers.serialize(
         object.userId,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
     if (object.userDataList != null) {
       yield r'UserDataList';
       yield serializers.serialize(
         object.userDataList,
-        specifiedType:
-            const FullType.nullable(BuiltList, [FullType(UserItemDataDto)]),
+        specifiedType: const FullType(BuiltList, [FullType(UserItemDataDto)]),
       );
     }
   }
@@ -95,18 +94,16 @@ class _$UserDataChangeInfoSerializer
         case r'UserId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.userId = valueDes;
           break;
         case r'UserDataList':
           final valueDes = serializers.deserialize(
             value,
             specifiedType:
-                const FullType.nullable(BuiltList, [FullType(UserItemDataDto)]),
-          ) as BuiltList<UserItemDataDto>?;
-          if (valueDes == null) continue;
+                const FullType(BuiltList, [FullType(UserItemDataDto)]),
+          ) as BuiltList<UserItemDataDto>;
           result.userDataList.replace(valueDes);
           break;
         default:

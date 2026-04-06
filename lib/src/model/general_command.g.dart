@@ -15,18 +15,16 @@ class _$GeneralCommand extends GeneralCommand {
   final BuiltMap<String, String?>? arguments;
 
   factory _$GeneralCommand([void Function(GeneralCommandBuilder)? updates]) =>
-      (new GeneralCommandBuilder()..update(updates))._build();
+      (GeneralCommandBuilder()..update(updates))._build();
 
   _$GeneralCommand._({this.name, this.controllingUserId, this.arguments})
       : super._();
-
   @override
   GeneralCommand rebuild(void Function(GeneralCommandBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GeneralCommandBuilder toBuilder() =>
-      new GeneralCommandBuilder()..replace(this);
+  GeneralCommandBuilder toBuilder() => GeneralCommandBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +70,7 @@ class GeneralCommandBuilder
 
   MapBuilder<String, String?>? _arguments;
   MapBuilder<String, String?> get arguments =>
-      _$this._arguments ??= new MapBuilder<String, String?>();
+      _$this._arguments ??= MapBuilder<String, String?>();
   set arguments(MapBuilder<String, String?>? arguments) =>
       _$this._arguments = arguments;
 
@@ -93,7 +91,6 @@ class GeneralCommandBuilder
 
   @override
   void replace(GeneralCommand other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GeneralCommand;
   }
 
@@ -109,17 +106,18 @@ class GeneralCommandBuilder
     _$GeneralCommand _$result;
     try {
       _$result = _$v ??
-          new _$GeneralCommand._(
-              name: name,
-              controllingUserId: controllingUserId,
-              arguments: _arguments?.build());
+          _$GeneralCommand._(
+            name: name,
+            controllingUserId: controllingUserId,
+            arguments: _arguments?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'arguments';
         _arguments?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'GeneralCommand', _$failedField, e.toString());
       }
       rethrow;

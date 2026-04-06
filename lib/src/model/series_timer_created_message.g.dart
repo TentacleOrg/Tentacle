@@ -16,11 +16,10 @@ class _$SeriesTimerCreatedMessage extends SeriesTimerCreatedMessage {
 
   factory _$SeriesTimerCreatedMessage(
           [void Function(SeriesTimerCreatedMessageBuilder)? updates]) =>
-      (new SeriesTimerCreatedMessageBuilder()..update(updates))._build();
+      (SeriesTimerCreatedMessageBuilder()..update(updates))._build();
 
   _$SeriesTimerCreatedMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   SeriesTimerCreatedMessage rebuild(
           void Function(SeriesTimerCreatedMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$SeriesTimerCreatedMessage extends SeriesTimerCreatedMessage {
 
   @override
   SeriesTimerCreatedMessageBuilder toBuilder() =>
-      new SeriesTimerCreatedMessageBuilder()..replace(this);
+      SeriesTimerCreatedMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,8 +64,7 @@ class SeriesTimerCreatedMessageBuilder
   _$SeriesTimerCreatedMessage? _$v;
 
   TimerEventInfoBuilder? _data;
-  TimerEventInfoBuilder get data =>
-      _$this._data ??= new TimerEventInfoBuilder();
+  TimerEventInfoBuilder get data => _$this._data ??= TimerEventInfoBuilder();
   set data(TimerEventInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -95,7 +93,6 @@ class SeriesTimerCreatedMessageBuilder
 
   @override
   void replace(SeriesTimerCreatedMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SeriesTimerCreatedMessage;
   }
 
@@ -111,17 +108,18 @@ class SeriesTimerCreatedMessageBuilder
     _$SeriesTimerCreatedMessage _$result;
     try {
       _$result = _$v ??
-          new _$SeriesTimerCreatedMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$SeriesTimerCreatedMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SeriesTimerCreatedMessage', _$failedField, e.toString());
       }
       rethrow;

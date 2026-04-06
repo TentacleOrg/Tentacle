@@ -16,12 +16,12 @@ PlaybackOrder _$valueOf(String name) {
     case 'shuffle':
       return _$shuffle;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<PlaybackOrder> _$values =
-    new BuiltSet<PlaybackOrder>(const <PlaybackOrder>[
+    BuiltSet<PlaybackOrder>(const <PlaybackOrder>[
   _$default_,
   _$shuffle,
 ]);
@@ -40,7 +40,7 @@ mixin _$PlaybackOrderMixin {
 }
 
 Serializer<PlaybackOrder> _$playbackOrderSerializer =
-    new _$PlaybackOrderSerializer();
+    _$PlaybackOrderSerializer();
 
 class _$PlaybackOrderSerializer implements PrimitiveSerializer<PlaybackOrder> {
   static const Map<String, Object> _toWire = const <String, Object>{

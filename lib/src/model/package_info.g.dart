@@ -25,7 +25,7 @@ class _$PackageInfo extends PackageInfo {
   final String? imageUrl;
 
   factory _$PackageInfo([void Function(PackageInfoBuilder)? updates]) =>
-      (new PackageInfoBuilder()..update(updates))._build();
+      (PackageInfoBuilder()..update(updates))._build();
 
   _$PackageInfo._(
       {this.name,
@@ -37,13 +37,12 @@ class _$PackageInfo extends PackageInfo {
       this.versions,
       this.imageUrl})
       : super._();
-
   @override
   PackageInfo rebuild(void Function(PackageInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PackageInfoBuilder toBuilder() => new PackageInfoBuilder()..replace(this);
+  PackageInfoBuilder toBuilder() => PackageInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -118,7 +117,7 @@ class PackageInfoBuilder implements Builder<PackageInfo, PackageInfoBuilder> {
 
   ListBuilder<VersionInfo>? _versions;
   ListBuilder<VersionInfo> get versions =>
-      _$this._versions ??= new ListBuilder<VersionInfo>();
+      _$this._versions ??= ListBuilder<VersionInfo>();
   set versions(ListBuilder<VersionInfo>? versions) =>
       _$this._versions = versions;
 
@@ -148,7 +147,6 @@ class PackageInfoBuilder implements Builder<PackageInfo, PackageInfoBuilder> {
 
   @override
   void replace(PackageInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PackageInfo;
   }
 
@@ -164,22 +162,23 @@ class PackageInfoBuilder implements Builder<PackageInfo, PackageInfoBuilder> {
     _$PackageInfo _$result;
     try {
       _$result = _$v ??
-          new _$PackageInfo._(
-              name: name,
-              description: description,
-              overview: overview,
-              owner: owner,
-              category: category,
-              guid: guid,
-              versions: _versions?.build(),
-              imageUrl: imageUrl);
+          _$PackageInfo._(
+            name: name,
+            description: description,
+            overview: overview,
+            owner: owner,
+            category: category,
+            guid: guid,
+            versions: _versions?.build(),
+            imageUrl: imageUrl,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'versions';
         _versions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PackageInfo', _$failedField, e.toString());
       }
       rethrow;

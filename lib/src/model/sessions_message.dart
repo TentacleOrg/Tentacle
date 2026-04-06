@@ -4,8 +4,8 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/session_info_dto.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
-import 'package:tentacle/src/model/session_info.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -22,7 +22,7 @@ abstract class SessionsMessage
     implements Built<SessionsMessage, SessionsMessageBuilder> {
   /// Gets or sets the data.
   @BuiltValueField(wireName: r'Data')
-  BuiltList<SessionInfo>? get data;
+  BuiltList<SessionInfoDto>? get data;
 
   /// Gets or sets the message id.
   @BuiltValueField(wireName: r'MessageId')
@@ -65,7 +65,7 @@ class _$SessionsMessageSerializer
       yield serializers.serialize(
         object.data,
         specifiedType:
-            const FullType.nullable(BuiltList, [FullType(SessionInfo)]),
+            const FullType.nullable(BuiltList, [FullType(SessionInfoDto)]),
       );
     }
     if (object.messageId != null) {
@@ -111,8 +111,8 @@ class _$SessionsMessageSerializer
           final valueDes = serializers.deserialize(
             value,
             specifiedType:
-                const FullType.nullable(BuiltList, [FullType(SessionInfo)]),
-          ) as BuiltList<SessionInfo>?;
+                const FullType.nullable(BuiltList, [FullType(SessionInfoDto)]),
+          ) as BuiltList<SessionInfoDto>?;
           if (valueDes == null) continue;
           result.data.replace(valueDes);
           break;

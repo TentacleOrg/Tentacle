@@ -13,16 +13,15 @@ class _$QueryFilters extends QueryFilters {
   final BuiltList<String>? tags;
 
   factory _$QueryFilters([void Function(QueryFiltersBuilder)? updates]) =>
-      (new QueryFiltersBuilder()..update(updates))._build();
+      (QueryFiltersBuilder()..update(updates))._build();
 
   _$QueryFilters._({this.genres, this.tags}) : super._();
-
   @override
   QueryFilters rebuild(void Function(QueryFiltersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  QueryFiltersBuilder toBuilder() => new QueryFiltersBuilder()..replace(this);
+  QueryFiltersBuilder toBuilder() => QueryFiltersBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -56,11 +55,11 @@ class QueryFiltersBuilder
 
   ListBuilder<NameGuidPair>? _genres;
   ListBuilder<NameGuidPair> get genres =>
-      _$this._genres ??= new ListBuilder<NameGuidPair>();
+      _$this._genres ??= ListBuilder<NameGuidPair>();
   set genres(ListBuilder<NameGuidPair>? genres) => _$this._genres = genres;
 
   ListBuilder<String>? _tags;
-  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  ListBuilder<String> get tags => _$this._tags ??= ListBuilder<String>();
   set tags(ListBuilder<String>? tags) => _$this._tags = tags;
 
   QueryFiltersBuilder() {
@@ -79,7 +78,6 @@ class QueryFiltersBuilder
 
   @override
   void replace(QueryFilters other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$QueryFilters;
   }
 
@@ -95,7 +93,10 @@ class QueryFiltersBuilder
     _$QueryFilters _$result;
     try {
       _$result = _$v ??
-          new _$QueryFilters._(genres: _genres?.build(), tags: _tags?.build());
+          _$QueryFilters._(
+            genres: _genres?.build(),
+            tags: _tags?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -104,7 +105,7 @@ class QueryFiltersBuilder
         _$failedField = 'tags';
         _tags?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'QueryFilters', _$failedField, e.toString());
       }
       rethrow;

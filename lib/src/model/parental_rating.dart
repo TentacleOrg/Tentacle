@@ -3,6 +3,7 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:tentacle/src/model/parental_rating_score.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,6 +14,7 @@ part 'parental_rating.g.dart';
 /// Properties:
 /// * [name] - Gets or sets the name.
 /// * [value] - Gets or sets the value.
+/// * [ratingScore] - Gets or sets the rating score.
 @BuiltValue()
 abstract class ParentalRating
     implements Built<ParentalRating, ParentalRatingBuilder> {
@@ -23,6 +25,10 @@ abstract class ParentalRating
   /// Gets or sets the value.
   @BuiltValueField(wireName: r'Value')
   int? get value;
+
+  /// Gets or sets the rating score.
+  @BuiltValueField(wireName: r'RatingScore')
+  ParentalRatingScore? get ratingScore;
 
   ParentalRating._();
 
@@ -54,7 +60,7 @@ class _$ParentalRatingSerializer
       yield r'Name';
       yield serializers.serialize(
         object.name,
-        specifiedType: const FullType.nullable(String),
+        specifiedType: const FullType(String),
       );
     }
     if (object.value != null) {
@@ -62,6 +68,13 @@ class _$ParentalRatingSerializer
       yield serializers.serialize(
         object.value,
         specifiedType: const FullType.nullable(int),
+      );
+    }
+    if (object.ratingScore != null) {
+      yield r'RatingScore';
+      yield serializers.serialize(
+        object.ratingScore,
+        specifiedType: const FullType.nullable(ParentalRatingScore),
       );
     }
   }
@@ -92,9 +105,8 @@ class _$ParentalRatingSerializer
         case r'Name':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(String),
+          ) as String;
           result.name = valueDes;
           break;
         case r'Value':
@@ -104,6 +116,14 @@ class _$ParentalRatingSerializer
           ) as int?;
           if (valueDes == null) continue;
           result.value = valueDes;
+          break;
+        case r'RatingScore':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(ParentalRatingScore),
+          ) as ParentalRatingScore?;
+          if (valueDes == null) continue;
+          result.ratingScore.replace(valueDes);
           break;
         default:
           unhandled.add(key);

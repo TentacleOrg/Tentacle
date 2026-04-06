@@ -19,12 +19,11 @@ class _$SettingsLogsGet200ResponseInner
 
   factory _$SettingsLogsGet200ResponseInner(
           [void Function(SettingsLogsGet200ResponseInnerBuilder)? updates]) =>
-      (new SettingsLogsGet200ResponseInnerBuilder()..update(updates))._build();
+      (SettingsLogsGet200ResponseInnerBuilder()..update(updates))._build();
 
   _$SettingsLogsGet200ResponseInner._(
       {this.label, this.level, this.message, this.timestamp})
       : super._();
-
   @override
   SettingsLogsGet200ResponseInner rebuild(
           void Function(SettingsLogsGet200ResponseInnerBuilder) updates) =>
@@ -32,7 +31,7 @@ class _$SettingsLogsGet200ResponseInner
 
   @override
   SettingsLogsGet200ResponseInnerBuilder toBuilder() =>
-      new SettingsLogsGet200ResponseInnerBuilder()..replace(this);
+      SettingsLogsGet200ResponseInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -106,7 +105,6 @@ class SettingsLogsGet200ResponseInnerBuilder
 
   @override
   void replace(SettingsLogsGet200ResponseInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsLogsGet200ResponseInner;
   }
 
@@ -120,8 +118,12 @@ class SettingsLogsGet200ResponseInnerBuilder
 
   _$SettingsLogsGet200ResponseInner _build() {
     final _$result = _$v ??
-        new _$SettingsLogsGet200ResponseInner._(
-            label: label, level: level, message: message, timestamp: timestamp);
+        _$SettingsLogsGet200ResponseInner._(
+          label: label,
+          level: level,
+          message: message,
+          timestamp: timestamp,
+        );
     replace(_$result);
     return _$result;
   }

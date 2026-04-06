@@ -40,12 +40,12 @@ DynamicDayOfWeek _$valueOf(String name) {
     case 'weekend':
       return _$weekend;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<DynamicDayOfWeek> _$values =
-    new BuiltSet<DynamicDayOfWeek>(const <DynamicDayOfWeek>[
+    BuiltSet<DynamicDayOfWeek>(const <DynamicDayOfWeek>[
   _$sunday,
   _$monday,
   _$tuesday,
@@ -80,7 +80,7 @@ mixin _$DynamicDayOfWeekMixin {
 }
 
 Serializer<DynamicDayOfWeek> _$dynamicDayOfWeekSerializer =
-    new _$DynamicDayOfWeekSerializer();
+    _$DynamicDayOfWeekSerializer();
 
 class _$DynamicDayOfWeekSerializer
     implements PrimitiveSerializer<DynamicDayOfWeek> {

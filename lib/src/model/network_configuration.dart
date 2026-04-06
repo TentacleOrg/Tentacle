@@ -79,6 +79,7 @@ abstract class NetworkConfiguration
   bool? get autoDiscovery;
 
   /// Gets or sets a value indicating whether to enable automatic port forwarding.
+  @Deprecated('enableUPnP has been deprecated')
   @BuiltValueField(wireName: r'EnableUPnP')
   bool? get enableUPnP;
 

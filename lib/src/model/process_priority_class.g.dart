@@ -31,12 +31,12 @@ ProcessPriorityClass _$valueOf(String name) {
     case 'aboveNormal':
       return _$aboveNormal;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ProcessPriorityClass> _$values =
-    new BuiltSet<ProcessPriorityClass>(const <ProcessPriorityClass>[
+    BuiltSet<ProcessPriorityClass>(const <ProcessPriorityClass>[
   _$normal,
   _$idle,
   _$high,
@@ -64,7 +64,7 @@ mixin _$ProcessPriorityClassMixin {
 }
 
 Serializer<ProcessPriorityClass> _$processPriorityClassSerializer =
-    new _$ProcessPriorityClassSerializer();
+    _$ProcessPriorityClassSerializer();
 
 class _$ProcessPriorityClassSerializer
     implements PrimitiveSerializer<ProcessPriorityClass> {

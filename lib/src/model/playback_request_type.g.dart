@@ -68,12 +68,12 @@ PlaybackRequestType _$valueOf(String name) {
     case 'ignoreWait':
       return _$ignoreWait;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<PlaybackRequestType> _$values =
-    new BuiltSet<PlaybackRequestType>(const <PlaybackRequestType>[
+    BuiltSet<PlaybackRequestType>(const <PlaybackRequestType>[
   _$play,
   _$setPlaylistItem,
   _$removeFromPlaylist,
@@ -123,7 +123,7 @@ mixin _$PlaybackRequestTypeMixin {
 }
 
 Serializer<PlaybackRequestType> _$playbackRequestTypeSerializer =
-    new _$PlaybackRequestTypeSerializer();
+    _$PlaybackRequestTypeSerializer();
 
 class _$PlaybackRequestTypeSerializer
     implements PrimitiveSerializer<PlaybackRequestType> {

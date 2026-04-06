@@ -34,7 +34,7 @@ class _$RemoteSearchResult extends RemoteSearchResult {
 
   factory _$RemoteSearchResult(
           [void Function(RemoteSearchResultBuilder)? updates]) =>
-      (new RemoteSearchResultBuilder()..update(updates))._build();
+      (RemoteSearchResultBuilder()..update(updates))._build();
 
   _$RemoteSearchResult._(
       {this.name,
@@ -50,7 +50,6 @@ class _$RemoteSearchResult extends RemoteSearchResult {
       this.albumArtist,
       this.artists})
       : super._();
-
   @override
   RemoteSearchResult rebuild(
           void Function(RemoteSearchResultBuilder) updates) =>
@@ -58,7 +57,7 @@ class _$RemoteSearchResult extends RemoteSearchResult {
 
   @override
   RemoteSearchResultBuilder toBuilder() =>
-      new RemoteSearchResultBuilder()..replace(this);
+      RemoteSearchResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -126,7 +125,7 @@ class RemoteSearchResultBuilder
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -169,13 +168,13 @@ class RemoteSearchResultBuilder
 
   RemoteSearchResultBuilder? _albumArtist;
   RemoteSearchResultBuilder get albumArtist =>
-      _$this._albumArtist ??= new RemoteSearchResultBuilder();
+      _$this._albumArtist ??= RemoteSearchResultBuilder();
   set albumArtist(RemoteSearchResultBuilder? albumArtist) =>
       _$this._albumArtist = albumArtist;
 
   ListBuilder<RemoteSearchResult>? _artists;
   ListBuilder<RemoteSearchResult> get artists =>
-      _$this._artists ??= new ListBuilder<RemoteSearchResult>();
+      _$this._artists ??= ListBuilder<RemoteSearchResult>();
   set artists(ListBuilder<RemoteSearchResult>? artists) =>
       _$this._artists = artists;
 
@@ -205,7 +204,6 @@ class RemoteSearchResultBuilder
 
   @override
   void replace(RemoteSearchResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RemoteSearchResult;
   }
 
@@ -221,19 +219,20 @@ class RemoteSearchResultBuilder
     _$RemoteSearchResult _$result;
     try {
       _$result = _$v ??
-          new _$RemoteSearchResult._(
-              name: name,
-              providerIds: _providerIds?.build(),
-              productionYear: productionYear,
-              indexNumber: indexNumber,
-              indexNumberEnd: indexNumberEnd,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              imageUrl: imageUrl,
-              searchProviderName: searchProviderName,
-              overview: overview,
-              albumArtist: _albumArtist?.build(),
-              artists: _artists?.build());
+          _$RemoteSearchResult._(
+            name: name,
+            providerIds: _providerIds?.build(),
+            productionYear: productionYear,
+            indexNumber: indexNumber,
+            indexNumberEnd: indexNumberEnd,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            imageUrl: imageUrl,
+            searchProviderName: searchProviderName,
+            overview: overview,
+            albumArtist: _albumArtist?.build(),
+            artists: _artists?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -245,7 +244,7 @@ class RemoteSearchResultBuilder
         _$failedField = 'artists';
         _artists?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'RemoteSearchResult', _$failedField, e.toString());
       }
       rethrow;

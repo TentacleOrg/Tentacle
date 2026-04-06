@@ -22,12 +22,12 @@ SendCommandType _$valueOf(String name) {
     case 'seek':
       return _$seek;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<SendCommandType> _$values =
-    new BuiltSet<SendCommandType>(const <SendCommandType>[
+    BuiltSet<SendCommandType>(const <SendCommandType>[
   _$unpause,
   _$pause,
   _$stop,
@@ -50,7 +50,7 @@ mixin _$SendCommandTypeMixin {
 }
 
 Serializer<SendCommandType> _$sendCommandTypeSerializer =
-    new _$SendCommandTypeSerializer();
+    _$SendCommandTypeSerializer();
 
 class _$SendCommandTypeSerializer
     implements PrimitiveSerializer<SendCommandType> {

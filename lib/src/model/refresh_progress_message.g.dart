@@ -16,11 +16,10 @@ class _$RefreshProgressMessage extends RefreshProgressMessage {
 
   factory _$RefreshProgressMessage(
           [void Function(RefreshProgressMessageBuilder)? updates]) =>
-      (new RefreshProgressMessageBuilder()..update(updates))._build();
+      (RefreshProgressMessageBuilder()..update(updates))._build();
 
   _$RefreshProgressMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   RefreshProgressMessage rebuild(
           void Function(RefreshProgressMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$RefreshProgressMessage extends RefreshProgressMessage {
 
   @override
   RefreshProgressMessageBuilder toBuilder() =>
-      new RefreshProgressMessageBuilder()..replace(this);
+      RefreshProgressMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,7 +64,7 @@ class RefreshProgressMessageBuilder
 
   MapBuilder<String, String?>? _data;
   MapBuilder<String, String?> get data =>
-      _$this._data ??= new MapBuilder<String, String?>();
+      _$this._data ??= MapBuilder<String, String?>();
   set data(MapBuilder<String, String?>? data) => _$this._data = data;
 
   String? _messageId;
@@ -94,7 +93,6 @@ class RefreshProgressMessageBuilder
 
   @override
   void replace(RefreshProgressMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RefreshProgressMessage;
   }
 
@@ -110,17 +108,18 @@ class RefreshProgressMessageBuilder
     _$RefreshProgressMessage _$result;
     try {
       _$result = _$v ??
-          new _$RefreshProgressMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$RefreshProgressMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'RefreshProgressMessage', _$failedField, e.toString());
       }
       rethrow;

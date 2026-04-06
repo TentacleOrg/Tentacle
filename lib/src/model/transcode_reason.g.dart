@@ -56,6 +56,10 @@ const TranscodeReason _$directPlayError =
     const TranscodeReason._('directPlayError');
 const TranscodeReason _$videoRangeTypeNotSupported =
     const TranscodeReason._('videoRangeTypeNotSupported');
+const TranscodeReason _$videoCodecTagNotSupported =
+    const TranscodeReason._('videoCodecTagNotSupported');
+const TranscodeReason _$streamCountExceedsLimit =
+    const TranscodeReason._('streamCountExceedsLimit');
 
 TranscodeReason _$valueOf(String name) {
   switch (name) {
@@ -109,13 +113,17 @@ TranscodeReason _$valueOf(String name) {
       return _$directPlayError;
     case 'videoRangeTypeNotSupported':
       return _$videoRangeTypeNotSupported;
+    case 'videoCodecTagNotSupported':
+      return _$videoCodecTagNotSupported;
+    case 'streamCountExceedsLimit':
+      return _$streamCountExceedsLimit;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<TranscodeReason> _$values =
-    new BuiltSet<TranscodeReason>(const <TranscodeReason>[
+    BuiltSet<TranscodeReason>(const <TranscodeReason>[
   _$containerNotSupported,
   _$videoCodecNotSupported,
   _$audioCodecNotSupported,
@@ -141,6 +149,8 @@ final BuiltSet<TranscodeReason> _$values =
   _$unknownAudioStreamInfo,
   _$directPlayError,
   _$videoRangeTypeNotSupported,
+  _$videoCodecTagNotSupported,
+  _$streamCountExceedsLimit,
 ]);
 
 class _$TranscodeReasonMeta {
@@ -178,6 +188,8 @@ class _$TranscodeReasonMeta {
   TranscodeReason get directPlayError => _$directPlayError;
   TranscodeReason get videoRangeTypeNotSupported =>
       _$videoRangeTypeNotSupported;
+  TranscodeReason get videoCodecTagNotSupported => _$videoCodecTagNotSupported;
+  TranscodeReason get streamCountExceedsLimit => _$streamCountExceedsLimit;
   TranscodeReason valueOf(String name) => _$valueOf(name);
   BuiltSet<TranscodeReason> get values => _$values;
 }
@@ -188,7 +200,7 @@ mixin _$TranscodeReasonMixin {
 }
 
 Serializer<TranscodeReason> _$transcodeReasonSerializer =
-    new _$TranscodeReasonSerializer();
+    _$TranscodeReasonSerializer();
 
 class _$TranscodeReasonSerializer
     implements PrimitiveSerializer<TranscodeReason> {
@@ -218,6 +230,8 @@ class _$TranscodeReasonSerializer
     'unknownAudioStreamInfo': 'UnknownAudioStreamInfo',
     'directPlayError': 'DirectPlayError',
     'videoRangeTypeNotSupported': 'VideoRangeTypeNotSupported',
+    'videoCodecTagNotSupported': 'VideoCodecTagNotSupported',
+    'streamCountExceedsLimit': 'StreamCountExceedsLimit',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'ContainerNotSupported': 'containerNotSupported',
@@ -245,6 +259,8 @@ class _$TranscodeReasonSerializer
     'UnknownAudioStreamInfo': 'unknownAudioStreamInfo',
     'DirectPlayError': 'directPlayError',
     'VideoRangeTypeNotSupported': 'videoRangeTypeNotSupported',
+    'VideoCodecTagNotSupported': 'videoCodecTagNotSupported',
+    'StreamCountExceedsLimit': 'streamCountExceedsLimit',
   };
 
   @override

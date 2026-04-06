@@ -10,7 +10,7 @@ import 'package:built_value/serializer.dart';
 
 part 'authentication_info_query_result.g.dart';
 
-/// AuthenticationInfoQueryResult
+/// Query result container.
 ///
 /// Properties:
 /// * [items] - Gets or sets the items.
@@ -68,7 +68,7 @@ class _$AuthenticationInfoQueryResultSerializer
       yield serializers.serialize(
         object.items,
         specifiedType:
-            const FullType.nullable(BuiltList, [FullType(AuthenticationInfo)]),
+            const FullType(BuiltList, [FullType(AuthenticationInfo)]),
       );
     }
     if (object.totalRecordCount != null) {
@@ -113,10 +113,9 @@ class _$AuthenticationInfoQueryResultSerializer
         case r'Items':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(
-                BuiltList, [FullType(AuthenticationInfo)]),
-          ) as BuiltList<AuthenticationInfo>?;
-          if (valueDes == null) continue;
+            specifiedType:
+                const FullType(BuiltList, [FullType(AuthenticationInfo)]),
+          ) as BuiltList<AuthenticationInfo>;
           result.items.replace(valueDes);
           break;
         case r'TotalRecordCount':

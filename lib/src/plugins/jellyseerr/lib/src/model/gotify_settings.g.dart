@@ -15,17 +15,15 @@ class _$GotifySettings extends GotifySettings {
   final GotifySettingsOptions? options;
 
   factory _$GotifySettings([void Function(GotifySettingsBuilder)? updates]) =>
-      (new GotifySettingsBuilder()..update(updates))._build();
+      (GotifySettingsBuilder()..update(updates))._build();
 
   _$GotifySettings._({this.enabled, this.types, this.options}) : super._();
-
   @override
   GotifySettings rebuild(void Function(GotifySettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GotifySettingsBuilder toBuilder() =>
-      new GotifySettingsBuilder()..replace(this);
+  GotifySettingsBuilder toBuilder() => GotifySettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +68,7 @@ class GotifySettingsBuilder
 
   GotifySettingsOptionsBuilder? _options;
   GotifySettingsOptionsBuilder get options =>
-      _$this._options ??= new GotifySettingsOptionsBuilder();
+      _$this._options ??= GotifySettingsOptionsBuilder();
   set options(GotifySettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -91,7 +89,6 @@ class GotifySettingsBuilder
 
   @override
   void replace(GotifySettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GotifySettings;
   }
 
@@ -107,15 +104,18 @@ class GotifySettingsBuilder
     _$GotifySettings _$result;
     try {
       _$result = _$v ??
-          new _$GotifySettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$GotifySettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'GotifySettings', _$failedField, e.toString());
       }
       rethrow;

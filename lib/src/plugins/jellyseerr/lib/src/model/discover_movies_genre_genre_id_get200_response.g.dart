@@ -22,13 +22,12 @@ class _$DiscoverMoviesGenreGenreIdGet200Response
   factory _$DiscoverMoviesGenreGenreIdGet200Response(
           [void Function(DiscoverMoviesGenreGenreIdGet200ResponseBuilder)?
               updates]) =>
-      (new DiscoverMoviesGenreGenreIdGet200ResponseBuilder()..update(updates))
+      (DiscoverMoviesGenreGenreIdGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$DiscoverMoviesGenreGenreIdGet200Response._(
       {this.page, this.totalPages, this.totalResults, this.genre, this.results})
       : super._();
-
   @override
   DiscoverMoviesGenreGenreIdGet200Response rebuild(
           void Function(DiscoverMoviesGenreGenreIdGet200ResponseBuilder)
@@ -37,7 +36,7 @@ class _$DiscoverMoviesGenreGenreIdGet200Response
 
   @override
   DiscoverMoviesGenreGenreIdGet200ResponseBuilder toBuilder() =>
-      new DiscoverMoviesGenreGenreIdGet200ResponseBuilder()..replace(this);
+      DiscoverMoviesGenreGenreIdGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -94,12 +93,12 @@ class DiscoverMoviesGenreGenreIdGet200ResponseBuilder
   set totalResults(num? totalResults) => _$this._totalResults = totalResults;
 
   GenreBuilder? _genre;
-  GenreBuilder get genre => _$this._genre ??= new GenreBuilder();
+  GenreBuilder get genre => _$this._genre ??= GenreBuilder();
   set genre(GenreBuilder? genre) => _$this._genre = genre;
 
   ListBuilder<MovieResult>? _results;
   ListBuilder<MovieResult> get results =>
-      _$this._results ??= new ListBuilder<MovieResult>();
+      _$this._results ??= ListBuilder<MovieResult>();
   set results(ListBuilder<MovieResult>? results) => _$this._results = results;
 
   DiscoverMoviesGenreGenreIdGet200ResponseBuilder() {
@@ -121,7 +120,6 @@ class DiscoverMoviesGenreGenreIdGet200ResponseBuilder
 
   @override
   void replace(DiscoverMoviesGenreGenreIdGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverMoviesGenreGenreIdGet200Response;
   }
 
@@ -138,12 +136,13 @@ class DiscoverMoviesGenreGenreIdGet200ResponseBuilder
     _$DiscoverMoviesGenreGenreIdGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverMoviesGenreGenreIdGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              genre: _genre?.build(),
-              results: _results?.build());
+          _$DiscoverMoviesGenreGenreIdGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            genre: _genre?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -152,7 +151,7 @@ class DiscoverMoviesGenreGenreIdGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverMoviesGenreGenreIdGet200Response',
             _$failedField,
             e.toString());

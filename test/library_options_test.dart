@@ -131,6 +131,16 @@ void main() {
       // TODO
     });
 
+    // BuiltList<String> disabledMediaSegmentProviders
+    test('to test the property `disabledMediaSegmentProviders`', () async {
+      // TODO
+    });
+
+    // BuiltList<String> mediaSegmentProviderOrder
+    test('to test the property `mediaSegmentProviderOrder`', () async {
+      // TODO
+    });
+
     // bool skipSubtitlesIfEmbeddedSubtitlesPresent
     test('to test the property `skipSubtitlesIfEmbeddedSubtitlesPresent`',
         () async {
@@ -159,6 +169,41 @@ void main() {
 
     // bool saveLyricsWithMedia (default value: false)
     test('to test the property `saveLyricsWithMedia`', () async {
+      // TODO
+    });
+
+    // bool saveTrickplayWithMedia (default value: false)
+    test('to test the property `saveTrickplayWithMedia`', () async {
+      // TODO
+    });
+
+    // BuiltList<String> disabledLyricFetchers
+    test('to test the property `disabledLyricFetchers`', () async {
+      // TODO
+    });
+
+    // BuiltList<String> lyricFetcherOrder
+    test('to test the property `lyricFetcherOrder`', () async {
+      // TODO
+    });
+
+    // bool preferNonstandardArtistsTag (default value: false)
+    test('to test the property `preferNonstandardArtistsTag`', () async {
+      // TODO
+    });
+
+    // bool useCustomTagDelimiters (default value: false)
+    test('to test the property `useCustomTagDelimiters`', () async {
+      // TODO
+    });
+
+    // BuiltList<String> customTagDelimiters
+    test('to test the property `customTagDelimiters`', () async {
+      // TODO
+    });
+
+    // BuiltList<String> delimiterWhitelist
+    test('to test the property `delimiterWhitelist`', () async {
       // TODO
     });
 

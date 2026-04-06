@@ -22,13 +22,11 @@ class _$DiscoverTvGenreGenreIdGet200Response
   factory _$DiscoverTvGenreGenreIdGet200Response(
           [void Function(DiscoverTvGenreGenreIdGet200ResponseBuilder)?
               updates]) =>
-      (new DiscoverTvGenreGenreIdGet200ResponseBuilder()..update(updates))
-          ._build();
+      (DiscoverTvGenreGenreIdGet200ResponseBuilder()..update(updates))._build();
 
   _$DiscoverTvGenreGenreIdGet200Response._(
       {this.page, this.totalPages, this.totalResults, this.genre, this.results})
       : super._();
-
   @override
   DiscoverTvGenreGenreIdGet200Response rebuild(
           void Function(DiscoverTvGenreGenreIdGet200ResponseBuilder) updates) =>
@@ -36,7 +34,7 @@ class _$DiscoverTvGenreGenreIdGet200Response
 
   @override
   DiscoverTvGenreGenreIdGet200ResponseBuilder toBuilder() =>
-      new DiscoverTvGenreGenreIdGet200ResponseBuilder()..replace(this);
+      DiscoverTvGenreGenreIdGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -92,12 +90,12 @@ class DiscoverTvGenreGenreIdGet200ResponseBuilder
   set totalResults(num? totalResults) => _$this._totalResults = totalResults;
 
   GenreBuilder? _genre;
-  GenreBuilder get genre => _$this._genre ??= new GenreBuilder();
+  GenreBuilder get genre => _$this._genre ??= GenreBuilder();
   set genre(GenreBuilder? genre) => _$this._genre = genre;
 
   ListBuilder<TvResult>? _results;
   ListBuilder<TvResult> get results =>
-      _$this._results ??= new ListBuilder<TvResult>();
+      _$this._results ??= ListBuilder<TvResult>();
   set results(ListBuilder<TvResult>? results) => _$this._results = results;
 
   DiscoverTvGenreGenreIdGet200ResponseBuilder() {
@@ -119,7 +117,6 @@ class DiscoverTvGenreGenreIdGet200ResponseBuilder
 
   @override
   void replace(DiscoverTvGenreGenreIdGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverTvGenreGenreIdGet200Response;
   }
 
@@ -136,12 +133,13 @@ class DiscoverTvGenreGenreIdGet200ResponseBuilder
     _$DiscoverTvGenreGenreIdGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverTvGenreGenreIdGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              genre: _genre?.build(),
-              results: _results?.build());
+          _$DiscoverTvGenreGenreIdGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            genre: _genre?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -150,7 +148,7 @@ class DiscoverTvGenreGenreIdGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverTvGenreGenreIdGet200Response',
             _$failedField,
             e.toString());

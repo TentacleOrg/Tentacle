@@ -13,17 +13,15 @@ class _$PinRedeemResult extends PinRedeemResult {
   final BuiltList<String>? usersReset;
 
   factory _$PinRedeemResult([void Function(PinRedeemResultBuilder)? updates]) =>
-      (new PinRedeemResultBuilder()..update(updates))._build();
+      (PinRedeemResultBuilder()..update(updates))._build();
 
   _$PinRedeemResult._({this.success, this.usersReset}) : super._();
-
   @override
   PinRedeemResult rebuild(void Function(PinRedeemResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PinRedeemResultBuilder toBuilder() =>
-      new PinRedeemResultBuilder()..replace(this);
+  PinRedeemResultBuilder toBuilder() => PinRedeemResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -61,7 +59,7 @@ class PinRedeemResultBuilder
 
   ListBuilder<String>? _usersReset;
   ListBuilder<String> get usersReset =>
-      _$this._usersReset ??= new ListBuilder<String>();
+      _$this._usersReset ??= ListBuilder<String>();
   set usersReset(ListBuilder<String>? usersReset) =>
       _$this._usersReset = usersReset;
 
@@ -81,7 +79,6 @@ class PinRedeemResultBuilder
 
   @override
   void replace(PinRedeemResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PinRedeemResult;
   }
 
@@ -97,15 +94,17 @@ class PinRedeemResultBuilder
     _$PinRedeemResult _$result;
     try {
       _$result = _$v ??
-          new _$PinRedeemResult._(
-              success: success, usersReset: _usersReset?.build());
+          _$PinRedeemResult._(
+            success: success,
+            usersReset: _usersReset?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'usersReset';
         _usersReset?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PinRedeemResult', _$failedField, e.toString());
       }
       rethrow;

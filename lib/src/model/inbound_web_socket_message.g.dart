@@ -12,13 +12,9 @@ class _$InboundWebSocketMessage extends InboundWebSocketMessage {
 
   factory _$InboundWebSocketMessage(
           [void Function(InboundWebSocketMessageBuilder)? updates]) =>
-      (new InboundWebSocketMessageBuilder()..update(updates))._build();
+      (InboundWebSocketMessageBuilder()..update(updates))._build();
 
-  _$InboundWebSocketMessage._({required this.oneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        oneOf, r'InboundWebSocketMessage', 'oneOf');
-  }
-
+  _$InboundWebSocketMessage._({required this.oneOf}) : super._();
   @override
   InboundWebSocketMessage rebuild(
           void Function(InboundWebSocketMessageBuilder) updates) =>
@@ -26,7 +22,7 @@ class _$InboundWebSocketMessage extends InboundWebSocketMessage {
 
   @override
   InboundWebSocketMessageBuilder toBuilder() =>
-      new InboundWebSocketMessageBuilder()..replace(this);
+      InboundWebSocketMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,7 +70,6 @@ class InboundWebSocketMessageBuilder
 
   @override
   void replace(InboundWebSocketMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$InboundWebSocketMessage;
   }
 
@@ -88,9 +83,10 @@ class InboundWebSocketMessageBuilder
 
   _$InboundWebSocketMessage _build() {
     final _$result = _$v ??
-        new _$InboundWebSocketMessage._(
-            oneOf: BuiltValueNullFieldError.checkNotNull(
-                oneOf, r'InboundWebSocketMessage', 'oneOf'));
+        _$InboundWebSocketMessage._(
+          oneOf: BuiltValueNullFieldError.checkNotNull(
+              oneOf, r'InboundWebSocketMessage', 'oneOf'),
+        );
     replace(_$result);
     return _$result;
   }

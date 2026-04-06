@@ -12,15 +12,11 @@ part 'media_path_info.g.dart';
 ///
 /// Properties:
 /// * [path]
-/// * [networkPath]
 @BuiltValue()
 abstract class MediaPathInfo
     implements Built<MediaPathInfo, MediaPathInfoBuilder> {
   @BuiltValueField(wireName: r'Path')
   String? get path;
-
-  @BuiltValueField(wireName: r'NetworkPath')
-  String? get networkPath;
 
   MediaPathInfo._();
 
@@ -54,13 +50,6 @@ class _$MediaPathInfoSerializer implements PrimitiveSerializer<MediaPathInfo> {
         specifiedType: const FullType(String),
       );
     }
-    if (object.networkPath != null) {
-      yield r'NetworkPath';
-      yield serializers.serialize(
-        object.networkPath,
-        specifiedType: const FullType.nullable(String),
-      );
-    }
   }
 
   @override
@@ -92,14 +81,6 @@ class _$MediaPathInfoSerializer implements PrimitiveSerializer<MediaPathInfo> {
             specifiedType: const FullType(String),
           ) as String;
           result.path = valueDes;
-          break;
-        case r'NetworkPath':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(String),
-          ) as String?;
-          if (valueDes == null) continue;
-          result.networkPath = valueDes;
           break;
         default:
           unhandled.add(key);

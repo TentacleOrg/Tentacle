@@ -14,10 +14,9 @@ class _$ScheduledTasksInfoStartMessage extends ScheduledTasksInfoStartMessage {
 
   factory _$ScheduledTasksInfoStartMessage(
           [void Function(ScheduledTasksInfoStartMessageBuilder)? updates]) =>
-      (new ScheduledTasksInfoStartMessageBuilder()..update(updates))._build();
+      (ScheduledTasksInfoStartMessageBuilder()..update(updates))._build();
 
   _$ScheduledTasksInfoStartMessage._({this.data, this.messageType}) : super._();
-
   @override
   ScheduledTasksInfoStartMessage rebuild(
           void Function(ScheduledTasksInfoStartMessageBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$ScheduledTasksInfoStartMessage extends ScheduledTasksInfoStartMessage {
 
   @override
   ScheduledTasksInfoStartMessageBuilder toBuilder() =>
-      new ScheduledTasksInfoStartMessageBuilder()..replace(this);
+      ScheduledTasksInfoStartMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -84,7 +83,6 @@ class ScheduledTasksInfoStartMessageBuilder
 
   @override
   void replace(ScheduledTasksInfoStartMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ScheduledTasksInfoStartMessage;
   }
 
@@ -98,8 +96,10 @@ class ScheduledTasksInfoStartMessageBuilder
 
   _$ScheduledTasksInfoStartMessage _build() {
     final _$result = _$v ??
-        new _$ScheduledTasksInfoStartMessage._(
-            data: data, messageType: messageType);
+        _$ScheduledTasksInfoStartMessage._(
+          data: data,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

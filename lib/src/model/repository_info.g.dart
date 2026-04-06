@@ -15,17 +15,15 @@ class _$RepositoryInfo extends RepositoryInfo {
   final bool? enabled;
 
   factory _$RepositoryInfo([void Function(RepositoryInfoBuilder)? updates]) =>
-      (new RepositoryInfoBuilder()..update(updates))._build();
+      (RepositoryInfoBuilder()..update(updates))._build();
 
   _$RepositoryInfo._({this.name, this.url, this.enabled}) : super._();
-
   @override
   RepositoryInfo rebuild(void Function(RepositoryInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RepositoryInfoBuilder toBuilder() =>
-      new RepositoryInfoBuilder()..replace(this);
+  RepositoryInfoBuilder toBuilder() => RepositoryInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -89,7 +87,6 @@ class RepositoryInfoBuilder
 
   @override
   void replace(RepositoryInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RepositoryInfo;
   }
 
@@ -102,8 +99,12 @@ class RepositoryInfoBuilder
   RepositoryInfo build() => _build();
 
   _$RepositoryInfo _build() {
-    final _$result =
-        _$v ?? new _$RepositoryInfo._(name: name, url: url, enabled: enabled);
+    final _$result = _$v ??
+        _$RepositoryInfo._(
+          name: name,
+          url: url,
+          enabled: enabled,
+        );
     replace(_$result);
     return _$result;
   }

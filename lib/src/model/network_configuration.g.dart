@@ -56,7 +56,7 @@ class _$NetworkConfiguration extends NetworkConfiguration {
 
   factory _$NetworkConfiguration(
           [void Function(NetworkConfigurationBuilder)? updates]) =>
-      (new NetworkConfigurationBuilder()..update(updates))._build();
+      (NetworkConfigurationBuilder()..update(updates))._build();
 
   _$NetworkConfiguration._(
       {this.baseUrl,
@@ -83,7 +83,6 @@ class _$NetworkConfiguration extends NetworkConfiguration {
       this.remoteIPFilter,
       this.isRemoteIPFilterBlacklist})
       : super._();
-
   @override
   NetworkConfiguration rebuild(
           void Function(NetworkConfigurationBuilder) updates) =>
@@ -91,7 +90,7 @@ class _$NetworkConfiguration extends NetworkConfiguration {
 
   @override
   NetworkConfigurationBuilder toBuilder() =>
-      new NetworkConfigurationBuilder()..replace(this);
+      NetworkConfigurationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -254,19 +253,19 @@ class NetworkConfigurationBuilder
 
   ListBuilder<String>? _localNetworkSubnets;
   ListBuilder<String> get localNetworkSubnets =>
-      _$this._localNetworkSubnets ??= new ListBuilder<String>();
+      _$this._localNetworkSubnets ??= ListBuilder<String>();
   set localNetworkSubnets(ListBuilder<String>? localNetworkSubnets) =>
       _$this._localNetworkSubnets = localNetworkSubnets;
 
   ListBuilder<String>? _localNetworkAddresses;
   ListBuilder<String> get localNetworkAddresses =>
-      _$this._localNetworkAddresses ??= new ListBuilder<String>();
+      _$this._localNetworkAddresses ??= ListBuilder<String>();
   set localNetworkAddresses(ListBuilder<String>? localNetworkAddresses) =>
       _$this._localNetworkAddresses = localNetworkAddresses;
 
   ListBuilder<String>? _knownProxies;
   ListBuilder<String> get knownProxies =>
-      _$this._knownProxies ??= new ListBuilder<String>();
+      _$this._knownProxies ??= ListBuilder<String>();
   set knownProxies(ListBuilder<String>? knownProxies) =>
       _$this._knownProxies = knownProxies;
 
@@ -277,7 +276,7 @@ class NetworkConfigurationBuilder
 
   ListBuilder<String>? _virtualInterfaceNames;
   ListBuilder<String> get virtualInterfaceNames =>
-      _$this._virtualInterfaceNames ??= new ListBuilder<String>();
+      _$this._virtualInterfaceNames ??= ListBuilder<String>();
   set virtualInterfaceNames(ListBuilder<String>? virtualInterfaceNames) =>
       _$this._virtualInterfaceNames = virtualInterfaceNames;
 
@@ -291,14 +290,14 @@ class NetworkConfigurationBuilder
 
   ListBuilder<String>? _publishedServerUriBySubnet;
   ListBuilder<String> get publishedServerUriBySubnet =>
-      _$this._publishedServerUriBySubnet ??= new ListBuilder<String>();
+      _$this._publishedServerUriBySubnet ??= ListBuilder<String>();
   set publishedServerUriBySubnet(
           ListBuilder<String>? publishedServerUriBySubnet) =>
       _$this._publishedServerUriBySubnet = publishedServerUriBySubnet;
 
   ListBuilder<String>? _remoteIPFilter;
   ListBuilder<String> get remoteIPFilter =>
-      _$this._remoteIPFilter ??= new ListBuilder<String>();
+      _$this._remoteIPFilter ??= ListBuilder<String>();
   set remoteIPFilter(ListBuilder<String>? remoteIPFilter) =>
       _$this._remoteIPFilter = remoteIPFilter;
 
@@ -344,7 +343,6 @@ class NetworkConfigurationBuilder
 
   @override
   void replace(NetworkConfiguration other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NetworkConfiguration;
   }
 
@@ -360,31 +358,32 @@ class NetworkConfigurationBuilder
     _$NetworkConfiguration _$result;
     try {
       _$result = _$v ??
-          new _$NetworkConfiguration._(
-              baseUrl: baseUrl,
-              enableHttps: enableHttps,
-              requireHttps: requireHttps,
-              certificatePath: certificatePath,
-              certificatePassword: certificatePassword,
-              internalHttpPort: internalHttpPort,
-              internalHttpsPort: internalHttpsPort,
-              publicHttpPort: publicHttpPort,
-              publicHttpsPort: publicHttpsPort,
-              autoDiscovery: autoDiscovery,
-              enableUPnP: enableUPnP,
-              enableIPv4: enableIPv4,
-              enableIPv6: enableIPv6,
-              enableRemoteAccess: enableRemoteAccess,
-              localNetworkSubnets: _localNetworkSubnets?.build(),
-              localNetworkAddresses: _localNetworkAddresses?.build(),
-              knownProxies: _knownProxies?.build(),
-              ignoreVirtualInterfaces: ignoreVirtualInterfaces,
-              virtualInterfaceNames: _virtualInterfaceNames?.build(),
-              enablePublishedServerUriByRequest:
-                  enablePublishedServerUriByRequest,
-              publishedServerUriBySubnet: _publishedServerUriBySubnet?.build(),
-              remoteIPFilter: _remoteIPFilter?.build(),
-              isRemoteIPFilterBlacklist: isRemoteIPFilterBlacklist);
+          _$NetworkConfiguration._(
+            baseUrl: baseUrl,
+            enableHttps: enableHttps,
+            requireHttps: requireHttps,
+            certificatePath: certificatePath,
+            certificatePassword: certificatePassword,
+            internalHttpPort: internalHttpPort,
+            internalHttpsPort: internalHttpsPort,
+            publicHttpPort: publicHttpPort,
+            publicHttpsPort: publicHttpsPort,
+            autoDiscovery: autoDiscovery,
+            enableUPnP: enableUPnP,
+            enableIPv4: enableIPv4,
+            enableIPv6: enableIPv6,
+            enableRemoteAccess: enableRemoteAccess,
+            localNetworkSubnets: _localNetworkSubnets?.build(),
+            localNetworkAddresses: _localNetworkAddresses?.build(),
+            knownProxies: _knownProxies?.build(),
+            ignoreVirtualInterfaces: ignoreVirtualInterfaces,
+            virtualInterfaceNames: _virtualInterfaceNames?.build(),
+            enablePublishedServerUriByRequest:
+                enablePublishedServerUriByRequest,
+            publishedServerUriBySubnet: _publishedServerUriBySubnet?.build(),
+            remoteIPFilter: _remoteIPFilter?.build(),
+            isRemoteIPFilterBlacklist: isRemoteIPFilterBlacklist,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -403,7 +402,7 @@ class NetworkConfigurationBuilder
         _$failedField = 'remoteIPFilter';
         _remoteIPFilter?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'NetworkConfiguration', _$failedField, e.toString());
       }
       rethrow;

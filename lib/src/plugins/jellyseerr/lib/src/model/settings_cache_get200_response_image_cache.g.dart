@@ -14,11 +14,10 @@ class _$SettingsCacheGet200ResponseImageCache
   factory _$SettingsCacheGet200ResponseImageCache(
           [void Function(SettingsCacheGet200ResponseImageCacheBuilder)?
               updates]) =>
-      (new SettingsCacheGet200ResponseImageCacheBuilder()..update(updates))
+      (SettingsCacheGet200ResponseImageCacheBuilder()..update(updates))
           ._build();
 
   _$SettingsCacheGet200ResponseImageCache._({this.tmdb}) : super._();
-
   @override
   SettingsCacheGet200ResponseImageCache rebuild(
           void Function(SettingsCacheGet200ResponseImageCacheBuilder)
@@ -27,7 +26,7 @@ class _$SettingsCacheGet200ResponseImageCache
 
   @override
   SettingsCacheGet200ResponseImageCacheBuilder toBuilder() =>
-      new SettingsCacheGet200ResponseImageCacheBuilder()..replace(this);
+      SettingsCacheGet200ResponseImageCacheBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -60,7 +59,7 @@ class SettingsCacheGet200ResponseImageCacheBuilder
 
   SettingsCacheGet200ResponseImageCacheTmdbBuilder? _tmdb;
   SettingsCacheGet200ResponseImageCacheTmdbBuilder get tmdb =>
-      _$this._tmdb ??= new SettingsCacheGet200ResponseImageCacheTmdbBuilder();
+      _$this._tmdb ??= SettingsCacheGet200ResponseImageCacheTmdbBuilder();
   set tmdb(SettingsCacheGet200ResponseImageCacheTmdbBuilder? tmdb) =>
       _$this._tmdb = tmdb;
 
@@ -79,7 +78,6 @@ class SettingsCacheGet200ResponseImageCacheBuilder
 
   @override
   void replace(SettingsCacheGet200ResponseImageCache other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsCacheGet200ResponseImageCache;
   }
 
@@ -96,14 +94,16 @@ class SettingsCacheGet200ResponseImageCacheBuilder
     _$SettingsCacheGet200ResponseImageCache _$result;
     try {
       _$result = _$v ??
-          new _$SettingsCacheGet200ResponseImageCache._(tmdb: _tmdb?.build());
+          _$SettingsCacheGet200ResponseImageCache._(
+            tmdb: _tmdb?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'tmdb';
         _tmdb?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SettingsCacheGet200ResponseImageCache',
             _$failedField,
             e.toString());

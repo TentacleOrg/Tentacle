@@ -21,12 +21,12 @@ RequestRequestIdPutRequestMediaTypeEnum
     case 'tv':
       return _$requestRequestIdPutRequestMediaTypeEnum_tv;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<RequestRequestIdPutRequestMediaTypeEnum>
-    _$requestRequestIdPutRequestMediaTypeEnumValues = new BuiltSet<
+    _$requestRequestIdPutRequestMediaTypeEnumValues = BuiltSet<
         RequestRequestIdPutRequestMediaTypeEnum>(const <RequestRequestIdPutRequestMediaTypeEnum>[
   _$requestRequestIdPutRequestMediaTypeEnum_movie,
   _$requestRequestIdPutRequestMediaTypeEnum_tv,
@@ -34,7 +34,7 @@ final BuiltSet<RequestRequestIdPutRequestMediaTypeEnum>
 
 Serializer<RequestRequestIdPutRequestMediaTypeEnum>
     _$requestRequestIdPutRequestMediaTypeEnumSerializer =
-    new _$RequestRequestIdPutRequestMediaTypeEnumSerializer();
+    _$RequestRequestIdPutRequestMediaTypeEnumSerializer();
 
 class _$RequestRequestIdPutRequestMediaTypeEnumSerializer
     implements PrimitiveSerializer<RequestRequestIdPutRequestMediaTypeEnum> {
@@ -88,7 +88,7 @@ class _$RequestRequestIdPutRequest extends RequestRequestIdPutRequest {
 
   factory _$RequestRequestIdPutRequest(
           [void Function(RequestRequestIdPutRequestBuilder)? updates]) =>
-      (new RequestRequestIdPutRequestBuilder()..update(updates))._build();
+      (RequestRequestIdPutRequestBuilder()..update(updates))._build();
 
   _$RequestRequestIdPutRequest._(
       {required this.mediaType,
@@ -99,11 +99,7 @@ class _$RequestRequestIdPutRequest extends RequestRequestIdPutRequest {
       this.rootFolder,
       this.languageProfileId,
       this.userId})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        mediaType, r'RequestRequestIdPutRequest', 'mediaType');
-  }
-
+      : super._();
   @override
   RequestRequestIdPutRequest rebuild(
           void Function(RequestRequestIdPutRequestBuilder) updates) =>
@@ -111,7 +107,7 @@ class _$RequestRequestIdPutRequest extends RequestRequestIdPutRequest {
 
   @override
   RequestRequestIdPutRequestBuilder toBuilder() =>
-      new RequestRequestIdPutRequestBuilder()..replace(this);
+      RequestRequestIdPutRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -168,7 +164,7 @@ class RequestRequestIdPutRequestBuilder
       _$this._mediaType = mediaType;
 
   ListBuilder<num>? _seasons;
-  ListBuilder<num> get seasons => _$this._seasons ??= new ListBuilder<num>();
+  ListBuilder<num> get seasons => _$this._seasons ??= ListBuilder<num>();
   set seasons(ListBuilder<num>? seasons) => _$this._seasons = seasons;
 
   bool? _is4k;
@@ -218,7 +214,6 @@ class RequestRequestIdPutRequestBuilder
 
   @override
   void replace(RequestRequestIdPutRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RequestRequestIdPutRequest;
   }
 
@@ -234,23 +229,24 @@ class RequestRequestIdPutRequestBuilder
     _$RequestRequestIdPutRequest _$result;
     try {
       _$result = _$v ??
-          new _$RequestRequestIdPutRequest._(
-              mediaType: BuiltValueNullFieldError.checkNotNull(
-                  mediaType, r'RequestRequestIdPutRequest', 'mediaType'),
-              seasons: _seasons?.build(),
-              is4k: is4k,
-              serverId: serverId,
-              profileId: profileId,
-              rootFolder: rootFolder,
-              languageProfileId: languageProfileId,
-              userId: userId);
+          _$RequestRequestIdPutRequest._(
+            mediaType: BuiltValueNullFieldError.checkNotNull(
+                mediaType, r'RequestRequestIdPutRequest', 'mediaType'),
+            seasons: _seasons?.build(),
+            is4k: is4k,
+            serverId: serverId,
+            profileId: profileId,
+            rootFolder: rootFolder,
+            languageProfileId: languageProfileId,
+            userId: userId,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'seasons';
         _seasons?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'RequestRequestIdPutRequest', _$failedField, e.toString());
       }
       rethrow;

@@ -20,7 +20,7 @@ class _$LibraryTypeOptionsDto extends LibraryTypeOptionsDto {
 
   factory _$LibraryTypeOptionsDto(
           [void Function(LibraryTypeOptionsDtoBuilder)? updates]) =>
-      (new LibraryTypeOptionsDtoBuilder()..update(updates))._build();
+      (LibraryTypeOptionsDtoBuilder()..update(updates))._build();
 
   _$LibraryTypeOptionsDto._(
       {this.type,
@@ -29,7 +29,6 @@ class _$LibraryTypeOptionsDto extends LibraryTypeOptionsDto {
       this.supportedImageTypes,
       this.defaultImageOptions})
       : super._();
-
   @override
   LibraryTypeOptionsDto rebuild(
           void Function(LibraryTypeOptionsDtoBuilder) updates) =>
@@ -37,7 +36,7 @@ class _$LibraryTypeOptionsDto extends LibraryTypeOptionsDto {
 
   @override
   LibraryTypeOptionsDtoBuilder toBuilder() =>
-      new LibraryTypeOptionsDtoBuilder()..replace(this);
+      LibraryTypeOptionsDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -84,25 +83,25 @@ class LibraryTypeOptionsDtoBuilder
 
   ListBuilder<LibraryOptionInfoDto>? _metadataFetchers;
   ListBuilder<LibraryOptionInfoDto> get metadataFetchers =>
-      _$this._metadataFetchers ??= new ListBuilder<LibraryOptionInfoDto>();
+      _$this._metadataFetchers ??= ListBuilder<LibraryOptionInfoDto>();
   set metadataFetchers(ListBuilder<LibraryOptionInfoDto>? metadataFetchers) =>
       _$this._metadataFetchers = metadataFetchers;
 
   ListBuilder<LibraryOptionInfoDto>? _imageFetchers;
   ListBuilder<LibraryOptionInfoDto> get imageFetchers =>
-      _$this._imageFetchers ??= new ListBuilder<LibraryOptionInfoDto>();
+      _$this._imageFetchers ??= ListBuilder<LibraryOptionInfoDto>();
   set imageFetchers(ListBuilder<LibraryOptionInfoDto>? imageFetchers) =>
       _$this._imageFetchers = imageFetchers;
 
   ListBuilder<ImageType>? _supportedImageTypes;
   ListBuilder<ImageType> get supportedImageTypes =>
-      _$this._supportedImageTypes ??= new ListBuilder<ImageType>();
+      _$this._supportedImageTypes ??= ListBuilder<ImageType>();
   set supportedImageTypes(ListBuilder<ImageType>? supportedImageTypes) =>
       _$this._supportedImageTypes = supportedImageTypes;
 
   ListBuilder<ImageOption>? _defaultImageOptions;
   ListBuilder<ImageOption> get defaultImageOptions =>
-      _$this._defaultImageOptions ??= new ListBuilder<ImageOption>();
+      _$this._defaultImageOptions ??= ListBuilder<ImageOption>();
   set defaultImageOptions(ListBuilder<ImageOption>? defaultImageOptions) =>
       _$this._defaultImageOptions = defaultImageOptions;
 
@@ -125,7 +124,6 @@ class LibraryTypeOptionsDtoBuilder
 
   @override
   void replace(LibraryTypeOptionsDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LibraryTypeOptionsDto;
   }
 
@@ -141,12 +139,13 @@ class LibraryTypeOptionsDtoBuilder
     _$LibraryTypeOptionsDto _$result;
     try {
       _$result = _$v ??
-          new _$LibraryTypeOptionsDto._(
-              type: type,
-              metadataFetchers: _metadataFetchers?.build(),
-              imageFetchers: _imageFetchers?.build(),
-              supportedImageTypes: _supportedImageTypes?.build(),
-              defaultImageOptions: _defaultImageOptions?.build());
+          _$LibraryTypeOptionsDto._(
+            type: type,
+            metadataFetchers: _metadataFetchers?.build(),
+            imageFetchers: _imageFetchers?.build(),
+            supportedImageTypes: _supportedImageTypes?.build(),
+            defaultImageOptions: _defaultImageOptions?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -159,7 +158,7 @@ class LibraryTypeOptionsDtoBuilder
         _$failedField = 'defaultImageOptions';
         _defaultImageOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LibraryTypeOptionsDto', _$failedField, e.toString());
       }
       rethrow;

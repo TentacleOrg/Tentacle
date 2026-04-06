@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **enableLyricManagement** | **bool** | Gets or sets a value indicating whether this user can manage lyrics. | [optional] [default to false]
 **isDisabled** | **bool** | Gets or sets a value indicating whether this instance is disabled. | [optional] 
 **maxParentalRating** | **int** | Gets or sets the max parental rating. | [optional] 
+**maxParentalSubRating** | **int** |  | [optional] 
 **blockedTags** | **BuiltList&lt;String&gt;** |  | [optional] 
 **allowedTags** | **BuiltList&lt;String&gt;** |  | [optional] 
 **enableUserPreferenceAccess** | **bool** |  | [optional] 

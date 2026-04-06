@@ -113,7 +113,7 @@ void main() {
 
     // Generates or gets the splashscreen.
     //
-    //Future<Uint8List> getSplashscreen({ String tag, ImageFormat format, int maxWidth, int maxHeight, int width, int height, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int quality }) async
+    //Future<Uint8List> getSplashscreen({ String tag, ImageFormat format }) async
     test('test getSplashscreen', () async {
       // TODO
     });
@@ -134,7 +134,7 @@ void main() {
 
     // Get user profile image.
     //
-    //Future<Uint8List> getUserImage({ String userId, String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> getUserImage({ String userId, String tag, ImageFormat format }) async
     test('test getUserImage', () async {
       // TODO
     });
@@ -225,7 +225,7 @@ void main() {
 
     // Get user profile image.
     //
-    //Future<Uint8List> headUserImage({ String userId, String tag, ImageFormat format, int maxWidth, int maxHeight, double percentPlayed, int unplayedCount, int width, int height, int quality, int fillWidth, int fillHeight, int blur, String backgroundColor, String foregroundLayer, int imageIndex }) async
+    //Future<Uint8List> headUserImage({ String userId, String tag, ImageFormat format }) async
     test('test headUserImage', () async {
       // TODO
     });

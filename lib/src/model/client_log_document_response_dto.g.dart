@@ -12,10 +12,9 @@ class _$ClientLogDocumentResponseDto extends ClientLogDocumentResponseDto {
 
   factory _$ClientLogDocumentResponseDto(
           [void Function(ClientLogDocumentResponseDtoBuilder)? updates]) =>
-      (new ClientLogDocumentResponseDtoBuilder()..update(updates))._build();
+      (ClientLogDocumentResponseDtoBuilder()..update(updates))._build();
 
   _$ClientLogDocumentResponseDto._({this.fileName}) : super._();
-
   @override
   ClientLogDocumentResponseDto rebuild(
           void Function(ClientLogDocumentResponseDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$ClientLogDocumentResponseDto extends ClientLogDocumentResponseDto {
 
   @override
   ClientLogDocumentResponseDtoBuilder toBuilder() =>
-      new ClientLogDocumentResponseDtoBuilder()..replace(this);
+      ClientLogDocumentResponseDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +71,6 @@ class ClientLogDocumentResponseDtoBuilder
 
   @override
   void replace(ClientLogDocumentResponseDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ClientLogDocumentResponseDto;
   }
 
@@ -85,8 +83,10 @@ class ClientLogDocumentResponseDtoBuilder
   ClientLogDocumentResponseDto build() => _build();
 
   _$ClientLogDocumentResponseDto _build() {
-    final _$result =
-        _$v ?? new _$ClientLogDocumentResponseDto._(fileName: fileName);
+    final _$result = _$v ??
+        _$ClientLogDocumentResponseDto._(
+          fileName: fileName,
+        );
     replace(_$result);
     return _$result;
   }

@@ -18,5 +18,11 @@ void main() {
     test('to test the property `value`', () async {
       // TODO
     });
+
+    // Gets or sets the rating score.
+    // ParentalRatingScore ratingScore
+    test('to test the property `ratingScore`', () async {
+      // TODO
+    });
   });
 }

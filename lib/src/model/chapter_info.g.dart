@@ -19,7 +19,7 @@ class _$ChapterInfo extends ChapterInfo {
   final String? imageTag;
 
   factory _$ChapterInfo([void Function(ChapterInfoBuilder)? updates]) =>
-      (new ChapterInfoBuilder()..update(updates))._build();
+      (ChapterInfoBuilder()..update(updates))._build();
 
   _$ChapterInfo._(
       {this.startPositionTicks,
@@ -28,13 +28,12 @@ class _$ChapterInfo extends ChapterInfo {
       this.imageDateModified,
       this.imageTag})
       : super._();
-
   @override
   ChapterInfo rebuild(void Function(ChapterInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChapterInfoBuilder toBuilder() => new ChapterInfoBuilder()..replace(this);
+  ChapterInfoBuilder toBuilder() => ChapterInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -115,7 +114,6 @@ class ChapterInfoBuilder implements Builder<ChapterInfo, ChapterInfoBuilder> {
 
   @override
   void replace(ChapterInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ChapterInfo;
   }
 
@@ -129,12 +127,13 @@ class ChapterInfoBuilder implements Builder<ChapterInfo, ChapterInfoBuilder> {
 
   _$ChapterInfo _build() {
     final _$result = _$v ??
-        new _$ChapterInfo._(
-            startPositionTicks: startPositionTicks,
-            name: name,
-            imagePath: imagePath,
-            imageDateModified: imageDateModified,
-            imageTag: imageTag);
+        _$ChapterInfo._(
+          startPositionTicks: startPositionTicks,
+          name: name,
+          imagePath: imagePath,
+          imageDateModified: imageDateModified,
+          imageTag: imageTag,
+        );
     replace(_$result);
     return _$result;
   }

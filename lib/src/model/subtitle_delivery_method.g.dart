@@ -27,12 +27,12 @@ SubtitleDeliveryMethod _$valueOf(String name) {
     case 'drop':
       return _$drop;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<SubtitleDeliveryMethod> _$values =
-    new BuiltSet<SubtitleDeliveryMethod>(const <SubtitleDeliveryMethod>[
+    BuiltSet<SubtitleDeliveryMethod>(const <SubtitleDeliveryMethod>[
   _$encode,
   _$embed,
   _$external_,
@@ -58,7 +58,7 @@ mixin _$SubtitleDeliveryMethodMixin {
 }
 
 Serializer<SubtitleDeliveryMethod> _$subtitleDeliveryMethodSerializer =
-    new _$SubtitleDeliveryMethodSerializer();
+    _$SubtitleDeliveryMethodSerializer();
 
 class _$SubtitleDeliveryMethodSerializer
     implements PrimitiveSerializer<SubtitleDeliveryMethod> {

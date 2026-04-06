@@ -37,12 +37,12 @@ UnratedItem _$valueOf(String name) {
     case 'other':
       return _$other;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<UnratedItem> _$values =
-    new BuiltSet<UnratedItem>(const <UnratedItem>[
+    BuiltSet<UnratedItem>(const <UnratedItem>[
   _$movie,
   _$trailer,
   _$series,
@@ -74,7 +74,7 @@ mixin _$UnratedItemMixin {
   _$UnratedItemMeta get UnratedItem => const _$UnratedItemMeta();
 }
 
-Serializer<UnratedItem> _$unratedItemSerializer = new _$UnratedItemSerializer();
+Serializer<UnratedItem> _$unratedItemSerializer = _$UnratedItemSerializer();
 
 class _$UnratedItemSerializer implements PrimitiveSerializer<UnratedItem> {
   static const Map<String, Object> _toWire = const <String, Object>{

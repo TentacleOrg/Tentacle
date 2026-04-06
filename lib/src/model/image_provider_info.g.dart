@@ -14,17 +14,16 @@ class _$ImageProviderInfo extends ImageProviderInfo {
 
   factory _$ImageProviderInfo(
           [void Function(ImageProviderInfoBuilder)? updates]) =>
-      (new ImageProviderInfoBuilder()..update(updates))._build();
+      (ImageProviderInfoBuilder()..update(updates))._build();
 
   _$ImageProviderInfo._({this.name, this.supportedImages}) : super._();
-
   @override
   ImageProviderInfo rebuild(void Function(ImageProviderInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   ImageProviderInfoBuilder toBuilder() =>
-      new ImageProviderInfoBuilder()..replace(this);
+      ImageProviderInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -62,7 +61,7 @@ class ImageProviderInfoBuilder
 
   ListBuilder<ImageType>? _supportedImages;
   ListBuilder<ImageType> get supportedImages =>
-      _$this._supportedImages ??= new ListBuilder<ImageType>();
+      _$this._supportedImages ??= ListBuilder<ImageType>();
   set supportedImages(ListBuilder<ImageType>? supportedImages) =>
       _$this._supportedImages = supportedImages;
 
@@ -82,7 +81,6 @@ class ImageProviderInfoBuilder
 
   @override
   void replace(ImageProviderInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ImageProviderInfo;
   }
 
@@ -98,15 +96,17 @@ class ImageProviderInfoBuilder
     _$ImageProviderInfo _$result;
     try {
       _$result = _$v ??
-          new _$ImageProviderInfo._(
-              name: name, supportedImages: _supportedImages?.build());
+          _$ImageProviderInfo._(
+            name: name,
+            supportedImages: _supportedImages?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'supportedImages';
         _supportedImages?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ImageProviderInfo', _$failedField, e.toString());
       }
       rethrow;

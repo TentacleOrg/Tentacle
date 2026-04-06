@@ -41,7 +41,7 @@ class _$RadarrSettings extends RadarrSettings {
   final bool? preventSearch;
 
   factory _$RadarrSettings([void Function(RadarrSettingsBuilder)? updates]) =>
-      (new RadarrSettingsBuilder()..update(updates))._build();
+      (RadarrSettingsBuilder()..update(updates))._build();
 
   _$RadarrSettings._(
       {this.id,
@@ -60,33 +60,13 @@ class _$RadarrSettings extends RadarrSettings {
       this.externalUrl,
       this.syncEnabled,
       this.preventSearch})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'RadarrSettings', 'name');
-    BuiltValueNullFieldError.checkNotNull(
-        hostname, r'RadarrSettings', 'hostname');
-    BuiltValueNullFieldError.checkNotNull(port, r'RadarrSettings', 'port');
-    BuiltValueNullFieldError.checkNotNull(apiKey, r'RadarrSettings', 'apiKey');
-    BuiltValueNullFieldError.checkNotNull(useSsl, r'RadarrSettings', 'useSsl');
-    BuiltValueNullFieldError.checkNotNull(
-        activeProfileId, r'RadarrSettings', 'activeProfileId');
-    BuiltValueNullFieldError.checkNotNull(
-        activeProfileName, r'RadarrSettings', 'activeProfileName');
-    BuiltValueNullFieldError.checkNotNull(
-        activeDirectory, r'RadarrSettings', 'activeDirectory');
-    BuiltValueNullFieldError.checkNotNull(is4k, r'RadarrSettings', 'is4k');
-    BuiltValueNullFieldError.checkNotNull(
-        minimumAvailability, r'RadarrSettings', 'minimumAvailability');
-    BuiltValueNullFieldError.checkNotNull(
-        isDefault, r'RadarrSettings', 'isDefault');
-  }
-
+      : super._();
   @override
   RadarrSettings rebuild(void Function(RadarrSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RadarrSettingsBuilder toBuilder() =>
-      new RadarrSettingsBuilder()..replace(this);
+  RadarrSettingsBuilder toBuilder() => RadarrSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -259,7 +239,6 @@ class RadarrSettingsBuilder
 
   @override
   void replace(RadarrSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RadarrSettings;
   }
 
@@ -273,33 +252,35 @@ class RadarrSettingsBuilder
 
   _$RadarrSettings _build() {
     final _$result = _$v ??
-        new _$RadarrSettings._(
-            id: id,
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'RadarrSettings', 'name'),
-            hostname: BuiltValueNullFieldError.checkNotNull(
-                hostname, r'RadarrSettings', 'hostname'),
-            port: BuiltValueNullFieldError.checkNotNull(
-                port, r'RadarrSettings', 'port'),
-            apiKey: BuiltValueNullFieldError.checkNotNull(
-                apiKey, r'RadarrSettings', 'apiKey'),
-            useSsl: BuiltValueNullFieldError.checkNotNull(
-                useSsl, r'RadarrSettings', 'useSsl'),
-            baseUrl: baseUrl,
-            activeProfileId: BuiltValueNullFieldError.checkNotNull(
-                activeProfileId, r'RadarrSettings', 'activeProfileId'),
-            activeProfileName: BuiltValueNullFieldError.checkNotNull(
-                activeProfileName, r'RadarrSettings', 'activeProfileName'),
-            activeDirectory: BuiltValueNullFieldError.checkNotNull(
-                activeDirectory, r'RadarrSettings', 'activeDirectory'),
-            is4k: BuiltValueNullFieldError.checkNotNull(
-                is4k, r'RadarrSettings', 'is4k'),
-            minimumAvailability: BuiltValueNullFieldError.checkNotNull(
-                minimumAvailability, r'RadarrSettings', 'minimumAvailability'),
-            isDefault: BuiltValueNullFieldError.checkNotNull(isDefault, r'RadarrSettings', 'isDefault'),
-            externalUrl: externalUrl,
-            syncEnabled: syncEnabled,
-            preventSearch: preventSearch);
+        _$RadarrSettings._(
+          id: id,
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'RadarrSettings', 'name'),
+          hostname: BuiltValueNullFieldError.checkNotNull(
+              hostname, r'RadarrSettings', 'hostname'),
+          port: BuiltValueNullFieldError.checkNotNull(
+              port, r'RadarrSettings', 'port'),
+          apiKey: BuiltValueNullFieldError.checkNotNull(
+              apiKey, r'RadarrSettings', 'apiKey'),
+          useSsl: BuiltValueNullFieldError.checkNotNull(
+              useSsl, r'RadarrSettings', 'useSsl'),
+          baseUrl: baseUrl,
+          activeProfileId: BuiltValueNullFieldError.checkNotNull(
+              activeProfileId, r'RadarrSettings', 'activeProfileId'),
+          activeProfileName: BuiltValueNullFieldError.checkNotNull(
+              activeProfileName, r'RadarrSettings', 'activeProfileName'),
+          activeDirectory: BuiltValueNullFieldError.checkNotNull(
+              activeDirectory, r'RadarrSettings', 'activeDirectory'),
+          is4k: BuiltValueNullFieldError.checkNotNull(
+              is4k, r'RadarrSettings', 'is4k'),
+          minimumAvailability: BuiltValueNullFieldError.checkNotNull(
+              minimumAvailability, r'RadarrSettings', 'minimumAvailability'),
+          isDefault: BuiltValueNullFieldError.checkNotNull(
+              isDefault, r'RadarrSettings', 'isDefault'),
+          externalUrl: externalUrl,
+          syncEnabled: syncEnabled,
+          preventSearch: preventSearch,
+        );
     replace(_$result);
     return _$result;
   }

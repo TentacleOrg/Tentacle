@@ -14,9 +14,8 @@ part 'user.g.dart';
 /// * [id]
 /// * [email]
 /// * [username]
-/// * [plexUsername]
 /// * [plexToken]
-/// * [jellyfinAuthToken]
+/// * [plexUsername]
 /// * [userType]
 /// * [permissions]
 /// * [avatar]
@@ -34,14 +33,11 @@ abstract class User implements Built<User, UserBuilder> {
   @BuiltValueField(wireName: r'username')
   String? get username;
 
-  @BuiltValueField(wireName: r'plexUsername')
-  String? get plexUsername;
-
   @BuiltValueField(wireName: r'plexToken')
   String? get plexToken;
 
-  @BuiltValueField(wireName: r'jellyfinAuthToken')
-  String? get jellyfinAuthToken;
+  @BuiltValueField(wireName: r'plexUsername')
+  String? get plexUsername;
 
   @BuiltValueField(wireName: r'userType')
   int? get userType;
@@ -101,13 +97,6 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
         specifiedType: const FullType(String),
       );
     }
-    if (object.plexUsername != null) {
-      yield r'plexUsername';
-      yield serializers.serialize(
-        object.plexUsername,
-        specifiedType: const FullType(String),
-      );
-    }
     if (object.plexToken != null) {
       yield r'plexToken';
       yield serializers.serialize(
@@ -115,10 +104,10 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
         specifiedType: const FullType(String),
       );
     }
-    if (object.jellyfinAuthToken != null) {
-      yield r'jellyfinAuthToken';
+    if (object.plexUsername != null) {
+      yield r'plexUsername';
       yield serializers.serialize(
-        object.jellyfinAuthToken,
+        object.plexUsername,
         specifiedType: const FullType(String),
       );
     }
@@ -206,13 +195,6 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
           ) as String;
           result.username = valueDes;
           break;
-        case r'plexUsername':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(String),
-          ) as String;
-          result.plexUsername = valueDes;
-          break;
         case r'plexToken':
           final valueDes = serializers.deserialize(
             value,
@@ -220,12 +202,12 @@ class _$UserSerializer implements PrimitiveSerializer<User> {
           ) as String;
           result.plexToken = valueDes;
           break;
-        case r'jellyfinAuthToken':
+        case r'plexUsername':
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType(String),
           ) as String;
-          result.jellyfinAuthToken = valueDes;
+          result.plexUsername = valueDes;
           break;
         case r'userType':
           final valueDes = serializers.deserialize(

@@ -13,13 +13,9 @@ class _$SearchGet200ResponseResultsInner
 
   factory _$SearchGet200ResponseResultsInner(
           [void Function(SearchGet200ResponseResultsInnerBuilder)? updates]) =>
-      (new SearchGet200ResponseResultsInnerBuilder()..update(updates))._build();
+      (SearchGet200ResponseResultsInnerBuilder()..update(updates))._build();
 
-  _$SearchGet200ResponseResultsInner._({required this.anyOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        anyOf, r'SearchGet200ResponseResultsInner', 'anyOf');
-  }
-
+  _$SearchGet200ResponseResultsInner._({required this.anyOf}) : super._();
   @override
   SearchGet200ResponseResultsInner rebuild(
           void Function(SearchGet200ResponseResultsInnerBuilder) updates) =>
@@ -27,7 +23,7 @@ class _$SearchGet200ResponseResultsInner
 
   @override
   SearchGet200ResponseResultsInnerBuilder toBuilder() =>
-      new SearchGet200ResponseResultsInnerBuilder()..replace(this);
+      SearchGet200ResponseResultsInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,7 +72,6 @@ class SearchGet200ResponseResultsInnerBuilder
 
   @override
   void replace(SearchGet200ResponseResultsInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SearchGet200ResponseResultsInner;
   }
 
@@ -90,9 +85,10 @@ class SearchGet200ResponseResultsInnerBuilder
 
   _$SearchGet200ResponseResultsInner _build() {
     final _$result = _$v ??
-        new _$SearchGet200ResponseResultsInner._(
-            anyOf: BuiltValueNullFieldError.checkNotNull(
-                anyOf, r'SearchGet200ResponseResultsInner', 'anyOf'));
+        _$SearchGet200ResponseResultsInner._(
+          anyOf: BuiltValueNullFieldError.checkNotNull(
+              anyOf, r'SearchGet200ResponseResultsInner', 'anyOf'),
+        );
     replace(_$result);
     return _$result;
   }

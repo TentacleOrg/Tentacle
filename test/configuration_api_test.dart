@@ -27,6 +27,13 @@ void main() {
       // TODO
     });
 
+    // Updates branding configuration.
+    //
+    //Future updateBrandingConfiguration(BrandingOptionsDto brandingOptionsDto) async
+    test('test updateBrandingConfiguration', () async {
+      // TODO
+    });
+
     // Updates application configuration.
     //
     //Future updateConfiguration(ServerConfiguration serverConfiguration) async

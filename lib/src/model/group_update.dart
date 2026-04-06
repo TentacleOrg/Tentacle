@@ -3,41 +3,45 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/play_queue_update.dart';
-import 'package:tentacle/src/model/group_info_dto_group_update.dart';
-import 'package:tentacle/src/model/group_state_update_group_update.dart';
-import 'package:tentacle/src/model/string_group_update.dart';
+import 'package:tentacle/src/model/sync_play_state_update.dart';
+import 'package:tentacle/src/model/sync_play_library_access_denied_update.dart';
+import 'package:tentacle/src/model/sync_play_group_joined_update.dart';
+import 'package:tentacle/src/model/sync_play_not_in_group_update.dart';
+import 'package:tentacle/src/model/sync_play_play_queue_update.dart';
 import 'package:tentacle/src/model/group_update_type.dart';
-import 'package:tentacle/src/model/play_queue_update_group_update.dart';
+import 'package:tentacle/src/model/sync_play_group_does_not_exist_update.dart';
+import 'package:tentacle/src/model/sync_play_user_left_update.dart';
+import 'package:tentacle/src/model/sync_play_user_joined_update.dart';
+import 'package:tentacle/src/model/sync_play_group_left_update.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';
 
 part 'group_update.g.dart';
 
-/// Group update without data.
+/// Represents the list of possible group update types
 ///
 /// Properties:
 /// * [groupId] - Gets the group identifier.
-/// * [type] - Gets the update type.
 /// * [data] - Gets the update data.
+/// * [type] - Enum GroupUpdateType.
 @BuiltValue()
 abstract class GroupUpdate implements Built<GroupUpdate, GroupUpdateBuilder> {
-  /// One Of [GroupInfoDtoGroupUpdate], [GroupStateUpdateGroupUpdate], [PlayQueueUpdateGroupUpdate], [StringGroupUpdate]
+  /// One Of [SyncPlayGroupDoesNotExistUpdate], [SyncPlayGroupJoinedUpdate], [SyncPlayGroupLeftUpdate], [SyncPlayLibraryAccessDeniedUpdate], [SyncPlayNotInGroupUpdate], [SyncPlayPlayQueueUpdate], [SyncPlayStateUpdate], [SyncPlayUserJoinedUpdate], [SyncPlayUserLeftUpdate]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'Type';
 
   static const Map<String, Type> discriminatorMapping = {
-    r'GroupDoesNotExist': StringGroupUpdate,
-    r'GroupJoined': GroupInfoDtoGroupUpdate,
-    r'GroupLeft': StringGroupUpdate,
-    r'LibraryAccessDenied': StringGroupUpdate,
-    r'NotInGroup': StringGroupUpdate,
-    r'PlayQueue': PlayQueueUpdateGroupUpdate,
-    r'StateUpdate': GroupStateUpdateGroupUpdate,
-    r'UserJoined': StringGroupUpdate,
-    r'UserLeft': StringGroupUpdate,
+    r'GroupDoesNotExist': SyncPlayGroupDoesNotExistUpdate,
+    r'GroupJoined': SyncPlayGroupJoinedUpdate,
+    r'GroupLeft': SyncPlayGroupLeftUpdate,
+    r'LibraryAccessDenied': SyncPlayLibraryAccessDeniedUpdate,
+    r'NotInGroup': SyncPlayNotInGroupUpdate,
+    r'PlayQueue': SyncPlayPlayQueueUpdate,
+    r'StateUpdate': SyncPlayStateUpdate,
+    r'UserJoined': SyncPlayUserJoinedUpdate,
+    r'UserLeft': SyncPlayUserLeftUpdate,
   };
 
   GroupUpdate._();
@@ -53,31 +57,31 @@ abstract class GroupUpdate implements Built<GroupUpdate, GroupUpdateBuilder> {
 
 extension GroupUpdateDiscriminatorExt on GroupUpdate {
   String? get discriminatorValue {
-    if (this is StringGroupUpdate) {
+    if (this is SyncPlayGroupDoesNotExistUpdate) {
       return r'GroupDoesNotExist';
     }
-    if (this is GroupInfoDtoGroupUpdate) {
+    if (this is SyncPlayGroupJoinedUpdate) {
       return r'GroupJoined';
     }
-    if (this is StringGroupUpdate) {
+    if (this is SyncPlayGroupLeftUpdate) {
       return r'GroupLeft';
     }
-    if (this is StringGroupUpdate) {
+    if (this is SyncPlayLibraryAccessDeniedUpdate) {
       return r'LibraryAccessDenied';
     }
-    if (this is StringGroupUpdate) {
+    if (this is SyncPlayNotInGroupUpdate) {
       return r'NotInGroup';
     }
-    if (this is PlayQueueUpdateGroupUpdate) {
+    if (this is SyncPlayPlayQueueUpdate) {
       return r'PlayQueue';
     }
-    if (this is GroupStateUpdateGroupUpdate) {
+    if (this is SyncPlayStateUpdate) {
       return r'StateUpdate';
     }
-    if (this is StringGroupUpdate) {
+    if (this is SyncPlayUserJoinedUpdate) {
       return r'UserJoined';
     }
-    if (this is StringGroupUpdate) {
+    if (this is SyncPlayUserLeftUpdate) {
       return r'UserLeft';
     }
     return null;
@@ -86,31 +90,31 @@ extension GroupUpdateDiscriminatorExt on GroupUpdate {
 
 extension GroupUpdateBuilderDiscriminatorExt on GroupUpdateBuilder {
   String? get discriminatorValue {
-    if (this is StringGroupUpdateBuilder) {
+    if (this is SyncPlayGroupDoesNotExistUpdateBuilder) {
       return r'GroupDoesNotExist';
     }
-    if (this is GroupInfoDtoGroupUpdateBuilder) {
+    if (this is SyncPlayGroupJoinedUpdateBuilder) {
       return r'GroupJoined';
     }
-    if (this is StringGroupUpdateBuilder) {
+    if (this is SyncPlayGroupLeftUpdateBuilder) {
       return r'GroupLeft';
     }
-    if (this is StringGroupUpdateBuilder) {
+    if (this is SyncPlayLibraryAccessDeniedUpdateBuilder) {
       return r'LibraryAccessDenied';
     }
-    if (this is StringGroupUpdateBuilder) {
+    if (this is SyncPlayNotInGroupUpdateBuilder) {
       return r'NotInGroup';
     }
-    if (this is PlayQueueUpdateGroupUpdateBuilder) {
+    if (this is SyncPlayPlayQueueUpdateBuilder) {
       return r'PlayQueue';
     }
-    if (this is GroupStateUpdateGroupUpdateBuilder) {
+    if (this is SyncPlayStateUpdateBuilder) {
       return r'StateUpdate';
     }
-    if (this is StringGroupUpdateBuilder) {
+    if (this is SyncPlayUserJoinedUpdateBuilder) {
       return r'UserJoined';
     }
-    if (this is StringGroupUpdateBuilder) {
+    if (this is SyncPlayUserLeftUpdateBuilder) {
       return r'UserLeft';
     }
     return null;
@@ -156,15 +160,15 @@ class _$GroupUpdateSerializer implements PrimitiveSerializer<GroupUpdate> {
         specifiedType: FullType(String)) as String;
     oneOfDataSrc = serialized;
     final oneOfTypes = [
-      StringGroupUpdate,
-      GroupInfoDtoGroupUpdate,
-      StringGroupUpdate,
-      StringGroupUpdate,
-      StringGroupUpdate,
-      PlayQueueUpdateGroupUpdate,
-      GroupStateUpdateGroupUpdate,
-      StringGroupUpdate,
-      StringGroupUpdate,
+      SyncPlayGroupDoesNotExistUpdate,
+      SyncPlayGroupJoinedUpdate,
+      SyncPlayGroupLeftUpdate,
+      SyncPlayLibraryAccessDeniedUpdate,
+      SyncPlayNotInGroupUpdate,
+      SyncPlayPlayQueueUpdate,
+      SyncPlayStateUpdate,
+      SyncPlayUserJoinedUpdate,
+      SyncPlayUserLeftUpdate,
     ];
     Object oneOfResult;
     Type oneOfType;
@@ -172,65 +176,65 @@ class _$GroupUpdateSerializer implements PrimitiveSerializer<GroupUpdate> {
       case r'GroupDoesNotExist':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(StringGroupUpdate),
-        ) as StringGroupUpdate;
-        oneOfType = StringGroupUpdate;
+          specifiedType: FullType(SyncPlayGroupDoesNotExistUpdate),
+        ) as SyncPlayGroupDoesNotExistUpdate;
+        oneOfType = SyncPlayGroupDoesNotExistUpdate;
         break;
       case r'GroupJoined':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(GroupInfoDtoGroupUpdate),
-        ) as GroupInfoDtoGroupUpdate;
-        oneOfType = GroupInfoDtoGroupUpdate;
+          specifiedType: FullType(SyncPlayGroupJoinedUpdate),
+        ) as SyncPlayGroupJoinedUpdate;
+        oneOfType = SyncPlayGroupJoinedUpdate;
         break;
       case r'GroupLeft':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(StringGroupUpdate),
-        ) as StringGroupUpdate;
-        oneOfType = StringGroupUpdate;
+          specifiedType: FullType(SyncPlayGroupLeftUpdate),
+        ) as SyncPlayGroupLeftUpdate;
+        oneOfType = SyncPlayGroupLeftUpdate;
         break;
       case r'LibraryAccessDenied':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(StringGroupUpdate),
-        ) as StringGroupUpdate;
-        oneOfType = StringGroupUpdate;
+          specifiedType: FullType(SyncPlayLibraryAccessDeniedUpdate),
+        ) as SyncPlayLibraryAccessDeniedUpdate;
+        oneOfType = SyncPlayLibraryAccessDeniedUpdate;
         break;
       case r'NotInGroup':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(StringGroupUpdate),
-        ) as StringGroupUpdate;
-        oneOfType = StringGroupUpdate;
+          specifiedType: FullType(SyncPlayNotInGroupUpdate),
+        ) as SyncPlayNotInGroupUpdate;
+        oneOfType = SyncPlayNotInGroupUpdate;
         break;
       case r'PlayQueue':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(PlayQueueUpdateGroupUpdate),
-        ) as PlayQueueUpdateGroupUpdate;
-        oneOfType = PlayQueueUpdateGroupUpdate;
+          specifiedType: FullType(SyncPlayPlayQueueUpdate),
+        ) as SyncPlayPlayQueueUpdate;
+        oneOfType = SyncPlayPlayQueueUpdate;
         break;
       case r'StateUpdate':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(GroupStateUpdateGroupUpdate),
-        ) as GroupStateUpdateGroupUpdate;
-        oneOfType = GroupStateUpdateGroupUpdate;
+          specifiedType: FullType(SyncPlayStateUpdate),
+        ) as SyncPlayStateUpdate;
+        oneOfType = SyncPlayStateUpdate;
         break;
       case r'UserJoined':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(StringGroupUpdate),
-        ) as StringGroupUpdate;
-        oneOfType = StringGroupUpdate;
+          specifiedType: FullType(SyncPlayUserJoinedUpdate),
+        ) as SyncPlayUserJoinedUpdate;
+        oneOfType = SyncPlayUserJoinedUpdate;
         break;
       case r'UserLeft':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(StringGroupUpdate),
-        ) as StringGroupUpdate;
-        oneOfType = StringGroupUpdate;
+          specifiedType: FullType(SyncPlayUserLeftUpdate),
+        ) as SyncPlayUserLeftUpdate;
+        oneOfType = SyncPlayUserLeftUpdate;
         break;
       default:
         throw UnsupportedError(

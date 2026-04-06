@@ -14,10 +14,9 @@ class _$SpecialViewOptionDto extends SpecialViewOptionDto {
 
   factory _$SpecialViewOptionDto(
           [void Function(SpecialViewOptionDtoBuilder)? updates]) =>
-      (new SpecialViewOptionDtoBuilder()..update(updates))._build();
+      (SpecialViewOptionDtoBuilder()..update(updates))._build();
 
   _$SpecialViewOptionDto._({this.name, this.id}) : super._();
-
   @override
   SpecialViewOptionDto rebuild(
           void Function(SpecialViewOptionDtoBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$SpecialViewOptionDto extends SpecialViewOptionDto {
 
   @override
   SpecialViewOptionDtoBuilder toBuilder() =>
-      new SpecialViewOptionDtoBuilder()..replace(this);
+      SpecialViewOptionDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -81,7 +80,6 @@ class SpecialViewOptionDtoBuilder
 
   @override
   void replace(SpecialViewOptionDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SpecialViewOptionDto;
   }
 
@@ -94,7 +92,11 @@ class SpecialViewOptionDtoBuilder
   SpecialViewOptionDto build() => _build();
 
   _$SpecialViewOptionDto _build() {
-    final _$result = _$v ?? new _$SpecialViewOptionDto._(name: name, id: id);
+    final _$result = _$v ??
+        _$SpecialViewOptionDto._(
+          name: name,
+          id: id,
+        );
     replace(_$result);
     return _$result;
   }

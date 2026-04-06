@@ -31,11 +31,11 @@ LogLevel _$valueOf(String name) {
     case 'none':
       return _$none;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<LogLevel> _$values = new BuiltSet<LogLevel>(const <LogLevel>[
+final BuiltSet<LogLevel> _$values = BuiltSet<LogLevel>(const <LogLevel>[
   _$trace,
   _$debug,
   _$information,
@@ -63,7 +63,7 @@ mixin _$LogLevelMixin {
   _$LogLevelMeta get LogLevel => const _$LogLevelMeta();
 }
 
-Serializer<LogLevel> _$logLevelSerializer = new _$LogLevelSerializer();
+Serializer<LogLevel> _$logLevelSerializer = _$LogLevelSerializer();
 
 class _$LogLevelSerializer implements PrimitiveSerializer<LogLevel> {
   static const Map<String, Object> _toWire = const <String, Object>{

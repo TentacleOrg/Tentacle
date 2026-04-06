@@ -108,6 +108,12 @@ void main() {
       // TODO
     });
 
+    // bool useMostCompatibleTranscodingProfile (default value: false)
+    test('to test the property `useMostCompatibleTranscodingProfile`',
+        () async {
+      // TODO
+    });
+
     // bool requiresOpening
     test('to test the property `requiresOpening`', () async {
       // TODO
@@ -178,6 +184,11 @@ void main() {
       // TODO
     });
 
+    // int fallbackMaxStreamingBitrate
+    test('to test the property `fallbackMaxStreamingBitrate`', () async {
+      // TODO
+    });
+
     // TransportStreamTimestamp timestamp
     test('to test the property `timestamp`', () async {
       // TODO
@@ -216,6 +227,11 @@ void main() {
 
     // int defaultSubtitleStreamIndex
     test('to test the property `defaultSubtitleStreamIndex`', () async {
+      // TODO
+    });
+
+    // bool hasSegments
+    test('to test the property `hasSegments`', () async {
       // TODO
     });
   });

@@ -14,10 +14,9 @@ class _$IssueGet200Response extends IssueGet200Response {
 
   factory _$IssueGet200Response(
           [void Function(IssueGet200ResponseBuilder)? updates]) =>
-      (new IssueGet200ResponseBuilder()..update(updates))._build();
+      (IssueGet200ResponseBuilder()..update(updates))._build();
 
   _$IssueGet200Response._({this.pageInfo, this.results}) : super._();
-
   @override
   IssueGet200Response rebuild(
           void Function(IssueGet200ResponseBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$IssueGet200Response extends IssueGet200Response {
 
   @override
   IssueGet200ResponseBuilder toBuilder() =>
-      new IssueGet200ResponseBuilder()..replace(this);
+      IssueGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -58,12 +57,11 @@ class IssueGet200ResponseBuilder
   _$IssueGet200Response? _$v;
 
   PageInfoBuilder? _pageInfo;
-  PageInfoBuilder get pageInfo => _$this._pageInfo ??= new PageInfoBuilder();
+  PageInfoBuilder get pageInfo => _$this._pageInfo ??= PageInfoBuilder();
   set pageInfo(PageInfoBuilder? pageInfo) => _$this._pageInfo = pageInfo;
 
   ListBuilder<Issue>? _results;
-  ListBuilder<Issue> get results =>
-      _$this._results ??= new ListBuilder<Issue>();
+  ListBuilder<Issue> get results => _$this._results ??= ListBuilder<Issue>();
   set results(ListBuilder<Issue>? results) => _$this._results = results;
 
   IssueGet200ResponseBuilder() {
@@ -82,7 +80,6 @@ class IssueGet200ResponseBuilder
 
   @override
   void replace(IssueGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IssueGet200Response;
   }
 
@@ -98,8 +95,10 @@ class IssueGet200ResponseBuilder
     _$IssueGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$IssueGet200Response._(
-              pageInfo: _pageInfo?.build(), results: _results?.build());
+          _$IssueGet200Response._(
+            pageInfo: _pageInfo?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -108,7 +107,7 @@ class IssueGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'IssueGet200Response', _$failedField, e.toString());
       }
       rethrow;

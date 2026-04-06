@@ -24,7 +24,7 @@ class _$ConfigImageTypes extends ConfigImageTypes {
 
   factory _$ConfigImageTypes(
           [void Function(ConfigImageTypesBuilder)? updates]) =>
-      (new ConfigImageTypesBuilder()..update(updates))._build();
+      (ConfigImageTypesBuilder()..update(updates))._build();
 
   _$ConfigImageTypes._(
       {this.backdropSizes,
@@ -35,14 +35,13 @@ class _$ConfigImageTypes extends ConfigImageTypes {
       this.secureBaseUrl,
       this.stillSizes})
       : super._();
-
   @override
   ConfigImageTypes rebuild(void Function(ConfigImageTypesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   ConfigImageTypesBuilder toBuilder() =>
-      new ConfigImageTypesBuilder()..replace(this);
+      ConfigImageTypesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -91,7 +90,7 @@ class ConfigImageTypesBuilder
 
   ListBuilder<String>? _backdropSizes;
   ListBuilder<String> get backdropSizes =>
-      _$this._backdropSizes ??= new ListBuilder<String>();
+      _$this._backdropSizes ??= ListBuilder<String>();
   set backdropSizes(ListBuilder<String>? backdropSizes) =>
       _$this._backdropSizes = backdropSizes;
 
@@ -101,19 +100,19 @@ class ConfigImageTypesBuilder
 
   ListBuilder<String>? _logoSizes;
   ListBuilder<String> get logoSizes =>
-      _$this._logoSizes ??= new ListBuilder<String>();
+      _$this._logoSizes ??= ListBuilder<String>();
   set logoSizes(ListBuilder<String>? logoSizes) =>
       _$this._logoSizes = logoSizes;
 
   ListBuilder<String>? _posterSizes;
   ListBuilder<String> get posterSizes =>
-      _$this._posterSizes ??= new ListBuilder<String>();
+      _$this._posterSizes ??= ListBuilder<String>();
   set posterSizes(ListBuilder<String>? posterSizes) =>
       _$this._posterSizes = posterSizes;
 
   ListBuilder<String>? _profileSizes;
   ListBuilder<String> get profileSizes =>
-      _$this._profileSizes ??= new ListBuilder<String>();
+      _$this._profileSizes ??= ListBuilder<String>();
   set profileSizes(ListBuilder<String>? profileSizes) =>
       _$this._profileSizes = profileSizes;
 
@@ -124,7 +123,7 @@ class ConfigImageTypesBuilder
 
   ListBuilder<String>? _stillSizes;
   ListBuilder<String> get stillSizes =>
-      _$this._stillSizes ??= new ListBuilder<String>();
+      _$this._stillSizes ??= ListBuilder<String>();
   set stillSizes(ListBuilder<String>? stillSizes) =>
       _$this._stillSizes = stillSizes;
 
@@ -149,7 +148,6 @@ class ConfigImageTypesBuilder
 
   @override
   void replace(ConfigImageTypes other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ConfigImageTypes;
   }
 
@@ -165,14 +163,15 @@ class ConfigImageTypesBuilder
     _$ConfigImageTypes _$result;
     try {
       _$result = _$v ??
-          new _$ConfigImageTypes._(
-              backdropSizes: _backdropSizes?.build(),
-              baseUrl: baseUrl,
-              logoSizes: _logoSizes?.build(),
-              posterSizes: _posterSizes?.build(),
-              profileSizes: _profileSizes?.build(),
-              secureBaseUrl: secureBaseUrl,
-              stillSizes: _stillSizes?.build());
+          _$ConfigImageTypes._(
+            backdropSizes: _backdropSizes?.build(),
+            baseUrl: baseUrl,
+            logoSizes: _logoSizes?.build(),
+            posterSizes: _posterSizes?.build(),
+            profileSizes: _profileSizes?.build(),
+            secureBaseUrl: secureBaseUrl,
+            stillSizes: _stillSizes?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -189,7 +188,7 @@ class ConfigImageTypesBuilder
         _$failedField = 'stillSizes';
         _stillSizes?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ConfigImageTypes', _$failedField, e.toString());
       }
       rethrow;

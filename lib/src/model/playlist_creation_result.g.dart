@@ -12,10 +12,9 @@ class _$PlaylistCreationResult extends PlaylistCreationResult {
 
   factory _$PlaylistCreationResult(
           [void Function(PlaylistCreationResultBuilder)? updates]) =>
-      (new PlaylistCreationResultBuilder()..update(updates))._build();
+      (PlaylistCreationResultBuilder()..update(updates))._build();
 
   _$PlaylistCreationResult._({this.id}) : super._();
-
   @override
   PlaylistCreationResult rebuild(
           void Function(PlaylistCreationResultBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$PlaylistCreationResult extends PlaylistCreationResult {
 
   @override
   PlaylistCreationResultBuilder toBuilder() =>
-      new PlaylistCreationResultBuilder()..replace(this);
+      PlaylistCreationResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +69,6 @@ class PlaylistCreationResultBuilder
 
   @override
   void replace(PlaylistCreationResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlaylistCreationResult;
   }
 
@@ -83,7 +81,10 @@ class PlaylistCreationResultBuilder
   PlaylistCreationResult build() => _build();
 
   _$PlaylistCreationResult _build() {
-    final _$result = _$v ?? new _$PlaylistCreationResult._(id: id);
+    final _$result = _$v ??
+        _$PlaylistCreationResult._(
+          id: id,
+        );
     replace(_$result);
     return _$result;
   }

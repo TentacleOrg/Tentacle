@@ -38,12 +38,12 @@ RelatedVideoTypeEnum _$relatedVideoTypeEnumValueOf(String name) {
     case 'bloopers':
       return _$relatedVideoTypeEnum_bloopers;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<RelatedVideoTypeEnum> _$relatedVideoTypeEnumValues =
-    new BuiltSet<RelatedVideoTypeEnum>(const <RelatedVideoTypeEnum>[
+    BuiltSet<RelatedVideoTypeEnum>(const <RelatedVideoTypeEnum>[
   _$relatedVideoTypeEnum_clip,
   _$relatedVideoTypeEnum_teaser,
   _$relatedVideoTypeEnum_trailer,
@@ -61,19 +61,19 @@ RelatedVideoSiteEnum _$relatedVideoSiteEnumValueOf(String name) {
     case 'youTube':
       return _$relatedVideoSiteEnum_youTube;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<RelatedVideoSiteEnum> _$relatedVideoSiteEnumValues =
-    new BuiltSet<RelatedVideoSiteEnum>(const <RelatedVideoSiteEnum>[
+    BuiltSet<RelatedVideoSiteEnum>(const <RelatedVideoSiteEnum>[
   _$relatedVideoSiteEnum_youTube,
 ]);
 
 Serializer<RelatedVideoTypeEnum> _$relatedVideoTypeEnumSerializer =
-    new _$RelatedVideoTypeEnumSerializer();
+    _$RelatedVideoTypeEnumSerializer();
 Serializer<RelatedVideoSiteEnum> _$relatedVideoSiteEnumSerializer =
-    new _$RelatedVideoSiteEnumSerializer();
+    _$RelatedVideoSiteEnumSerializer();
 
 class _$RelatedVideoTypeEnumSerializer
     implements PrimitiveSerializer<RelatedVideoTypeEnum> {
@@ -154,18 +154,17 @@ class _$RelatedVideo extends RelatedVideo {
   final RelatedVideoSiteEnum? site;
 
   factory _$RelatedVideo([void Function(RelatedVideoBuilder)? updates]) =>
-      (new RelatedVideoBuilder()..update(updates))._build();
+      (RelatedVideoBuilder()..update(updates))._build();
 
   _$RelatedVideo._(
       {this.url, this.key, this.name, this.size, this.type, this.site})
       : super._();
-
   @override
   RelatedVideo rebuild(void Function(RelatedVideoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RelatedVideoBuilder toBuilder() => new RelatedVideoBuilder()..replace(this);
+  RelatedVideoBuilder toBuilder() => RelatedVideoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -253,7 +252,6 @@ class RelatedVideoBuilder
 
   @override
   void replace(RelatedVideo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RelatedVideo;
   }
 
@@ -267,8 +265,14 @@ class RelatedVideoBuilder
 
   _$RelatedVideo _build() {
     final _$result = _$v ??
-        new _$RelatedVideo._(
-            url: url, key: key, name: name, size: size, type: type, site: site);
+        _$RelatedVideo._(
+          url: url,
+          key: key,
+          name: name,
+          size: size,
+          type: type,
+          site: site,
+        );
     replace(_$result);
     return _$result;
   }

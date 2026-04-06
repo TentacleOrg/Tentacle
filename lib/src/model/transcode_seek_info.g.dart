@@ -16,12 +16,12 @@ TranscodeSeekInfo _$valueOf(String name) {
     case 'bytes':
       return _$bytes;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<TranscodeSeekInfo> _$values =
-    new BuiltSet<TranscodeSeekInfo>(const <TranscodeSeekInfo>[
+    BuiltSet<TranscodeSeekInfo>(const <TranscodeSeekInfo>[
   _$auto,
   _$bytes,
 ]);
@@ -41,7 +41,7 @@ mixin _$TranscodeSeekInfoMixin {
 }
 
 Serializer<TranscodeSeekInfo> _$transcodeSeekInfoSerializer =
-    new _$TranscodeSeekInfoSerializer();
+    _$TranscodeSeekInfoSerializer();
 
 class _$TranscodeSeekInfoSerializer
     implements PrimitiveSerializer<TranscodeSeekInfo> {

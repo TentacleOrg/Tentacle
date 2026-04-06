@@ -18,12 +18,11 @@ class _$UpdateUserPassword extends UpdateUserPassword {
 
   factory _$UpdateUserPassword(
           [void Function(UpdateUserPasswordBuilder)? updates]) =>
-      (new UpdateUserPasswordBuilder()..update(updates))._build();
+      (UpdateUserPasswordBuilder()..update(updates))._build();
 
   _$UpdateUserPassword._(
       {this.currentPassword, this.currentPw, this.newPw, this.resetPassword})
       : super._();
-
   @override
   UpdateUserPassword rebuild(
           void Function(UpdateUserPasswordBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$UpdateUserPassword extends UpdateUserPassword {
 
   @override
   UpdateUserPasswordBuilder toBuilder() =>
-      new UpdateUserPasswordBuilder()..replace(this);
+      UpdateUserPasswordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -105,7 +104,6 @@ class UpdateUserPasswordBuilder
 
   @override
   void replace(UpdateUserPassword other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdateUserPassword;
   }
 
@@ -119,11 +117,12 @@ class UpdateUserPasswordBuilder
 
   _$UpdateUserPassword _build() {
     final _$result = _$v ??
-        new _$UpdateUserPassword._(
-            currentPassword: currentPassword,
-            currentPw: currentPw,
-            newPw: newPw,
-            resetPassword: resetPassword);
+        _$UpdateUserPassword._(
+          currentPassword: currentPassword,
+          currentPw: currentPw,
+          newPw: newPw,
+          resetPassword: resetPassword,
+        );
     replace(_$result);
     return _$result;
   }

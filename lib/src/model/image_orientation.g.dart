@@ -34,12 +34,12 @@ ImageOrientation _$valueOf(String name) {
     case 'leftBottom':
       return _$leftBottom;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ImageOrientation> _$values =
-    new BuiltSet<ImageOrientation>(const <ImageOrientation>[
+    BuiltSet<ImageOrientation>(const <ImageOrientation>[
   _$topLeft,
   _$topRight,
   _$bottomRight,
@@ -70,7 +70,7 @@ mixin _$ImageOrientationMixin {
 }
 
 Serializer<ImageOrientation> _$imageOrientationSerializer =
-    new _$ImageOrientationSerializer();
+    _$ImageOrientationSerializer();
 
 class _$ImageOrientationSerializer
     implements PrimitiveSerializer<ImageOrientation> {

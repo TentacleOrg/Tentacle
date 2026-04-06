@@ -24,7 +24,7 @@ class _$InstallationInfo extends InstallationInfo {
 
   factory _$InstallationInfo(
           [void Function(InstallationInfoBuilder)? updates]) =>
-      (new InstallationInfoBuilder()..update(updates))._build();
+      (InstallationInfoBuilder()..update(updates))._build();
 
   _$InstallationInfo._(
       {this.guid,
@@ -35,14 +35,13 @@ class _$InstallationInfo extends InstallationInfo {
       this.checksum,
       this.packageInfo})
       : super._();
-
   @override
   InstallationInfo rebuild(void Function(InstallationInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   InstallationInfoBuilder toBuilder() =>
-      new InstallationInfoBuilder()..replace(this);
+      InstallationInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -115,7 +114,7 @@ class InstallationInfoBuilder
 
   PackageInfoBuilder? _packageInfo;
   PackageInfoBuilder get packageInfo =>
-      _$this._packageInfo ??= new PackageInfoBuilder();
+      _$this._packageInfo ??= PackageInfoBuilder();
   set packageInfo(PackageInfoBuilder? packageInfo) =>
       _$this._packageInfo = packageInfo;
 
@@ -140,7 +139,6 @@ class InstallationInfoBuilder
 
   @override
   void replace(InstallationInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$InstallationInfo;
   }
 
@@ -156,21 +154,22 @@ class InstallationInfoBuilder
     _$InstallationInfo _$result;
     try {
       _$result = _$v ??
-          new _$InstallationInfo._(
-              guid: guid,
-              name: name,
-              version: version,
-              changelog: changelog,
-              sourceUrl: sourceUrl,
-              checksum: checksum,
-              packageInfo: _packageInfo?.build());
+          _$InstallationInfo._(
+            guid: guid,
+            name: name,
+            version: version,
+            changelog: changelog,
+            sourceUrl: sourceUrl,
+            checksum: checksum,
+            packageInfo: _packageInfo?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'packageInfo';
         _packageInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'InstallationInfo', _$failedField, e.toString());
       }
       rethrow;

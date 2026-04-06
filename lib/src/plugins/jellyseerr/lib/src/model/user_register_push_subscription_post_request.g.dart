@@ -14,24 +14,21 @@ class _$UserRegisterPushSubscriptionPostRequest
   final String auth;
   @override
   final String p256dh;
+  @override
+  final String? userAgent;
 
   factory _$UserRegisterPushSubscriptionPostRequest(
           [void Function(UserRegisterPushSubscriptionPostRequestBuilder)?
               updates]) =>
-      (new UserRegisterPushSubscriptionPostRequestBuilder()..update(updates))
+      (UserRegisterPushSubscriptionPostRequestBuilder()..update(updates))
           ._build();
 
   _$UserRegisterPushSubscriptionPostRequest._(
-      {required this.endpoint, required this.auth, required this.p256dh})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        endpoint, r'UserRegisterPushSubscriptionPostRequest', 'endpoint');
-    BuiltValueNullFieldError.checkNotNull(
-        auth, r'UserRegisterPushSubscriptionPostRequest', 'auth');
-    BuiltValueNullFieldError.checkNotNull(
-        p256dh, r'UserRegisterPushSubscriptionPostRequest', 'p256dh');
-  }
-
+      {required this.endpoint,
+      required this.auth,
+      required this.p256dh,
+      this.userAgent})
+      : super._();
   @override
   UserRegisterPushSubscriptionPostRequest rebuild(
           void Function(UserRegisterPushSubscriptionPostRequestBuilder)
@@ -40,7 +37,7 @@ class _$UserRegisterPushSubscriptionPostRequest
 
   @override
   UserRegisterPushSubscriptionPostRequestBuilder toBuilder() =>
-      new UserRegisterPushSubscriptionPostRequestBuilder()..replace(this);
+      UserRegisterPushSubscriptionPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -48,7 +45,8 @@ class _$UserRegisterPushSubscriptionPostRequest
     return other is UserRegisterPushSubscriptionPostRequest &&
         endpoint == other.endpoint &&
         auth == other.auth &&
-        p256dh == other.p256dh;
+        p256dh == other.p256dh &&
+        userAgent == other.userAgent;
   }
 
   @override
@@ -57,6 +55,7 @@ class _$UserRegisterPushSubscriptionPostRequest
     _$hash = $jc(_$hash, endpoint.hashCode);
     _$hash = $jc(_$hash, auth.hashCode);
     _$hash = $jc(_$hash, p256dh.hashCode);
+    _$hash = $jc(_$hash, userAgent.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -67,7 +66,8 @@ class _$UserRegisterPushSubscriptionPostRequest
             r'UserRegisterPushSubscriptionPostRequest')
           ..add('endpoint', endpoint)
           ..add('auth', auth)
-          ..add('p256dh', p256dh))
+          ..add('p256dh', p256dh)
+          ..add('userAgent', userAgent))
         .toString();
   }
 }
@@ -90,6 +90,10 @@ class UserRegisterPushSubscriptionPostRequestBuilder
   String? get p256dh => _$this._p256dh;
   set p256dh(String? p256dh) => _$this._p256dh = p256dh;
 
+  String? _userAgent;
+  String? get userAgent => _$this._userAgent;
+  set userAgent(String? userAgent) => _$this._userAgent = userAgent;
+
   UserRegisterPushSubscriptionPostRequestBuilder() {
     UserRegisterPushSubscriptionPostRequest._defaults(this);
   }
@@ -100,6 +104,7 @@ class UserRegisterPushSubscriptionPostRequestBuilder
       _endpoint = $v.endpoint;
       _auth = $v.auth;
       _p256dh = $v.p256dh;
+      _userAgent = $v.userAgent;
       _$v = null;
     }
     return this;
@@ -107,7 +112,6 @@ class UserRegisterPushSubscriptionPostRequestBuilder
 
   @override
   void replace(UserRegisterPushSubscriptionPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserRegisterPushSubscriptionPostRequest;
   }
 
@@ -122,13 +126,15 @@ class UserRegisterPushSubscriptionPostRequestBuilder
 
   _$UserRegisterPushSubscriptionPostRequest _build() {
     final _$result = _$v ??
-        new _$UserRegisterPushSubscriptionPostRequest._(
-            endpoint: BuiltValueNullFieldError.checkNotNull(endpoint,
-                r'UserRegisterPushSubscriptionPostRequest', 'endpoint'),
-            auth: BuiltValueNullFieldError.checkNotNull(
-                auth, r'UserRegisterPushSubscriptionPostRequest', 'auth'),
-            p256dh: BuiltValueNullFieldError.checkNotNull(
-                p256dh, r'UserRegisterPushSubscriptionPostRequest', 'p256dh'));
+        _$UserRegisterPushSubscriptionPostRequest._(
+          endpoint: BuiltValueNullFieldError.checkNotNull(
+              endpoint, r'UserRegisterPushSubscriptionPostRequest', 'endpoint'),
+          auth: BuiltValueNullFieldError.checkNotNull(
+              auth, r'UserRegisterPushSubscriptionPostRequest', 'auth'),
+          p256dh: BuiltValueNullFieldError.checkNotNull(
+              p256dh, r'UserRegisterPushSubscriptionPostRequest', 'p256dh'),
+          userAgent: userAgent,
+        );
     replace(_$result);
     return _$result;
   }

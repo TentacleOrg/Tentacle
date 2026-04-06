@@ -14,17 +14,16 @@ class _$GroupStateUpdate extends GroupStateUpdate {
 
   factory _$GroupStateUpdate(
           [void Function(GroupStateUpdateBuilder)? updates]) =>
-      (new GroupStateUpdateBuilder()..update(updates))._build();
+      (GroupStateUpdateBuilder()..update(updates))._build();
 
   _$GroupStateUpdate._({this.state, this.reason}) : super._();
-
   @override
   GroupStateUpdate rebuild(void Function(GroupStateUpdateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   GroupStateUpdateBuilder toBuilder() =>
-      new GroupStateUpdateBuilder()..replace(this);
+      GroupStateUpdateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -80,7 +79,6 @@ class GroupStateUpdateBuilder
 
   @override
   void replace(GroupStateUpdate other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GroupStateUpdate;
   }
 
@@ -93,8 +91,11 @@ class GroupStateUpdateBuilder
   GroupStateUpdate build() => _build();
 
   _$GroupStateUpdate _build() {
-    final _$result =
-        _$v ?? new _$GroupStateUpdate._(state: state, reason: reason);
+    final _$result = _$v ??
+        _$GroupStateUpdate._(
+          state: state,
+          reason: reason,
+        );
     replace(_$result);
     return _$result;
   }

@@ -231,6 +231,7 @@ class TvShowsApi {
     bool? enableUserData,
     DateTime? nextUpDateCutoff,
     bool? enableTotalRecordCount = true,
+    @Deprecated('disableFirstEpisode is deprecated')
     bool? disableFirstEpisode = false,
     bool? enableResumable = true,
     bool? enableRewatching = false,

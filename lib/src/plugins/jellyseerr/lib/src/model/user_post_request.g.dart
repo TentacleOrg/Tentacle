@@ -15,18 +15,16 @@ class _$UserPostRequest extends UserPostRequest {
   final num? permissions;
 
   factory _$UserPostRequest([void Function(UserPostRequestBuilder)? updates]) =>
-      (new UserPostRequestBuilder()..update(updates))._build();
+      (UserPostRequestBuilder()..update(updates))._build();
 
   _$UserPostRequest._({this.email, this.username, this.permissions})
       : super._();
-
   @override
   UserPostRequest rebuild(void Function(UserPostRequestBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserPostRequestBuilder toBuilder() =>
-      new UserPostRequestBuilder()..replace(this);
+  UserPostRequestBuilder toBuilder() => UserPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -90,7 +88,6 @@ class UserPostRequestBuilder
 
   @override
   void replace(UserPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserPostRequest;
   }
 
@@ -104,8 +101,11 @@ class UserPostRequestBuilder
 
   _$UserPostRequest _build() {
     final _$result = _$v ??
-        new _$UserPostRequest._(
-            email: email, username: username, permissions: permissions);
+        _$UserPostRequest._(
+          email: email,
+          username: username,
+          permissions: permissions,
+        );
     replace(_$result);
     return _$result;
   }

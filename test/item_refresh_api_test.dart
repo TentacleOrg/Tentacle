@@ -8,7 +8,7 @@ void main() {
   group(ItemRefreshApi, () {
     // Refreshes metadata for an item.
     //
-    //Future refreshItem(String itemId, { MetadataRefreshMode metadataRefreshMode, MetadataRefreshMode imageRefreshMode, bool replaceAllMetadata, bool replaceAllImages }) async
+    //Future refreshItem(String itemId, { MetadataRefreshMode metadataRefreshMode, MetadataRefreshMode imageRefreshMode, bool replaceAllMetadata, bool replaceAllImages, bool regenerateTrickplay }) async
     test('test refreshItem', () async {
       // TODO
     });

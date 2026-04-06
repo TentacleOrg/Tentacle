@@ -16,17 +16,16 @@ class _$TelegramSettings extends TelegramSettings {
 
   factory _$TelegramSettings(
           [void Function(TelegramSettingsBuilder)? updates]) =>
-      (new TelegramSettingsBuilder()..update(updates))._build();
+      (TelegramSettingsBuilder()..update(updates))._build();
 
   _$TelegramSettings._({this.enabled, this.types, this.options}) : super._();
-
   @override
   TelegramSettings rebuild(void Function(TelegramSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   TelegramSettingsBuilder toBuilder() =>
-      new TelegramSettingsBuilder()..replace(this);
+      TelegramSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +70,7 @@ class TelegramSettingsBuilder
 
   TelegramSettingsOptionsBuilder? _options;
   TelegramSettingsOptionsBuilder get options =>
-      _$this._options ??= new TelegramSettingsOptionsBuilder();
+      _$this._options ??= TelegramSettingsOptionsBuilder();
   set options(TelegramSettingsOptionsBuilder? options) =>
       _$this._options = options;
 
@@ -92,7 +91,6 @@ class TelegramSettingsBuilder
 
   @override
   void replace(TelegramSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TelegramSettings;
   }
 
@@ -108,15 +106,18 @@ class TelegramSettingsBuilder
     _$TelegramSettings _$result;
     try {
       _$result = _$v ??
-          new _$TelegramSettings._(
-              enabled: enabled, types: types, options: _options?.build());
+          _$TelegramSettings._(
+            enabled: enabled,
+            types: types,
+            options: _options?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
         _options?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TelegramSettings', _$failedField, e.toString());
       }
       rethrow;

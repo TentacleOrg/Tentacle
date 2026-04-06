@@ -39,10 +39,12 @@ class _$TranscodingProfile extends TranscodingProfile {
   final bool? breakOnNonKeyFrames;
   @override
   final BuiltList<ProfileCondition>? conditions;
+  @override
+  final bool? enableAudioVbrEncoding;
 
   factory _$TranscodingProfile(
           [void Function(TranscodingProfileBuilder)? updates]) =>
-      (new TranscodingProfileBuilder()..update(updates))._build();
+      (TranscodingProfileBuilder()..update(updates))._build();
 
   _$TranscodingProfile._(
       {this.container,
@@ -60,9 +62,9 @@ class _$TranscodingProfile extends TranscodingProfile {
       this.minSegments,
       this.segmentLength,
       this.breakOnNonKeyFrames,
-      this.conditions})
+      this.conditions,
+      this.enableAudioVbrEncoding})
       : super._();
-
   @override
   TranscodingProfile rebuild(
           void Function(TranscodingProfileBuilder) updates) =>
@@ -70,7 +72,7 @@ class _$TranscodingProfile extends TranscodingProfile {
 
   @override
   TranscodingProfileBuilder toBuilder() =>
-      new TranscodingProfileBuilder()..replace(this);
+      TranscodingProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -91,7 +93,8 @@ class _$TranscodingProfile extends TranscodingProfile {
         minSegments == other.minSegments &&
         segmentLength == other.segmentLength &&
         breakOnNonKeyFrames == other.breakOnNonKeyFrames &&
-        conditions == other.conditions;
+        conditions == other.conditions &&
+        enableAudioVbrEncoding == other.enableAudioVbrEncoding;
   }
 
   @override
@@ -113,6 +116,7 @@ class _$TranscodingProfile extends TranscodingProfile {
     _$hash = $jc(_$hash, segmentLength.hashCode);
     _$hash = $jc(_$hash, breakOnNonKeyFrames.hashCode);
     _$hash = $jc(_$hash, conditions.hashCode);
+    _$hash = $jc(_$hash, enableAudioVbrEncoding.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -135,7 +139,8 @@ class _$TranscodingProfile extends TranscodingProfile {
           ..add('minSegments', minSegments)
           ..add('segmentLength', segmentLength)
           ..add('breakOnNonKeyFrames', breakOnNonKeyFrames)
-          ..add('conditions', conditions))
+          ..add('conditions', conditions)
+          ..add('enableAudioVbrEncoding', enableAudioVbrEncoding))
         .toString();
   }
 }
@@ -214,9 +219,14 @@ class TranscodingProfileBuilder
 
   ListBuilder<ProfileCondition>? _conditions;
   ListBuilder<ProfileCondition> get conditions =>
-      _$this._conditions ??= new ListBuilder<ProfileCondition>();
+      _$this._conditions ??= ListBuilder<ProfileCondition>();
   set conditions(ListBuilder<ProfileCondition>? conditions) =>
       _$this._conditions = conditions;
+
+  bool? _enableAudioVbrEncoding;
+  bool? get enableAudioVbrEncoding => _$this._enableAudioVbrEncoding;
+  set enableAudioVbrEncoding(bool? enableAudioVbrEncoding) =>
+      _$this._enableAudioVbrEncoding = enableAudioVbrEncoding;
 
   TranscodingProfileBuilder() {
     TranscodingProfile._defaults(this);
@@ -241,6 +251,7 @@ class TranscodingProfileBuilder
       _segmentLength = $v.segmentLength;
       _breakOnNonKeyFrames = $v.breakOnNonKeyFrames;
       _conditions = $v.conditions?.toBuilder();
+      _enableAudioVbrEncoding = $v.enableAudioVbrEncoding;
       _$v = null;
     }
     return this;
@@ -248,7 +259,6 @@ class TranscodingProfileBuilder
 
   @override
   void replace(TranscodingProfile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TranscodingProfile;
   }
 
@@ -264,30 +274,32 @@ class TranscodingProfileBuilder
     _$TranscodingProfile _$result;
     try {
       _$result = _$v ??
-          new _$TranscodingProfile._(
-              container: container,
-              type: type,
-              videoCodec: videoCodec,
-              audioCodec: audioCodec,
-              protocol: protocol,
-              estimateContentLength: estimateContentLength,
-              enableMpegtsM2TsMode: enableMpegtsM2TsMode,
-              transcodeSeekInfo: transcodeSeekInfo,
-              copyTimestamps: copyTimestamps,
-              context: context,
-              enableSubtitlesInManifest: enableSubtitlesInManifest,
-              maxAudioChannels: maxAudioChannels,
-              minSegments: minSegments,
-              segmentLength: segmentLength,
-              breakOnNonKeyFrames: breakOnNonKeyFrames,
-              conditions: _conditions?.build());
+          _$TranscodingProfile._(
+            container: container,
+            type: type,
+            videoCodec: videoCodec,
+            audioCodec: audioCodec,
+            protocol: protocol,
+            estimateContentLength: estimateContentLength,
+            enableMpegtsM2TsMode: enableMpegtsM2TsMode,
+            transcodeSeekInfo: transcodeSeekInfo,
+            copyTimestamps: copyTimestamps,
+            context: context,
+            enableSubtitlesInManifest: enableSubtitlesInManifest,
+            maxAudioChannels: maxAudioChannels,
+            minSegments: minSegments,
+            segmentLength: segmentLength,
+            breakOnNonKeyFrames: breakOnNonKeyFrames,
+            conditions: _conditions?.build(),
+            enableAudioVbrEncoding: enableAudioVbrEncoding,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'conditions';
         _conditions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TranscodingProfile', _$failedField, e.toString());
       }
       rethrow;

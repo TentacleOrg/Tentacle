@@ -16,18 +16,17 @@ class _$PlaystateMessage extends PlaystateMessage {
 
   factory _$PlaystateMessage(
           [void Function(PlaystateMessageBuilder)? updates]) =>
-      (new PlaystateMessageBuilder()..update(updates))._build();
+      (PlaystateMessageBuilder()..update(updates))._build();
 
   _$PlaystateMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   PlaystateMessage rebuild(void Function(PlaystateMessageBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   PlaystateMessageBuilder toBuilder() =>
-      new PlaystateMessageBuilder()..replace(this);
+      PlaystateMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,7 +63,7 @@ class PlaystateMessageBuilder
 
   PlaystateRequestBuilder? _data;
   PlaystateRequestBuilder get data =>
-      _$this._data ??= new PlaystateRequestBuilder();
+      _$this._data ??= PlaystateRequestBuilder();
   set data(PlaystateRequestBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -93,7 +92,6 @@ class PlaystateMessageBuilder
 
   @override
   void replace(PlaystateMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlaystateMessage;
   }
 
@@ -109,17 +107,18 @@ class PlaystateMessageBuilder
     _$PlaystateMessage _$result;
     try {
       _$result = _$v ??
-          new _$PlaystateMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$PlaystateMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlaystateMessage', _$failedField, e.toString());
       }
       rethrow;

@@ -18,12 +18,12 @@ TrickplayScanBehavior _$valueOf(String name) {
     case 'nonBlocking':
       return _$nonBlocking;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<TrickplayScanBehavior> _$values =
-    new BuiltSet<TrickplayScanBehavior>(const <TrickplayScanBehavior>[
+    BuiltSet<TrickplayScanBehavior>(const <TrickplayScanBehavior>[
   _$blocking,
   _$nonBlocking,
 ]);
@@ -43,7 +43,7 @@ mixin _$TrickplayScanBehaviorMixin {
 }
 
 Serializer<TrickplayScanBehavior> _$trickplayScanBehaviorSerializer =
-    new _$TrickplayScanBehaviorSerializer();
+    _$TrickplayScanBehaviorSerializer();
 
 class _$TrickplayScanBehaviorSerializer
     implements PrimitiveSerializer<TrickplayScanBehavior> {

@@ -16,12 +16,11 @@ class _$TimerInfoDtoQueryResult extends TimerInfoDtoQueryResult {
 
   factory _$TimerInfoDtoQueryResult(
           [void Function(TimerInfoDtoQueryResultBuilder)? updates]) =>
-      (new TimerInfoDtoQueryResultBuilder()..update(updates))._build();
+      (TimerInfoDtoQueryResultBuilder()..update(updates))._build();
 
   _$TimerInfoDtoQueryResult._(
       {this.items, this.totalRecordCount, this.startIndex})
       : super._();
-
   @override
   TimerInfoDtoQueryResult rebuild(
           void Function(TimerInfoDtoQueryResultBuilder) updates) =>
@@ -29,7 +28,7 @@ class _$TimerInfoDtoQueryResult extends TimerInfoDtoQueryResult {
 
   @override
   TimerInfoDtoQueryResultBuilder toBuilder() =>
-      new TimerInfoDtoQueryResultBuilder()..replace(this);
+      TimerInfoDtoQueryResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -67,7 +66,7 @@ class TimerInfoDtoQueryResultBuilder
 
   ListBuilder<TimerInfoDto>? _items;
   ListBuilder<TimerInfoDto> get items =>
-      _$this._items ??= new ListBuilder<TimerInfoDto>();
+      _$this._items ??= ListBuilder<TimerInfoDto>();
   set items(ListBuilder<TimerInfoDto>? items) => _$this._items = items;
 
   int? _totalRecordCount;
@@ -96,7 +95,6 @@ class TimerInfoDtoQueryResultBuilder
 
   @override
   void replace(TimerInfoDtoQueryResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TimerInfoDtoQueryResult;
   }
 
@@ -112,17 +110,18 @@ class TimerInfoDtoQueryResultBuilder
     _$TimerInfoDtoQueryResult _$result;
     try {
       _$result = _$v ??
-          new _$TimerInfoDtoQueryResult._(
-              items: _items?.build(),
-              totalRecordCount: totalRecordCount,
-              startIndex: startIndex);
+          _$TimerInfoDtoQueryResult._(
+            items: _items?.build(),
+            totalRecordCount: totalRecordCount,
+            startIndex: startIndex,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         _items?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TimerInfoDtoQueryResult', _$failedField, e.toString());
       }
       rethrow;

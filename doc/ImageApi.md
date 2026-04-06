@@ -84,7 +84,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -132,7 +132,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -180,7 +180,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -224,7 +224,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -297,7 +297,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -370,7 +370,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -443,7 +443,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -516,7 +516,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -589,7 +589,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -662,7 +662,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -707,7 +707,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -780,7 +780,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -853,7 +853,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -926,7 +926,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -999,12 +999,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getSplashscreen**
-> Uint8List getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality)
+> Uint8List getSplashscreen(tag, format)
 
 Generates or gets the splashscreen.
 
@@ -1015,19 +1015,9 @@ import 'package:tentacle/api.dart';
 final api = Tentacle().getImageApi();
 final String tag = tag_example; // String | Supply the cache tag from the item object to receive strong caching headers.
 final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final int blur = 56; // int | Blur image.
-final String backgroundColor = backgroundColor_example; // String | Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Apply a foreground layer on top of the image.
-final int quality = 56; // int | Quality setting, from 0-100.
 
 try {
-    final response = api.getSplashscreen(tag, format, maxWidth, maxHeight, width, height, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, quality);
+    final response = api.getSplashscreen(tag, format);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getSplashscreen: $e\n');
@@ -1040,16 +1030,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tag** | **String**| Supply the cache tag from the item object to receive strong caching headers. | [optional] 
  **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **blur** | **int**| Blur image. | [optional] 
- **backgroundColor** | **String**| Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Apply a foreground layer on top of the image. | [optional] 
- **quality** | **int**| Quality setting, from 0-100. | [optional] [default to 90]
 
 ### Return type
 
@@ -1062,7 +1042,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*
+ - **Accept**: image/*, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1135,7 +1115,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1208,12 +1188,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getUserImage**
-> Uint8List getUserImage(userId, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List getUserImage(userId, tag, format)
 
 Get user profile image.
 
@@ -1225,22 +1205,9 @@ final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
 final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.getUserImage(userId, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.getUserImage(userId, tag, format);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->getUserImage: $e\n');
@@ -1254,19 +1221,6 @@ Name | Type | Description  | Notes
  **userId** | **String**| User id. | [optional] 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
  **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
 
 ### Return type
 
@@ -1279,7 +1233,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1352,7 +1306,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1425,7 +1379,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1498,7 +1452,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1571,7 +1525,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1644,7 +1598,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1717,7 +1671,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1790,7 +1744,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1863,7 +1817,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1936,7 +1890,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2009,7 +1963,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2082,7 +2036,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2155,12 +2109,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headUserImage**
-> Uint8List headUserImage(userId, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex)
+> Uint8List headUserImage(userId, tag, format)
 
 Get user profile image.
 
@@ -2172,22 +2126,9 @@ final api = Tentacle().getImageApi();
 final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | User id.
 final String tag = tag_example; // String | Optional. Supply the cache tag from the item object to receive strong caching headers.
 final ImageFormat format = format_example; // ImageFormat | Determines the output format of the image - original,gif,jpg,png.
-final int maxWidth = 56; // int | The maximum image width to return.
-final int maxHeight = 56; // int | The maximum image height to return.
-final double percentPlayed = 1.2; // double | Optional. Percent to render for the percent played overlay.
-final int unplayedCount = 56; // int | Optional. Unplayed count overlay to render.
-final int width = 56; // int | The fixed image width to return.
-final int height = 56; // int | The fixed image height to return.
-final int quality = 56; // int | Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases.
-final int fillWidth = 56; // int | Width of box to fill.
-final int fillHeight = 56; // int | Height of box to fill.
-final int blur = 56; // int | Optional. Blur image.
-final String backgroundColor = backgroundColor_example; // String | Optional. Apply a background color for transparent images.
-final String foregroundLayer = foregroundLayer_example; // String | Optional. Apply a foreground layer on top of the image.
-final int imageIndex = 56; // int | Image index.
 
 try {
-    final response = api.headUserImage(userId, tag, format, maxWidth, maxHeight, percentPlayed, unplayedCount, width, height, quality, fillWidth, fillHeight, blur, backgroundColor, foregroundLayer, imageIndex);
+    final response = api.headUserImage(userId, tag, format);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling ImageApi->headUserImage: $e\n');
@@ -2201,19 +2142,6 @@ Name | Type | Description  | Notes
  **userId** | **String**| User id. | [optional] 
  **tag** | **String**| Optional. Supply the cache tag from the item object to receive strong caching headers. | [optional] 
  **format** | **ImageFormat**| Determines the output format of the image - original,gif,jpg,png. | [optional] 
- **maxWidth** | **int**| The maximum image width to return. | [optional] 
- **maxHeight** | **int**| The maximum image height to return. | [optional] 
- **percentPlayed** | **double**| Optional. Percent to render for the percent played overlay. | [optional] 
- **unplayedCount** | **int**| Optional. Unplayed count overlay to render. | [optional] 
- **width** | **int**| The fixed image width to return. | [optional] 
- **height** | **int**| The fixed image height to return. | [optional] 
- **quality** | **int**| Optional. Quality setting, from 0-100. Defaults to 90 and should suffice in most cases. | [optional] 
- **fillWidth** | **int**| Width of box to fill. | [optional] 
- **fillHeight** | **int**| Height of box to fill. | [optional] 
- **blur** | **int**| Optional. Blur image. | [optional] 
- **backgroundColor** | **String**| Optional. Apply a background color for transparent images. | [optional] 
- **foregroundLayer** | **String**| Optional. Apply a foreground layer on top of the image. | [optional] 
- **imageIndex** | **int**| Image index. | [optional] 
 
 ### Return type
 
@@ -2226,7 +2154,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: image/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2272,7 +2200,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: image/*
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2320,7 +2248,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: image/*
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2370,7 +2298,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: image/*
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2420,7 +2348,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2464,7 +2392,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: image/*
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

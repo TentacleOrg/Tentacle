@@ -63,7 +63,7 @@ class _$SystemInfo extends SystemInfo {
   final String? systemArchitecture;
 
   factory _$SystemInfo([void Function(SystemInfoBuilder)? updates]) =>
-      (new SystemInfoBuilder()..update(updates))._build();
+      (SystemInfoBuilder()..update(updates))._build();
 
   _$SystemInfo._(
       {this.localAddress,
@@ -94,13 +94,12 @@ class _$SystemInfo extends SystemInfo {
       this.encoderLocation,
       this.systemArchitecture})
       : super._();
-
   @override
   SystemInfo rebuild(void Function(SystemInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SystemInfoBuilder toBuilder() => new SystemInfoBuilder()..replace(this);
+  SystemInfoBuilder toBuilder() => SystemInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -267,7 +266,7 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
 
   ListBuilder<InstallationInfo>? _completedInstallations;
   ListBuilder<InstallationInfo> get completedInstallations =>
-      _$this._completedInstallations ??= new ListBuilder<InstallationInfo>();
+      _$this._completedInstallations ??= ListBuilder<InstallationInfo>();
   set completedInstallations(
           ListBuilder<InstallationInfo>? completedInstallations) =>
       _$this._completedInstallations = completedInstallations;
@@ -317,7 +316,7 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
   ListBuilder<CastReceiverApplication>? _castReceiverApplications;
   ListBuilder<CastReceiverApplication> get castReceiverApplications =>
       _$this._castReceiverApplications ??=
-          new ListBuilder<CastReceiverApplication>();
+          ListBuilder<CastReceiverApplication>();
   set castReceiverApplications(
           ListBuilder<CastReceiverApplication>? castReceiverApplications) =>
       _$this._castReceiverApplications = castReceiverApplications;
@@ -378,7 +377,6 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
 
   @override
   void replace(SystemInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SystemInfo;
   }
 
@@ -394,34 +392,35 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
     _$SystemInfo _$result;
     try {
       _$result = _$v ??
-          new _$SystemInfo._(
-              localAddress: localAddress,
-              serverName: serverName,
-              version: version,
-              productName: productName,
-              operatingSystem: operatingSystem,
-              id: id,
-              startupWizardCompleted: startupWizardCompleted,
-              operatingSystemDisplayName: operatingSystemDisplayName,
-              packageName: packageName,
-              hasPendingRestart: hasPendingRestart,
-              isShuttingDown: isShuttingDown,
-              supportsLibraryMonitor: supportsLibraryMonitor,
-              webSocketPortNumber: webSocketPortNumber,
-              completedInstallations: _completedInstallations?.build(),
-              canSelfRestart: canSelfRestart,
-              canLaunchWebBrowser: canLaunchWebBrowser,
-              programDataPath: programDataPath,
-              webPath: webPath,
-              itemsByNamePath: itemsByNamePath,
-              cachePath: cachePath,
-              logPath: logPath,
-              internalMetadataPath: internalMetadataPath,
-              transcodingTempPath: transcodingTempPath,
-              castReceiverApplications: _castReceiverApplications?.build(),
-              hasUpdateAvailable: hasUpdateAvailable,
-              encoderLocation: encoderLocation,
-              systemArchitecture: systemArchitecture);
+          _$SystemInfo._(
+            localAddress: localAddress,
+            serverName: serverName,
+            version: version,
+            productName: productName,
+            operatingSystem: operatingSystem,
+            id: id,
+            startupWizardCompleted: startupWizardCompleted,
+            operatingSystemDisplayName: operatingSystemDisplayName,
+            packageName: packageName,
+            hasPendingRestart: hasPendingRestart,
+            isShuttingDown: isShuttingDown,
+            supportsLibraryMonitor: supportsLibraryMonitor,
+            webSocketPortNumber: webSocketPortNumber,
+            completedInstallations: _completedInstallations?.build(),
+            canSelfRestart: canSelfRestart,
+            canLaunchWebBrowser: canLaunchWebBrowser,
+            programDataPath: programDataPath,
+            webPath: webPath,
+            itemsByNamePath: itemsByNamePath,
+            cachePath: cachePath,
+            logPath: logPath,
+            internalMetadataPath: internalMetadataPath,
+            transcodingTempPath: transcodingTempPath,
+            castReceiverApplications: _castReceiverApplications?.build(),
+            hasUpdateAvailable: hasUpdateAvailable,
+            encoderLocation: encoderLocation,
+            systemArchitecture: systemArchitecture,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -431,7 +430,7 @@ class SystemInfoBuilder implements Builder<SystemInfo, SystemInfoBuilder> {
         _$failedField = 'castReceiverApplications';
         _castReceiverApplications?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SystemInfo', _$failedField, e.toString());
       }
       rethrow;

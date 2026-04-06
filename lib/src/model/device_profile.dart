@@ -17,25 +17,25 @@ part 'device_profile.g.dart';
 /// A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.  <br />  Specifically, it defines the supported <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles\">containers</see> and  <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles\">codecs</see> (video and/or audio, including codec profiles and levels)  the device is able to direct play (without transcoding or remuxing),  as well as which <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles\">containers/codecs to transcode to</see> in case it isn't.
 ///
 /// Properties:
-/// * [name] - Gets or sets the name of this device profile.
-/// * [id] - Gets or sets the Id.
+/// * [name] - Gets or sets the name of this device profile. User profiles must have a unique name.
+/// * [id] - Gets or sets the unique internal identifier.
 /// * [maxStreamingBitrate] - Gets or sets the maximum allowed bitrate for all streamed content.
 /// * [maxStaticBitrate] - Gets or sets the maximum allowed bitrate for statically streamed content (= direct played files).
 /// * [musicStreamingTranscodingBitrate] - Gets or sets the maximum allowed bitrate for transcoded music streams.
 /// * [maxStaticMusicBitrate] - Gets or sets the maximum allowed bitrate for statically streamed (= direct played) music files.
 /// * [directPlayProfiles] - Gets or sets the direct play profiles.
 /// * [transcodingProfiles] - Gets or sets the transcoding profiles.
-/// * [containerProfiles] - Gets or sets the container profiles.
+/// * [containerProfiles] - Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
 /// * [codecProfiles] - Gets or sets the codec profiles.
 /// * [subtitleProfiles] - Gets or sets the subtitle profiles.
 @BuiltValue()
 abstract class DeviceProfile
     implements Built<DeviceProfile, DeviceProfileBuilder> {
-  /// Gets or sets the name of this device profile.
+  /// Gets or sets the name of this device profile. User profiles must have a unique name.
   @BuiltValueField(wireName: r'Name')
   String? get name;
 
-  /// Gets or sets the Id.
+  /// Gets or sets the unique internal identifier.
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
@@ -63,7 +63,7 @@ abstract class DeviceProfile
   @BuiltValueField(wireName: r'TranscodingProfiles')
   BuiltList<TranscodingProfile>? get transcodingProfiles;
 
-  /// Gets or sets the container profiles.
+  /// Gets or sets the container profiles. Failing to meet these optional conditions causes transcoding to occur.
   @BuiltValueField(wireName: r'ContainerProfiles')
   BuiltList<ContainerProfile>? get containerProfiles;
 

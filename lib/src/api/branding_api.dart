@@ -7,7 +7,7 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:tentacle/src/model/branding_options.dart';
+import 'package:tentacle/src/model/branding_options_dto.dart';
 
 class BrandingApi {
   final Dio _dio;
@@ -165,9 +165,9 @@ class BrandingApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BrandingOptions] as data
+  /// Returns a [Future] containing a [Response] with a [BrandingOptionsDto] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BrandingOptions>> getBrandingOptions({
+  Future<Response<BrandingOptionsDto>> getBrandingOptions({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -196,7 +196,7 @@ class BrandingApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BrandingOptions? _responseData;
+    BrandingOptionsDto? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -204,8 +204,8 @@ class BrandingApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(BrandingOptions),
-            ) as BrandingOptions;
+              specifiedType: const FullType(BrandingOptionsDto),
+            ) as BrandingOptionsDto;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -216,7 +216,7 @@ class BrandingApi {
       );
     }
 
-    return Response<BrandingOptions>(
+    return Response<BrandingOptionsDto>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

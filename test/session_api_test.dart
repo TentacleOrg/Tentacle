@@ -36,7 +36,7 @@ void main() {
 
     // Gets a list of sessions.
     //
-    //Future<BuiltList<SessionInfo>> getSessions({ String controllableByUserId, String deviceId, int activeWithinSeconds }) async
+    //Future<BuiltList<SessionInfoDto>> getSessions({ String controllableByUserId, String deviceId, int activeWithinSeconds }) async
     test('test getSessions', () async {
       // TODO
     });

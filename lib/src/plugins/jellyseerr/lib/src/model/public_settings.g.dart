@@ -11,17 +11,15 @@ class _$PublicSettings extends PublicSettings {
   final bool? initialized;
 
   factory _$PublicSettings([void Function(PublicSettingsBuilder)? updates]) =>
-      (new PublicSettingsBuilder()..update(updates))._build();
+      (PublicSettingsBuilder()..update(updates))._build();
 
   _$PublicSettings._({this.initialized}) : super._();
-
   @override
   PublicSettings rebuild(void Function(PublicSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PublicSettingsBuilder toBuilder() =>
-      new PublicSettingsBuilder()..replace(this);
+  PublicSettingsBuilder toBuilder() => PublicSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -68,7 +66,6 @@ class PublicSettingsBuilder
 
   @override
   void replace(PublicSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PublicSettings;
   }
 
@@ -81,7 +78,10 @@ class PublicSettingsBuilder
   PublicSettings build() => _build();
 
   _$PublicSettings _build() {
-    final _$result = _$v ?? new _$PublicSettings._(initialized: initialized);
+    final _$result = _$v ??
+        _$PublicSettings._(
+          initialized: initialized,
+        );
     replace(_$result);
     return _$result;
   }

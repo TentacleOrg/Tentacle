@@ -26,14 +26,12 @@ class _$MainSettings extends MainSettings {
   @override
   final bool? localLogin;
   @override
-  final num? mediaServerType;
-  @override
   final bool? newPlexLogin;
   @override
   final num? defaultPermissions;
 
   factory _$MainSettings([void Function(MainSettingsBuilder)? updates]) =>
-      (new MainSettingsBuilder()..update(updates))._build();
+      (MainSettingsBuilder()..update(updates))._build();
 
   _$MainSettings._(
       {this.apiKey,
@@ -45,17 +43,15 @@ class _$MainSettings extends MainSettings {
       this.hideAvailable,
       this.partialRequestsEnabled,
       this.localLogin,
-      this.mediaServerType,
       this.newPlexLogin,
       this.defaultPermissions})
       : super._();
-
   @override
   MainSettings rebuild(void Function(MainSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MainSettingsBuilder toBuilder() => new MainSettingsBuilder()..replace(this);
+  MainSettingsBuilder toBuilder() => MainSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +66,6 @@ class _$MainSettings extends MainSettings {
         hideAvailable == other.hideAvailable &&
         partialRequestsEnabled == other.partialRequestsEnabled &&
         localLogin == other.localLogin &&
-        mediaServerType == other.mediaServerType &&
         newPlexLogin == other.newPlexLogin &&
         defaultPermissions == other.defaultPermissions;
   }
@@ -87,7 +82,6 @@ class _$MainSettings extends MainSettings {
     _$hash = $jc(_$hash, hideAvailable.hashCode);
     _$hash = $jc(_$hash, partialRequestsEnabled.hashCode);
     _$hash = $jc(_$hash, localLogin.hashCode);
-    _$hash = $jc(_$hash, mediaServerType.hashCode);
     _$hash = $jc(_$hash, newPlexLogin.hashCode);
     _$hash = $jc(_$hash, defaultPermissions.hashCode);
     _$hash = $jf(_$hash);
@@ -106,7 +100,6 @@ class _$MainSettings extends MainSettings {
           ..add('hideAvailable', hideAvailable)
           ..add('partialRequestsEnabled', partialRequestsEnabled)
           ..add('localLogin', localLogin)
-          ..add('mediaServerType', mediaServerType)
           ..add('newPlexLogin', newPlexLogin)
           ..add('defaultPermissions', defaultPermissions))
         .toString();
@@ -158,11 +151,6 @@ class MainSettingsBuilder
   bool? get localLogin => _$this._localLogin;
   set localLogin(bool? localLogin) => _$this._localLogin = localLogin;
 
-  num? _mediaServerType;
-  num? get mediaServerType => _$this._mediaServerType;
-  set mediaServerType(num? mediaServerType) =>
-      _$this._mediaServerType = mediaServerType;
-
   bool? _newPlexLogin;
   bool? get newPlexLogin => _$this._newPlexLogin;
   set newPlexLogin(bool? newPlexLogin) => _$this._newPlexLogin = newPlexLogin;
@@ -188,7 +176,6 @@ class MainSettingsBuilder
       _hideAvailable = $v.hideAvailable;
       _partialRequestsEnabled = $v.partialRequestsEnabled;
       _localLogin = $v.localLogin;
-      _mediaServerType = $v.mediaServerType;
       _newPlexLogin = $v.newPlexLogin;
       _defaultPermissions = $v.defaultPermissions;
       _$v = null;
@@ -198,7 +185,6 @@ class MainSettingsBuilder
 
   @override
   void replace(MainSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MainSettings;
   }
 
@@ -212,19 +198,19 @@ class MainSettingsBuilder
 
   _$MainSettings _build() {
     final _$result = _$v ??
-        new _$MainSettings._(
-            apiKey: apiKey,
-            appLanguage: appLanguage,
-            applicationTitle: applicationTitle,
-            applicationUrl: applicationUrl,
-            trustProxy: trustProxy,
-            csrfProtection: csrfProtection,
-            hideAvailable: hideAvailable,
-            partialRequestsEnabled: partialRequestsEnabled,
-            localLogin: localLogin,
-            mediaServerType: mediaServerType,
-            newPlexLogin: newPlexLogin,
-            defaultPermissions: defaultPermissions);
+        _$MainSettings._(
+          apiKey: apiKey,
+          appLanguage: appLanguage,
+          applicationTitle: applicationTitle,
+          applicationUrl: applicationUrl,
+          trustProxy: trustProxy,
+          csrfProtection: csrfProtection,
+          hideAvailable: hideAvailable,
+          partialRequestsEnabled: partialRequestsEnabled,
+          localLogin: localLogin,
+          newPlexLogin: newPlexLogin,
+          defaultPermissions: defaultPermissions,
+        );
     replace(_$result);
     return _$result;
   }

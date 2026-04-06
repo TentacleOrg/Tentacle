@@ -22,7 +22,7 @@ class _$DiscoverTvLanguageLanguageGet200Response
   factory _$DiscoverTvLanguageLanguageGet200Response(
           [void Function(DiscoverTvLanguageLanguageGet200ResponseBuilder)?
               updates]) =>
-      (new DiscoverTvLanguageLanguageGet200ResponseBuilder()..update(updates))
+      (DiscoverTvLanguageLanguageGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$DiscoverTvLanguageLanguageGet200Response._(
@@ -32,7 +32,6 @@ class _$DiscoverTvLanguageLanguageGet200Response
       this.language,
       this.results})
       : super._();
-
   @override
   DiscoverTvLanguageLanguageGet200Response rebuild(
           void Function(DiscoverTvLanguageLanguageGet200ResponseBuilder)
@@ -41,7 +40,7 @@ class _$DiscoverTvLanguageLanguageGet200Response
 
   @override
   DiscoverTvLanguageLanguageGet200ResponseBuilder toBuilder() =>
-      new DiscoverTvLanguageLanguageGet200ResponseBuilder()..replace(this);
+      DiscoverTvLanguageLanguageGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -99,12 +98,12 @@ class DiscoverTvLanguageLanguageGet200ResponseBuilder
 
   SpokenLanguageBuilder? _language;
   SpokenLanguageBuilder get language =>
-      _$this._language ??= new SpokenLanguageBuilder();
+      _$this._language ??= SpokenLanguageBuilder();
   set language(SpokenLanguageBuilder? language) => _$this._language = language;
 
   ListBuilder<TvResult>? _results;
   ListBuilder<TvResult> get results =>
-      _$this._results ??= new ListBuilder<TvResult>();
+      _$this._results ??= ListBuilder<TvResult>();
   set results(ListBuilder<TvResult>? results) => _$this._results = results;
 
   DiscoverTvLanguageLanguageGet200ResponseBuilder() {
@@ -126,7 +125,6 @@ class DiscoverTvLanguageLanguageGet200ResponseBuilder
 
   @override
   void replace(DiscoverTvLanguageLanguageGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DiscoverTvLanguageLanguageGet200Response;
   }
 
@@ -143,12 +141,13 @@ class DiscoverTvLanguageLanguageGet200ResponseBuilder
     _$DiscoverTvLanguageLanguageGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$DiscoverTvLanguageLanguageGet200Response._(
-              page: page,
-              totalPages: totalPages,
-              totalResults: totalResults,
-              language: _language?.build(),
-              results: _results?.build());
+          _$DiscoverTvLanguageLanguageGet200Response._(
+            page: page,
+            totalPages: totalPages,
+            totalResults: totalResults,
+            language: _language?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -157,7 +156,7 @@ class DiscoverTvLanguageLanguageGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'DiscoverTvLanguageLanguageGet200Response',
             _$failedField,
             e.toString());

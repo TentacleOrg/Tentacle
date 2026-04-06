@@ -32,7 +32,7 @@ class _$PersonLookupInfo extends PersonLookupInfo {
 
   factory _$PersonLookupInfo(
           [void Function(PersonLookupInfoBuilder)? updates]) =>
-      (new PersonLookupInfoBuilder()..update(updates))._build();
+      (PersonLookupInfoBuilder()..update(updates))._build();
 
   _$PersonLookupInfo._(
       {this.name,
@@ -47,14 +47,13 @@ class _$PersonLookupInfo extends PersonLookupInfo {
       this.premiereDate,
       this.isAutomated})
       : super._();
-
   @override
   PersonLookupInfo rebuild(void Function(PersonLookupInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   PersonLookupInfoBuilder toBuilder() =>
-      new PersonLookupInfoBuilder()..replace(this);
+      PersonLookupInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -138,7 +137,7 @@ class PersonLookupInfoBuilder
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -189,7 +188,6 @@ class PersonLookupInfoBuilder
 
   @override
   void replace(PersonLookupInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PersonLookupInfo;
   }
 
@@ -205,25 +203,26 @@ class PersonLookupInfoBuilder
     _$PersonLookupInfo _$result;
     try {
       _$result = _$v ??
-          new _$PersonLookupInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated);
+          _$PersonLookupInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'providerIds';
         _providerIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PersonLookupInfo', _$failedField, e.toString());
       }
       rethrow;

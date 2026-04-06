@@ -12,10 +12,9 @@ class _$JoinGroupRequestDto extends JoinGroupRequestDto {
 
   factory _$JoinGroupRequestDto(
           [void Function(JoinGroupRequestDtoBuilder)? updates]) =>
-      (new JoinGroupRequestDtoBuilder()..update(updates))._build();
+      (JoinGroupRequestDtoBuilder()..update(updates))._build();
 
   _$JoinGroupRequestDto._({this.groupId}) : super._();
-
   @override
   JoinGroupRequestDto rebuild(
           void Function(JoinGroupRequestDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$JoinGroupRequestDto extends JoinGroupRequestDto {
 
   @override
   JoinGroupRequestDtoBuilder toBuilder() =>
-      new JoinGroupRequestDtoBuilder()..replace(this);
+      JoinGroupRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +69,6 @@ class JoinGroupRequestDtoBuilder
 
   @override
   void replace(JoinGroupRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$JoinGroupRequestDto;
   }
 
@@ -83,7 +81,10 @@ class JoinGroupRequestDtoBuilder
   JoinGroupRequestDto build() => _build();
 
   _$JoinGroupRequestDto _build() {
-    final _$result = _$v ?? new _$JoinGroupRequestDto._(groupId: groupId);
+    final _$result = _$v ??
+        _$JoinGroupRequestDto._(
+          groupId: groupId,
+        );
     replace(_$result);
     return _$result;
   }

@@ -12,13 +12,9 @@ class _$PersonResultKnownForInner extends PersonResultKnownForInner {
 
   factory _$PersonResultKnownForInner(
           [void Function(PersonResultKnownForInnerBuilder)? updates]) =>
-      (new PersonResultKnownForInnerBuilder()..update(updates))._build();
+      (PersonResultKnownForInnerBuilder()..update(updates))._build();
 
-  _$PersonResultKnownForInner._({required this.oneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        oneOf, r'PersonResultKnownForInner', 'oneOf');
-  }
-
+  _$PersonResultKnownForInner._({required this.oneOf}) : super._();
   @override
   PersonResultKnownForInner rebuild(
           void Function(PersonResultKnownForInnerBuilder) updates) =>
@@ -26,7 +22,7 @@ class _$PersonResultKnownForInner extends PersonResultKnownForInner {
 
   @override
   PersonResultKnownForInnerBuilder toBuilder() =>
-      new PersonResultKnownForInnerBuilder()..replace(this);
+      PersonResultKnownForInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,7 +70,6 @@ class PersonResultKnownForInnerBuilder
 
   @override
   void replace(PersonResultKnownForInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PersonResultKnownForInner;
   }
 
@@ -88,9 +83,10 @@ class PersonResultKnownForInnerBuilder
 
   _$PersonResultKnownForInner _build() {
     final _$result = _$v ??
-        new _$PersonResultKnownForInner._(
-            oneOf: BuiltValueNullFieldError.checkNotNull(
-                oneOf, r'PersonResultKnownForInner', 'oneOf'));
+        _$PersonResultKnownForInner._(
+          oneOf: BuiltValueNullFieldError.checkNotNull(
+              oneOf, r'PersonResultKnownForInner', 'oneOf'),
+        );
     replace(_$result);
     return _$result;
   }

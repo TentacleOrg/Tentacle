@@ -22,7 +22,7 @@ class _$ConfigurationPageInfo extends ConfigurationPageInfo {
 
   factory _$ConfigurationPageInfo(
           [void Function(ConfigurationPageInfoBuilder)? updates]) =>
-      (new ConfigurationPageInfoBuilder()..update(updates))._build();
+      (ConfigurationPageInfoBuilder()..update(updates))._build();
 
   _$ConfigurationPageInfo._(
       {this.name,
@@ -32,7 +32,6 @@ class _$ConfigurationPageInfo extends ConfigurationPageInfo {
       this.displayName,
       this.pluginId})
       : super._();
-
   @override
   ConfigurationPageInfo rebuild(
           void Function(ConfigurationPageInfoBuilder) updates) =>
@@ -40,7 +39,7 @@ class _$ConfigurationPageInfo extends ConfigurationPageInfo {
 
   @override
   ConfigurationPageInfoBuilder toBuilder() =>
-      new ConfigurationPageInfoBuilder()..replace(this);
+      ConfigurationPageInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -129,7 +128,6 @@ class ConfigurationPageInfoBuilder
 
   @override
   void replace(ConfigurationPageInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ConfigurationPageInfo;
   }
 
@@ -143,13 +141,14 @@ class ConfigurationPageInfoBuilder
 
   _$ConfigurationPageInfo _build() {
     final _$result = _$v ??
-        new _$ConfigurationPageInfo._(
-            name: name,
-            enableInMainMenu: enableInMainMenu,
-            menuSection: menuSection,
-            menuIcon: menuIcon,
-            displayName: displayName,
-            pluginId: pluginId);
+        _$ConfigurationPageInfo._(
+          name: name,
+          enableInMainMenu: enableInMainMenu,
+          menuSection: menuSection,
+          menuIcon: menuIcon,
+          displayName: displayName,
+          pluginId: pluginId,
+        );
     replace(_$result);
     return _$result;
   }

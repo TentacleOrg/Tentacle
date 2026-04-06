@@ -12,10 +12,9 @@ class _$UpdatePlaylistUserDto extends UpdatePlaylistUserDto {
 
   factory _$UpdatePlaylistUserDto(
           [void Function(UpdatePlaylistUserDtoBuilder)? updates]) =>
-      (new UpdatePlaylistUserDtoBuilder()..update(updates))._build();
+      (UpdatePlaylistUserDtoBuilder()..update(updates))._build();
 
   _$UpdatePlaylistUserDto._({this.canEdit}) : super._();
-
   @override
   UpdatePlaylistUserDto rebuild(
           void Function(UpdatePlaylistUserDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$UpdatePlaylistUserDto extends UpdatePlaylistUserDto {
 
   @override
   UpdatePlaylistUserDtoBuilder toBuilder() =>
-      new UpdatePlaylistUserDtoBuilder()..replace(this);
+      UpdatePlaylistUserDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +69,6 @@ class UpdatePlaylistUserDtoBuilder
 
   @override
   void replace(UpdatePlaylistUserDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdatePlaylistUserDto;
   }
 
@@ -83,7 +81,10 @@ class UpdatePlaylistUserDtoBuilder
   UpdatePlaylistUserDto build() => _build();
 
   _$UpdatePlaylistUserDto _build() {
-    final _$result = _$v ?? new _$UpdatePlaylistUserDto._(canEdit: canEdit);
+    final _$result = _$v ??
+        _$UpdatePlaylistUserDto._(
+          canEdit: canEdit,
+        );
     replace(_$result);
     return _$result;
   }

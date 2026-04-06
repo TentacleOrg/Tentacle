@@ -12,10 +12,9 @@ class _$TvDetailsContentRatings extends TvDetailsContentRatings {
 
   factory _$TvDetailsContentRatings(
           [void Function(TvDetailsContentRatingsBuilder)? updates]) =>
-      (new TvDetailsContentRatingsBuilder()..update(updates))._build();
+      (TvDetailsContentRatingsBuilder()..update(updates))._build();
 
   _$TvDetailsContentRatings._({this.results}) : super._();
-
   @override
   TvDetailsContentRatings rebuild(
           void Function(TvDetailsContentRatingsBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$TvDetailsContentRatings extends TvDetailsContentRatings {
 
   @override
   TvDetailsContentRatingsBuilder toBuilder() =>
-      new TvDetailsContentRatingsBuilder()..replace(this);
+      TvDetailsContentRatingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -54,8 +53,7 @@ class TvDetailsContentRatingsBuilder
 
   ListBuilder<TvDetailsContentRatingsResultsInner>? _results;
   ListBuilder<TvDetailsContentRatingsResultsInner> get results =>
-      _$this._results ??=
-          new ListBuilder<TvDetailsContentRatingsResultsInner>();
+      _$this._results ??= ListBuilder<TvDetailsContentRatingsResultsInner>();
   set results(ListBuilder<TvDetailsContentRatingsResultsInner>? results) =>
       _$this._results = results;
 
@@ -74,7 +72,6 @@ class TvDetailsContentRatingsBuilder
 
   @override
   void replace(TvDetailsContentRatings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TvDetailsContentRatings;
   }
 
@@ -89,15 +86,17 @@ class TvDetailsContentRatingsBuilder
   _$TvDetailsContentRatings _build() {
     _$TvDetailsContentRatings _$result;
     try {
-      _$result =
-          _$v ?? new _$TvDetailsContentRatings._(results: _results?.build());
+      _$result = _$v ??
+          _$TvDetailsContentRatings._(
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TvDetailsContentRatings', _$failedField, e.toString());
       }
       rethrow;

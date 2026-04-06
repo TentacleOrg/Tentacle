@@ -13,16 +13,15 @@ class _$ExternalUrl extends ExternalUrl {
   final String? url;
 
   factory _$ExternalUrl([void Function(ExternalUrlBuilder)? updates]) =>
-      (new ExternalUrlBuilder()..update(updates))._build();
+      (ExternalUrlBuilder()..update(updates))._build();
 
   _$ExternalUrl._({this.name, this.url}) : super._();
-
   @override
   ExternalUrl rebuild(void Function(ExternalUrlBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ExternalUrlBuilder toBuilder() => new ExternalUrlBuilder()..replace(this);
+  ExternalUrlBuilder toBuilder() => ExternalUrlBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +74,6 @@ class ExternalUrlBuilder implements Builder<ExternalUrl, ExternalUrlBuilder> {
 
   @override
   void replace(ExternalUrl other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ExternalUrl;
   }
 
@@ -88,7 +86,11 @@ class ExternalUrlBuilder implements Builder<ExternalUrl, ExternalUrlBuilder> {
   ExternalUrl build() => _build();
 
   _$ExternalUrl _build() {
-    final _$result = _$v ?? new _$ExternalUrl._(name: name, url: url);
+    final _$result = _$v ??
+        _$ExternalUrl._(
+          name: name,
+          url: url,
+        );
     replace(_$result);
     return _$result;
   }

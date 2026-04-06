@@ -7,8 +7,8 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(OutboundWebSocketMessage, () {
-    // Gets or sets the data.
-    // UserDto data
+    // Group update data
+    // GroupUpdate data
     test('to test the property `data`', () async {
       // TODO
     });
@@ -20,7 +20,7 @@ void main() {
     });
 
     // The different kinds of messages that are used in the WebSocket api.
-    // SessionMessageType messageType (default value: 'UserUpdated')
+    // SessionMessageType messageType (default value: 'SyncPlayGroupUpdate')
     test('to test the property `messageType`', () async {
       // TODO
     });

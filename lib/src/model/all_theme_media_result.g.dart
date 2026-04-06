@@ -16,14 +16,13 @@ class _$AllThemeMediaResult extends AllThemeMediaResult {
 
   factory _$AllThemeMediaResult(
           [void Function(AllThemeMediaResultBuilder)? updates]) =>
-      (new AllThemeMediaResultBuilder()..update(updates))._build();
+      (AllThemeMediaResultBuilder()..update(updates))._build();
 
   _$AllThemeMediaResult._(
       {this.themeVideosResult,
       this.themeSongsResult,
       this.soundtrackSongsResult})
       : super._();
-
   @override
   AllThemeMediaResult rebuild(
           void Function(AllThemeMediaResultBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$AllThemeMediaResult extends AllThemeMediaResult {
 
   @override
   AllThemeMediaResultBuilder toBuilder() =>
-      new AllThemeMediaResultBuilder()..replace(this);
+      AllThemeMediaResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -68,19 +67,19 @@ class AllThemeMediaResultBuilder
 
   ThemeMediaResultBuilder? _themeVideosResult;
   ThemeMediaResultBuilder get themeVideosResult =>
-      _$this._themeVideosResult ??= new ThemeMediaResultBuilder();
+      _$this._themeVideosResult ??= ThemeMediaResultBuilder();
   set themeVideosResult(ThemeMediaResultBuilder? themeVideosResult) =>
       _$this._themeVideosResult = themeVideosResult;
 
   ThemeMediaResultBuilder? _themeSongsResult;
   ThemeMediaResultBuilder get themeSongsResult =>
-      _$this._themeSongsResult ??= new ThemeMediaResultBuilder();
+      _$this._themeSongsResult ??= ThemeMediaResultBuilder();
   set themeSongsResult(ThemeMediaResultBuilder? themeSongsResult) =>
       _$this._themeSongsResult = themeSongsResult;
 
   ThemeMediaResultBuilder? _soundtrackSongsResult;
   ThemeMediaResultBuilder get soundtrackSongsResult =>
-      _$this._soundtrackSongsResult ??= new ThemeMediaResultBuilder();
+      _$this._soundtrackSongsResult ??= ThemeMediaResultBuilder();
   set soundtrackSongsResult(ThemeMediaResultBuilder? soundtrackSongsResult) =>
       _$this._soundtrackSongsResult = soundtrackSongsResult;
 
@@ -101,7 +100,6 @@ class AllThemeMediaResultBuilder
 
   @override
   void replace(AllThemeMediaResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AllThemeMediaResult;
   }
 
@@ -117,10 +115,11 @@ class AllThemeMediaResultBuilder
     _$AllThemeMediaResult _$result;
     try {
       _$result = _$v ??
-          new _$AllThemeMediaResult._(
-              themeVideosResult: _themeVideosResult?.build(),
-              themeSongsResult: _themeSongsResult?.build(),
-              soundtrackSongsResult: _soundtrackSongsResult?.build());
+          _$AllThemeMediaResult._(
+            themeVideosResult: _themeVideosResult?.build(),
+            themeSongsResult: _themeSongsResult?.build(),
+            soundtrackSongsResult: _soundtrackSongsResult?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -131,7 +130,7 @@ class AllThemeMediaResultBuilder
         _$failedField = 'soundtrackSongsResult';
         _soundtrackSongsResult?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'AllThemeMediaResult', _$failedField, e.toString());
       }
       rethrow;

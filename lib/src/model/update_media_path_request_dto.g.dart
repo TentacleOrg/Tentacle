@@ -14,16 +14,10 @@ class _$UpdateMediaPathRequestDto extends UpdateMediaPathRequestDto {
 
   factory _$UpdateMediaPathRequestDto(
           [void Function(UpdateMediaPathRequestDtoBuilder)? updates]) =>
-      (new UpdateMediaPathRequestDtoBuilder()..update(updates))._build();
+      (UpdateMediaPathRequestDtoBuilder()..update(updates))._build();
 
   _$UpdateMediaPathRequestDto._({required this.name, required this.pathInfo})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        name, r'UpdateMediaPathRequestDto', 'name');
-    BuiltValueNullFieldError.checkNotNull(
-        pathInfo, r'UpdateMediaPathRequestDto', 'pathInfo');
-  }
-
+      : super._();
   @override
   UpdateMediaPathRequestDto rebuild(
           void Function(UpdateMediaPathRequestDtoBuilder) updates) =>
@@ -31,7 +25,7 @@ class _$UpdateMediaPathRequestDto extends UpdateMediaPathRequestDto {
 
   @override
   UpdateMediaPathRequestDtoBuilder toBuilder() =>
-      new UpdateMediaPathRequestDtoBuilder()..replace(this);
+      UpdateMediaPathRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,7 +64,7 @@ class UpdateMediaPathRequestDtoBuilder
 
   MediaPathInfoBuilder? _pathInfo;
   MediaPathInfoBuilder get pathInfo =>
-      _$this._pathInfo ??= new MediaPathInfoBuilder();
+      _$this._pathInfo ??= MediaPathInfoBuilder();
   set pathInfo(MediaPathInfoBuilder? pathInfo) => _$this._pathInfo = pathInfo;
 
   UpdateMediaPathRequestDtoBuilder() {
@@ -89,7 +83,6 @@ class UpdateMediaPathRequestDtoBuilder
 
   @override
   void replace(UpdateMediaPathRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdateMediaPathRequestDto;
   }
 
@@ -105,17 +98,18 @@ class UpdateMediaPathRequestDtoBuilder
     _$UpdateMediaPathRequestDto _$result;
     try {
       _$result = _$v ??
-          new _$UpdateMediaPathRequestDto._(
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'UpdateMediaPathRequestDto', 'name'),
-              pathInfo: pathInfo.build());
+          _$UpdateMediaPathRequestDto._(
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'UpdateMediaPathRequestDto', 'name'),
+            pathInfo: pathInfo.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'pathInfo';
         pathInfo.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UpdateMediaPathRequestDto', _$failedField, e.toString());
       }
       rethrow;

@@ -16,11 +16,10 @@ class _$SyncPlayCommandMessage extends SyncPlayCommandMessage {
 
   factory _$SyncPlayCommandMessage(
           [void Function(SyncPlayCommandMessageBuilder)? updates]) =>
-      (new SyncPlayCommandMessageBuilder()..update(updates))._build();
+      (SyncPlayCommandMessageBuilder()..update(updates))._build();
 
   _$SyncPlayCommandMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   SyncPlayCommandMessage rebuild(
           void Function(SyncPlayCommandMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$SyncPlayCommandMessage extends SyncPlayCommandMessage {
 
   @override
   SyncPlayCommandMessageBuilder toBuilder() =>
-      new SyncPlayCommandMessageBuilder()..replace(this);
+      SyncPlayCommandMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,7 +63,7 @@ class SyncPlayCommandMessageBuilder
   _$SyncPlayCommandMessage? _$v;
 
   SendCommandBuilder? _data;
-  SendCommandBuilder get data => _$this._data ??= new SendCommandBuilder();
+  SendCommandBuilder get data => _$this._data ??= SendCommandBuilder();
   set data(SendCommandBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -93,7 +92,6 @@ class SyncPlayCommandMessageBuilder
 
   @override
   void replace(SyncPlayCommandMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SyncPlayCommandMessage;
   }
 
@@ -109,17 +107,18 @@ class SyncPlayCommandMessageBuilder
     _$SyncPlayCommandMessage _$result;
     try {
       _$result = _$v ??
-          new _$SyncPlayCommandMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$SyncPlayCommandMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SyncPlayCommandMessage', _$failedField, e.toString());
       }
       rethrow;

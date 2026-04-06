@@ -18,7 +18,7 @@ import 'package:tentacle/src/model/message_command.dart';
 import 'package:tentacle/src/model/name_id_pair.dart';
 import 'package:tentacle/src/model/play_command.dart';
 import 'package:tentacle/src/model/playstate_command.dart';
-import 'package:tentacle/src/model/session_info.dart';
+import 'package:tentacle/src/model/session_info_dto.dart';
 
 class SessionApi {
   final Dio _dio;
@@ -341,9 +341,9 @@ class SessionApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<SessionInfo>] as data
+  /// Returns a [Future] containing a [Response] with a [BuiltList<SessionInfoDto>] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<BuiltList<SessionInfo>>> getSessions({
+  Future<Response<BuiltList<SessionInfoDto>>> getSessions({
     String? controllableByUserId,
     String? deviceId,
     int? activeWithinSeconds,
@@ -395,7 +395,7 @@ class SessionApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<SessionInfo>? _responseData;
+    BuiltList<SessionInfoDto>? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -403,8 +403,9 @@ class SessionApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType: const FullType(BuiltList, [FullType(SessionInfo)]),
-            ) as BuiltList<SessionInfo>;
+              specifiedType:
+                  const FullType(BuiltList, [FullType(SessionInfoDto)]),
+            ) as BuiltList<SessionInfoDto>;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -415,7 +416,7 @@ class SessionApi {
       );
     }
 
-    return Response<BuiltList<SessionInfo>>(
+    return Response<BuiltList<SessionInfoDto>>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

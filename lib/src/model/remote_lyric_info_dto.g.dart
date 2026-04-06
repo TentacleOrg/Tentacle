@@ -16,10 +16,9 @@ class _$RemoteLyricInfoDto extends RemoteLyricInfoDto {
 
   factory _$RemoteLyricInfoDto(
           [void Function(RemoteLyricInfoDtoBuilder)? updates]) =>
-      (new RemoteLyricInfoDtoBuilder()..update(updates))._build();
+      (RemoteLyricInfoDtoBuilder()..update(updates))._build();
 
   _$RemoteLyricInfoDto._({this.id, this.providerName, this.lyrics}) : super._();
-
   @override
   RemoteLyricInfoDto rebuild(
           void Function(RemoteLyricInfoDtoBuilder) updates) =>
@@ -27,7 +26,7 @@ class _$RemoteLyricInfoDto extends RemoteLyricInfoDto {
 
   @override
   RemoteLyricInfoDtoBuilder toBuilder() =>
-      new RemoteLyricInfoDtoBuilder()..replace(this);
+      RemoteLyricInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +70,7 @@ class RemoteLyricInfoDtoBuilder
   set providerName(String? providerName) => _$this._providerName = providerName;
 
   LyricDtoBuilder? _lyrics;
-  LyricDtoBuilder get lyrics => _$this._lyrics ??= new LyricDtoBuilder();
+  LyricDtoBuilder get lyrics => _$this._lyrics ??= LyricDtoBuilder();
   set lyrics(LyricDtoBuilder? lyrics) => _$this._lyrics = lyrics;
 
   RemoteLyricInfoDtoBuilder() {
@@ -91,7 +90,6 @@ class RemoteLyricInfoDtoBuilder
 
   @override
   void replace(RemoteLyricInfoDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RemoteLyricInfoDto;
   }
 
@@ -107,15 +105,18 @@ class RemoteLyricInfoDtoBuilder
     _$RemoteLyricInfoDto _$result;
     try {
       _$result = _$v ??
-          new _$RemoteLyricInfoDto._(
-              id: id, providerName: providerName, lyrics: _lyrics?.build());
+          _$RemoteLyricInfoDto._(
+            id: id,
+            providerName: providerName,
+            lyrics: _lyrics?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'lyrics';
         _lyrics?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'RemoteLyricInfoDto', _$failedField, e.toString());
       }
       rethrow;

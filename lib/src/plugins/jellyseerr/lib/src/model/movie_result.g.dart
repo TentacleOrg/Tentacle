@@ -41,7 +41,7 @@ class _$MovieResult extends MovieResult {
   final MediaInfo? mediaInfo;
 
   factory _$MovieResult([void Function(MovieResultBuilder)? updates]) =>
-      (new MovieResultBuilder()..update(updates))._build();
+      (MovieResultBuilder()..update(updates))._build();
 
   _$MovieResult._(
       {required this.id,
@@ -60,19 +60,13 @@ class _$MovieResult extends MovieResult {
       this.adult,
       this.video,
       this.mediaInfo})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'MovieResult', 'id');
-    BuiltValueNullFieldError.checkNotNull(
-        mediaType, r'MovieResult', 'mediaType');
-    BuiltValueNullFieldError.checkNotNull(title, r'MovieResult', 'title');
-  }
-
+      : super._();
   @override
   MovieResult rebuild(void Function(MovieResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MovieResultBuilder toBuilder() => new MovieResultBuilder()..replace(this);
+  MovieResultBuilder toBuilder() => MovieResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -174,7 +168,7 @@ class MovieResultBuilder implements Builder<MovieResult, MovieResultBuilder> {
   set voteAverage(num? voteAverage) => _$this._voteAverage = voteAverage;
 
   ListBuilder<num>? _genreIds;
-  ListBuilder<num> get genreIds => _$this._genreIds ??= new ListBuilder<num>();
+  ListBuilder<num> get genreIds => _$this._genreIds ??= ListBuilder<num>();
   set genreIds(ListBuilder<num>? genreIds) => _$this._genreIds = genreIds;
 
   String? _overview;
@@ -208,8 +202,7 @@ class MovieResultBuilder implements Builder<MovieResult, MovieResultBuilder> {
   set video(bool? video) => _$this._video = video;
 
   MediaInfoBuilder? _mediaInfo;
-  MediaInfoBuilder get mediaInfo =>
-      _$this._mediaInfo ??= new MediaInfoBuilder();
+  MediaInfoBuilder get mediaInfo => _$this._mediaInfo ??= MediaInfoBuilder();
   set mediaInfo(MediaInfoBuilder? mediaInfo) => _$this._mediaInfo = mediaInfo;
 
   MovieResultBuilder() {
@@ -242,7 +235,6 @@ class MovieResultBuilder implements Builder<MovieResult, MovieResultBuilder> {
 
   @override
   void replace(MovieResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieResult;
   }
 
@@ -258,26 +250,26 @@ class MovieResultBuilder implements Builder<MovieResult, MovieResultBuilder> {
     _$MovieResult _$result;
     try {
       _$result = _$v ??
-          new _$MovieResult._(
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'MovieResult', 'id'),
-              mediaType: BuiltValueNullFieldError.checkNotNull(
-                  mediaType, r'MovieResult', 'mediaType'),
-              popularity: popularity,
-              posterPath: posterPath,
-              backdropPath: backdropPath,
-              voteCount: voteCount,
-              voteAverage: voteAverage,
-              genreIds: _genreIds?.build(),
-              overview: overview,
-              originalLanguage: originalLanguage,
-              title: BuiltValueNullFieldError.checkNotNull(
-                  title, r'MovieResult', 'title'),
-              originalTitle: originalTitle,
-              releaseDate: releaseDate,
-              adult: adult,
-              video: video,
-              mediaInfo: _mediaInfo?.build());
+          _$MovieResult._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'MovieResult', 'id'),
+            mediaType: BuiltValueNullFieldError.checkNotNull(
+                mediaType, r'MovieResult', 'mediaType'),
+            popularity: popularity,
+            posterPath: posterPath,
+            backdropPath: backdropPath,
+            voteCount: voteCount,
+            voteAverage: voteAverage,
+            genreIds: _genreIds?.build(),
+            overview: overview,
+            originalLanguage: originalLanguage,
+            title: BuiltValueNullFieldError.checkNotNull(
+                title, r'MovieResult', 'title'),
+            originalTitle: originalTitle,
+            releaseDate: releaseDate,
+            adult: adult,
+            video: video,
+            mediaInfo: _mediaInfo?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -287,7 +279,7 @@ class MovieResultBuilder implements Builder<MovieResult, MovieResultBuilder> {
         _$failedField = 'mediaInfo';
         _mediaInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MovieResult', _$failedField, e.toString());
       }
       rethrow;

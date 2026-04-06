@@ -13,17 +13,15 @@ class _$SessionUserInfo extends SessionUserInfo {
   final String? userName;
 
   factory _$SessionUserInfo([void Function(SessionUserInfoBuilder)? updates]) =>
-      (new SessionUserInfoBuilder()..update(updates))._build();
+      (SessionUserInfoBuilder()..update(updates))._build();
 
   _$SessionUserInfo._({this.userId, this.userName}) : super._();
-
   @override
   SessionUserInfo rebuild(void Function(SessionUserInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SessionUserInfoBuilder toBuilder() =>
-      new SessionUserInfoBuilder()..replace(this);
+  SessionUserInfoBuilder toBuilder() => SessionUserInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -79,7 +77,6 @@ class SessionUserInfoBuilder
 
   @override
   void replace(SessionUserInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SessionUserInfo;
   }
 
@@ -92,8 +89,11 @@ class SessionUserInfoBuilder
   SessionUserInfo build() => _build();
 
   _$SessionUserInfo _build() {
-    final _$result =
-        _$v ?? new _$SessionUserInfo._(userId: userId, userName: userName);
+    final _$result = _$v ??
+        _$SessionUserInfo._(
+          userId: userId,
+          userName: userName,
+        );
     replace(_$result);
     return _$result;
   }

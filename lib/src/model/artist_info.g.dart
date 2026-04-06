@@ -33,7 +33,7 @@ class _$ArtistInfo extends ArtistInfo {
   final BuiltList<SongInfo>? songInfos;
 
   factory _$ArtistInfo([void Function(ArtistInfoBuilder)? updates]) =>
-      (new ArtistInfoBuilder()..update(updates))._build();
+      (ArtistInfoBuilder()..update(updates))._build();
 
   _$ArtistInfo._(
       {this.name,
@@ -49,13 +49,12 @@ class _$ArtistInfo extends ArtistInfo {
       this.isAutomated,
       this.songInfos})
       : super._();
-
   @override
   ArtistInfo rebuild(void Function(ArtistInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ArtistInfoBuilder toBuilder() => new ArtistInfoBuilder()..replace(this);
+  ArtistInfoBuilder toBuilder() => ArtistInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -141,7 +140,7 @@ class ArtistInfoBuilder implements Builder<ArtistInfo, ArtistInfoBuilder> {
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -169,7 +168,7 @@ class ArtistInfoBuilder implements Builder<ArtistInfo, ArtistInfoBuilder> {
 
   ListBuilder<SongInfo>? _songInfos;
   ListBuilder<SongInfo> get songInfos =>
-      _$this._songInfos ??= new ListBuilder<SongInfo>();
+      _$this._songInfos ??= ListBuilder<SongInfo>();
   set songInfos(ListBuilder<SongInfo>? songInfos) =>
       _$this._songInfos = songInfos;
 
@@ -199,7 +198,6 @@ class ArtistInfoBuilder implements Builder<ArtistInfo, ArtistInfoBuilder> {
 
   @override
   void replace(ArtistInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ArtistInfo;
   }
 
@@ -215,19 +213,20 @@ class ArtistInfoBuilder implements Builder<ArtistInfo, ArtistInfoBuilder> {
     _$ArtistInfo _$result;
     try {
       _$result = _$v ??
-          new _$ArtistInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated,
-              songInfos: _songInfos?.build());
+          _$ArtistInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+            songInfos: _songInfos?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -237,7 +236,7 @@ class ArtistInfoBuilder implements Builder<ArtistInfo, ArtistInfoBuilder> {
         _$failedField = 'songInfos';
         _songInfos?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ArtistInfo', _$failedField, e.toString());
       }
       rethrow;

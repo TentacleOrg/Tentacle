@@ -3,6 +3,8 @@
 //
 
 // ignore_for_file: unused_element
+import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/lyric_line_cue.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -13,6 +15,7 @@ part 'lyric_line.g.dart';
 /// Properties:
 /// * [text] - Gets the text of this lyric line.
 /// * [start] - Gets the start time in ticks.
+/// * [cues] - Gets the time-aligned cues for the song's lyrics.
 @BuiltValue()
 abstract class LyricLine implements Built<LyricLine, LyricLineBuilder> {
   /// Gets the text of this lyric line.
@@ -22,6 +25,10 @@ abstract class LyricLine implements Built<LyricLine, LyricLineBuilder> {
   /// Gets the start time in ticks.
   @BuiltValueField(wireName: r'Start')
   int? get start;
+
+  /// Gets the time-aligned cues for the song's lyrics.
+  @BuiltValueField(wireName: r'Cues')
+  BuiltList<LyricLineCue>? get cues;
 
   LyricLine._();
 
@@ -58,6 +65,14 @@ class _$LyricLineSerializer implements PrimitiveSerializer<LyricLine> {
       yield serializers.serialize(
         object.start,
         specifiedType: const FullType.nullable(int),
+      );
+    }
+    if (object.cues != null) {
+      yield r'Cues';
+      yield serializers.serialize(
+        object.cues,
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(LyricLineCue)]),
       );
     }
   }
@@ -99,6 +114,15 @@ class _$LyricLineSerializer implements PrimitiveSerializer<LyricLine> {
           ) as int?;
           if (valueDes == null) continue;
           result.start = valueDes;
+          break;
+        case r'Cues':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(LyricLineCue)]),
+          ) as BuiltList<LyricLineCue>?;
+          if (valueDes == null) continue;
+          result.cues.replace(valueDes);
           break;
         default:
           unhandled.add(key);

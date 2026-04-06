@@ -65,7 +65,7 @@ class _$TimerInfoDto extends TimerInfoDto {
   final BaseItemDto? programInfo;
 
   factory _$TimerInfoDto([void Function(TimerInfoDtoBuilder)? updates]) =>
-      (new TimerInfoDtoBuilder()..update(updates))._build();
+      (TimerInfoDtoBuilder()..update(updates))._build();
 
   _$TimerInfoDto._(
       {this.id,
@@ -97,13 +97,12 @@ class _$TimerInfoDto extends TimerInfoDto {
       this.runTimeTicks,
       this.programInfo})
       : super._();
-
   @override
   TimerInfoDto rebuild(void Function(TimerInfoDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TimerInfoDtoBuilder toBuilder() => new TimerInfoDtoBuilder()..replace(this);
+  TimerInfoDtoBuilder toBuilder() => TimerInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -302,7 +301,7 @@ class TimerInfoDtoBuilder
 
   ListBuilder<String>? _parentBackdropImageTags;
   ListBuilder<String> get parentBackdropImageTags =>
-      _$this._parentBackdropImageTags ??= new ListBuilder<String>();
+      _$this._parentBackdropImageTags ??= ListBuilder<String>();
   set parentBackdropImageTags(ListBuilder<String>? parentBackdropImageTags) =>
       _$this._parentBackdropImageTags = parentBackdropImageTags;
 
@@ -335,7 +334,7 @@ class TimerInfoDtoBuilder
 
   BaseItemDtoBuilder? _programInfo;
   BaseItemDtoBuilder get programInfo =>
-      _$this._programInfo ??= new BaseItemDtoBuilder();
+      _$this._programInfo ??= BaseItemDtoBuilder();
   set programInfo(BaseItemDtoBuilder? programInfo) =>
       _$this._programInfo = programInfo;
 
@@ -381,7 +380,6 @@ class TimerInfoDtoBuilder
 
   @override
   void replace(TimerInfoDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TimerInfoDto;
   }
 
@@ -397,35 +395,36 @@ class TimerInfoDtoBuilder
     _$TimerInfoDto _$result;
     try {
       _$result = _$v ??
-          new _$TimerInfoDto._(
-              id: id,
-              type: type,
-              serverId: serverId,
-              externalId: externalId,
-              channelId: channelId,
-              externalChannelId: externalChannelId,
-              channelName: channelName,
-              channelPrimaryImageTag: channelPrimaryImageTag,
-              programId: programId,
-              externalProgramId: externalProgramId,
-              name: name,
-              overview: overview,
-              startDate: startDate,
-              endDate: endDate,
-              serviceName: serviceName,
-              priority: priority,
-              prePaddingSeconds: prePaddingSeconds,
-              postPaddingSeconds: postPaddingSeconds,
-              isPrePaddingRequired: isPrePaddingRequired,
-              parentBackdropItemId: parentBackdropItemId,
-              parentBackdropImageTags: _parentBackdropImageTags?.build(),
-              isPostPaddingRequired: isPostPaddingRequired,
-              keepUntil: keepUntil,
-              status: status,
-              seriesTimerId: seriesTimerId,
-              externalSeriesTimerId: externalSeriesTimerId,
-              runTimeTicks: runTimeTicks,
-              programInfo: _programInfo?.build());
+          _$TimerInfoDto._(
+            id: id,
+            type: type,
+            serverId: serverId,
+            externalId: externalId,
+            channelId: channelId,
+            externalChannelId: externalChannelId,
+            channelName: channelName,
+            channelPrimaryImageTag: channelPrimaryImageTag,
+            programId: programId,
+            externalProgramId: externalProgramId,
+            name: name,
+            overview: overview,
+            startDate: startDate,
+            endDate: endDate,
+            serviceName: serviceName,
+            priority: priority,
+            prePaddingSeconds: prePaddingSeconds,
+            postPaddingSeconds: postPaddingSeconds,
+            isPrePaddingRequired: isPrePaddingRequired,
+            parentBackdropItemId: parentBackdropItemId,
+            parentBackdropImageTags: _parentBackdropImageTags?.build(),
+            isPostPaddingRequired: isPostPaddingRequired,
+            keepUntil: keepUntil,
+            status: status,
+            seriesTimerId: seriesTimerId,
+            externalSeriesTimerId: externalSeriesTimerId,
+            runTimeTicks: runTimeTicks,
+            programInfo: _programInfo?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -435,7 +434,7 @@ class TimerInfoDtoBuilder
         _$failedField = 'programInfo';
         _programInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TimerInfoDto', _$failedField, e.toString());
       }
       rethrow;

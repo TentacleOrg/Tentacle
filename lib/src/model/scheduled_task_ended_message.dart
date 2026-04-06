@@ -13,14 +13,14 @@ part 'scheduled_task_ended_message.g.dart';
 /// Scheduled task ended message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Class TaskExecutionInfo.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class ScheduledTaskEndedMessage
     implements
         Built<ScheduledTaskEndedMessage, ScheduledTaskEndedMessageBuilder> {
-  /// Gets or sets the data.
+  /// Class TaskExecutionInfo.
   @BuiltValueField(wireName: r'Data')
   TaskResult? get data;
 

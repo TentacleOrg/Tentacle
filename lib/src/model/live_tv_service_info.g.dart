@@ -26,7 +26,7 @@ class _$LiveTvServiceInfo extends LiveTvServiceInfo {
 
   factory _$LiveTvServiceInfo(
           [void Function(LiveTvServiceInfoBuilder)? updates]) =>
-      (new LiveTvServiceInfoBuilder()..update(updates))._build();
+      (LiveTvServiceInfoBuilder()..update(updates))._build();
 
   _$LiveTvServiceInfo._(
       {this.name,
@@ -38,14 +38,13 @@ class _$LiveTvServiceInfo extends LiveTvServiceInfo {
       this.isVisible,
       this.tuners})
       : super._();
-
   @override
   LiveTvServiceInfo rebuild(void Function(LiveTvServiceInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   LiveTvServiceInfoBuilder toBuilder() =>
-      new LiveTvServiceInfoBuilder()..replace(this);
+      LiveTvServiceInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -126,8 +125,7 @@ class LiveTvServiceInfoBuilder
   set isVisible(bool? isVisible) => _$this._isVisible = isVisible;
 
   ListBuilder<String>? _tuners;
-  ListBuilder<String> get tuners =>
-      _$this._tuners ??= new ListBuilder<String>();
+  ListBuilder<String> get tuners => _$this._tuners ??= ListBuilder<String>();
   set tuners(ListBuilder<String>? tuners) => _$this._tuners = tuners;
 
   LiveTvServiceInfoBuilder() {
@@ -152,7 +150,6 @@ class LiveTvServiceInfoBuilder
 
   @override
   void replace(LiveTvServiceInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LiveTvServiceInfo;
   }
 
@@ -168,22 +165,23 @@ class LiveTvServiceInfoBuilder
     _$LiveTvServiceInfo _$result;
     try {
       _$result = _$v ??
-          new _$LiveTvServiceInfo._(
-              name: name,
-              homePageUrl: homePageUrl,
-              status: status,
-              statusMessage: statusMessage,
-              version: version,
-              hasUpdateAvailable: hasUpdateAvailable,
-              isVisible: isVisible,
-              tuners: _tuners?.build());
+          _$LiveTvServiceInfo._(
+            name: name,
+            homePageUrl: homePageUrl,
+            status: status,
+            statusMessage: statusMessage,
+            version: version,
+            hasUpdateAvailable: hasUpdateAvailable,
+            isVisible: isVisible,
+            tuners: _tuners?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'tuners';
         _tuners?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LiveTvServiceInfo', _$failedField, e.toString());
       }
       rethrow;

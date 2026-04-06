@@ -14,10 +14,9 @@ class _$UserGet200Response extends UserGet200Response {
 
   factory _$UserGet200Response(
           [void Function(UserGet200ResponseBuilder)? updates]) =>
-      (new UserGet200ResponseBuilder()..update(updates))._build();
+      (UserGet200ResponseBuilder()..update(updates))._build();
 
   _$UserGet200Response._({this.pageInfo, this.results}) : super._();
-
   @override
   UserGet200Response rebuild(
           void Function(UserGet200ResponseBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$UserGet200Response extends UserGet200Response {
 
   @override
   UserGet200ResponseBuilder toBuilder() =>
-      new UserGet200ResponseBuilder()..replace(this);
+      UserGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -58,11 +57,11 @@ class UserGet200ResponseBuilder
   _$UserGet200Response? _$v;
 
   PageInfoBuilder? _pageInfo;
-  PageInfoBuilder get pageInfo => _$this._pageInfo ??= new PageInfoBuilder();
+  PageInfoBuilder get pageInfo => _$this._pageInfo ??= PageInfoBuilder();
   set pageInfo(PageInfoBuilder? pageInfo) => _$this._pageInfo = pageInfo;
 
   ListBuilder<User>? _results;
-  ListBuilder<User> get results => _$this._results ??= new ListBuilder<User>();
+  ListBuilder<User> get results => _$this._results ??= ListBuilder<User>();
   set results(ListBuilder<User>? results) => _$this._results = results;
 
   UserGet200ResponseBuilder() {
@@ -81,7 +80,6 @@ class UserGet200ResponseBuilder
 
   @override
   void replace(UserGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserGet200Response;
   }
 
@@ -97,8 +95,10 @@ class UserGet200ResponseBuilder
     _$UserGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$UserGet200Response._(
-              pageInfo: _pageInfo?.build(), results: _results?.build());
+          _$UserGet200Response._(
+            pageInfo: _pageInfo?.build(),
+            results: _results?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -107,7 +107,7 @@ class UserGet200ResponseBuilder
         _$failedField = 'results';
         _results?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserGet200Response', _$failedField, e.toString());
       }
       rethrow;

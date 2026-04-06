@@ -28,12 +28,12 @@ ImageFormat _$valueOf(String name) {
     case 'svg':
       return _$svg;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ImageFormat> _$values =
-    new BuiltSet<ImageFormat>(const <ImageFormat>[
+    BuiltSet<ImageFormat>(const <ImageFormat>[
   _$bmp,
   _$gif,
   _$jpg,
@@ -59,7 +59,7 @@ mixin _$ImageFormatMixin {
   _$ImageFormatMeta get ImageFormat => const _$ImageFormatMeta();
 }
 
-Serializer<ImageFormat> _$imageFormatSerializer = new _$ImageFormatSerializer();
+Serializer<ImageFormat> _$imageFormatSerializer = _$ImageFormatSerializer();
 
 class _$ImageFormatSerializer implements PrimitiveSerializer<ImageFormat> {
   static const Map<String, Object> _toWire = const <String, Object>{

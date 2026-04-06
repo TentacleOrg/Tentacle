@@ -12,13 +12,9 @@ class _$IssueIssueIdCommentPostRequest extends IssueIssueIdCommentPostRequest {
 
   factory _$IssueIssueIdCommentPostRequest(
           [void Function(IssueIssueIdCommentPostRequestBuilder)? updates]) =>
-      (new IssueIssueIdCommentPostRequestBuilder()..update(updates))._build();
+      (IssueIssueIdCommentPostRequestBuilder()..update(updates))._build();
 
-  _$IssueIssueIdCommentPostRequest._({required this.message}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        message, r'IssueIssueIdCommentPostRequest', 'message');
-  }
-
+  _$IssueIssueIdCommentPostRequest._({required this.message}) : super._();
   @override
   IssueIssueIdCommentPostRequest rebuild(
           void Function(IssueIssueIdCommentPostRequestBuilder) updates) =>
@@ -26,7 +22,7 @@ class _$IssueIssueIdCommentPostRequest extends IssueIssueIdCommentPostRequest {
 
   @override
   IssueIssueIdCommentPostRequestBuilder toBuilder() =>
-      new IssueIssueIdCommentPostRequestBuilder()..replace(this);
+      IssueIssueIdCommentPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +71,6 @@ class IssueIssueIdCommentPostRequestBuilder
 
   @override
   void replace(IssueIssueIdCommentPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IssueIssueIdCommentPostRequest;
   }
 
@@ -89,9 +84,10 @@ class IssueIssueIdCommentPostRequestBuilder
 
   _$IssueIssueIdCommentPostRequest _build() {
     final _$result = _$v ??
-        new _$IssueIssueIdCommentPostRequest._(
-            message: BuiltValueNullFieldError.checkNotNull(
-                message, r'IssueIssueIdCommentPostRequest', 'message'));
+        _$IssueIssueIdCommentPostRequest._(
+          message: BuiltValueNullFieldError.checkNotNull(
+              message, r'IssueIssueIdCommentPostRequest', 'message'),
+        );
     replace(_$result);
     return _$result;
   }

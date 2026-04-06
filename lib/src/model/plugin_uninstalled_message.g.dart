@@ -16,11 +16,10 @@ class _$PluginUninstalledMessage extends PluginUninstalledMessage {
 
   factory _$PluginUninstalledMessage(
           [void Function(PluginUninstalledMessageBuilder)? updates]) =>
-      (new PluginUninstalledMessageBuilder()..update(updates))._build();
+      (PluginUninstalledMessageBuilder()..update(updates))._build();
 
   _$PluginUninstalledMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   PluginUninstalledMessage rebuild(
           void Function(PluginUninstalledMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$PluginUninstalledMessage extends PluginUninstalledMessage {
 
   @override
   PluginUninstalledMessageBuilder toBuilder() =>
-      new PluginUninstalledMessageBuilder()..replace(this);
+      PluginUninstalledMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,7 +64,7 @@ class PluginUninstalledMessageBuilder
   _$PluginUninstalledMessage? _$v;
 
   PluginInfoBuilder? _data;
-  PluginInfoBuilder get data => _$this._data ??= new PluginInfoBuilder();
+  PluginInfoBuilder get data => _$this._data ??= PluginInfoBuilder();
   set data(PluginInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -94,7 +93,6 @@ class PluginUninstalledMessageBuilder
 
   @override
   void replace(PluginUninstalledMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PluginUninstalledMessage;
   }
 
@@ -110,17 +108,18 @@ class PluginUninstalledMessageBuilder
     _$PluginUninstalledMessage _$result;
     try {
       _$result = _$v ??
-          new _$PluginUninstalledMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$PluginUninstalledMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PluginUninstalledMessage', _$failedField, e.toString());
       }
       rethrow;

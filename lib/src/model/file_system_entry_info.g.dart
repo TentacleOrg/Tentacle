@@ -16,10 +16,9 @@ class _$FileSystemEntryInfo extends FileSystemEntryInfo {
 
   factory _$FileSystemEntryInfo(
           [void Function(FileSystemEntryInfoBuilder)? updates]) =>
-      (new FileSystemEntryInfoBuilder()..update(updates))._build();
+      (FileSystemEntryInfoBuilder()..update(updates))._build();
 
   _$FileSystemEntryInfo._({this.name, this.path, this.type}) : super._();
-
   @override
   FileSystemEntryInfo rebuild(
           void Function(FileSystemEntryInfoBuilder) updates) =>
@@ -27,7 +26,7 @@ class _$FileSystemEntryInfo extends FileSystemEntryInfo {
 
   @override
   FileSystemEntryInfoBuilder toBuilder() =>
-      new FileSystemEntryInfoBuilder()..replace(this);
+      FileSystemEntryInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -91,7 +90,6 @@ class FileSystemEntryInfoBuilder
 
   @override
   void replace(FileSystemEntryInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$FileSystemEntryInfo;
   }
 
@@ -104,8 +102,12 @@ class FileSystemEntryInfoBuilder
   FileSystemEntryInfo build() => _build();
 
   _$FileSystemEntryInfo _build() {
-    final _$result =
-        _$v ?? new _$FileSystemEntryInfo._(name: name, path: path, type: type);
+    final _$result = _$v ??
+        _$FileSystemEntryInfo._(
+          name: name,
+          path: path,
+          type: type,
+        );
     replace(_$result);
     return _$result;
   }

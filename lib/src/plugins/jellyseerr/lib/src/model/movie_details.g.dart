@@ -71,7 +71,7 @@ class _$MovieDetails extends MovieDetails {
   final BuiltList<BuiltList<WatchProvidersInner>>? watchProviders;
 
   factory _$MovieDetails([void Function(MovieDetailsBuilder)? updates]) =>
-      (new MovieDetailsBuilder()..update(updates))._build();
+      (MovieDetailsBuilder()..update(updates))._build();
 
   _$MovieDetails._(
       {this.id,
@@ -106,13 +106,12 @@ class _$MovieDetails extends MovieDetails {
       this.mediaInfo,
       this.watchProviders})
       : super._();
-
   @override
   MovieDetails rebuild(void Function(MovieDetailsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MovieDetailsBuilder toBuilder() => new MovieDetailsBuilder()..replace(this);
+  MovieDetailsBuilder toBuilder() => MovieDetailsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -256,7 +255,7 @@ class MovieDetailsBuilder
   set budget(num? budget) => _$this._budget = budget;
 
   ListBuilder<Genre>? _genres;
-  ListBuilder<Genre> get genres => _$this._genres ??= new ListBuilder<Genre>();
+  ListBuilder<Genre> get genres => _$this._genres ??= ListBuilder<Genre>();
   set genres(ListBuilder<Genre>? genres) => _$this._genres = genres;
 
   String? _homepage;
@@ -265,7 +264,7 @@ class MovieDetailsBuilder
 
   ListBuilder<RelatedVideo>? _relatedVideos;
   ListBuilder<RelatedVideo> get relatedVideos =>
-      _$this._relatedVideos ??= new ListBuilder<RelatedVideo>();
+      _$this._relatedVideos ??= ListBuilder<RelatedVideo>();
   set relatedVideos(ListBuilder<RelatedVideo>? relatedVideos) =>
       _$this._relatedVideos = relatedVideos;
 
@@ -289,7 +288,7 @@ class MovieDetailsBuilder
 
   ListBuilder<ProductionCompany>? _productionCompanies;
   ListBuilder<ProductionCompany> get productionCompanies =>
-      _$this._productionCompanies ??= new ListBuilder<ProductionCompany>();
+      _$this._productionCompanies ??= ListBuilder<ProductionCompany>();
   set productionCompanies(
           ListBuilder<ProductionCompany>? productionCompanies) =>
       _$this._productionCompanies = productionCompanies;
@@ -297,7 +296,7 @@ class MovieDetailsBuilder
   ListBuilder<MovieDetailsProductionCountriesInner>? _productionCountries;
   ListBuilder<MovieDetailsProductionCountriesInner> get productionCountries =>
       _$this._productionCountries ??=
-          new ListBuilder<MovieDetailsProductionCountriesInner>();
+          ListBuilder<MovieDetailsProductionCountriesInner>();
   set productionCountries(
           ListBuilder<MovieDetailsProductionCountriesInner>?
               productionCountries) =>
@@ -309,7 +308,7 @@ class MovieDetailsBuilder
 
   MovieDetailsReleasesBuilder? _releases;
   MovieDetailsReleasesBuilder get releases =>
-      _$this._releases ??= new MovieDetailsReleasesBuilder();
+      _$this._releases ??= MovieDetailsReleasesBuilder();
   set releases(MovieDetailsReleasesBuilder? releases) =>
       _$this._releases = releases;
 
@@ -323,7 +322,7 @@ class MovieDetailsBuilder
 
   ListBuilder<SpokenLanguage>? _spokenLanguages;
   ListBuilder<SpokenLanguage> get spokenLanguages =>
-      _$this._spokenLanguages ??= new ListBuilder<SpokenLanguage>();
+      _$this._spokenLanguages ??= ListBuilder<SpokenLanguage>();
   set spokenLanguages(ListBuilder<SpokenLanguage>? spokenLanguages) =>
       _$this._spokenLanguages = spokenLanguages;
 
@@ -353,30 +352,28 @@ class MovieDetailsBuilder
 
   MovieDetailsCreditsBuilder? _credits;
   MovieDetailsCreditsBuilder get credits =>
-      _$this._credits ??= new MovieDetailsCreditsBuilder();
+      _$this._credits ??= MovieDetailsCreditsBuilder();
   set credits(MovieDetailsCreditsBuilder? credits) => _$this._credits = credits;
 
   MovieDetailsCollectionBuilder? _collection;
   MovieDetailsCollectionBuilder get collection =>
-      _$this._collection ??= new MovieDetailsCollectionBuilder();
+      _$this._collection ??= MovieDetailsCollectionBuilder();
   set collection(MovieDetailsCollectionBuilder? collection) =>
       _$this._collection = collection;
 
   ExternalIdsBuilder? _externalIds;
   ExternalIdsBuilder get externalIds =>
-      _$this._externalIds ??= new ExternalIdsBuilder();
+      _$this._externalIds ??= ExternalIdsBuilder();
   set externalIds(ExternalIdsBuilder? externalIds) =>
       _$this._externalIds = externalIds;
 
   MediaInfoBuilder? _mediaInfo;
-  MediaInfoBuilder get mediaInfo =>
-      _$this._mediaInfo ??= new MediaInfoBuilder();
+  MediaInfoBuilder get mediaInfo => _$this._mediaInfo ??= MediaInfoBuilder();
   set mediaInfo(MediaInfoBuilder? mediaInfo) => _$this._mediaInfo = mediaInfo;
 
   ListBuilder<BuiltList<WatchProvidersInner>>? _watchProviders;
   ListBuilder<BuiltList<WatchProvidersInner>> get watchProviders =>
-      _$this._watchProviders ??=
-          new ListBuilder<BuiltList<WatchProvidersInner>>();
+      _$this._watchProviders ??= ListBuilder<BuiltList<WatchProvidersInner>>();
   set watchProviders(
           ListBuilder<BuiltList<WatchProvidersInner>>? watchProviders) =>
       _$this._watchProviders = watchProviders;
@@ -426,7 +423,6 @@ class MovieDetailsBuilder
 
   @override
   void replace(MovieDetails other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieDetails;
   }
 
@@ -442,38 +438,39 @@ class MovieDetailsBuilder
     _$MovieDetails _$result;
     try {
       _$result = _$v ??
-          new _$MovieDetails._(
-              id: id,
-              imdbId: imdbId,
-              adult: adult,
-              backdropPath: backdropPath,
-              posterPath: posterPath,
-              budget: budget,
-              genres: _genres?.build(),
-              homepage: homepage,
-              relatedVideos: _relatedVideos?.build(),
-              originalLanguage: originalLanguage,
-              originalTitle: originalTitle,
-              overview: overview,
-              popularity: popularity,
-              productionCompanies: _productionCompanies?.build(),
-              productionCountries: _productionCountries?.build(),
-              releaseDate: releaseDate,
-              releases: _releases?.build(),
-              revenue: revenue,
-              runtime: runtime,
-              spokenLanguages: _spokenLanguages?.build(),
-              status: status,
-              tagline: tagline,
-              title: title,
-              video: video,
-              voteAverage: voteAverage,
-              voteCount: voteCount,
-              credits: _credits?.build(),
-              collection: _collection?.build(),
-              externalIds: _externalIds?.build(),
-              mediaInfo: _mediaInfo?.build(),
-              watchProviders: _watchProviders?.build());
+          _$MovieDetails._(
+            id: id,
+            imdbId: imdbId,
+            adult: adult,
+            backdropPath: backdropPath,
+            posterPath: posterPath,
+            budget: budget,
+            genres: _genres?.build(),
+            homepage: homepage,
+            relatedVideos: _relatedVideos?.build(),
+            originalLanguage: originalLanguage,
+            originalTitle: originalTitle,
+            overview: overview,
+            popularity: popularity,
+            productionCompanies: _productionCompanies?.build(),
+            productionCountries: _productionCountries?.build(),
+            releaseDate: releaseDate,
+            releases: _releases?.build(),
+            revenue: revenue,
+            runtime: runtime,
+            spokenLanguages: _spokenLanguages?.build(),
+            status: status,
+            tagline: tagline,
+            title: title,
+            video: video,
+            voteAverage: voteAverage,
+            voteCount: voteCount,
+            credits: _credits?.build(),
+            collection: _collection?.build(),
+            externalIds: _externalIds?.build(),
+            mediaInfo: _mediaInfo?.build(),
+            watchProviders: _watchProviders?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -505,7 +502,7 @@ class MovieDetailsBuilder
         _$failedField = 'watchProviders';
         _watchProviders?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MovieDetails', _$failedField, e.toString());
       }
       rethrow;

@@ -14,11 +14,9 @@ class _$User extends User {
   @override
   final String? username;
   @override
-  final String? plexUsername;
-  @override
   final String? plexToken;
   @override
-  final String? jellyfinAuthToken;
+  final String? plexUsername;
   @override
   final int? userType;
   @override
@@ -33,34 +31,27 @@ class _$User extends User {
   final num? requestCount;
 
   factory _$User([void Function(UserBuilder)? updates]) =>
-      (new UserBuilder()..update(updates))._build();
+      (UserBuilder()..update(updates))._build();
 
   _$User._(
       {required this.id,
       required this.email,
       this.username,
-      this.plexUsername,
       this.plexToken,
-      this.jellyfinAuthToken,
+      this.plexUsername,
       this.userType,
       this.permissions,
       this.avatar,
       required this.createdAt,
       required this.updatedAt,
       this.requestCount})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'User', 'id');
-    BuiltValueNullFieldError.checkNotNull(email, r'User', 'email');
-    BuiltValueNullFieldError.checkNotNull(createdAt, r'User', 'createdAt');
-    BuiltValueNullFieldError.checkNotNull(updatedAt, r'User', 'updatedAt');
-  }
-
+      : super._();
   @override
   User rebuild(void Function(UserBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  UserBuilder toBuilder() => new UserBuilder()..replace(this);
+  UserBuilder toBuilder() => UserBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -69,9 +60,8 @@ class _$User extends User {
         id == other.id &&
         email == other.email &&
         username == other.username &&
-        plexUsername == other.plexUsername &&
         plexToken == other.plexToken &&
-        jellyfinAuthToken == other.jellyfinAuthToken &&
+        plexUsername == other.plexUsername &&
         userType == other.userType &&
         permissions == other.permissions &&
         avatar == other.avatar &&
@@ -86,9 +76,8 @@ class _$User extends User {
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, email.hashCode);
     _$hash = $jc(_$hash, username.hashCode);
-    _$hash = $jc(_$hash, plexUsername.hashCode);
     _$hash = $jc(_$hash, plexToken.hashCode);
-    _$hash = $jc(_$hash, jellyfinAuthToken.hashCode);
+    _$hash = $jc(_$hash, plexUsername.hashCode);
     _$hash = $jc(_$hash, userType.hashCode);
     _$hash = $jc(_$hash, permissions.hashCode);
     _$hash = $jc(_$hash, avatar.hashCode);
@@ -105,9 +94,8 @@ class _$User extends User {
           ..add('id', id)
           ..add('email', email)
           ..add('username', username)
-          ..add('plexUsername', plexUsername)
           ..add('plexToken', plexToken)
-          ..add('jellyfinAuthToken', jellyfinAuthToken)
+          ..add('plexUsername', plexUsername)
           ..add('userType', userType)
           ..add('permissions', permissions)
           ..add('avatar', avatar)
@@ -133,18 +121,13 @@ class UserBuilder implements Builder<User, UserBuilder> {
   String? get username => _$this._username;
   set username(String? username) => _$this._username = username;
 
-  String? _plexUsername;
-  String? get plexUsername => _$this._plexUsername;
-  set plexUsername(String? plexUsername) => _$this._plexUsername = plexUsername;
-
   String? _plexToken;
   String? get plexToken => _$this._plexToken;
   set plexToken(String? plexToken) => _$this._plexToken = plexToken;
 
-  String? _jellyfinAuthToken;
-  String? get jellyfinAuthToken => _$this._jellyfinAuthToken;
-  set jellyfinAuthToken(String? jellyfinAuthToken) =>
-      _$this._jellyfinAuthToken = jellyfinAuthToken;
+  String? _plexUsername;
+  String? get plexUsername => _$this._plexUsername;
+  set plexUsername(String? plexUsername) => _$this._plexUsername = plexUsername;
 
   int? _userType;
   int? get userType => _$this._userType;
@@ -180,9 +163,8 @@ class UserBuilder implements Builder<User, UserBuilder> {
       _id = $v.id;
       _email = $v.email;
       _username = $v.username;
-      _plexUsername = $v.plexUsername;
       _plexToken = $v.plexToken;
-      _jellyfinAuthToken = $v.jellyfinAuthToken;
+      _plexUsername = $v.plexUsername;
       _userType = $v.userType;
       _permissions = $v.permissions;
       _avatar = $v.avatar;
@@ -196,7 +178,6 @@ class UserBuilder implements Builder<User, UserBuilder> {
 
   @override
   void replace(User other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$User;
   }
 
@@ -210,22 +191,21 @@ class UserBuilder implements Builder<User, UserBuilder> {
 
   _$User _build() {
     final _$result = _$v ??
-        new _$User._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
-            email:
-                BuiltValueNullFieldError.checkNotNull(email, r'User', 'email'),
-            username: username,
-            plexUsername: plexUsername,
-            plexToken: plexToken,
-            jellyfinAuthToken: jellyfinAuthToken,
-            userType: userType,
-            permissions: permissions,
-            avatar: avatar,
-            createdAt: BuiltValueNullFieldError.checkNotNull(
-                createdAt, r'User', 'createdAt'),
-            updatedAt: BuiltValueNullFieldError.checkNotNull(
-                updatedAt, r'User', 'updatedAt'),
-            requestCount: requestCount);
+        _$User._(
+          id: BuiltValueNullFieldError.checkNotNull(id, r'User', 'id'),
+          email: BuiltValueNullFieldError.checkNotNull(email, r'User', 'email'),
+          username: username,
+          plexToken: plexToken,
+          plexUsername: plexUsername,
+          userType: userType,
+          permissions: permissions,
+          avatar: avatar,
+          createdAt: BuiltValueNullFieldError.checkNotNull(
+              createdAt, r'User', 'createdAt'),
+          updatedAt: BuiltValueNullFieldError.checkNotNull(
+              updatedAt, r'User', 'updatedAt'),
+          requestCount: requestCount,
+        );
     replace(_$result);
     return _$result;
   }

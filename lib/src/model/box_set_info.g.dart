@@ -31,7 +31,7 @@ class _$BoxSetInfo extends BoxSetInfo {
   final bool? isAutomated;
 
   factory _$BoxSetInfo([void Function(BoxSetInfoBuilder)? updates]) =>
-      (new BoxSetInfoBuilder()..update(updates))._build();
+      (BoxSetInfoBuilder()..update(updates))._build();
 
   _$BoxSetInfo._(
       {this.name,
@@ -46,13 +46,12 @@ class _$BoxSetInfo extends BoxSetInfo {
       this.premiereDate,
       this.isAutomated})
       : super._();
-
   @override
   BoxSetInfo rebuild(void Function(BoxSetInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  BoxSetInfoBuilder toBuilder() => new BoxSetInfoBuilder()..replace(this);
+  BoxSetInfoBuilder toBuilder() => BoxSetInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -135,7 +134,7 @@ class BoxSetInfoBuilder implements Builder<BoxSetInfo, BoxSetInfoBuilder> {
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -186,7 +185,6 @@ class BoxSetInfoBuilder implements Builder<BoxSetInfo, BoxSetInfoBuilder> {
 
   @override
   void replace(BoxSetInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BoxSetInfo;
   }
 
@@ -202,25 +200,26 @@ class BoxSetInfoBuilder implements Builder<BoxSetInfo, BoxSetInfoBuilder> {
     _$BoxSetInfo _$result;
     try {
       _$result = _$v ??
-          new _$BoxSetInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated);
+          _$BoxSetInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'providerIds';
         _providerIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'BoxSetInfo', _$failedField, e.toString());
       }
       rethrow;

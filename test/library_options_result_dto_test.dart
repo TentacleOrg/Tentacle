@@ -25,6 +25,18 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the list of lyric fetchers.
+    // BuiltList<LibraryOptionInfoDto> lyricFetchers
+    test('to test the property `lyricFetchers`', () async {
+      // TODO
+    });
+
+    // Gets or sets the list of MediaSegment Providers.
+    // BuiltList<LibraryOptionInfoDto> mediaSegmentProviders
+    test('to test the property `mediaSegmentProviders`', () async {
+      // TODO
+    });
+
     // Gets or sets the type options.
     // BuiltList<LibraryTypeOptionsDto> typeOptions
     test('to test the property `typeOptions`', () async {

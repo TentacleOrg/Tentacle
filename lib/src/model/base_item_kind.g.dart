@@ -125,12 +125,12 @@ BaseItemKind _$valueOf(String name) {
     case 'year':
       return _$year;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<BaseItemKind> _$values =
-    new BuiltSet<BaseItemKind>(const <BaseItemKind>[
+    BuiltSet<BaseItemKind>(const <BaseItemKind>[
   _$aggregateFolder,
   _$audio,
   _$audioBook,
@@ -218,8 +218,7 @@ mixin _$BaseItemKindMixin {
   _$BaseItemKindMeta get BaseItemKind => const _$BaseItemKindMeta();
 }
 
-Serializer<BaseItemKind> _$baseItemKindSerializer =
-    new _$BaseItemKindSerializer();
+Serializer<BaseItemKind> _$baseItemKindSerializer = _$BaseItemKindSerializer();
 
 class _$BaseItemKindSerializer implements PrimitiveSerializer<BaseItemKind> {
   static const Map<String, Object> _toWire = const <String, Object>{

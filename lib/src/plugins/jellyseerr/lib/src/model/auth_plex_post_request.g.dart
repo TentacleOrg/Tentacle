@@ -12,13 +12,9 @@ class _$AuthPlexPostRequest extends AuthPlexPostRequest {
 
   factory _$AuthPlexPostRequest(
           [void Function(AuthPlexPostRequestBuilder)? updates]) =>
-      (new AuthPlexPostRequestBuilder()..update(updates))._build();
+      (AuthPlexPostRequestBuilder()..update(updates))._build();
 
-  _$AuthPlexPostRequest._({required this.authToken}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        authToken, r'AuthPlexPostRequest', 'authToken');
-  }
-
+  _$AuthPlexPostRequest._({required this.authToken}) : super._();
   @override
   AuthPlexPostRequest rebuild(
           void Function(AuthPlexPostRequestBuilder) updates) =>
@@ -26,7 +22,7 @@ class _$AuthPlexPostRequest extends AuthPlexPostRequest {
 
   @override
   AuthPlexPostRequestBuilder toBuilder() =>
-      new AuthPlexPostRequestBuilder()..replace(this);
+      AuthPlexPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -73,7 +69,6 @@ class AuthPlexPostRequestBuilder
 
   @override
   void replace(AuthPlexPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthPlexPostRequest;
   }
 
@@ -87,9 +82,10 @@ class AuthPlexPostRequestBuilder
 
   _$AuthPlexPostRequest _build() {
     final _$result = _$v ??
-        new _$AuthPlexPostRequest._(
-            authToken: BuiltValueNullFieldError.checkNotNull(
-                authToken, r'AuthPlexPostRequest', 'authToken'));
+        _$AuthPlexPostRequest._(
+          authToken: BuiltValueNullFieldError.checkNotNull(
+              authToken, r'AuthPlexPostRequest', 'authToken'),
+        );
     replace(_$result);
     return _$result;
   }

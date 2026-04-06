@@ -20,13 +20,12 @@ class _$MediaMediaIdWatchDataGet200ResponseData
   factory _$MediaMediaIdWatchDataGet200ResponseData(
           [void Function(MediaMediaIdWatchDataGet200ResponseDataBuilder)?
               updates]) =>
-      (new MediaMediaIdWatchDataGet200ResponseDataBuilder()..update(updates))
+      (MediaMediaIdWatchDataGet200ResponseDataBuilder()..update(updates))
           ._build();
 
   _$MediaMediaIdWatchDataGet200ResponseData._(
       {this.playCount7Days, this.playCount30Days, this.playCount, this.users})
       : super._();
-
   @override
   MediaMediaIdWatchDataGet200ResponseData rebuild(
           void Function(MediaMediaIdWatchDataGet200ResponseDataBuilder)
@@ -35,7 +34,7 @@ class _$MediaMediaIdWatchDataGet200ResponseData
 
   @override
   MediaMediaIdWatchDataGet200ResponseDataBuilder toBuilder() =>
-      new MediaMediaIdWatchDataGet200ResponseDataBuilder()..replace(this);
+      MediaMediaIdWatchDataGet200ResponseDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -91,7 +90,7 @@ class MediaMediaIdWatchDataGet200ResponseDataBuilder
   set playCount(num? playCount) => _$this._playCount = playCount;
 
   ListBuilder<User>? _users;
-  ListBuilder<User> get users => _$this._users ??= new ListBuilder<User>();
+  ListBuilder<User> get users => _$this._users ??= ListBuilder<User>();
   set users(ListBuilder<User>? users) => _$this._users = users;
 
   MediaMediaIdWatchDataGet200ResponseDataBuilder() {
@@ -112,7 +111,6 @@ class MediaMediaIdWatchDataGet200ResponseDataBuilder
 
   @override
   void replace(MediaMediaIdWatchDataGet200ResponseData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaMediaIdWatchDataGet200ResponseData;
   }
 
@@ -129,18 +127,19 @@ class MediaMediaIdWatchDataGet200ResponseDataBuilder
     _$MediaMediaIdWatchDataGet200ResponseData _$result;
     try {
       _$result = _$v ??
-          new _$MediaMediaIdWatchDataGet200ResponseData._(
-              playCount7Days: playCount7Days,
-              playCount30Days: playCount30Days,
-              playCount: playCount,
-              users: _users?.build());
+          _$MediaMediaIdWatchDataGet200ResponseData._(
+            playCount7Days: playCount7Days,
+            playCount30Days: playCount30Days,
+            playCount: playCount,
+            users: _users?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'users';
         _users?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MediaMediaIdWatchDataGet200ResponseData',
             _$failedField,
             e.toString());

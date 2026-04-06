@@ -27,12 +27,12 @@ SubtitlePlaybackMode _$valueOf(String name) {
     case 'smart':
       return _$smart;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<SubtitlePlaybackMode> _$values =
-    new BuiltSet<SubtitlePlaybackMode>(const <SubtitlePlaybackMode>[
+    BuiltSet<SubtitlePlaybackMode>(const <SubtitlePlaybackMode>[
   _$default_,
   _$always,
   _$onlyForced,
@@ -58,7 +58,7 @@ mixin _$SubtitlePlaybackModeMixin {
 }
 
 Serializer<SubtitlePlaybackMode> _$subtitlePlaybackModeSerializer =
-    new _$SubtitlePlaybackModeSerializer();
+    _$SubtitlePlaybackModeSerializer();
 
 class _$SubtitlePlaybackModeSerializer
     implements PrimitiveSerializer<SubtitlePlaybackMode> {

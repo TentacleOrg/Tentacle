@@ -16,11 +16,10 @@ class _$ScheduledTasksInfoMessage extends ScheduledTasksInfoMessage {
 
   factory _$ScheduledTasksInfoMessage(
           [void Function(ScheduledTasksInfoMessageBuilder)? updates]) =>
-      (new ScheduledTasksInfoMessageBuilder()..update(updates))._build();
+      (ScheduledTasksInfoMessageBuilder()..update(updates))._build();
 
   _$ScheduledTasksInfoMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   ScheduledTasksInfoMessage rebuild(
           void Function(ScheduledTasksInfoMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$ScheduledTasksInfoMessage extends ScheduledTasksInfoMessage {
 
   @override
   ScheduledTasksInfoMessageBuilder toBuilder() =>
-      new ScheduledTasksInfoMessageBuilder()..replace(this);
+      ScheduledTasksInfoMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,8 +64,7 @@ class ScheduledTasksInfoMessageBuilder
   _$ScheduledTasksInfoMessage? _$v;
 
   ListBuilder<TaskInfo>? _data;
-  ListBuilder<TaskInfo> get data =>
-      _$this._data ??= new ListBuilder<TaskInfo>();
+  ListBuilder<TaskInfo> get data => _$this._data ??= ListBuilder<TaskInfo>();
   set data(ListBuilder<TaskInfo>? data) => _$this._data = data;
 
   String? _messageId;
@@ -95,7 +93,6 @@ class ScheduledTasksInfoMessageBuilder
 
   @override
   void replace(ScheduledTasksInfoMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ScheduledTasksInfoMessage;
   }
 
@@ -111,17 +108,18 @@ class ScheduledTasksInfoMessageBuilder
     _$ScheduledTasksInfoMessage _$result;
     try {
       _$result = _$v ??
-          new _$ScheduledTasksInfoMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$ScheduledTasksInfoMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ScheduledTasksInfoMessage', _$failedField, e.toString());
       }
       rethrow;

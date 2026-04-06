@@ -38,12 +38,12 @@ CollectionTypeOptions _$valueOf(String name) {
     case 'mixed':
       return _$mixed;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<CollectionTypeOptions> _$values =
-    new BuiltSet<CollectionTypeOptions>(const <CollectionTypeOptions>[
+    BuiltSet<CollectionTypeOptions>(const <CollectionTypeOptions>[
   _$movies,
   _$tvshows,
   _$music,
@@ -75,7 +75,7 @@ mixin _$CollectionTypeOptionsMixin {
 }
 
 Serializer<CollectionTypeOptions> _$collectionTypeOptionsSerializer =
-    new _$CollectionTypeOptionsSerializer();
+    _$CollectionTypeOptionsSerializer();
 
 class _$CollectionTypeOptionsSerializer
     implements PrimitiveSerializer<CollectionTypeOptions> {

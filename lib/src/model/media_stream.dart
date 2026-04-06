@@ -31,10 +31,12 @@ part 'media_stream.g.dart';
 /// * [elPresentFlag] - Gets or sets the Dolby Vision el present flag.
 /// * [blPresentFlag] - Gets or sets the Dolby Vision bl present flag.
 /// * [dvBlSignalCompatibilityId] - Gets or sets the Dolby Vision bl signal compatibility id.
+/// * [rotation] - Gets or sets the Rotation in degrees.
 /// * [comment] - Gets or sets the comment.
 /// * [timeBase] - Gets or sets the time base.
 /// * [codecTimeBase] - Gets or sets the codec time base.
 /// * [title] - Gets or sets the title.
+/// * [hdr10PlusPresentFlag]
 /// * [videoRange] - Gets the video range.
 /// * [videoRangeType] - Gets the video range type.
 /// * [videoDoViTitle] - Gets the video dovi title.
@@ -62,6 +64,7 @@ part 'media_stream.g.dart';
 /// * [width] - Gets or sets the width.
 /// * [averageFrameRate] - Gets or sets the average frame rate.
 /// * [realFrameRate] - Gets or sets the real frame rate.
+/// * [referenceFrameRate] - Gets the framerate used as reference.  Prefer AverageFrameRate, if that is null or an unrealistic value  then fallback to RealFrameRate.
 /// * [profile] - Gets or sets the profile.
 /// * [type] - Gets or sets the type.
 /// * [aspectRatio] - Gets or sets the aspect ratio.
@@ -139,6 +142,10 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   @BuiltValueField(wireName: r'DvBlSignalCompatibilityId')
   int? get dvBlSignalCompatibilityId;
 
+  /// Gets or sets the Rotation in degrees.
+  @BuiltValueField(wireName: r'Rotation')
+  int? get rotation;
+
   /// Gets or sets the comment.
   @BuiltValueField(wireName: r'Comment')
   String? get comment;
@@ -155,6 +162,9 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   @BuiltValueField(wireName: r'Title')
   String? get title;
 
+  @BuiltValueField(wireName: r'Hdr10PlusPresentFlag')
+  bool? get hdr10PlusPresentFlag;
+
   /// Gets the video range.
   @BuiltValueField(wireName: r'VideoRange')
   VideoRange? get videoRange;
@@ -163,7 +173,7 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   /// Gets the video range type.
   @BuiltValueField(wireName: r'VideoRangeType')
   VideoRangeType? get videoRangeType;
-  // enum videoRangeTypeEnum {  Unknown,  SDR,  HDR10,  HLG,  DOVI,  DOVIWithHDR10,  DOVIWithHLG,  DOVIWithSDR,  HDR10Plus,  };
+  // enum videoRangeTypeEnum {  Unknown,  SDR,  HDR10,  HLG,  DOVI,  DOVIWithHDR10,  DOVIWithHLG,  DOVIWithSDR,  DOVIWithEL,  DOVIWithHDR10Plus,  DOVIWithELHDR10Plus,  DOVIInvalid,  HDR10Plus,  };
 
   /// Gets the video dovi title.
   @BuiltValueField(wireName: r'VideoDoViTitle')
@@ -258,6 +268,10 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   @BuiltValueField(wireName: r'RealFrameRate')
   double? get realFrameRate;
 
+  /// Gets the framerate used as reference.  Prefer AverageFrameRate, if that is null or an unrealistic value  then fallback to RealFrameRate.
+  @BuiltValueField(wireName: r'ReferenceFrameRate')
+  double? get referenceFrameRate;
+
   /// Gets or sets the profile.
   @BuiltValueField(wireName: r'Profile')
   String? get profile;
@@ -324,8 +338,10 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   factory MediaStream([void updates(MediaStreamBuilder b)]) = _$MediaStream;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MediaStreamBuilder b) =>
-      b..audioSpatialFormat = AudioSpatialFormat.none;
+  static void _defaults(MediaStreamBuilder b) => b
+    ..videoRange = null
+    ..videoRangeType = null
+    ..audioSpatialFormat = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MediaStream> get serializer => _$MediaStreamSerializer();
@@ -448,6 +464,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
         specifiedType: const FullType.nullable(int),
       );
     }
+    if (object.rotation != null) {
+      yield r'Rotation';
+      yield serializers.serialize(
+        object.rotation,
+        specifiedType: const FullType.nullable(int),
+      );
+    }
     if (object.comment != null) {
       yield r'Comment';
       yield serializers.serialize(
@@ -474,6 +497,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
       yield serializers.serialize(
         object.title,
         specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.hdr10PlusPresentFlag != null) {
+      yield r'Hdr10PlusPresentFlag';
+      yield serializers.serialize(
+        object.hdr10PlusPresentFlag,
+        specifiedType: const FullType.nullable(bool),
       );
     }
     if (object.videoRange != null) {
@@ -662,6 +692,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
       yield r'RealFrameRate';
       yield serializers.serialize(
         object.realFrameRate,
+        specifiedType: const FullType.nullable(double),
+      );
+    }
+    if (object.referenceFrameRate != null) {
+      yield r'ReferenceFrameRate';
+      yield serializers.serialize(
+        object.referenceFrameRate,
         specifiedType: const FullType.nullable(double),
       );
     }
@@ -915,6 +952,14 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
           if (valueDes == null) continue;
           result.dvBlSignalCompatibilityId = valueDes;
           break;
+        case r'Rotation':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(int),
+          ) as int?;
+          if (valueDes == null) continue;
+          result.rotation = valueDes;
+          break;
         case r'Comment':
           final valueDes = serializers.deserialize(
             value,
@@ -946,6 +991,14 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
           ) as String?;
           if (valueDes == null) continue;
           result.title = valueDes;
+          break;
+        case r'Hdr10PlusPresentFlag':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.hdr10PlusPresentFlag = valueDes;
           break;
         case r'VideoRange':
           final valueDes = serializers.deserialize(
@@ -1155,6 +1208,14 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
           ) as double?;
           if (valueDes == null) continue;
           result.realFrameRate = valueDes;
+          break;
+        case r'ReferenceFrameRate':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(double),
+          ) as double?;
+          if (valueDes == null) continue;
+          result.referenceFrameRate = valueDes;
           break;
         case r'Profile':
           final valueDes = serializers.deserialize(

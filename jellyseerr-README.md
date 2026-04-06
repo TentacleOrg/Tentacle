@@ -54,13 +54,13 @@ import 'package:tentacle/tentacle.dart';
 
 
 final api = Tentacle().getAuthApi();
-final AuthJellyfinPostRequest authJellyfinPostRequest = ; // AuthJellyfinPostRequest | 
+final AuthLocalPostRequest authLocalPostRequest = ; // AuthLocalPostRequest | 
 
 try {
-    final response = await api.authJellyfinPost(authJellyfinPostRequest);
+    final response = await api.authLocalPost(authLocalPostRequest);
     print(response);
 } catch on DioException (e) {
-    print("Exception when calling AuthApi->authJellyfinPost: $e\n");
+    print("Exception when calling AuthApi->authLocalPost: $e\n");
 }
 
 ```
@@ -71,7 +71,6 @@ All URIs are relative to *http://localhost:5055/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-[*AuthApi*](doc/AuthApi.md) | [**authJellyfinPost**](doc/AuthApi.md#authjellyfinpost) | **POST** /auth/jellyfin | Sign in using a Jellyfin username and password
 [*AuthApi*](doc/AuthApi.md) | [**authLocalPost**](doc/AuthApi.md#authlocalpost) | **POST** /auth/local | Sign in using a local account
 [*AuthApi*](doc/AuthApi.md) | [**authLogoutPost**](doc/AuthApi.md#authlogoutpost) | **POST** /auth/logout | Sign out and clear session cookie
 [*AuthApi*](doc/AuthApi.md) | [**authMeGet**](doc/AuthApi.md#authmeget) | **GET** /auth/me | Get logged-in user
@@ -89,7 +88,6 @@ Class | Method | HTTP request | Description
 [*IssueApi*](doc/IssueApi.md) | [**issuePost**](doc/IssueApi.md#issuepost) | **POST** /issue | Create new issue
 [*MediaApi*](doc/MediaApi.md) | [**mediaGet**](doc/MediaApi.md#mediaget) | **GET** /media | Get media
 [*MediaApi*](doc/MediaApi.md) | [**mediaMediaIdDelete**](doc/MediaApi.md#mediamediaiddelete) | **DELETE** /media/{mediaId} | Delete media item
-[*MediaApi*](doc/MediaApi.md) | [**mediaMediaIdFileDelete**](doc/MediaApi.md#mediamediaidfiledelete) | **DELETE** /media/{mediaId}/file | Delete media file
 [*MediaApi*](doc/MediaApi.md) | [**mediaMediaIdStatusPost**](doc/MediaApi.md#mediamediaidstatuspost) | **POST** /media/{mediaId}/{status} | Update media status
 [*MediaApi*](doc/MediaApi.md) | [**mediaMediaIdWatchDataGet**](doc/MediaApi.md#mediamediaidwatchdataget) | **GET** /media/{mediaId}/watch_data | Get watch data
 [*MoviesApi*](doc/MoviesApi.md) | [**movieMovieIdGet**](doc/MoviesApi.md#moviemovieidget) | **GET** /movie/{movieId} | Get movie details
@@ -146,12 +144,6 @@ Class | Method | HTTP request | Description
 [*SettingsApi*](doc/SettingsApi.md) | [**settingsDiscoverSliderIdDelete**](doc/SettingsApi.md#settingsdiscoverslideriddelete) | **DELETE** /settings/discover/{sliderId} | Delete slider by ID
 [*SettingsApi*](doc/SettingsApi.md) | [**settingsDiscoverSliderIdPut**](doc/SettingsApi.md#settingsdiscoverslideridput) | **PUT** /settings/discover/{sliderId} | Update a single slider
 [*SettingsApi*](doc/SettingsApi.md) | [**settingsInitializePost**](doc/SettingsApi.md#settingsinitializepost) | **POST** /settings/initialize | Initialize application
-[*SettingsApi*](doc/SettingsApi.md) | [**settingsJellyfinGet**](doc/SettingsApi.md#settingsjellyfinget) | **GET** /settings/jellyfin | Get Jellyfin settings
-[*SettingsApi*](doc/SettingsApi.md) | [**settingsJellyfinLibraryGet**](doc/SettingsApi.md#settingsjellyfinlibraryget) | **GET** /settings/jellyfin/library | Get Jellyfin libraries
-[*SettingsApi*](doc/SettingsApi.md) | [**settingsJellyfinPost**](doc/SettingsApi.md#settingsjellyfinpost) | **POST** /settings/jellyfin | Update Jellyfin settings
-[*SettingsApi*](doc/SettingsApi.md) | [**settingsJellyfinSyncGet**](doc/SettingsApi.md#settingsjellyfinsyncget) | **GET** /settings/jellyfin/sync | Get status of full Jellyfin library sync
-[*SettingsApi*](doc/SettingsApi.md) | [**settingsJellyfinSyncPost**](doc/SettingsApi.md#settingsjellyfinsyncpost) | **POST** /settings/jellyfin/sync | Start full Jellyfin library sync
-[*SettingsApi*](doc/SettingsApi.md) | [**settingsJellyfinUsersGet**](doc/SettingsApi.md#settingsjellyfinusersget) | **GET** /settings/jellyfin/users | Get Jellyfin Users
 [*SettingsApi*](doc/SettingsApi.md) | [**settingsJobsGet**](doc/SettingsApi.md#settingsjobsget) | **GET** /settings/jobs | Get scheduled jobs
 [*SettingsApi*](doc/SettingsApi.md) | [**settingsJobsJobIdCancelPost**](doc/SettingsApi.md#settingsjobsjobidcancelpost) | **POST** /settings/jobs/{jobId}/cancel | Cancel a specific job
 [*SettingsApi*](doc/SettingsApi.md) | [**settingsJobsJobIdRunPost**](doc/SettingsApi.md#settingsjobsjobidrunpost) | **POST** /settings/jobs/{jobId}/run | Invoke a specific job
@@ -227,16 +219,17 @@ Class | Method | HTTP request | Description
 [*UsersApi*](doc/UsersApi.md) | [**authMeGet**](doc/UsersApi.md#authmeget) | **GET** /auth/me | Get logged-in user
 [*UsersApi*](doc/UsersApi.md) | [**authResetPasswordGuidPost**](doc/UsersApi.md#authresetpasswordguidpost) | **POST** /auth/reset-password/{guid} | Reset the password for a user
 [*UsersApi*](doc/UsersApi.md) | [**authResetPasswordPost**](doc/UsersApi.md#authresetpasswordpost) | **POST** /auth/reset-password | Send a reset password email
-[*UsersApi*](doc/UsersApi.md) | [**settingsJellyfinUsersGet**](doc/UsersApi.md#settingsjellyfinusersget) | **GET** /settings/jellyfin/users | Get Jellyfin Users
 [*UsersApi*](doc/UsersApi.md) | [**settingsPlexUsersGet**](doc/UsersApi.md#settingsplexusersget) | **GET** /settings/plex/users | Get Plex users
 [*UsersApi*](doc/UsersApi.md) | [**userGet**](doc/UsersApi.md#userget) | **GET** /user | Get all users
-[*UsersApi*](doc/UsersApi.md) | [**userImportFromJellyfinPost**](doc/UsersApi.md#userimportfromjellyfinpost) | **POST** /user/import-from-jellyfin | Import all users from Jellyfin
 [*UsersApi*](doc/UsersApi.md) | [**userImportFromPlexPost**](doc/UsersApi.md#userimportfromplexpost) | **POST** /user/import-from-plex | Import all users from Plex
 [*UsersApi*](doc/UsersApi.md) | [**userPost**](doc/UsersApi.md#userpost) | **POST** /user | Create new user
 [*UsersApi*](doc/UsersApi.md) | [**userPut**](doc/UsersApi.md#userput) | **PUT** /user | Update batch of users
 [*UsersApi*](doc/UsersApi.md) | [**userRegisterPushSubscriptionPost**](doc/UsersApi.md#userregisterpushsubscriptionpost) | **POST** /user/registerPushSubscription | Register a web push /user/registerPushSubscription
 [*UsersApi*](doc/UsersApi.md) | [**userUserIdDelete**](doc/UsersApi.md#useruseriddelete) | **DELETE** /user/{userId} | Delete user by ID
 [*UsersApi*](doc/UsersApi.md) | [**userUserIdGet**](doc/UsersApi.md#useruseridget) | **GET** /user/{userId} | Get user by ID
+[*UsersApi*](doc/UsersApi.md) | [**userUserIdPushSubscriptionEndpointDelete**](doc/UsersApi.md#useruseridpushsubscriptionendpointdelete) | **DELETE** /user/{userId}/pushSubscription/{endpoint} | Delete user push subscription by key
+[*UsersApi*](doc/UsersApi.md) | [**userUserIdPushSubscriptionEndpointGet**](doc/UsersApi.md#useruseridpushsubscriptionendpointget) | **GET** /user/{userId}/pushSubscription/{endpoint} | Get web push notification settings for a user
+[*UsersApi*](doc/UsersApi.md) | [**userUserIdPushSubscriptionsGet**](doc/UsersApi.md#useruseridpushsubscriptionsget) | **GET** /user/{userId}/pushSubscriptions | Get all web push notification settings for a user
 [*UsersApi*](doc/UsersApi.md) | [**userUserIdPut**](doc/UsersApi.md#useruseridput) | **PUT** /user/{userId} | Update a user by user ID
 [*UsersApi*](doc/UsersApi.md) | [**userUserIdQuotaGet**](doc/UsersApi.md#useruseridquotaget) | **GET** /user/{userId}/quota | Get quotas for a specific user
 [*UsersApi*](doc/UsersApi.md) | [**userUserIdRequestsGet**](doc/UsersApi.md#useruseridrequestsget) | **GET** /user/{userId}/requests | Get requests for a specific user
@@ -250,14 +243,10 @@ Class | Method | HTTP request | Description
 [*UsersApi*](doc/UsersApi.md) | [**userUserIdSettingsPermissionsPost**](doc/UsersApi.md#useruseridsettingspermissionspost) | **POST** /user/{userId}/settings/permissions | Update permission settings for a user
 [*UsersApi*](doc/UsersApi.md) | [**userUserIdWatchDataGet**](doc/UsersApi.md#useruseridwatchdataget) | **GET** /user/{userId}/watch_data | Get watch data
 [*UsersApi*](doc/UsersApi.md) | [**userUserIdWatchlistGet**](doc/UsersApi.md#useruseridwatchlistget) | **GET** /user/{userId}/watchlist | Get the Plex watchlist for a specific user
-[*WatchlistApi*](doc/WatchlistApi.md) | [**userUserIdWatchlistGet**](doc/WatchlistApi.md#useruseridwatchlistget) | **GET** /user/{userId}/watchlist | Get the Plex watchlist for a specific user
-[*WatchlistApi*](doc/WatchlistApi.md) | [**watchlistPost**](doc/WatchlistApi.md#watchlistpost) | **POST** /watchlist | Add media to watchlist
-[*WatchlistApi*](doc/WatchlistApi.md) | [**watchlistTmdbIdDelete**](doc/WatchlistApi.md#watchlisttmdbiddelete) | **DELETE** /watchlist/{tmdbId} | Delete watchlist item
 
 
 ## Documentation For Models
 
- - [AuthJellyfinPostRequest](doc/AuthJellyfinPostRequest.md)
  - [AuthLocalPostRequest](doc/AuthLocalPostRequest.md)
  - [AuthLogoutPost200Response](doc/AuthLogoutPost200Response.md)
  - [AuthPlexPostRequest](doc/AuthPlexPostRequest.md)
@@ -295,8 +284,6 @@ Class | Method | HTTP request | Description
  - [IssueGet200Response](doc/IssueGet200Response.md)
  - [IssueIssueIdCommentPostRequest](doc/IssueIssueIdCommentPostRequest.md)
  - [IssuePostRequest](doc/IssuePostRequest.md)
- - [JellyfinLibrary](doc/JellyfinLibrary.md)
- - [JellyfinSettings](doc/JellyfinSettings.md)
  - [Job](doc/Job.md)
  - [Keyword](doc/Keyword.md)
  - [LanguagesGet200ResponseInner](doc/LanguagesGet200ResponseInner.md)
@@ -364,13 +351,11 @@ Class | Method | HTTP request | Description
  - [SettingsCacheGet200ResponseImageCacheTmdb](doc/SettingsCacheGet200ResponseImageCacheTmdb.md)
  - [SettingsDiscoverAddPostRequest](doc/SettingsDiscoverAddPostRequest.md)
  - [SettingsDiscoverSliderIdPutRequest](doc/SettingsDiscoverSliderIdPutRequest.md)
- - [SettingsJellyfinSyncGet200Response](doc/SettingsJellyfinSyncGet200Response.md)
- - [SettingsJellyfinSyncPostRequest](doc/SettingsJellyfinSyncPostRequest.md)
- - [SettingsJellyfinUsersGet200ResponseInner](doc/SettingsJellyfinUsersGet200ResponseInner.md)
  - [SettingsJobsJobIdSchedulePostRequest](doc/SettingsJobsJobIdSchedulePostRequest.md)
  - [SettingsLogsGet200ResponseInner](doc/SettingsLogsGet200ResponseInner.md)
  - [SettingsNotificationsPushoverSoundsGet200ResponseInner](doc/SettingsNotificationsPushoverSoundsGet200ResponseInner.md)
  - [SettingsPlexSyncGet200Response](doc/SettingsPlexSyncGet200Response.md)
+ - [SettingsPlexSyncPostRequest](doc/SettingsPlexSyncPostRequest.md)
  - [SettingsPlexUsersGet200ResponseInner](doc/SettingsPlexUsersGet200ResponseInner.md)
  - [SettingsRadarrTestPost200Response](doc/SettingsRadarrTestPost200Response.md)
  - [SettingsRadarrTestPostRequest](doc/SettingsRadarrTestPostRequest.md)
@@ -397,13 +382,13 @@ Class | Method | HTTP request | Description
  - [TvTvIdRatingsGet200Response](doc/TvTvIdRatingsGet200Response.md)
  - [User](doc/User.md)
  - [UserGet200Response](doc/UserGet200Response.md)
- - [UserImportFromJellyfinPostRequest](doc/UserImportFromJellyfinPostRequest.md)
  - [UserImportFromPlexPostRequest](doc/UserImportFromPlexPostRequest.md)
  - [UserPostRequest](doc/UserPostRequest.md)
  - [UserPutRequest](doc/UserPutRequest.md)
  - [UserRegisterPushSubscriptionPostRequest](doc/UserRegisterPushSubscriptionPostRequest.md)
  - [UserSettings](doc/UserSettings.md)
  - [UserSettingsNotifications](doc/UserSettingsNotifications.md)
+ - [UserUserIdPushSubscriptionsGet200Response](doc/UserUserIdPushSubscriptionsGet200Response.md)
  - [UserUserIdQuotaGet200Response](doc/UserUserIdQuotaGet200Response.md)
  - [UserUserIdQuotaGet200ResponseMovie](doc/UserUserIdQuotaGet200ResponseMovie.md)
  - [UserUserIdRequestsGet200Response](doc/UserUserIdRequestsGet200Response.md)
@@ -419,7 +404,6 @@ Class | Method | HTTP request | Description
  - [WatchProviderDetails](doc/WatchProviderDetails.md)
  - [WatchProviderRegion](doc/WatchProviderRegion.md)
  - [WatchProvidersInner](doc/WatchProvidersInner.md)
- - [Watchlist](doc/Watchlist.md)
  - [WebPushSettings](doc/WebPushSettings.md)
  - [WebhookSettings](doc/WebhookSettings.md)
  - [WebhookSettingsOptions](doc/WebhookSettingsOptions.md)

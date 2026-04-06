@@ -16,12 +16,10 @@ class _$ServiceSonarrSonarrIdGet200Response
   factory _$ServiceSonarrSonarrIdGet200Response(
           [void Function(ServiceSonarrSonarrIdGet200ResponseBuilder)?
               updates]) =>
-      (new ServiceSonarrSonarrIdGet200ResponseBuilder()..update(updates))
-          ._build();
+      (ServiceSonarrSonarrIdGet200ResponseBuilder()..update(updates))._build();
 
   _$ServiceSonarrSonarrIdGet200Response._({this.server, this.profiles})
       : super._();
-
   @override
   ServiceSonarrSonarrIdGet200Response rebuild(
           void Function(ServiceSonarrSonarrIdGet200ResponseBuilder) updates) =>
@@ -29,7 +27,7 @@ class _$ServiceSonarrSonarrIdGet200Response
 
   @override
   ServiceSonarrSonarrIdGet200ResponseBuilder toBuilder() =>
-      new ServiceSonarrSonarrIdGet200ResponseBuilder()..replace(this);
+      ServiceSonarrSonarrIdGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -65,12 +63,12 @@ class ServiceSonarrSonarrIdGet200ResponseBuilder
 
   SonarrSettingsBuilder? _server;
   SonarrSettingsBuilder get server =>
-      _$this._server ??= new SonarrSettingsBuilder();
+      _$this._server ??= SonarrSettingsBuilder();
   set server(SonarrSettingsBuilder? server) => _$this._server = server;
 
   ServiceProfileBuilder? _profiles;
   ServiceProfileBuilder get profiles =>
-      _$this._profiles ??= new ServiceProfileBuilder();
+      _$this._profiles ??= ServiceProfileBuilder();
   set profiles(ServiceProfileBuilder? profiles) => _$this._profiles = profiles;
 
   ServiceSonarrSonarrIdGet200ResponseBuilder() {
@@ -89,7 +87,6 @@ class ServiceSonarrSonarrIdGet200ResponseBuilder
 
   @override
   void replace(ServiceSonarrSonarrIdGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServiceSonarrSonarrIdGet200Response;
   }
 
@@ -106,8 +103,10 @@ class ServiceSonarrSonarrIdGet200ResponseBuilder
     _$ServiceSonarrSonarrIdGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$ServiceSonarrSonarrIdGet200Response._(
-              server: _server?.build(), profiles: _profiles?.build());
+          _$ServiceSonarrSonarrIdGet200Response._(
+            server: _server?.build(),
+            profiles: _profiles?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -116,10 +115,8 @@ class ServiceSonarrSonarrIdGet200ResponseBuilder
         _$failedField = 'profiles';
         _profiles?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'ServiceSonarrSonarrIdGet200Response',
-            _$failedField,
-            e.toString());
+        throw BuiltValueNestedFieldError(r'ServiceSonarrSonarrIdGet200Response',
+            _$failedField, e.toString());
       }
       rethrow;
     }

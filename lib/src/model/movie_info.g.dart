@@ -31,7 +31,7 @@ class _$MovieInfo extends MovieInfo {
   final bool? isAutomated;
 
   factory _$MovieInfo([void Function(MovieInfoBuilder)? updates]) =>
-      (new MovieInfoBuilder()..update(updates))._build();
+      (MovieInfoBuilder()..update(updates))._build();
 
   _$MovieInfo._(
       {this.name,
@@ -46,13 +46,12 @@ class _$MovieInfo extends MovieInfo {
       this.premiereDate,
       this.isAutomated})
       : super._();
-
   @override
   MovieInfo rebuild(void Function(MovieInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MovieInfoBuilder toBuilder() => new MovieInfoBuilder()..replace(this);
+  MovieInfoBuilder toBuilder() => MovieInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -135,7 +134,7 @@ class MovieInfoBuilder implements Builder<MovieInfo, MovieInfoBuilder> {
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -186,7 +185,6 @@ class MovieInfoBuilder implements Builder<MovieInfo, MovieInfoBuilder> {
 
   @override
   void replace(MovieInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieInfo;
   }
 
@@ -202,25 +200,26 @@ class MovieInfoBuilder implements Builder<MovieInfo, MovieInfoBuilder> {
     _$MovieInfo _$result;
     try {
       _$result = _$v ??
-          new _$MovieInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated);
+          _$MovieInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'providerIds';
         _providerIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MovieInfo', _$failedField, e.toString());
       }
       rethrow;

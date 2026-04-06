@@ -25,7 +25,7 @@ class _$PluginInfo extends PluginInfo {
   final PluginStatus? status;
 
   factory _$PluginInfo([void Function(PluginInfoBuilder)? updates]) =>
-      (new PluginInfoBuilder()..update(updates))._build();
+      (PluginInfoBuilder()..update(updates))._build();
 
   _$PluginInfo._(
       {this.name,
@@ -37,13 +37,12 @@ class _$PluginInfo extends PluginInfo {
       this.hasImage,
       this.status})
       : super._();
-
   @override
   PluginInfo rebuild(void Function(PluginInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PluginInfoBuilder toBuilder() => new PluginInfoBuilder()..replace(this);
+  PluginInfoBuilder toBuilder() => PluginInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -147,7 +146,6 @@ class PluginInfoBuilder implements Builder<PluginInfo, PluginInfoBuilder> {
 
   @override
   void replace(PluginInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PluginInfo;
   }
 
@@ -161,15 +159,16 @@ class PluginInfoBuilder implements Builder<PluginInfo, PluginInfoBuilder> {
 
   _$PluginInfo _build() {
     final _$result = _$v ??
-        new _$PluginInfo._(
-            name: name,
-            version: version,
-            configurationFileName: configurationFileName,
-            description: description,
-            id: id,
-            canUninstall: canUninstall,
-            hasImage: hasImage,
-            status: status);
+        _$PluginInfo._(
+          name: name,
+          version: version,
+          configurationFileName: configurationFileName,
+          description: description,
+          id: id,
+          canUninstall: canUninstall,
+          hasImage: hasImage,
+          status: status,
+        );
     replace(_$result);
     return _$result;
   }

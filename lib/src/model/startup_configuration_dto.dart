@@ -11,12 +11,17 @@ part 'startup_configuration_dto.g.dart';
 /// The startup configuration DTO.
 ///
 /// Properties:
+/// * [serverName] - Gets or sets the server name.
 /// * [uICulture] - Gets or sets UI language culture.
 /// * [metadataCountryCode] - Gets or sets the metadata country code.
 /// * [preferredMetadataLanguage] - Gets or sets the preferred language for the metadata.
 @BuiltValue()
 abstract class StartupConfigurationDto
     implements Built<StartupConfigurationDto, StartupConfigurationDtoBuilder> {
+  /// Gets or sets the server name.
+  @BuiltValueField(wireName: r'ServerName')
+  String? get serverName;
+
   /// Gets or sets UI language culture.
   @BuiltValueField(wireName: r'UICulture')
   String? get uICulture;
@@ -59,6 +64,13 @@ class _$StartupConfigurationDtoSerializer
     StartupConfigurationDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
+    if (object.serverName != null) {
+      yield r'ServerName';
+      yield serializers.serialize(
+        object.serverName,
+        specifiedType: const FullType.nullable(String),
+      );
+    }
     if (object.uICulture != null) {
       yield r'UICulture';
       yield serializers.serialize(
@@ -105,6 +117,14 @@ class _$StartupConfigurationDtoSerializer
       final key = serializedList[i] as String;
       final value = serializedList[i + 1];
       switch (key) {
+        case r'ServerName':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.serverName = valueDes;
+          break;
         case r'UICulture':
           final valueDes = serializers.deserialize(
             value,

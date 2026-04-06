@@ -18,12 +18,11 @@ class _$MovieDetailsCollection extends MovieDetailsCollection {
 
   factory _$MovieDetailsCollection(
           [void Function(MovieDetailsCollectionBuilder)? updates]) =>
-      (new MovieDetailsCollectionBuilder()..update(updates))._build();
+      (MovieDetailsCollectionBuilder()..update(updates))._build();
 
   _$MovieDetailsCollection._(
       {this.id, this.name, this.posterPath, this.backdropPath})
       : super._();
-
   @override
   MovieDetailsCollection rebuild(
           void Function(MovieDetailsCollectionBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$MovieDetailsCollection extends MovieDetailsCollection {
 
   @override
   MovieDetailsCollectionBuilder toBuilder() =>
-      new MovieDetailsCollectionBuilder()..replace(this);
+      MovieDetailsCollectionBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -103,7 +102,6 @@ class MovieDetailsCollectionBuilder
 
   @override
   void replace(MovieDetailsCollection other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieDetailsCollection;
   }
 
@@ -117,11 +115,12 @@ class MovieDetailsCollectionBuilder
 
   _$MovieDetailsCollection _build() {
     final _$result = _$v ??
-        new _$MovieDetailsCollection._(
-            id: id,
-            name: name,
-            posterPath: posterPath,
-            backdropPath: backdropPath);
+        _$MovieDetailsCollection._(
+          id: id,
+          name: name,
+          posterPath: posterPath,
+          backdropPath: backdropPath,
+        );
     replace(_$result);
     return _$result;
   }

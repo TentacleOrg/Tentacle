@@ -18,12 +18,11 @@ class _$MovieDetailsReleasesResultsInner
 
   factory _$MovieDetailsReleasesResultsInner(
           [void Function(MovieDetailsReleasesResultsInnerBuilder)? updates]) =>
-      (new MovieDetailsReleasesResultsInnerBuilder()..update(updates))._build();
+      (MovieDetailsReleasesResultsInnerBuilder()..update(updates))._build();
 
   _$MovieDetailsReleasesResultsInner._(
       {this.iso31661, this.rating, this.releaseDates})
       : super._();
-
   @override
   MovieDetailsReleasesResultsInner rebuild(
           void Function(MovieDetailsReleasesResultsInnerBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$MovieDetailsReleasesResultsInner
 
   @override
   MovieDetailsReleasesResultsInnerBuilder toBuilder() =>
-      new MovieDetailsReleasesResultsInnerBuilder()..replace(this);
+      MovieDetailsReleasesResultsInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -79,7 +78,7 @@ class MovieDetailsReleasesResultsInnerBuilder
   ListBuilder<MovieDetailsReleasesResultsInnerReleaseDatesInner>? _releaseDates;
   ListBuilder<MovieDetailsReleasesResultsInnerReleaseDatesInner>
       get releaseDates => _$this._releaseDates ??=
-          new ListBuilder<MovieDetailsReleasesResultsInnerReleaseDatesInner>();
+          ListBuilder<MovieDetailsReleasesResultsInnerReleaseDatesInner>();
   set releaseDates(
           ListBuilder<MovieDetailsReleasesResultsInnerReleaseDatesInner>?
               releaseDates) =>
@@ -102,7 +101,6 @@ class MovieDetailsReleasesResultsInnerBuilder
 
   @override
   void replace(MovieDetailsReleasesResultsInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieDetailsReleasesResultsInner;
   }
 
@@ -118,17 +116,18 @@ class MovieDetailsReleasesResultsInnerBuilder
     _$MovieDetailsReleasesResultsInner _$result;
     try {
       _$result = _$v ??
-          new _$MovieDetailsReleasesResultsInner._(
-              iso31661: iso31661,
-              rating: rating,
-              releaseDates: _releaseDates?.build());
+          _$MovieDetailsReleasesResultsInner._(
+            iso31661: iso31661,
+            rating: rating,
+            releaseDates: _releaseDates?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'releaseDates';
         _releaseDates?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MovieDetailsReleasesResultsInner', _$failedField, e.toString());
       }
       rethrow;

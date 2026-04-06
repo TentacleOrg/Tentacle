@@ -12,6 +12,8 @@ class _$TrickplayOptions extends TrickplayOptions {
   @override
   final bool? enableHwEncoding;
   @override
+  final bool? enableKeyFrameOnlyExtraction;
+  @override
   final TrickplayScanBehavior? scanBehavior;
   @override
   final ProcessPriorityClass? processPriority;
@@ -32,11 +34,12 @@ class _$TrickplayOptions extends TrickplayOptions {
 
   factory _$TrickplayOptions(
           [void Function(TrickplayOptionsBuilder)? updates]) =>
-      (new TrickplayOptionsBuilder()..update(updates))._build();
+      (TrickplayOptionsBuilder()..update(updates))._build();
 
   _$TrickplayOptions._(
       {this.enableHwAcceleration,
       this.enableHwEncoding,
+      this.enableKeyFrameOnlyExtraction,
       this.scanBehavior,
       this.processPriority,
       this.interval,
@@ -47,14 +50,13 @@ class _$TrickplayOptions extends TrickplayOptions {
       this.jpegQuality,
       this.processThreads})
       : super._();
-
   @override
   TrickplayOptions rebuild(void Function(TrickplayOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   TrickplayOptionsBuilder toBuilder() =>
-      new TrickplayOptionsBuilder()..replace(this);
+      TrickplayOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -62,6 +64,7 @@ class _$TrickplayOptions extends TrickplayOptions {
     return other is TrickplayOptions &&
         enableHwAcceleration == other.enableHwAcceleration &&
         enableHwEncoding == other.enableHwEncoding &&
+        enableKeyFrameOnlyExtraction == other.enableKeyFrameOnlyExtraction &&
         scanBehavior == other.scanBehavior &&
         processPriority == other.processPriority &&
         interval == other.interval &&
@@ -78,6 +81,7 @@ class _$TrickplayOptions extends TrickplayOptions {
     var _$hash = 0;
     _$hash = $jc(_$hash, enableHwAcceleration.hashCode);
     _$hash = $jc(_$hash, enableHwEncoding.hashCode);
+    _$hash = $jc(_$hash, enableKeyFrameOnlyExtraction.hashCode);
     _$hash = $jc(_$hash, scanBehavior.hashCode);
     _$hash = $jc(_$hash, processPriority.hashCode);
     _$hash = $jc(_$hash, interval.hashCode);
@@ -96,6 +100,7 @@ class _$TrickplayOptions extends TrickplayOptions {
     return (newBuiltValueToStringHelper(r'TrickplayOptions')
           ..add('enableHwAcceleration', enableHwAcceleration)
           ..add('enableHwEncoding', enableHwEncoding)
+          ..add('enableKeyFrameOnlyExtraction', enableKeyFrameOnlyExtraction)
           ..add('scanBehavior', scanBehavior)
           ..add('processPriority', processPriority)
           ..add('interval', interval)
@@ -123,6 +128,12 @@ class TrickplayOptionsBuilder
   set enableHwEncoding(bool? enableHwEncoding) =>
       _$this._enableHwEncoding = enableHwEncoding;
 
+  bool? _enableKeyFrameOnlyExtraction;
+  bool? get enableKeyFrameOnlyExtraction =>
+      _$this._enableKeyFrameOnlyExtraction;
+  set enableKeyFrameOnlyExtraction(bool? enableKeyFrameOnlyExtraction) =>
+      _$this._enableKeyFrameOnlyExtraction = enableKeyFrameOnlyExtraction;
+
   TrickplayScanBehavior? _scanBehavior;
   TrickplayScanBehavior? get scanBehavior => _$this._scanBehavior;
   set scanBehavior(TrickplayScanBehavior? scanBehavior) =>
@@ -139,7 +150,7 @@ class TrickplayOptionsBuilder
 
   ListBuilder<int>? _widthResolutions;
   ListBuilder<int> get widthResolutions =>
-      _$this._widthResolutions ??= new ListBuilder<int>();
+      _$this._widthResolutions ??= ListBuilder<int>();
   set widthResolutions(ListBuilder<int>? widthResolutions) =>
       _$this._widthResolutions = widthResolutions;
 
@@ -173,6 +184,7 @@ class TrickplayOptionsBuilder
     if ($v != null) {
       _enableHwAcceleration = $v.enableHwAcceleration;
       _enableHwEncoding = $v.enableHwEncoding;
+      _enableKeyFrameOnlyExtraction = $v.enableKeyFrameOnlyExtraction;
       _scanBehavior = $v.scanBehavior;
       _processPriority = $v.processPriority;
       _interval = $v.interval;
@@ -189,7 +201,6 @@ class TrickplayOptionsBuilder
 
   @override
   void replace(TrickplayOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TrickplayOptions;
   }
 
@@ -205,25 +216,27 @@ class TrickplayOptionsBuilder
     _$TrickplayOptions _$result;
     try {
       _$result = _$v ??
-          new _$TrickplayOptions._(
-              enableHwAcceleration: enableHwAcceleration,
-              enableHwEncoding: enableHwEncoding,
-              scanBehavior: scanBehavior,
-              processPriority: processPriority,
-              interval: interval,
-              widthResolutions: _widthResolutions?.build(),
-              tileWidth: tileWidth,
-              tileHeight: tileHeight,
-              qscale: qscale,
-              jpegQuality: jpegQuality,
-              processThreads: processThreads);
+          _$TrickplayOptions._(
+            enableHwAcceleration: enableHwAcceleration,
+            enableHwEncoding: enableHwEncoding,
+            enableKeyFrameOnlyExtraction: enableKeyFrameOnlyExtraction,
+            scanBehavior: scanBehavior,
+            processPriority: processPriority,
+            interval: interval,
+            widthResolutions: _widthResolutions?.build(),
+            tileWidth: tileWidth,
+            tileHeight: tileHeight,
+            qscale: qscale,
+            jpegQuality: jpegQuality,
+            processThreads: processThreads,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'widthResolutions';
         _widthResolutions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TrickplayOptions', _$failedField, e.toString());
       }
       rethrow;

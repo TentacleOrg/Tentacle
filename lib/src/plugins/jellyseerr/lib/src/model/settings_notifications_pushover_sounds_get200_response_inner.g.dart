@@ -17,14 +17,13 @@ class _$SettingsNotificationsPushoverSoundsGet200ResponseInner
           [void Function(
                   SettingsNotificationsPushoverSoundsGet200ResponseInnerBuilder)?
               updates]) =>
-      (new SettingsNotificationsPushoverSoundsGet200ResponseInnerBuilder()
+      (SettingsNotificationsPushoverSoundsGet200ResponseInnerBuilder()
             ..update(updates))
           ._build();
 
   _$SettingsNotificationsPushoverSoundsGet200ResponseInner._(
       {this.name, this.description})
       : super._();
-
   @override
   SettingsNotificationsPushoverSoundsGet200ResponseInner rebuild(
           void Function(
@@ -34,7 +33,7 @@ class _$SettingsNotificationsPushoverSoundsGet200ResponseInner
 
   @override
   SettingsNotificationsPushoverSoundsGet200ResponseInnerBuilder toBuilder() =>
-      new SettingsNotificationsPushoverSoundsGet200ResponseInnerBuilder()
+      SettingsNotificationsPushoverSoundsGet200ResponseInnerBuilder()
         ..replace(this);
 
   @override
@@ -94,7 +93,6 @@ class SettingsNotificationsPushoverSoundsGet200ResponseInnerBuilder
 
   @override
   void replace(SettingsNotificationsPushoverSoundsGet200ResponseInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsNotificationsPushoverSoundsGet200ResponseInner;
   }
 
@@ -111,8 +109,10 @@ class SettingsNotificationsPushoverSoundsGet200ResponseInnerBuilder
 
   _$SettingsNotificationsPushoverSoundsGet200ResponseInner _build() {
     final _$result = _$v ??
-        new _$SettingsNotificationsPushoverSoundsGet200ResponseInner._(
-            name: name, description: description);
+        _$SettingsNotificationsPushoverSoundsGet200ResponseInner._(
+          name: name,
+          description: description,
+        );
     replace(_$result);
     return _$result;
   }

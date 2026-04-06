@@ -16,12 +16,11 @@ PlayAccess _$valueOf(String name) {
     case 'none':
       return _$none;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<PlayAccess> _$values =
-    new BuiltSet<PlayAccess>(const <PlayAccess>[
+final BuiltSet<PlayAccess> _$values = BuiltSet<PlayAccess>(const <PlayAccess>[
   _$full,
   _$none,
 ]);
@@ -39,7 +38,7 @@ mixin _$PlayAccessMixin {
   _$PlayAccessMeta get PlayAccess => const _$PlayAccessMeta();
 }
 
-Serializer<PlayAccess> _$playAccessSerializer = new _$PlayAccessSerializer();
+Serializer<PlayAccess> _$playAccessSerializer = _$PlayAccessSerializer();
 
 class _$PlayAccessSerializer implements PrimitiveSerializer<PlayAccess> {
   static const Map<String, Object> _toWire = const <String, Object>{

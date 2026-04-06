@@ -16,12 +16,11 @@ class _$MovieMovieIdRatingscombinedGet200Response
   factory _$MovieMovieIdRatingscombinedGet200Response(
           [void Function(MovieMovieIdRatingscombinedGet200ResponseBuilder)?
               updates]) =>
-      (new MovieMovieIdRatingscombinedGet200ResponseBuilder()..update(updates))
+      (MovieMovieIdRatingscombinedGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$MovieMovieIdRatingscombinedGet200Response._({this.rt, this.imdb})
       : super._();
-
   @override
   MovieMovieIdRatingscombinedGet200Response rebuild(
           void Function(MovieMovieIdRatingscombinedGet200ResponseBuilder)
@@ -30,7 +29,7 @@ class _$MovieMovieIdRatingscombinedGet200Response
 
   @override
   MovieMovieIdRatingscombinedGet200ResponseBuilder toBuilder() =>
-      new MovieMovieIdRatingscombinedGet200ResponseBuilder()..replace(this);
+      MovieMovieIdRatingscombinedGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -67,13 +66,12 @@ class MovieMovieIdRatingscombinedGet200ResponseBuilder
 
   MovieMovieIdRatingsGet200ResponseBuilder? _rt;
   MovieMovieIdRatingsGet200ResponseBuilder get rt =>
-      _$this._rt ??= new MovieMovieIdRatingsGet200ResponseBuilder();
+      _$this._rt ??= MovieMovieIdRatingsGet200ResponseBuilder();
   set rt(MovieMovieIdRatingsGet200ResponseBuilder? rt) => _$this._rt = rt;
 
   MovieMovieIdRatingscombinedGet200ResponseImdbBuilder? _imdb;
   MovieMovieIdRatingscombinedGet200ResponseImdbBuilder get imdb =>
-      _$this._imdb ??=
-          new MovieMovieIdRatingscombinedGet200ResponseImdbBuilder();
+      _$this._imdb ??= MovieMovieIdRatingscombinedGet200ResponseImdbBuilder();
   set imdb(MovieMovieIdRatingscombinedGet200ResponseImdbBuilder? imdb) =>
       _$this._imdb = imdb;
 
@@ -93,7 +91,6 @@ class MovieMovieIdRatingscombinedGet200ResponseBuilder
 
   @override
   void replace(MovieMovieIdRatingscombinedGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MovieMovieIdRatingscombinedGet200Response;
   }
 
@@ -111,8 +108,10 @@ class MovieMovieIdRatingscombinedGet200ResponseBuilder
     _$MovieMovieIdRatingscombinedGet200Response _$result;
     try {
       _$result = _$v ??
-          new _$MovieMovieIdRatingscombinedGet200Response._(
-              rt: _rt?.build(), imdb: _imdb?.build());
+          _$MovieMovieIdRatingscombinedGet200Response._(
+            rt: _rt?.build(),
+            imdb: _imdb?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -121,7 +120,7 @@ class MovieMovieIdRatingscombinedGet200ResponseBuilder
         _$failedField = 'imdb';
         _imdb?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MovieMovieIdRatingscombinedGet200Response',
             _$failedField,
             e.toString());

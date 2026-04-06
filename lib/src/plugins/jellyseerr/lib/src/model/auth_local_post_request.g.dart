@@ -14,16 +14,10 @@ class _$AuthLocalPostRequest extends AuthLocalPostRequest {
 
   factory _$AuthLocalPostRequest(
           [void Function(AuthLocalPostRequestBuilder)? updates]) =>
-      (new AuthLocalPostRequestBuilder()..update(updates))._build();
+      (AuthLocalPostRequestBuilder()..update(updates))._build();
 
   _$AuthLocalPostRequest._({required this.email, required this.password})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        email, r'AuthLocalPostRequest', 'email');
-    BuiltValueNullFieldError.checkNotNull(
-        password, r'AuthLocalPostRequest', 'password');
-  }
-
+      : super._();
   @override
   AuthLocalPostRequest rebuild(
           void Function(AuthLocalPostRequestBuilder) updates) =>
@@ -31,7 +25,7 @@ class _$AuthLocalPostRequest extends AuthLocalPostRequest {
 
   @override
   AuthLocalPostRequestBuilder toBuilder() =>
-      new AuthLocalPostRequestBuilder()..replace(this);
+      AuthLocalPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -87,7 +81,6 @@ class AuthLocalPostRequestBuilder
 
   @override
   void replace(AuthLocalPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthLocalPostRequest;
   }
 
@@ -101,11 +94,12 @@ class AuthLocalPostRequestBuilder
 
   _$AuthLocalPostRequest _build() {
     final _$result = _$v ??
-        new _$AuthLocalPostRequest._(
-            email: BuiltValueNullFieldError.checkNotNull(
-                email, r'AuthLocalPostRequest', 'email'),
-            password: BuiltValueNullFieldError.checkNotNull(
-                password, r'AuthLocalPostRequest', 'password'));
+        _$AuthLocalPostRequest._(
+          email: BuiltValueNullFieldError.checkNotNull(
+              email, r'AuthLocalPostRequest', 'email'),
+          password: BuiltValueNullFieldError.checkNotNull(
+              password, r'AuthLocalPostRequest', 'password'),
+        );
     replace(_$result);
     return _$result;
   }

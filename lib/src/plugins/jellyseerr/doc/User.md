@@ -11,9 +11,8 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **email** | **String** |  | 
 **username** | **String** |  | [optional] 
-**plexUsername** | **String** |  | [optional] 
 **plexToken** | **String** |  | [optional] 
-**jellyfinAuthToken** | **String** |  | [optional] 
+**plexUsername** | **String** |  | [optional] 
 **userType** | **int** |  | [optional] 
 **permissions** | **num** |  | [optional] 
 **avatar** | **String** |  | [optional] 

@@ -8,7 +8,7 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PluginInfo**](PluginInfo.md) | Gets or sets the data. | [optional] 
+**data** | [**PluginInfo**](PluginInfo.md) | This is a serializable stub class that is used by the api to provide information about installed plugins. | [optional] 
 **messageId** | **String** | Gets or sets the message id. | [optional] 
 **messageType** | [**SessionMessageType**](SessionMessageType.md) | The different kinds of messages that are used in the WebSocket api. | [optional] [default to 'PackageUninstalled']
 

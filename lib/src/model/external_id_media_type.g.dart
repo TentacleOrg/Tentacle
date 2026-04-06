@@ -22,6 +22,8 @@ const ExternalIdMediaType _$season = const ExternalIdMediaType._('season');
 const ExternalIdMediaType _$series = const ExternalIdMediaType._('series');
 const ExternalIdMediaType _$track = const ExternalIdMediaType._('track');
 const ExternalIdMediaType _$book = const ExternalIdMediaType._('book');
+const ExternalIdMediaType _$recording =
+    const ExternalIdMediaType._('recording');
 
 ExternalIdMediaType _$valueOf(String name) {
   switch (name) {
@@ -51,13 +53,15 @@ ExternalIdMediaType _$valueOf(String name) {
       return _$track;
     case 'book':
       return _$book;
+    case 'recording':
+      return _$recording;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ExternalIdMediaType> _$values =
-    new BuiltSet<ExternalIdMediaType>(const <ExternalIdMediaType>[
+    BuiltSet<ExternalIdMediaType>(const <ExternalIdMediaType>[
   _$album,
   _$albumArtist,
   _$artist,
@@ -71,6 +75,7 @@ final BuiltSet<ExternalIdMediaType> _$values =
   _$series,
   _$track,
   _$book,
+  _$recording,
 ]);
 
 class _$ExternalIdMediaTypeMeta {
@@ -88,6 +93,7 @@ class _$ExternalIdMediaTypeMeta {
   ExternalIdMediaType get series => _$series;
   ExternalIdMediaType get track => _$track;
   ExternalIdMediaType get book => _$book;
+  ExternalIdMediaType get recording => _$recording;
   ExternalIdMediaType valueOf(String name) => _$valueOf(name);
   BuiltSet<ExternalIdMediaType> get values => _$values;
 }
@@ -99,7 +105,7 @@ mixin _$ExternalIdMediaTypeMixin {
 }
 
 Serializer<ExternalIdMediaType> _$externalIdMediaTypeSerializer =
-    new _$ExternalIdMediaTypeSerializer();
+    _$ExternalIdMediaTypeSerializer();
 
 class _$ExternalIdMediaTypeSerializer
     implements PrimitiveSerializer<ExternalIdMediaType> {
@@ -117,6 +123,7 @@ class _$ExternalIdMediaTypeSerializer
     'series': 'Series',
     'track': 'Track',
     'book': 'Book',
+    'recording': 'Recording',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Album': 'album',
@@ -132,6 +139,7 @@ class _$ExternalIdMediaTypeSerializer
     'Series': 'series',
     'Track': 'track',
     'Book': 'book',
+    'Recording': 'recording',
   };
 
   @override

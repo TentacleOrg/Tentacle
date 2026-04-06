@@ -12,10 +12,9 @@ class _$DefaultDirectoryBrowserInfoDto extends DefaultDirectoryBrowserInfoDto {
 
   factory _$DefaultDirectoryBrowserInfoDto(
           [void Function(DefaultDirectoryBrowserInfoDtoBuilder)? updates]) =>
-      (new DefaultDirectoryBrowserInfoDtoBuilder()..update(updates))._build();
+      (DefaultDirectoryBrowserInfoDtoBuilder()..update(updates))._build();
 
   _$DefaultDirectoryBrowserInfoDto._({this.path}) : super._();
-
   @override
   DefaultDirectoryBrowserInfoDto rebuild(
           void Function(DefaultDirectoryBrowserInfoDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$DefaultDirectoryBrowserInfoDto extends DefaultDirectoryBrowserInfoDto {
 
   @override
   DefaultDirectoryBrowserInfoDtoBuilder toBuilder() =>
-      new DefaultDirectoryBrowserInfoDtoBuilder()..replace(this);
+      DefaultDirectoryBrowserInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -72,7 +71,6 @@ class DefaultDirectoryBrowserInfoDtoBuilder
 
   @override
   void replace(DefaultDirectoryBrowserInfoDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DefaultDirectoryBrowserInfoDto;
   }
 
@@ -85,7 +83,10 @@ class DefaultDirectoryBrowserInfoDtoBuilder
   DefaultDirectoryBrowserInfoDto build() => _build();
 
   _$DefaultDirectoryBrowserInfoDto _build() {
-    final _$result = _$v ?? new _$DefaultDirectoryBrowserInfoDto._(path: path);
+    final _$result = _$v ??
+        _$DefaultDirectoryBrowserInfoDto._(
+          path: path,
+        );
     replace(_$result);
     return _$result;
   }

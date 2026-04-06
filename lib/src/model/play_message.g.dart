@@ -15,16 +15,15 @@ class _$PlayMessage extends PlayMessage {
   final SessionMessageType? messageType;
 
   factory _$PlayMessage([void Function(PlayMessageBuilder)? updates]) =>
-      (new PlayMessageBuilder()..update(updates))._build();
+      (PlayMessageBuilder()..update(updates))._build();
 
   _$PlayMessage._({this.data, this.messageId, this.messageType}) : super._();
-
   @override
   PlayMessage rebuild(void Function(PlayMessageBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlayMessageBuilder toBuilder() => new PlayMessageBuilder()..replace(this);
+  PlayMessageBuilder toBuilder() => PlayMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -59,7 +58,7 @@ class PlayMessageBuilder implements Builder<PlayMessage, PlayMessageBuilder> {
   _$PlayMessage? _$v;
 
   PlayRequestBuilder? _data;
-  PlayRequestBuilder get data => _$this._data ??= new PlayRequestBuilder();
+  PlayRequestBuilder get data => _$this._data ??= PlayRequestBuilder();
   set data(PlayRequestBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -88,7 +87,6 @@ class PlayMessageBuilder implements Builder<PlayMessage, PlayMessageBuilder> {
 
   @override
   void replace(PlayMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlayMessage;
   }
 
@@ -104,17 +102,18 @@ class PlayMessageBuilder implements Builder<PlayMessage, PlayMessageBuilder> {
     _$PlayMessage _$result;
     try {
       _$result = _$v ??
-          new _$PlayMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$PlayMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlayMessage', _$failedField, e.toString());
       }
       rethrow;

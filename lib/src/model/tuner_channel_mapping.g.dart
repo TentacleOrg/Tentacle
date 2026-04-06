@@ -18,12 +18,11 @@ class _$TunerChannelMapping extends TunerChannelMapping {
 
   factory _$TunerChannelMapping(
           [void Function(TunerChannelMappingBuilder)? updates]) =>
-      (new TunerChannelMappingBuilder()..update(updates))._build();
+      (TunerChannelMappingBuilder()..update(updates))._build();
 
   _$TunerChannelMapping._(
       {this.name, this.providerChannelName, this.providerChannelId, this.id})
       : super._();
-
   @override
   TunerChannelMapping rebuild(
           void Function(TunerChannelMappingBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$TunerChannelMapping extends TunerChannelMapping {
 
   @override
   TunerChannelMappingBuilder toBuilder() =>
-      new TunerChannelMappingBuilder()..replace(this);
+      TunerChannelMappingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -105,7 +104,6 @@ class TunerChannelMappingBuilder
 
   @override
   void replace(TunerChannelMapping other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TunerChannelMapping;
   }
 
@@ -119,11 +117,12 @@ class TunerChannelMappingBuilder
 
   _$TunerChannelMapping _build() {
     final _$result = _$v ??
-        new _$TunerChannelMapping._(
-            name: name,
-            providerChannelName: providerChannelName,
-            providerChannelId: providerChannelId,
-            id: id);
+        _$TunerChannelMapping._(
+          name: name,
+          providerChannelName: providerChannelName,
+          providerChannelId: providerChannelId,
+          id: id,
+        );
     replace(_$result);
     return _$result;
   }

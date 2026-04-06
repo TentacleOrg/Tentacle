@@ -24,11 +24,5 @@ void main() {
     test('to test the property `type`', () async {
       // TODO
     });
-
-    // Gets or sets the URL format string.
-    // String urlFormatString
-    test('to test the property `urlFormatString`', () async {
-      // TODO
-    });
   });
 }

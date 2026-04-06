@@ -14,6 +14,7 @@ part 'user_register_push_subscription_post_request.g.dart';
 /// * [endpoint]
 /// * [auth]
 /// * [p256dh]
+/// * [userAgent]
 @BuiltValue()
 abstract class UserRegisterPushSubscriptionPostRequest
     implements
@@ -27,6 +28,9 @@ abstract class UserRegisterPushSubscriptionPostRequest
 
   @BuiltValueField(wireName: r'p256dh')
   String get p256dh;
+
+  @BuiltValueField(wireName: r'userAgent')
+  String? get userAgent;
 
   UserRegisterPushSubscriptionPostRequest._();
 
@@ -73,6 +77,13 @@ class _$UserRegisterPushSubscriptionPostRequestSerializer
       object.p256dh,
       specifiedType: const FullType(String),
     );
+    if (object.userAgent != null) {
+      yield r'userAgent';
+      yield serializers.serialize(
+        object.userAgent,
+        specifiedType: const FullType(String),
+      );
+    }
   }
 
   @override
@@ -118,6 +129,13 @@ class _$UserRegisterPushSubscriptionPostRequestSerializer
             specifiedType: const FullType(String),
           ) as String;
           result.p256dh = valueDes;
+          break;
+        case r'userAgent':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(String),
+          ) as String;
+          result.userAgent = valueDes;
           break;
         default:
           unhandled.add(key);

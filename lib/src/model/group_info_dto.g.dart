@@ -19,7 +19,7 @@ class _$GroupInfoDto extends GroupInfoDto {
   final DateTime? lastUpdatedAt;
 
   factory _$GroupInfoDto([void Function(GroupInfoDtoBuilder)? updates]) =>
-      (new GroupInfoDtoBuilder()..update(updates))._build();
+      (GroupInfoDtoBuilder()..update(updates))._build();
 
   _$GroupInfoDto._(
       {this.groupId,
@@ -28,13 +28,12 @@ class _$GroupInfoDto extends GroupInfoDto {
       this.participants,
       this.lastUpdatedAt})
       : super._();
-
   @override
   GroupInfoDto rebuild(void Function(GroupInfoDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GroupInfoDtoBuilder toBuilder() => new GroupInfoDtoBuilder()..replace(this);
+  GroupInfoDtoBuilder toBuilder() => GroupInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -89,7 +88,7 @@ class GroupInfoDtoBuilder
 
   ListBuilder<String>? _participants;
   ListBuilder<String> get participants =>
-      _$this._participants ??= new ListBuilder<String>();
+      _$this._participants ??= ListBuilder<String>();
   set participants(ListBuilder<String>? participants) =>
       _$this._participants = participants;
 
@@ -117,7 +116,6 @@ class GroupInfoDtoBuilder
 
   @override
   void replace(GroupInfoDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GroupInfoDto;
   }
 
@@ -133,19 +131,20 @@ class GroupInfoDtoBuilder
     _$GroupInfoDto _$result;
     try {
       _$result = _$v ??
-          new _$GroupInfoDto._(
-              groupId: groupId,
-              groupName: groupName,
-              state: state,
-              participants: _participants?.build(),
-              lastUpdatedAt: lastUpdatedAt);
+          _$GroupInfoDto._(
+            groupId: groupId,
+            groupName: groupName,
+            state: state,
+            participants: _participants?.build(),
+            lastUpdatedAt: lastUpdatedAt,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'participants';
         _participants?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'GroupInfoDto', _$failedField, e.toString());
       }
       rethrow;

@@ -56,6 +56,10 @@ class _$LibraryOptions extends LibraryOptions {
   @override
   final BuiltList<String>? subtitleFetcherOrder;
   @override
+  final BuiltList<String>? disabledMediaSegmentProviders;
+  @override
+  final BuiltList<String>? mediaSegmentProviderOrder;
+  @override
   final bool? skipSubtitlesIfEmbeddedSubtitlesPresent;
   @override
   final bool? skipSubtitlesIfAudioTrackMatches;
@@ -68,6 +72,20 @@ class _$LibraryOptions extends LibraryOptions {
   @override
   final bool? saveLyricsWithMedia;
   @override
+  final bool? saveTrickplayWithMedia;
+  @override
+  final BuiltList<String>? disabledLyricFetchers;
+  @override
+  final BuiltList<String>? lyricFetcherOrder;
+  @override
+  final bool? preferNonstandardArtistsTag;
+  @override
+  final bool? useCustomTagDelimiters;
+  @override
+  final BuiltList<String>? customTagDelimiters;
+  @override
+  final BuiltList<String>? delimiterWhitelist;
+  @override
   final bool? automaticallyAddToCollection;
   @override
   final EmbeddedSubtitleOptions? allowEmbeddedSubtitles;
@@ -75,7 +93,7 @@ class _$LibraryOptions extends LibraryOptions {
   final BuiltList<TypeOptions>? typeOptions;
 
   factory _$LibraryOptions([void Function(LibraryOptionsBuilder)? updates]) =>
-      (new LibraryOptionsBuilder()..update(updates))._build();
+      (LibraryOptionsBuilder()..update(updates))._build();
 
   _$LibraryOptions._(
       {this.enabled,
@@ -102,24 +120,31 @@ class _$LibraryOptions extends LibraryOptions {
       this.localMetadataReaderOrder,
       this.disabledSubtitleFetchers,
       this.subtitleFetcherOrder,
+      this.disabledMediaSegmentProviders,
+      this.mediaSegmentProviderOrder,
       this.skipSubtitlesIfEmbeddedSubtitlesPresent,
       this.skipSubtitlesIfAudioTrackMatches,
       this.subtitleDownloadLanguages,
       this.requirePerfectSubtitleMatch,
       this.saveSubtitlesWithMedia,
       this.saveLyricsWithMedia,
+      this.saveTrickplayWithMedia,
+      this.disabledLyricFetchers,
+      this.lyricFetcherOrder,
+      this.preferNonstandardArtistsTag,
+      this.useCustomTagDelimiters,
+      this.customTagDelimiters,
+      this.delimiterWhitelist,
       this.automaticallyAddToCollection,
       this.allowEmbeddedSubtitles,
       this.typeOptions})
       : super._();
-
   @override
   LibraryOptions rebuild(void Function(LibraryOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LibraryOptionsBuilder toBuilder() =>
-      new LibraryOptionsBuilder()..replace(this);
+  LibraryOptionsBuilder toBuilder() => LibraryOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -152,6 +177,8 @@ class _$LibraryOptions extends LibraryOptions {
         localMetadataReaderOrder == other.localMetadataReaderOrder &&
         disabledSubtitleFetchers == other.disabledSubtitleFetchers &&
         subtitleFetcherOrder == other.subtitleFetcherOrder &&
+        disabledMediaSegmentProviders == other.disabledMediaSegmentProviders &&
+        mediaSegmentProviderOrder == other.mediaSegmentProviderOrder &&
         skipSubtitlesIfEmbeddedSubtitlesPresent ==
             other.skipSubtitlesIfEmbeddedSubtitlesPresent &&
         skipSubtitlesIfAudioTrackMatches ==
@@ -160,6 +187,13 @@ class _$LibraryOptions extends LibraryOptions {
         requirePerfectSubtitleMatch == other.requirePerfectSubtitleMatch &&
         saveSubtitlesWithMedia == other.saveSubtitlesWithMedia &&
         saveLyricsWithMedia == other.saveLyricsWithMedia &&
+        saveTrickplayWithMedia == other.saveTrickplayWithMedia &&
+        disabledLyricFetchers == other.disabledLyricFetchers &&
+        lyricFetcherOrder == other.lyricFetcherOrder &&
+        preferNonstandardArtistsTag == other.preferNonstandardArtistsTag &&
+        useCustomTagDelimiters == other.useCustomTagDelimiters &&
+        customTagDelimiters == other.customTagDelimiters &&
+        delimiterWhitelist == other.delimiterWhitelist &&
         automaticallyAddToCollection == other.automaticallyAddToCollection &&
         allowEmbeddedSubtitles == other.allowEmbeddedSubtitles &&
         typeOptions == other.typeOptions;
@@ -192,12 +226,21 @@ class _$LibraryOptions extends LibraryOptions {
     _$hash = $jc(_$hash, localMetadataReaderOrder.hashCode);
     _$hash = $jc(_$hash, disabledSubtitleFetchers.hashCode);
     _$hash = $jc(_$hash, subtitleFetcherOrder.hashCode);
+    _$hash = $jc(_$hash, disabledMediaSegmentProviders.hashCode);
+    _$hash = $jc(_$hash, mediaSegmentProviderOrder.hashCode);
     _$hash = $jc(_$hash, skipSubtitlesIfEmbeddedSubtitlesPresent.hashCode);
     _$hash = $jc(_$hash, skipSubtitlesIfAudioTrackMatches.hashCode);
     _$hash = $jc(_$hash, subtitleDownloadLanguages.hashCode);
     _$hash = $jc(_$hash, requirePerfectSubtitleMatch.hashCode);
     _$hash = $jc(_$hash, saveSubtitlesWithMedia.hashCode);
     _$hash = $jc(_$hash, saveLyricsWithMedia.hashCode);
+    _$hash = $jc(_$hash, saveTrickplayWithMedia.hashCode);
+    _$hash = $jc(_$hash, disabledLyricFetchers.hashCode);
+    _$hash = $jc(_$hash, lyricFetcherOrder.hashCode);
+    _$hash = $jc(_$hash, preferNonstandardArtistsTag.hashCode);
+    _$hash = $jc(_$hash, useCustomTagDelimiters.hashCode);
+    _$hash = $jc(_$hash, customTagDelimiters.hashCode);
+    _$hash = $jc(_$hash, delimiterWhitelist.hashCode);
     _$hash = $jc(_$hash, automaticallyAddToCollection.hashCode);
     _$hash = $jc(_$hash, allowEmbeddedSubtitles.hashCode);
     _$hash = $jc(_$hash, typeOptions.hashCode);
@@ -235,6 +278,8 @@ class _$LibraryOptions extends LibraryOptions {
           ..add('localMetadataReaderOrder', localMetadataReaderOrder)
           ..add('disabledSubtitleFetchers', disabledSubtitleFetchers)
           ..add('subtitleFetcherOrder', subtitleFetcherOrder)
+          ..add('disabledMediaSegmentProviders', disabledMediaSegmentProviders)
+          ..add('mediaSegmentProviderOrder', mediaSegmentProviderOrder)
           ..add('skipSubtitlesIfEmbeddedSubtitlesPresent',
               skipSubtitlesIfEmbeddedSubtitlesPresent)
           ..add('skipSubtitlesIfAudioTrackMatches',
@@ -243,6 +288,13 @@ class _$LibraryOptions extends LibraryOptions {
           ..add('requirePerfectSubtitleMatch', requirePerfectSubtitleMatch)
           ..add('saveSubtitlesWithMedia', saveSubtitlesWithMedia)
           ..add('saveLyricsWithMedia', saveLyricsWithMedia)
+          ..add('saveTrickplayWithMedia', saveTrickplayWithMedia)
+          ..add('disabledLyricFetchers', disabledLyricFetchers)
+          ..add('lyricFetcherOrder', lyricFetcherOrder)
+          ..add('preferNonstandardArtistsTag', preferNonstandardArtistsTag)
+          ..add('useCustomTagDelimiters', useCustomTagDelimiters)
+          ..add('customTagDelimiters', customTagDelimiters)
+          ..add('delimiterWhitelist', delimiterWhitelist)
           ..add('automaticallyAddToCollection', automaticallyAddToCollection)
           ..add('allowEmbeddedSubtitles', allowEmbeddedSubtitles)
           ..add('typeOptions', typeOptions))
@@ -302,7 +354,7 @@ class LibraryOptionsBuilder
 
   ListBuilder<MediaPathInfo>? _pathInfos;
   ListBuilder<MediaPathInfo> get pathInfos =>
-      _$this._pathInfos ??= new ListBuilder<MediaPathInfo>();
+      _$this._pathInfos ??= ListBuilder<MediaPathInfo>();
   set pathInfos(ListBuilder<MediaPathInfo>? pathInfos) =>
       _$this._pathInfos = pathInfos;
 
@@ -359,34 +411,48 @@ class LibraryOptionsBuilder
 
   ListBuilder<String>? _metadataSavers;
   ListBuilder<String> get metadataSavers =>
-      _$this._metadataSavers ??= new ListBuilder<String>();
+      _$this._metadataSavers ??= ListBuilder<String>();
   set metadataSavers(ListBuilder<String>? metadataSavers) =>
       _$this._metadataSavers = metadataSavers;
 
   ListBuilder<String>? _disabledLocalMetadataReaders;
   ListBuilder<String> get disabledLocalMetadataReaders =>
-      _$this._disabledLocalMetadataReaders ??= new ListBuilder<String>();
+      _$this._disabledLocalMetadataReaders ??= ListBuilder<String>();
   set disabledLocalMetadataReaders(
           ListBuilder<String>? disabledLocalMetadataReaders) =>
       _$this._disabledLocalMetadataReaders = disabledLocalMetadataReaders;
 
   ListBuilder<String>? _localMetadataReaderOrder;
   ListBuilder<String> get localMetadataReaderOrder =>
-      _$this._localMetadataReaderOrder ??= new ListBuilder<String>();
+      _$this._localMetadataReaderOrder ??= ListBuilder<String>();
   set localMetadataReaderOrder(ListBuilder<String>? localMetadataReaderOrder) =>
       _$this._localMetadataReaderOrder = localMetadataReaderOrder;
 
   ListBuilder<String>? _disabledSubtitleFetchers;
   ListBuilder<String> get disabledSubtitleFetchers =>
-      _$this._disabledSubtitleFetchers ??= new ListBuilder<String>();
+      _$this._disabledSubtitleFetchers ??= ListBuilder<String>();
   set disabledSubtitleFetchers(ListBuilder<String>? disabledSubtitleFetchers) =>
       _$this._disabledSubtitleFetchers = disabledSubtitleFetchers;
 
   ListBuilder<String>? _subtitleFetcherOrder;
   ListBuilder<String> get subtitleFetcherOrder =>
-      _$this._subtitleFetcherOrder ??= new ListBuilder<String>();
+      _$this._subtitleFetcherOrder ??= ListBuilder<String>();
   set subtitleFetcherOrder(ListBuilder<String>? subtitleFetcherOrder) =>
       _$this._subtitleFetcherOrder = subtitleFetcherOrder;
+
+  ListBuilder<String>? _disabledMediaSegmentProviders;
+  ListBuilder<String> get disabledMediaSegmentProviders =>
+      _$this._disabledMediaSegmentProviders ??= ListBuilder<String>();
+  set disabledMediaSegmentProviders(
+          ListBuilder<String>? disabledMediaSegmentProviders) =>
+      _$this._disabledMediaSegmentProviders = disabledMediaSegmentProviders;
+
+  ListBuilder<String>? _mediaSegmentProviderOrder;
+  ListBuilder<String> get mediaSegmentProviderOrder =>
+      _$this._mediaSegmentProviderOrder ??= ListBuilder<String>();
+  set mediaSegmentProviderOrder(
+          ListBuilder<String>? mediaSegmentProviderOrder) =>
+      _$this._mediaSegmentProviderOrder = mediaSegmentProviderOrder;
 
   bool? _skipSubtitlesIfEmbeddedSubtitlesPresent;
   bool? get skipSubtitlesIfEmbeddedSubtitlesPresent =>
@@ -406,7 +472,7 @@ class LibraryOptionsBuilder
 
   ListBuilder<String>? _subtitleDownloadLanguages;
   ListBuilder<String> get subtitleDownloadLanguages =>
-      _$this._subtitleDownloadLanguages ??= new ListBuilder<String>();
+      _$this._subtitleDownloadLanguages ??= ListBuilder<String>();
   set subtitleDownloadLanguages(
           ListBuilder<String>? subtitleDownloadLanguages) =>
       _$this._subtitleDownloadLanguages = subtitleDownloadLanguages;
@@ -426,6 +492,45 @@ class LibraryOptionsBuilder
   set saveLyricsWithMedia(bool? saveLyricsWithMedia) =>
       _$this._saveLyricsWithMedia = saveLyricsWithMedia;
 
+  bool? _saveTrickplayWithMedia;
+  bool? get saveTrickplayWithMedia => _$this._saveTrickplayWithMedia;
+  set saveTrickplayWithMedia(bool? saveTrickplayWithMedia) =>
+      _$this._saveTrickplayWithMedia = saveTrickplayWithMedia;
+
+  ListBuilder<String>? _disabledLyricFetchers;
+  ListBuilder<String> get disabledLyricFetchers =>
+      _$this._disabledLyricFetchers ??= ListBuilder<String>();
+  set disabledLyricFetchers(ListBuilder<String>? disabledLyricFetchers) =>
+      _$this._disabledLyricFetchers = disabledLyricFetchers;
+
+  ListBuilder<String>? _lyricFetcherOrder;
+  ListBuilder<String> get lyricFetcherOrder =>
+      _$this._lyricFetcherOrder ??= ListBuilder<String>();
+  set lyricFetcherOrder(ListBuilder<String>? lyricFetcherOrder) =>
+      _$this._lyricFetcherOrder = lyricFetcherOrder;
+
+  bool? _preferNonstandardArtistsTag;
+  bool? get preferNonstandardArtistsTag => _$this._preferNonstandardArtistsTag;
+  set preferNonstandardArtistsTag(bool? preferNonstandardArtistsTag) =>
+      _$this._preferNonstandardArtistsTag = preferNonstandardArtistsTag;
+
+  bool? _useCustomTagDelimiters;
+  bool? get useCustomTagDelimiters => _$this._useCustomTagDelimiters;
+  set useCustomTagDelimiters(bool? useCustomTagDelimiters) =>
+      _$this._useCustomTagDelimiters = useCustomTagDelimiters;
+
+  ListBuilder<String>? _customTagDelimiters;
+  ListBuilder<String> get customTagDelimiters =>
+      _$this._customTagDelimiters ??= ListBuilder<String>();
+  set customTagDelimiters(ListBuilder<String>? customTagDelimiters) =>
+      _$this._customTagDelimiters = customTagDelimiters;
+
+  ListBuilder<String>? _delimiterWhitelist;
+  ListBuilder<String> get delimiterWhitelist =>
+      _$this._delimiterWhitelist ??= ListBuilder<String>();
+  set delimiterWhitelist(ListBuilder<String>? delimiterWhitelist) =>
+      _$this._delimiterWhitelist = delimiterWhitelist;
+
   bool? _automaticallyAddToCollection;
   bool? get automaticallyAddToCollection =>
       _$this._automaticallyAddToCollection;
@@ -440,7 +545,7 @@ class LibraryOptionsBuilder
 
   ListBuilder<TypeOptions>? _typeOptions;
   ListBuilder<TypeOptions> get typeOptions =>
-      _$this._typeOptions ??= new ListBuilder<TypeOptions>();
+      _$this._typeOptions ??= ListBuilder<TypeOptions>();
   set typeOptions(ListBuilder<TypeOptions>? typeOptions) =>
       _$this._typeOptions = typeOptions;
 
@@ -478,6 +583,9 @@ class LibraryOptionsBuilder
       _localMetadataReaderOrder = $v.localMetadataReaderOrder?.toBuilder();
       _disabledSubtitleFetchers = $v.disabledSubtitleFetchers?.toBuilder();
       _subtitleFetcherOrder = $v.subtitleFetcherOrder?.toBuilder();
+      _disabledMediaSegmentProviders =
+          $v.disabledMediaSegmentProviders?.toBuilder();
+      _mediaSegmentProviderOrder = $v.mediaSegmentProviderOrder?.toBuilder();
       _skipSubtitlesIfEmbeddedSubtitlesPresent =
           $v.skipSubtitlesIfEmbeddedSubtitlesPresent;
       _skipSubtitlesIfAudioTrackMatches = $v.skipSubtitlesIfAudioTrackMatches;
@@ -485,6 +593,13 @@ class LibraryOptionsBuilder
       _requirePerfectSubtitleMatch = $v.requirePerfectSubtitleMatch;
       _saveSubtitlesWithMedia = $v.saveSubtitlesWithMedia;
       _saveLyricsWithMedia = $v.saveLyricsWithMedia;
+      _saveTrickplayWithMedia = $v.saveTrickplayWithMedia;
+      _disabledLyricFetchers = $v.disabledLyricFetchers?.toBuilder();
+      _lyricFetcherOrder = $v.lyricFetcherOrder?.toBuilder();
+      _preferNonstandardArtistsTag = $v.preferNonstandardArtistsTag;
+      _useCustomTagDelimiters = $v.useCustomTagDelimiters;
+      _customTagDelimiters = $v.customTagDelimiters?.toBuilder();
+      _delimiterWhitelist = $v.delimiterWhitelist?.toBuilder();
       _automaticallyAddToCollection = $v.automaticallyAddToCollection;
       _allowEmbeddedSubtitles = $v.allowEmbeddedSubtitles;
       _typeOptions = $v.typeOptions?.toBuilder();
@@ -495,7 +610,6 @@ class LibraryOptionsBuilder
 
   @override
   void replace(LibraryOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LibraryOptions;
   }
 
@@ -511,45 +625,55 @@ class LibraryOptionsBuilder
     _$LibraryOptions _$result;
     try {
       _$result = _$v ??
-          new _$LibraryOptions._(
-              enabled: enabled,
-              enablePhotos: enablePhotos,
-              enableRealtimeMonitor: enableRealtimeMonitor,
-              enableLUFSScan: enableLUFSScan,
-              enableChapterImageExtraction: enableChapterImageExtraction,
-              extractChapterImagesDuringLibraryScan:
-                  extractChapterImagesDuringLibraryScan,
-              enableTrickplayImageExtraction: enableTrickplayImageExtraction,
-              extractTrickplayImagesDuringLibraryScan:
-                  extractTrickplayImagesDuringLibraryScan,
-              pathInfos: _pathInfos?.build(),
-              saveLocalMetadata: saveLocalMetadata,
-              enableInternetProviders: enableInternetProviders,
-              enableAutomaticSeriesGrouping: enableAutomaticSeriesGrouping,
-              enableEmbeddedTitles: enableEmbeddedTitles,
-              enableEmbeddedExtrasTitles: enableEmbeddedExtrasTitles,
-              enableEmbeddedEpisodeInfos: enableEmbeddedEpisodeInfos,
-              automaticRefreshIntervalDays: automaticRefreshIntervalDays,
-              preferredMetadataLanguage: preferredMetadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              seasonZeroDisplayName: seasonZeroDisplayName,
-              metadataSavers: _metadataSavers?.build(),
-              disabledLocalMetadataReaders:
-                  _disabledLocalMetadataReaders?.build(),
-              localMetadataReaderOrder: _localMetadataReaderOrder?.build(),
-              disabledSubtitleFetchers: _disabledSubtitleFetchers?.build(),
-              subtitleFetcherOrder: _subtitleFetcherOrder?.build(),
-              skipSubtitlesIfEmbeddedSubtitlesPresent:
-                  skipSubtitlesIfEmbeddedSubtitlesPresent,
-              skipSubtitlesIfAudioTrackMatches:
-                  skipSubtitlesIfAudioTrackMatches,
-              subtitleDownloadLanguages: _subtitleDownloadLanguages?.build(),
-              requirePerfectSubtitleMatch: requirePerfectSubtitleMatch,
-              saveSubtitlesWithMedia: saveSubtitlesWithMedia,
-              saveLyricsWithMedia: saveLyricsWithMedia,
-              automaticallyAddToCollection: automaticallyAddToCollection,
-              allowEmbeddedSubtitles: allowEmbeddedSubtitles,
-              typeOptions: _typeOptions?.build());
+          _$LibraryOptions._(
+            enabled: enabled,
+            enablePhotos: enablePhotos,
+            enableRealtimeMonitor: enableRealtimeMonitor,
+            enableLUFSScan: enableLUFSScan,
+            enableChapterImageExtraction: enableChapterImageExtraction,
+            extractChapterImagesDuringLibraryScan:
+                extractChapterImagesDuringLibraryScan,
+            enableTrickplayImageExtraction: enableTrickplayImageExtraction,
+            extractTrickplayImagesDuringLibraryScan:
+                extractTrickplayImagesDuringLibraryScan,
+            pathInfos: _pathInfos?.build(),
+            saveLocalMetadata: saveLocalMetadata,
+            enableInternetProviders: enableInternetProviders,
+            enableAutomaticSeriesGrouping: enableAutomaticSeriesGrouping,
+            enableEmbeddedTitles: enableEmbeddedTitles,
+            enableEmbeddedExtrasTitles: enableEmbeddedExtrasTitles,
+            enableEmbeddedEpisodeInfos: enableEmbeddedEpisodeInfos,
+            automaticRefreshIntervalDays: automaticRefreshIntervalDays,
+            preferredMetadataLanguage: preferredMetadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            seasonZeroDisplayName: seasonZeroDisplayName,
+            metadataSavers: _metadataSavers?.build(),
+            disabledLocalMetadataReaders:
+                _disabledLocalMetadataReaders?.build(),
+            localMetadataReaderOrder: _localMetadataReaderOrder?.build(),
+            disabledSubtitleFetchers: _disabledSubtitleFetchers?.build(),
+            subtitleFetcherOrder: _subtitleFetcherOrder?.build(),
+            disabledMediaSegmentProviders:
+                _disabledMediaSegmentProviders?.build(),
+            mediaSegmentProviderOrder: _mediaSegmentProviderOrder?.build(),
+            skipSubtitlesIfEmbeddedSubtitlesPresent:
+                skipSubtitlesIfEmbeddedSubtitlesPresent,
+            skipSubtitlesIfAudioTrackMatches: skipSubtitlesIfAudioTrackMatches,
+            subtitleDownloadLanguages: _subtitleDownloadLanguages?.build(),
+            requirePerfectSubtitleMatch: requirePerfectSubtitleMatch,
+            saveSubtitlesWithMedia: saveSubtitlesWithMedia,
+            saveLyricsWithMedia: saveLyricsWithMedia,
+            saveTrickplayWithMedia: saveTrickplayWithMedia,
+            disabledLyricFetchers: _disabledLyricFetchers?.build(),
+            lyricFetcherOrder: _lyricFetcherOrder?.build(),
+            preferNonstandardArtistsTag: preferNonstandardArtistsTag,
+            useCustomTagDelimiters: useCustomTagDelimiters,
+            customTagDelimiters: _customTagDelimiters?.build(),
+            delimiterWhitelist: _delimiterWhitelist?.build(),
+            automaticallyAddToCollection: automaticallyAddToCollection,
+            allowEmbeddedSubtitles: allowEmbeddedSubtitles,
+            typeOptions: _typeOptions?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -566,14 +690,28 @@ class LibraryOptionsBuilder
         _disabledSubtitleFetchers?.build();
         _$failedField = 'subtitleFetcherOrder';
         _subtitleFetcherOrder?.build();
+        _$failedField = 'disabledMediaSegmentProviders';
+        _disabledMediaSegmentProviders?.build();
+        _$failedField = 'mediaSegmentProviderOrder';
+        _mediaSegmentProviderOrder?.build();
 
         _$failedField = 'subtitleDownloadLanguages';
         _subtitleDownloadLanguages?.build();
 
+        _$failedField = 'disabledLyricFetchers';
+        _disabledLyricFetchers?.build();
+        _$failedField = 'lyricFetcherOrder';
+        _lyricFetcherOrder?.build();
+
+        _$failedField = 'customTagDelimiters';
+        _customTagDelimiters?.build();
+        _$failedField = 'delimiterWhitelist';
+        _delimiterWhitelist?.build();
+
         _$failedField = 'typeOptions';
         _typeOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LibraryOptions', _$failedField, e.toString());
       }
       rethrow;

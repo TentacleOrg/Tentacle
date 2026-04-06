@@ -22,18 +22,13 @@ void main() {
       // TODO
     });
 
-    // String plexUsername
-    test('to test the property `plexUsername`', () async {
-      // TODO
-    });
-
     // String plexToken
     test('to test the property `plexToken`', () async {
       // TODO
     });
 
-    // String jellyfinAuthToken
-    test('to test the property `jellyfinAuthToken`', () async {
+    // String plexUsername
+    test('to test the property `plexUsername`', () async {
       // TODO
     });
 

@@ -33,15 +33,6 @@ void main() {
       // TODO
     });
 
-    // Get Jellyfin Users
-    //
-    // Returns a list of Jellyfin Users in a JSON array.
-    //
-    //Future<BuiltList<SettingsJellyfinUsersGet200ResponseInner>> settingsJellyfinUsersGet() async
-    test('test settingsJellyfinUsersGet', () async {
-      // TODO
-    });
-
     // Get Plex users
     //
     // Returns a list of Plex users in a JSON array.  Requires the `MANAGE_USERS` permission.
@@ -57,15 +48,6 @@ void main() {
     //
     //Future<UserGet200Response> userGet({ num take, num skip, String sort }) async
     test('test userGet', () async {
-      // TODO
-    });
-
-    // Import all users from Jellyfin
-    //
-    // Fetches and imports users from the Jellyfin server.  Requires the `MANAGE_USERS` permission.
-    //
-    //Future<BuiltList<User>> userImportFromJellyfinPost({ UserImportFromJellyfinPostRequest userImportFromJellyfinPostRequest }) async
-    test('test userImportFromJellyfinPost', () async {
       // TODO
     });
 
@@ -120,6 +102,33 @@ void main() {
     //
     //Future<User> userUserIdGet(num userId) async
     test('test userUserIdGet', () async {
+      // TODO
+    });
+
+    // Delete user push subscription by key
+    //
+    // Deletes the user push subscription with the provided key.
+    //
+    //Future userUserIdPushSubscriptionEndpointDelete(num userId, String endpoint) async
+    test('test userUserIdPushSubscriptionEndpointDelete', () async {
+      // TODO
+    });
+
+    // Get web push notification settings for a user
+    //
+    // Returns web push notification settings for a user in a JSON object.
+    //
+    //Future<UserUserIdPushSubscriptionsGet200Response> userUserIdPushSubscriptionEndpointGet(num userId, String endpoint) async
+    test('test userUserIdPushSubscriptionEndpointGet', () async {
+      // TODO
+    });
+
+    // Get all web push notification settings for a user
+    //
+    // Returns all web push notification settings for a user in a JSON object.
+    //
+    //Future<UserUserIdPushSubscriptionsGet200Response> userUserIdPushSubscriptionsGet(num userId) async
+    test('test userUserIdPushSubscriptionsGet', () async {
       // TODO
     });
 

@@ -18,7 +18,7 @@ class _$AlbumInfoRemoteSearchQuery extends AlbumInfoRemoteSearchQuery {
 
   factory _$AlbumInfoRemoteSearchQuery(
           [void Function(AlbumInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new AlbumInfoRemoteSearchQueryBuilder()..update(updates))._build();
+      (AlbumInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
   _$AlbumInfoRemoteSearchQuery._(
       {this.searchInfo,
@@ -26,7 +26,6 @@ class _$AlbumInfoRemoteSearchQuery extends AlbumInfoRemoteSearchQuery {
       this.searchProviderName,
       this.includeDisabledProviders})
       : super._();
-
   @override
   AlbumInfoRemoteSearchQuery rebuild(
           void Function(AlbumInfoRemoteSearchQueryBuilder) updates) =>
@@ -34,7 +33,7 @@ class _$AlbumInfoRemoteSearchQuery extends AlbumInfoRemoteSearchQuery {
 
   @override
   AlbumInfoRemoteSearchQueryBuilder toBuilder() =>
-      new AlbumInfoRemoteSearchQueryBuilder()..replace(this);
+      AlbumInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,8 +73,7 @@ class AlbumInfoRemoteSearchQueryBuilder
   _$AlbumInfoRemoteSearchQuery? _$v;
 
   AlbumInfoBuilder? _searchInfo;
-  AlbumInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new AlbumInfoBuilder();
+  AlbumInfoBuilder get searchInfo => _$this._searchInfo ??= AlbumInfoBuilder();
   set searchInfo(AlbumInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
@@ -111,7 +109,6 @@ class AlbumInfoRemoteSearchQueryBuilder
 
   @override
   void replace(AlbumInfoRemoteSearchQuery other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AlbumInfoRemoteSearchQuery;
   }
 
@@ -127,18 +124,19 @@ class AlbumInfoRemoteSearchQueryBuilder
     _$AlbumInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$AlbumInfoRemoteSearchQuery._(
-              searchInfo: _searchInfo?.build(),
-              itemId: itemId,
-              searchProviderName: searchProviderName,
-              includeDisabledProviders: includeDisabledProviders);
+          _$AlbumInfoRemoteSearchQuery._(
+            searchInfo: _searchInfo?.build(),
+            itemId: itemId,
+            searchProviderName: searchProviderName,
+            includeDisabledProviders: includeDisabledProviders,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'searchInfo';
         _searchInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'AlbumInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;

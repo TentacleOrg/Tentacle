@@ -16,12 +16,11 @@ class _$SeriesTimerInfoDtoQueryResult extends SeriesTimerInfoDtoQueryResult {
 
   factory _$SeriesTimerInfoDtoQueryResult(
           [void Function(SeriesTimerInfoDtoQueryResultBuilder)? updates]) =>
-      (new SeriesTimerInfoDtoQueryResultBuilder()..update(updates))._build();
+      (SeriesTimerInfoDtoQueryResultBuilder()..update(updates))._build();
 
   _$SeriesTimerInfoDtoQueryResult._(
       {this.items, this.totalRecordCount, this.startIndex})
       : super._();
-
   @override
   SeriesTimerInfoDtoQueryResult rebuild(
           void Function(SeriesTimerInfoDtoQueryResultBuilder) updates) =>
@@ -29,7 +28,7 @@ class _$SeriesTimerInfoDtoQueryResult extends SeriesTimerInfoDtoQueryResult {
 
   @override
   SeriesTimerInfoDtoQueryResultBuilder toBuilder() =>
-      new SeriesTimerInfoDtoQueryResultBuilder()..replace(this);
+      SeriesTimerInfoDtoQueryResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -68,7 +67,7 @@ class SeriesTimerInfoDtoQueryResultBuilder
 
   ListBuilder<SeriesTimerInfoDto>? _items;
   ListBuilder<SeriesTimerInfoDto> get items =>
-      _$this._items ??= new ListBuilder<SeriesTimerInfoDto>();
+      _$this._items ??= ListBuilder<SeriesTimerInfoDto>();
   set items(ListBuilder<SeriesTimerInfoDto>? items) => _$this._items = items;
 
   int? _totalRecordCount;
@@ -97,7 +96,6 @@ class SeriesTimerInfoDtoQueryResultBuilder
 
   @override
   void replace(SeriesTimerInfoDtoQueryResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SeriesTimerInfoDtoQueryResult;
   }
 
@@ -113,17 +111,18 @@ class SeriesTimerInfoDtoQueryResultBuilder
     _$SeriesTimerInfoDtoQueryResult _$result;
     try {
       _$result = _$v ??
-          new _$SeriesTimerInfoDtoQueryResult._(
-              items: _items?.build(),
-              totalRecordCount: totalRecordCount,
-              startIndex: startIndex);
+          _$SeriesTimerInfoDtoQueryResult._(
+            items: _items?.build(),
+            totalRecordCount: totalRecordCount,
+            startIndex: startIndex,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         _items?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SeriesTimerInfoDtoQueryResult', _$failedField, e.toString());
       }
       rethrow;

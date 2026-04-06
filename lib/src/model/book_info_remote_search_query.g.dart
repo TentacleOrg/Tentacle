@@ -18,7 +18,7 @@ class _$BookInfoRemoteSearchQuery extends BookInfoRemoteSearchQuery {
 
   factory _$BookInfoRemoteSearchQuery(
           [void Function(BookInfoRemoteSearchQueryBuilder)? updates]) =>
-      (new BookInfoRemoteSearchQueryBuilder()..update(updates))._build();
+      (BookInfoRemoteSearchQueryBuilder()..update(updates))._build();
 
   _$BookInfoRemoteSearchQuery._(
       {this.searchInfo,
@@ -26,7 +26,6 @@ class _$BookInfoRemoteSearchQuery extends BookInfoRemoteSearchQuery {
       this.searchProviderName,
       this.includeDisabledProviders})
       : super._();
-
   @override
   BookInfoRemoteSearchQuery rebuild(
           void Function(BookInfoRemoteSearchQueryBuilder) updates) =>
@@ -34,7 +33,7 @@ class _$BookInfoRemoteSearchQuery extends BookInfoRemoteSearchQuery {
 
   @override
   BookInfoRemoteSearchQueryBuilder toBuilder() =>
-      new BookInfoRemoteSearchQueryBuilder()..replace(this);
+      BookInfoRemoteSearchQueryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -74,8 +73,7 @@ class BookInfoRemoteSearchQueryBuilder
   _$BookInfoRemoteSearchQuery? _$v;
 
   BookInfoBuilder? _searchInfo;
-  BookInfoBuilder get searchInfo =>
-      _$this._searchInfo ??= new BookInfoBuilder();
+  BookInfoBuilder get searchInfo => _$this._searchInfo ??= BookInfoBuilder();
   set searchInfo(BookInfoBuilder? searchInfo) =>
       _$this._searchInfo = searchInfo;
 
@@ -111,7 +109,6 @@ class BookInfoRemoteSearchQueryBuilder
 
   @override
   void replace(BookInfoRemoteSearchQuery other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BookInfoRemoteSearchQuery;
   }
 
@@ -127,18 +124,19 @@ class BookInfoRemoteSearchQueryBuilder
     _$BookInfoRemoteSearchQuery _$result;
     try {
       _$result = _$v ??
-          new _$BookInfoRemoteSearchQuery._(
-              searchInfo: _searchInfo?.build(),
-              itemId: itemId,
-              searchProviderName: searchProviderName,
-              includeDisabledProviders: includeDisabledProviders);
+          _$BookInfoRemoteSearchQuery._(
+            searchInfo: _searchInfo?.build(),
+            itemId: itemId,
+            searchProviderName: searchProviderName,
+            includeDisabledProviders: includeDisabledProviders,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'searchInfo';
         _searchInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'BookInfoRemoteSearchQuery', _$failedField, e.toString());
       }
       rethrow;

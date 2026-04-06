@@ -18,13 +18,11 @@ class _$PluginInstallationCancelledMessage
   factory _$PluginInstallationCancelledMessage(
           [void Function(PluginInstallationCancelledMessageBuilder)?
               updates]) =>
-      (new PluginInstallationCancelledMessageBuilder()..update(updates))
-          ._build();
+      (PluginInstallationCancelledMessageBuilder()..update(updates))._build();
 
   _$PluginInstallationCancelledMessage._(
       {this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   PluginInstallationCancelledMessage rebuild(
           void Function(PluginInstallationCancelledMessageBuilder) updates) =>
@@ -32,7 +30,7 @@ class _$PluginInstallationCancelledMessage
 
   @override
   PluginInstallationCancelledMessageBuilder toBuilder() =>
-      new PluginInstallationCancelledMessageBuilder()..replace(this);
+      PluginInstallationCancelledMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +69,7 @@ class PluginInstallationCancelledMessageBuilder
 
   InstallationInfoBuilder? _data;
   InstallationInfoBuilder get data =>
-      _$this._data ??= new InstallationInfoBuilder();
+      _$this._data ??= InstallationInfoBuilder();
   set data(InstallationInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -100,7 +98,6 @@ class PluginInstallationCancelledMessageBuilder
 
   @override
   void replace(PluginInstallationCancelledMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PluginInstallationCancelledMessage;
   }
 
@@ -117,17 +114,18 @@ class PluginInstallationCancelledMessageBuilder
     _$PluginInstallationCancelledMessage _$result;
     try {
       _$result = _$v ??
-          new _$PluginInstallationCancelledMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$PluginInstallationCancelledMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PluginInstallationCancelledMessage', _$failedField, e.toString());
       }
       rethrow;

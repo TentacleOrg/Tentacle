@@ -19,12 +19,12 @@ ChannelMediaType _$valueOf(String name) {
     case 'photo':
       return _$photo;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<ChannelMediaType> _$values =
-    new BuiltSet<ChannelMediaType>(const <ChannelMediaType>[
+    BuiltSet<ChannelMediaType>(const <ChannelMediaType>[
   _$audio,
   _$video,
   _$photo,
@@ -45,7 +45,7 @@ mixin _$ChannelMediaTypeMixin {
 }
 
 Serializer<ChannelMediaType> _$channelMediaTypeSerializer =
-    new _$ChannelMediaTypeSerializer();
+    _$ChannelMediaTypeSerializer();
 
 class _$ChannelMediaTypeSerializer
     implements PrimitiveSerializer<ChannelMediaType> {

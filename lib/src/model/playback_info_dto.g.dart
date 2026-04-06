@@ -37,9 +37,11 @@ class _$PlaybackInfoDto extends PlaybackInfoDto {
   final bool? allowAudioStreamCopy;
   @override
   final bool? autoOpenLiveStream;
+  @override
+  final bool? alwaysBurnInSubtitleWhenTranscoding;
 
   factory _$PlaybackInfoDto([void Function(PlaybackInfoDtoBuilder)? updates]) =>
-      (new PlaybackInfoDtoBuilder()..update(updates))._build();
+      (PlaybackInfoDtoBuilder()..update(updates))._build();
 
   _$PlaybackInfoDto._(
       {this.userId,
@@ -56,16 +58,15 @@ class _$PlaybackInfoDto extends PlaybackInfoDto {
       this.enableTranscoding,
       this.allowVideoStreamCopy,
       this.allowAudioStreamCopy,
-      this.autoOpenLiveStream})
+      this.autoOpenLiveStream,
+      this.alwaysBurnInSubtitleWhenTranscoding})
       : super._();
-
   @override
   PlaybackInfoDto rebuild(void Function(PlaybackInfoDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlaybackInfoDtoBuilder toBuilder() =>
-      new PlaybackInfoDtoBuilder()..replace(this);
+  PlaybackInfoDtoBuilder toBuilder() => PlaybackInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -85,7 +86,9 @@ class _$PlaybackInfoDto extends PlaybackInfoDto {
         enableTranscoding == other.enableTranscoding &&
         allowVideoStreamCopy == other.allowVideoStreamCopy &&
         allowAudioStreamCopy == other.allowAudioStreamCopy &&
-        autoOpenLiveStream == other.autoOpenLiveStream;
+        autoOpenLiveStream == other.autoOpenLiveStream &&
+        alwaysBurnInSubtitleWhenTranscoding ==
+            other.alwaysBurnInSubtitleWhenTranscoding;
   }
 
   @override
@@ -106,6 +109,7 @@ class _$PlaybackInfoDto extends PlaybackInfoDto {
     _$hash = $jc(_$hash, allowVideoStreamCopy.hashCode);
     _$hash = $jc(_$hash, allowAudioStreamCopy.hashCode);
     _$hash = $jc(_$hash, autoOpenLiveStream.hashCode);
+    _$hash = $jc(_$hash, alwaysBurnInSubtitleWhenTranscoding.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -127,7 +131,9 @@ class _$PlaybackInfoDto extends PlaybackInfoDto {
           ..add('enableTranscoding', enableTranscoding)
           ..add('allowVideoStreamCopy', allowVideoStreamCopy)
           ..add('allowAudioStreamCopy', allowAudioStreamCopy)
-          ..add('autoOpenLiveStream', autoOpenLiveStream))
+          ..add('autoOpenLiveStream', autoOpenLiveStream)
+          ..add('alwaysBurnInSubtitleWhenTranscoding',
+              alwaysBurnInSubtitleWhenTranscoding))
         .toString();
   }
 }
@@ -176,7 +182,7 @@ class PlaybackInfoDtoBuilder
 
   DeviceProfileBuilder? _deviceProfile;
   DeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new DeviceProfileBuilder();
+      _$this._deviceProfile ??= DeviceProfileBuilder();
   set deviceProfile(DeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
@@ -210,6 +216,14 @@ class PlaybackInfoDtoBuilder
   set autoOpenLiveStream(bool? autoOpenLiveStream) =>
       _$this._autoOpenLiveStream = autoOpenLiveStream;
 
+  bool? _alwaysBurnInSubtitleWhenTranscoding;
+  bool? get alwaysBurnInSubtitleWhenTranscoding =>
+      _$this._alwaysBurnInSubtitleWhenTranscoding;
+  set alwaysBurnInSubtitleWhenTranscoding(
+          bool? alwaysBurnInSubtitleWhenTranscoding) =>
+      _$this._alwaysBurnInSubtitleWhenTranscoding =
+          alwaysBurnInSubtitleWhenTranscoding;
+
   PlaybackInfoDtoBuilder() {
     PlaybackInfoDto._defaults(this);
   }
@@ -232,6 +246,8 @@ class PlaybackInfoDtoBuilder
       _allowVideoStreamCopy = $v.allowVideoStreamCopy;
       _allowAudioStreamCopy = $v.allowAudioStreamCopy;
       _autoOpenLiveStream = $v.autoOpenLiveStream;
+      _alwaysBurnInSubtitleWhenTranscoding =
+          $v.alwaysBurnInSubtitleWhenTranscoding;
       _$v = null;
     }
     return this;
@@ -239,7 +255,6 @@ class PlaybackInfoDtoBuilder
 
   @override
   void replace(PlaybackInfoDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlaybackInfoDto;
   }
 
@@ -255,29 +270,32 @@ class PlaybackInfoDtoBuilder
     _$PlaybackInfoDto _$result;
     try {
       _$result = _$v ??
-          new _$PlaybackInfoDto._(
-              userId: userId,
-              maxStreamingBitrate: maxStreamingBitrate,
-              startTimeTicks: startTimeTicks,
-              audioStreamIndex: audioStreamIndex,
-              subtitleStreamIndex: subtitleStreamIndex,
-              maxAudioChannels: maxAudioChannels,
-              mediaSourceId: mediaSourceId,
-              liveStreamId: liveStreamId,
-              deviceProfile: _deviceProfile?.build(),
-              enableDirectPlay: enableDirectPlay,
-              enableDirectStream: enableDirectStream,
-              enableTranscoding: enableTranscoding,
-              allowVideoStreamCopy: allowVideoStreamCopy,
-              allowAudioStreamCopy: allowAudioStreamCopy,
-              autoOpenLiveStream: autoOpenLiveStream);
+          _$PlaybackInfoDto._(
+            userId: userId,
+            maxStreamingBitrate: maxStreamingBitrate,
+            startTimeTicks: startTimeTicks,
+            audioStreamIndex: audioStreamIndex,
+            subtitleStreamIndex: subtitleStreamIndex,
+            maxAudioChannels: maxAudioChannels,
+            mediaSourceId: mediaSourceId,
+            liveStreamId: liveStreamId,
+            deviceProfile: _deviceProfile?.build(),
+            enableDirectPlay: enableDirectPlay,
+            enableDirectStream: enableDirectStream,
+            enableTranscoding: enableTranscoding,
+            allowVideoStreamCopy: allowVideoStreamCopy,
+            allowAudioStreamCopy: allowAudioStreamCopy,
+            autoOpenLiveStream: autoOpenLiveStream,
+            alwaysBurnInSubtitleWhenTranscoding:
+                alwaysBurnInSubtitleWhenTranscoding,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'deviceProfile';
         _deviceProfile?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlaybackInfoDto', _$failedField, e.toString());
       }
       rethrow;

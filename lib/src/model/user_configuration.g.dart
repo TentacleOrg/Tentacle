@@ -42,7 +42,7 @@ class _$UserConfiguration extends UserConfiguration {
 
   factory _$UserConfiguration(
           [void Function(UserConfigurationBuilder)? updates]) =>
-      (new UserConfigurationBuilder()..update(updates))._build();
+      (UserConfigurationBuilder()..update(updates))._build();
 
   _$UserConfiguration._(
       {this.audioLanguagePreference,
@@ -62,14 +62,13 @@ class _$UserConfiguration extends UserConfiguration {
       this.enableNextEpisodeAutoPlay,
       this.castReceiverId})
       : super._();
-
   @override
   UserConfiguration rebuild(void Function(UserConfigurationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   UserConfigurationBuilder toBuilder() =>
-      new UserConfigurationBuilder()..replace(this);
+      UserConfigurationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -165,7 +164,7 @@ class UserConfigurationBuilder
 
   ListBuilder<String>? _groupedFolders;
   ListBuilder<String> get groupedFolders =>
-      _$this._groupedFolders ??= new ListBuilder<String>();
+      _$this._groupedFolders ??= ListBuilder<String>();
   set groupedFolders(ListBuilder<String>? groupedFolders) =>
       _$this._groupedFolders = groupedFolders;
 
@@ -186,19 +185,19 @@ class UserConfigurationBuilder
 
   ListBuilder<String>? _orderedViews;
   ListBuilder<String> get orderedViews =>
-      _$this._orderedViews ??= new ListBuilder<String>();
+      _$this._orderedViews ??= ListBuilder<String>();
   set orderedViews(ListBuilder<String>? orderedViews) =>
       _$this._orderedViews = orderedViews;
 
   ListBuilder<String>? _latestItemsExcludes;
   ListBuilder<String> get latestItemsExcludes =>
-      _$this._latestItemsExcludes ??= new ListBuilder<String>();
+      _$this._latestItemsExcludes ??= ListBuilder<String>();
   set latestItemsExcludes(ListBuilder<String>? latestItemsExcludes) =>
       _$this._latestItemsExcludes = latestItemsExcludes;
 
   ListBuilder<String>? _myMediaExcludes;
   ListBuilder<String> get myMediaExcludes =>
-      _$this._myMediaExcludes ??= new ListBuilder<String>();
+      _$this._myMediaExcludes ??= ListBuilder<String>();
   set myMediaExcludes(ListBuilder<String>? myMediaExcludes) =>
       _$this._myMediaExcludes = myMediaExcludes;
 
@@ -257,7 +256,6 @@ class UserConfigurationBuilder
 
   @override
   void replace(UserConfiguration other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserConfiguration;
   }
 
@@ -273,23 +271,24 @@ class UserConfigurationBuilder
     _$UserConfiguration _$result;
     try {
       _$result = _$v ??
-          new _$UserConfiguration._(
-              audioLanguagePreference: audioLanguagePreference,
-              playDefaultAudioTrack: playDefaultAudioTrack,
-              subtitleLanguagePreference: subtitleLanguagePreference,
-              displayMissingEpisodes: displayMissingEpisodes,
-              groupedFolders: _groupedFolders?.build(),
-              subtitleMode: subtitleMode,
-              displayCollectionsView: displayCollectionsView,
-              enableLocalPassword: enableLocalPassword,
-              orderedViews: _orderedViews?.build(),
-              latestItemsExcludes: _latestItemsExcludes?.build(),
-              myMediaExcludes: _myMediaExcludes?.build(),
-              hidePlayedInLatest: hidePlayedInLatest,
-              rememberAudioSelections: rememberAudioSelections,
-              rememberSubtitleSelections: rememberSubtitleSelections,
-              enableNextEpisodeAutoPlay: enableNextEpisodeAutoPlay,
-              castReceiverId: castReceiverId);
+          _$UserConfiguration._(
+            audioLanguagePreference: audioLanguagePreference,
+            playDefaultAudioTrack: playDefaultAudioTrack,
+            subtitleLanguagePreference: subtitleLanguagePreference,
+            displayMissingEpisodes: displayMissingEpisodes,
+            groupedFolders: _groupedFolders?.build(),
+            subtitleMode: subtitleMode,
+            displayCollectionsView: displayCollectionsView,
+            enableLocalPassword: enableLocalPassword,
+            orderedViews: _orderedViews?.build(),
+            latestItemsExcludes: _latestItemsExcludes?.build(),
+            myMediaExcludes: _myMediaExcludes?.build(),
+            hidePlayedInLatest: hidePlayedInLatest,
+            rememberAudioSelections: rememberAudioSelections,
+            rememberSubtitleSelections: rememberSubtitleSelections,
+            enableNextEpisodeAutoPlay: enableNextEpisodeAutoPlay,
+            castReceiverId: castReceiverId,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -303,7 +302,7 @@ class UserConfigurationBuilder
         _$failedField = 'myMediaExcludes';
         _myMediaExcludes?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserConfiguration', _$failedField, e.toString());
       }
       rethrow;

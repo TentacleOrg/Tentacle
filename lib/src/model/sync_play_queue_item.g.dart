@@ -14,17 +14,16 @@ class _$SyncPlayQueueItem extends SyncPlayQueueItem {
 
   factory _$SyncPlayQueueItem(
           [void Function(SyncPlayQueueItemBuilder)? updates]) =>
-      (new SyncPlayQueueItemBuilder()..update(updates))._build();
+      (SyncPlayQueueItemBuilder()..update(updates))._build();
 
   _$SyncPlayQueueItem._({this.itemId, this.playlistItemId}) : super._();
-
   @override
   SyncPlayQueueItem rebuild(void Function(SyncPlayQueueItemBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   SyncPlayQueueItemBuilder toBuilder() =>
-      new SyncPlayQueueItemBuilder()..replace(this);
+      SyncPlayQueueItemBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -81,7 +80,6 @@ class SyncPlayQueueItemBuilder
 
   @override
   void replace(SyncPlayQueueItem other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SyncPlayQueueItem;
   }
 
@@ -95,8 +93,10 @@ class SyncPlayQueueItemBuilder
 
   _$SyncPlayQueueItem _build() {
     final _$result = _$v ??
-        new _$SyncPlayQueueItem._(
-            itemId: itemId, playlistItemId: playlistItemId);
+        _$SyncPlayQueueItem._(
+          itemId: itemId,
+          playlistItemId: playlistItemId,
+        );
     replace(_$result);
     return _$result;
   }

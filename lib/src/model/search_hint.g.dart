@@ -67,7 +67,7 @@ class _$SearchHint extends SearchHint {
   final double? primaryImageAspectRatio;
 
   factory _$SearchHint([void Function(SearchHintBuilder)? updates]) =>
-      (new SearchHintBuilder()..update(updates))._build();
+      (SearchHintBuilder()..update(updates))._build();
 
   _$SearchHint._(
       {this.itemId,
@@ -100,13 +100,12 @@ class _$SearchHint extends SearchHint {
       this.channelName,
       this.primaryImageAspectRatio})
       : super._();
-
   @override
   SearchHint rebuild(void Function(SearchHintBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SearchHintBuilder toBuilder() => new SearchHintBuilder()..replace(this);
+  SearchHintBuilder toBuilder() => SearchHintBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -318,8 +317,7 @@ class SearchHintBuilder implements Builder<SearchHint, SearchHintBuilder> {
   set albumArtist(String? albumArtist) => _$this._albumArtist = albumArtist;
 
   ListBuilder<String>? _artists;
-  ListBuilder<String> get artists =>
-      _$this._artists ??= new ListBuilder<String>();
+  ListBuilder<String> get artists => _$this._artists ??= ListBuilder<String>();
   set artists(ListBuilder<String>? artists) => _$this._artists = artists;
 
   int? _songCount;
@@ -386,7 +384,6 @@ class SearchHintBuilder implements Builder<SearchHint, SearchHintBuilder> {
 
   @override
   void replace(SearchHint other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SearchHint;
   }
 
@@ -402,43 +399,44 @@ class SearchHintBuilder implements Builder<SearchHint, SearchHintBuilder> {
     _$SearchHint _$result;
     try {
       _$result = _$v ??
-          new _$SearchHint._(
-              itemId: itemId,
-              id: id,
-              name: name,
-              matchedTerm: matchedTerm,
-              indexNumber: indexNumber,
-              productionYear: productionYear,
-              parentIndexNumber: parentIndexNumber,
-              primaryImageTag: primaryImageTag,
-              thumbImageTag: thumbImageTag,
-              thumbImageItemId: thumbImageItemId,
-              backdropImageTag: backdropImageTag,
-              backdropImageItemId: backdropImageItemId,
-              type: type,
-              isFolder: isFolder,
-              runTimeTicks: runTimeTicks,
-              mediaType: mediaType,
-              startDate: startDate,
-              endDate: endDate,
-              series: series,
-              status: status,
-              album: album,
-              albumId: albumId,
-              albumArtist: albumArtist,
-              artists: _artists?.build(),
-              songCount: songCount,
-              episodeCount: episodeCount,
-              channelId: channelId,
-              channelName: channelName,
-              primaryImageAspectRatio: primaryImageAspectRatio);
+          _$SearchHint._(
+            itemId: itemId,
+            id: id,
+            name: name,
+            matchedTerm: matchedTerm,
+            indexNumber: indexNumber,
+            productionYear: productionYear,
+            parentIndexNumber: parentIndexNumber,
+            primaryImageTag: primaryImageTag,
+            thumbImageTag: thumbImageTag,
+            thumbImageItemId: thumbImageItemId,
+            backdropImageTag: backdropImageTag,
+            backdropImageItemId: backdropImageItemId,
+            type: type,
+            isFolder: isFolder,
+            runTimeTicks: runTimeTicks,
+            mediaType: mediaType,
+            startDate: startDate,
+            endDate: endDate,
+            series: series,
+            status: status,
+            album: album,
+            albumId: albumId,
+            albumArtist: albumArtist,
+            artists: _artists?.build(),
+            songCount: songCount,
+            episodeCount: episodeCount,
+            channelId: channelId,
+            channelName: channelName,
+            primaryImageAspectRatio: primaryImageAspectRatio,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'artists';
         _artists?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SearchHint', _$failedField, e.toString());
       }
       rethrow;

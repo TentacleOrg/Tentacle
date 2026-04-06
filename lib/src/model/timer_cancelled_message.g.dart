@@ -16,11 +16,10 @@ class _$TimerCancelledMessage extends TimerCancelledMessage {
 
   factory _$TimerCancelledMessage(
           [void Function(TimerCancelledMessageBuilder)? updates]) =>
-      (new TimerCancelledMessageBuilder()..update(updates))._build();
+      (TimerCancelledMessageBuilder()..update(updates))._build();
 
   _$TimerCancelledMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   TimerCancelledMessage rebuild(
           void Function(TimerCancelledMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$TimerCancelledMessage extends TimerCancelledMessage {
 
   @override
   TimerCancelledMessageBuilder toBuilder() =>
-      new TimerCancelledMessageBuilder()..replace(this);
+      TimerCancelledMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,8 +63,7 @@ class TimerCancelledMessageBuilder
   _$TimerCancelledMessage? _$v;
 
   TimerEventInfoBuilder? _data;
-  TimerEventInfoBuilder get data =>
-      _$this._data ??= new TimerEventInfoBuilder();
+  TimerEventInfoBuilder get data => _$this._data ??= TimerEventInfoBuilder();
   set data(TimerEventInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -94,7 +92,6 @@ class TimerCancelledMessageBuilder
 
   @override
   void replace(TimerCancelledMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TimerCancelledMessage;
   }
 
@@ -110,17 +107,18 @@ class TimerCancelledMessageBuilder
     _$TimerCancelledMessage _$result;
     try {
       _$result = _$v ??
-          new _$TimerCancelledMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$TimerCancelledMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TimerCancelledMessage', _$failedField, e.toString());
       }
       rethrow;

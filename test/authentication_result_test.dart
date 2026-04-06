@@ -13,17 +13,19 @@ void main() {
       // TODO
     });
 
-    // Class SessionInfo.
-    // SessionInfo sessionInfo
+    // Session info DTO.
+    // SessionInfoDto sessionInfo
     test('to test the property `sessionInfo`', () async {
       // TODO
     });
 
+    // Gets or sets the access token.
     // String accessToken
     test('to test the property `accessToken`', () async {
       // TODO
     });
 
+    // Gets or sets the server id.
     // String serverId
     test('to test the property `serverId`', () async {
       // TODO

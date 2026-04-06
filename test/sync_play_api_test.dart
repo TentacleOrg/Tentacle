@@ -15,8 +15,15 @@ void main() {
 
     // Create a new SyncPlay group.
     //
-    //Future syncPlayCreateGroup(NewGroupRequestDto newGroupRequestDto) async
+    //Future<GroupInfoDto> syncPlayCreateGroup(NewGroupRequestDto newGroupRequestDto) async
     test('test syncPlayCreateGroup', () async {
+      // TODO
+    });
+
+    // Gets a SyncPlay group by id.
+    //
+    //Future<GroupInfoDto> syncPlayGetGroup(String id) async
+    test('test syncPlayGetGroup', () async {
       // TODO
     });
 

@@ -26,7 +26,7 @@ class _$QuickConnectResult extends QuickConnectResult {
 
   factory _$QuickConnectResult(
           [void Function(QuickConnectResultBuilder)? updates]) =>
-      (new QuickConnectResultBuilder()..update(updates))._build();
+      (QuickConnectResultBuilder()..update(updates))._build();
 
   _$QuickConnectResult._(
       {this.authenticated,
@@ -38,7 +38,6 @@ class _$QuickConnectResult extends QuickConnectResult {
       this.appVersion,
       this.dateAdded})
       : super._();
-
   @override
   QuickConnectResult rebuild(
           void Function(QuickConnectResultBuilder) updates) =>
@@ -46,7 +45,7 @@ class _$QuickConnectResult extends QuickConnectResult {
 
   @override
   QuickConnectResultBuilder toBuilder() =>
-      new QuickConnectResultBuilder()..replace(this);
+      QuickConnectResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -151,7 +150,6 @@ class QuickConnectResultBuilder
 
   @override
   void replace(QuickConnectResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$QuickConnectResult;
   }
 
@@ -165,15 +163,16 @@ class QuickConnectResultBuilder
 
   _$QuickConnectResult _build() {
     final _$result = _$v ??
-        new _$QuickConnectResult._(
-            authenticated: authenticated,
-            secret: secret,
-            code: code,
-            deviceId: deviceId,
-            deviceName: deviceName,
-            appName: appName,
-            appVersion: appVersion,
-            dateAdded: dateAdded);
+        _$QuickConnectResult._(
+          authenticated: authenticated,
+          secret: secret,
+          code: code,
+          deviceId: deviceId,
+          deviceName: deviceName,
+          appName: appName,
+          appVersion: appVersion,
+          dateAdded: dateAdded,
+        );
     replace(_$result);
     return _$result;
   }

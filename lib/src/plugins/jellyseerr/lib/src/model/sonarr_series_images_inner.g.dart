@@ -14,10 +14,9 @@ class _$SonarrSeriesImagesInner extends SonarrSeriesImagesInner {
 
   factory _$SonarrSeriesImagesInner(
           [void Function(SonarrSeriesImagesInnerBuilder)? updates]) =>
-      (new SonarrSeriesImagesInnerBuilder()..update(updates))._build();
+      (SonarrSeriesImagesInnerBuilder()..update(updates))._build();
 
   _$SonarrSeriesImagesInner._({this.coverType, this.url}) : super._();
-
   @override
   SonarrSeriesImagesInner rebuild(
           void Function(SonarrSeriesImagesInnerBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$SonarrSeriesImagesInner extends SonarrSeriesImagesInner {
 
   @override
   SonarrSeriesImagesInnerBuilder toBuilder() =>
-      new SonarrSeriesImagesInnerBuilder()..replace(this);
+      SonarrSeriesImagesInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class SonarrSeriesImagesInnerBuilder
 
   @override
   void replace(SonarrSeriesImagesInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SonarrSeriesImagesInner;
   }
 
@@ -95,8 +93,11 @@ class SonarrSeriesImagesInnerBuilder
   SonarrSeriesImagesInner build() => _build();
 
   _$SonarrSeriesImagesInner _build() {
-    final _$result =
-        _$v ?? new _$SonarrSeriesImagesInner._(coverType: coverType, url: url);
+    final _$result = _$v ??
+        _$SonarrSeriesImagesInner._(
+          coverType: coverType,
+          url: url,
+        );
     replace(_$result);
     return _$result;
   }

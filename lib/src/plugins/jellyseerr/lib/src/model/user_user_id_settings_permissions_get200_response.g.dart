@@ -14,13 +14,11 @@ class _$UserUserIdSettingsPermissionsGet200Response
   factory _$UserUserIdSettingsPermissionsGet200Response(
           [void Function(UserUserIdSettingsPermissionsGet200ResponseBuilder)?
               updates]) =>
-      (new UserUserIdSettingsPermissionsGet200ResponseBuilder()
-            ..update(updates))
+      (UserUserIdSettingsPermissionsGet200ResponseBuilder()..update(updates))
           ._build();
 
   _$UserUserIdSettingsPermissionsGet200Response._({this.permissions})
       : super._();
-
   @override
   UserUserIdSettingsPermissionsGet200Response rebuild(
           void Function(UserUserIdSettingsPermissionsGet200ResponseBuilder)
@@ -29,7 +27,7 @@ class _$UserUserIdSettingsPermissionsGet200Response
 
   @override
   UserUserIdSettingsPermissionsGet200ResponseBuilder toBuilder() =>
-      new UserUserIdSettingsPermissionsGet200ResponseBuilder()..replace(this);
+      UserUserIdSettingsPermissionsGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -80,7 +78,6 @@ class UserUserIdSettingsPermissionsGet200ResponseBuilder
 
   @override
   void replace(UserUserIdSettingsPermissionsGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserUserIdSettingsPermissionsGet200Response;
   }
 
@@ -96,8 +93,9 @@ class UserUserIdSettingsPermissionsGet200ResponseBuilder
 
   _$UserUserIdSettingsPermissionsGet200Response _build() {
     final _$result = _$v ??
-        new _$UserUserIdSettingsPermissionsGet200Response._(
-            permissions: permissions);
+        _$UserUserIdSettingsPermissionsGet200Response._(
+          permissions: permissions,
+        );
     replace(_$result);
     return _$result;
   }

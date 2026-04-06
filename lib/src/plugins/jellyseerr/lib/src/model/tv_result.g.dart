@@ -39,7 +39,7 @@ class _$TvResult extends TvResult {
   final MediaInfo? mediaInfo;
 
   factory _$TvResult([void Function(TvResultBuilder)? updates]) =>
-      (new TvResultBuilder()..update(updates))._build();
+      (TvResultBuilder()..update(updates))._build();
 
   _$TvResult._(
       {this.id,
@@ -58,13 +58,12 @@ class _$TvResult extends TvResult {
       this.firstAirDate,
       this.mediaInfo})
       : super._();
-
   @override
   TvResult rebuild(void Function(TvResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TvResultBuilder toBuilder() => new TvResultBuilder()..replace(this);
+  TvResultBuilder toBuilder() => TvResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -163,7 +162,7 @@ class TvResultBuilder implements Builder<TvResult, TvResultBuilder> {
   set voteAverage(num? voteAverage) => _$this._voteAverage = voteAverage;
 
   ListBuilder<num>? _genreIds;
-  ListBuilder<num> get genreIds => _$this._genreIds ??= new ListBuilder<num>();
+  ListBuilder<num> get genreIds => _$this._genreIds ??= ListBuilder<num>();
   set genreIds(ListBuilder<num>? genreIds) => _$this._genreIds = genreIds;
 
   String? _overview;
@@ -185,7 +184,7 @@ class TvResultBuilder implements Builder<TvResult, TvResultBuilder> {
 
   ListBuilder<String>? _originCountry;
   ListBuilder<String> get originCountry =>
-      _$this._originCountry ??= new ListBuilder<String>();
+      _$this._originCountry ??= ListBuilder<String>();
   set originCountry(ListBuilder<String>? originCountry) =>
       _$this._originCountry = originCountry;
 
@@ -194,8 +193,7 @@ class TvResultBuilder implements Builder<TvResult, TvResultBuilder> {
   set firstAirDate(String? firstAirDate) => _$this._firstAirDate = firstAirDate;
 
   MediaInfoBuilder? _mediaInfo;
-  MediaInfoBuilder get mediaInfo =>
-      _$this._mediaInfo ??= new MediaInfoBuilder();
+  MediaInfoBuilder get mediaInfo => _$this._mediaInfo ??= MediaInfoBuilder();
   set mediaInfo(MediaInfoBuilder? mediaInfo) => _$this._mediaInfo = mediaInfo;
 
   TvResultBuilder() {
@@ -227,7 +225,6 @@ class TvResultBuilder implements Builder<TvResult, TvResultBuilder> {
 
   @override
   void replace(TvResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TvResult;
   }
 
@@ -243,22 +240,23 @@ class TvResultBuilder implements Builder<TvResult, TvResultBuilder> {
     _$TvResult _$result;
     try {
       _$result = _$v ??
-          new _$TvResult._(
-              id: id,
-              mediaType: mediaType,
-              popularity: popularity,
-              posterPath: posterPath,
-              backdropPath: backdropPath,
-              voteCount: voteCount,
-              voteAverage: voteAverage,
-              genreIds: _genreIds?.build(),
-              overview: overview,
-              originalLanguage: originalLanguage,
-              name: name,
-              originalName: originalName,
-              originCountry: _originCountry?.build(),
-              firstAirDate: firstAirDate,
-              mediaInfo: _mediaInfo?.build());
+          _$TvResult._(
+            id: id,
+            mediaType: mediaType,
+            popularity: popularity,
+            posterPath: posterPath,
+            backdropPath: backdropPath,
+            voteCount: voteCount,
+            voteAverage: voteAverage,
+            genreIds: _genreIds?.build(),
+            overview: overview,
+            originalLanguage: originalLanguage,
+            name: name,
+            originalName: originalName,
+            originCountry: _originCountry?.build(),
+            firstAirDate: firstAirDate,
+            mediaInfo: _mediaInfo?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -271,7 +269,7 @@ class TvResultBuilder implements Builder<TvResult, TvResultBuilder> {
         _$failedField = 'mediaInfo';
         _mediaInfo?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TvResult', _$failedField, e.toString());
       }
       rethrow;

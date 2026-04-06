@@ -18,12 +18,11 @@ class _$QueryFiltersLegacy extends QueryFiltersLegacy {
 
   factory _$QueryFiltersLegacy(
           [void Function(QueryFiltersLegacyBuilder)? updates]) =>
-      (new QueryFiltersLegacyBuilder()..update(updates))._build();
+      (QueryFiltersLegacyBuilder()..update(updates))._build();
 
   _$QueryFiltersLegacy._(
       {this.genres, this.tags, this.officialRatings, this.years})
       : super._();
-
   @override
   QueryFiltersLegacy rebuild(
           void Function(QueryFiltersLegacyBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$QueryFiltersLegacy extends QueryFiltersLegacy {
 
   @override
   QueryFiltersLegacyBuilder toBuilder() =>
-      new QueryFiltersLegacyBuilder()..replace(this);
+      QueryFiltersLegacyBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -70,22 +69,21 @@ class QueryFiltersLegacyBuilder
   _$QueryFiltersLegacy? _$v;
 
   ListBuilder<String>? _genres;
-  ListBuilder<String> get genres =>
-      _$this._genres ??= new ListBuilder<String>();
+  ListBuilder<String> get genres => _$this._genres ??= ListBuilder<String>();
   set genres(ListBuilder<String>? genres) => _$this._genres = genres;
 
   ListBuilder<String>? _tags;
-  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  ListBuilder<String> get tags => _$this._tags ??= ListBuilder<String>();
   set tags(ListBuilder<String>? tags) => _$this._tags = tags;
 
   ListBuilder<String>? _officialRatings;
   ListBuilder<String> get officialRatings =>
-      _$this._officialRatings ??= new ListBuilder<String>();
+      _$this._officialRatings ??= ListBuilder<String>();
   set officialRatings(ListBuilder<String>? officialRatings) =>
       _$this._officialRatings = officialRatings;
 
   ListBuilder<int>? _years;
-  ListBuilder<int> get years => _$this._years ??= new ListBuilder<int>();
+  ListBuilder<int> get years => _$this._years ??= ListBuilder<int>();
   set years(ListBuilder<int>? years) => _$this._years = years;
 
   QueryFiltersLegacyBuilder() {
@@ -106,7 +104,6 @@ class QueryFiltersLegacyBuilder
 
   @override
   void replace(QueryFiltersLegacy other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$QueryFiltersLegacy;
   }
 
@@ -122,11 +119,12 @@ class QueryFiltersLegacyBuilder
     _$QueryFiltersLegacy _$result;
     try {
       _$result = _$v ??
-          new _$QueryFiltersLegacy._(
-              genres: _genres?.build(),
-              tags: _tags?.build(),
-              officialRatings: _officialRatings?.build(),
-              years: _years?.build());
+          _$QueryFiltersLegacy._(
+            genres: _genres?.build(),
+            tags: _tags?.build(),
+            officialRatings: _officialRatings?.build(),
+            years: _years?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -139,7 +137,7 @@ class QueryFiltersLegacyBuilder
         _$failedField = 'years';
         _years?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'QueryFiltersLegacy', _$failedField, e.toString());
       }
       rethrow;

@@ -9,6 +9,7 @@ part of 'plugin_status.dart';
 const PluginStatus _$active = const PluginStatus._('active');
 const PluginStatus _$restart = const PluginStatus._('restart');
 const PluginStatus _$deleted = const PluginStatus._('deleted');
+const PluginStatus _$superseded = const PluginStatus._('superseded');
 const PluginStatus _$superceded = const PluginStatus._('superceded');
 const PluginStatus _$malfunctioned = const PluginStatus._('malfunctioned');
 const PluginStatus _$notSupported = const PluginStatus._('notSupported');
@@ -22,6 +23,8 @@ PluginStatus _$valueOf(String name) {
       return _$restart;
     case 'deleted':
       return _$deleted;
+    case 'superseded':
+      return _$superseded;
     case 'superceded':
       return _$superceded;
     case 'malfunctioned':
@@ -31,15 +34,16 @@ PluginStatus _$valueOf(String name) {
     case 'disabled':
       return _$disabled;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<PluginStatus> _$values =
-    new BuiltSet<PluginStatus>(const <PluginStatus>[
+    BuiltSet<PluginStatus>(const <PluginStatus>[
   _$active,
   _$restart,
   _$deleted,
+  _$superseded,
   _$superceded,
   _$malfunctioned,
   _$notSupported,
@@ -51,6 +55,7 @@ class _$PluginStatusMeta {
   PluginStatus get active => _$active;
   PluginStatus get restart => _$restart;
   PluginStatus get deleted => _$deleted;
+  PluginStatus get superseded => _$superseded;
   PluginStatus get superceded => _$superceded;
   PluginStatus get malfunctioned => _$malfunctioned;
   PluginStatus get notSupported => _$notSupported;
@@ -64,14 +69,14 @@ mixin _$PluginStatusMixin {
   _$PluginStatusMeta get PluginStatus => const _$PluginStatusMeta();
 }
 
-Serializer<PluginStatus> _$pluginStatusSerializer =
-    new _$PluginStatusSerializer();
+Serializer<PluginStatus> _$pluginStatusSerializer = _$PluginStatusSerializer();
 
 class _$PluginStatusSerializer implements PrimitiveSerializer<PluginStatus> {
   static const Map<String, Object> _toWire = const <String, Object>{
     'active': 'Active',
     'restart': 'Restart',
     'deleted': 'Deleted',
+    'superseded': 'Superseded',
     'superceded': 'Superceded',
     'malfunctioned': 'Malfunctioned',
     'notSupported': 'NotSupported',
@@ -81,6 +86,7 @@ class _$PluginStatusSerializer implements PrimitiveSerializer<PluginStatus> {
     'Active': 'active',
     'Restart': 'restart',
     'Deleted': 'deleted',
+    'Superseded': 'superseded',
     'Superceded': 'superceded',
     'Malfunctioned': 'malfunctioned',
     'NotSupported': 'notSupported',

@@ -6,15 +6,6 @@ void main() {
   final instance = Tentacle().getAuthApi();
 
   group(AuthApi, () {
-    // Sign in using a Jellyfin username and password
-    //
-    // Takes the user's username and password to log the user in. Generates a session cookie for use in further requests. If the user does not exist, and there are no other users, then a user will be created with full admin privileges. If a user logs in with access to the Jellyfin server, they will also have an account created, but without any permissions.
-    //
-    //Future<User> authJellyfinPost(AuthJellyfinPostRequest authJellyfinPostRequest) async
-    test('test authJellyfinPost', () async {
-      // TODO
-    });
-
     // Sign in using a local account
     //
     // Takes an `email` and a `password` to log the user in. Generates a session cookie for use in further requests.

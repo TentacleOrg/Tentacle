@@ -96,60 +96,6 @@ void main() {
       // TODO
     });
 
-    // Get Jellyfin settings
-    //
-    // Retrieves current Jellyfin settings.
-    //
-    //Future<JellyfinSettings> settingsJellyfinGet() async
-    test('test settingsJellyfinGet', () async {
-      // TODO
-    });
-
-    // Get Jellyfin libraries
-    //
-    // Returns a list of Jellyfin libraries in a JSON array.
-    //
-    //Future<BuiltList<JellyfinLibrary>> settingsJellyfinLibraryGet({ String sync_, String enable }) async
-    test('test settingsJellyfinLibraryGet', () async {
-      // TODO
-    });
-
-    // Update Jellyfin settings
-    //
-    // Updates Jellyfin settings with the provided values.
-    //
-    //Future<JellyfinSettings> settingsJellyfinPost(JellyfinSettings jellyfinSettings) async
-    test('test settingsJellyfinPost', () async {
-      // TODO
-    });
-
-    // Get status of full Jellyfin library sync
-    //
-    // Returns sync progress in a JSON array.
-    //
-    //Future<SettingsJellyfinSyncGet200Response> settingsJellyfinSyncGet() async
-    test('test settingsJellyfinSyncGet', () async {
-      // TODO
-    });
-
-    // Start full Jellyfin library sync
-    //
-    // Runs a full Jellyfin library sync and returns the progress in a JSON array.
-    //
-    //Future<SettingsJellyfinSyncGet200Response> settingsJellyfinSyncPost({ SettingsJellyfinSyncPostRequest settingsJellyfinSyncPostRequest }) async
-    test('test settingsJellyfinSyncPost', () async {
-      // TODO
-    });
-
-    // Get Jellyfin Users
-    //
-    // Returns a list of Jellyfin Users in a JSON array.
-    //
-    //Future<BuiltList<SettingsJellyfinUsersGet200ResponseInner>> settingsJellyfinUsersGet() async
-    test('test settingsJellyfinUsersGet', () async {
-      // TODO
-    });
-
     // Get scheduled jobs
     //
     // Returns list of all scheduled jobs and details about their next execution time in a JSON array.
@@ -550,7 +496,7 @@ void main() {
     //
     // Runs a full Plex library scan and returns the progress in a JSON array.
     //
-    //Future<SettingsPlexSyncGet200Response> settingsPlexSyncPost({ SettingsJellyfinSyncPostRequest settingsJellyfinSyncPostRequest }) async
+    //Future<SettingsPlexSyncGet200Response> settingsPlexSyncPost({ SettingsPlexSyncPostRequest settingsPlexSyncPostRequest }) async
     test('test settingsPlexSyncPost', () async {
       // TODO
     });

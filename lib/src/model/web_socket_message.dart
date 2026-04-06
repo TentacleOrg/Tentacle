@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/general_command_message.dart';
+import 'package:tentacle/src/model/group_update.dart';
 import 'package:tentacle/src/model/outbound_keep_alive_message.dart';
 import 'package:tentacle/src/model/plugin_installation_completed_message.dart';
 import 'package:tentacle/src/model/plugin_installation_cancelled_message.dart';
@@ -20,7 +21,6 @@ import 'package:tentacle/src/model/server_restarting_message.dart';
 import 'package:tentacle/src/model/outbound_web_socket_message.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:tentacle/src/model/activity_log_entry_message.dart';
-import 'package:tentacle/src/model/user_dto.dart';
 import 'package:tentacle/src/model/scheduled_tasks_info_message.dart';
 import 'package:tentacle/src/model/restart_required_message.dart';
 import 'package:tentacle/src/model/scheduled_task_ended_message.dart';
@@ -28,7 +28,7 @@ import 'package:tentacle/src/model/user_data_changed_message.dart';
 import 'package:tentacle/src/model/plugin_installing_message.dart';
 import 'package:tentacle/src/model/timer_cancelled_message.dart';
 import 'package:tentacle/src/model/timer_created_message.dart';
-import 'package:tentacle/src/model/sync_play_group_update_command_message.dart';
+import 'package:tentacle/src/model/sync_play_group_update_message.dart';
 import 'package:tentacle/src/model/server_shutting_down_message.dart';
 import 'package:tentacle/src/model/plugin_uninstalled_message.dart';
 import 'package:tentacle/src/model/user_updated_message.dart';
@@ -44,7 +44,7 @@ part 'web_socket_message.g.dart';
 /// Represents the possible websocket types
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Group update data
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 /// * [messageId] - Gets or sets the message id.
 @BuiltValue()
@@ -78,7 +78,7 @@ abstract class WebSocketMessage
     r'ServerShuttingDown': ServerShuttingDownMessage,
     r'Sessions': SessionsMessage,
     r'SyncPlayCommand': SyncPlayCommandMessage,
-    r'SyncPlayGroupUpdate': SyncPlayGroupUpdateCommandMessage,
+    r'SyncPlayGroupUpdate': SyncPlayGroupUpdateMessage,
     r'TimerCancelled': TimerCancelledMessage,
     r'TimerCreated': TimerCreatedMessage,
     r'UserDataChanged': UserDataChangedMessage,
@@ -169,7 +169,7 @@ extension WebSocketMessageDiscriminatorExt on WebSocketMessage {
     if (this is SyncPlayCommandMessage) {
       return r'SyncPlayCommand';
     }
-    if (this is SyncPlayGroupUpdateCommandMessage) {
+    if (this is SyncPlayGroupUpdateMessage) {
       return r'SyncPlayGroupUpdate';
     }
     if (this is TimerCancelledMessage) {
@@ -265,7 +265,7 @@ extension WebSocketMessageBuilderDiscriminatorExt on WebSocketMessageBuilder {
     if (this is SyncPlayCommandMessageBuilder) {
       return r'SyncPlayCommand';
     }
-    if (this is SyncPlayGroupUpdateCommandMessageBuilder) {
+    if (this is SyncPlayGroupUpdateMessageBuilder) {
       return r'SyncPlayGroupUpdate';
     }
     if (this is TimerCancelledMessageBuilder) {
@@ -355,7 +355,7 @@ class _$WebSocketMessageSerializer
       ServerShuttingDownMessage,
       SessionsMessage,
       SyncPlayCommandMessage,
-      SyncPlayGroupUpdateCommandMessage,
+      SyncPlayGroupUpdateMessage,
       TimerCancelledMessage,
       TimerCreatedMessage,
       UserDataChangedMessage,
@@ -524,9 +524,9 @@ class _$WebSocketMessageSerializer
       case r'SyncPlayGroupUpdate':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(SyncPlayGroupUpdateCommandMessage),
-        ) as SyncPlayGroupUpdateCommandMessage;
-        oneOfType = SyncPlayGroupUpdateCommandMessage;
+          specifiedType: FullType(SyncPlayGroupUpdateMessage),
+        ) as SyncPlayGroupUpdateMessage;
+        oneOfType = SyncPlayGroupUpdateMessage;
         break;
       case r'TimerCancelled':
         oneOfResult = serializers.deserialize(

@@ -13,11 +13,9 @@ class _$SettingsRadarrTestPost200Response
 
   factory _$SettingsRadarrTestPost200Response(
           [void Function(SettingsRadarrTestPost200ResponseBuilder)? updates]) =>
-      (new SettingsRadarrTestPost200ResponseBuilder()..update(updates))
-          ._build();
+      (SettingsRadarrTestPost200ResponseBuilder()..update(updates))._build();
 
   _$SettingsRadarrTestPost200Response._({this.profiles}) : super._();
-
   @override
   SettingsRadarrTestPost200Response rebuild(
           void Function(SettingsRadarrTestPost200ResponseBuilder) updates) =>
@@ -25,7 +23,7 @@ class _$SettingsRadarrTestPost200Response
 
   @override
   SettingsRadarrTestPost200ResponseBuilder toBuilder() =>
-      new SettingsRadarrTestPost200ResponseBuilder()..replace(this);
+      SettingsRadarrTestPost200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -58,7 +56,7 @@ class SettingsRadarrTestPost200ResponseBuilder
 
   ListBuilder<ServiceProfile>? _profiles;
   ListBuilder<ServiceProfile> get profiles =>
-      _$this._profiles ??= new ListBuilder<ServiceProfile>();
+      _$this._profiles ??= ListBuilder<ServiceProfile>();
   set profiles(ListBuilder<ServiceProfile>? profiles) =>
       _$this._profiles = profiles;
 
@@ -77,7 +75,6 @@ class SettingsRadarrTestPost200ResponseBuilder
 
   @override
   void replace(SettingsRadarrTestPost200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SettingsRadarrTestPost200Response;
   }
 
@@ -94,15 +91,16 @@ class SettingsRadarrTestPost200ResponseBuilder
     _$SettingsRadarrTestPost200Response _$result;
     try {
       _$result = _$v ??
-          new _$SettingsRadarrTestPost200Response._(
-              profiles: _profiles?.build());
+          _$SettingsRadarrTestPost200Response._(
+            profiles: _profiles?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'profiles';
         _profiles?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SettingsRadarrTestPost200Response', _$failedField, e.toString());
       }
       rethrow;

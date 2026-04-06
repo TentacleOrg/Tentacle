@@ -120,21 +120,21 @@ void main() {
 
     // Get theme songs and videos for an item.
     //
-    //Future<AllThemeMediaResult> getThemeMedia(String itemId, { String userId, bool inheritFromParent }) async
+    //Future<AllThemeMediaResult> getThemeMedia(String itemId, { String userId, bool inheritFromParent, BuiltList<ItemSortBy> sortBy, BuiltList<SortOrder> sortOrder }) async
     test('test getThemeMedia', () async {
       // TODO
     });
 
     // Get theme songs for an item.
     //
-    //Future<ThemeMediaResult> getThemeSongs(String itemId, { String userId, bool inheritFromParent }) async
+    //Future<ThemeMediaResult> getThemeSongs(String itemId, { String userId, bool inheritFromParent, BuiltList<ItemSortBy> sortBy, BuiltList<SortOrder> sortOrder }) async
     test('test getThemeSongs', () async {
       // TODO
     });
 
     // Get theme videos for an item.
     //
-    //Future<ThemeMediaResult> getThemeVideos(String itemId, { String userId, bool inheritFromParent }) async
+    //Future<ThemeMediaResult> getThemeVideos(String itemId, { String userId, bool inheritFromParent, BuiltList<ItemSortBy> sortBy, BuiltList<SortOrder> sortOrder }) async
     test('test getThemeVideos', () async {
       // TODO
     });

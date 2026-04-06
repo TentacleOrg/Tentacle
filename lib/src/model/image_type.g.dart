@@ -49,11 +49,11 @@ ImageType _$valueOf(String name) {
     case 'profile':
       return _$profile;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<ImageType> _$values = new BuiltSet<ImageType>(const <ImageType>[
+final BuiltSet<ImageType> _$values = BuiltSet<ImageType>(const <ImageType>[
   _$primary,
   _$art,
   _$backdrop,
@@ -93,7 +93,7 @@ mixin _$ImageTypeMixin {
   _$ImageTypeMeta get ImageType => const _$ImageTypeMeta();
 }
 
-Serializer<ImageType> _$imageTypeSerializer = new _$ImageTypeSerializer();
+Serializer<ImageType> _$imageTypeSerializer = _$ImageTypeSerializer();
 
 class _$ImageTypeSerializer implements PrimitiveSerializer<ImageType> {
   static const Map<String, Object> _toWire = const <String, Object>{

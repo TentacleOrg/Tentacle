@@ -15,19 +15,17 @@ class _$PlayRequestDto extends PlayRequestDto {
   final int? startPositionTicks;
 
   factory _$PlayRequestDto([void Function(PlayRequestDtoBuilder)? updates]) =>
-      (new PlayRequestDtoBuilder()..update(updates))._build();
+      (PlayRequestDtoBuilder()..update(updates))._build();
 
   _$PlayRequestDto._(
       {this.playingQueue, this.playingItemPosition, this.startPositionTicks})
       : super._();
-
   @override
   PlayRequestDto rebuild(void Function(PlayRequestDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlayRequestDtoBuilder toBuilder() =>
-      new PlayRequestDtoBuilder()..replace(this);
+  PlayRequestDtoBuilder toBuilder() => PlayRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,7 +62,7 @@ class PlayRequestDtoBuilder
 
   ListBuilder<String>? _playingQueue;
   ListBuilder<String> get playingQueue =>
-      _$this._playingQueue ??= new ListBuilder<String>();
+      _$this._playingQueue ??= ListBuilder<String>();
   set playingQueue(ListBuilder<String>? playingQueue) =>
       _$this._playingQueue = playingQueue;
 
@@ -95,7 +93,6 @@ class PlayRequestDtoBuilder
 
   @override
   void replace(PlayRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlayRequestDto;
   }
 
@@ -111,17 +108,18 @@ class PlayRequestDtoBuilder
     _$PlayRequestDto _$result;
     try {
       _$result = _$v ??
-          new _$PlayRequestDto._(
-              playingQueue: _playingQueue?.build(),
-              playingItemPosition: playingItemPosition,
-              startPositionTicks: startPositionTicks);
+          _$PlayRequestDto._(
+            playingQueue: _playingQueue?.build(),
+            playingItemPosition: playingItemPosition,
+            startPositionTicks: startPositionTicks,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'playingQueue';
         _playingQueue?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'PlayRequestDto', _$failedField, e.toString());
       }
       rethrow;

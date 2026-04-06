@@ -21,12 +21,12 @@ TvTvIdRatingsGet200ResponseCriticsRatingEnum
     case 'fresh':
       return _$tvTvIdRatingsGet200ResponseCriticsRatingEnum_fresh;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<TvTvIdRatingsGet200ResponseCriticsRatingEnum>
-    _$tvTvIdRatingsGet200ResponseCriticsRatingEnumValues = new BuiltSet<
+    _$tvTvIdRatingsGet200ResponseCriticsRatingEnumValues = BuiltSet<
         TvTvIdRatingsGet200ResponseCriticsRatingEnum>(const <TvTvIdRatingsGet200ResponseCriticsRatingEnum>[
   _$tvTvIdRatingsGet200ResponseCriticsRatingEnum_rotten,
   _$tvTvIdRatingsGet200ResponseCriticsRatingEnum_fresh,
@@ -34,7 +34,7 @@ final BuiltSet<TvTvIdRatingsGet200ResponseCriticsRatingEnum>
 
 Serializer<TvTvIdRatingsGet200ResponseCriticsRatingEnum>
     _$tvTvIdRatingsGet200ResponseCriticsRatingEnumSerializer =
-    new _$TvTvIdRatingsGet200ResponseCriticsRatingEnumSerializer();
+    _$TvTvIdRatingsGet200ResponseCriticsRatingEnumSerializer();
 
 class _$TvTvIdRatingsGet200ResponseCriticsRatingEnumSerializer
     implements
@@ -83,12 +83,11 @@ class _$TvTvIdRatingsGet200Response extends TvTvIdRatingsGet200Response {
 
   factory _$TvTvIdRatingsGet200Response(
           [void Function(TvTvIdRatingsGet200ResponseBuilder)? updates]) =>
-      (new TvTvIdRatingsGet200ResponseBuilder()..update(updates))._build();
+      (TvTvIdRatingsGet200ResponseBuilder()..update(updates))._build();
 
   _$TvTvIdRatingsGet200Response._(
       {this.title, this.year, this.url, this.criticsScore, this.criticsRating})
       : super._();
-
   @override
   TvTvIdRatingsGet200Response rebuild(
           void Function(TvTvIdRatingsGet200ResponseBuilder) updates) =>
@@ -96,7 +95,7 @@ class _$TvTvIdRatingsGet200Response extends TvTvIdRatingsGet200Response {
 
   @override
   TvTvIdRatingsGet200ResponseBuilder toBuilder() =>
-      new TvTvIdRatingsGet200ResponseBuilder()..replace(this);
+      TvTvIdRatingsGet200ResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -181,7 +180,6 @@ class TvTvIdRatingsGet200ResponseBuilder
 
   @override
   void replace(TvTvIdRatingsGet200Response other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TvTvIdRatingsGet200Response;
   }
 
@@ -195,12 +193,13 @@ class TvTvIdRatingsGet200ResponseBuilder
 
   _$TvTvIdRatingsGet200Response _build() {
     final _$result = _$v ??
-        new _$TvTvIdRatingsGet200Response._(
-            title: title,
-            year: year,
-            url: url,
-            criticsScore: criticsScore,
-            criticsRating: criticsRating);
+        _$TvTvIdRatingsGet200Response._(
+          title: title,
+          year: year,
+          url: url,
+          criticsScore: criticsScore,
+          criticsRating: criticsRating,
+        );
     replace(_$result);
     return _$result;
   }

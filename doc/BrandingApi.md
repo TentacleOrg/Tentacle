@@ -47,7 +47,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/css, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: text/css, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -84,12 +84,12 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: text/css, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: text/css, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getBrandingOptions**
-> BrandingOptions getBrandingOptions()
+> BrandingOptionsDto getBrandingOptions()
 
 Gets branding configuration.
 
@@ -112,7 +112,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BrandingOptions**](BrandingOptions.md)
+[**BrandingOptionsDto**](BrandingOptionsDto.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

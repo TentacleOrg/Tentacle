@@ -611,7 +611,7 @@ void main() {
     });
 
     // Gets or sets the trickplay manifest.
-    // BuiltMap<String, BuiltMap<String, TrickplayInfo>> trickplay
+    // BuiltMap<String, BuiltMap<String, TrickplayInfoDto>> trickplay
     test('to test the property `trickplay`', () async {
       // TODO
     });
@@ -629,7 +629,7 @@ void main() {
     });
 
     // Gets or sets the type of the media.
-    // MediaType mediaType
+    // MediaType mediaType (default value: 'Unknown')
     test('to test the property `mediaType`', () async {
       // TODO
     });

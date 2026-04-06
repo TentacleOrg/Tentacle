@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'playback_info_dto.g.dart';
 
-/// Plabyback info dto.
+/// Playback info dto.
 ///
 /// Properties:
 /// * [userId] - Gets or sets the playback userId.
@@ -27,6 +27,7 @@ part 'playback_info_dto.g.dart';
 /// * [allowVideoStreamCopy] - Gets or sets a value indicating whether to enable video stream copy.
 /// * [allowAudioStreamCopy] - Gets or sets a value indicating whether to allow audio stream copy.
 /// * [autoOpenLiveStream] - Gets or sets a value indicating whether to auto open the live stream.
+/// * [alwaysBurnInSubtitleWhenTranscoding] - Gets or sets a value indicating whether always burn in subtitles when transcoding.
 @BuiltValue()
 abstract class PlaybackInfoDto
     implements Built<PlaybackInfoDto, PlaybackInfoDtoBuilder> {
@@ -89,6 +90,10 @@ abstract class PlaybackInfoDto
   /// Gets or sets a value indicating whether to auto open the live stream.
   @BuiltValueField(wireName: r'AutoOpenLiveStream')
   bool? get autoOpenLiveStream;
+
+  /// Gets or sets a value indicating whether always burn in subtitles when transcoding.
+  @BuiltValueField(wireName: r'AlwaysBurnInSubtitleWhenTranscoding')
+  bool? get alwaysBurnInSubtitleWhenTranscoding;
 
   PlaybackInfoDto._();
 
@@ -218,6 +223,13 @@ class _$PlaybackInfoDtoSerializer
       yield r'AutoOpenLiveStream';
       yield serializers.serialize(
         object.autoOpenLiveStream,
+        specifiedType: const FullType.nullable(bool),
+      );
+    }
+    if (object.alwaysBurnInSubtitleWhenTranscoding != null) {
+      yield r'AlwaysBurnInSubtitleWhenTranscoding';
+      yield serializers.serialize(
+        object.alwaysBurnInSubtitleWhenTranscoding,
         specifiedType: const FullType.nullable(bool),
       );
     }
@@ -365,6 +377,14 @@ class _$PlaybackInfoDtoSerializer
           ) as bool?;
           if (valueDes == null) continue;
           result.autoOpenLiveStream = valueDes;
+          break;
+        case r'AlwaysBurnInSubtitleWhenTranscoding':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
+          result.alwaysBurnInSubtitleWhenTranscoding = valueDes;
           break;
         default:
           unhandled.add(key);

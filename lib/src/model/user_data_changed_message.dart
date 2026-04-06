@@ -13,13 +13,13 @@ part 'user_data_changed_message.g.dart';
 /// User data changed message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Class UserDataChangeInfo.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class UserDataChangedMessage
     implements Built<UserDataChangedMessage, UserDataChangedMessageBuilder> {
-  /// Gets or sets the data.
+  /// Class UserDataChangeInfo.
   @BuiltValueField(wireName: r'Data')
   UserDataChangeInfo? get data;
 

@@ -80,7 +80,7 @@ class _$SeriesTimerInfoDto extends SeriesTimerInfoDto {
 
   factory _$SeriesTimerInfoDto(
           [void Function(SeriesTimerInfoDtoBuilder)? updates]) =>
-      (new SeriesTimerInfoDtoBuilder()..update(updates))._build();
+      (SeriesTimerInfoDtoBuilder()..update(updates))._build();
 
   _$SeriesTimerInfoDto._(
       {this.id,
@@ -119,7 +119,6 @@ class _$SeriesTimerInfoDto extends SeriesTimerInfoDto {
       this.parentPrimaryImageItemId,
       this.parentPrimaryImageTag})
       : super._();
-
   @override
   SeriesTimerInfoDto rebuild(
           void Function(SeriesTimerInfoDtoBuilder) updates) =>
@@ -127,7 +126,7 @@ class _$SeriesTimerInfoDto extends SeriesTimerInfoDto {
 
   @override
   SeriesTimerInfoDtoBuilder toBuilder() =>
-      new SeriesTimerInfoDtoBuilder()..replace(this);
+      SeriesTimerInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -347,7 +346,7 @@ class SeriesTimerInfoDtoBuilder
 
   ListBuilder<String>? _parentBackdropImageTags;
   ListBuilder<String> get parentBackdropImageTags =>
-      _$this._parentBackdropImageTags ??= new ListBuilder<String>();
+      _$this._parentBackdropImageTags ??= ListBuilder<String>();
   set parentBackdropImageTags(ListBuilder<String>? parentBackdropImageTags) =>
       _$this._parentBackdropImageTags = parentBackdropImageTags;
 
@@ -385,8 +384,7 @@ class SeriesTimerInfoDtoBuilder
       _$this._recordNewOnly = recordNewOnly;
 
   ListBuilder<DayOfWeek>? _days;
-  ListBuilder<DayOfWeek> get days =>
-      _$this._days ??= new ListBuilder<DayOfWeek>();
+  ListBuilder<DayOfWeek> get days => _$this._days ??= ListBuilder<DayOfWeek>();
   set days(ListBuilder<DayOfWeek>? days) => _$this._days = days;
 
   DayPattern? _dayPattern;
@@ -395,7 +393,7 @@ class SeriesTimerInfoDtoBuilder
 
   MapBuilder<String, String>? _imageTags;
   MapBuilder<String, String> get imageTags =>
-      _$this._imageTags ??= new MapBuilder<String, String>();
+      _$this._imageTags ??= MapBuilder<String, String>();
   set imageTags(MapBuilder<String, String>? imageTags) =>
       _$this._imageTags = imageTags;
 
@@ -468,7 +466,6 @@ class SeriesTimerInfoDtoBuilder
 
   @override
   void replace(SeriesTimerInfoDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SeriesTimerInfoDto;
   }
 
@@ -484,42 +481,43 @@ class SeriesTimerInfoDtoBuilder
     _$SeriesTimerInfoDto _$result;
     try {
       _$result = _$v ??
-          new _$SeriesTimerInfoDto._(
-              id: id,
-              type: type,
-              serverId: serverId,
-              externalId: externalId,
-              channelId: channelId,
-              externalChannelId: externalChannelId,
-              channelName: channelName,
-              channelPrimaryImageTag: channelPrimaryImageTag,
-              programId: programId,
-              externalProgramId: externalProgramId,
-              name: name,
-              overview: overview,
-              startDate: startDate,
-              endDate: endDate,
-              serviceName: serviceName,
-              priority: priority,
-              prePaddingSeconds: prePaddingSeconds,
-              postPaddingSeconds: postPaddingSeconds,
-              isPrePaddingRequired: isPrePaddingRequired,
-              parentBackdropItemId: parentBackdropItemId,
-              parentBackdropImageTags: _parentBackdropImageTags?.build(),
-              isPostPaddingRequired: isPostPaddingRequired,
-              keepUntil: keepUntil,
-              recordAnyTime: recordAnyTime,
-              skipEpisodesInLibrary: skipEpisodesInLibrary,
-              recordAnyChannel: recordAnyChannel,
-              keepUpTo: keepUpTo,
-              recordNewOnly: recordNewOnly,
-              days: _days?.build(),
-              dayPattern: dayPattern,
-              imageTags: _imageTags?.build(),
-              parentThumbItemId: parentThumbItemId,
-              parentThumbImageTag: parentThumbImageTag,
-              parentPrimaryImageItemId: parentPrimaryImageItemId,
-              parentPrimaryImageTag: parentPrimaryImageTag);
+          _$SeriesTimerInfoDto._(
+            id: id,
+            type: type,
+            serverId: serverId,
+            externalId: externalId,
+            channelId: channelId,
+            externalChannelId: externalChannelId,
+            channelName: channelName,
+            channelPrimaryImageTag: channelPrimaryImageTag,
+            programId: programId,
+            externalProgramId: externalProgramId,
+            name: name,
+            overview: overview,
+            startDate: startDate,
+            endDate: endDate,
+            serviceName: serviceName,
+            priority: priority,
+            prePaddingSeconds: prePaddingSeconds,
+            postPaddingSeconds: postPaddingSeconds,
+            isPrePaddingRequired: isPrePaddingRequired,
+            parentBackdropItemId: parentBackdropItemId,
+            parentBackdropImageTags: _parentBackdropImageTags?.build(),
+            isPostPaddingRequired: isPostPaddingRequired,
+            keepUntil: keepUntil,
+            recordAnyTime: recordAnyTime,
+            skipEpisodesInLibrary: skipEpisodesInLibrary,
+            recordAnyChannel: recordAnyChannel,
+            keepUpTo: keepUpTo,
+            recordNewOnly: recordNewOnly,
+            days: _days?.build(),
+            dayPattern: dayPattern,
+            imageTags: _imageTags?.build(),
+            parentThumbItemId: parentThumbItemId,
+            parentThumbImageTag: parentThumbImageTag,
+            parentPrimaryImageItemId: parentPrimaryImageItemId,
+            parentPrimaryImageTag: parentPrimaryImageTag,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -532,7 +530,7 @@ class SeriesTimerInfoDtoBuilder
         _$failedField = 'imageTags';
         _imageTags?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SeriesTimerInfoDto', _$failedField, e.toString());
       }
       rethrow;

@@ -14,10 +14,9 @@ class _$RestartRequiredMessage extends RestartRequiredMessage {
 
   factory _$RestartRequiredMessage(
           [void Function(RestartRequiredMessageBuilder)? updates]) =>
-      (new RestartRequiredMessageBuilder()..update(updates))._build();
+      (RestartRequiredMessageBuilder()..update(updates))._build();
 
   _$RestartRequiredMessage._({this.messageId, this.messageType}) : super._();
-
   @override
   RestartRequiredMessage rebuild(
           void Function(RestartRequiredMessageBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$RestartRequiredMessage extends RestartRequiredMessage {
 
   @override
   RestartRequiredMessageBuilder toBuilder() =>
-      new RestartRequiredMessageBuilder()..replace(this);
+      RestartRequiredMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class RestartRequiredMessageBuilder
 
   @override
   void replace(RestartRequiredMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RestartRequiredMessage;
   }
 
@@ -96,8 +94,10 @@ class RestartRequiredMessageBuilder
 
   _$RestartRequiredMessage _build() {
     final _$result = _$v ??
-        new _$RestartRequiredMessage._(
-            messageId: messageId, messageType: messageType);
+        _$RestartRequiredMessage._(
+          messageId: messageId,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

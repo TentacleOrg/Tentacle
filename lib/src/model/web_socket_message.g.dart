@@ -12,19 +12,16 @@ class _$WebSocketMessage extends WebSocketMessage {
 
   factory _$WebSocketMessage(
           [void Function(WebSocketMessageBuilder)? updates]) =>
-      (new WebSocketMessageBuilder()..update(updates))._build();
+      (WebSocketMessageBuilder()..update(updates))._build();
 
-  _$WebSocketMessage._({required this.oneOf}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(oneOf, r'WebSocketMessage', 'oneOf');
-  }
-
+  _$WebSocketMessage._({required this.oneOf}) : super._();
   @override
   WebSocketMessage rebuild(void Function(WebSocketMessageBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   WebSocketMessageBuilder toBuilder() =>
-      new WebSocketMessageBuilder()..replace(this);
+      WebSocketMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +68,6 @@ class WebSocketMessageBuilder
 
   @override
   void replace(WebSocketMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$WebSocketMessage;
   }
 
@@ -85,9 +81,10 @@ class WebSocketMessageBuilder
 
   _$WebSocketMessage _build() {
     final _$result = _$v ??
-        new _$WebSocketMessage._(
-            oneOf: BuiltValueNullFieldError.checkNotNull(
-                oneOf, r'WebSocketMessage', 'oneOf'));
+        _$WebSocketMessage._(
+          oneOf: BuiltValueNullFieldError.checkNotNull(
+              oneOf, r'WebSocketMessage', 'oneOf'),
+        );
     replace(_$result);
     return _$result;
   }

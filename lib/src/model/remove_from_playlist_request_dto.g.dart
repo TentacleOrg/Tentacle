@@ -16,12 +16,11 @@ class _$RemoveFromPlaylistRequestDto extends RemoveFromPlaylistRequestDto {
 
   factory _$RemoveFromPlaylistRequestDto(
           [void Function(RemoveFromPlaylistRequestDtoBuilder)? updates]) =>
-      (new RemoveFromPlaylistRequestDtoBuilder()..update(updates))._build();
+      (RemoveFromPlaylistRequestDtoBuilder()..update(updates))._build();
 
   _$RemoveFromPlaylistRequestDto._(
       {this.playlistItemIds, this.clearPlaylist, this.clearPlayingItem})
       : super._();
-
   @override
   RemoveFromPlaylistRequestDto rebuild(
           void Function(RemoveFromPlaylistRequestDtoBuilder) updates) =>
@@ -29,7 +28,7 @@ class _$RemoveFromPlaylistRequestDto extends RemoveFromPlaylistRequestDto {
 
   @override
   RemoveFromPlaylistRequestDtoBuilder toBuilder() =>
-      new RemoveFromPlaylistRequestDtoBuilder()..replace(this);
+      RemoveFromPlaylistRequestDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -68,7 +67,7 @@ class RemoveFromPlaylistRequestDtoBuilder
 
   ListBuilder<String>? _playlistItemIds;
   ListBuilder<String> get playlistItemIds =>
-      _$this._playlistItemIds ??= new ListBuilder<String>();
+      _$this._playlistItemIds ??= ListBuilder<String>();
   set playlistItemIds(ListBuilder<String>? playlistItemIds) =>
       _$this._playlistItemIds = playlistItemIds;
 
@@ -99,7 +98,6 @@ class RemoveFromPlaylistRequestDtoBuilder
 
   @override
   void replace(RemoveFromPlaylistRequestDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RemoveFromPlaylistRequestDto;
   }
 
@@ -115,17 +113,18 @@ class RemoveFromPlaylistRequestDtoBuilder
     _$RemoveFromPlaylistRequestDto _$result;
     try {
       _$result = _$v ??
-          new _$RemoveFromPlaylistRequestDto._(
-              playlistItemIds: _playlistItemIds?.build(),
-              clearPlaylist: clearPlaylist,
-              clearPlayingItem: clearPlayingItem);
+          _$RemoveFromPlaylistRequestDto._(
+            playlistItemIds: _playlistItemIds?.build(),
+            clearPlaylist: clearPlaylist,
+            clearPlayingItem: clearPlayingItem,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'playlistItemIds';
         _playlistItemIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'RemoveFromPlaylistRequestDto', _$failedField, e.toString());
       }
       rethrow;

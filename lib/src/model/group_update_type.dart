@@ -43,14 +43,6 @@ class GroupUpdateType extends EnumClass {
   static const GroupUpdateType groupDoesNotExist = _$groupDoesNotExist;
 
   /// Enum GroupUpdateType.
-  @BuiltValueEnumConst(wireName: r'CreateGroupDenied')
-  static const GroupUpdateType createGroupDenied = _$createGroupDenied;
-
-  /// Enum GroupUpdateType.
-  @BuiltValueEnumConst(wireName: r'JoinGroupDenied')
-  static const GroupUpdateType joinGroupDenied = _$joinGroupDenied;
-
-  /// Enum GroupUpdateType.
   @BuiltValueEnumConst(wireName: r'LibraryAccessDenied')
   static const GroupUpdateType libraryAccessDenied = _$libraryAccessDenied;
 

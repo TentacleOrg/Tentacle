@@ -24,7 +24,7 @@ class _$PublicSystemInfo extends PublicSystemInfo {
 
   factory _$PublicSystemInfo(
           [void Function(PublicSystemInfoBuilder)? updates]) =>
-      (new PublicSystemInfoBuilder()..update(updates))._build();
+      (PublicSystemInfoBuilder()..update(updates))._build();
 
   _$PublicSystemInfo._(
       {this.localAddress,
@@ -35,14 +35,13 @@ class _$PublicSystemInfo extends PublicSystemInfo {
       this.id,
       this.startupWizardCompleted})
       : super._();
-
   @override
   PublicSystemInfo rebuild(void Function(PublicSystemInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   PublicSystemInfoBuilder toBuilder() =>
-      new PublicSystemInfoBuilder()..replace(this);
+      PublicSystemInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -140,7 +139,6 @@ class PublicSystemInfoBuilder
 
   @override
   void replace(PublicSystemInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PublicSystemInfo;
   }
 
@@ -154,14 +152,15 @@ class PublicSystemInfoBuilder
 
   _$PublicSystemInfo _build() {
     final _$result = _$v ??
-        new _$PublicSystemInfo._(
-            localAddress: localAddress,
-            serverName: serverName,
-            version: version,
-            productName: productName,
-            operatingSystem: operatingSystem,
-            id: id,
-            startupWizardCompleted: startupWizardCompleted);
+        _$PublicSystemInfo._(
+          localAddress: localAddress,
+          serverName: serverName,
+          version: version,
+          productName: productName,
+          operatingSystem: operatingSystem,
+          id: id,
+          startupWizardCompleted: startupWizardCompleted,
+        );
     replace(_$result);
     return _$result;
   }

@@ -29,12 +29,12 @@ MediaStreamType _$valueOf(String name) {
     case 'lyric':
       return _$lyric;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<MediaStreamType> _$values =
-    new BuiltSet<MediaStreamType>(const <MediaStreamType>[
+    BuiltSet<MediaStreamType>(const <MediaStreamType>[
   _$audio,
   _$video,
   _$subtitle,
@@ -61,7 +61,7 @@ mixin _$MediaStreamTypeMixin {
 }
 
 Serializer<MediaStreamType> _$mediaStreamTypeSerializer =
-    new _$MediaStreamTypeSerializer();
+    _$MediaStreamTypeSerializer();
 
 class _$MediaStreamTypeSerializer
     implements PrimitiveSerializer<MediaStreamType> {

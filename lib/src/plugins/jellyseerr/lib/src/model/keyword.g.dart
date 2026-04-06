@@ -13,16 +13,15 @@ class _$Keyword extends Keyword {
   final String? name;
 
   factory _$Keyword([void Function(KeywordBuilder)? updates]) =>
-      (new KeywordBuilder()..update(updates))._build();
+      (KeywordBuilder()..update(updates))._build();
 
   _$Keyword._({this.id, this.name}) : super._();
-
   @override
   Keyword rebuild(void Function(KeywordBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  KeywordBuilder toBuilder() => new KeywordBuilder()..replace(this);
+  KeywordBuilder toBuilder() => KeywordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +74,6 @@ class KeywordBuilder implements Builder<Keyword, KeywordBuilder> {
 
   @override
   void replace(Keyword other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Keyword;
   }
 
@@ -88,7 +86,11 @@ class KeywordBuilder implements Builder<Keyword, KeywordBuilder> {
   Keyword build() => _build();
 
   _$Keyword _build() {
-    final _$result = _$v ?? new _$Keyword._(id: id, name: name);
+    final _$result = _$v ??
+        _$Keyword._(
+          id: id,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

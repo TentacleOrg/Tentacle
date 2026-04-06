@@ -17,17 +17,16 @@ class _$Network extends Network {
   final String? name;
 
   factory _$Network([void Function(NetworkBuilder)? updates]) =>
-      (new NetworkBuilder()..update(updates))._build();
+      (NetworkBuilder()..update(updates))._build();
 
   _$Network._({this.id, this.logoPath, this.originCountry, this.name})
       : super._();
-
   @override
   Network rebuild(void Function(NetworkBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NetworkBuilder toBuilder() => new NetworkBuilder()..replace(this);
+  NetworkBuilder toBuilder() => NetworkBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -99,7 +98,6 @@ class NetworkBuilder implements Builder<Network, NetworkBuilder> {
 
   @override
   void replace(Network other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Network;
   }
 
@@ -113,11 +111,12 @@ class NetworkBuilder implements Builder<Network, NetworkBuilder> {
 
   _$Network _build() {
     final _$result = _$v ??
-        new _$Network._(
-            id: id,
-            logoPath: logoPath,
-            originCountry: originCountry,
-            name: name);
+        _$Network._(
+          id: id,
+          logoPath: logoPath,
+          originCountry: originCountry,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

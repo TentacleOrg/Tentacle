@@ -19,19 +19,17 @@ class _$SubtitleProfile extends SubtitleProfile {
   final String? container;
 
   factory _$SubtitleProfile([void Function(SubtitleProfileBuilder)? updates]) =>
-      (new SubtitleProfileBuilder()..update(updates))._build();
+      (SubtitleProfileBuilder()..update(updates))._build();
 
   _$SubtitleProfile._(
       {this.format, this.method, this.didlMode, this.language, this.container})
       : super._();
-
   @override
   SubtitleProfile rebuild(void Function(SubtitleProfileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SubtitleProfileBuilder toBuilder() =>
-      new SubtitleProfileBuilder()..replace(this);
+  SubtitleProfileBuilder toBuilder() => SubtitleProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -111,7 +109,6 @@ class SubtitleProfileBuilder
 
   @override
   void replace(SubtitleProfile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SubtitleProfile;
   }
 
@@ -125,12 +122,13 @@ class SubtitleProfileBuilder
 
   _$SubtitleProfile _build() {
     final _$result = _$v ??
-        new _$SubtitleProfile._(
-            format: format,
-            method: method,
-            didlMode: didlMode,
-            language: language,
-            container: container);
+        _$SubtitleProfile._(
+          format: format,
+          method: method,
+          didlMode: didlMode,
+          language: language,
+          container: container,
+        );
     replace(_$result);
     return _$result;
   }

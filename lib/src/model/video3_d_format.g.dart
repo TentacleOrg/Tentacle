@@ -27,12 +27,12 @@ Video3DFormat _$valueOf(String name) {
     case 'MVC':
       return _$MVC;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<Video3DFormat> _$values =
-    new BuiltSet<Video3DFormat>(const <Video3DFormat>[
+    BuiltSet<Video3DFormat>(const <Video3DFormat>[
   _$halfSideBySide,
   _$fullSideBySide,
   _$fullTopAndBottom,
@@ -57,7 +57,7 @@ mixin _$Video3DFormatMixin {
 }
 
 Serializer<Video3DFormat> _$video3DFormatSerializer =
-    new _$Video3DFormatSerializer();
+    _$Video3DFormatSerializer();
 
 class _$Video3DFormatSerializer implements PrimitiveSerializer<Video3DFormat> {
   static const Map<String, Object> _toWire = const <String, Object>{

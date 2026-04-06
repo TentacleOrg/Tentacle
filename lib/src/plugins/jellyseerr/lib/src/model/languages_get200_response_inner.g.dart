@@ -16,11 +16,10 @@ class _$LanguagesGet200ResponseInner extends LanguagesGet200ResponseInner {
 
   factory _$LanguagesGet200ResponseInner(
           [void Function(LanguagesGet200ResponseInnerBuilder)? updates]) =>
-      (new LanguagesGet200ResponseInnerBuilder()..update(updates))._build();
+      (LanguagesGet200ResponseInnerBuilder()..update(updates))._build();
 
   _$LanguagesGet200ResponseInner._({this.iso6391, this.englishName, this.name})
       : super._();
-
   @override
   LanguagesGet200ResponseInner rebuild(
           void Function(LanguagesGet200ResponseInnerBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$LanguagesGet200ResponseInner extends LanguagesGet200ResponseInner {
 
   @override
   LanguagesGet200ResponseInnerBuilder toBuilder() =>
-      new LanguagesGet200ResponseInnerBuilder()..replace(this);
+      LanguagesGet200ResponseInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -94,7 +93,6 @@ class LanguagesGet200ResponseInnerBuilder
 
   @override
   void replace(LanguagesGet200ResponseInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LanguagesGet200ResponseInner;
   }
 
@@ -108,8 +106,11 @@ class LanguagesGet200ResponseInnerBuilder
 
   _$LanguagesGet200ResponseInner _build() {
     final _$result = _$v ??
-        new _$LanguagesGet200ResponseInner._(
-            iso6391: iso6391, englishName: englishName, name: name);
+        _$LanguagesGet200ResponseInner._(
+          iso6391: iso6391,
+          englishName: englishName,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

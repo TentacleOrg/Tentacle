@@ -15,21 +15,16 @@ class _$PlexLibrary extends PlexLibrary {
   final bool enabled;
 
   factory _$PlexLibrary([void Function(PlexLibraryBuilder)? updates]) =>
-      (new PlexLibraryBuilder()..update(updates))._build();
+      (PlexLibraryBuilder()..update(updates))._build();
 
   _$PlexLibrary._({required this.id, required this.name, required this.enabled})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(id, r'PlexLibrary', 'id');
-    BuiltValueNullFieldError.checkNotNull(name, r'PlexLibrary', 'name');
-    BuiltValueNullFieldError.checkNotNull(enabled, r'PlexLibrary', 'enabled');
-  }
-
+      : super._();
   @override
   PlexLibrary rebuild(void Function(PlexLibraryBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  PlexLibraryBuilder toBuilder() => new PlexLibraryBuilder()..replace(this);
+  PlexLibraryBuilder toBuilder() => PlexLibraryBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -92,7 +87,6 @@ class PlexLibraryBuilder implements Builder<PlexLibrary, PlexLibraryBuilder> {
 
   @override
   void replace(PlexLibrary other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlexLibrary;
   }
 
@@ -106,12 +100,13 @@ class PlexLibraryBuilder implements Builder<PlexLibrary, PlexLibraryBuilder> {
 
   _$PlexLibrary _build() {
     final _$result = _$v ??
-        new _$PlexLibrary._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'PlexLibrary', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'PlexLibrary', 'name'),
-            enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'PlexLibrary', 'enabled'));
+        _$PlexLibrary._(
+          id: BuiltValueNullFieldError.checkNotNull(id, r'PlexLibrary', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'PlexLibrary', 'name'),
+          enabled: BuiltValueNullFieldError.checkNotNull(
+              enabled, r'PlexLibrary', 'enabled'),
+        );
     replace(_$result);
     return _$result;
   }

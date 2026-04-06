@@ -18,12 +18,11 @@ class _$ServerDiscoveryInfo extends ServerDiscoveryInfo {
 
   factory _$ServerDiscoveryInfo(
           [void Function(ServerDiscoveryInfoBuilder)? updates]) =>
-      (new ServerDiscoveryInfoBuilder()..update(updates))._build();
+      (ServerDiscoveryInfoBuilder()..update(updates))._build();
 
   _$ServerDiscoveryInfo._(
       {this.address, this.id, this.name, this.endpointAddress})
       : super._();
-
   @override
   ServerDiscoveryInfo rebuild(
           void Function(ServerDiscoveryInfoBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$ServerDiscoveryInfo extends ServerDiscoveryInfo {
 
   @override
   ServerDiscoveryInfoBuilder toBuilder() =>
-      new ServerDiscoveryInfoBuilder()..replace(this);
+      ServerDiscoveryInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +103,6 @@ class ServerDiscoveryInfoBuilder
 
   @override
   void replace(ServerDiscoveryInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServerDiscoveryInfo;
   }
 
@@ -118,11 +116,12 @@ class ServerDiscoveryInfoBuilder
 
   _$ServerDiscoveryInfo _build() {
     final _$result = _$v ??
-        new _$ServerDiscoveryInfo._(
-            address: address,
-            id: id,
-            name: name,
-            endpointAddress: endpointAddress);
+        _$ServerDiscoveryInfo._(
+          address: address,
+          id: id,
+          name: name,
+          endpointAddress: endpointAddress,
+        );
     replace(_$result);
     return _$result;
   }

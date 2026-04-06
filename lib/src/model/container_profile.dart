@@ -11,24 +11,32 @@ import 'package:built_value/serializer.dart';
 
 part 'container_profile.g.dart';
 
-/// ContainerProfile
+/// Defines the MediaBrowser.Model.Dlna.ContainerProfile.
 ///
 /// Properties:
-/// * [type]
-/// * [conditions]
-/// * [container]
+/// * [type] - Gets or sets the MediaBrowser.Model.Dlna.DlnaProfileType which this container must meet.
+/// * [conditions] - Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this container will be applied to.
+/// * [container] - Gets or sets the container(s) which this container must meet.
+/// * [subContainer] - Gets or sets the sub container(s) which this container must meet.
 @BuiltValue()
 abstract class ContainerProfile
     implements Built<ContainerProfile, ContainerProfileBuilder> {
+  /// Gets or sets the MediaBrowser.Model.Dlna.DlnaProfileType which this container must meet.
   @BuiltValueField(wireName: r'Type')
   DlnaProfileType? get type;
   // enum typeEnum {  Audio,  Video,  Photo,  Subtitle,  Lyric,  };
 
+  /// Gets or sets the list of MediaBrowser.Model.Dlna.ProfileCondition which this container will be applied to.
   @BuiltValueField(wireName: r'Conditions')
   BuiltList<ProfileCondition>? get conditions;
 
+  /// Gets or sets the container(s) which this container must meet.
   @BuiltValueField(wireName: r'Container')
   String? get container;
+
+  /// Gets or sets the sub container(s) which this container must meet.
+  @BuiltValueField(wireName: r'SubContainer')
+  String? get subContainer;
 
   ContainerProfile._();
 
@@ -74,7 +82,14 @@ class _$ContainerProfileSerializer
       yield r'Container';
       yield serializers.serialize(
         object.container,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.subContainer != null) {
+      yield r'SubContainer';
+      yield serializers.serialize(
+        object.subContainer,
+        specifiedType: const FullType.nullable(String),
       );
     }
   }
@@ -120,9 +135,18 @@ class _$ContainerProfileSerializer
         case r'Container':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.container = valueDes;
+          break;
+        case r'SubContainer':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.subContainer = valueDes;
           break;
         default:
           unhandled.add(key);

@@ -42,7 +42,7 @@ class _$RemoteSubtitleInfo extends RemoteSubtitleInfo {
 
   factory _$RemoteSubtitleInfo(
           [void Function(RemoteSubtitleInfoBuilder)? updates]) =>
-      (new RemoteSubtitleInfoBuilder()..update(updates))._build();
+      (RemoteSubtitleInfoBuilder()..update(updates))._build();
 
   _$RemoteSubtitleInfo._(
       {this.threeLetterISOLanguageName,
@@ -62,7 +62,6 @@ class _$RemoteSubtitleInfo extends RemoteSubtitleInfo {
       this.forced,
       this.hearingImpaired})
       : super._();
-
   @override
   RemoteSubtitleInfo rebuild(
           void Function(RemoteSubtitleInfoBuilder) updates) =>
@@ -70,7 +69,7 @@ class _$RemoteSubtitleInfo extends RemoteSubtitleInfo {
 
   @override
   RemoteSubtitleInfoBuilder toBuilder() =>
-      new RemoteSubtitleInfoBuilder()..replace(this);
+      RemoteSubtitleInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -243,7 +242,6 @@ class RemoteSubtitleInfoBuilder
 
   @override
   void replace(RemoteSubtitleInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RemoteSubtitleInfo;
   }
 
@@ -257,23 +255,24 @@ class RemoteSubtitleInfoBuilder
 
   _$RemoteSubtitleInfo _build() {
     final _$result = _$v ??
-        new _$RemoteSubtitleInfo._(
-            threeLetterISOLanguageName: threeLetterISOLanguageName,
-            id: id,
-            providerName: providerName,
-            name: name,
-            format: format,
-            author: author,
-            comment: comment,
-            dateCreated: dateCreated,
-            communityRating: communityRating,
-            frameRate: frameRate,
-            downloadCount: downloadCount,
-            isHashMatch: isHashMatch,
-            aiTranslated: aiTranslated,
-            machineTranslated: machineTranslated,
-            forced: forced,
-            hearingImpaired: hearingImpaired);
+        _$RemoteSubtitleInfo._(
+          threeLetterISOLanguageName: threeLetterISOLanguageName,
+          id: id,
+          providerName: providerName,
+          name: name,
+          format: format,
+          author: author,
+          comment: comment,
+          dateCreated: dateCreated,
+          communityRating: communityRating,
+          frameRate: frameRate,
+          downloadCount: downloadCount,
+          isHashMatch: isHashMatch,
+          aiTranslated: aiTranslated,
+          machineTranslated: machineTranslated,
+          forced: forced,
+          hearingImpaired: hearingImpaired,
+        );
     replace(_$result);
     return _$result;
   }

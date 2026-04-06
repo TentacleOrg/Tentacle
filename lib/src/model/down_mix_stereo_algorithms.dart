@@ -10,17 +10,25 @@ import 'package:built_value/serializer.dart';
 part 'down_mix_stereo_algorithms.g.dart';
 
 class DownMixStereoAlgorithms extends EnumClass {
-  /// An enum representing an algorithm to downmix 6ch+ to stereo.  Algorithms sourced from https://superuser.com/questions/852400/properly-downmix-5-1-to-stereo-using-ffmpeg/1410620#1410620.
+  /// An enum representing an algorithm to downmix surround sound to stereo.
   @BuiltValueEnumConst(wireName: r'None')
   static const DownMixStereoAlgorithms none = _$none;
 
-  /// An enum representing an algorithm to downmix 6ch+ to stereo.  Algorithms sourced from https://superuser.com/questions/852400/properly-downmix-5-1-to-stereo-using-ffmpeg/1410620#1410620.
+  /// An enum representing an algorithm to downmix surround sound to stereo.
   @BuiltValueEnumConst(wireName: r'Dave750')
   static const DownMixStereoAlgorithms dave750 = _$dave750;
 
-  /// An enum representing an algorithm to downmix 6ch+ to stereo.  Algorithms sourced from https://superuser.com/questions/852400/properly-downmix-5-1-to-stereo-using-ffmpeg/1410620#1410620.
+  /// An enum representing an algorithm to downmix surround sound to stereo.
   @BuiltValueEnumConst(wireName: r'NightmodeDialogue')
   static const DownMixStereoAlgorithms nightmodeDialogue = _$nightmodeDialogue;
+
+  /// An enum representing an algorithm to downmix surround sound to stereo.
+  @BuiltValueEnumConst(wireName: r'Rfc7845')
+  static const DownMixStereoAlgorithms rfc7845 = _$rfc7845;
+
+  /// An enum representing an algorithm to downmix surround sound to stereo.
+  @BuiltValueEnumConst(wireName: r'Ac4')
+  static const DownMixStereoAlgorithms ac4 = _$ac4;
 
   static Serializer<DownMixStereoAlgorithms> get serializer =>
       _$downMixStereoAlgorithmsSerializer;

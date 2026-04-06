@@ -16,11 +16,10 @@ class _$TimerCreatedMessage extends TimerCreatedMessage {
 
   factory _$TimerCreatedMessage(
           [void Function(TimerCreatedMessageBuilder)? updates]) =>
-      (new TimerCreatedMessageBuilder()..update(updates))._build();
+      (TimerCreatedMessageBuilder()..update(updates))._build();
 
   _$TimerCreatedMessage._({this.data, this.messageId, this.messageType})
       : super._();
-
   @override
   TimerCreatedMessage rebuild(
           void Function(TimerCreatedMessageBuilder) updates) =>
@@ -28,7 +27,7 @@ class _$TimerCreatedMessage extends TimerCreatedMessage {
 
   @override
   TimerCreatedMessageBuilder toBuilder() =>
-      new TimerCreatedMessageBuilder()..replace(this);
+      TimerCreatedMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -64,8 +63,7 @@ class TimerCreatedMessageBuilder
   _$TimerCreatedMessage? _$v;
 
   TimerEventInfoBuilder? _data;
-  TimerEventInfoBuilder get data =>
-      _$this._data ??= new TimerEventInfoBuilder();
+  TimerEventInfoBuilder get data => _$this._data ??= TimerEventInfoBuilder();
   set data(TimerEventInfoBuilder? data) => _$this._data = data;
 
   String? _messageId;
@@ -94,7 +92,6 @@ class TimerCreatedMessageBuilder
 
   @override
   void replace(TimerCreatedMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TimerCreatedMessage;
   }
 
@@ -110,17 +107,18 @@ class TimerCreatedMessageBuilder
     _$TimerCreatedMessage _$result;
     try {
       _$result = _$v ??
-          new _$TimerCreatedMessage._(
-              data: _data?.build(),
-              messageId: messageId,
-              messageType: messageType);
+          _$TimerCreatedMessage._(
+            data: _data?.build(),
+            messageId: messageId,
+            messageType: messageType,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'data';
         _data?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'TimerCreatedMessage', _$failedField, e.toString());
       }
       rethrow;

@@ -27,7 +27,7 @@ class _$SubtitleOptions extends SubtitleOptions {
   final bool? requirePerfectMatch;
 
   factory _$SubtitleOptions([void Function(SubtitleOptionsBuilder)? updates]) =>
-      (new SubtitleOptionsBuilder()..update(updates))._build();
+      (SubtitleOptionsBuilder()..update(updates))._build();
 
   _$SubtitleOptions._(
       {this.skipIfEmbeddedSubtitlesPresent,
@@ -40,14 +40,12 @@ class _$SubtitleOptions extends SubtitleOptions {
       this.isOpenSubtitleVipAccount,
       this.requirePerfectMatch})
       : super._();
-
   @override
   SubtitleOptions rebuild(void Function(SubtitleOptionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SubtitleOptionsBuilder toBuilder() =>
-      new SubtitleOptionsBuilder()..replace(this);
+  SubtitleOptionsBuilder toBuilder() => SubtitleOptionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -115,7 +113,7 @@ class SubtitleOptionsBuilder
 
   ListBuilder<String>? _downloadLanguages;
   ListBuilder<String> get downloadLanguages =>
-      _$this._downloadLanguages ??= new ListBuilder<String>();
+      _$this._downloadLanguages ??= ListBuilder<String>();
   set downloadLanguages(ListBuilder<String>? downloadLanguages) =>
       _$this._downloadLanguages = downloadLanguages;
 
@@ -172,7 +170,6 @@ class SubtitleOptionsBuilder
 
   @override
   void replace(SubtitleOptions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SubtitleOptions;
   }
 
@@ -188,23 +185,24 @@ class SubtitleOptionsBuilder
     _$SubtitleOptions _$result;
     try {
       _$result = _$v ??
-          new _$SubtitleOptions._(
-              skipIfEmbeddedSubtitlesPresent: skipIfEmbeddedSubtitlesPresent,
-              skipIfAudioTrackMatches: skipIfAudioTrackMatches,
-              downloadLanguages: _downloadLanguages?.build(),
-              downloadMovieSubtitles: downloadMovieSubtitles,
-              downloadEpisodeSubtitles: downloadEpisodeSubtitles,
-              openSubtitlesUsername: openSubtitlesUsername,
-              openSubtitlesPasswordHash: openSubtitlesPasswordHash,
-              isOpenSubtitleVipAccount: isOpenSubtitleVipAccount,
-              requirePerfectMatch: requirePerfectMatch);
+          _$SubtitleOptions._(
+            skipIfEmbeddedSubtitlesPresent: skipIfEmbeddedSubtitlesPresent,
+            skipIfAudioTrackMatches: skipIfAudioTrackMatches,
+            downloadLanguages: _downloadLanguages?.build(),
+            downloadMovieSubtitles: downloadMovieSubtitles,
+            downloadEpisodeSubtitles: downloadEpisodeSubtitles,
+            openSubtitlesUsername: openSubtitlesUsername,
+            openSubtitlesPasswordHash: openSubtitlesPasswordHash,
+            isOpenSubtitleVipAccount: isOpenSubtitleVipAccount,
+            requirePerfectMatch: requirePerfectMatch,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'downloadLanguages';
         _downloadLanguages?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'SubtitleOptions', _$failedField, e.toString());
       }
       rethrow;

@@ -8,11 +8,11 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**format** | **String** |  | [optional] 
-**method** | [**SubtitleDeliveryMethod**](SubtitleDeliveryMethod.md) | Delivery method to use during playback of a specific subtitle format. | [optional] 
-**didlMode** | **String** |  | [optional] 
-**language** | **String** |  | [optional] 
-**container** | **String** |  | [optional] 
+**format** | **String** | Gets or sets the format. | [optional] 
+**method** | [**SubtitleDeliveryMethod**](SubtitleDeliveryMethod.md) | Gets or sets the delivery method. | [optional] 
+**didlMode** | **String** | Gets or sets the DIDL mode. | [optional] 
+**language** | **String** | Gets or sets the language. | [optional] 
+**container** | **String** | Gets or sets the container. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getUniversalAudioStream**
-> Uint8List getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection)
+> Uint8List getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, enableAudioVbrEncoding, breakOnNonKeyFrames, enableRedirection)
 
 Gets an audio stream.
 
@@ -43,11 +43,12 @@ final MediaStreamProtocol transcodingProtocol = transcodingProtocol_example; // 
 final int maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
 final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
 final bool enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
+final bool enableAudioVbrEncoding = true; // bool | Optional. Whether to enable Audio Encoding.
 final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
 final bool enableRedirection = true; // bool | Whether to enable redirection. Defaults to true.
 
 try {
-    final response = api.getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection);
+    final response = api.getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, enableAudioVbrEncoding, breakOnNonKeyFrames, enableRedirection);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling UniversalAudioApi->getUniversalAudioStream: $e\n');
@@ -74,6 +75,7 @@ Name | Type | Description  | Notes
  **maxAudioSampleRate** | **int**| Optional. The maximum audio sample rate. | [optional] 
  **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
  **enableRemoteMedia** | **bool**| Optional. Whether to enable remote media. | [optional] 
+ **enableAudioVbrEncoding** | **bool**| Optional. Whether to enable Audio Encoding. | [optional] [default to true]
  **breakOnNonKeyFrames** | **bool**| Optional. Whether to break on non key frames. | [optional] [default to false]
  **enableRedirection** | **bool**| Whether to enable redirection. Defaults to true. | [optional] [default to true]
 
@@ -88,12 +90,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headUniversalAudioStream**
-> Uint8List headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection)
+> Uint8List headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, enableAudioVbrEncoding, breakOnNonKeyFrames, enableRedirection)
 
 Gets an audio stream.
 
@@ -122,11 +124,12 @@ final MediaStreamProtocol transcodingProtocol = transcodingProtocol_example; // 
 final int maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
 final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
 final bool enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
+final bool enableAudioVbrEncoding = true; // bool | Optional. Whether to enable Audio Encoding.
 final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
 final bool enableRedirection = true; // bool | Whether to enable redirection. Defaults to true.
 
 try {
-    final response = api.headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, breakOnNonKeyFrames, enableRedirection);
+    final response = api.headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, enableAudioVbrEncoding, breakOnNonKeyFrames, enableRedirection);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling UniversalAudioApi->headUniversalAudioStream: $e\n');
@@ -153,6 +156,7 @@ Name | Type | Description  | Notes
  **maxAudioSampleRate** | **int**| Optional. The maximum audio sample rate. | [optional] 
  **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
  **enableRemoteMedia** | **bool**| Optional. Whether to enable remote media. | [optional] 
+ **enableAudioVbrEncoding** | **bool**| Optional. Whether to enable Audio Encoding. | [optional] [default to true]
  **breakOnNonKeyFrames** | **bool**| Optional. Whether to break on non key frames. | [optional] [default to false]
  **enableRedirection** | **bool**| Whether to enable redirection. Defaults to true. | [optional] [default to true]
 
@@ -167,7 +171,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

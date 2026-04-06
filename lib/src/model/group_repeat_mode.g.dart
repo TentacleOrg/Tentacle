@@ -19,12 +19,12 @@ GroupRepeatMode _$valueOf(String name) {
     case 'repeatNone':
       return _$repeatNone;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<GroupRepeatMode> _$values =
-    new BuiltSet<GroupRepeatMode>(const <GroupRepeatMode>[
+    BuiltSet<GroupRepeatMode>(const <GroupRepeatMode>[
   _$repeatOne,
   _$repeatAll,
   _$repeatNone,
@@ -45,7 +45,7 @@ mixin _$GroupRepeatModeMixin {
 }
 
 Serializer<GroupRepeatMode> _$groupRepeatModeSerializer =
-    new _$GroupRepeatModeSerializer();
+    _$GroupRepeatModeSerializer();
 
 class _$GroupRepeatModeSerializer
     implements PrimitiveSerializer<GroupRepeatMode> {

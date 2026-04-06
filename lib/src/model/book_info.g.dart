@@ -33,7 +33,7 @@ class _$BookInfo extends BookInfo {
   final String? seriesName;
 
   factory _$BookInfo([void Function(BookInfoBuilder)? updates]) =>
-      (new BookInfoBuilder()..update(updates))._build();
+      (BookInfoBuilder()..update(updates))._build();
 
   _$BookInfo._(
       {this.name,
@@ -49,13 +49,12 @@ class _$BookInfo extends BookInfo {
       this.isAutomated,
       this.seriesName})
       : super._();
-
   @override
   BookInfo rebuild(void Function(BookInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  BookInfoBuilder toBuilder() => new BookInfoBuilder()..replace(this);
+  BookInfoBuilder toBuilder() => BookInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -141,7 +140,7 @@ class BookInfoBuilder implements Builder<BookInfo, BookInfoBuilder> {
 
   MapBuilder<String, String?>? _providerIds;
   MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= new MapBuilder<String, String?>();
+      _$this._providerIds ??= MapBuilder<String, String?>();
   set providerIds(MapBuilder<String, String?>? providerIds) =>
       _$this._providerIds = providerIds;
 
@@ -197,7 +196,6 @@ class BookInfoBuilder implements Builder<BookInfo, BookInfoBuilder> {
 
   @override
   void replace(BookInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$BookInfo;
   }
 
@@ -213,26 +211,27 @@ class BookInfoBuilder implements Builder<BookInfo, BookInfoBuilder> {
     _$BookInfo _$result;
     try {
       _$result = _$v ??
-          new _$BookInfo._(
-              name: name,
-              originalTitle: originalTitle,
-              path: path,
-              metadataLanguage: metadataLanguage,
-              metadataCountryCode: metadataCountryCode,
-              providerIds: _providerIds?.build(),
-              year: year,
-              indexNumber: indexNumber,
-              parentIndexNumber: parentIndexNumber,
-              premiereDate: premiereDate,
-              isAutomated: isAutomated,
-              seriesName: seriesName);
+          _$BookInfo._(
+            name: name,
+            originalTitle: originalTitle,
+            path: path,
+            metadataLanguage: metadataLanguage,
+            metadataCountryCode: metadataCountryCode,
+            providerIds: _providerIds?.build(),
+            year: year,
+            indexNumber: indexNumber,
+            parentIndexNumber: parentIndexNumber,
+            premiereDate: premiereDate,
+            isAutomated: isAutomated,
+            seriesName: seriesName,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'providerIds';
         _providerIds?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'BookInfo', _$failedField, e.toString());
       }
       rethrow;

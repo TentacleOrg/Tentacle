@@ -13,16 +13,15 @@ class _$NameGuidPair extends NameGuidPair {
   final String? id;
 
   factory _$NameGuidPair([void Function(NameGuidPairBuilder)? updates]) =>
-      (new NameGuidPairBuilder()..update(updates))._build();
+      (NameGuidPairBuilder()..update(updates))._build();
 
   _$NameGuidPair._({this.name, this.id}) : super._();
-
   @override
   NameGuidPair rebuild(void Function(NameGuidPairBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  NameGuidPairBuilder toBuilder() => new NameGuidPairBuilder()..replace(this);
+  NameGuidPairBuilder toBuilder() => NameGuidPairBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,7 +75,6 @@ class NameGuidPairBuilder
 
   @override
   void replace(NameGuidPair other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$NameGuidPair;
   }
 
@@ -89,7 +87,11 @@ class NameGuidPairBuilder
   NameGuidPair build() => _build();
 
   _$NameGuidPair _build() {
-    final _$result = _$v ?? new _$NameGuidPair._(name: name, id: id);
+    final _$result = _$v ??
+        _$NameGuidPair._(
+          name: name,
+          id: id,
+        );
     replace(_$result);
     return _$result;
   }

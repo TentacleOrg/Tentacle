@@ -12,13 +12,9 @@ class _$AuthResetPasswordPostRequest extends AuthResetPasswordPostRequest {
 
   factory _$AuthResetPasswordPostRequest(
           [void Function(AuthResetPasswordPostRequestBuilder)? updates]) =>
-      (new AuthResetPasswordPostRequestBuilder()..update(updates))._build();
+      (AuthResetPasswordPostRequestBuilder()..update(updates))._build();
 
-  _$AuthResetPasswordPostRequest._({required this.email}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        email, r'AuthResetPasswordPostRequest', 'email');
-  }
-
+  _$AuthResetPasswordPostRequest._({required this.email}) : super._();
   @override
   AuthResetPasswordPostRequest rebuild(
           void Function(AuthResetPasswordPostRequestBuilder) updates) =>
@@ -26,7 +22,7 @@ class _$AuthResetPasswordPostRequest extends AuthResetPasswordPostRequest {
 
   @override
   AuthResetPasswordPostRequestBuilder toBuilder() =>
-      new AuthResetPasswordPostRequestBuilder()..replace(this);
+      AuthResetPasswordPostRequestBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +71,6 @@ class AuthResetPasswordPostRequestBuilder
 
   @override
   void replace(AuthResetPasswordPostRequest other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthResetPasswordPostRequest;
   }
 
@@ -89,9 +84,10 @@ class AuthResetPasswordPostRequestBuilder
 
   _$AuthResetPasswordPostRequest _build() {
     final _$result = _$v ??
-        new _$AuthResetPasswordPostRequest._(
-            email: BuiltValueNullFieldError.checkNotNull(
-                email, r'AuthResetPasswordPostRequest', 'email'));
+        _$AuthResetPasswordPostRequest._(
+          email: BuiltValueNullFieldError.checkNotNull(
+              email, r'AuthResetPasswordPostRequest', 'email'),
+        );
     replace(_$result);
     return _$result;
   }

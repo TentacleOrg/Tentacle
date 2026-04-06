@@ -4,19 +4,19 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/user_dto.dart';
-import 'package:tentacle/src/model/session_info.dart';
+import 'package:tentacle/src/model/session_info_dto.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'authentication_result.g.dart';
 
-/// AuthenticationResult
+/// A class representing an authentication result.
 ///
 /// Properties:
 /// * [user] - Class UserDto.
-/// * [sessionInfo] - Class SessionInfo.
-/// * [accessToken]
-/// * [serverId]
+/// * [sessionInfo] - Session info DTO.
+/// * [accessToken] - Gets or sets the access token.
+/// * [serverId] - Gets or sets the server id.
 @BuiltValue()
 abstract class AuthenticationResult
     implements Built<AuthenticationResult, AuthenticationResultBuilder> {
@@ -24,13 +24,15 @@ abstract class AuthenticationResult
   @BuiltValueField(wireName: r'User')
   UserDto? get user;
 
-  /// Class SessionInfo.
+  /// Session info DTO.
   @BuiltValueField(wireName: r'SessionInfo')
-  SessionInfo? get sessionInfo;
+  SessionInfoDto? get sessionInfo;
 
+  /// Gets or sets the access token.
   @BuiltValueField(wireName: r'AccessToken')
   String? get accessToken;
 
+  /// Gets or sets the server id.
   @BuiltValueField(wireName: r'ServerId')
   String? get serverId;
 
@@ -74,7 +76,7 @@ class _$AuthenticationResultSerializer
       yield r'SessionInfo';
       yield serializers.serialize(
         object.sessionInfo,
-        specifiedType: const FullType.nullable(SessionInfo),
+        specifiedType: const FullType.nullable(SessionInfoDto),
       );
     }
     if (object.accessToken != null) {
@@ -127,8 +129,8 @@ class _$AuthenticationResultSerializer
         case r'SessionInfo':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(SessionInfo),
-          ) as SessionInfo?;
+            specifiedType: const FullType.nullable(SessionInfoDto),
+          ) as SessionInfoDto?;
           if (valueDes == null) continue;
           result.sessionInfo.replace(valueDes);
           break;

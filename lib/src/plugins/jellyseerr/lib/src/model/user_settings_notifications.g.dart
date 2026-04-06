@@ -38,7 +38,7 @@ class _$UserSettingsNotifications extends UserSettingsNotifications {
 
   factory _$UserSettingsNotifications(
           [void Function(UserSettingsNotificationsBuilder)? updates]) =>
-      (new UserSettingsNotificationsBuilder()..update(updates))._build();
+      (UserSettingsNotificationsBuilder()..update(updates))._build();
 
   _$UserSettingsNotifications._(
       {this.notificationTypes,
@@ -56,7 +56,6 @@ class _$UserSettingsNotifications extends UserSettingsNotifications {
       this.telegramChatId,
       this.telegramSendSilently})
       : super._();
-
   @override
   UserSettingsNotifications rebuild(
           void Function(UserSettingsNotificationsBuilder) updates) =>
@@ -64,7 +63,7 @@ class _$UserSettingsNotifications extends UserSettingsNotifications {
 
   @override
   UserSettingsNotificationsBuilder toBuilder() =>
-      new UserSettingsNotificationsBuilder()..replace(this);
+      UserSettingsNotificationsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -135,7 +134,7 @@ class UserSettingsNotificationsBuilder
 
   NotificationAgentTypesBuilder? _notificationTypes;
   NotificationAgentTypesBuilder get notificationTypes =>
-      _$this._notificationTypes ??= new NotificationAgentTypesBuilder();
+      _$this._notificationTypes ??= NotificationAgentTypesBuilder();
   set notificationTypes(NotificationAgentTypesBuilder? notificationTypes) =>
       _$this._notificationTypes = notificationTypes;
 
@@ -229,7 +228,6 @@ class UserSettingsNotificationsBuilder
 
   @override
   void replace(UserSettingsNotifications other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UserSettingsNotifications;
   }
 
@@ -245,28 +243,29 @@ class UserSettingsNotificationsBuilder
     _$UserSettingsNotifications _$result;
     try {
       _$result = _$v ??
-          new _$UserSettingsNotifications._(
-              notificationTypes: _notificationTypes?.build(),
-              emailEnabled: emailEnabled,
-              pgpKey: pgpKey,
-              discordEnabled: discordEnabled,
-              discordEnabledTypes: discordEnabledTypes,
-              discordId: discordId,
-              pushbulletAccessToken: pushbulletAccessToken,
-              pushoverApplicationToken: pushoverApplicationToken,
-              pushoverUserKey: pushoverUserKey,
-              pushoverSound: pushoverSound,
-              telegramEnabled: telegramEnabled,
-              telegramBotUsername: telegramBotUsername,
-              telegramChatId: telegramChatId,
-              telegramSendSilently: telegramSendSilently);
+          _$UserSettingsNotifications._(
+            notificationTypes: _notificationTypes?.build(),
+            emailEnabled: emailEnabled,
+            pgpKey: pgpKey,
+            discordEnabled: discordEnabled,
+            discordEnabledTypes: discordEnabledTypes,
+            discordId: discordId,
+            pushbulletAccessToken: pushbulletAccessToken,
+            pushoverApplicationToken: pushoverApplicationToken,
+            pushoverUserKey: pushoverUserKey,
+            pushoverSound: pushoverSound,
+            telegramEnabled: telegramEnabled,
+            telegramBotUsername: telegramBotUsername,
+            telegramChatId: telegramChatId,
+            telegramSendSilently: telegramSendSilently,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'notificationTypes';
         _notificationTypes?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'UserSettingsNotifications', _$failedField, e.toString());
       }
       rethrow;

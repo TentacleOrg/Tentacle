@@ -14,10 +14,9 @@ class _$RegionsGet200ResponseInner extends RegionsGet200ResponseInner {
 
   factory _$RegionsGet200ResponseInner(
           [void Function(RegionsGet200ResponseInnerBuilder)? updates]) =>
-      (new RegionsGet200ResponseInnerBuilder()..update(updates))._build();
+      (RegionsGet200ResponseInnerBuilder()..update(updates))._build();
 
   _$RegionsGet200ResponseInner._({this.iso31661, this.englishName}) : super._();
-
   @override
   RegionsGet200ResponseInner rebuild(
           void Function(RegionsGet200ResponseInnerBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$RegionsGet200ResponseInner extends RegionsGet200ResponseInner {
 
   @override
   RegionsGet200ResponseInnerBuilder toBuilder() =>
-      new RegionsGet200ResponseInnerBuilder()..replace(this);
+      RegionsGet200ResponseInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class RegionsGet200ResponseInnerBuilder
 
   @override
   void replace(RegionsGet200ResponseInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RegionsGet200ResponseInner;
   }
 
@@ -96,8 +94,10 @@ class RegionsGet200ResponseInnerBuilder
 
   _$RegionsGet200ResponseInner _build() {
     final _$result = _$v ??
-        new _$RegionsGet200ResponseInner._(
-            iso31661: iso31661, englishName: englishName);
+        _$RegionsGet200ResponseInner._(
+          iso31661: iso31661,
+          englishName: englishName,
+        );
     replace(_$result);
     return _$result;
   }

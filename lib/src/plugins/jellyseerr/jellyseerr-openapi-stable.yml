@@ -36,8 +36,6 @@ tags:
     description: Endpoints related to retrieving collection details.
   - name: service
     description: Endpoints related to getting service (Radarr/Sonarr) details.
-  - name: watchlist
-    description: Collection of media to watch later
 servers:
   - url: '{server}/api/v1'
     variables:
@@ -46,34 +44,6 @@ servers:
 
 components:
   schemas:
-    Watchlist:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-          readOnly: true
-        tmdbId:
-          type: number
-          example: 1
-        ratingKey:
-          type: string
-        type:
-          type: string
-        title:
-          type: string
-        media:
-          $ref: '#/components/schemas/MediaInfo'
-        createdAt:
-          type: string
-          example: '2020-09-12T10:00:27.000Z'
-          readOnly: true
-        updatedAt:
-          type: string
-          example: '2020-09-12T10:00:27.000Z'
-          readOnly: true
-        requestedBy:
-          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -87,13 +57,10 @@ components:
           readOnly: true
         username:
           type: string
-        plexUsername:
-          type: string
-          readOnly: true
         plexToken:
           type: string
           readOnly: true
-        jellyfinAuthToken:
+        plexUsername:
           type: string
           readOnly: true
         userType:
@@ -162,9 +129,6 @@ components:
         localLogin:
           type: boolean
           example: true
-        mediaServerType:
-          type: number
-          example: 1
         newPlexLogin:
           type: boolean
           example: true
@@ -340,51 +304,6 @@ components:
         - provides
         - owned
         - connection
-    JellyfinLibrary:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-          example: Movies
-        enabled:
-          type: boolean
-          example: false
-      required:
-        - id
-        - name
-        - enabled
-    JellyfinSettings:
-      type: object
-      properties:
-        name:
-          type: string
-          example: 'Main Server'
-          readOnly: true
-        hostname:
-          type: string
-          example: 'http://my.jellyfin.host'
-        externalHostname:
-          type: string
-          example: 'http://my.jellyfin.host'
-        jellyfinForgotPasswordUrl:
-          type: string
-          example: 'http://my.jellyfin.host/web/index.html#!/forgotpassword.html'
-        adminUser:
-          type: string
-          example: 'admin'
-        adminPass:
-          type: string
-          example: 'mypassword'
-        libraries:
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/JellyfinLibrary'
-        serverID:
-          type: string
-          readOnly: true
     TautulliSettings:
       type: object
       properties:
@@ -1134,7 +1053,7 @@ components:
         status:
           type: number
           example: 0
-          description: Availability of the media. 1 = `UNKNOWN`, 2 = `PENDING`, 3 = `PROCESSING`, 4 = `PARTIALLY_AVAILABLE`, 5 = `AVAILABLE`
+          description: Availability of the media. 1 = `UNKNOWN`, 2 = `PENDING`, 3 = `PROCESSING`, 4 = `PARTIALLY_AVAILABLE`, 5 = `AVAILABLE`, 6 = `DELETED`
         requests:
           type: array
           readOnly: true
@@ -2017,157 +1936,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MainSettings'
-  /settings/jellyfin:
-    get:
-      summary: Get Jellyfin settings
-      description: Retrieves current Jellyfin settings.
-      tags:
-        - settings
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JellyfinSettings'
-    post:
-      summary: Update Jellyfin settings
-      description: Updates Jellyfin settings with the provided values.
-      tags:
-        - settings
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/JellyfinSettings'
-      responses:
-        '200':
-          description: 'Values were successfully updated'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/JellyfinSettings'
-  /settings/jellyfin/library:
-    get:
-      summary: Get Jellyfin libraries
-      description: Returns a list of Jellyfin libraries in a JSON array.
-      tags:
-        - settings
-      parameters:
-        - in: query
-          name: sync
-          description: Syncs the current libraries with the current Jellyfin server
-          schema:
-            type: string
-            nullable: true
-        - in: query
-          name: enable
-          explode: false
-          allowReserved: true
-          description: Comma separated list of libraries to enable. Any libraries not passed will be disabled!
-          schema:
-            type: string
-            nullable: true
-      responses:
-        '200':
-          description: 'Jellyfin libraries returned'
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/JellyfinLibrary'
-  /settings/jellyfin/users:
-    get:
-      summary: Get Jellyfin Users
-      description: Returns a list of Jellyfin Users in a JSON array.
-      tags:
-        - settings
-        - users
-      responses:
-        '200':
-          description: Jellyfin users returned
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    username:
-                      type: string
-                    userId:
-                      type: integer
-  /settings/jellyfin/sync:
-    get:
-      summary: Get status of full Jellyfin library sync
-      description: Returns sync progress in a JSON array.
-      tags:
-        - settings
-      responses:
-        '200':
-          description: Status of Jellyfin sync
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  running:
-                    type: boolean
-                    example: false
-                  progress:
-                    type: number
-                    example: 0
-                  total:
-                    type: number
-                    example: 100
-                  currentLibrary:
-                    $ref: '#/components/schemas/JellyfinLibrary'
-                  libraries:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/JellyfinLibrary'
-    post:
-      summary: Start full Jellyfin library sync
-      description: Runs a full Jellyfin library sync and returns the progress in a JSON array.
-      tags:
-        - settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                cancel:
-                  type: boolean
-                  example: false
-                start:
-                  type: boolean
-                  example: false
-      responses:
-        '200':
-          description: Status of Jellyfin sync
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  running:
-                    type: boolean
-                    example: false
-                  progress:
-                    type: number
-                    example: 0
-                  total:
-                    type: number
-                    example: 100
-                  currentLibrary:
-                    $ref: '#/components/schemas/JellyfinLibrary'
-                  libraries:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/JellyfinLibrary'
   /settings/plex:
     get:
       summary: Get Plex settings
@@ -3557,38 +3325,6 @@ paths:
                   type: string
               required:
                 - authToken
-  /auth/jellyfin:
-    post:
-      summary: Sign in using a Jellyfin username and password
-      description: Takes the user's username and password to log the user in. Generates a session cookie for use in further requests. If the user does not exist, and there are no other users, then a user will be created with full admin privileges. If a user logs in with access to the Jellyfin server, they will also have an account created, but without any permissions.
-      security: []
-      tags:
-        - auth
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                username:
-                  type: string
-                password:
-                  type: string
-                hostname:
-                  type: string
-                email:
-                  type: string
-              required:
-                - username
-                - password
   /auth/local:
     post:
       summary: Sign in using a local account
@@ -3824,35 +3560,6 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-  /user/import-from-jellyfin:
-    post:
-      summary: Import all users from Jellyfin
-      description: |
-        Fetches and imports users from the Jellyfin server.
-
-        Requires the `MANAGE_USERS` permission.
-      tags:
-        - users
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                jellyfinIds:
-                  type: array
-                  items:
-                    type: string
-      responses:
-        '201':
-          description: A list of the newly created users
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/User'
   /user/registerPushSubscription:
     post:
       summary: Register a web push /user/registerPushSubscription
@@ -3872,6 +3579,8 @@ paths:
                   type: string
                 p256dh:
                   type: string
+                userAgent:
+                  type: string
               required:
                 - endpoint
                 - auth
@@ -3879,6 +3588,88 @@ paths:
       responses:
         '204':
           description: Successfully registered push subscription
+  /user/{userId}/pushSubscriptions:
+    get:
+      summary: Get all web push notification settings for a user
+      description: |
+        Returns all web push notification settings for a user in a JSON object.
+      tags:
+        - users
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: User web push notification settings in JSON
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  endpoint:
+                    type: string
+                  p256dh:
+                    type: string
+                  auth:
+                    type: string
+                  userAgent:
+                    type: string
+  /user/{userId}/pushSubscription/{endpoint}:
+    get:
+      summary: Get web push notification settings for a user
+      description: |
+        Returns web push notification settings for a user in a JSON object.
+      tags:
+        - users
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: number
+        - in: path
+          name: endpoint
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User web push notification settings in JSON
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  endpoint:
+                    type: string
+                  p256dh:
+                    type: string
+                  auth:
+                    type: string
+                  userAgent:
+                    type: string
+    delete:
+      summary: Delete user push subscription by key
+      description: Deletes the user push subscription with the provided key.
+      tags:
+        - users
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: number
+        - in: path
+          name: endpoint
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Successfully removed user push subscription
   /user/{userId}:
     get:
       summary: Get user by ID
@@ -4040,41 +3831,6 @@ paths:
                       restricted:
                         type: boolean
                         example: false
-  /watchlist:
-    post:
-      summary: Add media to watchlist
-      tags:
-        - watchlist
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Watchlist'
-      responses:
-        '200':
-          description: Watchlist data returned
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Watchlist'
-  /watchlist/{tmdbId}:
-    delete:
-      summary: Delete watchlist item
-      description: Removes a watchlist item.
-      tags:
-        - watchlist
-      parameters:
-        - in: path
-          name: tmdbId
-          description: tmdbId ID
-          required: true
-          example: '1'
-          schema:
-            type: string
-      responses:
-        '204':
-          description: Succesfully removed watchlist item
   /user/{userId}/watchlist:
     get:
       summary: Get the Plex watchlist for a specific user
@@ -4082,7 +3838,6 @@ paths:
         Retrieves a user's Plex Watchlist in a JSON object.
       tags:
         - users
-        - watchlist
       parameters:
         - in: path
           name: userId
@@ -5290,6 +5045,8 @@ paths:
                 processing,
                 unavailable,
                 failed,
+                deleted,
+                completed,
               ]
         - in: query
           name: sort
@@ -5347,7 +5104,7 @@ paths:
                     - type: array
                       items:
                         type: number
-                        minimum: 1
+                        minimum: 0
                     - type: string
                       enum: [all]
                 is4k:
@@ -5453,7 +5210,7 @@ paths:
                   type: array
                   items:
                     type: number
-                    minimum: 1
+                    minimum: 0
                 is4k:
                   type: boolean
                   example: false
@@ -6029,7 +5786,16 @@ paths:
           schema:
             type: string
             nullable: true
-            enum: [all, available, partial, allavailable, processing, pending]
+            enum:
+              [
+                all,
+                available,
+                partial,
+                allavailable,
+                processing,
+                pending,
+                deleted,
+              ]
         - in: query
           name: sort
           schema:
@@ -6067,23 +5833,6 @@ paths:
       responses:
         '204':
           description: Succesfully removed media item
-  /media/{mediaId}/file:
-    delete:
-      summary: Delete media file
-      description: Removes a media file from radarr/sonarr. The `ADMIN` permission is required to perform this action.
-      tags:
-        - media
-      parameters:
-        - in: path
-          name: mediaId
-          description: Media ID
-          required: true
-          example: '1'
-          schema:
-            type: string
-      responses:
-        '204':
-          description: Succesfully removed media item
   /media/{mediaId}/{status}:
     post:
       summary: Update media status
@@ -6105,7 +5854,7 @@ paths:
           example: available
           schema:
             type: string
-            enum: [available, partial, processing, pending, unknown]
+            enum: [available, partial, processing, pending, unknown, deleted]
       requestBody:
         content:
           application/json:

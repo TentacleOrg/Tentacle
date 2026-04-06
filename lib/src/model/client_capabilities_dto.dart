@@ -19,11 +19,9 @@ part 'client_capabilities_dto.g.dart';
 /// * [supportedCommands] - Gets or sets the list of supported commands.
 /// * [supportsMediaControl] - Gets or sets a value indicating whether session supports media control.
 /// * [supportsPersistentIdentifier] - Gets or sets a value indicating whether session supports a persistent identifier.
-/// * [deviceProfile] - A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.  <br />  Specifically, it defines the supported <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles\">containers</see> and  <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles\">codecs</see> (video and/or audio, including codec profiles and levels)  the device is able to direct play (without transcoding or remuxing),  as well as which <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles\">containers/codecs to transcode to</see> in case it isn't.
+/// * [deviceProfile] - Gets or sets the device profile.
 /// * [appStoreUrl] - Gets or sets the app store url.
 /// * [iconUrl] - Gets or sets the icon url.
-/// * [supportsContentUploading]
-/// * [supportsSync]
 @BuiltValue()
 abstract class ClientCapabilitiesDto
     implements Built<ClientCapabilitiesDto, ClientCapabilitiesDtoBuilder> {
@@ -43,7 +41,7 @@ abstract class ClientCapabilitiesDto
   @BuiltValueField(wireName: r'SupportsPersistentIdentifier')
   bool? get supportsPersistentIdentifier;
 
-  /// A MediaBrowser.Model.Dlna.DeviceProfile represents a set of metadata which determines which content a certain device is able to play.  <br />  Specifically, it defines the supported <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.ContainerProfiles\">containers</see> and  <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.CodecProfiles\">codecs</see> (video and/or audio, including codec profiles and levels)  the device is able to direct play (without transcoding or remuxing),  as well as which <see cref=\"P:MediaBrowser.Model.Dlna.DeviceProfile.TranscodingProfiles\">containers/codecs to transcode to</see> in case it isn't.
+  /// Gets or sets the device profile.
   @BuiltValueField(wireName: r'DeviceProfile')
   DeviceProfile? get deviceProfile;
 
@@ -55,23 +53,13 @@ abstract class ClientCapabilitiesDto
   @BuiltValueField(wireName: r'IconUrl')
   String? get iconUrl;
 
-  @Deprecated('supportsContentUploading has been deprecated')
-  @BuiltValueField(wireName: r'SupportsContentUploading')
-  bool? get supportsContentUploading;
-
-  @Deprecated('supportsSync has been deprecated')
-  @BuiltValueField(wireName: r'SupportsSync')
-  bool? get supportsSync;
-
   ClientCapabilitiesDto._();
 
   factory ClientCapabilitiesDto(
       [void updates(ClientCapabilitiesDtoBuilder b)]) = _$ClientCapabilitiesDto;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ClientCapabilitiesDtoBuilder b) => b
-    ..supportsContentUploading = false
-    ..supportsSync = false;
+  static void _defaults(ClientCapabilitiesDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ClientCapabilitiesDto> get serializer =>
@@ -142,20 +130,6 @@ class _$ClientCapabilitiesDtoSerializer
       yield serializers.serialize(
         object.iconUrl,
         specifiedType: const FullType.nullable(String),
-      );
-    }
-    if (object.supportsContentUploading != null) {
-      yield r'SupportsContentUploading';
-      yield serializers.serialize(
-        object.supportsContentUploading,
-        specifiedType: const FullType.nullable(bool),
-      );
-    }
-    if (object.supportsSync != null) {
-      yield r'SupportsSync';
-      yield serializers.serialize(
-        object.supportsSync,
-        specifiedType: const FullType.nullable(bool),
       );
     }
   }
@@ -235,22 +209,6 @@ class _$ClientCapabilitiesDtoSerializer
           ) as String?;
           if (valueDes == null) continue;
           result.iconUrl = valueDes;
-          break;
-        case r'SupportsContentUploading':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(bool),
-          ) as bool?;
-          if (valueDes == null) continue;
-          result.supportsContentUploading = valueDes;
-          break;
-        case r'SupportsSync':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType.nullable(bool),
-          ) as bool?;
-          if (valueDes == null) continue;
-          result.supportsSync = valueDes;
           break;
         default:
           unhandled.add(key);

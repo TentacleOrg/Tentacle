@@ -14,10 +14,9 @@ class _$SonarrSeriesRatingsInner extends SonarrSeriesRatingsInner {
 
   factory _$SonarrSeriesRatingsInner(
           [void Function(SonarrSeriesRatingsInnerBuilder)? updates]) =>
-      (new SonarrSeriesRatingsInnerBuilder()..update(updates))._build();
+      (SonarrSeriesRatingsInnerBuilder()..update(updates))._build();
 
   _$SonarrSeriesRatingsInner._({this.votes, this.value}) : super._();
-
   @override
   SonarrSeriesRatingsInner rebuild(
           void Function(SonarrSeriesRatingsInnerBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$SonarrSeriesRatingsInner extends SonarrSeriesRatingsInner {
 
   @override
   SonarrSeriesRatingsInnerBuilder toBuilder() =>
-      new SonarrSeriesRatingsInnerBuilder()..replace(this);
+      SonarrSeriesRatingsInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class SonarrSeriesRatingsInnerBuilder
 
   @override
   void replace(SonarrSeriesRatingsInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SonarrSeriesRatingsInner;
   }
 
@@ -95,8 +93,11 @@ class SonarrSeriesRatingsInnerBuilder
   SonarrSeriesRatingsInner build() => _build();
 
   _$SonarrSeriesRatingsInner _build() {
-    final _$result =
-        _$v ?? new _$SonarrSeriesRatingsInner._(votes: votes, value: value);
+    final _$result = _$v ??
+        _$SonarrSeriesRatingsInner._(
+          votes: votes,
+          value: value,
+        );
     replace(_$result);
     return _$result;
   }

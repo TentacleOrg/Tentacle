@@ -16,14 +16,13 @@ class _$SonarrSeriesAddOptionsInner extends SonarrSeriesAddOptionsInner {
 
   factory _$SonarrSeriesAddOptionsInner(
           [void Function(SonarrSeriesAddOptionsInnerBuilder)? updates]) =>
-      (new SonarrSeriesAddOptionsInnerBuilder()..update(updates))._build();
+      (SonarrSeriesAddOptionsInnerBuilder()..update(updates))._build();
 
   _$SonarrSeriesAddOptionsInner._(
       {this.ignoreEpisodesWithFiles,
       this.ignoreEpisodesWithoutFiles,
       this.searchForMissingEpisodes})
       : super._();
-
   @override
   SonarrSeriesAddOptionsInner rebuild(
           void Function(SonarrSeriesAddOptionsInnerBuilder) updates) =>
@@ -31,7 +30,7 @@ class _$SonarrSeriesAddOptionsInner extends SonarrSeriesAddOptionsInner {
 
   @override
   SonarrSeriesAddOptionsInnerBuilder toBuilder() =>
-      new SonarrSeriesAddOptionsInnerBuilder()..replace(this);
+      SonarrSeriesAddOptionsInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -100,7 +99,6 @@ class SonarrSeriesAddOptionsInnerBuilder
 
   @override
   void replace(SonarrSeriesAddOptionsInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SonarrSeriesAddOptionsInner;
   }
 
@@ -114,10 +112,11 @@ class SonarrSeriesAddOptionsInnerBuilder
 
   _$SonarrSeriesAddOptionsInner _build() {
     final _$result = _$v ??
-        new _$SonarrSeriesAddOptionsInner._(
-            ignoreEpisodesWithFiles: ignoreEpisodesWithFiles,
-            ignoreEpisodesWithoutFiles: ignoreEpisodesWithoutFiles,
-            searchForMissingEpisodes: searchForMissingEpisodes);
+        _$SonarrSeriesAddOptionsInner._(
+          ignoreEpisodesWithFiles: ignoreEpisodesWithFiles,
+          ignoreEpisodesWithoutFiles: ignoreEpisodesWithoutFiles,
+          searchForMissingEpisodes: searchForMissingEpisodes,
+        );
     replace(_$result);
     return _$result;
   }

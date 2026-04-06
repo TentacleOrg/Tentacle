@@ -18,31 +18,31 @@ part 'get_programs_dto.g.dart';
 /// Properties:
 /// * [channelIds] - Gets or sets the channels to return guide information for.
 /// * [userId] - Gets or sets optional. Filter by user id.
-/// * [minStartDate] - Gets or sets the minimum premiere start date.  Optional.
-/// * [hasAired] - Gets or sets filter by programs that have completed airing, or not.  Optional.
-/// * [isAiring] - Gets or sets filter by programs that are currently airing, or not.  Optional.
-/// * [maxStartDate] - Gets or sets the maximum premiere start date.  Optional.
-/// * [minEndDate] - Gets or sets the minimum premiere end date.  Optional.
-/// * [maxEndDate] - Gets or sets the maximum premiere end date.  Optional.
-/// * [isMovie] - Gets or sets filter for movies.  Optional.
-/// * [isSeries] - Gets or sets filter for series.  Optional.
-/// * [isNews] - Gets or sets filter for news.  Optional.
-/// * [isKids] - Gets or sets filter for kids.  Optional.
-/// * [isSports] - Gets or sets filter for sports.  Optional.
-/// * [startIndex] - Gets or sets the record index to start at. All items with a lower index will be dropped from the results.  Optional.
-/// * [limit] - Gets or sets the maximum number of records to return.  Optional.
-/// * [sortBy] - Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.  Optional.
-/// * [sortOrder] - Gets or sets sort Order - Ascending,Descending.
+/// * [minStartDate] - Gets or sets the minimum premiere start date.
+/// * [hasAired] - Gets or sets filter by programs that have completed airing, or not.
+/// * [isAiring] - Gets or sets filter by programs that are currently airing, or not.
+/// * [maxStartDate] - Gets or sets the maximum premiere start date.
+/// * [minEndDate] - Gets or sets the minimum premiere end date.
+/// * [maxEndDate] - Gets or sets the maximum premiere end date.
+/// * [isMovie] - Gets or sets filter for movies.
+/// * [isSeries] - Gets or sets filter for series.
+/// * [isNews] - Gets or sets filter for news.
+/// * [isKids] - Gets or sets filter for kids.
+/// * [isSports] - Gets or sets filter for sports.
+/// * [startIndex] - Gets or sets the record index to start at. All items with a lower index will be dropped from the results.
+/// * [limit] - Gets or sets the maximum number of records to return.
+/// * [sortBy] - Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.
+/// * [sortOrder] - Gets or sets sort order.
 /// * [genres] - Gets or sets the genres to return guide information for.
 /// * [genreIds] - Gets or sets the genre ids to return guide information for.
-/// * [enableImages] - Gets or sets include image information in output.  Optional.
+/// * [enableImages] - Gets or sets include image information in output.
 /// * [enableTotalRecordCount] - Gets or sets a value indicating whether retrieve total record count.
-/// * [imageTypeLimit] - Gets or sets the max number of images to return, per image type.  Optional.
-/// * [enableImageTypes] - Gets or sets the image types to include in the output.  Optional.
-/// * [enableUserData] - Gets or sets include user data.  Optional.
-/// * [seriesTimerId] - Gets or sets filter by series timer id.  Optional.
-/// * [librarySeriesId] - Gets or sets filter by library series id.  Optional.
-/// * [fields] - Gets or sets specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines.  Optional.
+/// * [imageTypeLimit] - Gets or sets the max number of images to return, per image type.
+/// * [enableImageTypes] - Gets or sets the image types to include in the output.
+/// * [enableUserData] - Gets or sets include user data.
+/// * [seriesTimerId] - Gets or sets filter by series timer id.
+/// * [librarySeriesId] - Gets or sets filter by library series id.
+/// * [fields] - Gets or sets specify additional fields of information to return in the output.
 @BuiltValue()
 abstract class GetProgramsDto
     implements Built<GetProgramsDto, GetProgramsDtoBuilder> {
@@ -54,63 +54,63 @@ abstract class GetProgramsDto
   @BuiltValueField(wireName: r'UserId')
   String? get userId;
 
-  /// Gets or sets the minimum premiere start date.  Optional.
+  /// Gets or sets the minimum premiere start date.
   @BuiltValueField(wireName: r'MinStartDate')
   DateTime? get minStartDate;
 
-  /// Gets or sets filter by programs that have completed airing, or not.  Optional.
+  /// Gets or sets filter by programs that have completed airing, or not.
   @BuiltValueField(wireName: r'HasAired')
   bool? get hasAired;
 
-  /// Gets or sets filter by programs that are currently airing, or not.  Optional.
+  /// Gets or sets filter by programs that are currently airing, or not.
   @BuiltValueField(wireName: r'IsAiring')
   bool? get isAiring;
 
-  /// Gets or sets the maximum premiere start date.  Optional.
+  /// Gets or sets the maximum premiere start date.
   @BuiltValueField(wireName: r'MaxStartDate')
   DateTime? get maxStartDate;
 
-  /// Gets or sets the minimum premiere end date.  Optional.
+  /// Gets or sets the minimum premiere end date.
   @BuiltValueField(wireName: r'MinEndDate')
   DateTime? get minEndDate;
 
-  /// Gets or sets the maximum premiere end date.  Optional.
+  /// Gets or sets the maximum premiere end date.
   @BuiltValueField(wireName: r'MaxEndDate')
   DateTime? get maxEndDate;
 
-  /// Gets or sets filter for movies.  Optional.
+  /// Gets or sets filter for movies.
   @BuiltValueField(wireName: r'IsMovie')
   bool? get isMovie;
 
-  /// Gets or sets filter for series.  Optional.
+  /// Gets or sets filter for series.
   @BuiltValueField(wireName: r'IsSeries')
   bool? get isSeries;
 
-  /// Gets or sets filter for news.  Optional.
+  /// Gets or sets filter for news.
   @BuiltValueField(wireName: r'IsNews')
   bool? get isNews;
 
-  /// Gets or sets filter for kids.  Optional.
+  /// Gets or sets filter for kids.
   @BuiltValueField(wireName: r'IsKids')
   bool? get isKids;
 
-  /// Gets or sets filter for sports.  Optional.
+  /// Gets or sets filter for sports.
   @BuiltValueField(wireName: r'IsSports')
   bool? get isSports;
 
-  /// Gets or sets the record index to start at. All items with a lower index will be dropped from the results.  Optional.
+  /// Gets or sets the record index to start at. All items with a lower index will be dropped from the results.
   @BuiltValueField(wireName: r'StartIndex')
   int? get startIndex;
 
-  /// Gets or sets the maximum number of records to return.  Optional.
+  /// Gets or sets the maximum number of records to return.
   @BuiltValueField(wireName: r'Limit')
   int? get limit;
 
-  /// Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.  Optional.
+  /// Gets or sets specify one or more sort orders, comma delimited. Options: Name, StartDate.
   @BuiltValueField(wireName: r'SortBy')
   BuiltList<ItemSortBy>? get sortBy;
 
-  /// Gets or sets sort Order - Ascending,Descending.
+  /// Gets or sets sort order.
   @BuiltValueField(wireName: r'SortOrder')
   BuiltList<SortOrder>? get sortOrder;
 
@@ -122,7 +122,7 @@ abstract class GetProgramsDto
   @BuiltValueField(wireName: r'GenreIds')
   BuiltList<String>? get genreIds;
 
-  /// Gets or sets include image information in output.  Optional.
+  /// Gets or sets include image information in output.
   @BuiltValueField(wireName: r'EnableImages')
   bool? get enableImages;
 
@@ -130,27 +130,27 @@ abstract class GetProgramsDto
   @BuiltValueField(wireName: r'EnableTotalRecordCount')
   bool? get enableTotalRecordCount;
 
-  /// Gets or sets the max number of images to return, per image type.  Optional.
+  /// Gets or sets the max number of images to return, per image type.
   @BuiltValueField(wireName: r'ImageTypeLimit')
   int? get imageTypeLimit;
 
-  /// Gets or sets the image types to include in the output.  Optional.
+  /// Gets or sets the image types to include in the output.
   @BuiltValueField(wireName: r'EnableImageTypes')
   BuiltList<ImageType>? get enableImageTypes;
 
-  /// Gets or sets include user data.  Optional.
+  /// Gets or sets include user data.
   @BuiltValueField(wireName: r'EnableUserData')
   bool? get enableUserData;
 
-  /// Gets or sets filter by series timer id.  Optional.
+  /// Gets or sets filter by series timer id.
   @BuiltValueField(wireName: r'SeriesTimerId')
   String? get seriesTimerId;
 
-  /// Gets or sets filter by library series id.  Optional.
+  /// Gets or sets filter by library series id.
   @BuiltValueField(wireName: r'LibrarySeriesId')
   String? get librarySeriesId;
 
-  /// Gets or sets specify additional fields of information to return in the output. This allows multiple, comma delimited. Options: Budget, Chapters, DateCreated, Genres, HomePageUrl, IndexOptions, MediaStreams, Overview, ParentId, Path, People, ProviderIds, PrimaryImageAspectRatio, Revenue, SortName, Studios, Taglines.  Optional.
+  /// Gets or sets specify additional fields of information to return in the output.
   @BuiltValueField(wireName: r'Fields')
   BuiltList<ItemFields>? get fields;
 
@@ -160,7 +160,8 @@ abstract class GetProgramsDto
       _$GetProgramsDto;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GetProgramsDtoBuilder b) => b;
+  static void _defaults(GetProgramsDtoBuilder b) =>
+      b..enableTotalRecordCount = true;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GetProgramsDto> get serializer =>
@@ -184,7 +185,7 @@ class _$GetProgramsDtoSerializer
       yield r'ChannelIds';
       yield serializers.serialize(
         object.channelIds,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
+        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
       );
     }
     if (object.userId != null) {
@@ -289,28 +290,30 @@ class _$GetProgramsDtoSerializer
       yield r'SortBy';
       yield serializers.serialize(
         object.sortBy,
-        specifiedType: const FullType(BuiltList, [FullType(ItemSortBy)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ItemSortBy)]),
       );
     }
     if (object.sortOrder != null) {
       yield r'SortOrder';
       yield serializers.serialize(
         object.sortOrder,
-        specifiedType: const FullType(BuiltList, [FullType(SortOrder)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(SortOrder)]),
       );
     }
     if (object.genres != null) {
       yield r'Genres';
       yield serializers.serialize(
         object.genres,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
+        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
       );
     }
     if (object.genreIds != null) {
       yield r'GenreIds';
       yield serializers.serialize(
         object.genreIds,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
+        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
       );
     }
     if (object.enableImages != null) {
@@ -338,7 +341,8 @@ class _$GetProgramsDtoSerializer
       yield r'EnableImageTypes';
       yield serializers.serialize(
         object.enableImageTypes,
-        specifiedType: const FullType(BuiltList, [FullType(ImageType)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ImageType)]),
       );
     }
     if (object.enableUserData != null) {
@@ -359,14 +363,15 @@ class _$GetProgramsDtoSerializer
       yield r'LibrarySeriesId';
       yield serializers.serialize(
         object.librarySeriesId,
-        specifiedType: const FullType(String),
+        specifiedType: const FullType.nullable(String),
       );
     }
     if (object.fields != null) {
       yield r'Fields';
       yield serializers.serialize(
         object.fields,
-        specifiedType: const FullType(BuiltList, [FullType(ItemFields)]),
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(ItemFields)]),
       );
     }
   }
@@ -397,8 +402,10 @@ class _$GetProgramsDtoSerializer
         case r'ChannelIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>?;
+          if (valueDes == null) continue;
           result.channelIds.replace(valueDes);
           break;
         case r'UserId':
@@ -516,29 +523,37 @@ class _$GetProgramsDtoSerializer
         case r'SortBy':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ItemSortBy)]),
-          ) as BuiltList<ItemSortBy>;
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ItemSortBy)]),
+          ) as BuiltList<ItemSortBy>?;
+          if (valueDes == null) continue;
           result.sortBy.replace(valueDes);
           break;
         case r'SortOrder':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(SortOrder)]),
-          ) as BuiltList<SortOrder>;
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(SortOrder)]),
+          ) as BuiltList<SortOrder>?;
+          if (valueDes == null) continue;
           result.sortOrder.replace(valueDes);
           break;
         case r'Genres':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>?;
+          if (valueDes == null) continue;
           result.genres.replace(valueDes);
           break;
         case r'GenreIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(String)]),
-          ) as BuiltList<String>;
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>?;
+          if (valueDes == null) continue;
           result.genreIds.replace(valueDes);
           break;
         case r'EnableImages':
@@ -567,8 +582,10 @@ class _$GetProgramsDtoSerializer
         case r'EnableImageTypes':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ImageType)]),
-          ) as BuiltList<ImageType>;
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ImageType)]),
+          ) as BuiltList<ImageType>?;
+          if (valueDes == null) continue;
           result.enableImageTypes.replace(valueDes);
           break;
         case r'EnableUserData':
@@ -590,15 +607,18 @@ class _$GetProgramsDtoSerializer
         case r'LibrarySeriesId':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(String),
-          ) as String;
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
           result.librarySeriesId = valueDes;
           break;
         case r'Fields':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ItemFields)]),
-          ) as BuiltList<ItemFields>;
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(ItemFields)]),
+          ) as BuiltList<ItemFields>?;
+          if (valueDes == null) continue;
           result.fields.replace(valueDes);
           break;
         default:

@@ -16,12 +16,10 @@ class _$TvDetailsContentRatingsResultsInner
   factory _$TvDetailsContentRatingsResultsInner(
           [void Function(TvDetailsContentRatingsResultsInnerBuilder)?
               updates]) =>
-      (new TvDetailsContentRatingsResultsInnerBuilder()..update(updates))
-          ._build();
+      (TvDetailsContentRatingsResultsInnerBuilder()..update(updates))._build();
 
   _$TvDetailsContentRatingsResultsInner._({this.iso31661, this.rating})
       : super._();
-
   @override
   TvDetailsContentRatingsResultsInner rebuild(
           void Function(TvDetailsContentRatingsResultsInnerBuilder) updates) =>
@@ -29,7 +27,7 @@ class _$TvDetailsContentRatingsResultsInner
 
   @override
   TvDetailsContentRatingsResultsInnerBuilder toBuilder() =>
-      new TvDetailsContentRatingsResultsInnerBuilder()..replace(this);
+      TvDetailsContentRatingsResultsInnerBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -87,7 +85,6 @@ class TvDetailsContentRatingsResultsInnerBuilder
 
   @override
   void replace(TvDetailsContentRatingsResultsInner other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TvDetailsContentRatingsResultsInner;
   }
 
@@ -102,8 +99,10 @@ class TvDetailsContentRatingsResultsInnerBuilder
 
   _$TvDetailsContentRatingsResultsInner _build() {
     final _$result = _$v ??
-        new _$TvDetailsContentRatingsResultsInner._(
-            iso31661: iso31661, rating: rating);
+        _$TvDetailsContentRatingsResultsInner._(
+          iso31661: iso31661,
+          rating: rating,
+        );
     replace(_$result);
     return _$result;
   }

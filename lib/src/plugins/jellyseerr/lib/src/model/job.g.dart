@@ -16,12 +16,12 @@ JobTypeEnum _$jobTypeEnumValueOf(String name) {
     case 'command':
       return _$jobTypeEnum_command;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<JobTypeEnum> _$jobTypeEnumValues =
-    new BuiltSet<JobTypeEnum>(const <JobTypeEnum>[
+    BuiltSet<JobTypeEnum>(const <JobTypeEnum>[
   _$jobTypeEnum_process,
   _$jobTypeEnum_command,
 ]);
@@ -41,20 +41,20 @@ JobIntervalEnum _$jobIntervalEnumValueOf(String name) {
     case 'fixed':
       return _$jobIntervalEnum_fixed;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<JobIntervalEnum> _$jobIntervalEnumValues =
-    new BuiltSet<JobIntervalEnum>(const <JobIntervalEnum>[
+    BuiltSet<JobIntervalEnum>(const <JobIntervalEnum>[
   _$jobIntervalEnum_short,
   _$jobIntervalEnum_long,
   _$jobIntervalEnum_fixed,
 ]);
 
-Serializer<JobTypeEnum> _$jobTypeEnumSerializer = new _$JobTypeEnumSerializer();
+Serializer<JobTypeEnum> _$jobTypeEnumSerializer = _$JobTypeEnumSerializer();
 Serializer<JobIntervalEnum> _$jobIntervalEnumSerializer =
-    new _$JobIntervalEnumSerializer();
+    _$JobIntervalEnumSerializer();
 
 class _$JobTypeEnumSerializer implements PrimitiveSerializer<JobTypeEnum> {
   static const Map<String, Object> _toWire = const <String, Object>{
@@ -128,7 +128,7 @@ class _$Job extends Job {
   final bool? running;
 
   factory _$Job([void Function(JobBuilder)? updates]) =>
-      (new JobBuilder()..update(updates))._build();
+      (JobBuilder()..update(updates))._build();
 
   _$Job._(
       {this.id,
@@ -138,13 +138,12 @@ class _$Job extends Job {
       this.nextExecutionTime,
       this.running})
       : super._();
-
   @override
   Job rebuild(void Function(JobBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  JobBuilder toBuilder() => new JobBuilder()..replace(this);
+  JobBuilder toBuilder() => JobBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -232,7 +231,6 @@ class JobBuilder implements Builder<Job, JobBuilder> {
 
   @override
   void replace(Job other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Job;
   }
 
@@ -246,13 +244,14 @@ class JobBuilder implements Builder<Job, JobBuilder> {
 
   _$Job _build() {
     final _$result = _$v ??
-        new _$Job._(
-            id: id,
-            type: type,
-            interval: interval,
-            name: name,
-            nextExecutionTime: nextExecutionTime,
-            running: running);
+        _$Job._(
+          id: id,
+          type: type,
+          interval: interval,
+          name: name,
+          nextExecutionTime: nextExecutionTime,
+          running: running,
+        );
     replace(_$result);
     return _$result;
   }

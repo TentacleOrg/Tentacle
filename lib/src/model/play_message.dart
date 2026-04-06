@@ -13,12 +13,12 @@ part 'play_message.g.dart';
 /// Play command websocket message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Class PlayRequest.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class PlayMessage implements Built<PlayMessage, PlayMessageBuilder> {
-  /// Gets or sets the data.
+  /// Class PlayRequest.
   @BuiltValueField(wireName: r'Data')
   PlayRequest? get data;
 

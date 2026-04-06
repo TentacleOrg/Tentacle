@@ -25,7 +25,7 @@ class _$Season extends Season {
   final BuiltList<Episode>? episodes;
 
   factory _$Season([void Function(SeasonBuilder)? updates]) =>
-      (new SeasonBuilder()..update(updates))._build();
+      (SeasonBuilder()..update(updates))._build();
 
   _$Season._(
       {this.id,
@@ -37,13 +37,12 @@ class _$Season extends Season {
       this.seasonNumber,
       this.episodes})
       : super._();
-
   @override
   Season rebuild(void Function(SeasonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SeasonBuilder toBuilder() => new SeasonBuilder()..replace(this);
+  SeasonBuilder toBuilder() => SeasonBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -122,7 +121,7 @@ class SeasonBuilder implements Builder<Season, SeasonBuilder> {
 
   ListBuilder<Episode>? _episodes;
   ListBuilder<Episode> get episodes =>
-      _$this._episodes ??= new ListBuilder<Episode>();
+      _$this._episodes ??= ListBuilder<Episode>();
   set episodes(ListBuilder<Episode>? episodes) => _$this._episodes = episodes;
 
   SeasonBuilder() {
@@ -147,7 +146,6 @@ class SeasonBuilder implements Builder<Season, SeasonBuilder> {
 
   @override
   void replace(Season other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$Season;
   }
 
@@ -163,22 +161,23 @@ class SeasonBuilder implements Builder<Season, SeasonBuilder> {
     _$Season _$result;
     try {
       _$result = _$v ??
-          new _$Season._(
-              id: id,
-              airDate: airDate,
-              episodeCount: episodeCount,
-              name: name,
-              overview: overview,
-              posterPath: posterPath,
-              seasonNumber: seasonNumber,
-              episodes: _episodes?.build());
+          _$Season._(
+            id: id,
+            airDate: airDate,
+            episodeCount: episodeCount,
+            name: name,
+            overview: overview,
+            posterPath: posterPath,
+            seasonNumber: seasonNumber,
+            episodes: _episodes?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'episodes';
         _episodes?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'Season', _$failedField, e.toString());
       }
       rethrow;

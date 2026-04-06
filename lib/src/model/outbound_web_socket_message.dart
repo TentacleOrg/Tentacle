@@ -4,6 +4,7 @@
 
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/general_command_message.dart';
+import 'package:tentacle/src/model/group_update.dart';
 import 'package:tentacle/src/model/outbound_keep_alive_message.dart';
 import 'package:tentacle/src/model/plugin_installation_completed_message.dart';
 import 'package:tentacle/src/model/plugin_installation_cancelled_message.dart';
@@ -19,7 +20,6 @@ import 'package:tentacle/src/model/series_timer_cancelled_message.dart';
 import 'package:tentacle/src/model/server_restarting_message.dart';
 import 'package:tentacle/src/model/session_message_type.dart';
 import 'package:tentacle/src/model/activity_log_entry_message.dart';
-import 'package:tentacle/src/model/user_dto.dart';
 import 'package:tentacle/src/model/scheduled_tasks_info_message.dart';
 import 'package:tentacle/src/model/restart_required_message.dart';
 import 'package:tentacle/src/model/scheduled_task_ended_message.dart';
@@ -27,7 +27,7 @@ import 'package:tentacle/src/model/user_data_changed_message.dart';
 import 'package:tentacle/src/model/plugin_installing_message.dart';
 import 'package:tentacle/src/model/timer_cancelled_message.dart';
 import 'package:tentacle/src/model/timer_created_message.dart';
-import 'package:tentacle/src/model/sync_play_group_update_command_message.dart';
+import 'package:tentacle/src/model/sync_play_group_update_message.dart';
 import 'package:tentacle/src/model/server_shutting_down_message.dart';
 import 'package:tentacle/src/model/plugin_uninstalled_message.dart';
 import 'package:tentacle/src/model/user_updated_message.dart';
@@ -42,14 +42,14 @@ part 'outbound_web_socket_message.g.dart';
 /// Represents the list of possible outbound websocket types
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - Group update data
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class OutboundWebSocketMessage
     implements
         Built<OutboundWebSocketMessage, OutboundWebSocketMessageBuilder> {
-  /// One Of [ActivityLogEntryMessage], [ForceKeepAliveMessage], [GeneralCommandMessage], [LibraryChangedMessage], [OutboundKeepAliveMessage], [PlayMessage], [PlaystateMessage], [PluginInstallationCancelledMessage], [PluginInstallationCompletedMessage], [PluginInstallationFailedMessage], [PluginInstallingMessage], [PluginUninstalledMessage], [RefreshProgressMessage], [RestartRequiredMessage], [ScheduledTaskEndedMessage], [ScheduledTasksInfoMessage], [SeriesTimerCancelledMessage], [SeriesTimerCreatedMessage], [ServerRestartingMessage], [ServerShuttingDownMessage], [SessionsMessage], [SyncPlayCommandMessage], [SyncPlayGroupUpdateCommandMessage], [TimerCancelledMessage], [TimerCreatedMessage], [UserDataChangedMessage], [UserDeletedMessage], [UserUpdatedMessage]
+  /// One Of [ActivityLogEntryMessage], [ForceKeepAliveMessage], [GeneralCommandMessage], [LibraryChangedMessage], [OutboundKeepAliveMessage], [PlayMessage], [PlaystateMessage], [PluginInstallationCancelledMessage], [PluginInstallationCompletedMessage], [PluginInstallationFailedMessage], [PluginInstallingMessage], [PluginUninstalledMessage], [RefreshProgressMessage], [RestartRequiredMessage], [ScheduledTaskEndedMessage], [ScheduledTasksInfoMessage], [SeriesTimerCancelledMessage], [SeriesTimerCreatedMessage], [ServerRestartingMessage], [ServerShuttingDownMessage], [SessionsMessage], [SyncPlayCommandMessage], [SyncPlayGroupUpdateMessage], [TimerCancelledMessage], [TimerCreatedMessage], [UserDataChangedMessage], [UserDeletedMessage], [UserUpdatedMessage]
   OneOf get oneOf;
 
   static const String discriminatorFieldName = r'MessageType';
@@ -77,7 +77,7 @@ abstract class OutboundWebSocketMessage
     r'ServerShuttingDown': ServerShuttingDownMessage,
     r'Sessions': SessionsMessage,
     r'SyncPlayCommand': SyncPlayCommandMessage,
-    r'SyncPlayGroupUpdate': SyncPlayGroupUpdateCommandMessage,
+    r'SyncPlayGroupUpdate': SyncPlayGroupUpdateMessage,
     r'TimerCancelled': TimerCancelledMessage,
     r'TimerCreated': TimerCreatedMessage,
     r'UserDataChanged': UserDataChangedMessage,
@@ -167,7 +167,7 @@ extension OutboundWebSocketMessageDiscriminatorExt on OutboundWebSocketMessage {
     if (this is SyncPlayCommandMessage) {
       return r'SyncPlayCommand';
     }
-    if (this is SyncPlayGroupUpdateCommandMessage) {
+    if (this is SyncPlayGroupUpdateMessage) {
       return r'SyncPlayGroupUpdate';
     }
     if (this is TimerCancelledMessage) {
@@ -258,7 +258,7 @@ extension OutboundWebSocketMessageBuilderDiscriminatorExt
     if (this is SyncPlayCommandMessageBuilder) {
       return r'SyncPlayCommand';
     }
-    if (this is SyncPlayGroupUpdateCommandMessageBuilder) {
+    if (this is SyncPlayGroupUpdateMessageBuilder) {
       return r'SyncPlayGroupUpdate';
     }
     if (this is TimerCancelledMessageBuilder) {
@@ -346,7 +346,7 @@ class _$OutboundWebSocketMessageSerializer
       ServerShuttingDownMessage,
       SessionsMessage,
       SyncPlayCommandMessage,
-      SyncPlayGroupUpdateCommandMessage,
+      SyncPlayGroupUpdateMessage,
       TimerCancelledMessage,
       TimerCreatedMessage,
       UserDataChangedMessage,
@@ -513,9 +513,9 @@ class _$OutboundWebSocketMessageSerializer
       case r'SyncPlayGroupUpdate':
         oneOfResult = serializers.deserialize(
           oneOfDataSrc,
-          specifiedType: FullType(SyncPlayGroupUpdateCommandMessage),
-        ) as SyncPlayGroupUpdateCommandMessage;
-        oneOfType = SyncPlayGroupUpdateCommandMessage;
+          specifiedType: FullType(SyncPlayGroupUpdateMessage),
+        ) as SyncPlayGroupUpdateMessage;
+        oneOfType = SyncPlayGroupUpdateMessage;
         break;
       case r'TimerCancelled':
         oneOfResult = serializers.deserialize(

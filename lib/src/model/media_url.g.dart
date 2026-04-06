@@ -13,16 +13,15 @@ class _$MediaUrl extends MediaUrl {
   final String? name;
 
   factory _$MediaUrl([void Function(MediaUrlBuilder)? updates]) =>
-      (new MediaUrlBuilder()..update(updates))._build();
+      (MediaUrlBuilder()..update(updates))._build();
 
   _$MediaUrl._({this.url, this.name}) : super._();
-
   @override
   MediaUrl rebuild(void Function(MediaUrlBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MediaUrlBuilder toBuilder() => new MediaUrlBuilder()..replace(this);
+  MediaUrlBuilder toBuilder() => MediaUrlBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -75,7 +74,6 @@ class MediaUrlBuilder implements Builder<MediaUrl, MediaUrlBuilder> {
 
   @override
   void replace(MediaUrl other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaUrl;
   }
 
@@ -88,7 +86,11 @@ class MediaUrlBuilder implements Builder<MediaUrl, MediaUrlBuilder> {
   MediaUrl build() => _build();
 
   _$MediaUrl _build() {
-    final _$result = _$v ?? new _$MediaUrl._(url: url, name: name);
+    final _$result = _$v ??
+        _$MediaUrl._(
+          url: url,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

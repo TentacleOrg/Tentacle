@@ -8,7 +8,7 @@ part of 'task_trigger_info.dart';
 
 class _$TaskTriggerInfo extends TaskTriggerInfo {
   @override
-  final String? type;
+  final TaskTriggerInfoType? type;
   @override
   final int? timeOfDayTicks;
   @override
@@ -19,7 +19,7 @@ class _$TaskTriggerInfo extends TaskTriggerInfo {
   final int? maxRuntimeTicks;
 
   factory _$TaskTriggerInfo([void Function(TaskTriggerInfoBuilder)? updates]) =>
-      (new TaskTriggerInfoBuilder()..update(updates))._build();
+      (TaskTriggerInfoBuilder()..update(updates))._build();
 
   _$TaskTriggerInfo._(
       {this.type,
@@ -28,14 +28,12 @@ class _$TaskTriggerInfo extends TaskTriggerInfo {
       this.dayOfWeek,
       this.maxRuntimeTicks})
       : super._();
-
   @override
   TaskTriggerInfo rebuild(void Function(TaskTriggerInfoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TaskTriggerInfoBuilder toBuilder() =>
-      new TaskTriggerInfoBuilder()..replace(this);
+  TaskTriggerInfoBuilder toBuilder() => TaskTriggerInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -76,9 +74,9 @@ class TaskTriggerInfoBuilder
     implements Builder<TaskTriggerInfo, TaskTriggerInfoBuilder> {
   _$TaskTriggerInfo? _$v;
 
-  String? _type;
-  String? get type => _$this._type;
-  set type(String? type) => _$this._type = type;
+  TaskTriggerInfoType? _type;
+  TaskTriggerInfoType? get type => _$this._type;
+  set type(TaskTriggerInfoType? type) => _$this._type = type;
 
   int? _timeOfDayTicks;
   int? get timeOfDayTicks => _$this._timeOfDayTicks;
@@ -118,7 +116,6 @@ class TaskTriggerInfoBuilder
 
   @override
   void replace(TaskTriggerInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TaskTriggerInfo;
   }
 
@@ -132,12 +129,13 @@ class TaskTriggerInfoBuilder
 
   _$TaskTriggerInfo _build() {
     final _$result = _$v ??
-        new _$TaskTriggerInfo._(
-            type: type,
-            timeOfDayTicks: timeOfDayTicks,
-            intervalTicks: intervalTicks,
-            dayOfWeek: dayOfWeek,
-            maxRuntimeTicks: maxRuntimeTicks);
+        _$TaskTriggerInfo._(
+          type: type,
+          timeOfDayTicks: timeOfDayTicks,
+          intervalTicks: intervalTicks,
+          dayOfWeek: dayOfWeek,
+          maxRuntimeTicks: maxRuntimeTicks,
+        );
     replace(_$result);
     return _$result;
   }

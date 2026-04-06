@@ -13,16 +13,15 @@ class _$LyricDto extends LyricDto {
   final BuiltList<LyricLine>? lyrics;
 
   factory _$LyricDto([void Function(LyricDtoBuilder)? updates]) =>
-      (new LyricDtoBuilder()..update(updates))._build();
+      (LyricDtoBuilder()..update(updates))._build();
 
   _$LyricDto._({this.metadata, this.lyrics}) : super._();
-
   @override
   LyricDto rebuild(void Function(LyricDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LyricDtoBuilder toBuilder() => new LyricDtoBuilder()..replace(this);
+  LyricDtoBuilder toBuilder() => LyricDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -55,12 +54,12 @@ class LyricDtoBuilder implements Builder<LyricDto, LyricDtoBuilder> {
 
   LyricMetadataBuilder? _metadata;
   LyricMetadataBuilder get metadata =>
-      _$this._metadata ??= new LyricMetadataBuilder();
+      _$this._metadata ??= LyricMetadataBuilder();
   set metadata(LyricMetadataBuilder? metadata) => _$this._metadata = metadata;
 
   ListBuilder<LyricLine>? _lyrics;
   ListBuilder<LyricLine> get lyrics =>
-      _$this._lyrics ??= new ListBuilder<LyricLine>();
+      _$this._lyrics ??= ListBuilder<LyricLine>();
   set lyrics(ListBuilder<LyricLine>? lyrics) => _$this._lyrics = lyrics;
 
   LyricDtoBuilder() {
@@ -79,7 +78,6 @@ class LyricDtoBuilder implements Builder<LyricDto, LyricDtoBuilder> {
 
   @override
   void replace(LyricDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$LyricDto;
   }
 
@@ -95,8 +93,10 @@ class LyricDtoBuilder implements Builder<LyricDto, LyricDtoBuilder> {
     _$LyricDto _$result;
     try {
       _$result = _$v ??
-          new _$LyricDto._(
-              metadata: _metadata?.build(), lyrics: _lyrics?.build());
+          _$LyricDto._(
+            metadata: _metadata?.build(),
+            lyrics: _lyrics?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -105,7 +105,7 @@ class LyricDtoBuilder implements Builder<LyricDto, LyricDtoBuilder> {
         _$failedField = 'lyrics';
         _lyrics?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'LyricDto', _$failedField, e.toString());
       }
       rethrow;

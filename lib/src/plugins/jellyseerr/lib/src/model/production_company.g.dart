@@ -18,18 +18,17 @@ class _$ProductionCompany extends ProductionCompany {
 
   factory _$ProductionCompany(
           [void Function(ProductionCompanyBuilder)? updates]) =>
-      (new ProductionCompanyBuilder()..update(updates))._build();
+      (ProductionCompanyBuilder()..update(updates))._build();
 
   _$ProductionCompany._({this.id, this.logoPath, this.originCountry, this.name})
       : super._();
-
   @override
   ProductionCompany rebuild(void Function(ProductionCompanyBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   ProductionCompanyBuilder toBuilder() =>
-      new ProductionCompanyBuilder()..replace(this);
+      ProductionCompanyBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -102,7 +101,6 @@ class ProductionCompanyBuilder
 
   @override
   void replace(ProductionCompany other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProductionCompany;
   }
 
@@ -116,11 +114,12 @@ class ProductionCompanyBuilder
 
   _$ProductionCompany _build() {
     final _$result = _$v ??
-        new _$ProductionCompany._(
-            id: id,
-            logoPath: logoPath,
-            originCountry: originCountry,
-            name: name);
+        _$ProductionCompany._(
+          id: id,
+          logoPath: logoPath,
+          originCountry: originCountry,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

@@ -16,12 +16,11 @@ RatingType _$valueOf(String name) {
     case 'likes':
       return _$likes;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<RatingType> _$values =
-    new BuiltSet<RatingType>(const <RatingType>[
+final BuiltSet<RatingType> _$values = BuiltSet<RatingType>(const <RatingType>[
   _$score,
   _$likes,
 ]);
@@ -39,7 +38,7 @@ mixin _$RatingTypeMixin {
   _$RatingTypeMeta get RatingType => const _$RatingTypeMeta();
 }
 
-Serializer<RatingType> _$ratingTypeSerializer = new _$RatingTypeSerializer();
+Serializer<RatingType> _$ratingTypeSerializer = _$RatingTypeSerializer();
 
 class _$RatingTypeSerializer implements PrimitiveSerializer<RatingType> {
   static const Map<String, Object> _toWire = const <String, Object>{

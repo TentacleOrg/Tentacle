@@ -21,14 +21,10 @@ class _$ClientCapabilitiesDto extends ClientCapabilitiesDto {
   final String? appStoreUrl;
   @override
   final String? iconUrl;
-  @override
-  final bool? supportsContentUploading;
-  @override
-  final bool? supportsSync;
 
   factory _$ClientCapabilitiesDto(
           [void Function(ClientCapabilitiesDtoBuilder)? updates]) =>
-      (new ClientCapabilitiesDtoBuilder()..update(updates))._build();
+      (ClientCapabilitiesDtoBuilder()..update(updates))._build();
 
   _$ClientCapabilitiesDto._(
       {this.playableMediaTypes,
@@ -37,11 +33,8 @@ class _$ClientCapabilitiesDto extends ClientCapabilitiesDto {
       this.supportsPersistentIdentifier,
       this.deviceProfile,
       this.appStoreUrl,
-      this.iconUrl,
-      this.supportsContentUploading,
-      this.supportsSync})
+      this.iconUrl})
       : super._();
-
   @override
   ClientCapabilitiesDto rebuild(
           void Function(ClientCapabilitiesDtoBuilder) updates) =>
@@ -49,7 +42,7 @@ class _$ClientCapabilitiesDto extends ClientCapabilitiesDto {
 
   @override
   ClientCapabilitiesDtoBuilder toBuilder() =>
-      new ClientCapabilitiesDtoBuilder()..replace(this);
+      ClientCapabilitiesDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -61,9 +54,7 @@ class _$ClientCapabilitiesDto extends ClientCapabilitiesDto {
         supportsPersistentIdentifier == other.supportsPersistentIdentifier &&
         deviceProfile == other.deviceProfile &&
         appStoreUrl == other.appStoreUrl &&
-        iconUrl == other.iconUrl &&
-        supportsContentUploading == other.supportsContentUploading &&
-        supportsSync == other.supportsSync;
+        iconUrl == other.iconUrl;
   }
 
   @override
@@ -76,8 +67,6 @@ class _$ClientCapabilitiesDto extends ClientCapabilitiesDto {
     _$hash = $jc(_$hash, deviceProfile.hashCode);
     _$hash = $jc(_$hash, appStoreUrl.hashCode);
     _$hash = $jc(_$hash, iconUrl.hashCode);
-    _$hash = $jc(_$hash, supportsContentUploading.hashCode);
-    _$hash = $jc(_$hash, supportsSync.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -91,9 +80,7 @@ class _$ClientCapabilitiesDto extends ClientCapabilitiesDto {
           ..add('supportsPersistentIdentifier', supportsPersistentIdentifier)
           ..add('deviceProfile', deviceProfile)
           ..add('appStoreUrl', appStoreUrl)
-          ..add('iconUrl', iconUrl)
-          ..add('supportsContentUploading', supportsContentUploading)
-          ..add('supportsSync', supportsSync))
+          ..add('iconUrl', iconUrl))
         .toString();
   }
 }
@@ -104,13 +91,13 @@ class ClientCapabilitiesDtoBuilder
 
   ListBuilder<MediaType>? _playableMediaTypes;
   ListBuilder<MediaType> get playableMediaTypes =>
-      _$this._playableMediaTypes ??= new ListBuilder<MediaType>();
+      _$this._playableMediaTypes ??= ListBuilder<MediaType>();
   set playableMediaTypes(ListBuilder<MediaType>? playableMediaTypes) =>
       _$this._playableMediaTypes = playableMediaTypes;
 
   ListBuilder<GeneralCommandType>? _supportedCommands;
   ListBuilder<GeneralCommandType> get supportedCommands =>
-      _$this._supportedCommands ??= new ListBuilder<GeneralCommandType>();
+      _$this._supportedCommands ??= ListBuilder<GeneralCommandType>();
   set supportedCommands(ListBuilder<GeneralCommandType>? supportedCommands) =>
       _$this._supportedCommands = supportedCommands;
 
@@ -127,7 +114,7 @@ class ClientCapabilitiesDtoBuilder
 
   DeviceProfileBuilder? _deviceProfile;
   DeviceProfileBuilder get deviceProfile =>
-      _$this._deviceProfile ??= new DeviceProfileBuilder();
+      _$this._deviceProfile ??= DeviceProfileBuilder();
   set deviceProfile(DeviceProfileBuilder? deviceProfile) =>
       _$this._deviceProfile = deviceProfile;
 
@@ -138,15 +125,6 @@ class ClientCapabilitiesDtoBuilder
   String? _iconUrl;
   String? get iconUrl => _$this._iconUrl;
   set iconUrl(String? iconUrl) => _$this._iconUrl = iconUrl;
-
-  bool? _supportsContentUploading;
-  bool? get supportsContentUploading => _$this._supportsContentUploading;
-  set supportsContentUploading(bool? supportsContentUploading) =>
-      _$this._supportsContentUploading = supportsContentUploading;
-
-  bool? _supportsSync;
-  bool? get supportsSync => _$this._supportsSync;
-  set supportsSync(bool? supportsSync) => _$this._supportsSync = supportsSync;
 
   ClientCapabilitiesDtoBuilder() {
     ClientCapabilitiesDto._defaults(this);
@@ -162,8 +140,6 @@ class ClientCapabilitiesDtoBuilder
       _deviceProfile = $v.deviceProfile?.toBuilder();
       _appStoreUrl = $v.appStoreUrl;
       _iconUrl = $v.iconUrl;
-      _supportsContentUploading = $v.supportsContentUploading;
-      _supportsSync = $v.supportsSync;
       _$v = null;
     }
     return this;
@@ -171,7 +147,6 @@ class ClientCapabilitiesDtoBuilder
 
   @override
   void replace(ClientCapabilitiesDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ClientCapabilitiesDto;
   }
 
@@ -187,16 +162,15 @@ class ClientCapabilitiesDtoBuilder
     _$ClientCapabilitiesDto _$result;
     try {
       _$result = _$v ??
-          new _$ClientCapabilitiesDto._(
-              playableMediaTypes: _playableMediaTypes?.build(),
-              supportedCommands: _supportedCommands?.build(),
-              supportsMediaControl: supportsMediaControl,
-              supportsPersistentIdentifier: supportsPersistentIdentifier,
-              deviceProfile: _deviceProfile?.build(),
-              appStoreUrl: appStoreUrl,
-              iconUrl: iconUrl,
-              supportsContentUploading: supportsContentUploading,
-              supportsSync: supportsSync);
+          _$ClientCapabilitiesDto._(
+            playableMediaTypes: _playableMediaTypes?.build(),
+            supportedCommands: _supportedCommands?.build(),
+            supportsMediaControl: supportsMediaControl,
+            supportsPersistentIdentifier: supportsPersistentIdentifier,
+            deviceProfile: _deviceProfile?.build(),
+            appStoreUrl: appStoreUrl,
+            iconUrl: iconUrl,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -208,7 +182,7 @@ class ClientCapabilitiesDtoBuilder
         _$failedField = 'deviceProfile';
         _deviceProfile?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'ClientCapabilitiesDto', _$failedField, e.toString());
       }
       rethrow;

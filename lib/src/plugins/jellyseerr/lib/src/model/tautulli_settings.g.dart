@@ -20,19 +20,18 @@ class _$TautulliSettings extends TautulliSettings {
 
   factory _$TautulliSettings(
           [void Function(TautulliSettingsBuilder)? updates]) =>
-      (new TautulliSettingsBuilder()..update(updates))._build();
+      (TautulliSettingsBuilder()..update(updates))._build();
 
   _$TautulliSettings._(
       {this.hostname, this.port, this.useSsl, this.apiKey, this.externalUrl})
       : super._();
-
   @override
   TautulliSettings rebuild(void Function(TautulliSettingsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   TautulliSettingsBuilder toBuilder() =>
-      new TautulliSettingsBuilder()..replace(this);
+      TautulliSettingsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -112,7 +111,6 @@ class TautulliSettingsBuilder
 
   @override
   void replace(TautulliSettings other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$TautulliSettings;
   }
 
@@ -126,12 +124,13 @@ class TautulliSettingsBuilder
 
   _$TautulliSettings _build() {
     final _$result = _$v ??
-        new _$TautulliSettings._(
-            hostname: hostname,
-            port: port,
-            useSsl: useSsl,
-            apiKey: apiKey,
-            externalUrl: externalUrl);
+        _$TautulliSettings._(
+          hostname: hostname,
+          port: port,
+          useSsl: useSsl,
+          apiKey: apiKey,
+          externalUrl: externalUrl,
+        );
     replace(_$result);
     return _$result;
   }

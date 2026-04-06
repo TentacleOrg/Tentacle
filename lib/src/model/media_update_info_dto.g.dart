@@ -12,10 +12,9 @@ class _$MediaUpdateInfoDto extends MediaUpdateInfoDto {
 
   factory _$MediaUpdateInfoDto(
           [void Function(MediaUpdateInfoDtoBuilder)? updates]) =>
-      (new MediaUpdateInfoDtoBuilder()..update(updates))._build();
+      (MediaUpdateInfoDtoBuilder()..update(updates))._build();
 
   _$MediaUpdateInfoDto._({this.updates}) : super._();
-
   @override
   MediaUpdateInfoDto rebuild(
           void Function(MediaUpdateInfoDtoBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$MediaUpdateInfoDto extends MediaUpdateInfoDto {
 
   @override
   MediaUpdateInfoDtoBuilder toBuilder() =>
-      new MediaUpdateInfoDtoBuilder()..replace(this);
+      MediaUpdateInfoDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -53,7 +52,7 @@ class MediaUpdateInfoDtoBuilder
 
   ListBuilder<MediaUpdateInfoPathDto>? _updates;
   ListBuilder<MediaUpdateInfoPathDto> get updates =>
-      _$this._updates ??= new ListBuilder<MediaUpdateInfoPathDto>();
+      _$this._updates ??= ListBuilder<MediaUpdateInfoPathDto>();
   set updates(ListBuilder<MediaUpdateInfoPathDto>? updates) =>
       _$this._updates = updates;
 
@@ -72,7 +71,6 @@ class MediaUpdateInfoDtoBuilder
 
   @override
   void replace(MediaUpdateInfoDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MediaUpdateInfoDto;
   }
 
@@ -87,14 +85,17 @@ class MediaUpdateInfoDtoBuilder
   _$MediaUpdateInfoDto _build() {
     _$MediaUpdateInfoDto _$result;
     try {
-      _$result = _$v ?? new _$MediaUpdateInfoDto._(updates: _updates?.build());
+      _$result = _$v ??
+          _$MediaUpdateInfoDto._(
+            updates: _updates?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'updates';
         _updates?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MediaUpdateInfoDto', _$failedField, e.toString());
       }
       rethrow;

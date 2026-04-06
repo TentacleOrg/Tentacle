@@ -14,10 +14,9 @@ class _$PlaylistUserPermissions extends PlaylistUserPermissions {
 
   factory _$PlaylistUserPermissions(
           [void Function(PlaylistUserPermissionsBuilder)? updates]) =>
-      (new PlaylistUserPermissionsBuilder()..update(updates))._build();
+      (PlaylistUserPermissionsBuilder()..update(updates))._build();
 
   _$PlaylistUserPermissions._({this.userId, this.canEdit}) : super._();
-
   @override
   PlaylistUserPermissions rebuild(
           void Function(PlaylistUserPermissionsBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$PlaylistUserPermissions extends PlaylistUserPermissions {
 
   @override
   PlaylistUserPermissionsBuilder toBuilder() =>
-      new PlaylistUserPermissionsBuilder()..replace(this);
+      PlaylistUserPermissionsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +81,6 @@ class PlaylistUserPermissionsBuilder
 
   @override
   void replace(PlaylistUserPermissions other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PlaylistUserPermissions;
   }
 
@@ -96,7 +94,10 @@ class PlaylistUserPermissionsBuilder
 
   _$PlaylistUserPermissions _build() {
     final _$result = _$v ??
-        new _$PlaylistUserPermissions._(userId: userId, canEdit: canEdit);
+        _$PlaylistUserPermissions._(
+          userId: userId,
+          canEdit: canEdit,
+        );
     replace(_$result);
     return _$result;
   }

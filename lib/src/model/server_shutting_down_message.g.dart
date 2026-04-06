@@ -14,10 +14,9 @@ class _$ServerShuttingDownMessage extends ServerShuttingDownMessage {
 
   factory _$ServerShuttingDownMessage(
           [void Function(ServerShuttingDownMessageBuilder)? updates]) =>
-      (new ServerShuttingDownMessageBuilder()..update(updates))._build();
+      (ServerShuttingDownMessageBuilder()..update(updates))._build();
 
   _$ServerShuttingDownMessage._({this.messageId, this.messageType}) : super._();
-
   @override
   ServerShuttingDownMessage rebuild(
           void Function(ServerShuttingDownMessageBuilder) updates) =>
@@ -25,7 +24,7 @@ class _$ServerShuttingDownMessage extends ServerShuttingDownMessage {
 
   @override
   ServerShuttingDownMessageBuilder toBuilder() =>
-      new ServerShuttingDownMessageBuilder()..replace(this);
+      ServerShuttingDownMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -83,7 +82,6 @@ class ServerShuttingDownMessageBuilder
 
   @override
   void replace(ServerShuttingDownMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ServerShuttingDownMessage;
   }
 
@@ -97,8 +95,10 @@ class ServerShuttingDownMessageBuilder
 
   _$ServerShuttingDownMessage _build() {
     final _$result = _$v ??
-        new _$ServerShuttingDownMessage._(
-            messageId: messageId, messageType: messageType);
+        _$ServerShuttingDownMessage._(
+          messageId: messageId,
+          messageType: messageType,
+        );
     replace(_$result);
     return _$result;
   }

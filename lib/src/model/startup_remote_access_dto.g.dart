@@ -14,18 +14,12 @@ class _$StartupRemoteAccessDto extends StartupRemoteAccessDto {
 
   factory _$StartupRemoteAccessDto(
           [void Function(StartupRemoteAccessDtoBuilder)? updates]) =>
-      (new StartupRemoteAccessDtoBuilder()..update(updates))._build();
+      (StartupRemoteAccessDtoBuilder()..update(updates))._build();
 
   _$StartupRemoteAccessDto._(
       {required this.enableRemoteAccess,
       required this.enableAutomaticPortMapping})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        enableRemoteAccess, r'StartupRemoteAccessDto', 'enableRemoteAccess');
-    BuiltValueNullFieldError.checkNotNull(enableAutomaticPortMapping,
-        r'StartupRemoteAccessDto', 'enableAutomaticPortMapping');
-  }
-
+      : super._();
   @override
   StartupRemoteAccessDto rebuild(
           void Function(StartupRemoteAccessDtoBuilder) updates) =>
@@ -33,7 +27,7 @@ class _$StartupRemoteAccessDto extends StartupRemoteAccessDto {
 
   @override
   StartupRemoteAccessDtoBuilder toBuilder() =>
-      new StartupRemoteAccessDtoBuilder()..replace(this);
+      StartupRemoteAccessDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -91,7 +85,6 @@ class StartupRemoteAccessDtoBuilder
 
   @override
   void replace(StartupRemoteAccessDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$StartupRemoteAccessDto;
   }
 
@@ -105,15 +98,16 @@ class StartupRemoteAccessDtoBuilder
 
   _$StartupRemoteAccessDto _build() {
     final _$result = _$v ??
-        new _$StartupRemoteAccessDto._(
-            enableRemoteAccess: BuiltValueNullFieldError.checkNotNull(
-                enableRemoteAccess,
-                r'StartupRemoteAccessDto',
-                'enableRemoteAccess'),
-            enableAutomaticPortMapping: BuiltValueNullFieldError.checkNotNull(
-                enableAutomaticPortMapping,
-                r'StartupRemoteAccessDto',
-                'enableAutomaticPortMapping'));
+        _$StartupRemoteAccessDto._(
+          enableRemoteAccess: BuiltValueNullFieldError.checkNotNull(
+              enableRemoteAccess,
+              r'StartupRemoteAccessDto',
+              'enableRemoteAccess'),
+          enableAutomaticPortMapping: BuiltValueNullFieldError.checkNotNull(
+              enableAutomaticPortMapping,
+              r'StartupRemoteAccessDto',
+              'enableAutomaticPortMapping'),
+        );
     replace(_$result);
     return _$result;
   }

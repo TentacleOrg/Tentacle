@@ -14,19 +14,16 @@ class _$CreateUserByName extends CreateUserByName {
 
   factory _$CreateUserByName(
           [void Function(CreateUserByNameBuilder)? updates]) =>
-      (new CreateUserByNameBuilder()..update(updates))._build();
+      (CreateUserByNameBuilder()..update(updates))._build();
 
-  _$CreateUserByName._({required this.name, this.password}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(name, r'CreateUserByName', 'name');
-  }
-
+  _$CreateUserByName._({required this.name, this.password}) : super._();
   @override
   CreateUserByName rebuild(void Function(CreateUserByNameBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   CreateUserByNameBuilder toBuilder() =>
-      new CreateUserByNameBuilder()..replace(this);
+      CreateUserByNameBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -82,7 +79,6 @@ class CreateUserByNameBuilder
 
   @override
   void replace(CreateUserByName other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CreateUserByName;
   }
 
@@ -96,10 +92,11 @@ class CreateUserByNameBuilder
 
   _$CreateUserByName _build() {
     final _$result = _$v ??
-        new _$CreateUserByName._(
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'CreateUserByName', 'name'),
-            password: password);
+        _$CreateUserByName._(
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'CreateUserByName', 'name'),
+          password: password,
+        );
     replace(_$result);
     return _$result;
   }

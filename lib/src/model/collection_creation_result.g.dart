@@ -12,10 +12,9 @@ class _$CollectionCreationResult extends CollectionCreationResult {
 
   factory _$CollectionCreationResult(
           [void Function(CollectionCreationResultBuilder)? updates]) =>
-      (new CollectionCreationResultBuilder()..update(updates))._build();
+      (CollectionCreationResultBuilder()..update(updates))._build();
 
   _$CollectionCreationResult._({this.id}) : super._();
-
   @override
   CollectionCreationResult rebuild(
           void Function(CollectionCreationResultBuilder) updates) =>
@@ -23,7 +22,7 @@ class _$CollectionCreationResult extends CollectionCreationResult {
 
   @override
   CollectionCreationResultBuilder toBuilder() =>
-      new CollectionCreationResultBuilder()..replace(this);
+      CollectionCreationResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -71,7 +70,6 @@ class CollectionCreationResultBuilder
 
   @override
   void replace(CollectionCreationResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CollectionCreationResult;
   }
 
@@ -84,7 +82,10 @@ class CollectionCreationResultBuilder
   CollectionCreationResult build() => _build();
 
   _$CollectionCreationResult _build() {
-    final _$result = _$v ?? new _$CollectionCreationResult._(id: id);
+    final _$result = _$v ??
+        _$CollectionCreationResult._(
+          id: id,
+        );
     replace(_$result);
     return _$result;
   }

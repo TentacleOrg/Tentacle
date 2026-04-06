@@ -15,18 +15,16 @@ class _$ValidatePathDto extends ValidatePathDto {
   final bool? isFile;
 
   factory _$ValidatePathDto([void Function(ValidatePathDtoBuilder)? updates]) =>
-      (new ValidatePathDtoBuilder()..update(updates))._build();
+      (ValidatePathDtoBuilder()..update(updates))._build();
 
   _$ValidatePathDto._({this.validateWritable, this.path, this.isFile})
       : super._();
-
   @override
   ValidatePathDto rebuild(void Function(ValidatePathDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ValidatePathDtoBuilder toBuilder() =>
-      new ValidatePathDtoBuilder()..replace(this);
+  ValidatePathDtoBuilder toBuilder() => ValidatePathDtoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -91,7 +89,6 @@ class ValidatePathDtoBuilder
 
   @override
   void replace(ValidatePathDto other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ValidatePathDto;
   }
 
@@ -105,8 +102,11 @@ class ValidatePathDtoBuilder
 
   _$ValidatePathDto _build() {
     final _$result = _$v ??
-        new _$ValidatePathDto._(
-            validateWritable: validateWritable, path: path, isFile: isFile);
+        _$ValidatePathDto._(
+          validateWritable: validateWritable,
+          path: path,
+          isFile: isFile,
+        );
     replace(_$result);
     return _$result;
   }

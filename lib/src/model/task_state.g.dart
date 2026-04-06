@@ -19,11 +19,11 @@ TaskState _$valueOf(String name) {
     case 'running':
       return _$running;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
-final BuiltSet<TaskState> _$values = new BuiltSet<TaskState>(const <TaskState>[
+final BuiltSet<TaskState> _$values = BuiltSet<TaskState>(const <TaskState>[
   _$idle,
   _$cancelling,
   _$running,
@@ -43,7 +43,7 @@ mixin _$TaskStateMixin {
   _$TaskStateMeta get TaskState => const _$TaskStateMeta();
 }
 
-Serializer<TaskState> _$taskStateSerializer = new _$TaskStateSerializer();
+Serializer<TaskState> _$taskStateSerializer = _$TaskStateSerializer();
 
 class _$TaskStateSerializer implements PrimitiveSerializer<TaskState> {
   static const Map<String, Object> _toWire = const <String, Object>{

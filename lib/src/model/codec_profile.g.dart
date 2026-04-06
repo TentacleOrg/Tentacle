@@ -17,24 +17,26 @@ class _$CodecProfile extends CodecProfile {
   final String? codec;
   @override
   final String? container;
+  @override
+  final String? subContainer;
 
   factory _$CodecProfile([void Function(CodecProfileBuilder)? updates]) =>
-      (new CodecProfileBuilder()..update(updates))._build();
+      (CodecProfileBuilder()..update(updates))._build();
 
   _$CodecProfile._(
       {this.type,
       this.conditions,
       this.applyConditions,
       this.codec,
-      this.container})
+      this.container,
+      this.subContainer})
       : super._();
-
   @override
   CodecProfile rebuild(void Function(CodecProfileBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CodecProfileBuilder toBuilder() => new CodecProfileBuilder()..replace(this);
+  CodecProfileBuilder toBuilder() => CodecProfileBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -44,7 +46,8 @@ class _$CodecProfile extends CodecProfile {
         conditions == other.conditions &&
         applyConditions == other.applyConditions &&
         codec == other.codec &&
-        container == other.container;
+        container == other.container &&
+        subContainer == other.subContainer;
   }
 
   @override
@@ -55,6 +58,7 @@ class _$CodecProfile extends CodecProfile {
     _$hash = $jc(_$hash, applyConditions.hashCode);
     _$hash = $jc(_$hash, codec.hashCode);
     _$hash = $jc(_$hash, container.hashCode);
+    _$hash = $jc(_$hash, subContainer.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -66,7 +70,8 @@ class _$CodecProfile extends CodecProfile {
           ..add('conditions', conditions)
           ..add('applyConditions', applyConditions)
           ..add('codec', codec)
-          ..add('container', container))
+          ..add('container', container)
+          ..add('subContainer', subContainer))
         .toString();
   }
 }
@@ -81,13 +86,13 @@ class CodecProfileBuilder
 
   ListBuilder<ProfileCondition>? _conditions;
   ListBuilder<ProfileCondition> get conditions =>
-      _$this._conditions ??= new ListBuilder<ProfileCondition>();
+      _$this._conditions ??= ListBuilder<ProfileCondition>();
   set conditions(ListBuilder<ProfileCondition>? conditions) =>
       _$this._conditions = conditions;
 
   ListBuilder<ProfileCondition>? _applyConditions;
   ListBuilder<ProfileCondition> get applyConditions =>
-      _$this._applyConditions ??= new ListBuilder<ProfileCondition>();
+      _$this._applyConditions ??= ListBuilder<ProfileCondition>();
   set applyConditions(ListBuilder<ProfileCondition>? applyConditions) =>
       _$this._applyConditions = applyConditions;
 
@@ -98,6 +103,10 @@ class CodecProfileBuilder
   String? _container;
   String? get container => _$this._container;
   set container(String? container) => _$this._container = container;
+
+  String? _subContainer;
+  String? get subContainer => _$this._subContainer;
+  set subContainer(String? subContainer) => _$this._subContainer = subContainer;
 
   CodecProfileBuilder() {
     CodecProfile._defaults(this);
@@ -111,6 +120,7 @@ class CodecProfileBuilder
       _applyConditions = $v.applyConditions?.toBuilder();
       _codec = $v.codec;
       _container = $v.container;
+      _subContainer = $v.subContainer;
       _$v = null;
     }
     return this;
@@ -118,7 +128,6 @@ class CodecProfileBuilder
 
   @override
   void replace(CodecProfile other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CodecProfile;
   }
 
@@ -134,12 +143,14 @@ class CodecProfileBuilder
     _$CodecProfile _$result;
     try {
       _$result = _$v ??
-          new _$CodecProfile._(
-              type: type,
-              conditions: _conditions?.build(),
-              applyConditions: _applyConditions?.build(),
-              codec: codec,
-              container: container);
+          _$CodecProfile._(
+            type: type,
+            conditions: _conditions?.build(),
+            applyConditions: _applyConditions?.build(),
+            codec: codec,
+            container: container,
+            subContainer: subContainer,
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -148,7 +159,7 @@ class CodecProfileBuilder
         _$failedField = 'applyConditions';
         _applyConditions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'CodecProfile', _$failedField, e.toString());
       }
       rethrow;

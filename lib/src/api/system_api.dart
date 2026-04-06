@@ -15,7 +15,7 @@ import 'package:tentacle/src/model/log_file.dart';
 import 'package:tentacle/src/model/problem_details.dart';
 import 'package:tentacle/src/model/public_system_info.dart';
 import 'package:tentacle/src/model/system_info.dart';
-import 'package:tentacle/src/model/wake_on_lan_info.dart';
+import 'package:tentacle/src/model/system_storage_dto.dart';
 
 class SystemApi {
   final Dio _dio;
@@ -494,7 +494,7 @@ class SystemApi {
     );
   }
 
-  /// Gets wake on lan information.
+  /// Gets information about the server.
   ///
   ///
   /// Parameters:
@@ -505,10 +505,9 @@ class SystemApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [BuiltList<WakeOnLanInfo>] as data
+  /// Returns a [Future] containing a [Response] with a [SystemStorageDto] as data
   /// Throws [DioException] if API call or serialization fails
-  @Deprecated('This operation has been deprecated')
-  Future<Response<BuiltList<WakeOnLanInfo>>> getWakeOnLanInfo({
+  Future<Response<SystemStorageDto>> getSystemStorage({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -516,7 +515,7 @@ class SystemApi {
     ProgressCallback? onSendProgress,
     ProgressCallback? onReceiveProgress,
   }) async {
-    final _path = r'/System/WakeOnLanInfo';
+    final _path = r'/System/Info/Storage';
     final _options = Options(
       method: r'GET',
       headers: <String, dynamic>{
@@ -544,7 +543,7 @@ class SystemApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    BuiltList<WakeOnLanInfo>? _responseData;
+    SystemStorageDto? _responseData;
 
     try {
       final rawResponse = _response.data;
@@ -552,9 +551,8 @@ class SystemApi {
           ? null
           : _serializers.deserialize(
               rawResponse,
-              specifiedType:
-                  const FullType(BuiltList, [FullType(WakeOnLanInfo)]),
-            ) as BuiltList<WakeOnLanInfo>;
+              specifiedType: const FullType(SystemStorageDto),
+            ) as SystemStorageDto;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -565,7 +563,7 @@ class SystemApi {
       );
     }
 
-    return Response<BuiltList<WakeOnLanInfo>>(
+    return Response<SystemStorageDto>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

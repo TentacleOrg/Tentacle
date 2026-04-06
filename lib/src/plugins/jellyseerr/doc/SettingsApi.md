@@ -19,12 +19,6 @@ Method | HTTP request | Description
 [**settingsDiscoverSliderIdDelete**](SettingsApi.md#settingsdiscoverslideriddelete) | **DELETE** /settings/discover/{sliderId} | Delete slider by ID
 [**settingsDiscoverSliderIdPut**](SettingsApi.md#settingsdiscoverslideridput) | **PUT** /settings/discover/{sliderId} | Update a single slider
 [**settingsInitializePost**](SettingsApi.md#settingsinitializepost) | **POST** /settings/initialize | Initialize application
-[**settingsJellyfinGet**](SettingsApi.md#settingsjellyfinget) | **GET** /settings/jellyfin | Get Jellyfin settings
-[**settingsJellyfinLibraryGet**](SettingsApi.md#settingsjellyfinlibraryget) | **GET** /settings/jellyfin/library | Get Jellyfin libraries
-[**settingsJellyfinPost**](SettingsApi.md#settingsjellyfinpost) | **POST** /settings/jellyfin | Update Jellyfin settings
-[**settingsJellyfinSyncGet**](SettingsApi.md#settingsjellyfinsyncget) | **GET** /settings/jellyfin/sync | Get status of full Jellyfin library sync
-[**settingsJellyfinSyncPost**](SettingsApi.md#settingsjellyfinsyncpost) | **POST** /settings/jellyfin/sync | Start full Jellyfin library sync
-[**settingsJellyfinUsersGet**](SettingsApi.md#settingsjellyfinusersget) | **GET** /settings/jellyfin/users | Get Jellyfin Users
 [**settingsJobsGet**](SettingsApi.md#settingsjobsget) | **GET** /settings/jobs | Get scheduled jobs
 [**settingsJobsJobIdCancelPost**](SettingsApi.md#settingsjobsjobidcancelpost) | **POST** /settings/jobs/{jobId}/cancel | Cancel a specific job
 [**settingsJobsJobIdRunPost**](SettingsApi.md#settingsjobsjobidrunpost) | **POST** /settings/jobs/{jobId}/run | Invoke a specific job
@@ -565,302 +559,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**PublicSettings**](PublicSettings.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **settingsJellyfinGet**
-> JellyfinSettings settingsJellyfinGet()
-
-Get Jellyfin settings
-
-Retrieves current Jellyfin settings.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getSettingsApi();
-
-try {
-    final response = api.settingsJellyfinGet();
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling SettingsApi->settingsJellyfinGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**JellyfinSettings**](JellyfinSettings.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **settingsJellyfinLibraryGet**
-> BuiltList<JellyfinLibrary> settingsJellyfinLibraryGet(sync_, enable)
-
-Get Jellyfin libraries
-
-Returns a list of Jellyfin libraries in a JSON array.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getSettingsApi();
-final String sync_ = sync__example; // String | Syncs the current libraries with the current Jellyfin server
-final String enable = enable_example; // String | Comma separated list of libraries to enable. Any libraries not passed will be disabled!
-
-try {
-    final response = api.settingsJellyfinLibraryGet(sync_, enable);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling SettingsApi->settingsJellyfinLibraryGet: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sync_** | **String**| Syncs the current libraries with the current Jellyfin server | [optional] 
- **enable** | **String**| Comma separated list of libraries to enable. Any libraries not passed will be disabled! | [optional] 
-
-### Return type
-
-[**BuiltList&lt;JellyfinLibrary&gt;**](JellyfinLibrary.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **settingsJellyfinPost**
-> JellyfinSettings settingsJellyfinPost(jellyfinSettings)
-
-Update Jellyfin settings
-
-Updates Jellyfin settings with the provided values.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getSettingsApi();
-final JellyfinSettings jellyfinSettings = ; // JellyfinSettings | 
-
-try {
-    final response = api.settingsJellyfinPost(jellyfinSettings);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling SettingsApi->settingsJellyfinPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **jellyfinSettings** | [**JellyfinSettings**](JellyfinSettings.md)|  | 
-
-### Return type
-
-[**JellyfinSettings**](JellyfinSettings.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **settingsJellyfinSyncGet**
-> SettingsJellyfinSyncGet200Response settingsJellyfinSyncGet()
-
-Get status of full Jellyfin library sync
-
-Returns sync progress in a JSON array.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getSettingsApi();
-
-try {
-    final response = api.settingsJellyfinSyncGet();
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling SettingsApi->settingsJellyfinSyncGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**SettingsJellyfinSyncGet200Response**](SettingsJellyfinSyncGet200Response.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **settingsJellyfinSyncPost**
-> SettingsJellyfinSyncGet200Response settingsJellyfinSyncPost(settingsJellyfinSyncPostRequest)
-
-Start full Jellyfin library sync
-
-Runs a full Jellyfin library sync and returns the progress in a JSON array.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getSettingsApi();
-final SettingsJellyfinSyncPostRequest settingsJellyfinSyncPostRequest = ; // SettingsJellyfinSyncPostRequest | 
-
-try {
-    final response = api.settingsJellyfinSyncPost(settingsJellyfinSyncPostRequest);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling SettingsApi->settingsJellyfinSyncPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **settingsJellyfinSyncPostRequest** | [**SettingsJellyfinSyncPostRequest**](SettingsJellyfinSyncPostRequest.md)|  | [optional] 
-
-### Return type
-
-[**SettingsJellyfinSyncGet200Response**](SettingsJellyfinSyncGet200Response.md)
-
-### Authorization
-
-[apiKey](../README.md#apiKey), [cookieAuth](../README.md#cookieAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **settingsJellyfinUsersGet**
-> BuiltList<SettingsJellyfinUsersGet200ResponseInner> settingsJellyfinUsersGet()
-
-Get Jellyfin Users
-
-Returns a list of Jellyfin Users in a JSON array.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: apiKey
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('apiKey').apiKeyPrefix = 'Bearer';
-// TODO Configure API key authorization: cookieAuth
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getSettingsApi();
-
-try {
-    final response = api.settingsJellyfinUsersGet();
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling SettingsApi->settingsJellyfinUsersGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**BuiltList&lt;SettingsJellyfinUsersGet200ResponseInner&gt;**](SettingsJellyfinUsersGet200ResponseInner.md)
 
 ### Authorization
 
@@ -3054,7 +2752,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **settingsPlexSyncPost**
-> SettingsPlexSyncGet200Response settingsPlexSyncPost(settingsJellyfinSyncPostRequest)
+> SettingsPlexSyncGet200Response settingsPlexSyncPost(settingsPlexSyncPostRequest)
 
 Start full Plex library scan
 
@@ -3073,10 +2771,10 @@ import 'package:tentacle/api.dart';
 //defaultApiClient.getAuthentication<ApiKeyAuth>('cookieAuth').apiKeyPrefix = 'Bearer';
 
 final api = Tentacle().getSettingsApi();
-final SettingsJellyfinSyncPostRequest settingsJellyfinSyncPostRequest = ; // SettingsJellyfinSyncPostRequest | 
+final SettingsPlexSyncPostRequest settingsPlexSyncPostRequest = ; // SettingsPlexSyncPostRequest | 
 
 try {
-    final response = api.settingsPlexSyncPost(settingsJellyfinSyncPostRequest);
+    final response = api.settingsPlexSyncPost(settingsPlexSyncPostRequest);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling SettingsApi->settingsPlexSyncPost: $e\n');
@@ -3087,7 +2785,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **settingsJellyfinSyncPostRequest** | [**SettingsJellyfinSyncPostRequest**](SettingsJellyfinSyncPostRequest.md)|  | [optional] 
+ **settingsPlexSyncPostRequest** | [**SettingsPlexSyncPostRequest**](SettingsPlexSyncPostRequest.md)|  | [optional] 
 
 ### Return type
 

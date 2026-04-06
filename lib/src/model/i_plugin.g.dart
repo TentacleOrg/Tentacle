@@ -23,7 +23,7 @@ class _$IPlugin extends IPlugin {
   final String? dataFolderPath;
 
   factory _$IPlugin([void Function(IPluginBuilder)? updates]) =>
-      (new IPluginBuilder()..update(updates))._build();
+      (IPluginBuilder()..update(updates))._build();
 
   _$IPlugin._(
       {this.name,
@@ -34,13 +34,12 @@ class _$IPlugin extends IPlugin {
       this.canUninstall,
       this.dataFolderPath})
       : super._();
-
   @override
   IPlugin rebuild(void Function(IPluginBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  IPluginBuilder toBuilder() => new IPluginBuilder()..replace(this);
+  IPluginBuilder toBuilder() => IPluginBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -137,7 +136,6 @@ class IPluginBuilder implements Builder<IPlugin, IPluginBuilder> {
 
   @override
   void replace(IPlugin other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$IPlugin;
   }
 
@@ -151,14 +149,15 @@ class IPluginBuilder implements Builder<IPlugin, IPluginBuilder> {
 
   _$IPlugin _build() {
     final _$result = _$v ??
-        new _$IPlugin._(
-            name: name,
-            description: description,
-            id: id,
-            version: version,
-            assemblyFilePath: assemblyFilePath,
-            canUninstall: canUninstall,
-            dataFolderPath: dataFolderPath);
+        _$IPlugin._(
+          name: name,
+          description: description,
+          id: id,
+          version: version,
+          assemblyFilePath: assemblyFilePath,
+          canUninstall: canUninstall,
+          dataFolderPath: dataFolderPath,
+        );
     replace(_$result);
     return _$result;
   }

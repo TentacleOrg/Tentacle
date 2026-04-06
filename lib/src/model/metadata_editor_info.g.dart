@@ -22,7 +22,7 @@ class _$MetadataEditorInfo extends MetadataEditorInfo {
 
   factory _$MetadataEditorInfo(
           [void Function(MetadataEditorInfoBuilder)? updates]) =>
-      (new MetadataEditorInfoBuilder()..update(updates))._build();
+      (MetadataEditorInfoBuilder()..update(updates))._build();
 
   _$MetadataEditorInfo._(
       {this.parentalRatingOptions,
@@ -32,7 +32,6 @@ class _$MetadataEditorInfo extends MetadataEditorInfo {
       this.contentType,
       this.contentTypeOptions})
       : super._();
-
   @override
   MetadataEditorInfo rebuild(
           void Function(MetadataEditorInfoBuilder) updates) =>
@@ -40,7 +39,7 @@ class _$MetadataEditorInfo extends MetadataEditorInfo {
 
   @override
   MetadataEditorInfoBuilder toBuilder() =>
-      new MetadataEditorInfoBuilder()..replace(this);
+      MetadataEditorInfoBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -86,26 +85,26 @@ class MetadataEditorInfoBuilder
 
   ListBuilder<ParentalRating>? _parentalRatingOptions;
   ListBuilder<ParentalRating> get parentalRatingOptions =>
-      _$this._parentalRatingOptions ??= new ListBuilder<ParentalRating>();
+      _$this._parentalRatingOptions ??= ListBuilder<ParentalRating>();
   set parentalRatingOptions(
           ListBuilder<ParentalRating>? parentalRatingOptions) =>
       _$this._parentalRatingOptions = parentalRatingOptions;
 
   ListBuilder<CountryInfo>? _countries;
   ListBuilder<CountryInfo> get countries =>
-      _$this._countries ??= new ListBuilder<CountryInfo>();
+      _$this._countries ??= ListBuilder<CountryInfo>();
   set countries(ListBuilder<CountryInfo>? countries) =>
       _$this._countries = countries;
 
   ListBuilder<CultureDto>? _cultures;
   ListBuilder<CultureDto> get cultures =>
-      _$this._cultures ??= new ListBuilder<CultureDto>();
+      _$this._cultures ??= ListBuilder<CultureDto>();
   set cultures(ListBuilder<CultureDto>? cultures) =>
       _$this._cultures = cultures;
 
   ListBuilder<ExternalIdInfo>? _externalIdInfos;
   ListBuilder<ExternalIdInfo> get externalIdInfos =>
-      _$this._externalIdInfos ??= new ListBuilder<ExternalIdInfo>();
+      _$this._externalIdInfos ??= ListBuilder<ExternalIdInfo>();
   set externalIdInfos(ListBuilder<ExternalIdInfo>? externalIdInfos) =>
       _$this._externalIdInfos = externalIdInfos;
 
@@ -116,7 +115,7 @@ class MetadataEditorInfoBuilder
 
   ListBuilder<NameValuePair>? _contentTypeOptions;
   ListBuilder<NameValuePair> get contentTypeOptions =>
-      _$this._contentTypeOptions ??= new ListBuilder<NameValuePair>();
+      _$this._contentTypeOptions ??= ListBuilder<NameValuePair>();
   set contentTypeOptions(ListBuilder<NameValuePair>? contentTypeOptions) =>
       _$this._contentTypeOptions = contentTypeOptions;
 
@@ -140,7 +139,6 @@ class MetadataEditorInfoBuilder
 
   @override
   void replace(MetadataEditorInfo other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MetadataEditorInfo;
   }
 
@@ -156,13 +154,14 @@ class MetadataEditorInfoBuilder
     _$MetadataEditorInfo _$result;
     try {
       _$result = _$v ??
-          new _$MetadataEditorInfo._(
-              parentalRatingOptions: _parentalRatingOptions?.build(),
-              countries: _countries?.build(),
-              cultures: _cultures?.build(),
-              externalIdInfos: _externalIdInfos?.build(),
-              contentType: contentType,
-              contentTypeOptions: _contentTypeOptions?.build());
+          _$MetadataEditorInfo._(
+            parentalRatingOptions: _parentalRatingOptions?.build(),
+            countries: _countries?.build(),
+            cultures: _cultures?.build(),
+            externalIdInfos: _externalIdInfos?.build(),
+            contentType: contentType,
+            contentTypeOptions: _contentTypeOptions?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -178,7 +177,7 @@ class MetadataEditorInfoBuilder
         _$failedField = 'contentTypeOptions';
         _contentTypeOptions?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'MetadataEditorInfo', _$failedField, e.toString());
       }
       rethrow;

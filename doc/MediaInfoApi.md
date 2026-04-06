@@ -56,7 +56,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/octet-stream
+ - **Accept**: application/octet-stream, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -225,12 +225,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **openLiveStream**
-> LiveStreamResponse openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, openLiveStreamDto)
+> LiveStreamResponse openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, alwaysBurnInSubtitleWhenTranscoding, openLiveStreamDto)
 
 Opens a media source.
 
@@ -254,10 +254,11 @@ final int maxAudioChannels = 56; // int | The maximum number of audio channels.
 final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
 final bool enableDirectPlay = true; // bool | Whether to enable direct play. Default: true.
 final bool enableDirectStream = true; // bool | Whether to enable direct stream. Default: true.
+final bool alwaysBurnInSubtitleWhenTranscoding = true; // bool | Always burn-in subtitle when transcoding.
 final OpenLiveStreamDto openLiveStreamDto = ; // OpenLiveStreamDto | The open live stream dto.
 
 try {
-    final response = api.openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, openLiveStreamDto);
+    final response = api.openLiveStream(openToken, userId, playSessionId, maxStreamingBitrate, startTimeTicks, audioStreamIndex, subtitleStreamIndex, maxAudioChannels, itemId, enableDirectPlay, enableDirectStream, alwaysBurnInSubtitleWhenTranscoding, openLiveStreamDto);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling MediaInfoApi->openLiveStream: $e\n');
@@ -279,6 +280,7 @@ Name | Type | Description  | Notes
  **itemId** | **String**| The item id. | [optional] 
  **enableDirectPlay** | **bool**| Whether to enable direct play. Default: true. | [optional] 
  **enableDirectStream** | **bool**| Whether to enable direct stream. Default: true. | [optional] 
+ **alwaysBurnInSubtitleWhenTranscoding** | **bool**| Always burn-in subtitle when transcoding. | [optional] 
  **openLiveStreamDto** | [**OpenLiveStreamDto**](OpenLiveStreamDto.md)| The open live stream dto. | [optional] 
 
 ### Return type
@@ -292,7 +294,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/*+json
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase
+ - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

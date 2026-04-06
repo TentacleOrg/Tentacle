@@ -16,12 +16,11 @@ class _$AuthenticationInfoQueryResult extends AuthenticationInfoQueryResult {
 
   factory _$AuthenticationInfoQueryResult(
           [void Function(AuthenticationInfoQueryResultBuilder)? updates]) =>
-      (new AuthenticationInfoQueryResultBuilder()..update(updates))._build();
+      (AuthenticationInfoQueryResultBuilder()..update(updates))._build();
 
   _$AuthenticationInfoQueryResult._(
       {this.items, this.totalRecordCount, this.startIndex})
       : super._();
-
   @override
   AuthenticationInfoQueryResult rebuild(
           void Function(AuthenticationInfoQueryResultBuilder) updates) =>
@@ -29,7 +28,7 @@ class _$AuthenticationInfoQueryResult extends AuthenticationInfoQueryResult {
 
   @override
   AuthenticationInfoQueryResultBuilder toBuilder() =>
-      new AuthenticationInfoQueryResultBuilder()..replace(this);
+      AuthenticationInfoQueryResultBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -68,7 +67,7 @@ class AuthenticationInfoQueryResultBuilder
 
   ListBuilder<AuthenticationInfo>? _items;
   ListBuilder<AuthenticationInfo> get items =>
-      _$this._items ??= new ListBuilder<AuthenticationInfo>();
+      _$this._items ??= ListBuilder<AuthenticationInfo>();
   set items(ListBuilder<AuthenticationInfo>? items) => _$this._items = items;
 
   int? _totalRecordCount;
@@ -97,7 +96,6 @@ class AuthenticationInfoQueryResultBuilder
 
   @override
   void replace(AuthenticationInfoQueryResult other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AuthenticationInfoQueryResult;
   }
 
@@ -113,17 +111,18 @@ class AuthenticationInfoQueryResultBuilder
     _$AuthenticationInfoQueryResult _$result;
     try {
       _$result = _$v ??
-          new _$AuthenticationInfoQueryResult._(
-              items: _items?.build(),
-              totalRecordCount: totalRecordCount,
-              startIndex: startIndex);
+          _$AuthenticationInfoQueryResult._(
+            items: _items?.build(),
+            totalRecordCount: totalRecordCount,
+            startIndex: startIndex,
+          );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'items';
         _items?.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
             r'AuthenticationInfoQueryResult', _$failedField, e.toString());
       }
       rethrow;

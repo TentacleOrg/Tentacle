@@ -142,12 +142,12 @@ SessionMessageType _$valueOf(String name) {
     case 'keepAlive':
       return _$keepAlive;
     default:
-      throw new ArgumentError(name);
+      throw ArgumentError(name);
   }
 }
 
 final BuiltSet<SessionMessageType> _$values =
-    new BuiltSet<SessionMessageType>(const <SessionMessageType>[
+    BuiltSet<SessionMessageType>(const <SessionMessageType>[
   _$forceKeepAlive,
   _$generalCommand,
   _$userDataChanged,
@@ -234,7 +234,7 @@ mixin _$SessionMessageTypeMixin {
 }
 
 Serializer<SessionMessageType> _$sessionMessageTypeSerializer =
-    new _$SessionMessageTypeSerializer();
+    _$SessionMessageTypeSerializer();
 
 class _$SessionMessageTypeSerializer
     implements PrimitiveSerializer<SessionMessageType> {
