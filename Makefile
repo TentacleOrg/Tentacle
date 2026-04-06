@@ -11,7 +11,7 @@ downloadApis:
 	@echo "Downloading latest Jellyfin OpenAPI"
 	@wget -O jellyfin-openapi-stable.json https://repo.jellyfin.org/releases/openapi/jellyfin-openapi-stable.json --quiet
 	@echo "Download latest Jellyseerr OpenAPI"
-	@wget -O jellyseerr-openapi-stable.yml https://raw.githubusercontent.com/Kara-Zor-El/jellyseerr/develop/overseerr-api.yml --quiet
+	@wget -O jellyseerr-openapi-stable.yml https://api-docs.overseerr.dev/overseerr-api.yml --quiet
 
 .phony: updateApis
 generateApis:
@@ -61,14 +61,16 @@ fixErrors:
 	@sed $(SED_INPLACE) 's/const ChannelItemSortField name/const ChannelItemSortField itemName/' jellyfin/lib/src/model/channel_item_sort_field.dart
 	@echo "Fixing Jellyfin errors in lib/src/model/metadata_field.dart"
 	@sed $(SED_INPLACE) 's/const MetadataField name/const MetadataField metadataName/' jellyfin/lib/src/model/metadata_field.dart
+	@echo "Fixing Jellyfin errors in lib/src/model/item_sort_by.dart"
+	@sed $(SED_INPLACE) 's/const ItemSortBy name/const ItemSortBy itemName/' jellyfin/lib/src/model/item_sort_by.dart
 	@echo "Fixing jellyfin errors in lib/src/api/item_refresh_api.dart"
-	@sed $(SED_INPLACE) 's/= None/ = MetadataRefreshMode.none/' jellyfin/lib/src/api/item_refresh_api.dart
+	@sed $(SED_INPLACE) "s/= 'None'/ = MetadataRefreshMode.none/" jellyfin/lib/src/api/item_refresh_api.dart
 	@echo "Fixing jellyseerr error in lib/src/model/request_get_request_seasons.dart"
 	@sed $(SED_INPLACE) 's/OneOf1Enum/OneOf1/' jellyseerr/lib/src/model/request_post_request_seasons.dart
 	@echo "Fixing Jellyfin errors on messageTypes being strings"
 	@find ./jellyfin/lib -type f -name '*.dart' -exec perl -pi -e "s/\.\.messageType = const \._\(\'([^'])([^']*)\'\)/\.\.messageType = SessionMessageType.\L\1\E\2/g" {} \;
-	@echo "Fixing Jellyfin errors on messageTypes being strings"
-	@find ./jellyfin/lib -type f -name '*.dart' -exec sed $(SED_INPLACE) -E "s/\._\('([^']*)'\)/\('\1',\)/g" {} \;
+	@echo "Fixing Jellyfin errors on unassigned enum defaults"
+	@find ./jellyfin/lib -type f -name '*.dart' ! -name '*.g.dart' -exec sed $(SED_INPLACE) -E "s/const \._\('[^']*'\)/null/g" {} \;
 
 .PHONY: test
 test:
