@@ -831,7 +831,7 @@ Serializers serializers = (_$serializers.toBuilder()
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType.nullable(String)]),
-        () => MapBuilder<String, String>(),
+        () => MapBuilder<String, String?>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ConfigurationPageInfo)]),

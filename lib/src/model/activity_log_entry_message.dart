@@ -40,8 +40,7 @@ abstract class ActivityLogEntryMessage
       _$ActivityLogEntryMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ActivityLogEntryMessageBuilder b) =>
-      b..messageType = SessionMessageType.activityLogEntry;
+  static void _defaults(ActivityLogEntryMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ActivityLogEntryMessage> get serializer =>

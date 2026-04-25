@@ -52,7 +52,7 @@ abstract class BaseItemPerson
       _$BaseItemPerson;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BaseItemPersonBuilder b) => b..type = null;
+  static void _defaults(BaseItemPersonBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<BaseItemPerson> get serializer =>

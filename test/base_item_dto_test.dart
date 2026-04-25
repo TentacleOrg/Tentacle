@@ -629,7 +629,7 @@ void main() {
     });
 
     // Gets or sets the type of the media.
-    // MediaType mediaType (default value: 'Unknown')
+    // MediaType mediaType
     test('to test the property `mediaType`', () async {
       // TODO
     });

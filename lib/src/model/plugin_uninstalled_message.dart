@@ -40,8 +40,7 @@ abstract class PluginUninstalledMessage
       _$PluginUninstalledMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PluginUninstalledMessageBuilder b) =>
-      b..messageType = SessionMessageType.packageUninstalled;
+  static void _defaults(PluginUninstalledMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PluginUninstalledMessage> get serializer =>

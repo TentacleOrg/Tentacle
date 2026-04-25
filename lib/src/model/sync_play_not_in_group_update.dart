@@ -39,7 +39,7 @@ abstract class SyncPlayNotInGroupUpdate
       _$SyncPlayNotInGroupUpdate;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SyncPlayNotInGroupUpdateBuilder b) => b..type = null;
+  static void _defaults(SyncPlayNotInGroupUpdateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SyncPlayNotInGroupUpdate> get serializer =>

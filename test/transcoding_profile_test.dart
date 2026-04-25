@@ -50,7 +50,7 @@ void main() {
     });
 
     // Gets or sets the transcoding seek info mode.
-    // TranscodeSeekInfo transcodeSeekInfo (default value: 'Auto')
+    // TranscodeSeekInfo transcodeSeekInfo
     test('to test the property `transcodeSeekInfo`', () async {
       // TODO
     });
@@ -62,7 +62,7 @@ void main() {
     });
 
     // Gets or sets the encoding context.
-    // EncodingContext context (default value: 'Streaming')
+    // EncodingContext context
     test('to test the property `context`', () async {
       // TODO
     });

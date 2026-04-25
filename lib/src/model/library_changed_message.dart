@@ -38,8 +38,7 @@ abstract class LibraryChangedMessage
       [void updates(LibraryChangedMessageBuilder b)]) = _$LibraryChangedMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(LibraryChangedMessageBuilder b) =>
-      b..messageType = SessionMessageType.libraryChanged;
+  static void _defaults(LibraryChangedMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<LibraryChangedMessage> get serializer =>

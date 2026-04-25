@@ -39,7 +39,7 @@ abstract class SyncPlayPlayQueueUpdate
       _$SyncPlayPlayQueueUpdate;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SyncPlayPlayQueueUpdateBuilder b) => b..type = null;
+  static void _defaults(SyncPlayPlayQueueUpdateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SyncPlayPlayQueueUpdate> get serializer =>

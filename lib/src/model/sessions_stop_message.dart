@@ -27,8 +27,7 @@ abstract class SessionsStopMessage
       _$SessionsStopMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SessionsStopMessageBuilder b) =>
-      b..messageType = SessionMessageType.sessionsStop;
+  static void _defaults(SessionsStopMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SessionsStopMessage> get serializer =>

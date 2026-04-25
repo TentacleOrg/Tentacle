@@ -783,7 +783,7 @@ abstract class BaseItemDto implements Built<BaseItemDto, BaseItemDtoBuilder> {
   factory BaseItemDto([void updates(BaseItemDtoBuilder b)]) = _$BaseItemDto;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(BaseItemDtoBuilder b) => b..mediaType = null;
+  static void _defaults(BaseItemDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<BaseItemDto> get serializer => _$BaseItemDtoSerializer();

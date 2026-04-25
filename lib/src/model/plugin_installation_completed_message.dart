@@ -41,8 +41,7 @@ abstract class PluginInstallationCompletedMessage
       _$PluginInstallationCompletedMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PluginInstallationCompletedMessageBuilder b) =>
-      b..messageType = SessionMessageType.packageInstallationCompleted;
+  static void _defaults(PluginInstallationCompletedMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PluginInstallationCompletedMessage> get serializer =>

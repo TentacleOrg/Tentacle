@@ -30,8 +30,7 @@ abstract class ScheduledTasksInfoStopMessage
       _$ScheduledTasksInfoStopMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ScheduledTasksInfoStopMessageBuilder b) =>
-      b..messageType = SessionMessageType.scheduledTasksInfoStop;
+  static void _defaults(ScheduledTasksInfoStopMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ScheduledTasksInfoStopMessage> get serializer =>

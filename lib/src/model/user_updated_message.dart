@@ -38,8 +38,7 @@ abstract class UserUpdatedMessage
       _$UserUpdatedMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserUpdatedMessageBuilder b) =>
-      b..messageType = SessionMessageType.userUpdated;
+  static void _defaults(UserUpdatedMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserUpdatedMessage> get serializer =>

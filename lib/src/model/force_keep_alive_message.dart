@@ -37,8 +37,7 @@ abstract class ForceKeepAliveMessage
       [void updates(ForceKeepAliveMessageBuilder b)]) = _$ForceKeepAliveMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ForceKeepAliveMessageBuilder b) =>
-      b..messageType = SessionMessageType.forceKeepAlive;
+  static void _defaults(ForceKeepAliveMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ForceKeepAliveMessage> get serializer =>

@@ -38,7 +38,7 @@ abstract class SyncPlayGroupLeftUpdate
       _$SyncPlayGroupLeftUpdate;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SyncPlayGroupLeftUpdateBuilder b) => b..type = null;
+  static void _defaults(SyncPlayGroupLeftUpdateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SyncPlayGroupLeftUpdate> get serializer =>

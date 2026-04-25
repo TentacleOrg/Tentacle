@@ -40,8 +40,7 @@ abstract class ScheduledTaskEndedMessage
       _$ScheduledTaskEndedMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ScheduledTaskEndedMessageBuilder b) =>
-      b..messageType = SessionMessageType.scheduledTaskEnded;
+  static void _defaults(ScheduledTaskEndedMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ScheduledTaskEndedMessage> get serializer =>

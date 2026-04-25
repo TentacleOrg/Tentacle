@@ -29,8 +29,7 @@ abstract class ActivityLogEntryStopMessage
       _$ActivityLogEntryStopMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(ActivityLogEntryStopMessageBuilder b) =>
-      b..messageType = SessionMessageType.activityLogEntryStop;
+  static void _defaults(ActivityLogEntryStopMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ActivityLogEntryStopMessage> get serializer =>

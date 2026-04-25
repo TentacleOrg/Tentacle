@@ -47,7 +47,7 @@ abstract class MediaSegmentDto
       _$MediaSegmentDto;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MediaSegmentDtoBuilder b) => b..type = null;
+  static void _defaults(MediaSegmentDtoBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MediaSegmentDto> get serializer =>

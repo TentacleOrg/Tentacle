@@ -40,8 +40,7 @@ abstract class SyncPlayLibraryAccessDeniedUpdate
       _$SyncPlayLibraryAccessDeniedUpdate;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SyncPlayLibraryAccessDeniedUpdateBuilder b) =>
-      b..type = null;
+  static void _defaults(SyncPlayLibraryAccessDeniedUpdateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SyncPlayLibraryAccessDeniedUpdate> get serializer =>

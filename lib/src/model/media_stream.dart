@@ -338,10 +338,7 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   factory MediaStream([void updates(MediaStreamBuilder b)]) = _$MediaStream;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(MediaStreamBuilder b) => b
-    ..videoRange = null
-    ..videoRangeType = null
-    ..audioSpatialFormat = null;
+  static void _defaults(MediaStreamBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<MediaStream> get serializer => _$MediaStreamSerializer();

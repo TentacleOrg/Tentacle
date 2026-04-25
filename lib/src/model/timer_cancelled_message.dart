@@ -38,8 +38,7 @@ abstract class TimerCancelledMessage
       [void updates(TimerCancelledMessageBuilder b)]) = _$TimerCancelledMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimerCancelledMessageBuilder b) =>
-      b..messageType = SessionMessageType.timerCancelled;
+  static void _defaults(TimerCancelledMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TimerCancelledMessage> get serializer =>

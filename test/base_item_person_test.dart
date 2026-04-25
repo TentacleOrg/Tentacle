@@ -26,7 +26,7 @@ void main() {
     });
 
     // Gets or sets the type.
-    // PersonKind type (default value: 'Unknown')
+    // PersonKind type
     test('to test the property `type`', () async {
       // TODO
     });

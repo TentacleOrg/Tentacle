@@ -40,8 +40,7 @@ abstract class SeriesTimerCancelledMessage
       _$SeriesTimerCancelledMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SeriesTimerCancelledMessageBuilder b) =>
-      b..messageType = SessionMessageType.seriesTimerCancelled;
+  static void _defaults(SeriesTimerCancelledMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SeriesTimerCancelledMessage> get serializer =>

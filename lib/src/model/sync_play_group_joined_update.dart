@@ -40,7 +40,7 @@ abstract class SyncPlayGroupJoinedUpdate
       _$SyncPlayGroupJoinedUpdate;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SyncPlayGroupJoinedUpdateBuilder b) => b..type = null;
+  static void _defaults(SyncPlayGroupJoinedUpdateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SyncPlayGroupJoinedUpdate> get serializer =>

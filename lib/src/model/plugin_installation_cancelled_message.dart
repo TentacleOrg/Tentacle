@@ -41,8 +41,7 @@ abstract class PluginInstallationCancelledMessage
       _$PluginInstallationCancelledMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PluginInstallationCancelledMessageBuilder b) =>
-      b..messageType = SessionMessageType.packageInstallationCancelled;
+  static void _defaults(PluginInstallationCancelledMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PluginInstallationCancelledMessage> get serializer =>

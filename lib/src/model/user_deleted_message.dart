@@ -37,8 +37,7 @@ abstract class UserDeletedMessage
       _$UserDeletedMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(UserDeletedMessageBuilder b) =>
-      b..messageType = SessionMessageType.userDeleted;
+  static void _defaults(UserDeletedMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserDeletedMessage> get serializer =>

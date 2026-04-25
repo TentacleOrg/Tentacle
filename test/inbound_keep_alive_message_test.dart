@@ -8,7 +8,7 @@ void main() {
 
   group(InboundKeepAliveMessage, () {
     // The different kinds of messages that are used in the WebSocket api.
-    // SessionMessageType messageType (default value: 'KeepAlive')
+    // SessionMessageType messageType
     test('to test the property `messageType`', () async {
       // TODO
     });

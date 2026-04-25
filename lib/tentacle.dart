@@ -5,6 +5,7 @@
 export 'package:tentacle/src/api.dart';
 export 'package:tentacle/src/auth/api_key_auth.dart';
 export 'package:tentacle/src/auth/basic_auth.dart';
+export 'package:tentacle/src/auth/bearer_auth.dart';
 export 'package:tentacle/src/auth/oauth.dart';
 export 'package:tentacle/src/serializers.dart';
 export 'package:tentacle/src/model/date.dart';

@@ -40,8 +40,7 @@ abstract class SeriesTimerCreatedMessage
       _$SeriesTimerCreatedMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SeriesTimerCreatedMessageBuilder b) =>
-      b..messageType = SessionMessageType.seriesTimerCreated;
+  static void _defaults(SeriesTimerCreatedMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SeriesTimerCreatedMessage> get serializer =>

@@ -169,7 +169,7 @@ abstract class SearchHint implements Built<SearchHint, SearchHintBuilder> {
   factory SearchHint([void updates(SearchHintBuilder b)]) = _$SearchHint;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SearchHintBuilder b) => b..mediaType = null;
+  static void _defaults(SearchHintBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SearchHint> get serializer => _$SearchHintSerializer();

@@ -13,7 +13,12 @@ downloadApis:
 	@echo "Download latest Jellyseerr OpenAPI"
 	@wget -O jellyseerr-openapi-stable.yml https://api-docs.overseerr.dev/overseerr-api.yml --quiet
 
-.phony: updateApis
+.PHONY: patchEnums
+patchEnums:
+	@echo "Patching Jellyfin OpenAPI spec: removing enum defaults that the generator cannot resolve"
+	@yq -i '(.components.schemas[] | select(has("properties")) | .properties[] | select(.allOf != null and .default != null)) |= del(.default)' jellyfin-openapi-stable.json
+
+.PHONY: generateApis
 generateApis:
 	@echo "Removing old Jellyfin API"
 	@rm -rf jellyfin
@@ -54,9 +59,6 @@ buildRunner:
 
 .PHONY: fixErrors
 fixErrors:
-	@echo "Fixing Jellyfin errors in lib/src/model/transcoding_profile.dart"
-	@sed $(SED_INPLACE) 's/const ._(TranscodeSeekInfo.auto)/TranscodeSeekInfo.auto/' jellyfin/lib/src/model/transcoding_profile.dart
-	@sed $(SED_INPLACE) 's/const ._(EncodingContext.streaming)/EncodingContext.streaming/' jellyfin/lib/src/model/transcoding_profile.dart
 	@echo "Fixing Jellyfin errors in lib/src/model/channel_item_sort_field.dart"
 	@sed $(SED_INPLACE) 's/const ChannelItemSortField name/const ChannelItemSortField itemName/' jellyfin/lib/src/model/channel_item_sort_field.dart
 	@echo "Fixing Jellyfin errors in lib/src/model/metadata_field.dart"
@@ -67,10 +69,6 @@ fixErrors:
 	@sed $(SED_INPLACE) "s/= 'None'/ = MetadataRefreshMode.none/" jellyfin/lib/src/api/item_refresh_api.dart
 	@echo "Fixing jellyseerr error in lib/src/model/request_get_request_seasons.dart"
 	@sed $(SED_INPLACE) 's/OneOf1Enum/OneOf1/' jellyseerr/lib/src/model/request_post_request_seasons.dart
-	@echo "Fixing Jellyfin errors on messageTypes being strings"
-	@find ./jellyfin/lib -type f -name '*.dart' -exec perl -pi -e "s/\.\.messageType = const \._\(\'([^'])([^']*)\'\)/\.\.messageType = SessionMessageType.\L\1\E\2/g" {} \;
-	@echo "Fixing Jellyfin errors on unassigned enum defaults"
-	@find ./jellyfin/lib -type f -name '*.dart' ! -name '*.g.dart' -exec sed $(SED_INPLACE) -E "s/const \._\('[^']*'\)/null/g" {} \;
 
 .PHONY: test
 test:
@@ -98,7 +96,7 @@ moveToPosition:
 	@rm -rf jellyseerr
 
 .PHONY: all
-all: downloadApis generateApis changePubspecDartVersion fixErrors buildRunner test format moveToPosition
+all: downloadApis patchEnums generateApis changePubspecDartVersion fixErrors buildRunner test format moveToPosition
 
 .PHONY: help
 help:

@@ -20,7 +20,7 @@ void main() {
     });
 
     // Gets or sets the type of content this segment defines.
-    // MediaSegmentType type (default value: 'Unknown')
+    // MediaSegmentType type
     test('to test the property `type`', () async {
       // TODO
     });

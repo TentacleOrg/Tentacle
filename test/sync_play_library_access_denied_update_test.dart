@@ -20,7 +20,7 @@ void main() {
     });
 
     // Enum GroupUpdateType.
-    // GroupUpdateType type (default value: 'LibraryAccessDenied')
+    // GroupUpdateType type
     test('to test the property `type`', () async {
       // TODO
     });

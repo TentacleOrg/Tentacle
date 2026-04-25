@@ -38,8 +38,7 @@ abstract class GeneralCommandMessage
       [void updates(GeneralCommandMessageBuilder b)]) = _$GeneralCommandMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(GeneralCommandMessageBuilder b) =>
-      b..messageType = SessionMessageType.generalCommand;
+  static void _defaults(GeneralCommandMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GeneralCommandMessage> get serializer =>

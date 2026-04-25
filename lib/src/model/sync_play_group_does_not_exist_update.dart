@@ -40,8 +40,7 @@ abstract class SyncPlayGroupDoesNotExistUpdate
       _$SyncPlayGroupDoesNotExistUpdate;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SyncPlayGroupDoesNotExistUpdateBuilder b) =>
-      b..type = null;
+  static void _defaults(SyncPlayGroupDoesNotExistUpdateBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SyncPlayGroupDoesNotExistUpdate> get serializer =>

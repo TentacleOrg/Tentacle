@@ -133,13 +133,13 @@ void main() {
     });
 
     // Gets the video range.
-    // VideoRange videoRange (default value: 'Unknown')
+    // VideoRange videoRange
     test('to test the property `videoRange`', () async {
       // TODO
     });
 
     // Gets the video range type.
-    // VideoRangeType videoRangeType (default value: 'Unknown')
+    // VideoRangeType videoRangeType
     test('to test the property `videoRangeType`', () async {
       // TODO
     });
@@ -151,7 +151,7 @@ void main() {
     });
 
     // Gets the audio spatial format.
-    // AudioSpatialFormat audioSpatialFormat (default value: 'None')
+    // AudioSpatialFormat audioSpatialFormat
     test('to test the property `audioSpatialFormat`', () async {
       // TODO
     });

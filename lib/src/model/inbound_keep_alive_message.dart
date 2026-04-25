@@ -28,8 +28,7 @@ abstract class InboundKeepAliveMessage
       _$InboundKeepAliveMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(InboundKeepAliveMessageBuilder b) =>
-      b..messageType = SessionMessageType.keepAlive;
+  static void _defaults(InboundKeepAliveMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<InboundKeepAliveMessage> get serializer =>

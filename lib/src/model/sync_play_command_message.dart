@@ -39,8 +39,7 @@ abstract class SyncPlayCommandMessage
       _$SyncPlayCommandMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SyncPlayCommandMessageBuilder b) =>
-      b..messageType = SessionMessageType.syncPlayCommand;
+  static void _defaults(SyncPlayCommandMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SyncPlayCommandMessage> get serializer =>

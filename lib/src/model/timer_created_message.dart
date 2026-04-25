@@ -38,8 +38,7 @@ abstract class TimerCreatedMessage
       _$TimerCreatedMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(TimerCreatedMessageBuilder b) =>
-      b..messageType = SessionMessageType.timerCreated;
+  static void _defaults(TimerCreatedMessageBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<TimerCreatedMessage> get serializer =>
