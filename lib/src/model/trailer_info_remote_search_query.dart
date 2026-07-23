@@ -12,7 +12,7 @@ part 'trailer_info_remote_search_query.g.dart';
 /// TrailerInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo]
+/// * [searchInfo] - The lookup info for trailers.
 /// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
@@ -21,6 +21,7 @@ abstract class TrailerInfoRemoteSearchQuery
     implements
         Built<TrailerInfoRemoteSearchQuery,
             TrailerInfoRemoteSearchQueryBuilder> {
+  /// The lookup info for trailers.
   @BuiltValueField(wireName: r'SearchInfo')
   TrailerInfo? get searchInfo;
 

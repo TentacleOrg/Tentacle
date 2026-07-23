@@ -68,6 +68,10 @@ class _$MediaStream extends MediaStream {
   @override
   final String? localizedHearingImpaired;
   @override
+  final String? localizedLanguage;
+  @override
+  final String? localizedOriginal;
+  @override
   final String? displayTitle;
   @override
   final String? nalLengthSize;
@@ -95,6 +99,8 @@ class _$MediaStream extends MediaStream {
   final bool? isForced;
   @override
   final bool? isHearingImpaired;
+  @override
+  final bool? isOriginal;
   @override
   final int? height;
   @override
@@ -170,6 +176,8 @@ class _$MediaStream extends MediaStream {
       this.localizedForced,
       this.localizedExternal,
       this.localizedHearingImpaired,
+      this.localizedLanguage,
+      this.localizedOriginal,
       this.displayTitle,
       this.nalLengthSize,
       this.isInterlaced,
@@ -184,6 +192,7 @@ class _$MediaStream extends MediaStream {
       this.isDefault,
       this.isForced,
       this.isHearingImpaired,
+      this.isOriginal,
       this.height,
       this.width,
       this.averageFrameRate,
@@ -246,6 +255,8 @@ class _$MediaStream extends MediaStream {
         localizedForced == other.localizedForced &&
         localizedExternal == other.localizedExternal &&
         localizedHearingImpaired == other.localizedHearingImpaired &&
+        localizedLanguage == other.localizedLanguage &&
+        localizedOriginal == other.localizedOriginal &&
         displayTitle == other.displayTitle &&
         nalLengthSize == other.nalLengthSize &&
         isInterlaced == other.isInterlaced &&
@@ -260,6 +271,7 @@ class _$MediaStream extends MediaStream {
         isDefault == other.isDefault &&
         isForced == other.isForced &&
         isHearingImpaired == other.isHearingImpaired &&
+        isOriginal == other.isOriginal &&
         height == other.height &&
         width == other.width &&
         averageFrameRate == other.averageFrameRate &&
@@ -315,6 +327,8 @@ class _$MediaStream extends MediaStream {
     _$hash = $jc(_$hash, localizedForced.hashCode);
     _$hash = $jc(_$hash, localizedExternal.hashCode);
     _$hash = $jc(_$hash, localizedHearingImpaired.hashCode);
+    _$hash = $jc(_$hash, localizedLanguage.hashCode);
+    _$hash = $jc(_$hash, localizedOriginal.hashCode);
     _$hash = $jc(_$hash, displayTitle.hashCode);
     _$hash = $jc(_$hash, nalLengthSize.hashCode);
     _$hash = $jc(_$hash, isInterlaced.hashCode);
@@ -329,6 +343,7 @@ class _$MediaStream extends MediaStream {
     _$hash = $jc(_$hash, isDefault.hashCode);
     _$hash = $jc(_$hash, isForced.hashCode);
     _$hash = $jc(_$hash, isHearingImpaired.hashCode);
+    _$hash = $jc(_$hash, isOriginal.hashCode);
     _$hash = $jc(_$hash, height.hashCode);
     _$hash = $jc(_$hash, width.hashCode);
     _$hash = $jc(_$hash, averageFrameRate.hashCode);
@@ -386,6 +401,8 @@ class _$MediaStream extends MediaStream {
           ..add('localizedForced', localizedForced)
           ..add('localizedExternal', localizedExternal)
           ..add('localizedHearingImpaired', localizedHearingImpaired)
+          ..add('localizedLanguage', localizedLanguage)
+          ..add('localizedOriginal', localizedOriginal)
           ..add('displayTitle', displayTitle)
           ..add('nalLengthSize', nalLengthSize)
           ..add('isInterlaced', isInterlaced)
@@ -400,6 +417,7 @@ class _$MediaStream extends MediaStream {
           ..add('isDefault', isDefault)
           ..add('isForced', isForced)
           ..add('isHearingImpaired', isHearingImpaired)
+          ..add('isOriginal', isOriginal)
           ..add('height', height)
           ..add('width', width)
           ..add('averageFrameRate', averageFrameRate)
@@ -565,6 +583,16 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
   set localizedHearingImpaired(String? localizedHearingImpaired) =>
       _$this._localizedHearingImpaired = localizedHearingImpaired;
 
+  String? _localizedLanguage;
+  String? get localizedLanguage => _$this._localizedLanguage;
+  set localizedLanguage(String? localizedLanguage) =>
+      _$this._localizedLanguage = localizedLanguage;
+
+  String? _localizedOriginal;
+  String? get localizedOriginal => _$this._localizedOriginal;
+  set localizedOriginal(String? localizedOriginal) =>
+      _$this._localizedOriginal = localizedOriginal;
+
   String? _displayTitle;
   String? get displayTitle => _$this._displayTitle;
   set displayTitle(String? displayTitle) => _$this._displayTitle = displayTitle;
@@ -623,6 +651,10 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
   bool? get isHearingImpaired => _$this._isHearingImpaired;
   set isHearingImpaired(bool? isHearingImpaired) =>
       _$this._isHearingImpaired = isHearingImpaired;
+
+  bool? _isOriginal;
+  bool? get isOriginal => _$this._isOriginal;
+  set isOriginal(bool? isOriginal) => _$this._isOriginal = isOriginal;
 
   int? _height;
   int? get height => _$this._height;
@@ -748,6 +780,8 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
       _localizedForced = $v.localizedForced;
       _localizedExternal = $v.localizedExternal;
       _localizedHearingImpaired = $v.localizedHearingImpaired;
+      _localizedLanguage = $v.localizedLanguage;
+      _localizedOriginal = $v.localizedOriginal;
       _displayTitle = $v.displayTitle;
       _nalLengthSize = $v.nalLengthSize;
       _isInterlaced = $v.isInterlaced;
@@ -762,6 +796,7 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
       _isDefault = $v.isDefault;
       _isForced = $v.isForced;
       _isHearingImpaired = $v.isHearingImpaired;
+      _isOriginal = $v.isOriginal;
       _height = $v.height;
       _width = $v.width;
       _averageFrameRate = $v.averageFrameRate;
@@ -833,6 +868,8 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
           localizedForced: localizedForced,
           localizedExternal: localizedExternal,
           localizedHearingImpaired: localizedHearingImpaired,
+          localizedLanguage: localizedLanguage,
+          localizedOriginal: localizedOriginal,
           displayTitle: displayTitle,
           nalLengthSize: nalLengthSize,
           isInterlaced: isInterlaced,
@@ -847,6 +884,7 @@ class MediaStreamBuilder implements Builder<MediaStream, MediaStreamBuilder> {
           isDefault: isDefault,
           isForced: isForced,
           isHearingImpaired: isHearingImpaired,
+          isOriginal: isOriginal,
           height: height,
           width: width,
           averageFrameRate: averageFrameRate,

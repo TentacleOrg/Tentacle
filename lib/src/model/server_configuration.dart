@@ -24,7 +24,7 @@ part 'server_configuration.g.dart';
 /// * [isStartupWizardCompleted] - Gets or sets a value indicating whether this instance is first run.
 /// * [cachePath] - Gets or sets the cache path.
 /// * [previousVersion] - Gets or sets the last known version that was ran using the configuration.
-/// * [previousVersionStr] - Gets or sets the stringified PreviousVersion to be stored/loaded,  because System.Version itself isn't xml-serializable.
+/// * [previousVersionStr] - Gets or sets the stringified PreviousVersion to be stored/loaded, because System.Version itself isn't xml-serializable.
 /// * [enableMetrics] - Gets or sets a value indicating whether to enable prometheus metrics exporting.
 /// * [enableNormalizedItemByNameIds]
 /// * [isPortAuthorized] - Gets or sets a value indicating whether this instance is port authorized.
@@ -42,8 +42,8 @@ part 'server_configuration.g.dart';
 /// * [minResumeDurationSeconds] - Gets or sets the minimum duration that an item must have in order to be eligible for playstate updates..
 /// * [minAudiobookResume] - Gets or sets the minimum minutes of a book that must be played in order for playstate to be updated.
 /// * [maxAudiobookResume] - Gets or sets the remaining minutes of a book that can be played while still saving playstate. If this percentage is crossed playstate will be reset to the beginning and the item will be marked watched.
-/// * [inactiveSessionThreshold] - Gets or sets the threshold in minutes after a inactive session gets closed automatically.  If set to 0 the check for inactive sessions gets disabled.
-/// * [libraryMonitorDelay] - Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files.
+/// * [inactiveSessionThreshold] - Gets or sets the threshold in minutes after a inactive session gets closed automatically. If set to 0 the check for inactive sessions gets disabled.
+/// * [libraryMonitorDelay] - Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several different directories and files.
 /// * [libraryUpdateDuration] - Gets or sets the duration in seconds that we will wait after a library updated event before executing the library changed notification.
 /// * [cacheSize] - Gets or sets the maximum amount of items to cache.
 /// * [imageSavingConvention] - Gets or sets the image saving convention.
@@ -95,7 +95,7 @@ abstract class ServerConfiguration
   @BuiltValueField(wireName: r'PreviousVersion')
   String? get previousVersion;
 
-  /// Gets or sets the stringified PreviousVersion to be stored/loaded,  because System.Version itself isn't xml-serializable.
+  /// Gets or sets the stringified PreviousVersion to be stored/loaded, because System.Version itself isn't xml-serializable.
   @BuiltValueField(wireName: r'PreviousVersionStr')
   String? get previousVersionStr;
 
@@ -165,11 +165,11 @@ abstract class ServerConfiguration
   @BuiltValueField(wireName: r'MaxAudiobookResume')
   int? get maxAudiobookResume;
 
-  /// Gets or sets the threshold in minutes after a inactive session gets closed automatically.  If set to 0 the check for inactive sessions gets disabled.
+  /// Gets or sets the threshold in minutes after a inactive session gets closed automatically. If set to 0 the check for inactive sessions gets disabled.
   @BuiltValueField(wireName: r'InactiveSessionThreshold')
   int? get inactiveSessionThreshold;
 
-  /// Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files.
+  /// Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several different directories and files.
   @BuiltValueField(wireName: r'LibraryMonitorDelay')
   int? get libraryMonitorDelay;
 

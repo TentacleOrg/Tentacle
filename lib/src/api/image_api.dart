@@ -4834,7 +4834,7 @@ class ImageApi {
     return _response;
   }
 
-  /// Uploads a custom splashscreen.  The body is expected to the image contents base64 encoded.
+  /// Uploads a custom splashscreen. The body is expected to the image contents base64 encoded.
   ///
   ///
   /// Parameters:

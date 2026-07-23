@@ -18,11 +18,11 @@ abstract class CastReceiverApplication
     implements Built<CastReceiverApplication, CastReceiverApplicationBuilder> {
   /// Gets or sets the cast receiver application id.
   @BuiltValueField(wireName: r'Id')
-  String? get id;
+  String get id;
 
   /// Gets or sets the cast receiver application name.
   @BuiltValueField(wireName: r'Name')
-  String? get name;
+  String get name;
 
   CastReceiverApplication._();
 
@@ -54,20 +54,16 @@ class _$CastReceiverApplicationSerializer
     CastReceiverApplication object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.id != null) {
-      yield r'Id';
-      yield serializers.serialize(
-        object.id,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.name != null) {
-      yield r'Name';
-      yield serializers.serialize(
-        object.name,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'Id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    yield r'Name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
   }
 
   @override

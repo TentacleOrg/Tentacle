@@ -36,7 +36,7 @@ class _$TrickplayScanBehaviorMeta {
   BuiltSet<TrickplayScanBehavior> get values => _$values;
 }
 
-mixin _$TrickplayScanBehaviorMixin {
+abstract class _$TrickplayScanBehaviorMixin {
   // ignore: non_constant_identifier_names
   _$TrickplayScanBehaviorMeta get TrickplayScanBehavior =>
       const _$TrickplayScanBehaviorMeta();

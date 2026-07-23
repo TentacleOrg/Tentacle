@@ -46,7 +46,7 @@ class _$MetadataRefreshModeMeta {
   BuiltSet<MetadataRefreshMode> get values => _$values;
 }
 
-mixin _$MetadataRefreshModeMixin {
+abstract class _$MetadataRefreshModeMixin {
   // ignore: non_constant_identifier_names
   _$MetadataRefreshModeMeta get MetadataRefreshMode =>
       const _$MetadataRefreshModeMeta();

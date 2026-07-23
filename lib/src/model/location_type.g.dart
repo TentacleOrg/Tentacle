@@ -44,7 +44,7 @@ class _$LocationTypeMeta {
   BuiltSet<LocationType> get values => _$values;
 }
 
-mixin _$LocationTypeMixin {
+abstract class _$LocationTypeMixin {
   // ignore: non_constant_identifier_names
   _$LocationTypeMeta get LocationType => const _$LocationTypeMeta();
 }

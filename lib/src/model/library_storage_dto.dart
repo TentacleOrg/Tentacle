@@ -21,15 +21,15 @@ abstract class LibraryStorageDto
     implements Built<LibraryStorageDto, LibraryStorageDtoBuilder> {
   /// Gets or sets the Library Id.
   @BuiltValueField(wireName: r'Id')
-  String? get id;
+  String get id;
 
   /// Gets or sets the name of the library.
   @BuiltValueField(wireName: r'Name')
-  String? get name;
+  String get name;
 
   /// Gets or sets the storage informations about the folders used in a library.
   @BuiltValueField(wireName: r'Folders')
-  BuiltList<FolderStorageDto>? get folders;
+  BuiltList<FolderStorageDto> get folders;
 
   LibraryStorageDto._();
 
@@ -57,27 +57,21 @@ class _$LibraryStorageDtoSerializer
     LibraryStorageDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.id != null) {
-      yield r'Id';
-      yield serializers.serialize(
-        object.id,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.name != null) {
-      yield r'Name';
-      yield serializers.serialize(
-        object.name,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.folders != null) {
-      yield r'Folders';
-      yield serializers.serialize(
-        object.folders,
-        specifiedType: const FullType(BuiltList, [FullType(FolderStorageDto)]),
-      );
-    }
+    yield r'Id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    yield r'Name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
+    yield r'Folders';
+    yield serializers.serialize(
+      object.folders,
+      specifiedType: const FullType(BuiltList, [FullType(FolderStorageDto)]),
+    );
   }
 
   @override

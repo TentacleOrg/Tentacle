@@ -8,7 +8,7 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Gets or sets the name of the new playlist. | [optional] 
+**name** | **String** | Gets or sets the name of the new playlist. | 
 **ids** | **BuiltList&lt;String&gt;** | Gets or sets item ids to add to the playlist. | [optional] 
 **userId** | **String** | Gets or sets the user id. | [optional] 
 **mediaType** | [**MediaType**](MediaType.md) | Gets or sets the media type. | [optional] 

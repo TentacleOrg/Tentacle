@@ -12,7 +12,7 @@ class _$GeneralCommand extends GeneralCommand {
   @override
   final String? controllingUserId;
   @override
-  final BuiltMap<String, String?>? arguments;
+  final BuiltMap<String, String>? arguments;
 
   factory _$GeneralCommand([void Function(GeneralCommandBuilder)? updates]) =>
       (GeneralCommandBuilder()..update(updates))._build();
@@ -68,10 +68,10 @@ class GeneralCommandBuilder
   set controllingUserId(String? controllingUserId) =>
       _$this._controllingUserId = controllingUserId;
 
-  MapBuilder<String, String?>? _arguments;
-  MapBuilder<String, String?> get arguments =>
-      _$this._arguments ??= MapBuilder<String, String?>();
-  set arguments(MapBuilder<String, String?>? arguments) =>
+  MapBuilder<String, String>? _arguments;
+  MapBuilder<String, String> get arguments =>
+      _$this._arguments ??= MapBuilder<String, String>();
+  set arguments(MapBuilder<String, String>? arguments) =>
       _$this._arguments = arguments;
 
   GeneralCommandBuilder() {

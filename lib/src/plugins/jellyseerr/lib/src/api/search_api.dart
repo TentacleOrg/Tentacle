@@ -8,20 +8,20 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/discover_genreslider_movie_get200_response_inner.dart';
-import 'package:tentacle/src/model/discover_movies_genre_genre_id_get200_response.dart';
-import 'package:tentacle/src/model/discover_movies_get200_response.dart';
-import 'package:tentacle/src/model/discover_movies_language_language_get200_response.dart';
-import 'package:tentacle/src/model/discover_movies_studio_studio_id_get200_response.dart';
-import 'package:tentacle/src/model/discover_tv_genre_genre_id_get200_response.dart';
-import 'package:tentacle/src/model/discover_tv_get200_response.dart';
-import 'package:tentacle/src/model/discover_tv_language_language_get200_response.dart';
-import 'package:tentacle/src/model/discover_tv_network_network_id_get200_response.dart';
-import 'package:tentacle/src/model/search_company_get200_response.dart';
-import 'package:tentacle/src/model/search_get200_response.dart';
-import 'package:tentacle/src/model/search_keyword_get200_response.dart';
-import 'package:tentacle/src/model/user_user_id_watchlist_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_genreslider_movie_get200_response_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_movies_genre_genre_id_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_movies_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_movies_language_language_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_movies_studio_studio_id_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_tv_genre_genre_id_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_tv_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_tv_language_language_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_tv_network_network_id_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/search_company_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/search_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/search_keyword_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/user_user_id_watchlist_get200_response.dart';
 
 class SearchApi {
   final Dio _dio;

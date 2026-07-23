@@ -16,5 +16,15 @@ void main() {
     test('to test the property `tags`', () async {
       // TODO
     });
+
+    // BuiltList<NameValuePair> audioLanguages
+    test('to test the property `audioLanguages`', () async {
+      // TODO
+    });
+
+    // BuiltList<NameValuePair> subtitleLanguages
+    test('to test the property `subtitleLanguages`', () async {
+      // TODO
+    });
   });
 }

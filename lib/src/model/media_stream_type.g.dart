@@ -55,7 +55,7 @@ class _$MediaStreamTypeMeta {
   BuiltSet<MediaStreamType> get values => _$values;
 }
 
-mixin _$MediaStreamTypeMixin {
+abstract class _$MediaStreamTypeMixin {
   // ignore: non_constant_identifier_names
   _$MediaStreamTypeMeta get MediaStreamType => const _$MediaStreamTypeMeta();
 }

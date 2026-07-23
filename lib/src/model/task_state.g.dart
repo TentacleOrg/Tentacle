@@ -38,7 +38,7 @@ class _$TaskStateMeta {
   BuiltSet<TaskState> get values => _$values;
 }
 
-mixin _$TaskStateMixin {
+abstract class _$TaskStateMixin {
   // ignore: non_constant_identifier_names
   _$TaskStateMeta get TaskState => const _$TaskStateMeta();
 }

@@ -15,7 +15,7 @@ part 'database_configuration_options.g.dart';
 /// Properties:
 /// * [databaseType] - Gets or Sets the type of database jellyfin should use.
 /// * [customProviderOptions] - Gets or sets the options required to use a custom database provider.
-/// * [lockingBehavior] - Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are \"NoLock\", \"Pessimistic\", \"Optimistic\".  Defaults to \"NoLock\".
+/// * [lockingBehavior] - Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are \"NoLock\", \"Pessimistic\", \"Optimistic\". Defaults to \"NoLock\".
 @BuiltValue()
 abstract class DatabaseConfigurationOptions
     implements
@@ -23,13 +23,13 @@ abstract class DatabaseConfigurationOptions
             DatabaseConfigurationOptionsBuilder> {
   /// Gets or Sets the type of database jellyfin should use.
   @BuiltValueField(wireName: r'DatabaseType')
-  String? get databaseType;
+  String get databaseType;
 
   /// Gets or sets the options required to use a custom database provider.
   @BuiltValueField(wireName: r'CustomProviderOptions')
   CustomDatabaseOptions? get customProviderOptions;
 
-  /// Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are \"NoLock\", \"Pessimistic\", \"Optimistic\".  Defaults to \"NoLock\".
+  /// Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are \"NoLock\", \"Pessimistic\", \"Optimistic\". Defaults to \"NoLock\".
   @BuiltValueField(wireName: r'LockingBehavior')
   DatabaseLockingBehaviorTypes? get lockingBehavior;
   // enum lockingBehaviorEnum {  NoLock,  Pessimistic,  Optimistic,  };
@@ -64,13 +64,11 @@ class _$DatabaseConfigurationOptionsSerializer
     DatabaseConfigurationOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.databaseType != null) {
-      yield r'DatabaseType';
-      yield serializers.serialize(
-        object.databaseType,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'DatabaseType';
+    yield serializers.serialize(
+      object.databaseType,
+      specifiedType: const FullType(String),
+    );
     if (object.customProviderOptions != null) {
       yield r'CustomProviderOptions';
       yield serializers.serialize(

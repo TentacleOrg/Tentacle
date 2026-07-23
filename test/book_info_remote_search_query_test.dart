@@ -7,6 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(BookInfoRemoteSearchQuery, () {
+    // The lookup info for books.
     // BookInfo searchInfo
     test('to test the property `searchInfo`', () async {
       // TODO

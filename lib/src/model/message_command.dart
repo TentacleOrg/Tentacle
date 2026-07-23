@@ -8,21 +8,24 @@ import 'package:built_value/serializer.dart';
 
 part 'message_command.g.dart';
 
-/// MessageCommand
+/// A command to display a message on a client.
 ///
 /// Properties:
-/// * [header]
-/// * [text]
-/// * [timeoutMs]
+/// * [header] - Gets or sets the message header.
+/// * [text] - Gets or sets the message text.
+/// * [timeoutMs] - Gets or sets the timeout in milliseconds after which the message should be dismissed.
 @BuiltValue()
 abstract class MessageCommand
     implements Built<MessageCommand, MessageCommandBuilder> {
+  /// Gets or sets the message header.
   @BuiltValueField(wireName: r'Header')
   String? get header;
 
+  /// Gets or sets the message text.
   @BuiltValueField(wireName: r'Text')
   String get text;
 
+  /// Gets or sets the timeout in milliseconds after which the message should be dismissed.
   @BuiltValueField(wireName: r'TimeoutMs')
   int? get timeoutMs;
 

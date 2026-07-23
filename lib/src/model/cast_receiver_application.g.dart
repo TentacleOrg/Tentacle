@@ -8,15 +8,16 @@ part of 'cast_receiver_application.dart';
 
 class _$CastReceiverApplication extends CastReceiverApplication {
   @override
-  final String? id;
+  final String id;
   @override
-  final String? name;
+  final String name;
 
   factory _$CastReceiverApplication(
           [void Function(CastReceiverApplicationBuilder)? updates]) =>
       (CastReceiverApplicationBuilder()..update(updates))._build();
 
-  _$CastReceiverApplication._({this.id, this.name}) : super._();
+  _$CastReceiverApplication._({required this.id, required this.name})
+      : super._();
   @override
   CastReceiverApplication rebuild(
           void Function(CastReceiverApplicationBuilder) updates) =>
@@ -95,8 +96,10 @@ class CastReceiverApplicationBuilder
   _$CastReceiverApplication _build() {
     final _$result = _$v ??
         _$CastReceiverApplication._(
-          id: id,
-          name: name,
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'CastReceiverApplication', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'CastReceiverApplication', 'name'),
         );
     replace(_$result);
     return _$result;

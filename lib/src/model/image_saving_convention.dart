@@ -10,8 +10,11 @@ import 'package:built_value/serializer.dart';
 part 'image_saving_convention.g.dart';
 
 class ImageSavingConvention extends EnumClass {
+  /// The convention used for naming saved images.
   @BuiltValueEnumConst(wireName: r'Legacy')
   static const ImageSavingConvention legacy = _$legacy;
+
+  /// The convention used for naming saved images.
   @BuiltValueEnumConst(wireName: r'Compatible')
   static const ImageSavingConvention compatible = _$compatible;
 

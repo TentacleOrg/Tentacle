@@ -213,7 +213,7 @@ class _$BaseItemKindMeta {
   BuiltSet<BaseItemKind> get values => _$values;
 }
 
-mixin _$BaseItemKindMixin {
+abstract class _$BaseItemKindMixin {
   // ignore: non_constant_identifier_names
   _$BaseItemKindMeta get BaseItemKind => const _$BaseItemKindMeta();
 }

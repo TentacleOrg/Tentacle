@@ -32,7 +32,7 @@ class _$AlbumInfo extends AlbumInfo {
   @override
   final BuiltList<String>? albumArtists;
   @override
-  final BuiltMap<String, String?>? artistProviderIds;
+  final BuiltMap<String, String>? artistProviderIds;
   @override
   final BuiltList<SongInfo>? songInfos;
 
@@ -184,10 +184,10 @@ class AlbumInfoBuilder implements Builder<AlbumInfo, AlbumInfoBuilder> {
   set albumArtists(ListBuilder<String>? albumArtists) =>
       _$this._albumArtists = albumArtists;
 
-  MapBuilder<String, String?>? _artistProviderIds;
-  MapBuilder<String, String?> get artistProviderIds =>
-      _$this._artistProviderIds ??= MapBuilder<String, String?>();
-  set artistProviderIds(MapBuilder<String, String?>? artistProviderIds) =>
+  MapBuilder<String, String>? _artistProviderIds;
+  MapBuilder<String, String> get artistProviderIds =>
+      _$this._artistProviderIds ??= MapBuilder<String, String>();
+  set artistProviderIds(MapBuilder<String, String>? artistProviderIds) =>
       _$this._artistProviderIds = artistProviderIds;
 
   ListBuilder<SongInfo>? _songInfos;

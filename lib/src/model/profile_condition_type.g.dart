@@ -53,7 +53,7 @@ class _$ProfileConditionTypeMeta {
   BuiltSet<ProfileConditionType> get values => _$values;
 }
 
-mixin _$ProfileConditionTypeMixin {
+abstract class _$ProfileConditionTypeMixin {
   // ignore: non_constant_identifier_names
   _$ProfileConditionTypeMeta get ProfileConditionType =>
       const _$ProfileConditionTypeMeta();

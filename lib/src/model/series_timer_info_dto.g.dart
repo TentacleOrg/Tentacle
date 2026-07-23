@@ -68,7 +68,7 @@ class _$SeriesTimerInfoDto extends SeriesTimerInfoDto {
   @override
   final DayPattern? dayPattern;
   @override
-  final BuiltMap<String, String>? imageTags;
+  final BuiltMap<String, String?>? imageTags;
   @override
   final String? parentThumbItemId;
   @override
@@ -391,10 +391,10 @@ class SeriesTimerInfoDtoBuilder
   DayPattern? get dayPattern => _$this._dayPattern;
   set dayPattern(DayPattern? dayPattern) => _$this._dayPattern = dayPattern;
 
-  MapBuilder<String, String>? _imageTags;
-  MapBuilder<String, String> get imageTags =>
-      _$this._imageTags ??= MapBuilder<String, String>();
-  set imageTags(MapBuilder<String, String>? imageTags) =>
+  MapBuilder<String, String?>? _imageTags;
+  MapBuilder<String, String?> get imageTags =>
+      _$this._imageTags ??= MapBuilder<String, String?>();
+  set imageTags(MapBuilder<String, String?>? imageTags) =>
       _$this._imageTags = imageTags;
 
   String? _parentThumbItemId;

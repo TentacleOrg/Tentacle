@@ -7,6 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(BoxSetInfoRemoteSearchQuery, () {
+    // The lookup info for box sets.
     // BoxSetInfo searchInfo
     test('to test the property `searchInfo`', () async {
       // TODO

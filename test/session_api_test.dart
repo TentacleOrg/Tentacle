@@ -20,24 +20,17 @@ void main() {
       // TODO
     });
 
-    // Get all auth providers.
-    //
-    //Future<BuiltList<NameIdPair>> getAuthProviders() async
-    test('test getAuthProviders', () async {
-      // TODO
-    });
-
-    // Get all password reset providers.
-    //
-    //Future<BuiltList<NameIdPair>> getPasswordResetProviders() async
-    test('test getPasswordResetProviders', () async {
-      // TODO
-    });
-
     // Gets a list of sessions.
     //
     //Future<BuiltList<SessionInfoDto>> getSessions({ String controllableByUserId, String deviceId, int activeWithinSeconds }) async
     test('test getSessions', () async {
+      // TODO
+    });
+
+    // Pings a playback session.
+    //
+    //Future pingPlaybackSession(String playSessionId) async
+    test('test pingPlaybackSession', () async {
       // TODO
     });
 
@@ -66,6 +59,27 @@ void main() {
     //
     //Future removeUserFromSession(String sessionId, String userId) async
     test('test removeUserFromSession', () async {
+      // TODO
+    });
+
+    // Reports playback progress within a session.
+    //
+    //Future reportPlaybackProgress({ PlaybackProgressInfo playbackProgressInfo }) async
+    test('test reportPlaybackProgress', () async {
+      // TODO
+    });
+
+    // Reports playback has started within a session.
+    //
+    //Future reportPlaybackStart({ PlaybackStartInfo playbackStartInfo }) async
+    test('test reportPlaybackStart', () async {
+      // TODO
+    });
+
+    // Reports playback has stopped within a session.
+    //
+    //Future reportPlaybackStopped({ PlaybackStopInfo playbackStopInfo }) async
+    test('test reportPlaybackStopped', () async {
       // TODO
     });
 

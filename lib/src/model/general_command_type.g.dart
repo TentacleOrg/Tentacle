@@ -262,7 +262,7 @@ class _$GeneralCommandTypeMeta {
   BuiltSet<GeneralCommandType> get values => _$values;
 }
 
-mixin _$GeneralCommandTypeMixin {
+abstract class _$GeneralCommandTypeMixin {
   // ignore: non_constant_identifier_names
   _$GeneralCommandTypeMeta get GeneralCommandType =>
       const _$GeneralCommandTypeMeta();

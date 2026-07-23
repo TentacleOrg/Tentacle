@@ -10,8 +10,11 @@ import 'package:built_value/serializer.dart';
 part 'transcode_seek_info.g.dart';
 
 class TranscodeSeekInfo extends EnumClass {
+  /// The transcode seek info.
   @BuiltValueEnumConst(wireName: r'Auto')
   static const TranscodeSeekInfo auto = _$auto;
+
+  /// The transcode seek info.
   @BuiltValueEnumConst(wireName: r'Bytes')
   static const TranscodeSeekInfo bytes = _$bytes;
 

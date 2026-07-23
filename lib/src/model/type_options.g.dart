@@ -19,6 +19,10 @@ class _$TypeOptions extends TypeOptions {
   final BuiltList<String>? imageFetcherOrder;
   @override
   final BuiltList<ImageOption>? imageOptions;
+  @override
+  final BuiltList<String>? similarItemProviders;
+  @override
+  final BuiltList<String>? similarItemProviderOrder;
 
   factory _$TypeOptions([void Function(TypeOptionsBuilder)? updates]) =>
       (TypeOptionsBuilder()..update(updates))._build();
@@ -29,7 +33,9 @@ class _$TypeOptions extends TypeOptions {
       this.metadataFetcherOrder,
       this.imageFetchers,
       this.imageFetcherOrder,
-      this.imageOptions})
+      this.imageOptions,
+      this.similarItemProviders,
+      this.similarItemProviderOrder})
       : super._();
   @override
   TypeOptions rebuild(void Function(TypeOptionsBuilder) updates) =>
@@ -47,7 +53,9 @@ class _$TypeOptions extends TypeOptions {
         metadataFetcherOrder == other.metadataFetcherOrder &&
         imageFetchers == other.imageFetchers &&
         imageFetcherOrder == other.imageFetcherOrder &&
-        imageOptions == other.imageOptions;
+        imageOptions == other.imageOptions &&
+        similarItemProviders == other.similarItemProviders &&
+        similarItemProviderOrder == other.similarItemProviderOrder;
   }
 
   @override
@@ -59,6 +67,8 @@ class _$TypeOptions extends TypeOptions {
     _$hash = $jc(_$hash, imageFetchers.hashCode);
     _$hash = $jc(_$hash, imageFetcherOrder.hashCode);
     _$hash = $jc(_$hash, imageOptions.hashCode);
+    _$hash = $jc(_$hash, similarItemProviders.hashCode);
+    _$hash = $jc(_$hash, similarItemProviderOrder.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -71,7 +81,9 @@ class _$TypeOptions extends TypeOptions {
           ..add('metadataFetcherOrder', metadataFetcherOrder)
           ..add('imageFetchers', imageFetchers)
           ..add('imageFetcherOrder', imageFetcherOrder)
-          ..add('imageOptions', imageOptions))
+          ..add('imageOptions', imageOptions)
+          ..add('similarItemProviders', similarItemProviders)
+          ..add('similarItemProviderOrder', similarItemProviderOrder))
         .toString();
   }
 }
@@ -113,6 +125,18 @@ class TypeOptionsBuilder implements Builder<TypeOptions, TypeOptionsBuilder> {
   set imageOptions(ListBuilder<ImageOption>? imageOptions) =>
       _$this._imageOptions = imageOptions;
 
+  ListBuilder<String>? _similarItemProviders;
+  ListBuilder<String> get similarItemProviders =>
+      _$this._similarItemProviders ??= ListBuilder<String>();
+  set similarItemProviders(ListBuilder<String>? similarItemProviders) =>
+      _$this._similarItemProviders = similarItemProviders;
+
+  ListBuilder<String>? _similarItemProviderOrder;
+  ListBuilder<String> get similarItemProviderOrder =>
+      _$this._similarItemProviderOrder ??= ListBuilder<String>();
+  set similarItemProviderOrder(ListBuilder<String>? similarItemProviderOrder) =>
+      _$this._similarItemProviderOrder = similarItemProviderOrder;
+
   TypeOptionsBuilder() {
     TypeOptions._defaults(this);
   }
@@ -126,6 +150,8 @@ class TypeOptionsBuilder implements Builder<TypeOptions, TypeOptionsBuilder> {
       _imageFetchers = $v.imageFetchers?.toBuilder();
       _imageFetcherOrder = $v.imageFetcherOrder?.toBuilder();
       _imageOptions = $v.imageOptions?.toBuilder();
+      _similarItemProviders = $v.similarItemProviders?.toBuilder();
+      _similarItemProviderOrder = $v.similarItemProviderOrder?.toBuilder();
       _$v = null;
     }
     return this;
@@ -155,6 +181,8 @@ class TypeOptionsBuilder implements Builder<TypeOptions, TypeOptionsBuilder> {
             imageFetchers: _imageFetchers?.build(),
             imageFetcherOrder: _imageFetcherOrder?.build(),
             imageOptions: _imageOptions?.build(),
+            similarItemProviders: _similarItemProviders?.build(),
+            similarItemProviderOrder: _similarItemProviderOrder?.build(),
           );
     } catch (_) {
       late String _$failedField;
@@ -169,6 +197,10 @@ class TypeOptionsBuilder implements Builder<TypeOptions, TypeOptionsBuilder> {
         _imageFetcherOrder?.build();
         _$failedField = 'imageOptions';
         _imageOptions?.build();
+        _$failedField = 'similarItemProviders';
+        _similarItemProviders?.build();
+        _$failedField = 'similarItemProviderOrder';
+        _similarItemProviderOrder?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'TypeOptions', _$failedField, e.toString());

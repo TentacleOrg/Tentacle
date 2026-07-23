@@ -174,7 +174,7 @@ class _$ItemSortByMeta {
   BuiltSet<ItemSortBy> get values => _$values;
 }
 
-mixin _$ItemSortByMixin {
+abstract class _$ItemSortByMixin {
   // ignore: non_constant_identifier_names
   _$ItemSortByMeta get ItemSortBy => const _$ItemSortByMeta();
 }

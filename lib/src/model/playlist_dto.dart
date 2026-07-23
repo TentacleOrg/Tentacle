@@ -24,11 +24,11 @@ abstract class PlaylistDto implements Built<PlaylistDto, PlaylistDtoBuilder> {
 
   /// Gets or sets the share permissions.
   @BuiltValueField(wireName: r'Shares')
-  BuiltList<PlaylistUserPermissions>? get shares;
+  BuiltList<PlaylistUserPermissions> get shares;
 
   /// Gets or sets the item ids.
   @BuiltValueField(wireName: r'ItemIds')
-  BuiltList<String>? get itemIds;
+  BuiltList<String> get itemIds;
 
   PlaylistDto._();
 
@@ -60,21 +60,17 @@ class _$PlaylistDtoSerializer implements PrimitiveSerializer<PlaylistDto> {
         specifiedType: const FullType(bool),
       );
     }
-    if (object.shares != null) {
-      yield r'Shares';
-      yield serializers.serialize(
-        object.shares,
-        specifiedType:
-            const FullType(BuiltList, [FullType(PlaylistUserPermissions)]),
-      );
-    }
-    if (object.itemIds != null) {
-      yield r'ItemIds';
-      yield serializers.serialize(
-        object.itemIds,
-        specifiedType: const FullType(BuiltList, [FullType(String)]),
-      );
-    }
+    yield r'Shares';
+    yield serializers.serialize(
+      object.shares,
+      specifiedType:
+          const FullType(BuiltList, [FullType(PlaylistUserPermissions)]),
+    );
+    yield r'ItemIds';
+    yield serializers.serialize(
+      object.itemIds,
+      specifiedType: const FullType(BuiltList, [FullType(String)]),
+    );
   }
 
   @override

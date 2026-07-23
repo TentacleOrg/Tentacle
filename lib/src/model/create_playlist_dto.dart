@@ -25,7 +25,7 @@ abstract class CreatePlaylistDto
     implements Built<CreatePlaylistDto, CreatePlaylistDtoBuilder> {
   /// Gets or sets the name of the new playlist.
   @BuiltValueField(wireName: r'Name')
-  String? get name;
+  String get name;
 
   /// Gets or sets item ids to add to the playlist.
   @BuiltValueField(wireName: r'Ids')
@@ -74,13 +74,11 @@ class _$CreatePlaylistDtoSerializer
     CreatePlaylistDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.name != null) {
-      yield r'Name';
-      yield serializers.serialize(
-        object.name,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'Name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
     if (object.ids != null) {
       yield r'Ids';
       yield serializers.serialize(

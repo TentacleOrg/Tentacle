@@ -25,6 +25,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the similar item providers.
+    // BuiltList<LibraryOptionInfoDto> similarItemProviders
+    test('to test the property `similarItemProviders`', () async {
+      // TODO
+    });
+
     // Gets or sets the supported image types.
     // BuiltList<ImageType> supportedImageTypes
     test('to test the property `supportedImageTypes`', () async {

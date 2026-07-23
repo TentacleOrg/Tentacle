@@ -79,7 +79,7 @@ class _$EncoderPresetMeta {
   BuiltSet<EncoderPreset> get values => _$values;
 }
 
-mixin _$EncoderPresetMixin {
+abstract class _$EncoderPresetMixin {
   // ignore: non_constant_identifier_names
   _$EncoderPresetMeta get EncoderPreset => const _$EncoderPresetMeta();
 }

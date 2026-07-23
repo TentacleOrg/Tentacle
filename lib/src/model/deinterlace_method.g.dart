@@ -34,7 +34,7 @@ class _$DeinterlaceMethodMeta {
   BuiltSet<DeinterlaceMethod> get values => _$values;
 }
 
-mixin _$DeinterlaceMethodMixin {
+abstract class _$DeinterlaceMethodMixin {
   // ignore: non_constant_identifier_names
   _$DeinterlaceMethodMeta get DeinterlaceMethod =>
       const _$DeinterlaceMethodMeta();

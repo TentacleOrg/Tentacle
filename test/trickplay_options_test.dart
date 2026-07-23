@@ -19,7 +19,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets a value indicating whether to only extract key frames.  Significantly faster, but is not compatible with all decoders and/or video files.
+    // Gets or sets a value indicating whether to only extract key frames. Significantly faster, but is not compatible with all decoders and/or video files.
     // bool enableKeyFrameOnlyExtraction
     test('to test the property `enableKeyFrameOnlyExtraction`', () async {
       // TODO

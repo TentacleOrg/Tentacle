@@ -14,6 +14,8 @@ class _$LibraryTypeOptionsDto extends LibraryTypeOptionsDto {
   @override
   final BuiltList<LibraryOptionInfoDto>? imageFetchers;
   @override
+  final BuiltList<LibraryOptionInfoDto>? similarItemProviders;
+  @override
   final BuiltList<ImageType>? supportedImageTypes;
   @override
   final BuiltList<ImageOption>? defaultImageOptions;
@@ -26,6 +28,7 @@ class _$LibraryTypeOptionsDto extends LibraryTypeOptionsDto {
       {this.type,
       this.metadataFetchers,
       this.imageFetchers,
+      this.similarItemProviders,
       this.supportedImageTypes,
       this.defaultImageOptions})
       : super._();
@@ -45,6 +48,7 @@ class _$LibraryTypeOptionsDto extends LibraryTypeOptionsDto {
         type == other.type &&
         metadataFetchers == other.metadataFetchers &&
         imageFetchers == other.imageFetchers &&
+        similarItemProviders == other.similarItemProviders &&
         supportedImageTypes == other.supportedImageTypes &&
         defaultImageOptions == other.defaultImageOptions;
   }
@@ -55,6 +59,7 @@ class _$LibraryTypeOptionsDto extends LibraryTypeOptionsDto {
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, metadataFetchers.hashCode);
     _$hash = $jc(_$hash, imageFetchers.hashCode);
+    _$hash = $jc(_$hash, similarItemProviders.hashCode);
     _$hash = $jc(_$hash, supportedImageTypes.hashCode);
     _$hash = $jc(_$hash, defaultImageOptions.hashCode);
     _$hash = $jf(_$hash);
@@ -67,6 +72,7 @@ class _$LibraryTypeOptionsDto extends LibraryTypeOptionsDto {
           ..add('type', type)
           ..add('metadataFetchers', metadataFetchers)
           ..add('imageFetchers', imageFetchers)
+          ..add('similarItemProviders', similarItemProviders)
           ..add('supportedImageTypes', supportedImageTypes)
           ..add('defaultImageOptions', defaultImageOptions))
         .toString();
@@ -93,6 +99,13 @@ class LibraryTypeOptionsDtoBuilder
   set imageFetchers(ListBuilder<LibraryOptionInfoDto>? imageFetchers) =>
       _$this._imageFetchers = imageFetchers;
 
+  ListBuilder<LibraryOptionInfoDto>? _similarItemProviders;
+  ListBuilder<LibraryOptionInfoDto> get similarItemProviders =>
+      _$this._similarItemProviders ??= ListBuilder<LibraryOptionInfoDto>();
+  set similarItemProviders(
+          ListBuilder<LibraryOptionInfoDto>? similarItemProviders) =>
+      _$this._similarItemProviders = similarItemProviders;
+
   ListBuilder<ImageType>? _supportedImageTypes;
   ListBuilder<ImageType> get supportedImageTypes =>
       _$this._supportedImageTypes ??= ListBuilder<ImageType>();
@@ -115,6 +128,7 @@ class LibraryTypeOptionsDtoBuilder
       _type = $v.type;
       _metadataFetchers = $v.metadataFetchers?.toBuilder();
       _imageFetchers = $v.imageFetchers?.toBuilder();
+      _similarItemProviders = $v.similarItemProviders?.toBuilder();
       _supportedImageTypes = $v.supportedImageTypes?.toBuilder();
       _defaultImageOptions = $v.defaultImageOptions?.toBuilder();
       _$v = null;
@@ -143,6 +157,7 @@ class LibraryTypeOptionsDtoBuilder
             type: type,
             metadataFetchers: _metadataFetchers?.build(),
             imageFetchers: _imageFetchers?.build(),
+            similarItemProviders: _similarItemProviders?.build(),
             supportedImageTypes: _supportedImageTypes?.build(),
             defaultImageOptions: _defaultImageOptions?.build(),
           );
@@ -153,6 +168,8 @@ class LibraryTypeOptionsDtoBuilder
         _metadataFetchers?.build();
         _$failedField = 'imageFetchers';
         _imageFetchers?.build();
+        _$failedField = 'similarItemProviders';
+        _similarItemProviders?.build();
         _$failedField = 'supportedImageTypes';
         _supportedImageTypes?.build();
         _$failedField = 'defaultImageOptions';

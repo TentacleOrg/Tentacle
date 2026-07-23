@@ -195,31 +195,10 @@ void main() {
       // TODO
     });
 
-    // Get recording group.
-    //
-    //Future getRecordingGroup(String groupId) async
-    test('test getRecordingGroup', () async {
-      // TODO
-    });
-
-    // Gets live tv recording groups.
-    //
-    //Future<BaseItemDtoQueryResult> getRecordingGroups({ String userId }) async
-    test('test getRecordingGroups', () async {
-      // TODO
-    });
-
     // Gets live tv recordings.
     //
     //Future<BaseItemDtoQueryResult> getRecordings({ String channelId, String userId, int startIndex, int limit, RecordingStatus status, bool isInProgress, String seriesTimerId, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<ItemFields> fields, bool enableUserData, bool isMovie, bool isSeries, bool isKids, bool isSports, bool isNews, bool isLibraryItem, bool enableTotalRecordCount }) async
     test('test getRecordings', () async {
-      // TODO
-    });
-
-    // Gets live tv recording series.
-    //
-    //Future<BaseItemDtoQueryResult> getRecordingsSeries({ String channelId, String userId, String groupId, int startIndex, int limit, RecordingStatus status, bool isInProgress, String seriesTimerId, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<ItemFields> fields, bool enableUserData, bool enableTotalRecordCount }) async
-    test('test getRecordingsSeries', () async {
       // TODO
     });
 

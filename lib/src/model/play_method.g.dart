@@ -38,7 +38,7 @@ class _$PlayMethodMeta {
   BuiltSet<PlayMethod> get values => _$values;
 }
 
-mixin _$PlayMethodMixin {
+abstract class _$PlayMethodMixin {
   // ignore: non_constant_identifier_names
   _$PlayMethodMeta get PlayMethod => const _$PlayMethodMeta();
 }

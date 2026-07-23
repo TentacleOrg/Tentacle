@@ -19,7 +19,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets the name of the server.  This is not used by the server and is for client-side usage only.
+    // Gets or sets the name of the server. This is not used by the server and is for client-side usage only.
     // String serverName
     test('to test the property `serverName`', () async {
       // TODO

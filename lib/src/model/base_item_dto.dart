@@ -33,7 +33,7 @@ import 'package:built_value/serializer.dart';
 
 part 'base_item_dto.g.dart';
 
-/// This is strictly used as a data transfer object from the api layer.  This holds information about a BaseItem in a format that is convenient for the client.
+/// This is strictly used as a data transfer object from the api layer. This holds information about a BaseItem in a format that is convenient for the client.
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.
@@ -188,7 +188,9 @@ part 'base_item_dto.g.dart';
 /// * [isPremiere] - Gets or sets a value indicating whether this instance is premiere.
 /// * [timerId] - Gets or sets the timer identifier.
 /// * [normalizationGain] - Gets or sets the gain required for audio normalization.
+/// * [albumNormalizationGain] - Gets or sets the gain required for audio normalization. This field is inherited from music album normalization gain.
 /// * [currentProgram] - Gets or sets the current program.
+/// * [originalLanguage]
 @BuiltValue()
 abstract class BaseItemDto implements Built<BaseItemDto, BaseItemDtoBuilder> {
   /// Gets or sets the name.
@@ -539,7 +541,7 @@ abstract class BaseItemDto implements Built<BaseItemDto, BaseItemDtoBuilder> {
 
   /// Gets or sets the image tags.
   @BuiltValueField(wireName: r'ImageTags')
-  BuiltMap<String, String>? get imageTags;
+  BuiltMap<String, String?>? get imageTags;
 
   /// Gets or sets the backdrop image tags.
   @BuiltValueField(wireName: r'BackdropImageTags')
@@ -594,7 +596,7 @@ abstract class BaseItemDto implements Built<BaseItemDto, BaseItemDtoBuilder> {
 
   /// Gets or sets the trickplay manifest.
   @BuiltValueField(wireName: r'Trickplay')
-  BuiltMap<String, BuiltMap<String, TrickplayInfoDto>>? get trickplay;
+  BuiltMap<String, BuiltMap<String, TrickplayInfoDto>?>? get trickplay;
 
   /// Gets or sets the type of the location.
   @BuiltValueField(wireName: r'LocationType')
@@ -774,9 +776,16 @@ abstract class BaseItemDto implements Built<BaseItemDto, BaseItemDtoBuilder> {
   @BuiltValueField(wireName: r'NormalizationGain')
   double? get normalizationGain;
 
+  /// Gets or sets the gain required for audio normalization. This field is inherited from music album normalization gain.
+  @BuiltValueField(wireName: r'AlbumNormalizationGain')
+  double? get albumNormalizationGain;
+
   /// Gets or sets the current program.
   @BuiltValueField(wireName: r'CurrentProgram')
   BaseItemDto? get currentProgram;
+
+  @BuiltValueField(wireName: r'OriginalLanguage')
+  String? get originalLanguage;
 
   BaseItemDto._();
 
@@ -1446,7 +1455,7 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
       yield serializers.serialize(
         object.imageTags,
         specifiedType: const FullType.nullable(
-            BuiltMap, [FullType(String), FullType(String)]),
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.backdropImageTags != null) {
@@ -1547,7 +1556,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
         object.trickplay,
         specifiedType: const FullType.nullable(BuiltMap, [
           FullType(String),
-          FullType(BuiltMap, [FullType(String), FullType(TrickplayInfoDto)])
+          FullType.nullable(
+              BuiltMap, [FullType(String), FullType(TrickplayInfoDto)])
         ]),
       );
     }
@@ -1881,11 +1891,25 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
         specifiedType: const FullType.nullable(double),
       );
     }
+    if (object.albumNormalizationGain != null) {
+      yield r'AlbumNormalizationGain';
+      yield serializers.serialize(
+        object.albumNormalizationGain,
+        specifiedType: const FullType.nullable(double),
+      );
+    }
     if (object.currentProgram != null) {
       yield r'CurrentProgram';
       yield serializers.serialize(
         object.currentProgram,
         specifiedType: const FullType.nullable(BaseItemDto),
+      );
+    }
+    if (object.originalLanguage != null) {
+      yield r'OriginalLanguage';
+      yield serializers.serialize(
+        object.originalLanguage,
+        specifiedType: const FullType.nullable(String),
       );
     }
   }
@@ -2652,8 +2676,8 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType.nullable(
-                BuiltMap, [FullType(String), FullType(String)]),
-          ) as BuiltMap<String, String>?;
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
+          ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.imageTags.replace(valueDes);
           break;
@@ -2769,9 +2793,10 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
             value,
             specifiedType: const FullType.nullable(BuiltMap, [
               FullType(String),
-              FullType(BuiltMap, [FullType(String), FullType(TrickplayInfoDto)])
+              FullType.nullable(
+                  BuiltMap, [FullType(String), FullType(TrickplayInfoDto)])
             ]),
-          ) as BuiltMap<String, BuiltMap<String, TrickplayInfoDto>>?;
+          ) as BuiltMap<String, BuiltMap<String, TrickplayInfoDto>?>?;
           if (valueDes == null) continue;
           result.trickplay.replace(valueDes);
           break;
@@ -3151,6 +3176,14 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
           if (valueDes == null) continue;
           result.normalizationGain = valueDes;
           break;
+        case r'AlbumNormalizationGain':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(double),
+          ) as double?;
+          if (valueDes == null) continue;
+          result.albumNormalizationGain = valueDes;
+          break;
         case r'CurrentProgram':
           final valueDes = serializers.deserialize(
             value,
@@ -3158,6 +3191,14 @@ class _$BaseItemDtoSerializer implements PrimitiveSerializer<BaseItemDto> {
           ) as BaseItemDto?;
           if (valueDes == null) continue;
           result.currentProgram.replace(valueDes);
+          break;
+        case r'OriginalLanguage':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.originalLanguage = valueDes;
           break;
         default:
           unhandled.add(key);

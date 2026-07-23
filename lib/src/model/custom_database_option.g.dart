@@ -8,15 +8,16 @@ part of 'custom_database_option.dart';
 
 class _$CustomDatabaseOption extends CustomDatabaseOption {
   @override
-  final String? key;
+  final String key;
   @override
-  final String? value;
+  final String value;
 
   factory _$CustomDatabaseOption(
           [void Function(CustomDatabaseOptionBuilder)? updates]) =>
       (CustomDatabaseOptionBuilder()..update(updates))._build();
 
-  _$CustomDatabaseOption._({this.key, this.value}) : super._();
+  _$CustomDatabaseOption._({required this.key, required this.value})
+      : super._();
   @override
   CustomDatabaseOption rebuild(
           void Function(CustomDatabaseOptionBuilder) updates) =>
@@ -94,8 +95,10 @@ class CustomDatabaseOptionBuilder
   _$CustomDatabaseOption _build() {
     final _$result = _$v ??
         _$CustomDatabaseOption._(
-          key: key,
-          value: value,
+          key: BuiltValueNullFieldError.checkNotNull(
+              key, r'CustomDatabaseOption', 'key'),
+          value: BuiltValueNullFieldError.checkNotNull(
+              value, r'CustomDatabaseOption', 'value'),
         );
     replace(_$result);
     return _$result;

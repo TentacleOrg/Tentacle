@@ -8,17 +8,19 @@ part of 'remote_lyric_info_dto.dart';
 
 class _$RemoteLyricInfoDto extends RemoteLyricInfoDto {
   @override
-  final String? id;
+  final String id;
   @override
-  final String? providerName;
+  final String providerName;
   @override
-  final LyricDto? lyrics;
+  final LyricDto lyrics;
 
   factory _$RemoteLyricInfoDto(
           [void Function(RemoteLyricInfoDtoBuilder)? updates]) =>
       (RemoteLyricInfoDtoBuilder()..update(updates))._build();
 
-  _$RemoteLyricInfoDto._({this.id, this.providerName, this.lyrics}) : super._();
+  _$RemoteLyricInfoDto._(
+      {required this.id, required this.providerName, required this.lyrics})
+      : super._();
   @override
   RemoteLyricInfoDto rebuild(
           void Function(RemoteLyricInfoDtoBuilder) updates) =>
@@ -82,7 +84,7 @@ class RemoteLyricInfoDtoBuilder
     if ($v != null) {
       _id = $v.id;
       _providerName = $v.providerName;
-      _lyrics = $v.lyrics?.toBuilder();
+      _lyrics = $v.lyrics.toBuilder();
       _$v = null;
     }
     return this;
@@ -106,15 +108,17 @@ class RemoteLyricInfoDtoBuilder
     try {
       _$result = _$v ??
           _$RemoteLyricInfoDto._(
-            id: id,
-            providerName: providerName,
-            lyrics: _lyrics?.build(),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'RemoteLyricInfoDto', 'id'),
+            providerName: BuiltValueNullFieldError.checkNotNull(
+                providerName, r'RemoteLyricInfoDto', 'providerName'),
+            lyrics: lyrics.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'lyrics';
-        _lyrics?.build();
+        lyrics.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'RemoteLyricInfoDto', _$failedField, e.toString());

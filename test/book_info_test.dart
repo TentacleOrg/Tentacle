@@ -69,6 +69,7 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the name of the series the book belongs to.
     // String seriesName
     test('to test the property `seriesName`', () async {
       // TODO

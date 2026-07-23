@@ -188,7 +188,7 @@ class _$BaseItemDto extends BaseItemDto {
   @override
   final int? mediaSourceCount;
   @override
-  final BuiltMap<String, String>? imageTags;
+  final BuiltMap<String, String?>? imageTags;
   @override
   final BuiltList<String>? backdropImageTags;
   @override
@@ -216,7 +216,7 @@ class _$BaseItemDto extends BaseItemDto {
   @override
   final BuiltList<ChapterInfo>? chapters;
   @override
-  final BuiltMap<String, BuiltMap<String, TrickplayInfoDto>>? trickplay;
+  final BuiltMap<String, BuiltMap<String, TrickplayInfoDto>?>? trickplay;
   @override
   final LocationType? locationType;
   @override
@@ -312,7 +312,11 @@ class _$BaseItemDto extends BaseItemDto {
   @override
   final double? normalizationGain;
   @override
+  final double? albumNormalizationGain;
+  @override
   final BaseItemDto? currentProgram;
+  @override
+  final String? originalLanguage;
 
   factory _$BaseItemDto([void Function(BaseItemDtoBuilder)? updates]) =>
       (BaseItemDtoBuilder()..update(updates))._build();
@@ -470,7 +474,9 @@ class _$BaseItemDto extends BaseItemDto {
       this.isPremiere,
       this.timerId,
       this.normalizationGain,
-      this.currentProgram})
+      this.albumNormalizationGain,
+      this.currentProgram,
+      this.originalLanguage})
       : super._();
   @override
   BaseItemDto rebuild(void Function(BaseItemDtoBuilder) updates) =>
@@ -635,7 +641,9 @@ class _$BaseItemDto extends BaseItemDto {
         isPremiere == other.isPremiere &&
         timerId == other.timerId &&
         normalizationGain == other.normalizationGain &&
-        currentProgram == other.currentProgram;
+        albumNormalizationGain == other.albumNormalizationGain &&
+        currentProgram == other.currentProgram &&
+        originalLanguage == other.originalLanguage;
   }
 
   @override
@@ -793,7 +801,9 @@ class _$BaseItemDto extends BaseItemDto {
     _$hash = $jc(_$hash, isPremiere.hashCode);
     _$hash = $jc(_$hash, timerId.hashCode);
     _$hash = $jc(_$hash, normalizationGain.hashCode);
+    _$hash = $jc(_$hash, albumNormalizationGain.hashCode);
     _$hash = $jc(_$hash, currentProgram.hashCode);
+    _$hash = $jc(_$hash, originalLanguage.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -953,7 +963,9 @@ class _$BaseItemDto extends BaseItemDto {
           ..add('isPremiere', isPremiere)
           ..add('timerId', timerId)
           ..add('normalizationGain', normalizationGain)
-          ..add('currentProgram', currentProgram))
+          ..add('albumNormalizationGain', albumNormalizationGain)
+          ..add('currentProgram', currentProgram)
+          ..add('originalLanguage', originalLanguage))
         .toString();
   }
 }
@@ -1378,10 +1390,10 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
   set mediaSourceCount(int? mediaSourceCount) =>
       _$this._mediaSourceCount = mediaSourceCount;
 
-  MapBuilder<String, String>? _imageTags;
-  MapBuilder<String, String> get imageTags =>
-      _$this._imageTags ??= MapBuilder<String, String>();
-  set imageTags(MapBuilder<String, String>? imageTags) =>
+  MapBuilder<String, String?>? _imageTags;
+  MapBuilder<String, String?> get imageTags =>
+      _$this._imageTags ??= MapBuilder<String, String?>();
+  set imageTags(MapBuilder<String, String?>? imageTags) =>
       _$this._imageTags = imageTags;
 
   ListBuilder<String>? _backdropImageTags;
@@ -1452,12 +1464,12 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
   set chapters(ListBuilder<ChapterInfo>? chapters) =>
       _$this._chapters = chapters;
 
-  MapBuilder<String, BuiltMap<String, TrickplayInfoDto>>? _trickplay;
-  MapBuilder<String, BuiltMap<String, TrickplayInfoDto>> get trickplay =>
+  MapBuilder<String, BuiltMap<String, TrickplayInfoDto>?>? _trickplay;
+  MapBuilder<String, BuiltMap<String, TrickplayInfoDto>?> get trickplay =>
       _$this._trickplay ??=
-          MapBuilder<String, BuiltMap<String, TrickplayInfoDto>>();
+          MapBuilder<String, BuiltMap<String, TrickplayInfoDto>?>();
   set trickplay(
-          MapBuilder<String, BuiltMap<String, TrickplayInfoDto>>? trickplay) =>
+          MapBuilder<String, BuiltMap<String, TrickplayInfoDto>?>? trickplay) =>
       _$this._trickplay = trickplay;
 
   LocationType? _locationType;
@@ -1659,11 +1671,21 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
   set normalizationGain(double? normalizationGain) =>
       _$this._normalizationGain = normalizationGain;
 
+  double? _albumNormalizationGain;
+  double? get albumNormalizationGain => _$this._albumNormalizationGain;
+  set albumNormalizationGain(double? albumNormalizationGain) =>
+      _$this._albumNormalizationGain = albumNormalizationGain;
+
   BaseItemDtoBuilder? _currentProgram;
   BaseItemDtoBuilder get currentProgram =>
       _$this._currentProgram ??= BaseItemDtoBuilder();
   set currentProgram(BaseItemDtoBuilder? currentProgram) =>
       _$this._currentProgram = currentProgram;
+
+  String? _originalLanguage;
+  String? get originalLanguage => _$this._originalLanguage;
+  set originalLanguage(String? originalLanguage) =>
+      _$this._originalLanguage = originalLanguage;
 
   BaseItemDtoBuilder() {
     BaseItemDto._defaults(this);
@@ -1824,7 +1846,9 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
       _isPremiere = $v.isPremiere;
       _timerId = $v.timerId;
       _normalizationGain = $v.normalizationGain;
+      _albumNormalizationGain = $v.albumNormalizationGain;
       _currentProgram = $v.currentProgram?.toBuilder();
+      _originalLanguage = $v.originalLanguage;
       _$v = null;
     }
     return this;
@@ -2000,7 +2024,9 @@ class BaseItemDtoBuilder implements Builder<BaseItemDto, BaseItemDtoBuilder> {
             isPremiere: isPremiere,
             timerId: timerId,
             normalizationGain: normalizationGain,
+            albumNormalizationGain: albumNormalizationGain,
             currentProgram: _currentProgram?.build(),
+            originalLanguage: originalLanguage,
           );
     } catch (_) {
       late String _$failedField;

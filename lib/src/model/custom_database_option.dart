@@ -18,11 +18,11 @@ abstract class CustomDatabaseOption
     implements Built<CustomDatabaseOption, CustomDatabaseOptionBuilder> {
   /// Gets or sets the key of the value.
   @BuiltValueField(wireName: r'Key')
-  String? get key;
+  String get key;
 
   /// Gets or sets the value.
   @BuiltValueField(wireName: r'Value')
-  String? get value;
+  String get value;
 
   CustomDatabaseOption._();
 
@@ -53,20 +53,16 @@ class _$CustomDatabaseOptionSerializer
     CustomDatabaseOption object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.key != null) {
-      yield r'Key';
-      yield serializers.serialize(
-        object.key,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.value != null) {
-      yield r'Value';
-      yield serializers.serialize(
-        object.value,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'Key';
+    yield serializers.serialize(
+      object.key,
+      specifiedType: const FullType(String),
+    );
+    yield r'Value';
+    yield serializers.serialize(
+      object.value,
+      specifiedType: const FullType(String),
+    );
   }
 
   @override

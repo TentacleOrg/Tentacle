@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'scheduled_tasks_info_start_message.g.dart';
 
-/// Scheduled tasks info start message.  Data is the timing data encoded as \"$initialDelay,$interval\" in ms.
+/// Scheduled tasks info start message. Data is the timing data encoded as \"$initialDelay,$interval\" in ms.
 ///
 /// Properties:
 /// * [data] - Gets or sets the data.

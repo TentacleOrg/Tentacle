@@ -39,7 +39,7 @@ class _$ChannelMediaTypeMeta {
   BuiltSet<ChannelMediaType> get values => _$values;
 }
 
-mixin _$ChannelMediaTypeMixin {
+abstract class _$ChannelMediaTypeMixin {
   // ignore: non_constant_identifier_names
   _$ChannelMediaTypeMeta get ChannelMediaType => const _$ChannelMediaTypeMeta();
 }

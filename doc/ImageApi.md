@@ -45,7 +45,7 @@ Method | HTTP request | Description
 [**setItemImage**](ImageApi.md#setitemimage) | **POST** /Items/{itemId}/Images/{imageType} | Set item image.
 [**setItemImageByIndex**](ImageApi.md#setitemimagebyindex) | **POST** /Items/{itemId}/Images/{imageType}/{imageIndex} | Set item image.
 [**updateItemImageIndex**](ImageApi.md#updateitemimageindex) | **POST** /Items/{itemId}/Images/{imageType}/{imageIndex}/Index | Updates the index for an item image.
-[**uploadCustomSplashscreen**](ImageApi.md#uploadcustomsplashscreen) | **POST** /Branding/Splashscreen | Uploads a custom splashscreen.  The body is expected to the image contents base64 encoded.
+[**uploadCustomSplashscreen**](ImageApi.md#uploadcustomsplashscreen) | **POST** /Branding/Splashscreen | Uploads a custom splashscreen. The body is expected to the image contents base64 encoded.
 
 
 # **deleteCustomSplashscreen**
@@ -2355,7 +2355,7 @@ void (empty response body)
 # **uploadCustomSplashscreen**
 > uploadCustomSplashscreen(body)
 
-Uploads a custom splashscreen.  The body is expected to the image contents base64 encoded.
+Uploads a custom splashscreen. The body is expected to the image contents base64 encoded.
 
 ### Example
 ```dart

@@ -26,11 +26,11 @@ part 'media_source_info.g.dart';
 /// * [path]
 /// * [encoderPath]
 /// * [encoderProtocol]
-/// * [type]
+/// * [type] - The type of a media source.
 /// * [container]
 /// * [size]
 /// * [name]
-/// * [isRemote] - Gets or sets a value indicating whether the media is remote.  Differentiate internet url vs local network.
+/// * [isRemote] - Gets or sets a value indicating whether the media is remote. Differentiate internet url vs local network.
 /// * [eTag]
 /// * [runTimeTicks]
 /// * [readAtNativeFramerate]
@@ -60,7 +60,7 @@ part 'media_source_info.g.dart';
 /// * [timestamp]
 /// * [requiredHttpHeaders]
 /// * [transcodingUrl]
-/// * [transcodingSubProtocol] - Media streaming protocol.  Lowercase for backwards compatibility.
+/// * [transcodingSubProtocol] - Media streaming protocol. Lowercase for backwards compatibility.
 /// * [transcodingContainer]
 /// * [analyzeDurationMs]
 /// * [defaultAudioStreamIndex]
@@ -86,6 +86,7 @@ abstract class MediaSourceInfo
   MediaProtocol? get encoderProtocol;
   // enum encoderProtocolEnum {  File,  Http,  Rtmp,  Rtsp,  Udp,  Rtp,  Ftp,  };
 
+  /// The type of a media source.
   @BuiltValueField(wireName: r'Type')
   MediaSourceType? get type;
   // enum typeEnum {  Default,  Grouping,  Placeholder,  };
@@ -99,7 +100,7 @@ abstract class MediaSourceInfo
   @BuiltValueField(wireName: r'Name')
   String? get name;
 
-  /// Gets or sets a value indicating whether the media is remote.  Differentiate internet url vs local network.
+  /// Gets or sets a value indicating whether the media is remote. Differentiate internet url vs local network.
   @BuiltValueField(wireName: r'IsRemote')
   bool? get isRemote;
 
@@ -194,7 +195,7 @@ abstract class MediaSourceInfo
   @BuiltValueField(wireName: r'TranscodingUrl')
   String? get transcodingUrl;
 
-  /// Media streaming protocol.  Lowercase for backwards compatibility.
+  /// Media streaming protocol. Lowercase for backwards compatibility.
   @BuiltValueField(wireName: r'TranscodingSubProtocol')
   MediaStreamProtocol? get transcodingSubProtocol;
   // enum transcodingSubProtocolEnum {  http,  hls,  };

@@ -37,7 +37,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets the guid of the assembly associated with this plugin.  This is used to identify the proper item for automatic updates.
+    // Gets or sets the guid of the assembly associated with this plugin. This is used to identify the proper item for automatic updates.
     // String guid
     test('to test the property `guid`', () async {
       // TODO

@@ -34,7 +34,7 @@ class _$EncodingContextMeta {
   BuiltSet<EncodingContext> get values => _$values;
 }
 
-mixin _$EncodingContextMixin {
+abstract class _$EncodingContextMixin {
   // ignore: non_constant_identifier_names
   _$EncodingContextMeta get EncodingContext => const _$EncodingContextMeta();
 }

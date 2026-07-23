@@ -12,18 +12,12 @@ part 'startup_remote_access_dto.g.dart';
 ///
 /// Properties:
 /// * [enableRemoteAccess] - Gets or sets a value indicating whether enable remote access.
-/// * [enableAutomaticPortMapping] - Gets or sets a value indicating whether enable automatic port mapping.
 @BuiltValue()
 abstract class StartupRemoteAccessDto
     implements Built<StartupRemoteAccessDto, StartupRemoteAccessDtoBuilder> {
   /// Gets or sets a value indicating whether enable remote access.
   @BuiltValueField(wireName: r'EnableRemoteAccess')
   bool get enableRemoteAccess;
-
-  /// Gets or sets a value indicating whether enable automatic port mapping.
-  @Deprecated('enableAutomaticPortMapping has been deprecated')
-  @BuiltValueField(wireName: r'EnableAutomaticPortMapping')
-  bool get enableAutomaticPortMapping;
 
   StartupRemoteAccessDto._();
 
@@ -60,11 +54,6 @@ class _$StartupRemoteAccessDtoSerializer
       object.enableRemoteAccess,
       specifiedType: const FullType(bool),
     );
-    yield r'EnableAutomaticPortMapping';
-    yield serializers.serialize(
-      object.enableAutomaticPortMapping,
-      specifiedType: const FullType(bool),
-    );
   }
 
   @override
@@ -96,13 +85,6 @@ class _$StartupRemoteAccessDtoSerializer
             specifiedType: const FullType(bool),
           ) as bool;
           result.enableRemoteAccess = valueDes;
-          break;
-        case r'EnableAutomaticPortMapping':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType: const FullType(bool),
-          ) as bool;
-          result.enableAutomaticPortMapping = valueDes;
           break;
         default:
           unhandled.add(key);

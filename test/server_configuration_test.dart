@@ -31,7 +31,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets the stringified PreviousVersion to be stored/loaded,  because System.Version itself isn't xml-serializable.
+    // Gets or sets the stringified PreviousVersion to be stored/loaded, because System.Version itself isn't xml-serializable.
     // String previousVersionStr
     test('to test the property `previousVersionStr`', () async {
       // TODO
@@ -137,13 +137,13 @@ void main() {
       // TODO
     });
 
-    // Gets or sets the threshold in minutes after a inactive session gets closed automatically.  If set to 0 the check for inactive sessions gets disabled.
+    // Gets or sets the threshold in minutes after a inactive session gets closed automatically. If set to 0 the check for inactive sessions gets disabled.
     // int inactiveSessionThreshold
     test('to test the property `inactiveSessionThreshold`', () async {
       // TODO
     });
 
-    // Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed  Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several  different directories and files.
+    // Gets or sets the delay in seconds that we will wait after a file system change to try and discover what has been added/removed Some delay is necessary with some items because their creation is not atomic.  It involves the creation of several different directories and files.
     // int libraryMonitorDelay
     test('to test the property `libraryMonitorDelay`', () async {
       // TODO

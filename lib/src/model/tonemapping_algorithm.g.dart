@@ -65,7 +65,7 @@ class _$TonemappingAlgorithmMeta {
   BuiltSet<TonemappingAlgorithm> get values => _$values;
 }
 
-mixin _$TonemappingAlgorithmMixin {
+abstract class _$TonemappingAlgorithmMixin {
   // ignore: non_constant_identifier_names
   _$TonemappingAlgorithmMeta get TonemappingAlgorithm =>
       const _$TonemappingAlgorithmMeta();

@@ -9,20 +9,21 @@ import 'package:built_value/serializer.dart';
 
 part 'playstate_request.g.dart';
 
-/// PlaystateRequest
+/// A request to change the playstate of a session.
 ///
 /// Properties:
-/// * [command] - Enum PlaystateCommand.
-/// * [seekPositionTicks]
+/// * [command] - Gets or sets the playstate command.
+/// * [seekPositionTicks] - Gets or sets the seek position in ticks.
 /// * [controllingUserId] - Gets or sets the controlling user identifier.
 @BuiltValue()
 abstract class PlaystateRequest
     implements Built<PlaystateRequest, PlaystateRequestBuilder> {
-  /// Enum PlaystateCommand.
+  /// Gets or sets the playstate command.
   @BuiltValueField(wireName: r'Command')
   PlaystateCommand? get command;
   // enum commandEnum {  Stop,  Pause,  Unpause,  NextTrack,  PreviousTrack,  Seek,  Rewind,  FastForward,  PlayPause,  };
 
+  /// Gets or sets the seek position in ticks.
   @BuiltValueField(wireName: r'SeekPositionTicks')
   int? get seekPositionTicks;
 

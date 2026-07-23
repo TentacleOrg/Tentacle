@@ -258,7 +258,7 @@ void main() {
       // TODO
     });
 
-    // Uploads a custom splashscreen.  The body is expected to the image contents base64 encoded.
+    // Uploads a custom splashscreen. The body is expected to the image contents base64 encoded.
     //
     //Future uploadCustomSplashscreen({ MultipartFile body }) async
     test('test uploadCustomSplashscreen', () async {

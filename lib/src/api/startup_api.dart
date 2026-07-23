@@ -83,6 +83,7 @@ class StartupApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StartupUserDto] as data
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<StartupUserDto>> getFirstUser({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -164,6 +165,7 @@ class StartupApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StartupUserDto] as data
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<StartupUserDto>> getFirstUser2({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -245,6 +247,7 @@ class StartupApi {
   ///
   /// Returns a [Future] containing a [Response] with a [StartupConfigurationDto] as data
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<StartupConfigurationDto>> getStartupConfiguration({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -327,6 +330,7 @@ class StartupApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<void>> setRemoteAccess({
     required StartupRemoteAccessDto startupRemoteAccessDto,
     CancelToken? cancelToken,
@@ -401,6 +405,7 @@ class StartupApi {
   ///
   /// Returns a [Future]
   /// Throws [DioException] if API call or serialization fails
+  @Deprecated('This operation has been deprecated')
   Future<Response<void>> updateInitialConfiguration({
     required StartupConfigurationDto startupConfigurationDto,
     CancelToken? cancelToken,

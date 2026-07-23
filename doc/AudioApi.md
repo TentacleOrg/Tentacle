@@ -11,12 +11,14 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAudioStream**](AudioApi.md#getaudiostream) | **GET** /Audio/{itemId}/stream | Gets an audio stream.
 [**getAudioStreamByContainer**](AudioApi.md#getaudiostreambycontainer) | **GET** /Audio/{itemId}/stream.{container} | Gets an audio stream.
+[**getUniversalAudioStream**](AudioApi.md#getuniversalaudiostream) | **GET** /Audio/{itemId}/universal | Gets an audio stream.
 [**headAudioStream**](AudioApi.md#headaudiostream) | **HEAD** /Audio/{itemId}/stream | Gets an audio stream.
 [**headAudioStreamByContainer**](AudioApi.md#headaudiostreambycontainer) | **HEAD** /Audio/{itemId}/stream.{container} | Gets an audio stream.
+[**headUniversalAudioStream**](AudioApi.md#headuniversalaudiostream) | **HEAD** /Audio/{itemId}/universal | Gets an audio stream.
 
 
 # **getAudioStream**
-> Uint8List getAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding)
+> Uint8List getAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding)
 
 Gets an audio stream.
 
@@ -41,7 +43,6 @@ final String audioCodec = audioCodec_example; // String | Optional. Specify an a
 final bool enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
 final bool allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
 final bool allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
-final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
 final int audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
 final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
 final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
@@ -77,7 +78,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 final bool enableAudioVbrEncoding = true; // bool | Optional. Whether to enable Audio Encoding.
 
 try {
-    final response = api.getAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding);
+    final response = api.getAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling AudioApi->getAudioStream: $e\n');
@@ -104,7 +105,6 @@ Name | Type | Description  | Notes
  **enableAutoStreamCopy** | **bool**| Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. | [optional] 
  **allowVideoStreamCopy** | **bool**| Whether or not to allow copying of the video stream url. | [optional] 
  **allowAudioStreamCopy** | **bool**| Whether or not to allow copying of the audio stream url. | [optional] 
- **breakOnNonKeyFrames** | **bool**| Optional. Whether to break on non key frames. | [optional] 
  **audioSampleRate** | **int**| Optional. Specify a specific audio sample rate, e.g. 44100. | [optional] 
  **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
  **audioBitRate** | **int**| Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. | [optional] 
@@ -155,7 +155,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAudioStreamByContainer**
-> Uint8List getAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding)
+> Uint8List getAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding)
 
 Gets an audio stream.
 
@@ -180,7 +180,6 @@ final String audioCodec = audioCodec_example; // String | Optional. Specify an a
 final bool enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
 final bool allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
 final bool allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
-final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
 final int audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
 final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
 final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
@@ -216,7 +215,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 final bool enableAudioVbrEncoding = true; // bool | Optional. Whether to enable Audio Encoding.
 
 try {
-    final response = api.getAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding);
+    final response = api.getAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling AudioApi->getAudioStreamByContainer: $e\n');
@@ -243,7 +242,6 @@ Name | Type | Description  | Notes
  **enableAutoStreamCopy** | **bool**| Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. | [optional] 
  **allowVideoStreamCopy** | **bool**| Whether or not to allow copying of the video stream url. | [optional] 
  **allowAudioStreamCopy** | **bool**| Whether or not to allow copying of the audio stream url. | [optional] 
- **breakOnNonKeyFrames** | **bool**| Optional. Whether to break on non key frames. | [optional] 
  **audioSampleRate** | **int**| Optional. Specify a specific audio sample rate, e.g. 44100. | [optional] 
  **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
  **audioBitRate** | **int**| Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. | [optional] 
@@ -293,8 +291,87 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getUniversalAudioStream**
+> Uint8List getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, enableAudioVbrEncoding, enableRedirection)
+
+Gets an audio stream.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getAudioApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> container = ; // BuiltList<String> | Optional. The audio container.
+final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. The user id.
+final String audioCodec = audioCodec_example; // String | Optional. The audio codec to transcode to.
+final int maxAudioChannels = 56; // int | Optional. The maximum number of audio channels.
+final int transcodingAudioChannels = 56; // int | Optional. The number of how many audio channels to transcode to.
+final int maxStreamingBitrate = 56; // int | Optional. The maximum streaming bitrate.
+final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
+final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
+final String transcodingContainer = transcodingContainer_example; // String | Optional. The container to transcode to.
+final MediaStreamProtocol transcodingProtocol = transcodingProtocol_example; // MediaStreamProtocol | Optional. The transcoding protocol.
+final int maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
+final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
+final bool enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
+final bool enableAudioVbrEncoding = true; // bool | Optional. Whether to enable Audio Encoding.
+final bool enableRedirection = true; // bool | Whether to enable redirection. Defaults to true.
+
+try {
+    final response = api.getUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, enableAudioVbrEncoding, enableRedirection);
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling AudioApi->getUniversalAudioStream: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **String**| The item id. | 
+ **container** | [**BuiltList&lt;String&gt;**](String.md)| Optional. The audio container. | [optional] 
+ **mediaSourceId** | **String**| The media version id, if playing an alternate version. | [optional] 
+ **deviceId** | **String**| The device id of the client requesting. Used to stop encoding processes when needed. | [optional] 
+ **userId** | **String**| Optional. The user id. | [optional] 
+ **audioCodec** | **String**| Optional. The audio codec to transcode to. | [optional] 
+ **maxAudioChannels** | **int**| Optional. The maximum number of audio channels. | [optional] 
+ **transcodingAudioChannels** | **int**| Optional. The number of how many audio channels to transcode to. | [optional] 
+ **maxStreamingBitrate** | **int**| Optional. The maximum streaming bitrate. | [optional] 
+ **audioBitRate** | **int**| Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. | [optional] 
+ **startTimeTicks** | **int**| Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. | [optional] 
+ **transcodingContainer** | **String**| Optional. The container to transcode to. | [optional] 
+ **transcodingProtocol** | **MediaStreamProtocol**| Optional. The transcoding protocol. | [optional] 
+ **maxAudioSampleRate** | **int**| Optional. The maximum audio sample rate. | [optional] 
+ **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
+ **enableRemoteMedia** | **bool**| Optional. Whether to enable remote media. | [optional] 
+ **enableAudioVbrEncoding** | **bool**| Optional. Whether to enable Audio Encoding. | [optional] [default to true]
+ **enableRedirection** | **bool**| Whether to enable redirection. Defaults to true. | [optional] [default to true]
+
+### Return type
+
+[**Uint8List**](Uint8List.md)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **headAudioStream**
-> Uint8List headAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding)
+> Uint8List headAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding)
 
 Gets an audio stream.
 
@@ -319,7 +396,6 @@ final String audioCodec = audioCodec_example; // String | Optional. Specify an a
 final bool enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
 final bool allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
 final bool allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
-final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
 final int audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
 final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
 final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
@@ -355,7 +431,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 final bool enableAudioVbrEncoding = true; // bool | Optional. Whether to enable Audio Encoding.
 
 try {
-    final response = api.headAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding);
+    final response = api.headAudioStream(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling AudioApi->headAudioStream: $e\n');
@@ -382,7 +458,6 @@ Name | Type | Description  | Notes
  **enableAutoStreamCopy** | **bool**| Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. | [optional] 
  **allowVideoStreamCopy** | **bool**| Whether or not to allow copying of the video stream url. | [optional] 
  **allowAudioStreamCopy** | **bool**| Whether or not to allow copying of the audio stream url. | [optional] 
- **breakOnNonKeyFrames** | **bool**| Optional. Whether to break on non key frames. | [optional] 
  **audioSampleRate** | **int**| Optional. Specify a specific audio sample rate, e.g. 44100. | [optional] 
  **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
  **audioBitRate** | **int**| Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. | [optional] 
@@ -433,7 +508,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **headAudioStreamByContainer**
-> Uint8List headAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding)
+> Uint8List headAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding)
 
 Gets an audio stream.
 
@@ -458,7 +533,6 @@ final String audioCodec = audioCodec_example; // String | Optional. Specify an a
 final bool enableAutoStreamCopy = true; // bool | Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true.
 final bool allowVideoStreamCopy = true; // bool | Whether or not to allow copying of the video stream url.
 final bool allowAudioStreamCopy = true; // bool | Whether or not to allow copying of the audio stream url.
-final bool breakOnNonKeyFrames = true; // bool | Optional. Whether to break on non key frames.
 final int audioSampleRate = 56; // int | Optional. Specify a specific audio sample rate, e.g. 44100.
 final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
 final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
@@ -494,7 +568,7 @@ final BuiltMap<String, String> streamOptions = ; // BuiltMap<String, String> | O
 final bool enableAudioVbrEncoding = true; // bool | Optional. Whether to enable Audio Encoding.
 
 try {
-    final response = api.headAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, breakOnNonKeyFrames, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding);
+    final response = api.headAudioStreamByContainer(itemId, container, static_, params, tag, deviceProfileId, playSessionId, segmentContainer, segmentLength, minSegments, mediaSourceId, deviceId, audioCodec, enableAutoStreamCopy, allowVideoStreamCopy, allowAudioStreamCopy, audioSampleRate, maxAudioBitDepth, audioBitRate, audioChannels, maxAudioChannels, profile, level, framerate, maxFramerate, copyTimestamps, startTimeTicks, width, height, videoBitRate, subtitleStreamIndex, subtitleMethod, maxRefFrames, maxVideoBitDepth, requireAvc, deInterlace, requireNonAnamorphic, transcodingMaxAudioChannels, cpuCoreLimit, liveStreamId, enableMpegtsM2TsMode, videoCodec, subtitleCodec, transcodeReasons, audioStreamIndex, videoStreamIndex, context, streamOptions, enableAudioVbrEncoding);
     print(response);
 } catch on DioException (e) {
     print('Exception when calling AudioApi->headAudioStreamByContainer: $e\n');
@@ -521,7 +595,6 @@ Name | Type | Description  | Notes
  **enableAutoStreamCopy** | **bool**| Whether or not to allow automatic stream copy if requested values match the original source. Defaults to true. | [optional] 
  **allowVideoStreamCopy** | **bool**| Whether or not to allow copying of the video stream url. | [optional] 
  **allowAudioStreamCopy** | **bool**| Whether or not to allow copying of the audio stream url. | [optional] 
- **breakOnNonKeyFrames** | **bool**| Optional. Whether to break on non key frames. | [optional] 
  **audioSampleRate** | **int**| Optional. Specify a specific audio sample rate, e.g. 44100. | [optional] 
  **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
  **audioBitRate** | **int**| Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. | [optional] 
@@ -568,6 +641,85 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: audio/*, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **headUniversalAudioStream**
+> Uint8List headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, enableAudioVbrEncoding, enableRedirection)
+
+Gets an audio stream.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getAudioApi();
+final String itemId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | The item id.
+final BuiltList<String> container = ; // BuiltList<String> | Optional. The audio container.
+final String mediaSourceId = mediaSourceId_example; // String | The media version id, if playing an alternate version.
+final String deviceId = deviceId_example; // String | The device id of the client requesting. Used to stop encoding processes when needed.
+final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. The user id.
+final String audioCodec = audioCodec_example; // String | Optional. The audio codec to transcode to.
+final int maxAudioChannels = 56; // int | Optional. The maximum number of audio channels.
+final int transcodingAudioChannels = 56; // int | Optional. The number of how many audio channels to transcode to.
+final int maxStreamingBitrate = 56; // int | Optional. The maximum streaming bitrate.
+final int audioBitRate = 56; // int | Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults.
+final int startTimeTicks = 789; // int | Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms.
+final String transcodingContainer = transcodingContainer_example; // String | Optional. The container to transcode to.
+final MediaStreamProtocol transcodingProtocol = transcodingProtocol_example; // MediaStreamProtocol | Optional. The transcoding protocol.
+final int maxAudioSampleRate = 56; // int | Optional. The maximum audio sample rate.
+final int maxAudioBitDepth = 56; // int | Optional. The maximum audio bit depth.
+final bool enableRemoteMedia = true; // bool | Optional. Whether to enable remote media.
+final bool enableAudioVbrEncoding = true; // bool | Optional. Whether to enable Audio Encoding.
+final bool enableRedirection = true; // bool | Whether to enable redirection. Defaults to true.
+
+try {
+    final response = api.headUniversalAudioStream(itemId, container, mediaSourceId, deviceId, userId, audioCodec, maxAudioChannels, transcodingAudioChannels, maxStreamingBitrate, audioBitRate, startTimeTicks, transcodingContainer, transcodingProtocol, maxAudioSampleRate, maxAudioBitDepth, enableRemoteMedia, enableAudioVbrEncoding, enableRedirection);
+    print(response);
+} catch on DioException (e) {
+    print('Exception when calling AudioApi->headUniversalAudioStream: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **itemId** | **String**| The item id. | 
+ **container** | [**BuiltList&lt;String&gt;**](String.md)| Optional. The audio container. | [optional] 
+ **mediaSourceId** | **String**| The media version id, if playing an alternate version. | [optional] 
+ **deviceId** | **String**| The device id of the client requesting. Used to stop encoding processes when needed. | [optional] 
+ **userId** | **String**| Optional. The user id. | [optional] 
+ **audioCodec** | **String**| Optional. The audio codec to transcode to. | [optional] 
+ **maxAudioChannels** | **int**| Optional. The maximum number of audio channels. | [optional] 
+ **transcodingAudioChannels** | **int**| Optional. The number of how many audio channels to transcode to. | [optional] 
+ **maxStreamingBitrate** | **int**| Optional. The maximum streaming bitrate. | [optional] 
+ **audioBitRate** | **int**| Optional. Specify an audio bitrate to encode to, e.g. 128000. If omitted this will be left to encoder defaults. | [optional] 
+ **startTimeTicks** | **int**| Optional. Specify a starting offset, in ticks. 1 tick = 10000 ms. | [optional] 
+ **transcodingContainer** | **String**| Optional. The container to transcode to. | [optional] 
+ **transcodingProtocol** | **MediaStreamProtocol**| Optional. The transcoding protocol. | [optional] 
+ **maxAudioSampleRate** | **int**| Optional. The maximum audio sample rate. | [optional] 
+ **maxAudioBitDepth** | **int**| Optional. The maximum audio bit depth. | [optional] 
+ **enableRemoteMedia** | **bool**| Optional. Whether to enable remote media. | [optional] 
+ **enableAudioVbrEncoding** | **bool**| Optional. Whether to enable Audio Encoding. | [optional] [default to true]
+ **enableRedirection** | **bool**| Whether to enable redirection. Defaults to true. | [optional] [default to true]
+
+### Return type
+
+[**Uint8List**](Uint8List.md)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: audio/*, application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

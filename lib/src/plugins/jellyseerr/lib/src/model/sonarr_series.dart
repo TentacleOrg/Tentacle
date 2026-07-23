@@ -3,11 +3,11 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/sonarr_series_add_options_inner.dart';
-import 'package:tentacle/src/model/sonarr_series_ratings_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/sonarr_series_add_options_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/sonarr_series_ratings_inner.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/sonarr_series_seasons_inner.dart';
-import 'package:tentacle/src/model/sonarr_series_images_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/sonarr_series_seasons_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/sonarr_series_images_inner.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

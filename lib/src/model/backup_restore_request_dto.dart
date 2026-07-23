@@ -17,7 +17,7 @@ abstract class BackupRestoreRequestDto
     implements Built<BackupRestoreRequestDto, BackupRestoreRequestDtoBuilder> {
   /// Gets or Sets the name of the backup archive to restore from. Must be present in MediaBrowser.Common.Configuration.IApplicationPaths.BackupPath.
   @BuiltValueField(wireName: r'ArchiveFileName')
-  String? get archiveFileName;
+  String get archiveFileName;
 
   BackupRestoreRequestDto._();
 
@@ -49,13 +49,11 @@ class _$BackupRestoreRequestDtoSerializer
     BackupRestoreRequestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.archiveFileName != null) {
-      yield r'ArchiveFileName';
-      yield serializers.serialize(
-        object.archiveFileName,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'ArchiveFileName';
+    yield serializers.serialize(
+      object.archiveFileName,
+      specifiedType: const FullType(String),
+    );
   }
 
   @override

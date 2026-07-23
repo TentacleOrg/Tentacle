@@ -38,7 +38,7 @@ class _$CodecTypeMeta {
   BuiltSet<CodecType> get values => _$values;
 }
 
-mixin _$CodecTypeMixin {
+abstract class _$CodecTypeMixin {
   // ignore: non_constant_identifier_names
   _$CodecTypeMeta get CodecType => const _$CodecTypeMeta();
 }

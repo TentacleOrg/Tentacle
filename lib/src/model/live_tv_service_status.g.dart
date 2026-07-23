@@ -35,7 +35,7 @@ class _$LiveTvServiceStatusMeta {
   BuiltSet<LiveTvServiceStatus> get values => _$values;
 }
 
-mixin _$LiveTvServiceStatusMixin {
+abstract class _$LiveTvServiceStatusMixin {
   // ignore: non_constant_identifier_names
   _$LiveTvServiceStatusMeta get LiveTvServiceStatus =>
       const _$LiveTvServiceStatusMeta();

@@ -145,13 +145,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets the now playing queue full items.
-    // BuiltList<BaseItemDto> nowPlayingQueueFullItems
-    test('to test the property `nowPlayingQueueFullItems`', () async {
-      // TODO
-    });
-
-    // Gets or sets a value indicating whether the session has a custom device name.
+    // Gets or sets a value indicating whether this session has a custom device name.
     // bool hasCustomDeviceName
     test('to test the property `hasCustomDeviceName`', () async {
       // TODO

@@ -7,10 +7,10 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:tentacle/src/model/auth_local_post_request.dart';
-import 'package:tentacle/src/model/auth_logout_post200_response.dart';
-import 'package:tentacle/src/model/auth_plex_post_request.dart';
-import 'package:tentacle/src/model/user.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/auth_local_post_request.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/auth_logout_post200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/auth_plex_post_request.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/user.dart';
 
 class AuthApi {
   final Dio _dio;

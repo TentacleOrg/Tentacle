@@ -22,15 +22,15 @@ abstract class CustomDatabaseOptions
     implements Built<CustomDatabaseOptions, CustomDatabaseOptionsBuilder> {
   /// Gets or sets the Plugin name to search for database providers.
   @BuiltValueField(wireName: r'PluginName')
-  String? get pluginName;
+  String get pluginName;
 
   /// Gets or sets the plugin assembly to search for providers.
   @BuiltValueField(wireName: r'PluginAssembly')
-  String? get pluginAssembly;
+  String get pluginAssembly;
 
   /// Gets or sets the connection string for the custom database provider.
   @BuiltValueField(wireName: r'ConnectionString')
-  String? get connectionString;
+  String get connectionString;
 
   /// Gets or sets the list of extra options for the custom provider.
   @BuiltValueField(wireName: r'Options')
@@ -65,27 +65,21 @@ class _$CustomDatabaseOptionsSerializer
     CustomDatabaseOptions object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.pluginName != null) {
-      yield r'PluginName';
-      yield serializers.serialize(
-        object.pluginName,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.pluginAssembly != null) {
-      yield r'PluginAssembly';
-      yield serializers.serialize(
-        object.pluginAssembly,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.connectionString != null) {
-      yield r'ConnectionString';
-      yield serializers.serialize(
-        object.connectionString,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'PluginName';
+    yield serializers.serialize(
+      object.pluginName,
+      specifiedType: const FullType(String),
+    );
+    yield r'PluginAssembly';
+    yield serializers.serialize(
+      object.pluginAssembly,
+      specifiedType: const FullType(String),
+    );
+    yield r'ConnectionString';
+    yield serializers.serialize(
+      object.connectionString,
+      specifiedType: const FullType(String),
+    );
     if (object.options != null) {
       yield r'Options';
       yield serializers.serialize(

@@ -58,7 +58,7 @@ class _$LogLevelMeta {
   BuiltSet<LogLevel> get values => _$values;
 }
 
-mixin _$LogLevelMixin {
+abstract class _$LogLevelMixin {
   // ignore: non_constant_identifier_names
   _$LogLevelMeta get LogLevel => const _$LogLevelMeta();
 }

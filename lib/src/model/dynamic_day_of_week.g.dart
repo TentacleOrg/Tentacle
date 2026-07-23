@@ -74,7 +74,7 @@ class _$DynamicDayOfWeekMeta {
   BuiltSet<DynamicDayOfWeek> get values => _$values;
 }
 
-mixin _$DynamicDayOfWeekMixin {
+abstract class _$DynamicDayOfWeekMixin {
   // ignore: non_constant_identifier_names
   _$DynamicDayOfWeekMeta get DynamicDayOfWeek => const _$DynamicDayOfWeekMeta();
 }

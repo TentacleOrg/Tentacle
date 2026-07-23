@@ -51,7 +51,7 @@ class _$SubtitlePlaybackModeMeta {
   BuiltSet<SubtitlePlaybackMode> get values => _$values;
 }
 
-mixin _$SubtitlePlaybackModeMixin {
+abstract class _$SubtitlePlaybackModeMixin {
   // ignore: non_constant_identifier_names
   _$SubtitlePlaybackModeMeta get SubtitlePlaybackMode =>
       const _$SubtitlePlaybackModeMeta();

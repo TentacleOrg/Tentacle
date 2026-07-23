@@ -3,8 +3,8 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/movie_movie_id_ratings_get200_response.dart';
-import 'package:tentacle/src/model/movie_movie_id_ratingscombined_get200_response_imdb.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/movie_movie_id_ratings_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/movie_movie_id_ratingscombined_get200_response_imdb.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

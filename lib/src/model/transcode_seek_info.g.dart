@@ -34,7 +34,7 @@ class _$TranscodeSeekInfoMeta {
   BuiltSet<TranscodeSeekInfo> get values => _$values;
 }
 
-mixin _$TranscodeSeekInfoMixin {
+abstract class _$TranscodeSeekInfoMixin {
   // ignore: non_constant_identifier_names
   _$TranscodeSeekInfoMeta get TranscodeSeekInfo =>
       const _$TranscodeSeekInfoMeta();

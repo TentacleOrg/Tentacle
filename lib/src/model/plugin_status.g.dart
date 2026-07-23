@@ -64,7 +64,7 @@ class _$PluginStatusMeta {
   BuiltSet<PluginStatus> get values => _$values;
 }
 
-mixin _$PluginStatusMixin {
+abstract class _$PluginStatusMixin {
   // ignore: non_constant_identifier_names
   _$PluginStatusMeta get PluginStatus => const _$PluginStatusMeta();
 }

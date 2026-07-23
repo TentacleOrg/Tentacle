@@ -41,7 +41,7 @@ class _$SyncPlayUserAccessTypeMeta {
   BuiltSet<SyncPlayUserAccessType> get values => _$values;
 }
 
-mixin _$SyncPlayUserAccessTypeMixin {
+abstract class _$SyncPlayUserAccessTypeMixin {
   // ignore: non_constant_identifier_names
   _$SyncPlayUserAccessTypeMeta get SyncPlayUserAccessType =>
       const _$SyncPlayUserAccessTypeMeta();

@@ -31,7 +31,7 @@ abstract class LogFile implements Built<LogFile, LogFileBuilder> {
 
   /// Gets or sets the name.
   @BuiltValueField(wireName: r'Name')
-  String? get name;
+  String get name;
 
   LogFile._();
 
@@ -77,13 +77,11 @@ class _$LogFileSerializer implements PrimitiveSerializer<LogFile> {
         specifiedType: const FullType(int),
       );
     }
-    if (object.name != null) {
-      yield r'Name';
-      yield serializers.serialize(
-        object.name,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'Name';
+    yield serializers.serialize(
+      object.name,
+      specifiedType: const FullType(String),
+    );
   }
 
   @override

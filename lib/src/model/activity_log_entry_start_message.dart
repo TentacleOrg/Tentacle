@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'activity_log_entry_start_message.g.dart';
 
-/// Activity log entry start message.  Data is the timing data encoded as \"$initialDelay,$interval\" in ms.
+/// Activity log entry start message. Data is the timing data encoded as \"$initialDelay,$interval\" in ms.
 ///
 /// Properties:
 /// * [data] - Gets or sets the data.

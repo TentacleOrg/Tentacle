@@ -160,7 +160,9 @@ Name | Type | Description | Notes
 **isPremiere** | **bool** | Gets or sets a value indicating whether this instance is premiere. | [optional] 
 **timerId** | **String** | Gets or sets the timer identifier. | [optional] 
 **normalizationGain** | **double** | Gets or sets the gain required for audio normalization. | [optional] 
+**albumNormalizationGain** | **double** | Gets or sets the gain required for audio normalization. This field is inherited from music album normalization gain. | [optional] 
 **currentProgram** | [**BaseItemDto**](BaseItemDto.md) | Gets or sets the current program. | [optional] 
+**originalLanguage** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

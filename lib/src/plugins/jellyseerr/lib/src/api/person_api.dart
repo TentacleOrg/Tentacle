@@ -7,9 +7,9 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/person_details.dart';
-import 'package:tentacle/src/model/person_person_id_combined_credits_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/person_details.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/person_person_id_combined_credits_get200_response.dart';
 
 class PersonApi {
   final Dio _dio;

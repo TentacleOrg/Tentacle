@@ -28,7 +28,7 @@ abstract class GeneralCommand
   String? get controllingUserId;
 
   @BuiltValueField(wireName: r'Arguments')
-  BuiltMap<String, String?>? get arguments;
+  BuiltMap<String, String>? get arguments;
 
   GeneralCommand._();
 
@@ -74,8 +74,8 @@ class _$GeneralCommandSerializer
       yield r'Arguments';
       yield serializers.serialize(
         object.arguments,
-        specifiedType: const FullType(
-            BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
   }
@@ -120,9 +120,9 @@ class _$GeneralCommandSerializer
         case r'Arguments':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(
-                BuiltMap, [FullType(String), FullType.nullable(String)]),
-          ) as BuiltMap<String, String?>;
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
+          ) as BuiltMap<String, String>;
           result.arguments.replace(valueDes);
           break;
         default:

@@ -6,6 +6,20 @@ void main() {
   final instance = Tentacle().getSystemApi();
 
   group(SystemApi, () {
+    // Gets application configuration.
+    //
+    //Future<ServerConfiguration> getConfiguration() async
+    test('test getConfiguration', () async {
+      // TODO
+    });
+
+    // Gets a default MetadataOptions object.
+    //
+    //Future<MetadataOptions> getDefaultMetadataOptions() async
+    test('test getDefaultMetadataOptions', () async {
+      // TODO
+    });
+
     // Gets information about the request endpoint.
     //
     //Future<EndPointInfo> getEndpointInfo() async
@@ -13,10 +27,24 @@ void main() {
       // TODO
     });
 
+    // Gets activity log entries.
+    //
+    //Future<ActivityLogEntryQueryResult> getLogEntries({ int startIndex, int limit, DateTime minDate, DateTime maxDate, bool hasUserId, String name, String overview, String shortOverview, String type, String itemId, String username, LogLevel severity, BuiltList<ActivityLogSortBy> sortBy, BuiltList<SortOrder> sortOrder }) async
+    test('test getLogEntries', () async {
+      // TODO
+    });
+
     // Gets a log file.
     //
     //Future<Uint8List> getLogFile(String name) async
     test('test getLogFile', () async {
+      // TODO
+    });
+
+    // Gets a named configuration.
+    //
+    //Future<Uint8List> getNamedConfiguration(String key) async
+    test('test getNamedConfiguration', () async {
       // TODO
     });
 
@@ -55,6 +83,20 @@ void main() {
       // TODO
     });
 
+    // Gets the current UTC time.
+    //
+    //Future<UtcTimeResponse> getUtcTime() async
+    test('test getUtcTime', () async {
+      // TODO
+    });
+
+    // Upload a document.
+    //
+    //Future<ClientLogDocumentResponseDto> logFile({ MultipartFile body }) async
+    test('test logFile', () async {
+      // TODO
+    });
+
     // Pings the system.
     //
     //Future<String> postPingSystem() async
@@ -73,6 +115,27 @@ void main() {
     //
     //Future shutdownApplication() async
     test('test shutdownApplication', () async {
+      // TODO
+    });
+
+    // Updates branding configuration.
+    //
+    //Future updateBrandingConfiguration(BrandingOptionsDto brandingOptionsDto) async
+    test('test updateBrandingConfiguration', () async {
+      // TODO
+    });
+
+    // Updates application configuration.
+    //
+    //Future updateConfiguration(ServerConfiguration serverConfiguration) async
+    test('test updateConfiguration', () async {
+      // TODO
+    });
+
+    // Updates named configuration.
+    //
+    //Future updateNamedConfiguration(String key, JsonObject body) async
+    test('test updateNamedConfiguration', () async {
       // TODO
     });
   });

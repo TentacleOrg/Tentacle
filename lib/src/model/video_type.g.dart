@@ -43,7 +43,7 @@ class _$VideoTypeMeta {
   BuiltSet<VideoType> get values => _$values;
 }
 
-mixin _$VideoTypeMixin {
+abstract class _$VideoTypeMixin {
   // ignore: non_constant_identifier_names
   _$VideoTypeMeta get VideoType => const _$VideoTypeMeta();
 }

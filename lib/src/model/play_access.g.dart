@@ -33,7 +33,7 @@ class _$PlayAccessMeta {
   BuiltSet<PlayAccess> get values => _$values;
 }
 
-mixin _$PlayAccessMixin {
+abstract class _$PlayAccessMixin {
   // ignore: non_constant_identifier_names
   _$PlayAccessMeta get PlayAccess => const _$PlayAccessMeta();
 }

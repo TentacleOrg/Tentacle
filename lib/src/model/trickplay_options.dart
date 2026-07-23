@@ -16,7 +16,7 @@ part 'trickplay_options.g.dart';
 /// Properties:
 /// * [enableHwAcceleration] - Gets or sets a value indicating whether or not to use HW acceleration.
 /// * [enableHwEncoding] - Gets or sets a value indicating whether or not to use HW accelerated MJPEG encoding.
-/// * [enableKeyFrameOnlyExtraction] - Gets or sets a value indicating whether to only extract key frames.  Significantly faster, but is not compatible with all decoders and/or video files.
+/// * [enableKeyFrameOnlyExtraction] - Gets or sets a value indicating whether to only extract key frames. Significantly faster, but is not compatible with all decoders and/or video files.
 /// * [scanBehavior] - Gets or sets the behavior used by trickplay provider on library scan/update.
 /// * [processPriority] - Gets or sets the process priority for the ffmpeg process.
 /// * [interval] - Gets or sets the interval, in ms, between each new trickplay image.
@@ -37,7 +37,7 @@ abstract class TrickplayOptions
   @BuiltValueField(wireName: r'EnableHwEncoding')
   bool? get enableHwEncoding;
 
-  /// Gets or sets a value indicating whether to only extract key frames.  Significantly faster, but is not compatible with all decoders and/or video files.
+  /// Gets or sets a value indicating whether to only extract key frames. Significantly faster, but is not compatible with all decoders and/or video files.
   @BuiltValueField(wireName: r'EnableKeyFrameOnlyExtraction')
   bool? get enableKeyFrameOnlyExtraction;
 

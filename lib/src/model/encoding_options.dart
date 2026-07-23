@@ -6,6 +6,7 @@
 import 'package:tentacle/src/model/down_mix_stereo_algorithms.dart';
 import 'package:tentacle/src/model/encoder_preset.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/hls_audio_seek_strategy.dart';
 import 'package:tentacle/src/model/tonemapping_mode.dart';
 import 'package:tentacle/src/model/tonemapping_algorithm.dart';
 import 'package:tentacle/src/model/hardware_acceleration_type.dart';
@@ -64,8 +65,10 @@ part 'encoding_options.g.dart';
 /// * [allowHevcEncoding] - Gets or sets a value indicating whether HEVC encoding is enabled.
 /// * [allowAv1Encoding] - Gets or sets a value indicating whether AV1 encoding is enabled.
 /// * [enableSubtitleExtraction] - Gets or sets a value indicating whether subtitle extraction is enabled.
+/// * [subtitleExtractionTimeoutMinutes] - Gets or sets the timeout for subtitle extraction in minutes.
 /// * [hardwareDecodingCodecs] - Gets or sets the codecs hardware encoding is used for.
 /// * [allowOnDemandMetadataBasedKeyframeExtractionForExtensions] - Gets or sets the file extensions on-demand metadata based keyframe extraction is enabled for.
+/// * [hlsAudioSeekStrategy] - Gets or sets the method used for audio seeking in HLS.
 @BuiltValue()
 abstract class EncodingOptions
     implements Built<EncodingOptions, EncodingOptionsBuilder> {
@@ -256,6 +259,10 @@ abstract class EncodingOptions
   @BuiltValueField(wireName: r'EnableSubtitleExtraction')
   bool? get enableSubtitleExtraction;
 
+  /// Gets or sets the timeout for subtitle extraction in minutes.
+  @BuiltValueField(wireName: r'SubtitleExtractionTimeoutMinutes')
+  int? get subtitleExtractionTimeoutMinutes;
+
   /// Gets or sets the codecs hardware encoding is used for.
   @BuiltValueField(wireName: r'HardwareDecodingCodecs')
   BuiltList<String>? get hardwareDecodingCodecs;
@@ -266,13 +273,19 @@ abstract class EncodingOptions
   BuiltList<String>?
       get allowOnDemandMetadataBasedKeyframeExtractionForExtensions;
 
+  /// Gets or sets the method used for audio seeking in HLS.
+  @BuiltValueField(wireName: r'HlsAudioSeekStrategy')
+  HlsAudioSeekStrategy? get hlsAudioSeekStrategy;
+  // enum hlsAudioSeekStrategyEnum {  TrimCopiedAudio,  TranscodeAudio,  };
+
   EncodingOptions._();
 
   factory EncodingOptions([void updates(EncodingOptionsBuilder b)]) =
       _$EncodingOptions;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(EncodingOptionsBuilder b) => b;
+  static void _defaults(EncodingOptionsBuilder b) =>
+      b..hlsAudioSeekStrategy = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<EncodingOptions> get serializer =>
@@ -506,7 +519,7 @@ class _$EncodingOptionsSerializer
       yield r'EncoderPreset';
       yield serializers.serialize(
         object.encoderPreset,
-        specifiedType: const FullType.nullable(EncoderPreset),
+        specifiedType: const FullType(EncoderPreset),
       );
     }
     if (object.deinterlaceDoubleRate != null) {
@@ -607,6 +620,13 @@ class _$EncodingOptionsSerializer
         specifiedType: const FullType(bool),
       );
     }
+    if (object.subtitleExtractionTimeoutMinutes != null) {
+      yield r'SubtitleExtractionTimeoutMinutes';
+      yield serializers.serialize(
+        object.subtitleExtractionTimeoutMinutes,
+        specifiedType: const FullType(int),
+      );
+    }
     if (object.hardwareDecodingCodecs != null) {
       yield r'HardwareDecodingCodecs';
       yield serializers.serialize(
@@ -620,6 +640,13 @@ class _$EncodingOptionsSerializer
       yield serializers.serialize(
         object.allowOnDemandMetadataBasedKeyframeExtractionForExtensions,
         specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+      );
+    }
+    if (object.hlsAudioSeekStrategy != null) {
+      yield r'HlsAudioSeekStrategy';
+      yield serializers.serialize(
+        object.hlsAudioSeekStrategy,
+        specifiedType: const FullType(HlsAudioSeekStrategy),
       );
     }
   }
@@ -866,9 +893,8 @@ class _$EncodingOptionsSerializer
         case r'EncoderPreset':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(EncoderPreset),
-          ) as EncoderPreset?;
-          if (valueDes == null) continue;
+            specifiedType: const FullType(EncoderPreset),
+          ) as EncoderPreset;
           result.encoderPreset = valueDes;
           break;
         case r'DeinterlaceDoubleRate':
@@ -969,6 +995,13 @@ class _$EncodingOptionsSerializer
           ) as bool;
           result.enableSubtitleExtraction = valueDes;
           break;
+        case r'SubtitleExtractionTimeoutMinutes':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(int),
+          ) as int;
+          result.subtitleExtractionTimeoutMinutes = valueDes;
+          break;
         case r'HardwareDecodingCodecs':
           final valueDes = serializers.deserialize(
             value,
@@ -987,6 +1020,13 @@ class _$EncodingOptionsSerializer
           if (valueDes == null) continue;
           result.allowOnDemandMetadataBasedKeyframeExtractionForExtensions
               .replace(valueDes);
+          break;
+        case r'HlsAudioSeekStrategy':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(HlsAudioSeekStrategy),
+          ) as HlsAudioSeekStrategy;
+          result.hlsAudioSeekStrategy = valueDes;
           break;
         default:
           unhandled.add(key);

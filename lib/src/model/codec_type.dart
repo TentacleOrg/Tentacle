@@ -10,10 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'codec_type.g.dart';
 
 class CodecType extends EnumClass {
+  /// The codec type of a codec profile.
   @BuiltValueEnumConst(wireName: r'Video')
   static const CodecType video = _$video;
+
+  /// The codec type of a codec profile.
   @BuiltValueEnumConst(wireName: r'VideoAudio')
   static const CodecType videoAudio = _$videoAudio;
+
+  /// The codec type of a codec profile.
   @BuiltValueEnumConst(wireName: r'Audio')
   static const CodecType audio = _$audio;
 

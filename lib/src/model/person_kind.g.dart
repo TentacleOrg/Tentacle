@@ -31,6 +31,7 @@ const PersonKind _$letterer = const PersonKind._('letterer');
 const PersonKind _$coverArtist = const PersonKind._('coverArtist');
 const PersonKind _$editor = const PersonKind._('editor');
 const PersonKind _$translator = const PersonKind._('translator');
+const PersonKind _$narrator = const PersonKind._('narrator');
 
 PersonKind _$valueOf(String name) {
   switch (name) {
@@ -84,6 +85,8 @@ PersonKind _$valueOf(String name) {
       return _$editor;
     case 'translator':
       return _$translator;
+    case 'narrator':
+      return _$narrator;
     default:
       throw ArgumentError(name);
   }
@@ -115,6 +118,7 @@ final BuiltSet<PersonKind> _$values = BuiltSet<PersonKind>(const <PersonKind>[
   _$coverArtist,
   _$editor,
   _$translator,
+  _$narrator,
 ]);
 
 class _$PersonKindMeta {
@@ -144,11 +148,12 @@ class _$PersonKindMeta {
   PersonKind get coverArtist => _$coverArtist;
   PersonKind get editor => _$editor;
   PersonKind get translator => _$translator;
+  PersonKind get narrator => _$narrator;
   PersonKind valueOf(String name) => _$valueOf(name);
   BuiltSet<PersonKind> get values => _$values;
 }
 
-mixin _$PersonKindMixin {
+abstract class _$PersonKindMixin {
   // ignore: non_constant_identifier_names
   _$PersonKindMeta get PersonKind => const _$PersonKindMeta();
 }
@@ -182,6 +187,7 @@ class _$PersonKindSerializer implements PrimitiveSerializer<PersonKind> {
     'coverArtist': 'CoverArtist',
     'editor': 'Editor',
     'translator': 'Translator',
+    'narrator': 'Narrator',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'Unknown': 'unknown',
@@ -209,6 +215,7 @@ class _$PersonKindSerializer implements PrimitiveSerializer<PersonKind> {
     'CoverArtist': 'coverArtist',
     'Editor': 'editor',
     'Translator': 'translator',
+    'Narrator': 'narrator',
   };
 
   @override

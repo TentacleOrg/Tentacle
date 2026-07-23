@@ -70,7 +70,7 @@ class _$PlaystateCommandMeta {
   BuiltSet<PlaystateCommand> get values => _$values;
 }
 
-mixin _$PlaystateCommandMixin {
+abstract class _$PlaystateCommandMixin {
   // ignore: non_constant_identifier_names
   _$PlaystateCommandMeta get PlaystateCommand => const _$PlaystateCommandMeta();
 }

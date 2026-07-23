@@ -14,7 +14,7 @@ import 'package:built_value/serializer.dart';
 
 part 'transcoding_profile.g.dart';
 
-/// A class for transcoding profile information.  Note for client developers: Conditions defined in MediaBrowser.Model.Dlna.CodecProfile has higher priority and can override values defined here.
+/// A class for transcoding profile information. Note for client developers: Conditions defined in MediaBrowser.Model.Dlna.CodecProfile has higher priority and can override values defined here.
 ///
 /// Properties:
 /// * [container] - Gets or sets the container.
@@ -98,6 +98,7 @@ abstract class TranscodingProfile
   int? get segmentLength;
 
   /// Gets or sets a value indicating whether breaking the video stream on non-keyframes is supported.
+  @Deprecated('breakOnNonKeyFrames has been deprecated')
   @BuiltValueField(wireName: r'BreakOnNonKeyFrames')
   bool? get breakOnNonKeyFrames;
 
@@ -247,7 +248,7 @@ class _$TranscodingProfileSerializer
       yield r'BreakOnNonKeyFrames';
       yield serializers.serialize(
         object.breakOnNonKeyFrames,
-        specifiedType: const FullType(bool),
+        specifiedType: const FullType.nullable(bool),
       );
     }
     if (object.conditions != null) {
@@ -391,8 +392,9 @@ class _$TranscodingProfileSerializer
         case r'BreakOnNonKeyFrames':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.breakOnNonKeyFrames = valueDes;
           break;
         case r'Conditions':

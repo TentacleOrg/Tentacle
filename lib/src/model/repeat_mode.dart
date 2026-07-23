@@ -10,10 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'repeat_mode.g.dart';
 
 class RepeatMode extends EnumClass {
+  /// The repeat mode of a play queue.
   @BuiltValueEnumConst(wireName: r'RepeatNone')
   static const RepeatMode repeatNone = _$repeatNone;
+
+  /// The repeat mode of a play queue.
   @BuiltValueEnumConst(wireName: r'RepeatAll')
   static const RepeatMode repeatAll = _$repeatAll;
+
+  /// The repeat mode of a play queue.
   @BuiltValueEnumConst(wireName: r'RepeatOne')
   static const RepeatMode repeatOne = _$repeatOne;
 

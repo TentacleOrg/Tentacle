@@ -7,12 +7,12 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/media_request.dart';
-import 'package:tentacle/src/model/request_count_get200_response.dart';
-import 'package:tentacle/src/model/request_post_request.dart';
-import 'package:tentacle/src/model/request_request_id_put_request.dart';
-import 'package:tentacle/src/model/user_user_id_requests_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/media_request.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/request_count_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/request_post_request.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/request_request_id_put_request.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/user_user_id_requests_get200_response.dart';
 
 class RequestApi {
   final Dio _dio;

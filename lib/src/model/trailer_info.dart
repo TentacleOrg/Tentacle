@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'trailer_info.g.dart';
 
-/// TrailerInfo
+/// The lookup info for trailers.
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.

@@ -14,7 +14,7 @@ part 'external_id_info.g.dart';
 /// Properties:
 /// * [name] - Gets or sets the display name of the external id provider (IE: IMDB, MusicBrainz, etc).
 /// * [key] - Gets or sets the unique key for this id. This key should be unique across all providers.
-/// * [type] - Gets or sets the specific media type for this id. This is used to distinguish between the different  external id types for providers with multiple ids.  A null value indicates there is no specific media type associated with the external id, or this is the  default id for the external provider so there is no need to specify a type.
+/// * [type] - Gets or sets the specific media type for this id. This is used to distinguish between the different external id types for providers with multiple ids. A null value indicates there is no specific media type associated with the external id, or this is the default id for the external provider so there is no need to specify a type.
 @BuiltValue()
 abstract class ExternalIdInfo
     implements Built<ExternalIdInfo, ExternalIdInfoBuilder> {
@@ -26,7 +26,7 @@ abstract class ExternalIdInfo
   @BuiltValueField(wireName: r'Key')
   String? get key;
 
-  /// Gets or sets the specific media type for this id. This is used to distinguish between the different  external id types for providers with multiple ids.  A null value indicates there is no specific media type associated with the external id, or this is the  default id for the external provider so there is no need to specify a type.
+  /// Gets or sets the specific media type for this id. This is used to distinguish between the different external id types for providers with multiple ids. A null value indicates there is no specific media type associated with the external id, or this is the default id for the external provider so there is no need to specify a type.
   @BuiltValueField(wireName: r'Type')
   ExternalIdMediaType? get type;
   // enum typeEnum {  Album,  AlbumArtist,  Artist,  BoxSet,  Episode,  Movie,  OtherArtist,  Person,  ReleaseGroup,  Season,  Series,  Track,  Book,  Recording,  };

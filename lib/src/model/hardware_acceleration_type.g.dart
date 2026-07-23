@@ -70,7 +70,7 @@ class _$HardwareAccelerationTypeMeta {
   BuiltSet<HardwareAccelerationType> get values => _$values;
 }
 
-mixin _$HardwareAccelerationTypeMixin {
+abstract class _$HardwareAccelerationTypeMixin {
   // ignore: non_constant_identifier_names
   _$HardwareAccelerationTypeMeta get HardwareAccelerationType =>
       const _$HardwareAccelerationTypeMeta();

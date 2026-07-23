@@ -44,7 +44,7 @@ class _$GroupStateTypeMeta {
   BuiltSet<GroupStateType> get values => _$values;
 }
 
-mixin _$GroupStateTypeMixin {
+abstract class _$GroupStateTypeMixin {
   // ignore: non_constant_identifier_names
   _$GroupStateTypeMeta get GroupStateType => const _$GroupStateTypeMeta();
 }

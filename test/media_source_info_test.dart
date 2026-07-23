@@ -32,6 +32,7 @@ void main() {
       // TODO
     });
 
+    // The type of a media source.
     // MediaSourceType type
     test('to test the property `type`', () async {
       // TODO
@@ -52,7 +53,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets a value indicating whether the media is remote.  Differentiate internet url vs local network.
+    // Gets or sets a value indicating whether the media is remote. Differentiate internet url vs local network.
     // bool isRemote
     test('to test the property `isRemote`', () async {
       // TODO
@@ -204,7 +205,7 @@ void main() {
       // TODO
     });
 
-    // Media streaming protocol.  Lowercase for backwards compatibility.
+    // Media streaming protocol. Lowercase for backwards compatibility.
     // MediaStreamProtocol transcodingSubProtocol
     test('to test the property `transcodingSubProtocol`', () async {
       // TODO

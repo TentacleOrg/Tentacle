@@ -21,7 +21,7 @@ abstract class FolderStorageDto
     implements Built<FolderStorageDto, FolderStorageDtoBuilder> {
   /// Gets the path of the folder in question.
   @BuiltValueField(wireName: r'Path')
-  String? get path;
+  String get path;
 
   /// Gets the free space of the underlying storage device of the Jellyfin.Api.Models.SystemInfoDtos.FolderStorageDto.Path.
   @BuiltValueField(wireName: r'FreeSpace')
@@ -65,13 +65,11 @@ class _$FolderStorageDtoSerializer
     FolderStorageDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.path != null) {
-      yield r'Path';
-      yield serializers.serialize(
-        object.path,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'Path';
+    yield serializers.serialize(
+      object.path,
+      specifiedType: const FullType(String),
+    );
     if (object.freeSpace != null) {
       yield r'FreeSpace';
       yield serializers.serialize(

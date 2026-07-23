@@ -8,7 +8,7 @@ part of 'folder_storage_dto.dart';
 
 class _$FolderStorageDto extends FolderStorageDto {
   @override
-  final String? path;
+  final String path;
   @override
   final int? freeSpace;
   @override
@@ -23,7 +23,7 @@ class _$FolderStorageDto extends FolderStorageDto {
       (FolderStorageDtoBuilder()..update(updates))._build();
 
   _$FolderStorageDto._(
-      {this.path,
+      {required this.path,
       this.freeSpace,
       this.usedSpace,
       this.storageType,
@@ -129,7 +129,8 @@ class FolderStorageDtoBuilder
   _$FolderStorageDto _build() {
     final _$result = _$v ??
         _$FolderStorageDto._(
-          path: path,
+          path: BuiltValueNullFieldError.checkNotNull(
+              path, r'FolderStorageDto', 'path'),
           freeSpace: freeSpace,
           usedSpace: usedSpace,
           storageType: storageType,

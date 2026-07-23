@@ -22,23 +22,23 @@ abstract class BackupManifestDto
     implements Built<BackupManifestDto, BackupManifestDtoBuilder> {
   /// Gets or sets the jellyfin version this backup was created with.
   @BuiltValueField(wireName: r'ServerVersion')
-  String? get serverVersion;
+  String get serverVersion;
 
   /// Gets or sets the backup engine version this backup was created with.
   @BuiltValueField(wireName: r'BackupEngineVersion')
-  String? get backupEngineVersion;
+  String get backupEngineVersion;
 
   /// Gets or sets the date this backup was created with.
   @BuiltValueField(wireName: r'DateCreated')
-  DateTime? get dateCreated;
+  DateTime get dateCreated;
 
   /// Gets or sets the path to the backup on the system.
   @BuiltValueField(wireName: r'Path')
-  String? get path;
+  String get path;
 
   /// Gets or sets the contents of the backup archive.
   @BuiltValueField(wireName: r'Options')
-  BackupOptionsDto? get options;
+  BackupOptionsDto get options;
 
   BackupManifestDto._();
 
@@ -66,41 +66,31 @@ class _$BackupManifestDtoSerializer
     BackupManifestDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.serverVersion != null) {
-      yield r'ServerVersion';
-      yield serializers.serialize(
-        object.serverVersion,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.backupEngineVersion != null) {
-      yield r'BackupEngineVersion';
-      yield serializers.serialize(
-        object.backupEngineVersion,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.dateCreated != null) {
-      yield r'DateCreated';
-      yield serializers.serialize(
-        object.dateCreated,
-        specifiedType: const FullType(DateTime),
-      );
-    }
-    if (object.path != null) {
-      yield r'Path';
-      yield serializers.serialize(
-        object.path,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.options != null) {
-      yield r'Options';
-      yield serializers.serialize(
-        object.options,
-        specifiedType: const FullType(BackupOptionsDto),
-      );
-    }
+    yield r'ServerVersion';
+    yield serializers.serialize(
+      object.serverVersion,
+      specifiedType: const FullType(String),
+    );
+    yield r'BackupEngineVersion';
+    yield serializers.serialize(
+      object.backupEngineVersion,
+      specifiedType: const FullType(String),
+    );
+    yield r'DateCreated';
+    yield serializers.serialize(
+      object.dateCreated,
+      specifiedType: const FullType(DateTime),
+    );
+    yield r'Path';
+    yield serializers.serialize(
+      object.path,
+      specifiedType: const FullType(String),
+    );
+    yield r'Options';
+    yield serializers.serialize(
+      object.options,
+      specifiedType: const FullType(BackupOptionsDto),
+    );
   }
 
   @override

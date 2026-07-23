@@ -10,10 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'transport_stream_timestamp.g.dart';
 
 class TransportStreamTimestamp extends EnumClass {
+  /// The type of timestamps used in a transport stream.
   @BuiltValueEnumConst(wireName: r'None')
   static const TransportStreamTimestamp none = _$none;
+
+  /// The type of timestamps used in a transport stream.
   @BuiltValueEnumConst(wireName: r'Zero')
   static const TransportStreamTimestamp zero = _$zero;
+
+  /// The type of timestamps used in a transport stream.
   @BuiltValueEnumConst(wireName: r'Valid')
   static const TransportStreamTimestamp valid = _$valid;
 

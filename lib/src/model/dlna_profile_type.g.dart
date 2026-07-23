@@ -49,7 +49,7 @@ class _$DlnaProfileTypeMeta {
   BuiltSet<DlnaProfileType> get values => _$values;
 }
 
-mixin _$DlnaProfileTypeMixin {
+abstract class _$DlnaProfileTypeMixin {
   // ignore: non_constant_identifier_names
   _$DlnaProfileTypeMeta get DlnaProfileType => const _$DlnaProfileTypeMeta();
 }

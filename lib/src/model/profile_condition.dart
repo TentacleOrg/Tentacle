@@ -26,7 +26,7 @@ abstract class ProfileCondition
 
   @BuiltValueField(wireName: r'Property')
   ProfileConditionValue? get property;
-  // enum propertyEnum {  AudioChannels,  AudioBitrate,  AudioProfile,  Width,  Height,  Has64BitOffsets,  PacketLength,  VideoBitDepth,  VideoBitrate,  VideoFramerate,  VideoLevel,  VideoProfile,  VideoTimestamp,  IsAnamorphic,  RefFrames,  NumAudioStreams,  NumVideoStreams,  IsSecondaryAudio,  VideoCodecTag,  IsAvc,  IsInterlaced,  AudioSampleRate,  AudioBitDepth,  VideoRangeType,  NumStreams,  };
+  // enum propertyEnum {  AudioChannels,  AudioBitrate,  AudioProfile,  Width,  Height,  Has64BitOffsets,  PacketLength,  VideoBitDepth,  VideoBitrate,  VideoFramerate,  VideoLevel,  VideoProfile,  VideoTimestamp,  IsAnamorphic,  RefFrames,  NumAudioStreams,  NumVideoStreams,  IsSecondaryAudio,  VideoCodecTag,  IsAvc,  IsInterlaced,  AudioSampleRate,  AudioBitDepth,  VideoRangeType,  NumStreams,  VideoRotation,  };
 
   @BuiltValueField(wireName: r'Value')
   String? get value;

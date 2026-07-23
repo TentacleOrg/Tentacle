@@ -69,7 +69,7 @@ class _$UnratedItemMeta {
   BuiltSet<UnratedItem> get values => _$values;
 }
 
-mixin _$UnratedItemMixin {
+abstract class _$UnratedItemMixin {
   // ignore: non_constant_identifier_names
   _$UnratedItemMeta get UnratedItem => const _$UnratedItemMeta();
 }

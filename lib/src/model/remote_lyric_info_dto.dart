@@ -20,15 +20,15 @@ abstract class RemoteLyricInfoDto
     implements Built<RemoteLyricInfoDto, RemoteLyricInfoDtoBuilder> {
   /// Gets or sets the id for the lyric.
   @BuiltValueField(wireName: r'Id')
-  String? get id;
+  String get id;
 
   /// Gets the provider name.
   @BuiltValueField(wireName: r'ProviderName')
-  String? get providerName;
+  String get providerName;
 
   /// Gets the lyrics.
   @BuiltValueField(wireName: r'Lyrics')
-  LyricDto? get lyrics;
+  LyricDto get lyrics;
 
   RemoteLyricInfoDto._();
 
@@ -56,27 +56,21 @@ class _$RemoteLyricInfoDtoSerializer
     RemoteLyricInfoDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.id != null) {
-      yield r'Id';
-      yield serializers.serialize(
-        object.id,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.providerName != null) {
-      yield r'ProviderName';
-      yield serializers.serialize(
-        object.providerName,
-        specifiedType: const FullType(String),
-      );
-    }
-    if (object.lyrics != null) {
-      yield r'Lyrics';
-      yield serializers.serialize(
-        object.lyrics,
-        specifiedType: const FullType(LyricDto),
-      );
-    }
+    yield r'Id';
+    yield serializers.serialize(
+      object.id,
+      specifiedType: const FullType(String),
+    );
+    yield r'ProviderName';
+    yield serializers.serialize(
+      object.providerName,
+      specifiedType: const FullType(String),
+    );
+    yield r'Lyrics';
+    yield serializers.serialize(
+      object.lyrics,
+      specifiedType: const FullType(LyricDto),
+    );
   }
 
   @override

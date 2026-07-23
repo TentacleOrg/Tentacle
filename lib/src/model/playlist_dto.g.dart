@@ -10,14 +10,16 @@ class _$PlaylistDto extends PlaylistDto {
   @override
   final bool? openAccess;
   @override
-  final BuiltList<PlaylistUserPermissions>? shares;
+  final BuiltList<PlaylistUserPermissions> shares;
   @override
-  final BuiltList<String>? itemIds;
+  final BuiltList<String> itemIds;
 
   factory _$PlaylistDto([void Function(PlaylistDtoBuilder)? updates]) =>
       (PlaylistDtoBuilder()..update(updates))._build();
 
-  _$PlaylistDto._({this.openAccess, this.shares, this.itemIds}) : super._();
+  _$PlaylistDto._(
+      {this.openAccess, required this.shares, required this.itemIds})
+      : super._();
   @override
   PlaylistDto rebuild(void Function(PlaylistDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -79,8 +81,8 @@ class PlaylistDtoBuilder implements Builder<PlaylistDto, PlaylistDtoBuilder> {
     final $v = _$v;
     if ($v != null) {
       _openAccess = $v.openAccess;
-      _shares = $v.shares?.toBuilder();
-      _itemIds = $v.itemIds?.toBuilder();
+      _shares = $v.shares.toBuilder();
+      _itemIds = $v.itemIds.toBuilder();
       _$v = null;
     }
     return this;
@@ -105,16 +107,16 @@ class PlaylistDtoBuilder implements Builder<PlaylistDto, PlaylistDtoBuilder> {
       _$result = _$v ??
           _$PlaylistDto._(
             openAccess: openAccess,
-            shares: _shares?.build(),
-            itemIds: _itemIds?.build(),
+            shares: shares.build(),
+            itemIds: itemIds.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'shares';
-        _shares?.build();
+        shares.build();
         _$failedField = 'itemIds';
-        _itemIds?.build();
+        itemIds.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'PlaylistDto', _$failedField, e.toString());

@@ -172,7 +172,7 @@ abstract class SeriesTimerInfoDto
 
   /// Gets or sets the image tags.
   @BuiltValueField(wireName: r'ImageTags')
-  BuiltMap<String, String>? get imageTags;
+  BuiltMap<String, String?>? get imageTags;
 
   /// Gets or sets the parent thumb item id.
   @BuiltValueField(wireName: r'ParentThumbItemId')
@@ -432,7 +432,7 @@ class _$SeriesTimerInfoDtoSerializer
       yield serializers.serialize(
         object.imageTags,
         specifiedType: const FullType.nullable(
-            BuiltMap, [FullType(String), FullType(String)]),
+            BuiltMap, [FullType(String), FullType.nullable(String)]),
       );
     }
     if (object.parentThumbItemId != null) {
@@ -720,8 +720,8 @@ class _$SeriesTimerInfoDtoSerializer
           final valueDes = serializers.deserialize(
             value,
             specifiedType: const FullType.nullable(
-                BuiltMap, [FullType(String), FullType(String)]),
-          ) as BuiltMap<String, String>?;
+                BuiltMap, [FullType(String), FullType.nullable(String)]),
+          ) as BuiltMap<String, String?>?;
           if (valueDes == null) continue;
           result.imageTags.replace(valueDes);
           break;

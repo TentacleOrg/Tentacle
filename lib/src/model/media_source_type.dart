@@ -10,10 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'media_source_type.g.dart';
 
 class MediaSourceType extends EnumClass {
+  /// The type of a media source.
   @BuiltValueEnumConst(wireName: r'Default')
   static const MediaSourceType default_ = _$default_;
+
+  /// The type of a media source.
   @BuiltValueEnumConst(wireName: r'Grouping')
   static const MediaSourceType grouping = _$grouping;
+
+  /// The type of a media source.
   @BuiltValueEnumConst(wireName: r'Placeholder')
   static const MediaSourceType placeholder = _$placeholder;
 

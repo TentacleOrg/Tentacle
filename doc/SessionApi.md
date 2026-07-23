@@ -11,13 +11,15 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addUserToSession**](SessionApi.md#addusertosession) | **POST** /Sessions/{sessionId}/User/{userId} | Adds an additional user to a session.
 [**displayContent**](SessionApi.md#displaycontent) | **POST** /Sessions/{sessionId}/Viewing | Instructs a session to browse to an item or view.
-[**getAuthProviders**](SessionApi.md#getauthproviders) | **GET** /Auth/Providers | Get all auth providers.
-[**getPasswordResetProviders**](SessionApi.md#getpasswordresetproviders) | **GET** /Auth/PasswordResetProviders | Get all password reset providers.
 [**getSessions**](SessionApi.md#getsessions) | **GET** /Sessions | Gets a list of sessions.
+[**pingPlaybackSession**](SessionApi.md#pingplaybacksession) | **POST** /Sessions/Playing/Ping | Pings a playback session.
 [**play**](SessionApi.md#play) | **POST** /Sessions/{sessionId}/Playing | Instructs a session to play an item.
 [**postCapabilities**](SessionApi.md#postcapabilities) | **POST** /Sessions/Capabilities | Updates capabilities for a device.
 [**postFullCapabilities**](SessionApi.md#postfullcapabilities) | **POST** /Sessions/Capabilities/Full | Updates capabilities for a device.
 [**removeUserFromSession**](SessionApi.md#removeuserfromsession) | **DELETE** /Sessions/{sessionId}/User/{userId} | Removes an additional user from a session.
+[**reportPlaybackProgress**](SessionApi.md#reportplaybackprogress) | **POST** /Sessions/Playing/Progress | Reports playback progress within a session.
+[**reportPlaybackStart**](SessionApi.md#reportplaybackstart) | **POST** /Sessions/Playing | Reports playback has started within a session.
+[**reportPlaybackStopped**](SessionApi.md#reportplaybackstopped) | **POST** /Sessions/Playing/Stopped | Reports playback has stopped within a session.
 [**reportSessionEnded**](SessionApi.md#reportsessionended) | **POST** /Sessions/Logout | Reports that a session has ended.
 [**reportViewing**](SessionApi.md#reportviewing) | **POST** /Sessions/Viewing | Reports that a session is viewing an item.
 [**sendFullGeneralCommand**](SessionApi.md#sendfullgeneralcommand) | **POST** /Sessions/{sessionId}/Command | Issues a full general command to a client.
@@ -123,88 +125,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getAuthProviders**
-> BuiltList<NameIdPair> getAuthProviders()
-
-Get all auth providers.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getSessionApi();
-
-try {
-    final response = api.getAuthProviders();
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling SessionApi->getAuthProviders: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getPasswordResetProviders**
-> BuiltList<NameIdPair> getPasswordResetProviders()
-
-Get all password reset providers.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getSessionApi();
-
-try {
-    final response = api.getPasswordResetProviders();
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling SessionApi->getPasswordResetProviders: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getSessions**
 > BuiltList<SessionInfoDto> getSessions(controllableByUserId, deviceId, activeWithinSeconds)
 
@@ -251,6 +171,50 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **pingPlaybackSession**
+> pingPlaybackSession(playSessionId)
+
+Pings a playback session.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getSessionApi();
+final String playSessionId = playSessionId_example; // String | Playback session id.
+
+try {
+    api.pingPlaybackSession(playSessionId);
+} catch on DioException (e) {
+    print('Exception when calling SessionApi->pingPlaybackSession: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playSessionId** | **String**| Playback session id. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -452,6 +416,138 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reportPlaybackProgress**
+> reportPlaybackProgress(playbackProgressInfo)
+
+Reports playback progress within a session.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getSessionApi();
+final PlaybackProgressInfo playbackProgressInfo = ; // PlaybackProgressInfo | The playback progress info.
+
+try {
+    api.reportPlaybackProgress(playbackProgressInfo);
+} catch on DioException (e) {
+    print('Exception when calling SessionApi->reportPlaybackProgress: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playbackProgressInfo** | [**PlaybackProgressInfo**](PlaybackProgressInfo.md)| The playback progress info. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reportPlaybackStart**
+> reportPlaybackStart(playbackStartInfo)
+
+Reports playback has started within a session.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getSessionApi();
+final PlaybackStartInfo playbackStartInfo = ; // PlaybackStartInfo | The playback start info.
+
+try {
+    api.reportPlaybackStart(playbackStartInfo);
+} catch on DioException (e) {
+    print('Exception when calling SessionApi->reportPlaybackStart: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playbackStartInfo** | [**PlaybackStartInfo**](PlaybackStartInfo.md)| The playback start info. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
+ - **Accept**: text/html
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **reportPlaybackStopped**
+> reportPlaybackStopped(playbackStopInfo)
+
+Reports playback has stopped within a session.
+
+### Example
+```dart
+import 'package:tentacle/api.dart';
+// TODO Configure API key authorization: CustomAuthentication
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
+// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
+
+final api = Tentacle().getSessionApi();
+final PlaybackStopInfo playbackStopInfo = ; // PlaybackStopInfo | The playback stop info.
+
+try {
+    api.reportPlaybackStopped(playbackStopInfo);
+} catch on DioException (e) {
+    print('Exception when calling SessionApi->reportPlaybackStopped: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **playbackStopInfo** | [**PlaybackStopInfo**](PlaybackStopInfo.md)| The playback stop info. | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[CustomAuthentication](../README.md#CustomAuthentication)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/*+json
  - **Accept**: text/html
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

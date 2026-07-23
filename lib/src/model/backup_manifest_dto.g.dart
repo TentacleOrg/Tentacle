@@ -8,26 +8,26 @@ part of 'backup_manifest_dto.dart';
 
 class _$BackupManifestDto extends BackupManifestDto {
   @override
-  final String? serverVersion;
+  final String serverVersion;
   @override
-  final String? backupEngineVersion;
+  final String backupEngineVersion;
   @override
-  final DateTime? dateCreated;
+  final DateTime dateCreated;
   @override
-  final String? path;
+  final String path;
   @override
-  final BackupOptionsDto? options;
+  final BackupOptionsDto options;
 
   factory _$BackupManifestDto(
           [void Function(BackupManifestDtoBuilder)? updates]) =>
       (BackupManifestDtoBuilder()..update(updates))._build();
 
   _$BackupManifestDto._(
-      {this.serverVersion,
-      this.backupEngineVersion,
-      this.dateCreated,
-      this.path,
-      this.options})
+      {required this.serverVersion,
+      required this.backupEngineVersion,
+      required this.dateCreated,
+      required this.path,
+      required this.options})
       : super._();
   @override
   BackupManifestDto rebuild(void Function(BackupManifestDtoBuilder) updates) =>
@@ -110,7 +110,7 @@ class BackupManifestDtoBuilder
       _backupEngineVersion = $v.backupEngineVersion;
       _dateCreated = $v.dateCreated;
       _path = $v.path;
-      _options = $v.options?.toBuilder();
+      _options = $v.options.toBuilder();
       _$v = null;
     }
     return this;
@@ -134,17 +134,23 @@ class BackupManifestDtoBuilder
     try {
       _$result = _$v ??
           _$BackupManifestDto._(
-            serverVersion: serverVersion,
-            backupEngineVersion: backupEngineVersion,
-            dateCreated: dateCreated,
-            path: path,
-            options: _options?.build(),
+            serverVersion: BuiltValueNullFieldError.checkNotNull(
+                serverVersion, r'BackupManifestDto', 'serverVersion'),
+            backupEngineVersion: BuiltValueNullFieldError.checkNotNull(
+                backupEngineVersion,
+                r'BackupManifestDto',
+                'backupEngineVersion'),
+            dateCreated: BuiltValueNullFieldError.checkNotNull(
+                dateCreated, r'BackupManifestDto', 'dateCreated'),
+            path: BuiltValueNullFieldError.checkNotNull(
+                path, r'BackupManifestDto', 'path'),
+            options: options.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'options';
-        _options?.build();
+        options.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'BackupManifestDto', _$failedField, e.toString());

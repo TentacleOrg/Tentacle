@@ -63,7 +63,7 @@ abstract class UserItemDataDto
 
   /// Gets or sets the key.
   @BuiltValueField(wireName: r'Key')
-  String? get key;
+  String get key;
 
   /// Gets or sets the item identifier.
   @BuiltValueField(wireName: r'ItemId')
@@ -158,13 +158,11 @@ class _$UserItemDataDtoSerializer
         specifiedType: const FullType(bool),
       );
     }
-    if (object.key != null) {
-      yield r'Key';
-      yield serializers.serialize(
-        object.key,
-        specifiedType: const FullType(String),
-      );
-    }
+    yield r'Key';
+    yield serializers.serialize(
+      object.key,
+      specifiedType: const FullType(String),
+    );
     if (object.itemId != null) {
       yield r'ItemId';
       yield serializers.serialize(

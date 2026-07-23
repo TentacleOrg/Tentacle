@@ -8,13 +8,13 @@ part of 'backup_restore_request_dto.dart';
 
 class _$BackupRestoreRequestDto extends BackupRestoreRequestDto {
   @override
-  final String? archiveFileName;
+  final String archiveFileName;
 
   factory _$BackupRestoreRequestDto(
           [void Function(BackupRestoreRequestDtoBuilder)? updates]) =>
       (BackupRestoreRequestDtoBuilder()..update(updates))._build();
 
-  _$BackupRestoreRequestDto._({this.archiveFileName}) : super._();
+  _$BackupRestoreRequestDto._({required this.archiveFileName}) : super._();
   @override
   BackupRestoreRequestDto rebuild(
           void Function(BackupRestoreRequestDtoBuilder) updates) =>
@@ -86,7 +86,8 @@ class BackupRestoreRequestDtoBuilder
   _$BackupRestoreRequestDto _build() {
     final _$result = _$v ??
         _$BackupRestoreRequestDto._(
-          archiveFileName: archiveFileName,
+          archiveFileName: BuiltValueNullFieldError.checkNotNull(
+              archiveFileName, r'BackupRestoreRequestDto', 'archiveFileName'),
         );
     replace(_$result);
     return _$result;

@@ -10,8 +10,11 @@ import 'package:built_value/serializer.dart';
 part 'encoding_context.g.dart';
 
 class EncodingContext extends EnumClass {
+  /// The encoding context.
   @BuiltValueEnumConst(wireName: r'Streaming')
   static const EncodingContext streaming = _$streaming;
+
+  /// The encoding context.
   @BuiltValueEnumConst(wireName: r'Static')
   static const EncodingContext static_ = _$static_;
 

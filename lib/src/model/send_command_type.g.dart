@@ -44,7 +44,7 @@ class _$SendCommandTypeMeta {
   BuiltSet<SendCommandType> get values => _$values;
 }
 
-mixin _$SendCommandTypeMixin {
+abstract class _$SendCommandTypeMixin {
   // ignore: non_constant_identifier_names
   _$SendCommandTypeMeta get SendCommandType => const _$SendCommandTypeMeta();
 }

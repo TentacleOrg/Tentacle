@@ -8,7 +8,7 @@ import 'package:built_value/serializer.dart';
 
 part 'branding_options_dto.g.dart';
 
-/// The branding options DTO for API use.  This DTO excludes SplashscreenLocation to prevent it from being updated via API.
+/// The branding options DTO for API use. This DTO excludes SplashscreenLocation to prevent it from being updated via API.
 ///
 /// Properties:
 /// * [loginDisclaimer] - Gets or sets the login disclaimer.

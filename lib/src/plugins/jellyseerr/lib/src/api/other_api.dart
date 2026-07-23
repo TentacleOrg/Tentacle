@@ -8,10 +8,10 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/keyword.dart';
-import 'package:tentacle/src/model/watch_provider_details.dart';
-import 'package:tentacle/src/model/watch_provider_region.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/keyword.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/watch_provider_details.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/watch_provider_region.dart';
 
 class OtherApi {
   final Dio _dio;

@@ -8,12 +8,12 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/genres_movie_get200_response_inner.dart';
-import 'package:tentacle/src/model/genres_tv_get200_response_inner.dart';
-import 'package:tentacle/src/model/languages_get200_response_inner.dart';
-import 'package:tentacle/src/model/production_company.dart';
-import 'package:tentacle/src/model/regions_get200_response_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/genres_movie_get200_response_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/genres_tv_get200_response_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/languages_get200_response_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/production_company.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/regions_get200_response_inner.dart';
 
 class TmdbApi {
   final Dio _dio;

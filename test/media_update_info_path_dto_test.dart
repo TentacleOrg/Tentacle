@@ -13,7 +13,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets media update type.  Created, Modified, Deleted.
+    // Gets or sets media update type. Created, Modified, Deleted.
     // String updateType
     test('to test the property `updateType`', () async {
       // TODO

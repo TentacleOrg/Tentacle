@@ -20,6 +20,7 @@ import 'package:tentacle/src/model/activity_log_entry_message.dart';
 import 'package:tentacle/src/model/activity_log_entry_query_result.dart';
 import 'package:tentacle/src/model/activity_log_entry_start_message.dart';
 import 'package:tentacle/src/model/activity_log_entry_stop_message.dart';
+import 'package:tentacle/src/model/activity_log_sort_by.dart';
 import 'package:tentacle/src/model/add_virtual_folder_dto.dart';
 import 'package:tentacle/src/model/album_info.dart';
 import 'package:tentacle/src/model/album_info_remote_search_query.dart';
@@ -61,7 +62,6 @@ import 'package:tentacle/src/model/codec_type.dart';
 import 'package:tentacle/src/model/collection_creation_result.dart';
 import 'package:tentacle/src/model/collection_type.dart';
 import 'package:tentacle/src/model/collection_type_options.dart';
-import 'package:tentacle/src/model/config_image_types.dart';
 import 'package:tentacle/src/model/configuration_page_info.dart';
 import 'package:tentacle/src/model/container_profile.dart';
 import 'package:tentacle/src/model/country_info.dart';
@@ -117,6 +117,7 @@ import 'package:tentacle/src/model/group_update.dart';
 import 'package:tentacle/src/model/group_update_type.dart';
 import 'package:tentacle/src/model/guide_info.dart';
 import 'package:tentacle/src/model/hardware_acceleration_type.dart';
+import 'package:tentacle/src/model/hls_audio_seek_strategy.dart';
 import 'package:tentacle/src/model/i_plugin.dart';
 import 'package:tentacle/src/model/ignore_wait_request_dto.dart';
 import 'package:tentacle/src/model/image_format.dart';
@@ -300,7 +301,6 @@ import 'package:tentacle/src/model/startup_configuration_dto.dart';
 import 'package:tentacle/src/model/startup_remote_access_dto.dart';
 import 'package:tentacle/src/model/startup_user_dto.dart';
 import 'package:tentacle/src/model/subtitle_delivery_method.dart';
-import 'package:tentacle/src/model/subtitle_options.dart';
 import 'package:tentacle/src/model/subtitle_playback_mode.dart';
 import 'package:tentacle/src/model/subtitle_profile.dart';
 import 'package:tentacle/src/model/sync_play_command_message.dart';
@@ -382,6 +382,7 @@ part 'serializers.g.dart';
   ActivityLogEntryQueryResult,
   ActivityLogEntryStartMessage,
   ActivityLogEntryStopMessage,
+  ActivityLogSortBy,
   AddVirtualFolderDto,
   AlbumInfo,
   AlbumInfoRemoteSearchQuery,
@@ -423,7 +424,6 @@ part 'serializers.g.dart';
   CollectionCreationResult,
   CollectionType,
   CollectionTypeOptions,
-  ConfigImageTypes,
   ConfigurationPageInfo,
   ContainerProfile,
   CountryInfo,
@@ -479,6 +479,7 @@ part 'serializers.g.dart';
   GroupUpdateType,
   GuideInfo,
   HardwareAccelerationType,
+  HlsAudioSeekStrategy,
   IPlugin,
   IgnoreWaitRequestDto,
   ImageFormat,
@@ -662,7 +663,6 @@ part 'serializers.g.dart';
   StartupRemoteAccessDto,
   StartupUserDto,
   SubtitleDeliveryMethod,
-  SubtitleOptions,
   SubtitlePlaybackMode,
   SubtitleProfile,
   SyncPlayCommandMessage,
@@ -769,24 +769,12 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<LocationType>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TunerHostInfo)]),
-        () => ListBuilder<TunerHostInfo>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SeriesStatus)]),
         () => ListBuilder<SeriesStatus>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(RepositoryInfo)]),
         () => ListBuilder<RepositoryInfo>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ParentalRating)]),
-        () => ListBuilder<ParentalRating>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SessionInfoDto)]),
-        () => ListBuilder<SessionInfoDto>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(RemoteSubtitleInfo)]),
@@ -797,12 +785,80 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<LocalizationOption>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(LogFile)]),
-        () => ListBuilder<LogFile>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(VirtualFolderInfo)]),
         () => ListBuilder<VirtualFolderInfo>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ItemFilter)]),
+        () => ListBuilder<ItemFilter>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(RemoteLyricInfoDto)]),
+        () => ListBuilder<RemoteLyricInfoDto>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+        () => ListBuilder<RemoteSearchResult>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(SortOrder)]),
+        () => ListBuilder<SortOrder>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(VideoType)]),
+        () => ListBuilder<VideoType>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ActivityLogSortBy)]),
+        () => ListBuilder<ActivityLogSortBy>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ImageInfo)]),
+        () => ListBuilder<ImageInfo>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(BackupManifestDto)]),
+        () => ListBuilder<BackupManifestDto>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(MediaType)]),
+        () => ListBuilder<MediaType>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(GeneralCommandType)]),
+        () => ListBuilder<GeneralCommandType>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(FontFile)]),
+        () => ListBuilder<FontFile>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ImageType)]),
+        () => ListBuilder<ImageType>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(PlaylistUserPermissions)]),
+        () => ListBuilder<PlaylistUserPermissions>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        () => MapBuilder<String, String>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(TunerHostInfo)]),
+        () => ListBuilder<TunerHostInfo>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(ParentalRating)]),
+        () => ListBuilder<ParentalRating>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(SessionInfoDto)]),
+        () => ListBuilder<SessionInfoDto>(),
+      )
+      ..addBuilderFactory(
+        const FullType(BuiltList, [FullType(LogFile)]),
+        () => ListBuilder<LogFile>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(TaskTriggerInfo)]),
@@ -817,21 +873,9 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<ImageProviderInfo>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ItemFilter)]),
-        () => ListBuilder<ItemFilter>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(RemoteLyricInfoDto)]),
-        () => ListBuilder<RemoteLyricInfoDto>(),
-      )
-      ..addBuilderFactory(
         const FullType(
             BuiltMap, [FullType(String), FullType(TrickplayInfoDto)]),
         () => MapBuilder<String, TrickplayInfoDto>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType.nullable(String)]),
-        () => MapBuilder<String, String>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ConfigurationPageInfo)]),
@@ -840,14 +884,6 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ItemFields)]),
         () => ListBuilder<ItemFields>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(RemoteSearchResult)]),
-        () => ListBuilder<RemoteSearchResult>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SortOrder)]),
-        () => ListBuilder<SortOrder>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ExternalIdInfo)]),
@@ -866,44 +902,16 @@ Serializers serializers = (_$serializers.toBuilder()
         () => ListBuilder<GroupInfoDto>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(VideoType)]),
-        () => ListBuilder<VideoType>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(TaskInfo)]),
         () => ListBuilder<TaskInfo>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ImageInfo)]),
-        () => ListBuilder<ImageInfo>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(BackupManifestDto)]),
-        () => ListBuilder<BackupManifestDto>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SpecialViewOptionDto)]),
         () => ListBuilder<SpecialViewOptionDto>(),
       )
       ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(MediaType)]),
-        () => ListBuilder<MediaType>(),
-      )
-      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(int)]),
         () => ListBuilder<int>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(GeneralCommandType)]),
-        () => ListBuilder<GeneralCommandType>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(FontFile)]),
-        () => ListBuilder<FontFile>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ImageType)]),
-        () => ListBuilder<ImageType>(),
       )
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(MediaSegmentType)]),
@@ -924,10 +932,6 @@ Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(CollectionType)]),
         () => ListBuilder<CollectionType>(),
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(PlaylistUserPermissions)]),
-        () => ListBuilder<PlaylistUserPermissions>(),
       )
       ..add(const OneOfSerializer())
       ..add(const AnyOfSerializer())

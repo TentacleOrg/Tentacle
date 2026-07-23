@@ -42,7 +42,7 @@ class _$TransportStreamTimestampMeta {
   BuiltSet<TransportStreamTimestamp> get values => _$values;
 }
 
-mixin _$TransportStreamTimestampMixin {
+abstract class _$TransportStreamTimestampMixin {
   // ignore: non_constant_identifier_names
   _$TransportStreamTimestampMeta get TransportStreamTimestamp =>
       const _$TransportStreamTimestampMeta();

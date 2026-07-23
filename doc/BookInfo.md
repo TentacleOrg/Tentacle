@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **parentIndexNumber** | **int** |  | [optional] 
 **premiereDate** | [**DateTime**](DateTime.md) |  | [optional] 
 **isAutomated** | **bool** |  | [optional] 
-**seriesName** | **String** |  | [optional] 
+**seriesName** | **String** | Gets or sets the name of the series the book belongs to. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -51,7 +51,7 @@ class _$SubtitleDeliveryMethodMeta {
   BuiltSet<SubtitleDeliveryMethod> get values => _$values;
 }
 
-mixin _$SubtitleDeliveryMethodMixin {
+abstract class _$SubtitleDeliveryMethodMixin {
   // ignore: non_constant_identifier_names
   _$SubtitleDeliveryMethodMeta get SubtitleDeliveryMethod =>
       const _$SubtitleDeliveryMethodMeta();

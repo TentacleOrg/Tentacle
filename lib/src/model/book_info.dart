@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'book_info.g.dart';
 
-/// BookInfo
+/// The lookup info for books.
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.
@@ -23,7 +23,7 @@ part 'book_info.g.dart';
 /// * [parentIndexNumber]
 /// * [premiereDate]
 /// * [isAutomated]
-/// * [seriesName]
+/// * [seriesName] - Gets or sets the name of the series the book belongs to.
 @BuiltValue()
 abstract class BookInfo implements Built<BookInfo, BookInfoBuilder> {
   /// Gets or sets the name.
@@ -66,6 +66,7 @@ abstract class BookInfo implements Built<BookInfo, BookInfoBuilder> {
   @BuiltValueField(wireName: r'IsAutomated')
   bool? get isAutomated;
 
+  /// Gets or sets the name of the series the book belongs to.
   @BuiltValueField(wireName: r'SeriesName')
   String? get seriesName;
 

@@ -60,6 +60,8 @@ class ProfileConditionValue extends EnumClass {
   static const ProfileConditionValue videoRangeType = _$videoRangeType;
   @BuiltValueEnumConst(wireName: r'NumStreams')
   static const ProfileConditionValue numStreams = _$numStreams;
+  @BuiltValueEnumConst(wireName: r'VideoRotation')
+  static const ProfileConditionValue videoRotation = _$videoRotation;
 
   static Serializer<ProfileConditionValue> get serializer =>
       _$profileConditionValueSerializer;

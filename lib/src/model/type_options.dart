@@ -19,6 +19,8 @@ part 'type_options.g.dart';
 /// * [imageFetchers]
 /// * [imageFetcherOrder]
 /// * [imageOptions]
+/// * [similarItemProviders]
+/// * [similarItemProviderOrder]
 @BuiltValue()
 abstract class TypeOptions implements Built<TypeOptions, TypeOptionsBuilder> {
   @BuiltValueField(wireName: r'Type')
@@ -38,6 +40,12 @@ abstract class TypeOptions implements Built<TypeOptions, TypeOptionsBuilder> {
 
   @BuiltValueField(wireName: r'ImageOptions')
   BuiltList<ImageOption>? get imageOptions;
+
+  @BuiltValueField(wireName: r'SimilarItemProviders')
+  BuiltList<String>? get similarItemProviders;
+
+  @BuiltValueField(wireName: r'SimilarItemProviderOrder')
+  BuiltList<String>? get similarItemProviderOrder;
 
   TypeOptions._();
 
@@ -103,6 +111,20 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
         object.imageOptions,
         specifiedType:
             const FullType.nullable(BuiltList, [FullType(ImageOption)]),
+      );
+    }
+    if (object.similarItemProviders != null) {
+      yield r'SimilarItemProviders';
+      yield serializers.serialize(
+        object.similarItemProviders,
+        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+      );
+    }
+    if (object.similarItemProviderOrder != null) {
+      yield r'SimilarItemProviderOrder';
+      yield serializers.serialize(
+        object.similarItemProviderOrder,
+        specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
       );
     }
   }
@@ -182,6 +204,24 @@ class _$TypeOptionsSerializer implements PrimitiveSerializer<TypeOptions> {
           ) as BuiltList<ImageOption>?;
           if (valueDes == null) continue;
           result.imageOptions.replace(valueDes);
+          break;
+        case r'SimilarItemProviders':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>?;
+          if (valueDes == null) continue;
+          result.similarItemProviders.replace(valueDes);
+          break;
+        case r'SimilarItemProviderOrder':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(String)]),
+          ) as BuiltList<String>?;
+          if (valueDes == null) continue;
+          result.similarItemProviderOrder.replace(valueDes);
           break;
         default:
           unhandled.add(key);

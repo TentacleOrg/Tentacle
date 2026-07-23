@@ -54,7 +54,7 @@ class _$ProgramAudioMeta {
   BuiltSet<ProgramAudio> get values => _$values;
 }
 
-mixin _$ProgramAudioMixin {
+abstract class _$ProgramAudioMixin {
   // ignore: non_constant_identifier_names
   _$ProgramAudioMeta get ProgramAudio => const _$ProgramAudioMeta();
 }

@@ -7,7 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(PlaystateMessage, () {
-    // Gets or sets the data.
+    // A request to change the playstate of a session.
     // PlaystateRequest data
     test('to test the property `data`', () async {
       // TODO

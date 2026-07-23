@@ -53,8 +53,10 @@ Name | Type | Description | Notes
 **allowHevcEncoding** | **bool** | Gets or sets a value indicating whether HEVC encoding is enabled. | [optional] 
 **allowAv1Encoding** | **bool** | Gets or sets a value indicating whether AV1 encoding is enabled. | [optional] 
 **enableSubtitleExtraction** | **bool** | Gets or sets a value indicating whether subtitle extraction is enabled. | [optional] 
+**subtitleExtractionTimeoutMinutes** | **int** | Gets or sets the timeout for subtitle extraction in minutes. | [optional] 
 **hardwareDecodingCodecs** | **BuiltList&lt;String&gt;** | Gets or sets the codecs hardware encoding is used for. | [optional] 
 **allowOnDemandMetadataBasedKeyframeExtractionForExtensions** | **BuiltList&lt;String&gt;** | Gets or sets the file extensions on-demand metadata based keyframe extraction is enabled for. | [optional] 
+**hlsAudioSeekStrategy** | [**HlsAudioSeekStrategy**](HlsAudioSeekStrategy.md) | Gets or sets the method used for audio seeking in HLS. | [optional] [default to 'TrimCopiedAudio']
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

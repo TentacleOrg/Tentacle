@@ -52,7 +52,7 @@ class _$DownMixStereoAlgorithmsMeta {
   BuiltSet<DownMixStereoAlgorithms> get values => _$values;
 }
 
-mixin _$DownMixStereoAlgorithmsMixin {
+abstract class _$DownMixStereoAlgorithmsMixin {
   // ignore: non_constant_identifier_names
   _$DownMixStereoAlgorithmsMeta get DownMixStereoAlgorithms =>
       const _$DownMixStereoAlgorithmsMeta();

@@ -38,7 +38,7 @@ class _$RepeatModeMeta {
   BuiltSet<RepeatMode> get values => _$values;
 }
 
-mixin _$RepeatModeMixin {
+abstract class _$RepeatModeMixin {
   // ignore: non_constant_identifier_names
   _$RepeatModeMeta get RepeatMode => const _$RepeatModeMeta();
 }

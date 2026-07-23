@@ -75,7 +75,7 @@ abstract class AlbumInfo implements Built<AlbumInfo, AlbumInfoBuilder> {
 
   /// Gets or sets the artist provider ids.
   @BuiltValueField(wireName: r'ArtistProviderIds')
-  BuiltMap<String, String?>? get artistProviderIds;
+  BuiltMap<String, String>? get artistProviderIds;
 
   @BuiltValueField(wireName: r'SongInfos')
   BuiltList<SongInfo>? get songInfos;
@@ -192,8 +192,8 @@ class _$AlbumInfoSerializer implements PrimitiveSerializer<AlbumInfo> {
       yield r'ArtistProviderIds';
       yield serializers.serialize(
         object.artistProviderIds,
-        specifiedType: const FullType(
-            BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.songInfos != null) {
@@ -326,9 +326,9 @@ class _$AlbumInfoSerializer implements PrimitiveSerializer<AlbumInfo> {
         case r'ArtistProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(
-                BuiltMap, [FullType(String), FullType.nullable(String)]),
-          ) as BuiltMap<String, String?>;
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
+          ) as BuiltMap<String, String>;
           result.artistProviderIds.replace(valueDes);
           break;
         case r'SongInfos':
