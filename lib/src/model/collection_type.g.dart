@@ -89,7 +89,7 @@ class _$CollectionTypeMeta {
   BuiltSet<CollectionType> get values => _$values;
 }
 
-abstract class _$CollectionTypeMixin {
+mixin _$CollectionTypeMixin {
   // ignore: non_constant_identifier_names
   _$CollectionTypeMeta get CollectionType => const _$CollectionTypeMeta();
 }

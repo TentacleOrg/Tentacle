@@ -59,7 +59,7 @@ class _$MediaProtocolMeta {
   BuiltSet<MediaProtocol> get values => _$values;
 }
 
-abstract class _$MediaProtocolMixin {
+mixin _$MediaProtocolMixin {
   // ignore: non_constant_identifier_names
   _$MediaProtocolMeta get MediaProtocol => const _$MediaProtocolMeta();
 }

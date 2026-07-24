@@ -153,7 +153,7 @@ class _$PersonKindMeta {
   BuiltSet<PersonKind> get values => _$values;
 }
 
-abstract class _$PersonKindMixin {
+mixin _$PersonKindMixin {
   // ignore: non_constant_identifier_names
   _$PersonKindMeta get PersonKind => const _$PersonKindMeta();
 }

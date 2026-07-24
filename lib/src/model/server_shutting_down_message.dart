@@ -35,7 +35,7 @@ abstract class ServerShuttingDownMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ServerShuttingDownMessageBuilder b) =>
-      b..messageType = SessionMessageType.serverShuttingDown;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ServerShuttingDownMessage> get serializer =>

@@ -38,7 +38,7 @@ class _$VideoRangeMeta {
   BuiltSet<VideoRange> get values => _$values;
 }
 
-abstract class _$VideoRangeMixin {
+mixin _$VideoRangeMixin {
   // ignore: non_constant_identifier_names
   _$VideoRangeMeta get VideoRange => const _$VideoRangeMeta();
 }

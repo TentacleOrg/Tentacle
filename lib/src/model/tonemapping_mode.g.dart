@@ -49,7 +49,7 @@ class _$TonemappingModeMeta {
   BuiltSet<TonemappingMode> get values => _$values;
 }
 
-abstract class _$TonemappingModeMixin {
+mixin _$TonemappingModeMixin {
   // ignore: non_constant_identifier_names
   _$TonemappingModeMeta get TonemappingMode => const _$TonemappingModeMeta();
 }

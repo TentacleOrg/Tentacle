@@ -69,7 +69,7 @@ class _$ImageResolutionMeta {
   BuiltSet<ImageResolution> get values => _$values;
 }
 
-abstract class _$ImageResolutionMixin {
+mixin _$ImageResolutionMixin {
   // ignore: non_constant_identifier_names
   _$ImageResolutionMeta get ImageResolution => const _$ImageResolutionMeta();
 }

@@ -83,7 +83,7 @@ class _$PlayQueueUpdateReasonMeta {
   BuiltSet<PlayQueueUpdateReason> get values => _$values;
 }
 
-abstract class _$PlayQueueUpdateReasonMixin {
+mixin _$PlayQueueUpdateReasonMixin {
   // ignore: non_constant_identifier_names
   _$PlayQueueUpdateReasonMeta get PlayQueueUpdateReason =>
       const _$PlayQueueUpdateReasonMeta();

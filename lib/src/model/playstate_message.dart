@@ -38,8 +38,7 @@ abstract class PlaystateMessage
       _$PlaystateMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PlaystateMessageBuilder b) =>
-      b..messageType = SessionMessageType.playstate;
+  static void _defaults(PlaystateMessageBuilder b) => b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PlaystateMessage> get serializer =>

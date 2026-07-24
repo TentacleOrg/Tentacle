@@ -91,7 +91,7 @@ class _$VideoRangeTypeMeta {
   BuiltSet<VideoRangeType> get values => _$values;
 }
 
-abstract class _$VideoRangeTypeMixin {
+mixin _$VideoRangeTypeMixin {
   // ignore: non_constant_identifier_names
   _$VideoRangeTypeMeta get VideoRangeType => const _$VideoRangeTypeMeta();
 }

@@ -43,7 +43,7 @@ class _$KeepUntilMeta {
   BuiltSet<KeepUntil> get values => _$values;
 }
 
-abstract class _$KeepUntilMixin {
+mixin _$KeepUntilMixin {
   // ignore: non_constant_identifier_names
   _$KeepUntilMeta get KeepUntil => const _$KeepUntilMeta();
 }

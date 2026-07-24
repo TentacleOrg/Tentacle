@@ -83,7 +83,7 @@ class _$ExtraTypeMeta {
   BuiltSet<ExtraType> get values => _$values;
 }
 
-abstract class _$ExtraTypeMixin {
+mixin _$ExtraTypeMixin {
   // ignore: non_constant_identifier_names
   _$ExtraTypeMeta get ExtraType => const _$ExtraTypeMeta();
 }

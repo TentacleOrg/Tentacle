@@ -34,7 +34,7 @@ abstract class ServerRestartingMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ServerRestartingMessageBuilder b) =>
-      b..messageType = SessionMessageType.serverRestarting;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ServerRestartingMessage> get serializer =>

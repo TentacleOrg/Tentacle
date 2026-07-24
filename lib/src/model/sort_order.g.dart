@@ -33,7 +33,7 @@ class _$SortOrderMeta {
   BuiltSet<SortOrder> get values => _$values;
 }
 
-abstract class _$SortOrderMixin {
+mixin _$SortOrderMixin {
   // ignore: non_constant_identifier_names
   _$SortOrderMeta get SortOrder => const _$SortOrderMeta();
 }

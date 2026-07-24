@@ -34,7 +34,7 @@ class _$ChannelTypeMeta {
   BuiltSet<ChannelType> get values => _$values;
 }
 
-abstract class _$ChannelTypeMixin {
+mixin _$ChannelTypeMixin {
   // ignore: non_constant_identifier_names
   _$ChannelTypeMeta get ChannelType => const _$ChannelTypeMeta();
 }

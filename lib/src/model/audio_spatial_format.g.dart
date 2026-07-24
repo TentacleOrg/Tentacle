@@ -40,7 +40,7 @@ class _$AudioSpatialFormatMeta {
   BuiltSet<AudioSpatialFormat> get values => _$values;
 }
 
-abstract class _$AudioSpatialFormatMixin {
+mixin _$AudioSpatialFormatMixin {
   // ignore: non_constant_identifier_names
   _$AudioSpatialFormatMeta get AudioSpatialFormat =>
       const _$AudioSpatialFormatMeta();

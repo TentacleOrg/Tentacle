@@ -12,7 +12,7 @@ part 'activity_log_sort_by.g.dart';
 class ActivityLogSortBy extends EnumClass {
   /// Activity log sorting options.
   @BuiltValueEnumConst(wireName: r'Name')
-  static const ActivityLogSortBy name = _$name;
+  static const ActivityLogSortBy itemName = _$name;
 
   /// Activity log sorting options.
   @BuiltValueEnumConst(wireName: r'Overiew')

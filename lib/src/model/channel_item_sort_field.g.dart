@@ -64,7 +64,7 @@ class _$ChannelItemSortFieldMeta {
   BuiltSet<ChannelItemSortField> get values => _$values;
 }
 
-abstract class _$ChannelItemSortFieldMixin {
+mixin _$ChannelItemSortFieldMixin {
   // ignore: non_constant_identifier_names
   _$ChannelItemSortFieldMeta get ChannelItemSortField =>
       const _$ChannelItemSortFieldMeta();

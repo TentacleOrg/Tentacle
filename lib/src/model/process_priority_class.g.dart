@@ -57,7 +57,7 @@ class _$ProcessPriorityClassMeta {
   BuiltSet<ProcessPriorityClass> get values => _$values;
 }
 
-abstract class _$ProcessPriorityClassMixin {
+mixin _$ProcessPriorityClassMixin {
   // ignore: non_constant_identifier_names
   _$ProcessPriorityClassMeta get ProcessPriorityClass =>
       const _$ProcessPriorityClassMeta();

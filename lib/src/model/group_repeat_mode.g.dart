@@ -39,7 +39,7 @@ class _$GroupRepeatModeMeta {
   BuiltSet<GroupRepeatMode> get values => _$values;
 }
 
-abstract class _$GroupRepeatModeMixin {
+mixin _$GroupRepeatModeMixin {
   // ignore: non_constant_identifier_names
   _$GroupRepeatModeMeta get GroupRepeatMode => const _$GroupRepeatModeMeta();
 }

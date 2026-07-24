@@ -39,8 +39,7 @@ abstract class SessionsMessage
       _$SessionsMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SessionsMessageBuilder b) =>
-      b..messageType = SessionMessageType.sessions;
+  static void _defaults(SessionsMessageBuilder b) => b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SessionsMessage> get serializer =>

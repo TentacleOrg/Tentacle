@@ -34,7 +34,7 @@ class _$GroupQueueModeMeta {
   BuiltSet<GroupQueueMode> get values => _$values;
 }
 
-abstract class _$GroupQueueModeMixin {
+mixin _$GroupQueueModeMixin {
   // ignore: non_constant_identifier_names
   _$GroupQueueModeMeta get GroupQueueMode => const _$GroupQueueModeMeta();
 }

@@ -64,7 +64,7 @@ class _$ImageOrientationMeta {
   BuiltSet<ImageOrientation> get values => _$values;
 }
 
-abstract class _$ImageOrientationMixin {
+mixin _$ImageOrientationMixin {
   // ignore: non_constant_identifier_names
   _$ImageOrientationMeta get ImageOrientation => const _$ImageOrientationMeta();
 }

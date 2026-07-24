@@ -33,7 +33,7 @@ class _$IsoTypeMeta {
   BuiltSet<IsoType> get values => _$values;
 }
 
-abstract class _$IsoTypeMixin {
+mixin _$IsoTypeMixin {
   // ignore: non_constant_identifier_names
   _$IsoTypeMeta get IsoType => const _$IsoTypeMeta();
 }

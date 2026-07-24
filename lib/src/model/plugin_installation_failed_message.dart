@@ -42,7 +42,7 @@ abstract class PluginInstallationFailedMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(PluginInstallationFailedMessageBuilder b) =>
-      b..messageType = SessionMessageType.packageInstallationFailed;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PluginInstallationFailedMessage> get serializer =>

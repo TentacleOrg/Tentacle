@@ -39,7 +39,7 @@ abstract class LibraryChangedMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(LibraryChangedMessageBuilder b) =>
-      b..messageType = SessionMessageType.libraryChanged;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<LibraryChangedMessage> get serializer =>

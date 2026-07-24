@@ -42,7 +42,7 @@ class _$DatabaseLockingBehaviorTypesMeta {
   BuiltSet<DatabaseLockingBehaviorTypes> get values => _$values;
 }
 
-abstract class _$DatabaseLockingBehaviorTypesMixin {
+mixin _$DatabaseLockingBehaviorTypesMixin {
   // ignore: non_constant_identifier_names
   _$DatabaseLockingBehaviorTypesMeta get DatabaseLockingBehaviorTypes =>
       const _$DatabaseLockingBehaviorTypesMeta();

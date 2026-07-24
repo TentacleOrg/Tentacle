@@ -116,7 +116,7 @@ class _$PlaybackRequestTypeMeta {
   BuiltSet<PlaybackRequestType> get values => _$values;
 }
 
-abstract class _$PlaybackRequestTypeMixin {
+mixin _$PlaybackRequestTypeMixin {
   // ignore: non_constant_identifier_names
   _$PlaybackRequestTypeMeta get PlaybackRequestType =>
       const _$PlaybackRequestTypeMeta();

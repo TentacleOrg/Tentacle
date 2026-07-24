@@ -48,7 +48,7 @@ class _$TaskTriggerInfoTypeMeta {
   BuiltSet<TaskTriggerInfoType> get values => _$values;
 }
 
-abstract class _$TaskTriggerInfoTypeMixin {
+mixin _$TaskTriggerInfoTypeMixin {
   // ignore: non_constant_identifier_names
   _$TaskTriggerInfoTypeMeta get TaskTriggerInfoType =>
       const _$TaskTriggerInfoTypeMeta();

@@ -54,7 +54,7 @@ class _$MediaSegmentTypeMeta {
   BuiltSet<MediaSegmentType> get values => _$values;
 }
 
-abstract class _$MediaSegmentTypeMixin {
+mixin _$MediaSegmentTypeMixin {
   // ignore: non_constant_identifier_names
   _$MediaSegmentTypeMeta get MediaSegmentType => const _$MediaSegmentTypeMeta();
 }

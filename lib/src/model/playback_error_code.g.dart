@@ -41,7 +41,7 @@ class _$PlaybackErrorCodeMeta {
   BuiltSet<PlaybackErrorCode> get values => _$values;
 }
 
-abstract class _$PlaybackErrorCodeMixin {
+mixin _$PlaybackErrorCodeMixin {
   // ignore: non_constant_identifier_names
   _$PlaybackErrorCodeMeta get PlaybackErrorCode =>
       const _$PlaybackErrorCodeMeta();

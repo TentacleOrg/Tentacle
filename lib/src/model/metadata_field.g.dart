@@ -70,7 +70,7 @@ class _$MetadataFieldMeta {
   BuiltSet<MetadataField> get values => _$values;
 }
 
-abstract class _$MetadataFieldMixin {
+mixin _$MetadataFieldMixin {
   // ignore: non_constant_identifier_names
   _$MetadataFieldMeta get MetadataField => const _$MetadataFieldMeta();
 }

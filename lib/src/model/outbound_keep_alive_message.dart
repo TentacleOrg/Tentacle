@@ -35,7 +35,7 @@ abstract class OutboundKeepAliveMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(OutboundKeepAliveMessageBuilder b) =>
-      b..messageType = SessionMessageType.keepAlive;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<OutboundKeepAliveMessage> get serializer =>

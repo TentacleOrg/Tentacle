@@ -36,8 +36,7 @@ abstract class PlayMessage implements Built<PlayMessage, PlayMessageBuilder> {
   factory PlayMessage([void updates(PlayMessageBuilder b)]) = _$PlayMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PlayMessageBuilder b) =>
-      b..messageType = SessionMessageType.play;
+  static void _defaults(PlayMessageBuilder b) => b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PlayMessage> get serializer => _$PlayMessageSerializer();

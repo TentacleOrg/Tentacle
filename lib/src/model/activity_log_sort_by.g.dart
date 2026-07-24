@@ -62,7 +62,7 @@ class _$ActivityLogSortByMeta {
   BuiltSet<ActivityLogSortBy> get values => _$values;
 }
 
-abstract class _$ActivityLogSortByMixin {
+mixin _$ActivityLogSortByMixin {
   // ignore: non_constant_identifier_names
   _$ActivityLogSortByMeta get ActivityLogSortBy =>
       const _$ActivityLogSortByMeta();

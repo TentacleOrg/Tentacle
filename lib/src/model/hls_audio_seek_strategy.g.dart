@@ -36,7 +36,7 @@ class _$HlsAudioSeekStrategyMeta {
   BuiltSet<HlsAudioSeekStrategy> get values => _$values;
 }
 
-abstract class _$HlsAudioSeekStrategyMixin {
+mixin _$HlsAudioSeekStrategyMixin {
   // ignore: non_constant_identifier_names
   _$HlsAudioSeekStrategyMeta get HlsAudioSeekStrategy =>
       const _$HlsAudioSeekStrategyMeta();

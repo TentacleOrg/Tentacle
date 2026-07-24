@@ -34,7 +34,7 @@ class _$MediaStreamProtocolMeta {
   BuiltSet<MediaStreamProtocol> get values => _$values;
 }
 
-abstract class _$MediaStreamProtocolMixin {
+mixin _$MediaStreamProtocolMixin {
   // ignore: non_constant_identifier_names
   _$MediaStreamProtocolMeta get MediaStreamProtocol =>
       const _$MediaStreamProtocolMeta();

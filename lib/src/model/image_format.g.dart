@@ -54,7 +54,7 @@ class _$ImageFormatMeta {
   BuiltSet<ImageFormat> get values => _$values;
 }
 
-abstract class _$ImageFormatMixin {
+mixin _$ImageFormatMixin {
   // ignore: non_constant_identifier_names
   _$ImageFormatMeta get ImageFormat => const _$ImageFormatMeta();
 }

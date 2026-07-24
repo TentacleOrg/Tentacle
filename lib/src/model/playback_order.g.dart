@@ -34,7 +34,7 @@ class _$PlaybackOrderMeta {
   BuiltSet<PlaybackOrder> get values => _$values;
 }
 
-abstract class _$PlaybackOrderMixin {
+mixin _$PlaybackOrderMixin {
   // ignore: non_constant_identifier_names
   _$PlaybackOrderMeta get PlaybackOrder => const _$PlaybackOrderMeta();
 }
