@@ -3761,8 +3761,8 @@ class LibraryApi {
   /// Throws [DioException] if API call or serialization fails
   Future<Response<void>> refreshItem({
     required String itemId,
-    MetadataRefreshMode? metadataRefreshMode = 'None',
-    MetadataRefreshMode? imageRefreshMode = 'None',
+    MetadataRefreshMode? metadataRefreshMode = MetadataRefreshMode.none,
+    MetadataRefreshMode? imageRefreshMode = MetadataRefreshMode.none,
     bool? replaceAllMetadata = false,
     bool? replaceAllImages = false,
     bool? regenerateTrickplay = false,
