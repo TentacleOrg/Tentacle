@@ -48,9 +48,9 @@ changePubspecDartVersion:
 buildRunner:
 	@echo "Building runner for Jellyfin"
 	@cd jellyfin && flutter pub get
-	@cd jellyfin && flutter pub run build_runner build --delete-conflicting-outputs
+	@cd jellyfin && dart run build_runner build --delete-conflicting-outputs
 	@cd jellyseerr && flutter pub get
-	@cd jellyseerr && flutter pub run build_runner build --delete-conflicting-outputs
+	@cd jellyseerr && dart run build_runner build --delete-conflicting-outputs
 
 .PHONY: fixErrors
 fixErrors:
@@ -66,9 +66,11 @@ fixErrors:
 	@echo "Fixing jellyseerr error in lib/src/model/request_post_request_seasons.dart"
 	@sed $(SED_INPLACE) 's/OneOf1Enum/OneOf1/' jellyseerr/lib/src/model/request_post_request_seasons.dart
 	@echo "Fixing Jellyfin errors on messageTypes being strings"
-	@find ./jellyfin/lib -type f -name '*.dart' -exec perl -pi -e "s/\.\.messageType = const \._\(\'([^'])([^']*)\'\)/\.\.messageType = SessionMessageType.\L\1\E\2/g" {} \;
+	@dart tool/post_process_codegen.dart --fix-message-types
 	@echo "Fixing Jellyfin errors on unassigned enum defaults"
-	@find ./jellyfin/lib -type f -name '*.dart' ! -name '*.g.dart' -exec sed $(SED_INPLACE) -E "s/const \._\('[^']*'\)/null/g" {} \;
+	@dart tool/post_process_codegen.dart --fix-dot-shorthands
+	@echo "Fixing generated model serializers to produce structured JSON objects"
+	@dart tool/post_process_codegen.dart --fix-serializers
 
 .PHONY: test
 test:
