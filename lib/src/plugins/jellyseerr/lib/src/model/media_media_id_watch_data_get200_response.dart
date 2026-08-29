@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/media_media_id_watch_data_get200_response_data.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/media_media_id_watch_data_get200_response_data.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

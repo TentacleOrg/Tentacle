@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **likes** | **bool** | Gets or sets a value indicating whether this MediaBrowser.Model.Dto.UserItemDataDto is likes. | [optional] 
 **lastPlayedDate** | [**DateTime**](DateTime.md) | Gets or sets the last played date. | [optional] 
 **played** | **bool** | Gets or sets a value indicating whether this MediaBrowser.Model.Dto.UserItemDataDto is played. | [optional] 
-**key** | **String** | Gets or sets the key. | [optional] 
+**key** | **String** | Gets or sets the key. | 
 **itemId** | **String** | Gets or sets the item identifier. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

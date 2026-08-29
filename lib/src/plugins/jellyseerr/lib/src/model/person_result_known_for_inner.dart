@@ -3,10 +3,10 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/tv_result.dart';
-import 'package:tentacle/src/model/media_info.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/tv_result.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/media_info.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/movie_result.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/movie_result.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:one_of/one_of.dart';

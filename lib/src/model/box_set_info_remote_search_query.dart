@@ -12,7 +12,7 @@ part 'box_set_info_remote_search_query.g.dart';
 /// BoxSetInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo]
+/// * [searchInfo] - The lookup info for box sets.
 /// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
@@ -20,6 +20,7 @@ part 'box_set_info_remote_search_query.g.dart';
 abstract class BoxSetInfoRemoteSearchQuery
     implements
         Built<BoxSetInfoRemoteSearchQuery, BoxSetInfoRemoteSearchQueryBuilder> {
+  /// The lookup info for box sets.
   @BuiltValueField(wireName: r'SearchInfo')
   BoxSetInfo? get searchInfo;
 

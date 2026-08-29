@@ -19,7 +19,7 @@ void main() {
       // TODO
     });
 
-    // Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are \"NoLock\", \"Pessimistic\", \"Optimistic\".  Defaults to \"NoLock\".
+    // Gets or Sets the kind of locking behavior jellyfin should perform. Possible options are \"NoLock\", \"Pessimistic\", \"Optimistic\". Defaults to \"NoLock\".
     // DatabaseLockingBehaviorTypes lockingBehavior
     test('to test the property `lockingBehavior`', () async {
       // TODO

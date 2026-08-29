@@ -15,7 +15,7 @@ part 'user_dto.g.dart';
 /// Properties:
 /// * [name] - Gets or sets the name.
 /// * [serverId] - Gets or sets the server identifier.
-/// * [serverName] - Gets or sets the name of the server.  This is not used by the server and is for client-side usage only.
+/// * [serverName] - Gets or sets the name of the server. This is not used by the server and is for client-side usage only.
 /// * [id] - Gets or sets the id.
 /// * [primaryImageTag] - Gets or sets the primary image tag.
 /// * [hasPassword] - Gets or sets a value indicating whether this instance has password.
@@ -37,7 +37,7 @@ abstract class UserDto implements Built<UserDto, UserDtoBuilder> {
   @BuiltValueField(wireName: r'ServerId')
   String? get serverId;
 
-  /// Gets or sets the name of the server.  This is not used by the server and is for client-side usage only.
+  /// Gets or sets the name of the server. This is not used by the server and is for client-side usage only.
   @BuiltValueField(wireName: r'ServerName')
   String? get serverName;
 
@@ -50,10 +50,12 @@ abstract class UserDto implements Built<UserDto, UserDtoBuilder> {
   String? get primaryImageTag;
 
   /// Gets or sets a value indicating whether this instance has password.
+  @Deprecated('hasPassword has been deprecated')
   @BuiltValueField(wireName: r'HasPassword')
   bool? get hasPassword;
 
   /// Gets or sets a value indicating whether this instance has configured password.
+  @Deprecated('hasConfiguredPassword has been deprecated')
   @BuiltValueField(wireName: r'HasConfiguredPassword')
   bool? get hasConfiguredPassword;
 
@@ -148,21 +150,21 @@ class _$UserDtoSerializer implements PrimitiveSerializer<UserDto> {
       yield r'HasPassword';
       yield serializers.serialize(
         object.hasPassword,
-        specifiedType: const FullType(bool),
+        specifiedType: const FullType.nullable(bool),
       );
     }
     if (object.hasConfiguredPassword != null) {
       yield r'HasConfiguredPassword';
       yield serializers.serialize(
         object.hasConfiguredPassword,
-        specifiedType: const FullType(bool),
+        specifiedType: const FullType.nullable(bool),
       );
     }
     if (object.hasConfiguredEasyPassword != null) {
       yield r'HasConfiguredEasyPassword';
       yield serializers.serialize(
         object.hasConfiguredEasyPassword,
-        specifiedType: const FullType(bool),
+        specifiedType: const FullType.nullable(bool),
       );
     }
     if (object.enableAutoLogin != null) {
@@ -274,22 +276,25 @@ class _$UserDtoSerializer implements PrimitiveSerializer<UserDto> {
         case r'HasPassword':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.hasPassword = valueDes;
           break;
         case r'HasConfiguredPassword':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.hasConfiguredPassword = valueDes;
           break;
         case r'HasConfiguredEasyPassword':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(bool),
-          ) as bool;
+            specifiedType: const FullType.nullable(bool),
+          ) as bool?;
+          if (valueDes == null) continue;
           result.hasConfiguredEasyPassword = valueDes;
           break;
         case r'EnableAutoLogin':

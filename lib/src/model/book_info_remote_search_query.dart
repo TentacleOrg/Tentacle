@@ -12,7 +12,7 @@ part 'book_info_remote_search_query.g.dart';
 /// BookInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo]
+/// * [searchInfo] - The lookup info for books.
 /// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
@@ -20,6 +20,7 @@ part 'book_info_remote_search_query.g.dart';
 abstract class BookInfoRemoteSearchQuery
     implements
         Built<BookInfoRemoteSearchQuery, BookInfoRemoteSearchQueryBuilder> {
+  /// The lookup info for books.
   @BuiltValueField(wireName: r'SearchInfo')
   BookInfo? get searchInfo;
 

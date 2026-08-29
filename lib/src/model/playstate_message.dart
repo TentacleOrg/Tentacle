@@ -13,13 +13,13 @@ part 'playstate_message.g.dart';
 /// Playstate message.
 ///
 /// Properties:
-/// * [data] - Gets or sets the data.
+/// * [data] - A request to change the playstate of a session.
 /// * [messageId] - Gets or sets the message id.
 /// * [messageType] - The different kinds of messages that are used in the WebSocket api.
 @BuiltValue()
 abstract class PlaystateMessage
     implements Built<PlaystateMessage, PlaystateMessageBuilder> {
-  /// Gets or sets the data.
+  /// A request to change the playstate of a session.
   @BuiltValueField(wireName: r'Data')
   PlaystateRequest? get data;
 
@@ -38,8 +38,7 @@ abstract class PlaystateMessage
       _$PlaystateMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(PlaystateMessageBuilder b) =>
-      b..messageType = SessionMessageType.playstate;
+  static void _defaults(PlaystateMessageBuilder b) => b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<PlaystateMessage> get serializer =>

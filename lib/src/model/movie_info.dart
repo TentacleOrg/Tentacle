@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'movie_info.g.dart';
 
-/// MovieInfo
+/// The lookup info for movies.
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.

@@ -127,7 +127,7 @@ void main() {
       // TODO
     });
 
-    // Gets or sets the PublishedServerUriBySubnet  Gets or sets PublishedServerUri to advertise for specific subnets.
+    // Gets or sets the PublishedServerUriBySubnet Gets or sets PublishedServerUri to advertise for specific subnets.
     // BuiltList<String> publishedServerUriBySubnet
     test('to test the property `publishedServerUriBySubnet`', () async {
       // TODO

@@ -40,7 +40,7 @@ abstract class RefreshProgressMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RefreshProgressMessageBuilder b) =>
-      b..messageType = SessionMessageType.refreshProgress;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<RefreshProgressMessage> get serializer =>

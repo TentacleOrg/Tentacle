@@ -277,6 +277,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the timeout for subtitle extraction in minutes.
+    // int subtitleExtractionTimeoutMinutes
+    test('to test the property `subtitleExtractionTimeoutMinutes`', () async {
+      // TODO
+    });
+
     // Gets or sets the codecs hardware encoding is used for.
     // BuiltList<String> hardwareDecodingCodecs
     test('to test the property `hardwareDecodingCodecs`', () async {
@@ -288,6 +294,12 @@ void main() {
     test(
         'to test the property `allowOnDemandMetadataBasedKeyframeExtractionForExtensions`',
         () async {
+      // TODO
+    });
+
+    // Gets or sets the method used for audio seeking in HLS.
+    // HlsAudioSeekStrategy hlsAudioSeekStrategy (default value: 'TrimCopiedAudio')
+    test('to test the property `hlsAudioSeekStrategy`', () async {
       // TODO
     });
   });

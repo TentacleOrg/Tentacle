@@ -27,13 +27,6 @@ void main() {
       // TODO
     });
 
-    // Gets network paths.
-    //
-    //Future<BuiltList<FileSystemEntryInfo>> getNetworkShares() async
-    test('test getNetworkShares', () async {
-      // TODO
-    });
-
     // Gets the parent path of a given path.
     //
     //Future<String> getParentPath(String path) async

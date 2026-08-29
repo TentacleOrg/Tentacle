@@ -10,11 +10,11 @@ import 'package:built_value/serializer.dart';
 part 'media_stream_protocol.g.dart';
 
 class MediaStreamProtocol extends EnumClass {
-  /// Media streaming protocol.  Lowercase for backwards compatibility.
+  /// Media streaming protocol. Lowercase for backwards compatibility.
   @BuiltValueEnumConst(wireName: r'http')
   static const MediaStreamProtocol http = _$http;
 
-  /// Media streaming protocol.  Lowercase for backwards compatibility.
+  /// Media streaming protocol. Lowercase for backwards compatibility.
   @BuiltValueEnumConst(wireName: r'hls')
   static const MediaStreamProtocol hls = _$hls;
 

@@ -13,7 +13,7 @@ downloadApis:
 	@echo "Download latest Jellyseerr OpenAPI"
 	@wget -O jellyseerr-openapi-stable.yml https://api-docs.overseerr.dev/overseerr-api.yml --quiet
 
-.phony: updateApis
+.PHONY: generateApis
 generateApis:
 	@echo "Removing old Jellyfin API"
 	@rm -rf jellyfin
@@ -24,33 +24,33 @@ generateApis:
 		-i jellyfin/jellyfin-openapi-stable.json \
 		-g dart-dio \
 		-o jellyfin \
-		--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubLibarary="tentacle.api.jellyfin",pubVersion=$(shell yq eval '.openapi' jellyfin/jellyfin-openapi-stable.json),allowUnicodeIdentifiers=false \
+		--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubLibarary="tentacle.api.jellyfin",pubVersion=$$(yq eval '.openapi' jellyfin/jellyfin-openapi-stable.json),allowUnicodeIdentifiers=false \
 		--enable-post-process-file
-		@echo "Removing old Jellyseerr API"
-		@rm -rf jellyseerr
-		@echo "Generating Jellyseerr API"
-		@mkdir jellyseerr
-		@mv jellyseerr-openapi-stable.yml jellyseerr/jellyseerr-openapi-stable.yml
-		@openapi-generator-cli generate \
-			-i jellyseerr/jellyseerr-openapi-stable.yml \
-			-g dart-dio \
-			-o jellyseerr \
-			--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubLibarary="jellyseer.api.jellyfin",pubVersion=$(shell yq eval '.openapi' jellyseerr/jellyseerr-openapi-stable.yml),allowUnicodeIdentifiers=false \
-			--enable-post-process-file
+	@echo "Removing old Jellyseerr API"
+	@rm -rf jellyseerr
+	@echo "Generating Jellyseerr API"
+	@mkdir jellyseerr
+	@mv jellyseerr-openapi-stable.yml jellyseerr/jellyseerr-openapi-stable.yml
+	@openapi-generator-cli generate \
+		-i jellyseerr/jellyseerr-openapi-stable.yml \
+		-g dart-dio \
+		-o jellyseerr \
+		--additional-properties=pubName=tentacle,pubAuthor=Kara-Zor-El,pubAuthorEmail="kara.wilson.2005.08@gmail.com",pubLibarary="jellyseer.api.jellyfin",pubVersion=$$(yq eval '.info.version' jellyseerr/jellyseerr-openapi-stable.yml),allowUnicodeIdentifiers=false \
+		--enable-post-process-file
 
 .PHONY: changePubspecDartVersion
 changePubspecDartVersion:
 	@echo "Changing pubspec.yaml version"
-	@sed -i '' 's/sdk: .*/sdk: ">=3.0.0 <4.0.0"/' jellyfin/pubspec.yaml
-	@sed -i '' 's/sdk: .*/sdk: ">=3.0.0 <4.0.0"/' jellyseerr/pubspec.yaml
+	@sed $(SED_INPLACE) 's/sdk: .*/sdk: ">=3.0.0 <4.0.0"/' jellyfin/pubspec.yaml
+	@sed $(SED_INPLACE) 's/sdk: .*/sdk: ">=3.0.0 <4.0.0"/' jellyseerr/pubspec.yaml
 
 .PHONY: buildRunner
 buildRunner:
 	@echo "Building runner for Jellyfin"
 	@cd jellyfin && flutter pub get
-	@cd jellyfin && flutter pub run build_runner build --delete-conflicting-outputs
+	@cd jellyfin && dart run build_runner build --delete-conflicting-outputs
 	@cd jellyseerr && flutter pub get
-	@cd jellyseerr && flutter pub run build_runner build --delete-conflicting-outputs
+	@cd jellyseerr && dart run build_runner build --delete-conflicting-outputs
 
 .PHONY: fixErrors
 fixErrors:
@@ -63,14 +63,14 @@ fixErrors:
 	@sed $(SED_INPLACE) 's/const MetadataField name/const MetadataField metadataName/' jellyfin/lib/src/model/metadata_field.dart
 	@echo "Fixing Jellyfin errors in lib/src/model/item_sort_by.dart"
 	@sed $(SED_INPLACE) 's/const ItemSortBy name/const ItemSortBy itemName/' jellyfin/lib/src/model/item_sort_by.dart
-	@echo "Fixing jellyfin errors in lib/src/api/item_refresh_api.dart"
-	@sed $(SED_INPLACE) "s/= 'None'/ = MetadataRefreshMode.none/" jellyfin/lib/src/api/item_refresh_api.dart
-	@echo "Fixing jellyseerr error in lib/src/model/request_get_request_seasons.dart"
+	@echo "Fixing jellyseerr error in lib/src/model/request_post_request_seasons.dart"
 	@sed $(SED_INPLACE) 's/OneOf1Enum/OneOf1/' jellyseerr/lib/src/model/request_post_request_seasons.dart
 	@echo "Fixing Jellyfin errors on messageTypes being strings"
-	@find ./jellyfin/lib -type f -name '*.dart' -exec perl -pi -e "s/\.\.messageType = const \._\(\'([^'])([^']*)\'\)/\.\.messageType = SessionMessageType.\L\1\E\2/g" {} \;
+	@dart tool/post_process_codegen.dart --fix-message-types
 	@echo "Fixing Jellyfin errors on unassigned enum defaults"
-	@find ./jellyfin/lib -type f -name '*.dart' ! -name '*.g.dart' -exec sed $(SED_INPLACE) -E "s/const \._\('[^']*'\)/null/g" {} \;
+	@dart tool/post_process_codegen.dart --fix-dot-shorthands
+	@echo "Fixing generated model serializers to produce structured JSON objects"
+	@dart tool/post_process_codegen.dart --fix-serializers
 
 .PHONY: test
 test:
@@ -88,17 +88,24 @@ format:
 
 .PHONY: moveToPosition
 moveToPosition:
-	@mv jellyfin/README.md jellyfin/jellyfin-README.md
-	@mv jellyseerr/README.md ./jellyseerr-README.md
-	@rm -rf {lib,test,doc,build}
+	@echo "Moving Jellyfin and Jellyseerr APIs to their final positions"
+	@test -f jellyfin/README.md && mv jellyfin/README.md jellyfin/jellyfin-README.md || true
+	@test -f jellyseerr/README.md && mv jellyseerr/README.md ./jellyseerr-README.md || true
+	@rm -rf lib test doc build
 	@mv jellyfin/* .
 	@mkdir -p lib/src/plugins/jellyseerr
 	@mv jellyseerr/* lib/src/plugins/jellyseerr/
 	@rm -rf jellyfin
 	@rm -rf jellyseerr
 
+.PHONY: fixJellyseerrImports
+fixJellyseerrImports:
+	@echo "Fixing Jellyseerr imports after move"
+	@find ./lib/src/plugins/jellyseerr -type f -name '*.dart' ! -name '*.g.dart' \
+		-exec sed $(SED_INPLACE) 's|package:tentacle/src/|package:tentacle/src/plugins/jellyseerr/lib/src/|g' {} +
+
 .PHONY: all
-all: downloadApis generateApis changePubspecDartVersion fixErrors buildRunner test format moveToPosition
+all: downloadApis generateApis changePubspecDartVersion fixErrors buildRunner test format moveToPosition fixJellyseerrImports
 
 .PHONY: help
 help:
@@ -112,5 +119,7 @@ help:
 	@echo " - fixErrors: Fix errors in the Jellyfin and Jellyseerr APIs"
 	@echo " - test: Test the Jellyfin and Jellyseerr APIs"
 	@echo " - format: Format the Jellyfin and Jellyseerr APIs"
+	@echo " - moveToPosition: Move APIs to their final positions"
+	@echo " - fixJellyseerrImports: Fix package imports in jellyseerr dart files"
 	@echo " - all: Run all the above commands"
 	@echo " - help: Show this help message"

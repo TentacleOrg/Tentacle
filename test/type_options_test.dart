@@ -36,5 +36,15 @@ void main() {
     test('to test the property `imageOptions`', () async {
       // TODO
     });
+
+    // BuiltList<String> similarItemProviders
+    test('to test the property `similarItemProviders`', () async {
+      // TODO
+    });
+
+    // BuiltList<String> similarItemProviderOrder
+    test('to test the property `similarItemProviderOrder`', () async {
+      // TODO
+    });
   });
 }

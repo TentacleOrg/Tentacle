@@ -8,7 +8,7 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**searchInfo** | [**PersonLookupInfo**](PersonLookupInfo.md) |  | [optional] 
+**searchInfo** | [**PersonLookupInfo**](PersonLookupInfo.md) | The lookup info for persons. | [optional] 
 **itemId** | **String** |  | [optional] 
 **searchProviderName** | **String** | Gets or sets the provider name to search within if set. | [optional] 
 **includeDisabledProviders** | **bool** | Gets or sets a value indicating whether disabled providers should be included. | [optional] 

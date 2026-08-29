@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'person_lookup_info.g.dart';
 
-/// PersonLookupInfo
+/// The lookup info for persons.
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.

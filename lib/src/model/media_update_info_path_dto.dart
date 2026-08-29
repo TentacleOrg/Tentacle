@@ -12,7 +12,7 @@ part 'media_update_info_path_dto.g.dart';
 ///
 /// Properties:
 /// * [path] - Gets or sets media path.
-/// * [updateType] - Gets or sets media update type.  Created, Modified, Deleted.
+/// * [updateType] - Gets or sets media update type. Created, Modified, Deleted.
 @BuiltValue()
 abstract class MediaUpdateInfoPathDto
     implements Built<MediaUpdateInfoPathDto, MediaUpdateInfoPathDtoBuilder> {
@@ -20,7 +20,7 @@ abstract class MediaUpdateInfoPathDto
   @BuiltValueField(wireName: r'Path')
   String? get path;
 
-  /// Gets or sets media update type.  Created, Modified, Deleted.
+  /// Gets or sets media update type. Created, Modified, Deleted.
   @BuiltValueField(wireName: r'UpdateType')
   String? get updateType;
 

@@ -53,6 +53,8 @@ const ProfileConditionValue _$videoRangeType =
     const ProfileConditionValue._('videoRangeType');
 const ProfileConditionValue _$numStreams =
     const ProfileConditionValue._('numStreams');
+const ProfileConditionValue _$videoRotation =
+    const ProfileConditionValue._('videoRotation');
 
 ProfileConditionValue _$valueOf(String name) {
   switch (name) {
@@ -106,6 +108,8 @@ ProfileConditionValue _$valueOf(String name) {
       return _$videoRangeType;
     case 'numStreams':
       return _$numStreams;
+    case 'videoRotation':
+      return _$videoRotation;
     default:
       throw ArgumentError(name);
   }
@@ -138,6 +142,7 @@ final BuiltSet<ProfileConditionValue> _$values =
   _$audioBitDepth,
   _$videoRangeType,
   _$numStreams,
+  _$videoRotation,
 ]);
 
 class _$ProfileConditionValueMeta {
@@ -167,6 +172,7 @@ class _$ProfileConditionValueMeta {
   ProfileConditionValue get audioBitDepth => _$audioBitDepth;
   ProfileConditionValue get videoRangeType => _$videoRangeType;
   ProfileConditionValue get numStreams => _$numStreams;
+  ProfileConditionValue get videoRotation => _$videoRotation;
   ProfileConditionValue valueOf(String name) => _$valueOf(name);
   BuiltSet<ProfileConditionValue> get values => _$values;
 }
@@ -208,6 +214,7 @@ class _$ProfileConditionValueSerializer
     'audioBitDepth': 'AudioBitDepth',
     'videoRangeType': 'VideoRangeType',
     'numStreams': 'NumStreams',
+    'videoRotation': 'VideoRotation',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'AudioChannels': 'audioChannels',
@@ -235,6 +242,7 @@ class _$ProfileConditionValueSerializer
     'AudioBitDepth': 'audioBitDepth',
     'VideoRangeType': 'videoRangeType',
     'NumStreams': 'numStreams',
+    'VideoRotation': 'videoRotation',
   };
 
   @override

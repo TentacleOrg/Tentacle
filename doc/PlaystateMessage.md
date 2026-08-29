@@ -8,7 +8,7 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**PlaystateRequest**](PlaystateRequest.md) | Gets or sets the data. | [optional] 
+**data** | [**PlaystateRequest**](PlaystateRequest.md) | A request to change the playstate of a session. | [optional] 
 **messageId** | **String** | Gets or sets the message id. | [optional] 
 **messageType** | [**SessionMessageType**](SessionMessageType.md) | The different kinds of messages that are used in the WebSocket api. | [optional] [default to 'Playstate']
 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **type** | **String** | Gets or sets the type. | [optional] 
 **metadataFetchers** | [**BuiltList&lt;LibraryOptionInfoDto&gt;**](LibraryOptionInfoDto.md) | Gets or sets the metadata fetchers. | [optional] 
 **imageFetchers** | [**BuiltList&lt;LibraryOptionInfoDto&gt;**](LibraryOptionInfoDto.md) | Gets or sets the image fetchers. | [optional] 
+**similarItemProviders** | [**BuiltList&lt;LibraryOptionInfoDto&gt;**](LibraryOptionInfoDto.md) | Gets or sets the similar item providers. | [optional] 
 **supportedImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md) | Gets or sets the supported image types. | [optional] 
 **defaultImageOptions** | [**BuiltList&lt;ImageOption&gt;**](ImageOption.md) | Gets or sets the default image options. | [optional] 
 

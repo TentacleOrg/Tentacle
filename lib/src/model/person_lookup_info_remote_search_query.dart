@@ -12,7 +12,7 @@ part 'person_lookup_info_remote_search_query.g.dart';
 /// PersonLookupInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo]
+/// * [searchInfo] - The lookup info for persons.
 /// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
@@ -21,6 +21,7 @@ abstract class PersonLookupInfoRemoteSearchQuery
     implements
         Built<PersonLookupInfoRemoteSearchQuery,
             PersonLookupInfoRemoteSearchQueryBuilder> {
+  /// The lookup info for persons.
   @BuiltValueField(wireName: r'SearchInfo')
   PersonLookupInfo? get searchInfo;
 

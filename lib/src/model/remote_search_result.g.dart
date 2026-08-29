@@ -10,7 +10,7 @@ class _$RemoteSearchResult extends RemoteSearchResult {
   @override
   final String? name;
   @override
-  final BuiltMap<String, String?>? providerIds;
+  final BuiltMap<String, String>? providerIds;
   @override
   final int? productionYear;
   @override
@@ -123,10 +123,10 @@ class RemoteSearchResultBuilder
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
-  MapBuilder<String, String?>? _providerIds;
-  MapBuilder<String, String?> get providerIds =>
-      _$this._providerIds ??= MapBuilder<String, String?>();
-  set providerIds(MapBuilder<String, String?>? providerIds) =>
+  MapBuilder<String, String>? _providerIds;
+  MapBuilder<String, String> get providerIds =>
+      _$this._providerIds ??= MapBuilder<String, String>();
+  set providerIds(MapBuilder<String, String>? providerIds) =>
       _$this._providerIds = providerIds;
 
   int? _productionYear;

@@ -12,11 +12,5 @@ void main() {
     test('to test the property `enableRemoteAccess`', () async {
       // TODO
     });
-
-    // Gets or sets a value indicating whether enable automatic port mapping.
-    // bool enableAutomaticPortMapping
-    test('to test the property `enableAutomaticPortMapping`', () async {
-      // TODO
-    });
   });
 }

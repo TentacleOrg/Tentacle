@@ -110,6 +110,10 @@ class PersonKind extends EnumClass {
   @BuiltValueEnumConst(wireName: r'Translator')
   static const PersonKind translator = _$translator;
 
+  /// The person kind.
+  @BuiltValueEnumConst(wireName: r'Narrator')
+  static const PersonKind narrator = _$narrator;
+
   static Serializer<PersonKind> get serializer => _$personKindSerializer;
 
   const PersonKind._(String name) : super(name);

@@ -98,10 +98,14 @@ class _$EncodingOptions extends EncodingOptions {
   @override
   final bool? enableSubtitleExtraction;
   @override
+  final int? subtitleExtractionTimeoutMinutes;
+  @override
   final BuiltList<String>? hardwareDecodingCodecs;
   @override
   final BuiltList<String>?
       allowOnDemandMetadataBasedKeyframeExtractionForExtensions;
+  @override
+  final HlsAudioSeekStrategy? hlsAudioSeekStrategy;
 
   factory _$EncodingOptions([void Function(EncodingOptionsBuilder)? updates]) =>
       (EncodingOptionsBuilder()..update(updates))._build();
@@ -152,8 +156,10 @@ class _$EncodingOptions extends EncodingOptions {
       this.allowHevcEncoding,
       this.allowAv1Encoding,
       this.enableSubtitleExtraction,
+      this.subtitleExtractionTimeoutMinutes,
       this.hardwareDecodingCodecs,
-      this.allowOnDemandMetadataBasedKeyframeExtractionForExtensions})
+      this.allowOnDemandMetadataBasedKeyframeExtractionForExtensions,
+      this.hlsAudioSeekStrategy})
       : super._();
   @override
   EncodingOptions rebuild(void Function(EncodingOptionsBuilder) updates) =>
@@ -216,9 +222,12 @@ class _$EncodingOptions extends EncodingOptions {
         allowHevcEncoding == other.allowHevcEncoding &&
         allowAv1Encoding == other.allowAv1Encoding &&
         enableSubtitleExtraction == other.enableSubtitleExtraction &&
+        subtitleExtractionTimeoutMinutes ==
+            other.subtitleExtractionTimeoutMinutes &&
         hardwareDecodingCodecs == other.hardwareDecodingCodecs &&
         allowOnDemandMetadataBasedKeyframeExtractionForExtensions ==
-            other.allowOnDemandMetadataBasedKeyframeExtractionForExtensions;
+            other.allowOnDemandMetadataBasedKeyframeExtractionForExtensions &&
+        hlsAudioSeekStrategy == other.hlsAudioSeekStrategy;
   }
 
   @override
@@ -269,9 +278,11 @@ class _$EncodingOptions extends EncodingOptions {
     _$hash = $jc(_$hash, allowHevcEncoding.hashCode);
     _$hash = $jc(_$hash, allowAv1Encoding.hashCode);
     _$hash = $jc(_$hash, enableSubtitleExtraction.hashCode);
+    _$hash = $jc(_$hash, subtitleExtractionTimeoutMinutes.hashCode);
     _$hash = $jc(_$hash, hardwareDecodingCodecs.hashCode);
     _$hash = $jc(_$hash,
         allowOnDemandMetadataBasedKeyframeExtractionForExtensions.hashCode);
+    _$hash = $jc(_$hash, hlsAudioSeekStrategy.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -329,9 +340,12 @@ class _$EncodingOptions extends EncodingOptions {
           ..add('allowHevcEncoding', allowHevcEncoding)
           ..add('allowAv1Encoding', allowAv1Encoding)
           ..add('enableSubtitleExtraction', enableSubtitleExtraction)
+          ..add('subtitleExtractionTimeoutMinutes',
+              subtitleExtractionTimeoutMinutes)
           ..add('hardwareDecodingCodecs', hardwareDecodingCodecs)
           ..add('allowOnDemandMetadataBasedKeyframeExtractionForExtensions',
-              allowOnDemandMetadataBasedKeyframeExtractionForExtensions))
+              allowOnDemandMetadataBasedKeyframeExtractionForExtensions)
+          ..add('hlsAudioSeekStrategy', hlsAudioSeekStrategy))
         .toString();
   }
 }
@@ -580,6 +594,13 @@ class EncodingOptionsBuilder
   set enableSubtitleExtraction(bool? enableSubtitleExtraction) =>
       _$this._enableSubtitleExtraction = enableSubtitleExtraction;
 
+  int? _subtitleExtractionTimeoutMinutes;
+  int? get subtitleExtractionTimeoutMinutes =>
+      _$this._subtitleExtractionTimeoutMinutes;
+  set subtitleExtractionTimeoutMinutes(int? subtitleExtractionTimeoutMinutes) =>
+      _$this._subtitleExtractionTimeoutMinutes =
+          subtitleExtractionTimeoutMinutes;
+
   ListBuilder<String>? _hardwareDecodingCodecs;
   ListBuilder<String> get hardwareDecodingCodecs =>
       _$this._hardwareDecodingCodecs ??= ListBuilder<String>();
@@ -597,6 +618,12 @@ class EncodingOptionsBuilder
               allowOnDemandMetadataBasedKeyframeExtractionForExtensions) =>
       _$this._allowOnDemandMetadataBasedKeyframeExtractionForExtensions =
           allowOnDemandMetadataBasedKeyframeExtractionForExtensions;
+
+  HlsAudioSeekStrategy? _hlsAudioSeekStrategy;
+  HlsAudioSeekStrategy? get hlsAudioSeekStrategy =>
+      _$this._hlsAudioSeekStrategy;
+  set hlsAudioSeekStrategy(HlsAudioSeekStrategy? hlsAudioSeekStrategy) =>
+      _$this._hlsAudioSeekStrategy = hlsAudioSeekStrategy;
 
   EncodingOptionsBuilder() {
     EncodingOptions._defaults(this);
@@ -652,10 +679,12 @@ class EncodingOptionsBuilder
       _allowHevcEncoding = $v.allowHevcEncoding;
       _allowAv1Encoding = $v.allowAv1Encoding;
       _enableSubtitleExtraction = $v.enableSubtitleExtraction;
+      _subtitleExtractionTimeoutMinutes = $v.subtitleExtractionTimeoutMinutes;
       _hardwareDecodingCodecs = $v.hardwareDecodingCodecs?.toBuilder();
       _allowOnDemandMetadataBasedKeyframeExtractionForExtensions = $v
           .allowOnDemandMetadataBasedKeyframeExtractionForExtensions
           ?.toBuilder();
+      _hlsAudioSeekStrategy = $v.hlsAudioSeekStrategy;
       _$v = null;
     }
     return this;
@@ -726,10 +755,12 @@ class EncodingOptionsBuilder
             allowHevcEncoding: allowHevcEncoding,
             allowAv1Encoding: allowAv1Encoding,
             enableSubtitleExtraction: enableSubtitleExtraction,
+            subtitleExtractionTimeoutMinutes: subtitleExtractionTimeoutMinutes,
             hardwareDecodingCodecs: _hardwareDecodingCodecs?.build(),
             allowOnDemandMetadataBasedKeyframeExtractionForExtensions:
                 _allowOnDemandMetadataBasedKeyframeExtractionForExtensions
                     ?.build(),
+            hlsAudioSeekStrategy: hlsAudioSeekStrategy,
           );
     } catch (_) {
       late String _$failedField;

@@ -882,9 +882,20 @@ void main() {
       // TODO
     });
 
+    // Gets or sets the gain required for audio normalization. This field is inherited from music album normalization gain.
+    // double albumNormalizationGain
+    test('to test the property `albumNormalizationGain`', () async {
+      // TODO
+    });
+
     // Gets or sets the current program.
     // BaseItemDto currentProgram
     test('to test the property `currentProgram`', () async {
+      // TODO
+    });
+
+    // String originalLanguage
+    test('to test the property `originalLanguage`', () async {
       // TODO
     });
   });

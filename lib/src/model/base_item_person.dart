@@ -37,7 +37,7 @@ abstract class BaseItemPerson
   /// Gets or sets the type.
   @BuiltValueField(wireName: r'Type')
   PersonKind? get type;
-  // enum typeEnum {  Unknown,  Actor,  Director,  Composer,  Writer,  GuestStar,  Producer,  Conductor,  Lyricist,  Arranger,  Engineer,  Mixer,  Remixer,  Creator,  Artist,  AlbumArtist,  Author,  Illustrator,  Penciller,  Inker,  Colorist,  Letterer,  CoverArtist,  Editor,  Translator,  };
+  // enum typeEnum {  Unknown,  Actor,  Director,  Composer,  Writer,  GuestStar,  Producer,  Conductor,  Lyricist,  Arranger,  Engineer,  Mixer,  Remixer,  Creator,  Artist,  AlbumArtist,  Author,  Illustrator,  Penciller,  Inker,  Colorist,  Letterer,  CoverArtist,  Editor,  Translator,  Narrator,  };
 
   /// Gets or sets the primary image tag.
   @BuiltValueField(wireName: r'PrimaryImageTag')

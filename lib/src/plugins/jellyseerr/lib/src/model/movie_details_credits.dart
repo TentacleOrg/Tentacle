@@ -4,8 +4,8 @@
 
 // ignore_for_file: unused_element
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/crew.dart';
-import 'package:tentacle/src/model/cast.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/crew.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/cast.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

@@ -42,7 +42,7 @@ abstract class ScheduledTasksInfoMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ScheduledTasksInfoMessageBuilder b) =>
-      b..messageType = SessionMessageType.scheduledTasksInfo;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ScheduledTasksInfoMessage> get serializer =>

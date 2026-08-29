@@ -8,8 +8,8 @@ import 'package:tentacle/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tunerChannels** | [**BuiltList&lt;TunerChannelMapping&gt;**](TunerChannelMapping.md) | Gets or sets list of tuner channels. | [optional] 
-**providerChannels** | [**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md) | Gets or sets list of provider channels. | [optional] 
+**tunerChannels** | [**BuiltList&lt;TunerChannelMapping&gt;**](TunerChannelMapping.md) | Gets or sets list of tuner channels. | 
+**providerChannels** | [**BuiltList&lt;NameIdPair&gt;**](NameIdPair.md) | Gets or sets list of provider channels. | 
 **mappings** | [**BuiltList&lt;NameValuePair&gt;**](NameValuePair.md) | Gets or sets list of mappings. | [optional] 
 **providerName** | **String** | Gets or sets provider name. | [optional] 
 

@@ -24,7 +24,7 @@ abstract class UserDataChangeInfo
 
   /// Gets or sets the user data list.
   @BuiltValueField(wireName: r'UserDataList')
-  BuiltList<UserItemDataDto>? get userDataList;
+  BuiltList<UserItemDataDto> get userDataList;
 
   UserDataChangeInfo._();
 
@@ -59,13 +59,11 @@ class _$UserDataChangeInfoSerializer
         specifiedType: const FullType(String),
       );
     }
-    if (object.userDataList != null) {
-      yield r'UserDataList';
-      yield serializers.serialize(
-        object.userDataList,
-        specifiedType: const FullType(BuiltList, [FullType(UserItemDataDto)]),
-      );
-    }
+    yield r'UserDataList';
+    yield serializers.serialize(
+      object.userDataList,
+      specifiedType: const FullType(BuiltList, [FullType(UserItemDataDto)]),
+    );
   }
 
   @override

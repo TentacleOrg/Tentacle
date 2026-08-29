@@ -36,10 +36,7 @@ Method | HTTP request | Description
 [**getRecommendedPrograms**](LiveTvApi.md#getrecommendedprograms) | **GET** /LiveTv/Programs/Recommended | Gets recommended live tv epgs.
 [**getRecording**](LiveTvApi.md#getrecording) | **GET** /LiveTv/Recordings/{recordingId} | Gets a live tv recording.
 [**getRecordingFolders**](LiveTvApi.md#getrecordingfolders) | **GET** /LiveTv/Recordings/Folders | Gets recording folders.
-[**getRecordingGroup**](LiveTvApi.md#getrecordinggroup) | **GET** /LiveTv/Recordings/Groups/{groupId} | Get recording group.
-[**getRecordingGroups**](LiveTvApi.md#getrecordinggroups) | **GET** /LiveTv/Recordings/Groups | Gets live tv recording groups.
 [**getRecordings**](LiveTvApi.md#getrecordings) | **GET** /LiveTv/Recordings | Gets live tv recordings.
-[**getRecordingsSeries**](LiveTvApi.md#getrecordingsseries) | **GET** /LiveTv/Recordings/Series | Gets live tv recording series.
 [**getSchedulesDirectCountries**](LiveTvApi.md#getschedulesdirectcountries) | **GET** /LiveTv/ListingProviders/SchedulesDirect/Countries | Gets available countries.
 [**getSeriesTimer**](LiveTvApi.md#getseriestimer) | **GET** /LiveTv/SeriesTimers/{timerId} | Gets a live tv series timer.
 [**getSeriesTimers**](LiveTvApi.md#getseriestimers) | **GET** /LiveTv/SeriesTimers | Gets live tv series timers.
@@ -1384,95 +1381,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getRecordingGroup**
-> getRecordingGroup(groupId)
-
-Get recording group.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getLiveTvApi();
-final String groupId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Group id.
-
-try {
-    api.getRecordingGroup(groupId);
-} catch on DioException (e) {
-    print('Exception when calling LiveTvApi->getRecordingGroup: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **groupId** | **String**| Group id. | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getRecordingGroups**
-> BaseItemDtoQueryResult getRecordingGroups(userId)
-
-Gets live tv recording groups.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getLiveTvApi();
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
-
-try {
-    final response = api.getRecordingGroups(userId);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling LiveTvApi->getRecordingGroups: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| Optional. Filter by user and attach user data. | [optional] 
-
-### Return type
-
-[**BaseItemDtoQueryResult**](BaseItemDtoQueryResult.md)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getRecordings**
 > BaseItemDtoQueryResult getRecordings(channelId, userId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, isMovie, isSeries, isKids, isSports, isNews, isLibraryItem, enableTotalRecordCount)
 
@@ -1537,77 +1445,6 @@ Name | Type | Description  | Notes
  **isSports** | **bool**| Optional. Filter for sports. | [optional] 
  **isNews** | **bool**| Optional. Filter for news. | [optional] 
  **isLibraryItem** | **bool**| Optional. Filter for is library item. | [optional] 
- **enableTotalRecordCount** | **bool**| Optional. Return total record count. | [optional] [default to true]
-
-### Return type
-
-[**BaseItemDtoQueryResult**](BaseItemDtoQueryResult.md)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getRecordingsSeries**
-> BaseItemDtoQueryResult getRecordingsSeries(channelId, userId, groupId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, enableTotalRecordCount)
-
-Gets live tv recording series.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getLiveTvApi();
-final String channelId = channelId_example; // String | Optional. Filter by channel id.
-final String userId = 38400000-8cf0-11bd-b23e-10b96e4ef00d; // String | Optional. Filter by user and attach user data.
-final String groupId = groupId_example; // String | Optional. Filter by recording group.
-final int startIndex = 56; // int | Optional. The record index to start at. All items with a lower index will be dropped from the results.
-final int limit = 56; // int | Optional. The maximum number of records to return.
-final RecordingStatus status = status_example; // RecordingStatus | Optional. Filter by recording status.
-final bool isInProgress = true; // bool | Optional. Filter by recordings that are in progress, or not.
-final String seriesTimerId = seriesTimerId_example; // String | Optional. Filter by recordings belonging to a series timer.
-final bool enableImages = true; // bool | Optional. Include image information in output.
-final int imageTypeLimit = 56; // int | Optional. The max number of images to return, per image type.
-final BuiltList<ImageType> enableImageTypes = ; // BuiltList<ImageType> | Optional. The image types to include in the output.
-final BuiltList<ItemFields> fields = ; // BuiltList<ItemFields> | Optional. Specify additional fields of information to return in the output.
-final bool enableUserData = true; // bool | Optional. Include user data.
-final bool enableTotalRecordCount = true; // bool | Optional. Return total record count.
-
-try {
-    final response = api.getRecordingsSeries(channelId, userId, groupId, startIndex, limit, status, isInProgress, seriesTimerId, enableImages, imageTypeLimit, enableImageTypes, fields, enableUserData, enableTotalRecordCount);
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling LiveTvApi->getRecordingsSeries: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **channelId** | **String**| Optional. Filter by channel id. | [optional] 
- **userId** | **String**| Optional. Filter by user and attach user data. | [optional] 
- **groupId** | **String**| Optional. Filter by recording group. | [optional] 
- **startIndex** | **int**| Optional. The record index to start at. All items with a lower index will be dropped from the results. | [optional] 
- **limit** | **int**| Optional. The maximum number of records to return. | [optional] 
- **status** | **RecordingStatus**| Optional. Filter by recording status. | [optional] 
- **isInProgress** | **bool**| Optional. Filter by recordings that are in progress, or not. | [optional] 
- **seriesTimerId** | **String**| Optional. Filter by recordings belonging to a series timer. | [optional] 
- **enableImages** | **bool**| Optional. Include image information in output. | [optional] 
- **imageTypeLimit** | **int**| Optional. The max number of images to return, per image type. | [optional] 
- **enableImageTypes** | [**BuiltList&lt;ImageType&gt;**](ImageType.md)| Optional. The image types to include in the output. | [optional] 
- **fields** | [**BuiltList&lt;ItemFields&gt;**](ItemFields.md)| Optional. Specify additional fields of information to return in the output. | [optional] 
- **enableUserData** | **bool**| Optional. Include user data. | [optional] 
  **enableTotalRecordCount** | **bool**| Optional. Return total record count. | [optional] [default to true]
 
 ### Return type

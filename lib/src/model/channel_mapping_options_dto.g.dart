@@ -8,9 +8,9 @@ part of 'channel_mapping_options_dto.dart';
 
 class _$ChannelMappingOptionsDto extends ChannelMappingOptionsDto {
   @override
-  final BuiltList<TunerChannelMapping>? tunerChannels;
+  final BuiltList<TunerChannelMapping> tunerChannels;
   @override
-  final BuiltList<NameIdPair>? providerChannels;
+  final BuiltList<NameIdPair> providerChannels;
   @override
   final BuiltList<NameValuePair>? mappings;
   @override
@@ -21,8 +21,8 @@ class _$ChannelMappingOptionsDto extends ChannelMappingOptionsDto {
       (ChannelMappingOptionsDtoBuilder()..update(updates))._build();
 
   _$ChannelMappingOptionsDto._(
-      {this.tunerChannels,
-      this.providerChannels,
+      {required this.tunerChannels,
+      required this.providerChannels,
       this.mappings,
       this.providerName})
       : super._();
@@ -101,8 +101,8 @@ class ChannelMappingOptionsDtoBuilder
   ChannelMappingOptionsDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _tunerChannels = $v.tunerChannels?.toBuilder();
-      _providerChannels = $v.providerChannels?.toBuilder();
+      _tunerChannels = $v.tunerChannels.toBuilder();
+      _providerChannels = $v.providerChannels.toBuilder();
       _mappings = $v.mappings?.toBuilder();
       _providerName = $v.providerName;
       _$v = null;
@@ -128,8 +128,8 @@ class ChannelMappingOptionsDtoBuilder
     try {
       _$result = _$v ??
           _$ChannelMappingOptionsDto._(
-            tunerChannels: _tunerChannels?.build(),
-            providerChannels: _providerChannels?.build(),
+            tunerChannels: tunerChannels.build(),
+            providerChannels: providerChannels.build(),
             mappings: _mappings?.build(),
             providerName: providerName,
           );
@@ -137,9 +137,9 @@ class ChannelMappingOptionsDtoBuilder
       late String _$failedField;
       try {
         _$failedField = 'tunerChannels';
-        _tunerChannels?.build();
+        tunerChannels.build();
         _$failedField = 'providerChannels';
-        _providerChannels?.build();
+        providerChannels.build();
         _$failedField = 'mappings';
         _mappings?.build();
       } catch (e) {

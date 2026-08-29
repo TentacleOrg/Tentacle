@@ -14,12 +14,13 @@ class _$LogFile extends LogFile {
   @override
   final int? size;
   @override
-  final String? name;
+  final String name;
 
   factory _$LogFile([void Function(LogFileBuilder)? updates]) =>
       (LogFileBuilder()..update(updates))._build();
 
-  _$LogFile._({this.dateCreated, this.dateModified, this.size, this.name})
+  _$LogFile._(
+      {this.dateCreated, this.dateModified, this.size, required this.name})
       : super._();
   @override
   LogFile rebuild(void Function(LogFileBuilder) updates) =>
@@ -115,7 +116,7 @@ class LogFileBuilder implements Builder<LogFile, LogFileBuilder> {
           dateCreated: dateCreated,
           dateModified: dateModified,
           size: size,
-          name: name,
+          name: BuiltValueNullFieldError.checkNotNull(name, r'LogFile', 'name'),
         );
     replace(_$result);
     return _$result;

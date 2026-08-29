@@ -8,31 +8,31 @@ part of 'base_item_person_image_blur_hashes.dart';
 
 class _$BaseItemPersonImageBlurHashes extends BaseItemPersonImageBlurHashes {
   @override
-  final BuiltMap<String, String>? primary;
+  final BuiltMap<String, String?>? primary;
   @override
-  final BuiltMap<String, String>? art;
+  final BuiltMap<String, String?>? art;
   @override
-  final BuiltMap<String, String>? backdrop;
+  final BuiltMap<String, String?>? backdrop;
   @override
-  final BuiltMap<String, String>? banner;
+  final BuiltMap<String, String?>? banner;
   @override
-  final BuiltMap<String, String>? logo;
+  final BuiltMap<String, String?>? logo;
   @override
-  final BuiltMap<String, String>? thumb;
+  final BuiltMap<String, String?>? thumb;
   @override
-  final BuiltMap<String, String>? disc;
+  final BuiltMap<String, String?>? disc;
   @override
-  final BuiltMap<String, String>? box;
+  final BuiltMap<String, String?>? box;
   @override
-  final BuiltMap<String, String>? screenshot;
+  final BuiltMap<String, String?>? screenshot;
   @override
-  final BuiltMap<String, String>? menu;
+  final BuiltMap<String, String?>? menu;
   @override
-  final BuiltMap<String, String>? chapter;
+  final BuiltMap<String, String?>? chapter;
   @override
-  final BuiltMap<String, String>? boxRear;
+  final BuiltMap<String, String?>? boxRear;
   @override
-  final BuiltMap<String, String>? profile;
+  final BuiltMap<String, String?>? profile;
 
   factory _$BaseItemPersonImageBlurHashes(
           [void Function(BaseItemPersonImageBlurHashesBuilder)? updates]) =>
@@ -127,72 +127,76 @@ class BaseItemPersonImageBlurHashesBuilder
             BaseItemPersonImageBlurHashesBuilder> {
   _$BaseItemPersonImageBlurHashes? _$v;
 
-  MapBuilder<String, String>? _primary;
-  MapBuilder<String, String> get primary =>
-      _$this._primary ??= MapBuilder<String, String>();
-  set primary(MapBuilder<String, String>? primary) => _$this._primary = primary;
+  MapBuilder<String, String?>? _primary;
+  MapBuilder<String, String?> get primary =>
+      _$this._primary ??= MapBuilder<String, String?>();
+  set primary(MapBuilder<String, String?>? primary) =>
+      _$this._primary = primary;
 
-  MapBuilder<String, String>? _art;
-  MapBuilder<String, String> get art =>
-      _$this._art ??= MapBuilder<String, String>();
-  set art(MapBuilder<String, String>? art) => _$this._art = art;
+  MapBuilder<String, String?>? _art;
+  MapBuilder<String, String?> get art =>
+      _$this._art ??= MapBuilder<String, String?>();
+  set art(MapBuilder<String, String?>? art) => _$this._art = art;
 
-  MapBuilder<String, String>? _backdrop;
-  MapBuilder<String, String> get backdrop =>
-      _$this._backdrop ??= MapBuilder<String, String>();
-  set backdrop(MapBuilder<String, String>? backdrop) =>
+  MapBuilder<String, String?>? _backdrop;
+  MapBuilder<String, String?> get backdrop =>
+      _$this._backdrop ??= MapBuilder<String, String?>();
+  set backdrop(MapBuilder<String, String?>? backdrop) =>
       _$this._backdrop = backdrop;
 
-  MapBuilder<String, String>? _banner;
-  MapBuilder<String, String> get banner =>
-      _$this._banner ??= MapBuilder<String, String>();
-  set banner(MapBuilder<String, String>? banner) => _$this._banner = banner;
+  MapBuilder<String, String?>? _banner;
+  MapBuilder<String, String?> get banner =>
+      _$this._banner ??= MapBuilder<String, String?>();
+  set banner(MapBuilder<String, String?>? banner) => _$this._banner = banner;
 
-  MapBuilder<String, String>? _logo;
-  MapBuilder<String, String> get logo =>
-      _$this._logo ??= MapBuilder<String, String>();
-  set logo(MapBuilder<String, String>? logo) => _$this._logo = logo;
+  MapBuilder<String, String?>? _logo;
+  MapBuilder<String, String?> get logo =>
+      _$this._logo ??= MapBuilder<String, String?>();
+  set logo(MapBuilder<String, String?>? logo) => _$this._logo = logo;
 
-  MapBuilder<String, String>? _thumb;
-  MapBuilder<String, String> get thumb =>
-      _$this._thumb ??= MapBuilder<String, String>();
-  set thumb(MapBuilder<String, String>? thumb) => _$this._thumb = thumb;
+  MapBuilder<String, String?>? _thumb;
+  MapBuilder<String, String?> get thumb =>
+      _$this._thumb ??= MapBuilder<String, String?>();
+  set thumb(MapBuilder<String, String?>? thumb) => _$this._thumb = thumb;
 
-  MapBuilder<String, String>? _disc;
-  MapBuilder<String, String> get disc =>
-      _$this._disc ??= MapBuilder<String, String>();
-  set disc(MapBuilder<String, String>? disc) => _$this._disc = disc;
+  MapBuilder<String, String?>? _disc;
+  MapBuilder<String, String?> get disc =>
+      _$this._disc ??= MapBuilder<String, String?>();
+  set disc(MapBuilder<String, String?>? disc) => _$this._disc = disc;
 
-  MapBuilder<String, String>? _box;
-  MapBuilder<String, String> get box =>
-      _$this._box ??= MapBuilder<String, String>();
-  set box(MapBuilder<String, String>? box) => _$this._box = box;
+  MapBuilder<String, String?>? _box;
+  MapBuilder<String, String?> get box =>
+      _$this._box ??= MapBuilder<String, String?>();
+  set box(MapBuilder<String, String?>? box) => _$this._box = box;
 
-  MapBuilder<String, String>? _screenshot;
-  MapBuilder<String, String> get screenshot =>
-      _$this._screenshot ??= MapBuilder<String, String>();
-  set screenshot(MapBuilder<String, String>? screenshot) =>
+  MapBuilder<String, String?>? _screenshot;
+  MapBuilder<String, String?> get screenshot =>
+      _$this._screenshot ??= MapBuilder<String, String?>();
+  set screenshot(MapBuilder<String, String?>? screenshot) =>
       _$this._screenshot = screenshot;
 
-  MapBuilder<String, String>? _menu;
-  MapBuilder<String, String> get menu =>
-      _$this._menu ??= MapBuilder<String, String>();
-  set menu(MapBuilder<String, String>? menu) => _$this._menu = menu;
+  MapBuilder<String, String?>? _menu;
+  MapBuilder<String, String?> get menu =>
+      _$this._menu ??= MapBuilder<String, String?>();
+  set menu(MapBuilder<String, String?>? menu) => _$this._menu = menu;
 
-  MapBuilder<String, String>? _chapter;
-  MapBuilder<String, String> get chapter =>
-      _$this._chapter ??= MapBuilder<String, String>();
-  set chapter(MapBuilder<String, String>? chapter) => _$this._chapter = chapter;
+  MapBuilder<String, String?>? _chapter;
+  MapBuilder<String, String?> get chapter =>
+      _$this._chapter ??= MapBuilder<String, String?>();
+  set chapter(MapBuilder<String, String?>? chapter) =>
+      _$this._chapter = chapter;
 
-  MapBuilder<String, String>? _boxRear;
-  MapBuilder<String, String> get boxRear =>
-      _$this._boxRear ??= MapBuilder<String, String>();
-  set boxRear(MapBuilder<String, String>? boxRear) => _$this._boxRear = boxRear;
+  MapBuilder<String, String?>? _boxRear;
+  MapBuilder<String, String?> get boxRear =>
+      _$this._boxRear ??= MapBuilder<String, String?>();
+  set boxRear(MapBuilder<String, String?>? boxRear) =>
+      _$this._boxRear = boxRear;
 
-  MapBuilder<String, String>? _profile;
-  MapBuilder<String, String> get profile =>
-      _$this._profile ??= MapBuilder<String, String>();
-  set profile(MapBuilder<String, String>? profile) => _$this._profile = profile;
+  MapBuilder<String, String?>? _profile;
+  MapBuilder<String, String?> get profile =>
+      _$this._profile ??= MapBuilder<String, String?>();
+  set profile(MapBuilder<String, String?>? profile) =>
+      _$this._profile = profile;
 
   BaseItemPersonImageBlurHashesBuilder() {
     BaseItemPersonImageBlurHashes._defaults(this);

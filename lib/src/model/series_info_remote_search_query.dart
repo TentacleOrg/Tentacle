@@ -12,7 +12,7 @@ part 'series_info_remote_search_query.g.dart';
 /// SeriesInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo]
+/// * [searchInfo] - The lookup info for series.
 /// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
@@ -20,6 +20,7 @@ part 'series_info_remote_search_query.g.dart';
 abstract class SeriesInfoRemoteSearchQuery
     implements
         Built<SeriesInfoRemoteSearchQuery, SeriesInfoRemoteSearchQueryBuilder> {
+  /// The lookup info for series.
   @BuiltValueField(wireName: r'SearchInfo')
   SeriesInfo? get searchInfo;
 

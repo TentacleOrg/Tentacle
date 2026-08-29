@@ -8,16 +8,18 @@ import 'package:built_value/serializer.dart';
 
 part 'queue_item.g.dart';
 
-/// QueueItem
+/// An item in a play queue.
 ///
 /// Properties:
-/// * [id]
-/// * [playlistItemId]
+/// * [id] - Gets or sets the item id.
+/// * [playlistItemId] - Gets or sets the playlist item id.
 @BuiltValue()
 abstract class QueueItem implements Built<QueueItem, QueueItemBuilder> {
+  /// Gets or sets the item id.
   @BuiltValueField(wireName: r'Id')
   String? get id;
 
+  /// Gets or sets the playlist item id.
   @BuiltValueField(wireName: r'PlaylistItemId')
   String? get playlistItemId;
 

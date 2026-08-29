@@ -54,8 +54,6 @@ class _$SessionInfoDto extends SessionInfoDto {
   @override
   final BuiltList<QueueItem>? nowPlayingQueue;
   @override
-  final BuiltList<BaseItemDto>? nowPlayingQueueFullItems;
-  @override
   final bool? hasCustomDeviceName;
   @override
   final String? playlistItemId;
@@ -93,7 +91,6 @@ class _$SessionInfoDto extends SessionInfoDto {
       this.supportsMediaControl,
       this.supportsRemoteControl,
       this.nowPlayingQueue,
-      this.nowPlayingQueueFullItems,
       this.hasCustomDeviceName,
       this.playlistItemId,
       this.serverId,
@@ -134,7 +131,6 @@ class _$SessionInfoDto extends SessionInfoDto {
         supportsMediaControl == other.supportsMediaControl &&
         supportsRemoteControl == other.supportsRemoteControl &&
         nowPlayingQueue == other.nowPlayingQueue &&
-        nowPlayingQueueFullItems == other.nowPlayingQueueFullItems &&
         hasCustomDeviceName == other.hasCustomDeviceName &&
         playlistItemId == other.playlistItemId &&
         serverId == other.serverId &&
@@ -168,7 +164,6 @@ class _$SessionInfoDto extends SessionInfoDto {
     _$hash = $jc(_$hash, supportsMediaControl.hashCode);
     _$hash = $jc(_$hash, supportsRemoteControl.hashCode);
     _$hash = $jc(_$hash, nowPlayingQueue.hashCode);
-    _$hash = $jc(_$hash, nowPlayingQueueFullItems.hashCode);
     _$hash = $jc(_$hash, hasCustomDeviceName.hashCode);
     _$hash = $jc(_$hash, playlistItemId.hashCode);
     _$hash = $jc(_$hash, serverId.hashCode);
@@ -204,7 +199,6 @@ class _$SessionInfoDto extends SessionInfoDto {
           ..add('supportsMediaControl', supportsMediaControl)
           ..add('supportsRemoteControl', supportsRemoteControl)
           ..add('nowPlayingQueue', nowPlayingQueue)
-          ..add('nowPlayingQueueFullItems', nowPlayingQueueFullItems)
           ..add('hasCustomDeviceName', hasCustomDeviceName)
           ..add('playlistItemId', playlistItemId)
           ..add('serverId', serverId)
@@ -333,13 +327,6 @@ class SessionInfoDtoBuilder
   set nowPlayingQueue(ListBuilder<QueueItem>? nowPlayingQueue) =>
       _$this._nowPlayingQueue = nowPlayingQueue;
 
-  ListBuilder<BaseItemDto>? _nowPlayingQueueFullItems;
-  ListBuilder<BaseItemDto> get nowPlayingQueueFullItems =>
-      _$this._nowPlayingQueueFullItems ??= ListBuilder<BaseItemDto>();
-  set nowPlayingQueueFullItems(
-          ListBuilder<BaseItemDto>? nowPlayingQueueFullItems) =>
-      _$this._nowPlayingQueueFullItems = nowPlayingQueueFullItems;
-
   bool? _hasCustomDeviceName;
   bool? get hasCustomDeviceName => _$this._hasCustomDeviceName;
   set hasCustomDeviceName(bool? hasCustomDeviceName) =>
@@ -395,7 +382,6 @@ class SessionInfoDtoBuilder
       _supportsMediaControl = $v.supportsMediaControl;
       _supportsRemoteControl = $v.supportsRemoteControl;
       _nowPlayingQueue = $v.nowPlayingQueue?.toBuilder();
-      _nowPlayingQueueFullItems = $v.nowPlayingQueueFullItems?.toBuilder();
       _hasCustomDeviceName = $v.hasCustomDeviceName;
       _playlistItemId = $v.playlistItemId;
       _serverId = $v.serverId;
@@ -447,7 +433,6 @@ class SessionInfoDtoBuilder
             supportsMediaControl: supportsMediaControl,
             supportsRemoteControl: supportsRemoteControl,
             nowPlayingQueue: _nowPlayingQueue?.build(),
-            nowPlayingQueueFullItems: _nowPlayingQueueFullItems?.build(),
             hasCustomDeviceName: hasCustomDeviceName,
             playlistItemId: playlistItemId,
             serverId: serverId,
@@ -477,8 +462,6 @@ class SessionInfoDtoBuilder
 
         _$failedField = 'nowPlayingQueue';
         _nowPlayingQueue?.build();
-        _$failedField = 'nowPlayingQueueFullItems';
-        _nowPlayingQueueFullItems?.build();
 
         _$failedField = 'supportedCommands';
         _supportedCommands?.build();

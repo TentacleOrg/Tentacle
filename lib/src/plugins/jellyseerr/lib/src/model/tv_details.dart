@@ -3,20 +3,20 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/tv_details_created_by_inner.dart';
-import 'package:tentacle/src/model/watch_providers_inner.dart';
-import 'package:tentacle/src/model/production_company.dart';
-import 'package:tentacle/src/model/episode.dart';
-import 'package:tentacle/src/model/tv_details_content_ratings.dart';
-import 'package:tentacle/src/model/movie_details_production_countries_inner.dart';
-import 'package:tentacle/src/model/media_info.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/tv_details_created_by_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/watch_providers_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/production_company.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/episode.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/tv_details_content_ratings.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/movie_details_production_countries_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/media_info.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/genre.dart';
-import 'package:tentacle/src/model/spoken_language.dart';
-import 'package:tentacle/src/model/keyword.dart';
-import 'package:tentacle/src/model/movie_details_credits.dart';
-import 'package:tentacle/src/model/season.dart';
-import 'package:tentacle/src/model/external_ids.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/genre.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/spoken_language.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/keyword.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/movie_details_credits.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/season.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/external_ids.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

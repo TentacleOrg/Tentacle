@@ -8,7 +8,7 @@ part of 'database_configuration_options.dart';
 
 class _$DatabaseConfigurationOptions extends DatabaseConfigurationOptions {
   @override
-  final String? databaseType;
+  final String databaseType;
   @override
   final CustomDatabaseOptions? customProviderOptions;
   @override
@@ -19,7 +19,9 @@ class _$DatabaseConfigurationOptions extends DatabaseConfigurationOptions {
       (DatabaseConfigurationOptionsBuilder()..update(updates))._build();
 
   _$DatabaseConfigurationOptions._(
-      {this.databaseType, this.customProviderOptions, this.lockingBehavior})
+      {required this.databaseType,
+      this.customProviderOptions,
+      this.lockingBehavior})
       : super._();
   @override
   DatabaseConfigurationOptions rebuild(
@@ -114,7 +116,8 @@ class DatabaseConfigurationOptionsBuilder
     try {
       _$result = _$v ??
           _$DatabaseConfigurationOptions._(
-            databaseType: databaseType,
+            databaseType: BuiltValueNullFieldError.checkNotNull(
+                databaseType, r'DatabaseConfigurationOptions', 'databaseType'),
             customProviderOptions: _customProviderOptions?.build(),
             lockingBehavior: lockingBehavior,
           );

@@ -3,9 +3,9 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/settings_cache_get200_response_api_caches_inner.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/settings_cache_get200_response_api_caches_inner.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/model/settings_cache_get200_response_image_cache.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/settings_cache_get200_response_image_cache.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

@@ -7,6 +7,7 @@ void main() {
   // TODO add properties to the builder and call build()
 
   group(TrailerInfoRemoteSearchQuery, () {
+    // The lookup info for trailers.
     // TrailerInfo searchInfo
     test('to test the property `searchInfo`', () async {
       // TODO

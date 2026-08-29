@@ -8,7 +8,7 @@ part of 'create_playlist_dto.dart';
 
 class _$CreatePlaylistDto extends CreatePlaylistDto {
   @override
-  final String? name;
+  final String name;
   @override
   final BuiltList<String>? ids;
   @override
@@ -25,7 +25,7 @@ class _$CreatePlaylistDto extends CreatePlaylistDto {
       (CreatePlaylistDtoBuilder()..update(updates))._build();
 
   _$CreatePlaylistDto._(
-      {this.name,
+      {required this.name,
       this.ids,
       this.userId,
       this.mediaType,
@@ -144,7 +144,8 @@ class CreatePlaylistDtoBuilder
     try {
       _$result = _$v ??
           _$CreatePlaylistDto._(
-            name: name,
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'CreatePlaylistDto', 'name'),
             ids: _ids?.build(),
             userId: userId,
             mediaType: mediaType,

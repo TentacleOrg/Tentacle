@@ -60,6 +60,8 @@ const TranscodeReason _$videoCodecTagNotSupported =
     const TranscodeReason._('videoCodecTagNotSupported');
 const TranscodeReason _$streamCountExceedsLimit =
     const TranscodeReason._('streamCountExceedsLimit');
+const TranscodeReason _$videoRotationNotSupported =
+    const TranscodeReason._('videoRotationNotSupported');
 
 TranscodeReason _$valueOf(String name) {
   switch (name) {
@@ -117,6 +119,8 @@ TranscodeReason _$valueOf(String name) {
       return _$videoCodecTagNotSupported;
     case 'streamCountExceedsLimit':
       return _$streamCountExceedsLimit;
+    case 'videoRotationNotSupported':
+      return _$videoRotationNotSupported;
     default:
       throw ArgumentError(name);
   }
@@ -151,6 +155,7 @@ final BuiltSet<TranscodeReason> _$values =
   _$videoRangeTypeNotSupported,
   _$videoCodecTagNotSupported,
   _$streamCountExceedsLimit,
+  _$videoRotationNotSupported,
 ]);
 
 class _$TranscodeReasonMeta {
@@ -190,6 +195,7 @@ class _$TranscodeReasonMeta {
       _$videoRangeTypeNotSupported;
   TranscodeReason get videoCodecTagNotSupported => _$videoCodecTagNotSupported;
   TranscodeReason get streamCountExceedsLimit => _$streamCountExceedsLimit;
+  TranscodeReason get videoRotationNotSupported => _$videoRotationNotSupported;
   TranscodeReason valueOf(String name) => _$valueOf(name);
   BuiltSet<TranscodeReason> get values => _$values;
 }
@@ -232,6 +238,7 @@ class _$TranscodeReasonSerializer
     'videoRangeTypeNotSupported': 'VideoRangeTypeNotSupported',
     'videoCodecTagNotSupported': 'VideoCodecTagNotSupported',
     'streamCountExceedsLimit': 'StreamCountExceedsLimit',
+    'videoRotationNotSupported': 'VideoRotationNotSupported',
   };
   static const Map<Object, String> _fromWire = const <Object, String>{
     'ContainerNotSupported': 'containerNotSupported',
@@ -261,6 +268,7 @@ class _$TranscodeReasonSerializer
     'VideoRangeTypeNotSupported': 'videoRangeTypeNotSupported',
     'VideoCodecTagNotSupported': 'videoCodecTagNotSupported',
     'StreamCountExceedsLimit': 'streamCountExceedsLimit',
+    'VideoRotationNotSupported': 'videoRotationNotSupported',
   };
 
   @override

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **ignoreVirtualInterfaces** | **bool** | Gets or sets a value indicating whether address names that match MediaBrowser.Common.Net.NetworkConfiguration.VirtualInterfaceNames should be ignored for the purposes of binding. | [optional] 
 **virtualInterfaceNames** | **BuiltList&lt;String&gt;** | Gets or sets a value indicating the interface name prefixes that should be ignored. The list can be comma separated and values are case-insensitive. <seealso cref=\"P:MediaBrowser.Common.Net.NetworkConfiguration.IgnoreVirtualInterfaces\" />. | [optional] 
 **enablePublishedServerUriByRequest** | **bool** | Gets or sets a value indicating whether the published server uri is based on information in HTTP requests. | [optional] 
-**publishedServerUriBySubnet** | **BuiltList&lt;String&gt;** | Gets or sets the PublishedServerUriBySubnet  Gets or sets PublishedServerUri to advertise for specific subnets. | [optional] 
+**publishedServerUriBySubnet** | **BuiltList&lt;String&gt;** | Gets or sets the PublishedServerUriBySubnet Gets or sets PublishedServerUri to advertise for specific subnets. | [optional] 
 **remoteIPFilter** | **BuiltList&lt;String&gt;** | Gets or sets the filter for remote IP connectivity. Used in conjunction with <seealso cref=\"P:MediaBrowser.Common.Net.NetworkConfiguration.IsRemoteIPFilterBlacklist\" />. | [optional] 
 **isRemoteIPFilterBlacklist** | **bool** | Gets or sets a value indicating whether <seealso cref=\"P:MediaBrowser.Common.Net.NetworkConfiguration.RemoteIPFilter\" /> contains a blacklist or a whitelist. Default is a whitelist. | [optional] 
 

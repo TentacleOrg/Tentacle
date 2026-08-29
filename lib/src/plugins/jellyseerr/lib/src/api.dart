@@ -4,26 +4,26 @@
 
 import 'package:dio/dio.dart';
 import 'package:built_value/serializer.dart';
-import 'package:tentacle/src/serializers.dart';
-import 'package:tentacle/src/auth/api_key_auth.dart';
-import 'package:tentacle/src/auth/basic_auth.dart';
-import 'package:tentacle/src/auth/bearer_auth.dart';
-import 'package:tentacle/src/auth/oauth.dart';
-import 'package:tentacle/src/api/auth_api.dart';
-import 'package:tentacle/src/api/collection_api.dart';
-import 'package:tentacle/src/api/issue_api.dart';
-import 'package:tentacle/src/api/media_api.dart';
-import 'package:tentacle/src/api/movies_api.dart';
-import 'package:tentacle/src/api/other_api.dart';
-import 'package:tentacle/src/api/person_api.dart';
-import 'package:tentacle/src/api/public_api.dart';
-import 'package:tentacle/src/api/request_api.dart';
-import 'package:tentacle/src/api/search_api.dart';
-import 'package:tentacle/src/api/service_api.dart';
-import 'package:tentacle/src/api/settings_api.dart';
-import 'package:tentacle/src/api/tmdb_api.dart';
-import 'package:tentacle/src/api/tv_api.dart';
-import 'package:tentacle/src/api/users_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/serializers.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/auth/api_key_auth.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/auth/basic_auth.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/auth/bearer_auth.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/auth/oauth.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/auth_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/collection_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/issue_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/media_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/movies_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/other_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/person_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/public_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/request_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/search_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/service_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/settings_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/tmdb_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/tv_api.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api/users_api.dart';
 
 class Tentacle {
   static const String basePath = r'http://localhost:5055/api/v1';

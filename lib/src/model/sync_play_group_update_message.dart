@@ -41,7 +41,7 @@ abstract class SyncPlayGroupUpdateMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(SyncPlayGroupUpdateMessageBuilder b) =>
-      b..messageType = SessionMessageType.syncPlayGroupUpdate;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SyncPlayGroupUpdateMessage> get serializer =>

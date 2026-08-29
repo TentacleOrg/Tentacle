@@ -10,10 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'play_method.g.dart';
 
 class PlayMethod extends EnumClass {
+  /// The play method.
   @BuiltValueEnumConst(wireName: r'Transcode')
   static const PlayMethod transcode = _$transcode;
+
+  /// The play method.
   @BuiltValueEnumConst(wireName: r'DirectStream')
   static const PlayMethod directStream = _$directStream;
+
+  /// The play method.
   @BuiltValueEnumConst(wireName: r'DirectPlay')
   static const PlayMethod directPlay = _$directPlay;
 

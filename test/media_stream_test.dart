@@ -181,6 +181,16 @@ void main() {
       // TODO
     });
 
+    // String localizedLanguage
+    test('to test the property `localizedLanguage`', () async {
+      // TODO
+    });
+
+    // String localizedOriginal
+    test('to test the property `localizedOriginal`', () async {
+      // TODO
+    });
+
     // String displayTitle
     test('to test the property `displayTitle`', () async {
       // TODO
@@ -262,6 +272,12 @@ void main() {
       // TODO
     });
 
+    // Gets or sets a value indicating whether this instance is original.
+    // bool isOriginal
+    test('to test the property `isOriginal`', () async {
+      // TODO
+    });
+
     // Gets or sets the height.
     // int height
     test('to test the property `height`', () async {
@@ -286,7 +302,7 @@ void main() {
       // TODO
     });
 
-    // Gets the framerate used as reference.  Prefer AverageFrameRate, if that is null or an unrealistic value  then fallback to RealFrameRate.
+    // Gets the framerate used as reference. Prefer AverageFrameRate, if that is null or an unrealistic value then fallback to RealFrameRate.
     // double referenceFrameRate
     test('to test the property `referenceFrameRate`', () async {
       // TODO

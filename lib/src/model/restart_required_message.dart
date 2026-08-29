@@ -34,7 +34,7 @@ abstract class RestartRequiredMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(RestartRequiredMessageBuilder b) =>
-      b..messageType = SessionMessageType.restartRequired;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<RestartRequiredMessage> get serializer =>

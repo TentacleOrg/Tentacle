@@ -10,10 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'playback_error_code.g.dart';
 
 class PlaybackErrorCode extends EnumClass {
+  /// The playback error code.
   @BuiltValueEnumConst(wireName: r'NotAllowed')
   static const PlaybackErrorCode notAllowed = _$notAllowed;
+
+  /// The playback error code.
   @BuiltValueEnumConst(wireName: r'NoCompatibleStream')
   static const PlaybackErrorCode noCompatibleStream = _$noCompatibleStream;
+
+  /// The playback error code.
   @BuiltValueEnumConst(wireName: r'RateLimitExceeded')
   static const PlaybackErrorCode rateLimitExceeded = _$rateLimitExceeded;
 

@@ -3,7 +3,7 @@
 //
 
 import 'package:dio/dio.dart';
-import 'package:tentacle/src/auth/auth.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/auth/auth.dart';
 
 class ApiKeyAuthInterceptor extends AuthInterceptor {
   final Map<String, String> apiKeys = {};

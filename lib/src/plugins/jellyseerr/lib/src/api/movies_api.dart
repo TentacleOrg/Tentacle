@@ -7,11 +7,11 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/discover_movies_get200_response.dart';
-import 'package:tentacle/src/model/movie_details.dart';
-import 'package:tentacle/src/model/movie_movie_id_ratings_get200_response.dart';
-import 'package:tentacle/src/model/movie_movie_id_ratingscombined_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_movies_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/movie_details.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/movie_movie_id_ratings_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/movie_movie_id_ratingscombined_get200_response.dart';
 
 class MoviesApi {
   final Dio _dio;

@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'box_set_info.g.dart';
 
-/// BoxSetInfo
+/// The lookup info for box sets.
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.

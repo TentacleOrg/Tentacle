@@ -10,8 +10,11 @@ import 'package:built_value/serializer.dart';
 part 'live_tv_service_status.g.dart';
 
 class LiveTvServiceStatus extends EnumClass {
+  /// The status of a live TV service.
   @BuiltValueEnumConst(wireName: r'Ok')
   static const LiveTvServiceStatus ok = _$ok;
+
+  /// The status of a live TV service.
   @BuiltValueEnumConst(wireName: r'Unavailable')
   static const LiveTvServiceStatus unavailable = _$unavailable;
 

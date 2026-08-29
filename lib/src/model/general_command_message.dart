@@ -39,7 +39,7 @@ abstract class GeneralCommandMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(GeneralCommandMessageBuilder b) =>
-      b..messageType = SessionMessageType.generalCommand;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GeneralCommandMessage> get serializer =>

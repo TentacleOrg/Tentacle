@@ -12,7 +12,6 @@ Method | HTTP request | Description
 [**getDefaultDirectoryBrowser**](EnvironmentApi.md#getdefaultdirectorybrowser) | **GET** /Environment/DefaultDirectoryBrowser | Get Default directory browser.
 [**getDirectoryContents**](EnvironmentApi.md#getdirectorycontents) | **GET** /Environment/DirectoryContents | Gets the contents of a given directory in the file system.
 [**getDrives**](EnvironmentApi.md#getdrives) | **GET** /Environment/Drives | Gets available drives from the server&#39;s file system.
-[**getNetworkShares**](EnvironmentApi.md#getnetworkshares) | **GET** /Environment/NetworkShares | Gets network paths.
 [**getParentPath**](EnvironmentApi.md#getparentpath) | **GET** /Environment/ParentPath | Gets the parent path of a given path.
 [**validatePath**](EnvironmentApi.md#validatepath) | **POST** /Environment/ValidatePath | Validates path.
 
@@ -127,47 +126,6 @@ try {
     print(response);
 } catch on DioException (e) {
     print('Exception when calling EnvironmentApi->getDrives: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**BuiltList&lt;FileSystemEntryInfo&gt;**](FileSystemEntryInfo.md)
-
-### Authorization
-
-[CustomAuthentication](../README.md#CustomAuthentication)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, application/json; profile=CamelCase, application/json; profile=PascalCase, text/html
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getNetworkShares**
-> BuiltList<FileSystemEntryInfo> getNetworkShares()
-
-Gets network paths.
-
-### Example
-```dart
-import 'package:tentacle/api.dart';
-// TODO Configure API key authorization: CustomAuthentication
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKey = 'YOUR_API_KEY';
-// uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//defaultApiClient.getAuthentication<ApiKeyAuth>('CustomAuthentication').apiKeyPrefix = 'Bearer';
-
-final api = Tentacle().getEnvironmentApi();
-
-try {
-    final response = api.getNetworkShares();
-    print(response);
-} catch on DioException (e) {
-    print('Exception when calling EnvironmentApi->getNetworkShares: $e\n');
 }
 ```
 

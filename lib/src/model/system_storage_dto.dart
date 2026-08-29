@@ -27,35 +27,35 @@ abstract class SystemStorageDto
     implements Built<SystemStorageDto, SystemStorageDtoBuilder> {
   /// Gets or sets the Storage information of the program data folder.
   @BuiltValueField(wireName: r'ProgramDataFolder')
-  FolderStorageDto? get programDataFolder;
+  FolderStorageDto get programDataFolder;
 
   /// Gets or sets the Storage information of the web UI resources folder.
   @BuiltValueField(wireName: r'WebFolder')
-  FolderStorageDto? get webFolder;
+  FolderStorageDto get webFolder;
 
   /// Gets or sets the Storage information of the folder where images are cached.
   @BuiltValueField(wireName: r'ImageCacheFolder')
-  FolderStorageDto? get imageCacheFolder;
+  FolderStorageDto get imageCacheFolder;
 
   /// Gets or sets the Storage information of the cache folder.
   @BuiltValueField(wireName: r'CacheFolder')
-  FolderStorageDto? get cacheFolder;
+  FolderStorageDto get cacheFolder;
 
   /// Gets or sets the Storage information of the folder where logfiles are saved to.
   @BuiltValueField(wireName: r'LogFolder')
-  FolderStorageDto? get logFolder;
+  FolderStorageDto get logFolder;
 
   /// Gets or sets the Storage information of the folder where metadata is stored.
   @BuiltValueField(wireName: r'InternalMetadataFolder')
-  FolderStorageDto? get internalMetadataFolder;
+  FolderStorageDto get internalMetadataFolder;
 
   /// Gets or sets the Storage information of the transcoding cache.
   @BuiltValueField(wireName: r'TranscodingTempFolder')
-  FolderStorageDto? get transcodingTempFolder;
+  FolderStorageDto get transcodingTempFolder;
 
   /// Gets or sets the storage informations of all libraries.
   @BuiltValueField(wireName: r'Libraries')
-  BuiltList<LibraryStorageDto>? get libraries;
+  BuiltList<LibraryStorageDto> get libraries;
 
   SystemStorageDto._();
 
@@ -83,62 +83,46 @@ class _$SystemStorageDtoSerializer
     SystemStorageDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.programDataFolder != null) {
-      yield r'ProgramDataFolder';
-      yield serializers.serialize(
-        object.programDataFolder,
-        specifiedType: const FullType(FolderStorageDto),
-      );
-    }
-    if (object.webFolder != null) {
-      yield r'WebFolder';
-      yield serializers.serialize(
-        object.webFolder,
-        specifiedType: const FullType(FolderStorageDto),
-      );
-    }
-    if (object.imageCacheFolder != null) {
-      yield r'ImageCacheFolder';
-      yield serializers.serialize(
-        object.imageCacheFolder,
-        specifiedType: const FullType(FolderStorageDto),
-      );
-    }
-    if (object.cacheFolder != null) {
-      yield r'CacheFolder';
-      yield serializers.serialize(
-        object.cacheFolder,
-        specifiedType: const FullType(FolderStorageDto),
-      );
-    }
-    if (object.logFolder != null) {
-      yield r'LogFolder';
-      yield serializers.serialize(
-        object.logFolder,
-        specifiedType: const FullType(FolderStorageDto),
-      );
-    }
-    if (object.internalMetadataFolder != null) {
-      yield r'InternalMetadataFolder';
-      yield serializers.serialize(
-        object.internalMetadataFolder,
-        specifiedType: const FullType(FolderStorageDto),
-      );
-    }
-    if (object.transcodingTempFolder != null) {
-      yield r'TranscodingTempFolder';
-      yield serializers.serialize(
-        object.transcodingTempFolder,
-        specifiedType: const FullType(FolderStorageDto),
-      );
-    }
-    if (object.libraries != null) {
-      yield r'Libraries';
-      yield serializers.serialize(
-        object.libraries,
-        specifiedType: const FullType(BuiltList, [FullType(LibraryStorageDto)]),
-      );
-    }
+    yield r'ProgramDataFolder';
+    yield serializers.serialize(
+      object.programDataFolder,
+      specifiedType: const FullType(FolderStorageDto),
+    );
+    yield r'WebFolder';
+    yield serializers.serialize(
+      object.webFolder,
+      specifiedType: const FullType(FolderStorageDto),
+    );
+    yield r'ImageCacheFolder';
+    yield serializers.serialize(
+      object.imageCacheFolder,
+      specifiedType: const FullType(FolderStorageDto),
+    );
+    yield r'CacheFolder';
+    yield serializers.serialize(
+      object.cacheFolder,
+      specifiedType: const FullType(FolderStorageDto),
+    );
+    yield r'LogFolder';
+    yield serializers.serialize(
+      object.logFolder,
+      specifiedType: const FullType(FolderStorageDto),
+    );
+    yield r'InternalMetadataFolder';
+    yield serializers.serialize(
+      object.internalMetadataFolder,
+      specifiedType: const FullType(FolderStorageDto),
+    );
+    yield r'TranscodingTempFolder';
+    yield serializers.serialize(
+      object.transcodingTempFolder,
+      specifiedType: const FullType(FolderStorageDto),
+    );
+    yield r'Libraries';
+    yield serializers.serialize(
+      object.libraries,
+      specifiedType: const FullType(BuiltList, [FullType(LibraryStorageDto)]),
+    );
   }
 
   @override

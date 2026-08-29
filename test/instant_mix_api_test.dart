@@ -20,13 +20,6 @@ void main() {
       // TODO
     });
 
-    // Creates an instant playlist based on a given artist.
-    //
-    //Future<BaseItemDtoQueryResult> getInstantMixFromArtists2(String id, { String userId, int limit, BuiltList<ItemFields> fields, bool enableImages, bool enableUserData, int imageTypeLimit, BuiltList<ImageType> enableImageTypes }) async
-    test('test getInstantMixFromArtists2', () async {
-      // TODO
-    });
-
     // Creates an instant playlist based on a given item.
     //
     //Future<BaseItemDtoQueryResult> getInstantMixFromItem(String itemId, { String userId, int limit, BuiltList<ItemFields> fields, bool enableImages, bool enableUserData, int imageTypeLimit, BuiltList<ImageType> enableImageTypes }) async

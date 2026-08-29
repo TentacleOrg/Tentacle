@@ -6,20 +6,6 @@ void main() {
   final instance = Tentacle().getUserApi();
 
   group(UserApi, () {
-    // Authenticates a user by name.
-    //
-    //Future<AuthenticationResult> authenticateUserByName(AuthenticateUserByName authenticateUserByName) async
-    test('test authenticateUserByName', () async {
-      // TODO
-    });
-
-    // Authenticates a user with quick connect.
-    //
-    //Future<AuthenticationResult> authenticateWithQuickConnect(QuickConnectDto quickConnectDto) async
-    test('test authenticateWithQuickConnect', () async {
-      // TODO
-    });
-
     // Creates a user.
     //
     //Future<UserDto> createUserByName(CreateUserByName createUserByName) async
@@ -31,20 +17,6 @@ void main() {
     //
     //Future deleteUser(String userId) async
     test('test deleteUser', () async {
-      // TODO
-    });
-
-    // Initiates the forgot password process for a local user.
-    //
-    //Future<ForgotPasswordResult> forgotPassword(ForgotPasswordDto forgotPasswordDto) async
-    test('test forgotPassword', () async {
-      // TODO
-    });
-
-    // Redeems a forgot password pin.
-    //
-    //Future<PinRedeemResult> forgotPasswordPin(ForgotPasswordPinDto forgotPasswordPinDto) async
-    test('test forgotPasswordPin', () async {
       // TODO
     });
 

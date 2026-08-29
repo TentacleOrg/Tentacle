@@ -43,8 +43,7 @@ part 'session_info_dto.g.dart';
 /// * [supportsMediaControl] - Gets or sets a value indicating whether the session supports media control.
 /// * [supportsRemoteControl] - Gets or sets a value indicating whether the session supports remote control.
 /// * [nowPlayingQueue] - Gets or sets the now playing queue.
-/// * [nowPlayingQueueFullItems] - Gets or sets the now playing queue full items.
-/// * [hasCustomDeviceName] - Gets or sets a value indicating whether the session has a custom device name.
+/// * [hasCustomDeviceName] - Gets or sets a value indicating whether this session has a custom device name.
 /// * [playlistItemId] - Gets or sets the playlist item id.
 /// * [serverId] - Gets or sets the server id.
 /// * [userPrimaryImageTag] - Gets or sets the user primary image tag.
@@ -144,11 +143,7 @@ abstract class SessionInfoDto
   @BuiltValueField(wireName: r'NowPlayingQueue')
   BuiltList<QueueItem>? get nowPlayingQueue;
 
-  /// Gets or sets the now playing queue full items.
-  @BuiltValueField(wireName: r'NowPlayingQueueFullItems')
-  BuiltList<BaseItemDto>? get nowPlayingQueueFullItems;
-
-  /// Gets or sets a value indicating whether the session has a custom device name.
+  /// Gets or sets a value indicating whether this session has a custom device name.
   @BuiltValueField(wireName: r'HasCustomDeviceName')
   bool? get hasCustomDeviceName;
 
@@ -355,14 +350,6 @@ class _$SessionInfoDtoSerializer
         object.nowPlayingQueue,
         specifiedType:
             const FullType.nullable(BuiltList, [FullType(QueueItem)]),
-      );
-    }
-    if (object.nowPlayingQueueFullItems != null) {
-      yield r'NowPlayingQueueFullItems';
-      yield serializers.serialize(
-        object.nowPlayingQueueFullItems,
-        specifiedType:
-            const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
       );
     }
     if (object.hasCustomDeviceName != null) {
@@ -604,15 +591,6 @@ class _$SessionInfoDtoSerializer
           ) as BuiltList<QueueItem>?;
           if (valueDes == null) continue;
           result.nowPlayingQueue.replace(valueDes);
-          break;
-        case r'NowPlayingQueueFullItems':
-          final valueDes = serializers.deserialize(
-            value,
-            specifiedType:
-                const FullType.nullable(BuiltList, [FullType(BaseItemDto)]),
-          ) as BuiltList<BaseItemDto>?;
-          if (valueDes == null) continue;
-          result.nowPlayingQueueFullItems.replace(valueDes);
           break;
         case r'HasCustomDeviceName':
           final valueDes = serializers.deserialize(

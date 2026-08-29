@@ -11,11 +11,17 @@ class _$QueryFilters extends QueryFilters {
   final BuiltList<NameGuidPair>? genres;
   @override
   final BuiltList<String>? tags;
+  @override
+  final BuiltList<NameValuePair>? audioLanguages;
+  @override
+  final BuiltList<NameValuePair>? subtitleLanguages;
 
   factory _$QueryFilters([void Function(QueryFiltersBuilder)? updates]) =>
       (QueryFiltersBuilder()..update(updates))._build();
 
-  _$QueryFilters._({this.genres, this.tags}) : super._();
+  _$QueryFilters._(
+      {this.genres, this.tags, this.audioLanguages, this.subtitleLanguages})
+      : super._();
   @override
   QueryFilters rebuild(void Function(QueryFiltersBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -28,7 +34,9 @@ class _$QueryFilters extends QueryFilters {
     if (identical(other, this)) return true;
     return other is QueryFilters &&
         genres == other.genres &&
-        tags == other.tags;
+        tags == other.tags &&
+        audioLanguages == other.audioLanguages &&
+        subtitleLanguages == other.subtitleLanguages;
   }
 
   @override
@@ -36,6 +44,8 @@ class _$QueryFilters extends QueryFilters {
     var _$hash = 0;
     _$hash = $jc(_$hash, genres.hashCode);
     _$hash = $jc(_$hash, tags.hashCode);
+    _$hash = $jc(_$hash, audioLanguages.hashCode);
+    _$hash = $jc(_$hash, subtitleLanguages.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -44,7 +54,9 @@ class _$QueryFilters extends QueryFilters {
   String toString() {
     return (newBuiltValueToStringHelper(r'QueryFilters')
           ..add('genres', genres)
-          ..add('tags', tags))
+          ..add('tags', tags)
+          ..add('audioLanguages', audioLanguages)
+          ..add('subtitleLanguages', subtitleLanguages))
         .toString();
   }
 }
@@ -62,6 +74,18 @@ class QueryFiltersBuilder
   ListBuilder<String> get tags => _$this._tags ??= ListBuilder<String>();
   set tags(ListBuilder<String>? tags) => _$this._tags = tags;
 
+  ListBuilder<NameValuePair>? _audioLanguages;
+  ListBuilder<NameValuePair> get audioLanguages =>
+      _$this._audioLanguages ??= ListBuilder<NameValuePair>();
+  set audioLanguages(ListBuilder<NameValuePair>? audioLanguages) =>
+      _$this._audioLanguages = audioLanguages;
+
+  ListBuilder<NameValuePair>? _subtitleLanguages;
+  ListBuilder<NameValuePair> get subtitleLanguages =>
+      _$this._subtitleLanguages ??= ListBuilder<NameValuePair>();
+  set subtitleLanguages(ListBuilder<NameValuePair>? subtitleLanguages) =>
+      _$this._subtitleLanguages = subtitleLanguages;
+
   QueryFiltersBuilder() {
     QueryFilters._defaults(this);
   }
@@ -71,6 +95,8 @@ class QueryFiltersBuilder
     if ($v != null) {
       _genres = $v.genres?.toBuilder();
       _tags = $v.tags?.toBuilder();
+      _audioLanguages = $v.audioLanguages?.toBuilder();
+      _subtitleLanguages = $v.subtitleLanguages?.toBuilder();
       _$v = null;
     }
     return this;
@@ -96,6 +122,8 @@ class QueryFiltersBuilder
           _$QueryFilters._(
             genres: _genres?.build(),
             tags: _tags?.build(),
+            audioLanguages: _audioLanguages?.build(),
+            subtitleLanguages: _subtitleLanguages?.build(),
           );
     } catch (_) {
       late String _$failedField;
@@ -104,6 +132,10 @@ class QueryFiltersBuilder
         _genres?.build();
         _$failedField = 'tags';
         _tags?.build();
+        _$failedField = 'audioLanguages';
+        _audioLanguages?.build();
+        _$failedField = 'subtitleLanguages';
+        _subtitleLanguages?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'QueryFilters', _$failedField, e.toString());

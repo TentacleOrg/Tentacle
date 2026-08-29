@@ -7,11 +7,11 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/discover_tv_get200_response.dart';
-import 'package:tentacle/src/model/season.dart';
-import 'package:tentacle/src/model/tv_details.dart';
-import 'package:tentacle/src/model/tv_tv_id_ratings_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/discover_tv_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/season.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/tv_details.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/tv_tv_id_ratings_get200_response.dart';
 
 class TvApi {
   final Dio _dio;

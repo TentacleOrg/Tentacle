@@ -9,67 +9,52 @@ import 'package:tentacle/src/auth/api_key_auth.dart';
 import 'package:tentacle/src/auth/basic_auth.dart';
 import 'package:tentacle/src/auth/bearer_auth.dart';
 import 'package:tentacle/src/auth/oauth.dart';
-import 'package:tentacle/src/api/activity_log_api.dart';
-import 'package:tentacle/src/api/api_key_api.dart';
-import 'package:tentacle/src/api/artists_api.dart';
+import 'package:tentacle/src/api/artist_api.dart';
 import 'package:tentacle/src/api/audio_api.dart';
+import 'package:tentacle/src/api/authentication_api.dart';
 import 'package:tentacle/src/api/backup_api.dart';
 import 'package:tentacle/src/api/branding_api.dart';
-import 'package:tentacle/src/api/channels_api.dart';
-import 'package:tentacle/src/api/client_log_api.dart';
+import 'package:tentacle/src/api/channel_api.dart';
 import 'package:tentacle/src/api/collection_api.dart';
-import 'package:tentacle/src/api/configuration_api.dart';
-import 'package:tentacle/src/api/dashboard_api.dart';
-import 'package:tentacle/src/api/devices_api.dart';
-import 'package:tentacle/src/api/display_preferences_api.dart';
-import 'package:tentacle/src/api/dynamic_hls_api.dart';
+import 'package:tentacle/src/api/device_api.dart';
+import 'package:tentacle/src/api/display_preference_api.dart';
 import 'package:tentacle/src/api/environment_api.dart';
 import 'package:tentacle/src/api/filter_api.dart';
-import 'package:tentacle/src/api/genres_api.dart';
-import 'package:tentacle/src/api/hls_segment_api.dart';
+import 'package:tentacle/src/api/genre_api.dart';
 import 'package:tentacle/src/api/image_api.dart';
 import 'package:tentacle/src/api/instant_mix_api.dart';
 import 'package:tentacle/src/api/item_lookup_api.dart';
-import 'package:tentacle/src/api/item_refresh_api.dart';
 import 'package:tentacle/src/api/item_update_api.dart';
-import 'package:tentacle/src/api/items_api.dart';
 import 'package:tentacle/src/api/library_api.dart';
 import 'package:tentacle/src/api/library_structure_api.dart';
 import 'package:tentacle/src/api/live_tv_api.dart';
 import 'package:tentacle/src/api/localization_api.dart';
-import 'package:tentacle/src/api/lyrics_api.dart';
+import 'package:tentacle/src/api/lyric_api.dart';
 import 'package:tentacle/src/api/media_info_api.dart';
-import 'package:tentacle/src/api/media_segments_api.dart';
-import 'package:tentacle/src/api/movies_api.dart';
-import 'package:tentacle/src/api/music_genres_api.dart';
-import 'package:tentacle/src/api/package_api.dart';
-import 'package:tentacle/src/api/persons_api.dart';
-import 'package:tentacle/src/api/playlists_api.dart';
-import 'package:tentacle/src/api/playstate_api.dart';
-import 'package:tentacle/src/api/plugins_api.dart';
-import 'package:tentacle/src/api/quick_connect_api.dart';
+import 'package:tentacle/src/api/media_segment_api.dart';
+import 'package:tentacle/src/api/movie_api.dart';
+import 'package:tentacle/src/api/music_genre_api.dart';
+import 'package:tentacle/src/api/person_api.dart';
+import 'package:tentacle/src/api/playlist_api.dart';
+import 'package:tentacle/src/api/plugin_api.dart';
 import 'package:tentacle/src/api/remote_image_api.dart';
-import 'package:tentacle/src/api/scheduled_tasks_api.dart';
+import 'package:tentacle/src/api/scheduled_task_api.dart';
 import 'package:tentacle/src/api/search_api.dart';
 import 'package:tentacle/src/api/session_api.dart';
+import 'package:tentacle/src/api/show_api.dart';
 import 'package:tentacle/src/api/startup_api.dart';
-import 'package:tentacle/src/api/studios_api.dart';
+import 'package:tentacle/src/api/studio_api.dart';
 import 'package:tentacle/src/api/subtitle_api.dart';
-import 'package:tentacle/src/api/suggestions_api.dart';
+import 'package:tentacle/src/api/suggestion_api.dart';
 import 'package:tentacle/src/api/sync_play_api.dart';
 import 'package:tentacle/src/api/system_api.dart';
-import 'package:tentacle/src/api/time_sync_api.dart';
-import 'package:tentacle/src/api/tmdb_api.dart';
-import 'package:tentacle/src/api/trailers_api.dart';
-import 'package:tentacle/src/api/trickplay_api.dart';
-import 'package:tentacle/src/api/tv_shows_api.dart';
-import 'package:tentacle/src/api/universal_audio_api.dart';
+import 'package:tentacle/src/api/trailer_api.dart';
+import 'package:tentacle/src/api/trick_play_api.dart';
 import 'package:tentacle/src/api/user_api.dart';
-import 'package:tentacle/src/api/user_library_api.dart';
-import 'package:tentacle/src/api/user_views_api.dart';
-import 'package:tentacle/src/api/video_attachments_api.dart';
-import 'package:tentacle/src/api/videos_api.dart';
-import 'package:tentacle/src/api/years_api.dart';
+import 'package:tentacle/src/api/user_data_api.dart';
+import 'package:tentacle/src/api/user_view_api.dart';
+import 'package:tentacle/src/api/video_api.dart';
+import 'package:tentacle/src/api/year_api.dart';
 
 class Tentacle {
   static const String basePath = r'http://localhost';
@@ -136,28 +121,22 @@ class Tentacle {
     }
   }
 
-  /// Get ActivityLogApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get ArtistApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  ActivityLogApi getActivityLogApi() {
-    return ActivityLogApi(dio, serializers);
-  }
-
-  /// Get ApiKeyApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  ApiKeyApi getApiKeyApi() {
-    return ApiKeyApi(dio, serializers);
-  }
-
-  /// Get ArtistsApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  ArtistsApi getArtistsApi() {
-    return ArtistsApi(dio, serializers);
+  ArtistApi getArtistApi() {
+    return ArtistApi(dio, serializers);
   }
 
   /// Get AudioApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   AudioApi getAudioApi() {
     return AudioApi(dio, serializers);
+  }
+
+  /// Get AuthenticationApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  AuthenticationApi getAuthenticationApi() {
+    return AuthenticationApi(dio, serializers);
   }
 
   /// Get BackupApi instance, base route and serializer can be overridden by a given but be careful,
@@ -172,16 +151,10 @@ class Tentacle {
     return BrandingApi(dio, serializers);
   }
 
-  /// Get ChannelsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get ChannelApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  ChannelsApi getChannelsApi() {
-    return ChannelsApi(dio, serializers);
-  }
-
-  /// Get ClientLogApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  ClientLogApi getClientLogApi() {
-    return ClientLogApi(dio, serializers);
+  ChannelApi getChannelApi() {
+    return ChannelApi(dio, serializers);
   }
 
   /// Get CollectionApi instance, base route and serializer can be overridden by a given but be careful,
@@ -190,34 +163,16 @@ class Tentacle {
     return CollectionApi(dio, serializers);
   }
 
-  /// Get ConfigurationApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get DeviceApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  ConfigurationApi getConfigurationApi() {
-    return ConfigurationApi(dio, serializers);
+  DeviceApi getDeviceApi() {
+    return DeviceApi(dio, serializers);
   }
 
-  /// Get DashboardApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get DisplayPreferenceApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  DashboardApi getDashboardApi() {
-    return DashboardApi(dio, serializers);
-  }
-
-  /// Get DevicesApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  DevicesApi getDevicesApi() {
-    return DevicesApi(dio, serializers);
-  }
-
-  /// Get DisplayPreferencesApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  DisplayPreferencesApi getDisplayPreferencesApi() {
-    return DisplayPreferencesApi(dio, serializers);
-  }
-
-  /// Get DynamicHlsApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  DynamicHlsApi getDynamicHlsApi() {
-    return DynamicHlsApi(dio, serializers);
+  DisplayPreferenceApi getDisplayPreferenceApi() {
+    return DisplayPreferenceApi(dio, serializers);
   }
 
   /// Get EnvironmentApi instance, base route and serializer can be overridden by a given but be careful,
@@ -232,16 +187,10 @@ class Tentacle {
     return FilterApi(dio, serializers);
   }
 
-  /// Get GenresApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get GenreApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  GenresApi getGenresApi() {
-    return GenresApi(dio, serializers);
-  }
-
-  /// Get HlsSegmentApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  HlsSegmentApi getHlsSegmentApi() {
-    return HlsSegmentApi(dio, serializers);
+  GenreApi getGenreApi() {
+    return GenreApi(dio, serializers);
   }
 
   /// Get ImageApi instance, base route and serializer can be overridden by a given but be careful,
@@ -262,22 +211,10 @@ class Tentacle {
     return ItemLookupApi(dio, serializers);
   }
 
-  /// Get ItemRefreshApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  ItemRefreshApi getItemRefreshApi() {
-    return ItemRefreshApi(dio, serializers);
-  }
-
   /// Get ItemUpdateApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   ItemUpdateApi getItemUpdateApi() {
     return ItemUpdateApi(dio, serializers);
-  }
-
-  /// Get ItemsApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  ItemsApi getItemsApi() {
-    return ItemsApi(dio, serializers);
   }
 
   /// Get LibraryApi instance, base route and serializer can be overridden by a given but be careful,
@@ -304,10 +241,10 @@ class Tentacle {
     return LocalizationApi(dio, serializers);
   }
 
-  /// Get LyricsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get LyricApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  LyricsApi getLyricsApi() {
-    return LyricsApi(dio, serializers);
+  LyricApi getLyricApi() {
+    return LyricApi(dio, serializers);
   }
 
   /// Get MediaInfoApi instance, base route and serializer can be overridden by a given but be careful,
@@ -316,58 +253,40 @@ class Tentacle {
     return MediaInfoApi(dio, serializers);
   }
 
-  /// Get MediaSegmentsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get MediaSegmentApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  MediaSegmentsApi getMediaSegmentsApi() {
-    return MediaSegmentsApi(dio, serializers);
+  MediaSegmentApi getMediaSegmentApi() {
+    return MediaSegmentApi(dio, serializers);
   }
 
-  /// Get MoviesApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get MovieApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  MoviesApi getMoviesApi() {
-    return MoviesApi(dio, serializers);
+  MovieApi getMovieApi() {
+    return MovieApi(dio, serializers);
   }
 
-  /// Get MusicGenresApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get MusicGenreApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  MusicGenresApi getMusicGenresApi() {
-    return MusicGenresApi(dio, serializers);
+  MusicGenreApi getMusicGenreApi() {
+    return MusicGenreApi(dio, serializers);
   }
 
-  /// Get PackageApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get PersonApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  PackageApi getPackageApi() {
-    return PackageApi(dio, serializers);
+  PersonApi getPersonApi() {
+    return PersonApi(dio, serializers);
   }
 
-  /// Get PersonsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get PlaylistApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  PersonsApi getPersonsApi() {
-    return PersonsApi(dio, serializers);
+  PlaylistApi getPlaylistApi() {
+    return PlaylistApi(dio, serializers);
   }
 
-  /// Get PlaylistsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get PluginApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  PlaylistsApi getPlaylistsApi() {
-    return PlaylistsApi(dio, serializers);
-  }
-
-  /// Get PlaystateApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  PlaystateApi getPlaystateApi() {
-    return PlaystateApi(dio, serializers);
-  }
-
-  /// Get PluginsApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  PluginsApi getPluginsApi() {
-    return PluginsApi(dio, serializers);
-  }
-
-  /// Get QuickConnectApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  QuickConnectApi getQuickConnectApi() {
-    return QuickConnectApi(dio, serializers);
+  PluginApi getPluginApi() {
+    return PluginApi(dio, serializers);
   }
 
   /// Get RemoteImageApi instance, base route and serializer can be overridden by a given but be careful,
@@ -376,10 +295,10 @@ class Tentacle {
     return RemoteImageApi(dio, serializers);
   }
 
-  /// Get ScheduledTasksApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get ScheduledTaskApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  ScheduledTasksApi getScheduledTasksApi() {
-    return ScheduledTasksApi(dio, serializers);
+  ScheduledTaskApi getScheduledTaskApi() {
+    return ScheduledTaskApi(dio, serializers);
   }
 
   /// Get SearchApi instance, base route and serializer can be overridden by a given but be careful,
@@ -394,16 +313,22 @@ class Tentacle {
     return SessionApi(dio, serializers);
   }
 
+  /// Get ShowApi instance, base route and serializer can be overridden by a given but be careful,
+  /// by doing that all interceptors will not be executed
+  ShowApi getShowApi() {
+    return ShowApi(dio, serializers);
+  }
+
   /// Get StartupApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
   StartupApi getStartupApi() {
     return StartupApi(dio, serializers);
   }
 
-  /// Get StudiosApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get StudioApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  StudiosApi getStudiosApi() {
-    return StudiosApi(dio, serializers);
+  StudioApi getStudioApi() {
+    return StudioApi(dio, serializers);
   }
 
   /// Get SubtitleApi instance, base route and serializer can be overridden by a given but be careful,
@@ -412,10 +337,10 @@ class Tentacle {
     return SubtitleApi(dio, serializers);
   }
 
-  /// Get SuggestionsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get SuggestionApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  SuggestionsApi getSuggestionsApi() {
-    return SuggestionsApi(dio, serializers);
+  SuggestionApi getSuggestionApi() {
+    return SuggestionApi(dio, serializers);
   }
 
   /// Get SyncPlayApi instance, base route and serializer can be overridden by a given but be careful,
@@ -430,40 +355,16 @@ class Tentacle {
     return SystemApi(dio, serializers);
   }
 
-  /// Get TimeSyncApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get TrailerApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  TimeSyncApi getTimeSyncApi() {
-    return TimeSyncApi(dio, serializers);
+  TrailerApi getTrailerApi() {
+    return TrailerApi(dio, serializers);
   }
 
-  /// Get TmdbApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get TrickPlayApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  TmdbApi getTmdbApi() {
-    return TmdbApi(dio, serializers);
-  }
-
-  /// Get TrailersApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  TrailersApi getTrailersApi() {
-    return TrailersApi(dio, serializers);
-  }
-
-  /// Get TrickplayApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  TrickplayApi getTrickplayApi() {
-    return TrickplayApi(dio, serializers);
-  }
-
-  /// Get TvShowsApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  TvShowsApi getTvShowsApi() {
-    return TvShowsApi(dio, serializers);
-  }
-
-  /// Get UniversalAudioApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  UniversalAudioApi getUniversalAudioApi() {
-    return UniversalAudioApi(dio, serializers);
+  TrickPlayApi getTrickPlayApi() {
+    return TrickPlayApi(dio, serializers);
   }
 
   /// Get UserApi instance, base route and serializer can be overridden by a given but be careful,
@@ -472,33 +373,27 @@ class Tentacle {
     return UserApi(dio, serializers);
   }
 
-  /// Get UserLibraryApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get UserDataApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  UserLibraryApi getUserLibraryApi() {
-    return UserLibraryApi(dio, serializers);
+  UserDataApi getUserDataApi() {
+    return UserDataApi(dio, serializers);
   }
 
-  /// Get UserViewsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get UserViewApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  UserViewsApi getUserViewsApi() {
-    return UserViewsApi(dio, serializers);
+  UserViewApi getUserViewApi() {
+    return UserViewApi(dio, serializers);
   }
 
-  /// Get VideoAttachmentsApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get VideoApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  VideoAttachmentsApi getVideoAttachmentsApi() {
-    return VideoAttachmentsApi(dio, serializers);
+  VideoApi getVideoApi() {
+    return VideoApi(dio, serializers);
   }
 
-  /// Get VideosApi instance, base route and serializer can be overridden by a given but be careful,
+  /// Get YearApi instance, base route and serializer can be overridden by a given but be careful,
   /// by doing that all interceptors will not be executed
-  VideosApi getVideosApi() {
-    return VideosApi(dio, serializers);
-  }
-
-  /// Get YearsApi instance, base route and serializer can be overridden by a given but be careful,
-  /// by doing that all interceptors will not be executed
-  YearsApi getYearsApi() {
-    return YearsApi(dio, serializers);
+  YearApi getYearApi() {
+    return YearApi(dio, serializers);
   }
 }

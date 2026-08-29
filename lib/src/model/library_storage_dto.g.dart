@@ -8,17 +8,19 @@ part of 'library_storage_dto.dart';
 
 class _$LibraryStorageDto extends LibraryStorageDto {
   @override
-  final String? id;
+  final String id;
   @override
-  final String? name;
+  final String name;
   @override
-  final BuiltList<FolderStorageDto>? folders;
+  final BuiltList<FolderStorageDto> folders;
 
   factory _$LibraryStorageDto(
           [void Function(LibraryStorageDtoBuilder)? updates]) =>
       (LibraryStorageDtoBuilder()..update(updates))._build();
 
-  _$LibraryStorageDto._({this.id, this.name, this.folders}) : super._();
+  _$LibraryStorageDto._(
+      {required this.id, required this.name, required this.folders})
+      : super._();
   @override
   LibraryStorageDto rebuild(void Function(LibraryStorageDtoBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -83,7 +85,7 @@ class LibraryStorageDtoBuilder
     if ($v != null) {
       _id = $v.id;
       _name = $v.name;
-      _folders = $v.folders?.toBuilder();
+      _folders = $v.folders.toBuilder();
       _$v = null;
     }
     return this;
@@ -107,15 +109,17 @@ class LibraryStorageDtoBuilder
     try {
       _$result = _$v ??
           _$LibraryStorageDto._(
-            id: id,
-            name: name,
-            folders: _folders?.build(),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'LibraryStorageDto', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'LibraryStorageDto', 'name'),
+            folders: folders.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'folders';
-        _folders?.build();
+        folders.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'LibraryStorageDto', _$failedField, e.toString());

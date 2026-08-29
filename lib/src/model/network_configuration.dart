@@ -32,7 +32,7 @@ part 'network_configuration.g.dart';
 /// * [ignoreVirtualInterfaces] - Gets or sets a value indicating whether address names that match MediaBrowser.Common.Net.NetworkConfiguration.VirtualInterfaceNames should be ignored for the purposes of binding.
 /// * [virtualInterfaceNames] - Gets or sets a value indicating the interface name prefixes that should be ignored. The list can be comma separated and values are case-insensitive. <seealso cref=\"P:MediaBrowser.Common.Net.NetworkConfiguration.IgnoreVirtualInterfaces\" />.
 /// * [enablePublishedServerUriByRequest] - Gets or sets a value indicating whether the published server uri is based on information in HTTP requests.
-/// * [publishedServerUriBySubnet] - Gets or sets the PublishedServerUriBySubnet  Gets or sets PublishedServerUri to advertise for specific subnets.
+/// * [publishedServerUriBySubnet] - Gets or sets the PublishedServerUriBySubnet Gets or sets PublishedServerUri to advertise for specific subnets.
 /// * [remoteIPFilter] - Gets or sets the filter for remote IP connectivity. Used in conjunction with <seealso cref=\"P:MediaBrowser.Common.Net.NetworkConfiguration.IsRemoteIPFilterBlacklist\" />.
 /// * [isRemoteIPFilterBlacklist] - Gets or sets a value indicating whether <seealso cref=\"P:MediaBrowser.Common.Net.NetworkConfiguration.RemoteIPFilter\" /> contains a blacklist or a whitelist. Default is a whitelist.
 @BuiltValue()
@@ -119,7 +119,7 @@ abstract class NetworkConfiguration
   @BuiltValueField(wireName: r'EnablePublishedServerUriByRequest')
   bool? get enablePublishedServerUriByRequest;
 
-  /// Gets or sets the PublishedServerUriBySubnet  Gets or sets PublishedServerUri to advertise for specific subnets.
+  /// Gets or sets the PublishedServerUriBySubnet Gets or sets PublishedServerUri to advertise for specific subnets.
   @BuiltValueField(wireName: r'PublishedServerUriBySubnet')
   BuiltList<String>? get publishedServerUriBySubnet;
 

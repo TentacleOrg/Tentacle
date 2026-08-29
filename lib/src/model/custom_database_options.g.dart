@@ -8,11 +8,11 @@ part of 'custom_database_options.dart';
 
 class _$CustomDatabaseOptions extends CustomDatabaseOptions {
   @override
-  final String? pluginName;
+  final String pluginName;
   @override
-  final String? pluginAssembly;
+  final String pluginAssembly;
   @override
-  final String? connectionString;
+  final String connectionString;
   @override
   final BuiltList<CustomDatabaseOption>? options;
 
@@ -21,9 +21,9 @@ class _$CustomDatabaseOptions extends CustomDatabaseOptions {
       (CustomDatabaseOptionsBuilder()..update(updates))._build();
 
   _$CustomDatabaseOptions._(
-      {this.pluginName,
-      this.pluginAssembly,
-      this.connectionString,
+      {required this.pluginName,
+      required this.pluginAssembly,
+      required this.connectionString,
       this.options})
       : super._();
   @override
@@ -125,9 +125,12 @@ class CustomDatabaseOptionsBuilder
     try {
       _$result = _$v ??
           _$CustomDatabaseOptions._(
-            pluginName: pluginName,
-            pluginAssembly: pluginAssembly,
-            connectionString: connectionString,
+            pluginName: BuiltValueNullFieldError.checkNotNull(
+                pluginName, r'CustomDatabaseOptions', 'pluginName'),
+            pluginAssembly: BuiltValueNullFieldError.checkNotNull(
+                pluginAssembly, r'CustomDatabaseOptions', 'pluginAssembly'),
+            connectionString: BuiltValueNullFieldError.checkNotNull(
+                connectionString, r'CustomDatabaseOptions', 'connectionString'),
             options: _options?.build(),
           );
     } catch (_) {

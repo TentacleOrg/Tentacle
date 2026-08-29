@@ -12,7 +12,7 @@ part 'movie_info_remote_search_query.g.dart';
 /// MovieInfoRemoteSearchQuery
 ///
 /// Properties:
-/// * [searchInfo]
+/// * [searchInfo] - The lookup info for movies.
 /// * [itemId]
 /// * [searchProviderName] - Gets or sets the provider name to search within if set.
 /// * [includeDisabledProviders] - Gets or sets a value indicating whether disabled providers should be included.
@@ -20,6 +20,7 @@ part 'movie_info_remote_search_query.g.dart';
 abstract class MovieInfoRemoteSearchQuery
     implements
         Built<MovieInfoRemoteSearchQuery, MovieInfoRemoteSearchQueryBuilder> {
+  /// The lookup info for movies.
   @BuiltValueField(wireName: r'SearchInfo')
   MovieInfo? get searchInfo;
 

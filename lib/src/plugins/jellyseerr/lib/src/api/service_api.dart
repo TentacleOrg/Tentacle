@@ -8,12 +8,12 @@ import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/radarr_settings.dart';
-import 'package:tentacle/src/model/service_radarr_radarr_id_get200_response.dart';
-import 'package:tentacle/src/model/service_sonarr_sonarr_id_get200_response.dart';
-import 'package:tentacle/src/model/sonarr_series.dart';
-import 'package:tentacle/src/model/sonarr_settings.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/radarr_settings.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/service_radarr_radarr_id_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/service_sonarr_sonarr_id_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/sonarr_series.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/sonarr_settings.dart';
 
 class ServiceApi {
   final Dio _dio;

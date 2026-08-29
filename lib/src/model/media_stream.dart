@@ -46,6 +46,8 @@ part 'media_stream.g.dart';
 /// * [localizedForced]
 /// * [localizedExternal]
 /// * [localizedHearingImpaired]
+/// * [localizedLanguage]
+/// * [localizedOriginal]
 /// * [displayTitle]
 /// * [nalLengthSize]
 /// * [isInterlaced] - Gets or sets a value indicating whether this instance is interlaced.
@@ -60,11 +62,12 @@ part 'media_stream.g.dart';
 /// * [isDefault] - Gets or sets a value indicating whether this instance is default.
 /// * [isForced] - Gets or sets a value indicating whether this instance is forced.
 /// * [isHearingImpaired] - Gets or sets a value indicating whether this instance is for the hearing impaired.
+/// * [isOriginal] - Gets or sets a value indicating whether this instance is original.
 /// * [height] - Gets or sets the height.
 /// * [width] - Gets or sets the width.
 /// * [averageFrameRate] - Gets or sets the average frame rate.
 /// * [realFrameRate] - Gets or sets the real frame rate.
-/// * [referenceFrameRate] - Gets the framerate used as reference.  Prefer AverageFrameRate, if that is null or an unrealistic value  then fallback to RealFrameRate.
+/// * [referenceFrameRate] - Gets the framerate used as reference. Prefer AverageFrameRate, if that is null or an unrealistic value then fallback to RealFrameRate.
 /// * [profile] - Gets or sets the profile.
 /// * [type] - Gets or sets the type.
 /// * [aspectRatio] - Gets or sets the aspect ratio.
@@ -199,6 +202,12 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   @BuiltValueField(wireName: r'LocalizedHearingImpaired')
   String? get localizedHearingImpaired;
 
+  @BuiltValueField(wireName: r'LocalizedLanguage')
+  String? get localizedLanguage;
+
+  @BuiltValueField(wireName: r'LocalizedOriginal')
+  String? get localizedOriginal;
+
   @BuiltValueField(wireName: r'DisplayTitle')
   String? get displayTitle;
 
@@ -252,6 +261,10 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   @BuiltValueField(wireName: r'IsHearingImpaired')
   bool? get isHearingImpaired;
 
+  /// Gets or sets a value indicating whether this instance is original.
+  @BuiltValueField(wireName: r'IsOriginal')
+  bool? get isOriginal;
+
   /// Gets or sets the height.
   @BuiltValueField(wireName: r'Height')
   int? get height;
@@ -268,7 +281,7 @@ abstract class MediaStream implements Built<MediaStream, MediaStreamBuilder> {
   @BuiltValueField(wireName: r'RealFrameRate')
   double? get realFrameRate;
 
-  /// Gets the framerate used as reference.  Prefer AverageFrameRate, if that is null or an unrealistic value  then fallback to RealFrameRate.
+  /// Gets the framerate used as reference. Prefer AverageFrameRate, if that is null or an unrealistic value then fallback to RealFrameRate.
   @BuiltValueField(wireName: r'ReferenceFrameRate')
   double? get referenceFrameRate;
 
@@ -569,6 +582,20 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
         specifiedType: const FullType.nullable(String),
       );
     }
+    if (object.localizedLanguage != null) {
+      yield r'LocalizedLanguage';
+      yield serializers.serialize(
+        object.localizedLanguage,
+        specifiedType: const FullType.nullable(String),
+      );
+    }
+    if (object.localizedOriginal != null) {
+      yield r'LocalizedOriginal';
+      yield serializers.serialize(
+        object.localizedOriginal,
+        specifiedType: const FullType.nullable(String),
+      );
+    }
     if (object.displayTitle != null) {
       yield r'DisplayTitle';
       yield serializers.serialize(
@@ -664,6 +691,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
       yield r'IsHearingImpaired';
       yield serializers.serialize(
         object.isHearingImpaired,
+        specifiedType: const FullType(bool),
+      );
+    }
+    if (object.isOriginal != null) {
+      yield r'IsOriginal';
+      yield serializers.serialize(
+        object.isOriginal,
         specifiedType: const FullType(bool),
       );
     }
@@ -1069,6 +1103,22 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
           if (valueDes == null) continue;
           result.localizedHearingImpaired = valueDes;
           break;
+        case r'LocalizedLanguage':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.localizedLanguage = valueDes;
+          break;
+        case r'LocalizedOriginal':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType.nullable(String),
+          ) as String?;
+          if (valueDes == null) continue;
+          result.localizedOriginal = valueDes;
+          break;
         case r'DisplayTitle':
           final valueDes = serializers.deserialize(
             value,
@@ -1176,6 +1226,13 @@ class _$MediaStreamSerializer implements PrimitiveSerializer<MediaStream> {
             specifiedType: const FullType(bool),
           ) as bool;
           result.isHearingImpaired = valueDes;
+          break;
+        case r'IsOriginal':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType: const FullType(bool),
+          ) as bool;
+          result.isOriginal = valueDes;
           break;
         case r'Height':
           final valueDes = serializers.deserialize(

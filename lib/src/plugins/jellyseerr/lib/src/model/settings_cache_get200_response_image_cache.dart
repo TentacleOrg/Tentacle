@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/settings_cache_get200_response_image_cache_tmdb.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/settings_cache_get200_response_image_cache_tmdb.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 

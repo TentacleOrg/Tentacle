@@ -33,7 +33,7 @@ abstract class RemoteSearchResult
 
   /// Gets or sets the provider ids.
   @BuiltValueField(wireName: r'ProviderIds')
-  BuiltMap<String, String?>? get providerIds;
+  BuiltMap<String, String>? get providerIds;
 
   /// Gets or sets the year.
   @BuiltValueField(wireName: r'ProductionYear')
@@ -103,8 +103,8 @@ class _$RemoteSearchResultSerializer
       yield r'ProviderIds';
       yield serializers.serialize(
         object.providerIds,
-        specifiedType: const FullType.nullable(
-            BuiltMap, [FullType(String), FullType.nullable(String)]),
+        specifiedType:
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
       );
     }
     if (object.productionYear != null) {
@@ -175,7 +175,7 @@ class _$RemoteSearchResultSerializer
       yield serializers.serialize(
         object.artists,
         specifiedType:
-            const FullType.nullable(BuiltList, [FullType(RemoteSearchResult)]),
+            const FullType(BuiltList, [FullType(RemoteSearchResult)]),
       );
     }
   }
@@ -214,10 +214,9 @@ class _$RemoteSearchResultSerializer
         case r'ProviderIds':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(
-                BuiltMap, [FullType(String), FullType.nullable(String)]),
-          ) as BuiltMap<String, String?>?;
-          if (valueDes == null) continue;
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(String)]),
+          ) as BuiltMap<String, String>;
           result.providerIds.replace(valueDes);
           break;
         case r'ProductionYear':
@@ -295,10 +294,9 @@ class _$RemoteSearchResultSerializer
         case r'Artists':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType.nullable(
-                BuiltList, [FullType(RemoteSearchResult)]),
-          ) as BuiltList<RemoteSearchResult>?;
-          if (valueDes == null) continue;
+            specifiedType:
+                const FullType(BuiltList, [FullType(RemoteSearchResult)]),
+          ) as BuiltList<RemoteSearchResult>;
           result.artists.replace(valueDes);
           break;
         default:

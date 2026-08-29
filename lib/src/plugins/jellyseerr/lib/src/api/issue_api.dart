@@ -7,14 +7,14 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:tentacle/src/api_util.dart';
-import 'package:tentacle/src/model/issue.dart';
-import 'package:tentacle/src/model/issue_comment.dart';
-import 'package:tentacle/src/model/issue_comment_comment_id_put_request.dart';
-import 'package:tentacle/src/model/issue_count_get200_response.dart';
-import 'package:tentacle/src/model/issue_get200_response.dart';
-import 'package:tentacle/src/model/issue_issue_id_comment_post_request.dart';
-import 'package:tentacle/src/model/issue_post_request.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/api_util.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/issue.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/issue_comment.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/issue_comment_comment_id_put_request.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/issue_count_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/issue_get200_response.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/issue_issue_id_comment_post_request.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/issue_post_request.dart';
 
 class IssueApi {
   final Dio _dio;

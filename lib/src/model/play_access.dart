@@ -10,8 +10,11 @@ import 'package:built_value/serializer.dart';
 part 'play_access.g.dart';
 
 class PlayAccess extends EnumClass {
+  /// The play access of an item.
   @BuiltValueEnumConst(wireName: r'Full')
   static const PlayAccess full = _$full;
+
+  /// The play access of an item.
   @BuiltValueEnumConst(wireName: r'None')
   static const PlayAccess none = _$none;
 

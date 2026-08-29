@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'sessions_start_message.g.dart';
 
-/// Sessions start message.  Data is the timing data encoded as \"$initialDelay,$interval\" in ms.
+/// Sessions start message. Data is the timing data encoded as \"$initialDelay,$interval\" in ms.
 ///
 /// Properties:
 /// * [data] - Gets or sets the data.
@@ -32,8 +32,7 @@ abstract class SessionsStartMessage
       _$SessionsStartMessage;
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(SessionsStartMessageBuilder b) =>
-      b..messageType = SessionMessageType.sessionsStart;
+  static void _defaults(SessionsStartMessageBuilder b) => b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<SessionsStartMessage> get serializer =>

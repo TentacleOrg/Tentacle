@@ -10,13 +10,13 @@ class _$UserDataChangeInfo extends UserDataChangeInfo {
   @override
   final String? userId;
   @override
-  final BuiltList<UserItemDataDto>? userDataList;
+  final BuiltList<UserItemDataDto> userDataList;
 
   factory _$UserDataChangeInfo(
           [void Function(UserDataChangeInfoBuilder)? updates]) =>
       (UserDataChangeInfoBuilder()..update(updates))._build();
 
-  _$UserDataChangeInfo._({this.userId, this.userDataList}) : super._();
+  _$UserDataChangeInfo._({this.userId, required this.userDataList}) : super._();
   @override
   UserDataChangeInfo rebuild(
           void Function(UserDataChangeInfoBuilder) updates) =>
@@ -74,7 +74,7 @@ class UserDataChangeInfoBuilder
     final $v = _$v;
     if ($v != null) {
       _userId = $v.userId;
-      _userDataList = $v.userDataList?.toBuilder();
+      _userDataList = $v.userDataList.toBuilder();
       _$v = null;
     }
     return this;
@@ -99,13 +99,13 @@ class UserDataChangeInfoBuilder
       _$result = _$v ??
           _$UserDataChangeInfo._(
             userId: userId,
-            userDataList: _userDataList?.build(),
+            userDataList: userDataList.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'userDataList';
-        _userDataList?.build();
+        userDataList.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'UserDataChangeInfo', _$failedField, e.toString());

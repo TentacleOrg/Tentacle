@@ -18,7 +18,7 @@ part 'package_info.g.dart';
 /// * [overview] - Gets or sets a short overview of what the plugin does.
 /// * [owner] - Gets or sets the owner.
 /// * [category] - Gets or sets the category.
-/// * [guid] - Gets or sets the guid of the assembly associated with this plugin.  This is used to identify the proper item for automatic updates.
+/// * [guid] - Gets or sets the guid of the assembly associated with this plugin. This is used to identify the proper item for automatic updates.
 /// * [versions] - Gets or sets the versions.
 /// * [imageUrl] - Gets or sets the image url for the package.
 @BuiltValue()
@@ -43,7 +43,7 @@ abstract class PackageInfo implements Built<PackageInfo, PackageInfoBuilder> {
   @BuiltValueField(wireName: r'category')
   String? get category;
 
-  /// Gets or sets the guid of the assembly associated with this plugin.  This is used to identify the proper item for automatic updates.
+  /// Gets or sets the guid of the assembly associated with this plugin. This is used to identify the proper item for automatic updates.
   @BuiltValueField(wireName: r'guid')
   String? get guid;
 

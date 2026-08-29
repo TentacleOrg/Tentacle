@@ -25,11 +25,11 @@ abstract class ChannelMappingOptionsDto
         Built<ChannelMappingOptionsDto, ChannelMappingOptionsDtoBuilder> {
   /// Gets or sets list of tuner channels.
   @BuiltValueField(wireName: r'TunerChannels')
-  BuiltList<TunerChannelMapping>? get tunerChannels;
+  BuiltList<TunerChannelMapping> get tunerChannels;
 
   /// Gets or sets list of provider channels.
   @BuiltValueField(wireName: r'ProviderChannels')
-  BuiltList<NameIdPair>? get providerChannels;
+  BuiltList<NameIdPair> get providerChannels;
 
   /// Gets or sets list of mappings.
   @BuiltValueField(wireName: r'Mappings')
@@ -69,21 +69,16 @@ class _$ChannelMappingOptionsDtoSerializer
     ChannelMappingOptionsDto object, {
     FullType specifiedType = FullType.unspecified,
   }) sync* {
-    if (object.tunerChannels != null) {
-      yield r'TunerChannels';
-      yield serializers.serialize(
-        object.tunerChannels,
-        specifiedType:
-            const FullType(BuiltList, [FullType(TunerChannelMapping)]),
-      );
-    }
-    if (object.providerChannels != null) {
-      yield r'ProviderChannels';
-      yield serializers.serialize(
-        object.providerChannels,
-        specifiedType: const FullType(BuiltList, [FullType(NameIdPair)]),
-      );
-    }
+    yield r'TunerChannels';
+    yield serializers.serialize(
+      object.tunerChannels,
+      specifiedType: const FullType(BuiltList, [FullType(TunerChannelMapping)]),
+    );
+    yield r'ProviderChannels';
+    yield serializers.serialize(
+      object.providerChannels,
+      specifiedType: const FullType(BuiltList, [FullType(NameIdPair)]),
+    );
     if (object.mappings != null) {
       yield r'Mappings';
       yield serializers.serialize(

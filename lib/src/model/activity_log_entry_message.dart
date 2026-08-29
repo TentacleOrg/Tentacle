@@ -41,7 +41,7 @@ abstract class ActivityLogEntryMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ActivityLogEntryMessageBuilder b) =>
-      b..messageType = SessionMessageType.activityLogEntry;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ActivityLogEntryMessage> get serializer =>

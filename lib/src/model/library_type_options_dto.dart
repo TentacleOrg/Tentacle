@@ -18,6 +18,7 @@ part 'library_type_options_dto.g.dart';
 /// * [type] - Gets or sets the type.
 /// * [metadataFetchers] - Gets or sets the metadata fetchers.
 /// * [imageFetchers] - Gets or sets the image fetchers.
+/// * [similarItemProviders] - Gets or sets the similar item providers.
 /// * [supportedImageTypes] - Gets or sets the supported image types.
 /// * [defaultImageOptions] - Gets or sets the default image options.
 @BuiltValue()
@@ -34,6 +35,10 @@ abstract class LibraryTypeOptionsDto
   /// Gets or sets the image fetchers.
   @BuiltValueField(wireName: r'ImageFetchers')
   BuiltList<LibraryOptionInfoDto>? get imageFetchers;
+
+  /// Gets or sets the similar item providers.
+  @BuiltValueField(wireName: r'SimilarItemProviders')
+  BuiltList<LibraryOptionInfoDto>? get similarItemProviders;
 
   /// Gets or sets the supported image types.
   @BuiltValueField(wireName: r'SupportedImageTypes')
@@ -91,6 +96,14 @@ class _$LibraryTypeOptionsDtoSerializer
       yield r'ImageFetchers';
       yield serializers.serialize(
         object.imageFetchers,
+        specifiedType:
+            const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
+      );
+    }
+    if (object.similarItemProviders != null) {
+      yield r'SimilarItemProviders';
+      yield serializers.serialize(
+        object.similarItemProviders,
         specifiedType:
             const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
       );
@@ -157,6 +170,14 @@ class _$LibraryTypeOptionsDtoSerializer
                 const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
           ) as BuiltList<LibraryOptionInfoDto>;
           result.imageFetchers.replace(valueDes);
+          break;
+        case r'SimilarItemProviders':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType(BuiltList, [FullType(LibraryOptionInfoDto)]),
+          ) as BuiltList<LibraryOptionInfoDto>;
+          result.similarItemProviders.replace(valueDes);
           break;
         case r'SupportedImageTypes':
           final valueDes = serializers.deserialize(

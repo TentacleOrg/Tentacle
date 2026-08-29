@@ -87,6 +87,9 @@ class TranscodeReason extends EnumClass {
   @BuiltValueEnumConst(wireName: r'StreamCountExceedsLimit')
   static const TranscodeReason streamCountExceedsLimit =
       _$streamCountExceedsLimit;
+  @BuiltValueEnumConst(wireName: r'VideoRotationNotSupported')
+  static const TranscodeReason videoRotationNotSupported =
+      _$videoRotationNotSupported;
 
   static Serializer<TranscodeReason> get serializer =>
       _$transcodeReasonSerializer;

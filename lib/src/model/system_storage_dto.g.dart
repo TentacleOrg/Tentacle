@@ -8,35 +8,35 @@ part of 'system_storage_dto.dart';
 
 class _$SystemStorageDto extends SystemStorageDto {
   @override
-  final FolderStorageDto? programDataFolder;
+  final FolderStorageDto programDataFolder;
   @override
-  final FolderStorageDto? webFolder;
+  final FolderStorageDto webFolder;
   @override
-  final FolderStorageDto? imageCacheFolder;
+  final FolderStorageDto imageCacheFolder;
   @override
-  final FolderStorageDto? cacheFolder;
+  final FolderStorageDto cacheFolder;
   @override
-  final FolderStorageDto? logFolder;
+  final FolderStorageDto logFolder;
   @override
-  final FolderStorageDto? internalMetadataFolder;
+  final FolderStorageDto internalMetadataFolder;
   @override
-  final FolderStorageDto? transcodingTempFolder;
+  final FolderStorageDto transcodingTempFolder;
   @override
-  final BuiltList<LibraryStorageDto>? libraries;
+  final BuiltList<LibraryStorageDto> libraries;
 
   factory _$SystemStorageDto(
           [void Function(SystemStorageDtoBuilder)? updates]) =>
       (SystemStorageDtoBuilder()..update(updates))._build();
 
   _$SystemStorageDto._(
-      {this.programDataFolder,
-      this.webFolder,
-      this.imageCacheFolder,
-      this.cacheFolder,
-      this.logFolder,
-      this.internalMetadataFolder,
-      this.transcodingTempFolder,
-      this.libraries})
+      {required this.programDataFolder,
+      required this.webFolder,
+      required this.imageCacheFolder,
+      required this.cacheFolder,
+      required this.logFolder,
+      required this.internalMetadataFolder,
+      required this.transcodingTempFolder,
+      required this.libraries})
       : super._();
   @override
   SystemStorageDto rebuild(void Function(SystemStorageDtoBuilder) updates) =>
@@ -149,14 +149,14 @@ class SystemStorageDtoBuilder
   SystemStorageDtoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _programDataFolder = $v.programDataFolder?.toBuilder();
-      _webFolder = $v.webFolder?.toBuilder();
-      _imageCacheFolder = $v.imageCacheFolder?.toBuilder();
-      _cacheFolder = $v.cacheFolder?.toBuilder();
-      _logFolder = $v.logFolder?.toBuilder();
-      _internalMetadataFolder = $v.internalMetadataFolder?.toBuilder();
-      _transcodingTempFolder = $v.transcodingTempFolder?.toBuilder();
-      _libraries = $v.libraries?.toBuilder();
+      _programDataFolder = $v.programDataFolder.toBuilder();
+      _webFolder = $v.webFolder.toBuilder();
+      _imageCacheFolder = $v.imageCacheFolder.toBuilder();
+      _cacheFolder = $v.cacheFolder.toBuilder();
+      _logFolder = $v.logFolder.toBuilder();
+      _internalMetadataFolder = $v.internalMetadataFolder.toBuilder();
+      _transcodingTempFolder = $v.transcodingTempFolder.toBuilder();
+      _libraries = $v.libraries.toBuilder();
       _$v = null;
     }
     return this;
@@ -180,34 +180,34 @@ class SystemStorageDtoBuilder
     try {
       _$result = _$v ??
           _$SystemStorageDto._(
-            programDataFolder: _programDataFolder?.build(),
-            webFolder: _webFolder?.build(),
-            imageCacheFolder: _imageCacheFolder?.build(),
-            cacheFolder: _cacheFolder?.build(),
-            logFolder: _logFolder?.build(),
-            internalMetadataFolder: _internalMetadataFolder?.build(),
-            transcodingTempFolder: _transcodingTempFolder?.build(),
-            libraries: _libraries?.build(),
+            programDataFolder: programDataFolder.build(),
+            webFolder: webFolder.build(),
+            imageCacheFolder: imageCacheFolder.build(),
+            cacheFolder: cacheFolder.build(),
+            logFolder: logFolder.build(),
+            internalMetadataFolder: internalMetadataFolder.build(),
+            transcodingTempFolder: transcodingTempFolder.build(),
+            libraries: libraries.build(),
           );
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'programDataFolder';
-        _programDataFolder?.build();
+        programDataFolder.build();
         _$failedField = 'webFolder';
-        _webFolder?.build();
+        webFolder.build();
         _$failedField = 'imageCacheFolder';
-        _imageCacheFolder?.build();
+        imageCacheFolder.build();
         _$failedField = 'cacheFolder';
-        _cacheFolder?.build();
+        cacheFolder.build();
         _$failedField = 'logFolder';
-        _logFolder?.build();
+        logFolder.build();
         _$failedField = 'internalMetadataFolder';
-        _internalMetadataFolder?.build();
+        internalMetadataFolder.build();
         _$failedField = 'transcodingTempFolder';
-        _transcodingTempFolder?.build();
+        transcodingTempFolder.build();
         _$failedField = 'libraries';
-        _libraries?.build();
+        libraries.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'SystemStorageDto', _$failedField, e.toString());

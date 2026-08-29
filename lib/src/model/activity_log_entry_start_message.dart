@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'activity_log_entry_start_message.g.dart';
 
-/// Activity log entry start message.  Data is the timing data encoded as \"$initialDelay,$interval\" in ms.
+/// Activity log entry start message. Data is the timing data encoded as \"$initialDelay,$interval\" in ms.
 ///
 /// Properties:
 /// * [data] - Gets or sets the data.
@@ -36,7 +36,7 @@ abstract class ActivityLogEntryStartMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ActivityLogEntryStartMessageBuilder b) =>
-      b..messageType = SessionMessageType.activityLogEntryStart;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ActivityLogEntryStartMessage> get serializer =>

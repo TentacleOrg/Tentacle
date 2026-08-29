@@ -10,8 +10,11 @@ import 'package:built_value/serializer.dart';
 part 'rating_type.g.dart';
 
 class RatingType extends EnumClass {
+  /// The type of a community rating.
   @BuiltValueEnumConst(wireName: r'Score')
   static const RatingType score = _$score;
+
+  /// The type of a community rating.
   @BuiltValueEnumConst(wireName: r'Likes')
   static const RatingType likes = _$likes;
 

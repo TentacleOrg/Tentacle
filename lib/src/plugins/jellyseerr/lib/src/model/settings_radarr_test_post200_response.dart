@@ -3,7 +3,7 @@
 //
 
 // ignore_for_file: unused_element
-import 'package:tentacle/src/model/service_profile.dart';
+import 'package:tentacle/src/plugins/jellyseerr/lib/src/model/service_profile.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';

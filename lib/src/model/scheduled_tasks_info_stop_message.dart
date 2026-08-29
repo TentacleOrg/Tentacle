@@ -31,7 +31,7 @@ abstract class ScheduledTasksInfoStopMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ScheduledTasksInfoStopMessageBuilder b) =>
-      b..messageType = SessionMessageType.scheduledTasksInfoStop;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ScheduledTasksInfoStopMessage> get serializer =>

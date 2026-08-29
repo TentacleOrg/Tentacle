@@ -40,7 +40,7 @@ abstract class UserDataChangedMessage
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(UserDataChangedMessageBuilder b) =>
-      b..messageType = SessionMessageType.userDataChanged;
+      b..messageType = null;
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserDataChangedMessage> get serializer =>

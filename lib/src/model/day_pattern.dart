@@ -10,10 +10,15 @@ import 'package:built_value/serializer.dart';
 part 'day_pattern.g.dart';
 
 class DayPattern extends EnumClass {
+  /// The day pattern of a recurring timer.
   @BuiltValueEnumConst(wireName: r'Daily')
   static const DayPattern daily = _$daily;
+
+  /// The day pattern of a recurring timer.
   @BuiltValueEnumConst(wireName: r'Weekdays')
   static const DayPattern weekdays = _$weekdays;
+
+  /// The day pattern of a recurring timer.
   @BuiltValueEnumConst(wireName: r'Weekends')
   static const DayPattern weekends = _$weekends;
 

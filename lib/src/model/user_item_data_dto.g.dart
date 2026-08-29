@@ -26,7 +26,7 @@ class _$UserItemDataDto extends UserItemDataDto {
   @override
   final bool? played;
   @override
-  final String? key;
+  final String key;
   @override
   final String? itemId;
 
@@ -43,7 +43,7 @@ class _$UserItemDataDto extends UserItemDataDto {
       this.likes,
       this.lastPlayedDate,
       this.played,
-      this.key,
+      required this.key,
       this.itemId})
       : super._();
   @override
@@ -206,7 +206,8 @@ class UserItemDataDtoBuilder
           likes: likes,
           lastPlayedDate: lastPlayedDate,
           played: played,
-          key: key,
+          key: BuiltValueNullFieldError.checkNotNull(
+              key, r'UserItemDataDto', 'key'),
           itemId: itemId,
         );
     replace(_$result);

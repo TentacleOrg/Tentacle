@@ -5,6 +5,7 @@
 // ignore_for_file: unused_element
 import 'package:tentacle/src/model/name_guid_pair.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:tentacle/src/model/name_value_pair.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -15,6 +16,8 @@ part 'query_filters.g.dart';
 /// Properties:
 /// * [genres]
 /// * [tags]
+/// * [audioLanguages]
+/// * [subtitleLanguages]
 @BuiltValue()
 abstract class QueryFilters
     implements Built<QueryFilters, QueryFiltersBuilder> {
@@ -23,6 +26,12 @@ abstract class QueryFilters
 
   @BuiltValueField(wireName: r'Tags')
   BuiltList<String>? get tags;
+
+  @BuiltValueField(wireName: r'AudioLanguages')
+  BuiltList<NameValuePair>? get audioLanguages;
+
+  @BuiltValueField(wireName: r'SubtitleLanguages')
+  BuiltList<NameValuePair>? get subtitleLanguages;
 
   QueryFilters._();
 
@@ -60,6 +69,22 @@ class _$QueryFiltersSerializer implements PrimitiveSerializer<QueryFilters> {
       yield serializers.serialize(
         object.tags,
         specifiedType: const FullType.nullable(BuiltList, [FullType(String)]),
+      );
+    }
+    if (object.audioLanguages != null) {
+      yield r'AudioLanguages';
+      yield serializers.serialize(
+        object.audioLanguages,
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameValuePair)]),
+      );
+    }
+    if (object.subtitleLanguages != null) {
+      yield r'SubtitleLanguages';
+      yield serializers.serialize(
+        object.subtitleLanguages,
+        specifiedType:
+            const FullType.nullable(BuiltList, [FullType(NameValuePair)]),
       );
     }
   }
@@ -104,6 +129,24 @@ class _$QueryFiltersSerializer implements PrimitiveSerializer<QueryFilters> {
           ) as BuiltList<String>?;
           if (valueDes == null) continue;
           result.tags.replace(valueDes);
+          break;
+        case r'AudioLanguages':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameValuePair)]),
+          ) as BuiltList<NameValuePair>?;
+          if (valueDes == null) continue;
+          result.audioLanguages.replace(valueDes);
+          break;
+        case r'SubtitleLanguages':
+          final valueDes = serializers.deserialize(
+            value,
+            specifiedType:
+                const FullType.nullable(BuiltList, [FullType(NameValuePair)]),
+          ) as BuiltList<NameValuePair>?;
+          if (valueDes == null) continue;
+          result.subtitleLanguages.replace(valueDes);
           break;
         default:
           unhandled.add(key);

@@ -27,13 +27,6 @@ void main() {
       // TODO
     });
 
-    // Gets critic review for an item.
-    //
-    //Future<BaseItemDtoQueryResult> getCriticReviews(String itemId) async
-    test('test getCriticReviews', () async {
-      // TODO
-    });
-
     // Downloads item media.
     //
     //Future<Uint8List> getDownload(String itemId) async
@@ -48,6 +41,27 @@ void main() {
       // TODO
     });
 
+    // Gets intros to play before the main media item plays.
+    //
+    //Future<BaseItemDtoQueryResult> getIntros(String itemId, { String userId }) async
+    test('test getIntros', () async {
+      // TODO
+    });
+
+    // Gets an item from a user's library.
+    //
+    //Future<BaseItemDto> getItem(String itemId, { String userId }) async
+    test('test getItem', () async {
+      // TODO
+    });
+
+    // Gets the collections that include the specified item.
+    //
+    //Future<BaseItemDtoQueryResult> getItemCollections(String itemId, { String userId, int startIndex, int limit, BuiltList<ItemFields> fields }) async
+    test('test getItemCollections', () async {
+      // TODO
+    });
+
     // Get item counts.
     //
     //Future<ItemCounts> getItemCounts({ String userId, bool isFavorite }) async
@@ -55,10 +69,31 @@ void main() {
       // TODO
     });
 
+    // Gets items based on a query.
+    //
+    //Future<BaseItemDtoQueryResult> getItems({ String userId, String maxOfficialRating, bool hasThemeSong, bool hasThemeVideo, bool hasSubtitles, bool hasSpecialFeature, bool hasTrailer, String adjacentTo, int indexNumber, int parentIndexNumber, bool hasParentalRating, bool isHd, bool is4K, BuiltList<LocationType> locationTypes, BuiltList<LocationType> excludeLocationTypes, bool isMissing, bool isUnaired, double minCommunityRating, double minCriticRating, DateTime minPremiereDate, DateTime minDateLastSaved, DateTime minDateLastSavedForUser, DateTime maxPremiereDate, bool hasOverview, bool hasImdbId, bool hasTmdbId, bool hasTvdbId, bool isMovie, bool isSeries, bool isNews, bool isKids, bool isSports, BuiltList<String> excludeItemIds, int startIndex, int limit, bool recursive, String searchTerm, BuiltList<SortOrder> sortOrder, String parentId, BuiltList<ItemFields> fields, BuiltList<BaseItemKind> excludeItemTypes, BuiltList<BaseItemKind> includeItemTypes, BuiltList<ItemFilter> filters, bool isFavorite, BuiltList<MediaType> mediaTypes, BuiltList<ImageType> imageTypes, BuiltList<ItemSortBy> sortBy, bool isPlayed, BuiltList<String> genres, BuiltList<String> officialRatings, BuiltList<String> tags, BuiltList<int> years, bool enableUserData, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, String person, BuiltList<String> personIds, BuiltList<String> personTypes, BuiltList<String> studios, BuiltList<String> artists, BuiltList<String> excludeArtistIds, BuiltList<String> artistIds, BuiltList<String> albumArtistIds, BuiltList<String> contributingArtistIds, BuiltList<String> albums, BuiltList<String> albumIds, BuiltList<String> ids, BuiltList<VideoType> videoTypes, String minOfficialRating, bool isLocked, bool isPlaceHolder, bool hasOfficialRating, bool collapseBoxSetItems, int minWidth, int minHeight, int maxWidth, int maxHeight, bool is3D, BuiltList<SeriesStatus> seriesStatus, String nameStartsWithOrGreater, String nameStartsWith, String nameLessThan, BuiltList<String> studioIds, BuiltList<String> genreIds, BuiltList<String> audioLanguages, BuiltList<String> subtitleLanguages, bool enableTotalRecordCount, bool enableImages }) async
+    test('test getItems', () async {
+      // TODO
+    });
+
+    // Gets latest media.
+    //
+    //Future<BuiltList<BaseItemDto>> getLatestMedia({ String userId, String parentId, BuiltList<ItemFields> fields, BuiltList<BaseItemKind> includeItemTypes, bool isPlayed, bool enableImages, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, bool enableUserData, int limit, bool groupItems }) async
+    test('test getLatestMedia', () async {
+      // TODO
+    });
+
     // Gets the library options info.
     //
     //Future<LibraryOptionsResultDto> getLibraryOptionsInfo({ CollectionType libraryContentType, bool isNewLibrary }) async
     test('test getLibraryOptionsInfo', () async {
+      // TODO
+    });
+
+    // Gets local trailers for an item.
+    //
+    //Future<BuiltList<BaseItemDto>> getLocalTrailers(String itemId, { String userId }) async
+    test('test getLocalTrailers', () async {
       // TODO
     });
 
@@ -73,6 +108,20 @@ void main() {
     //
     //Future<BuiltList<String>> getPhysicalPaths() async
     test('test getPhysicalPaths', () async {
+      // TODO
+    });
+
+    // Gets items based on a query.
+    //
+    //Future<BaseItemDtoQueryResult> getResumeItems({ String userId, int startIndex, int limit, String searchTerm, String parentId, BuiltList<ItemFields> fields, BuiltList<MediaType> mediaTypes, bool enableUserData, int imageTypeLimit, BuiltList<ImageType> enableImageTypes, BuiltList<BaseItemKind> excludeItemTypes, BuiltList<BaseItemKind> includeItemTypes, bool enableTotalRecordCount, bool enableImages, bool excludeActiveSessions }) async
+    test('test getResumeItems', () async {
+      // TODO
+    });
+
+    // Gets the root folder from a user's library.
+    //
+    //Future<BaseItemDto> getRootFolder({ String userId }) async
+    test('test getRootFolder', () async {
       // TODO
     });
 
@@ -115,6 +164,13 @@ void main() {
     //
     //Future<BaseItemDtoQueryResult> getSimilarTrailers(String itemId, { BuiltList<String> excludeArtistIds, String userId, int limit, BuiltList<ItemFields> fields }) async
     test('test getSimilarTrailers', () async {
+      // TODO
+    });
+
+    // Gets special features for an item.
+    //
+    //Future<BuiltList<BaseItemDto>> getSpecialFeatures(String itemId, { String userId }) async
+    test('test getSpecialFeatures', () async {
       // TODO
     });
 
@@ -171,6 +227,13 @@ void main() {
     //
     //Future postUpdatedSeries({ String tvdbId }) async
     test('test postUpdatedSeries', () async {
+      // TODO
+    });
+
+    // Refreshes metadata for an item.
+    //
+    //Future refreshItem(String itemId, { MetadataRefreshMode metadataRefreshMode, MetadataRefreshMode imageRefreshMode, bool replaceAllMetadata, bool replaceAllImages, bool regenerateTrickplay }) async
+    test('test refreshItem', () async {
       // TODO
     });
 

@@ -9,7 +9,7 @@ import 'package:built_value/serializer.dart';
 
 part 'series_info.g.dart';
 
-/// SeriesInfo
+/// The lookup info for series.
 ///
 /// Properties:
 /// * [name] - Gets or sets the name.
